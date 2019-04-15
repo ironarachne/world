@@ -3,10 +3,10 @@ package town
 import (
 	"math/rand"
 
-	"github.com/ironarachne/chargen"
+	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/random"
 )
 
 // Town is a town
@@ -77,8 +77,8 @@ func (town Town) generateTownName() string {
 	return name
 }
 
-// GenerateTown generates a random town
-func GenerateTown(category string, climate string) Town {
+// Generate generates a random town
+func Generate(category string, biome string) Town {
 	town := Town{}
 
 	if category == "random" {
@@ -86,13 +86,13 @@ func GenerateTown(category string, climate string) Town {
 	} else {
 		town.Category = townCategories[category]
 	}
-	if climate == "random" {
+	if biome == "random" {
 		town.Climate = climate.Generate()
 	} else {
-		town.Climate = climate.GetClimate(climate)
+		town.Climate = climate.GetClimate(biome)
 	}
 
-	culture := culture.GenerateCulture()
+	culture := culture.Generate()
 	culture = culture.SetClimate(town.Climate.Name)
 	town = SetCulture(culture, town)
 

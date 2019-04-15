@@ -4,12 +4,12 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/ironarachne/chargen"
+	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/heraldry"
+	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/organization"
-	"github.com/ironarachne/random"
 	"github.com/ironarachne/world/pkg/town"
 )
 
@@ -45,34 +45,34 @@ func randomClass() RegionClass {
 	return regionClass
 }
 
-// GenerateRegion generates a random region
-func GenerateRegion(regionType string) Region {
+// Generate generates a random region
+func Generate(regionType string) Region {
 	region := Region{}
-	climate := climate.Climate{}
+	biome := climate.Climate{}
 
 	if regionType == "random" {
-		climate = climate.Generate()
+		biome = climate.Generate()
 	} else {
-		climate = climate.GetClimate(regionType)
+		biome = climate.GetClimate(regionType)
 	}
 
-	regionType = climate.Name
+	regionType = biome.Name
 
-	region.Biome = climate.Name
-	region.Climate = climate
-	region.Culture = culture.GenerateCulture()
+	region.Biome = biome.Name
+	region.Climate = biome
+	region.Culture = culture.Generate()
 	region.Culture = region.Culture.SetClimate(region.Biome)
 
 	region.Class = randomClass()
 
-	newTown := town.GenerateTown("city", regionType)
+	newTown := town.Generate("city", regionType)
 	newTown = town.SetCulture(region.Culture, newTown)
 	region.Towns = append(region.Towns, newTown)
 
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown = town.GenerateTown("random", regionType)
+		newTown = town.Generate("random", regionType)
 		newTown = town.SetCulture(region.Culture, newTown)
 		region.Towns = append(region.Towns, newTown)
 	}

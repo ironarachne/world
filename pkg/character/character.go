@@ -176,12 +176,12 @@ func (character Character) randomFacialHair() string {
 	return "none"
 }
 
-// GenerateCharacter generates a random character
-func GenerateCharacter() Character {
+// Generate generates a random character
+func Generate() Character {
 	char := Character{}
 
 	char.Gender = random.Item(genders)
-	char.Culture = culture.GenerateCulture()
+	char.Culture = culture.Generate()
 
 	char.FirstName, char.LastName = getAppropriateName(char.Gender, char.Culture)
 
@@ -222,7 +222,7 @@ func GenerateCharacter() Character {
 
 // GenerateCharacterOfCulture generates a random character with a given culture
 func GenerateCharacterOfCulture(culture culture.Culture) Character {
-	character := GenerateCharacter()
+	character := Generate()
 	character = character.SetCulture(culture)
 
 	return character
@@ -230,8 +230,8 @@ func GenerateCharacterOfCulture(culture culture.Culture) Character {
 
 // GenerateCouple generates a couple
 func GenerateCouple() Couple {
-	char1 := GenerateCharacter()
-	char2 := GenerateCharacter()
+	char1 := Generate()
+	char2 := Generate()
 	canHaveChildren := false
 
 	if char1.AgeCategory == "child" {
@@ -270,7 +270,7 @@ func GenerateCouple() Couple {
 
 // GenerateAdultDescendent generates an adult character based on a couple
 func GenerateAdultDescendent(couple Couple) Character {
-	descendent := GenerateCharacter()
+	descendent := Generate()
 
 	descendent.LastName = couple.Partner1.LastName
 
@@ -282,7 +282,7 @@ func GenerateAdultDescendent(couple Couple) Character {
 
 // GenerateChild generates a child character for a couple
 func GenerateChild(couple Couple) Character {
-	child := GenerateCharacter()
+	child := Generate()
 
 	child.LastName = couple.Partner1.LastName
 	child.Age, child.AgeCategory = getAgeFromParents(couple)
@@ -296,7 +296,7 @@ func GenerateChild(couple Couple) Character {
 
 // GenerateCompatibleMate generates a character appropriate as a mate for another
 func GenerateCompatibleMate(char Character) Character {
-	mate := GenerateCharacter()
+	mate := Generate()
 
 	mate.Age = getRandomAge(char.AgeCategory)
 	mate.AgeCategory = getAgeCategoryFromAge(mate.Age)

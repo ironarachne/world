@@ -2,6 +2,8 @@ package culture
 
 import (
 	"math/rand"
+
+	"github.com/ironarachne/world/pkg/climate"
 )
 
 // Culture is a fantasy culture
@@ -26,8 +28,8 @@ type Culture struct {
 	Religion          Religion
 }
 
-// GenerateCulture generates a culture
-func GenerateCulture() Culture {
+// Generate generates a culture
+func Generate() Culture {
 	culture := Culture{}
 
 	culture.Language = randomLanguage()
@@ -59,9 +61,9 @@ func GenerateCulture() Culture {
 }
 
 // SetClimate sets the climate and recalculates some traits
-func (culture Culture) SetClimate(climate string) Culture {
+func (culture Culture) SetClimate(query string) Culture {
 	newCulture := culture
-	newCulture.HomeClimate = climate.GetClimate(climate)
+	newCulture.HomeClimate = climate.GetClimate(query)
 	newCulture.MusicStyle = newCulture.randomMusicStyle()
 	newCulture.ClothingStyle = newCulture.generateClothingStyle()
 	newCulture.FoodStyle = newCulture.generateFoodStyle()

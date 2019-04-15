@@ -3,7 +3,7 @@ package region
 import (
 	"math/rand"
 
-	"github.com/ironarachne/chargen"
+	"github.com/ironarachne/world/pkg/character"
 )
 
 func (region Region) generateRuler() character.Character {

@@ -73,8 +73,8 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 	return deity
 }
 
-// GeneratePantheon creates a random pantheon of deities
-func GeneratePantheon(maxSize int) Pantheon {
+// Generate creates a random pantheon of deities
+func Generate(maxSize int) Pantheon {
 	var deity Deity
 	var pantheon Pantheon
 

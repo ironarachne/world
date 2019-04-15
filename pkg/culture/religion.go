@@ -1,8 +1,8 @@
 package culture
 
 import (
-	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/pantheon"
 )
 
 // Religion is a culture's religion
@@ -28,7 +28,7 @@ func (culture Culture) generateReligion() Religion {
 	religion.GatheringPlaceName = religion.randomGatheringPlaceName()
 
 	if religion.Class.PantheonMaxSize > 0 {
-		religion.Pantheon = pantheon.GeneratePantheon(religion.Class.PantheonMaxSize)
+		religion.Pantheon = pantheon.Generate(religion.Class.PantheonMaxSize)
 	}
 
 	for _, deity := range religion.Pantheon.Deities {

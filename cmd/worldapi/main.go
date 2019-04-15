@@ -13,6 +13,10 @@ import (
 	"github.com/ironarachne/random"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/organization"
+	"github.com/ironarachne/world/pkg/pantheon"
+	"github.com/ironarachne/world/pkg/region"
+	"github.com/ironarachne/world/pkg/town"
 )
 
 func getCharacter(w http.ResponseWriter, r *http.Request) {
@@ -88,7 +92,7 @@ func getPantheon(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = pantheon.Generate()
+	o = pantheon.Generate(26)
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -98,7 +102,7 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = pantheon.Generate()
+	o = pantheon.Generate(26)
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -110,7 +114,7 @@ func getRegion(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = region.Generate()
+	o = region.Generate("random")
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -120,7 +124,7 @@ func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = region.Generate()
+	o = region.Generate("random")
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -132,7 +136,7 @@ func getTown(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = town.Generate()
+	o = town.Generate("random", "random")
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -142,7 +146,7 @@ func getTownRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = town.Generate()
+	o = town.Generate("random", "random")
 
 	json.NewEncoder(w).Encode(o)
 }
