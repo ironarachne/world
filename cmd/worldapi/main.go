@@ -10,11 +10,11 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/ironarachne/random"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
+	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/town"
 )

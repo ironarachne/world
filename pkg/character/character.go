@@ -3,8 +3,8 @@ package character
 import (
 	"math/rand"
 
-	"github.com/ironarachne/utility"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/math"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -111,7 +111,7 @@ func getAgeCategoryFromAge(age int) string {
 }
 
 func getAgeFromParents(parents Couple) (int, string) {
-	lowestAge := utility.Min(parents.Partner1.Age, parents.Partner2.Age)
+	lowestAge := math.Min(parents.Partner1.Age, parents.Partner2.Age)
 
 	childAge := rand.Intn(lowestAge-18) + 1
 	childAgeCategory := getAgeCategoryFromAge(childAge)
@@ -251,10 +251,10 @@ func GenerateCouple() Couple {
 		orientations = []string{char1.Orientation}
 	}
 
-	if char1.Gender == char2.Gender && utility.ItemInCollection("straight", orientations) {
+	if char1.Gender == char2.Gender && slices.StringIn("straight", orientations) {
 		char2.Gender = getOppositeGender(char1.Gender)
 		char2.FirstName, _ = getAppropriateName(char2.Gender, char2.Culture)
-	} else if char1.Gender != char2.Gender && utility.ItemInCollection("gay", orientations) {
+	} else if char1.Gender != char2.Gender && slices.StringIn("gay", orientations) {
 		char2.Gender = char1.Gender
 		char2.FirstName, _ = getAppropriateName(char2.Gender, char2.Culture)
 	}
