@@ -7,10 +7,6 @@ import (
 	"github.com/ironarachne/random"
 )
 
-var (
-	genders = []string{"male", "female", "none"}
-)
-
 // Deity is a fictional god or goddess
 type Deity struct {
 	Name              string
@@ -62,7 +58,7 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 	appearances := getAllAppearances()
 
 	deity.Appearance = random.Item(appearances)
-	deity.Gender = random.Item(genders)
+	deity.Gender = getRandomGender()
 
 	deity.PersonalityTraits = deity.getRandomTraits()
 
@@ -118,6 +114,16 @@ func (pantheon Pantheon) GenerateRelationships() []Relationship {
 	}
 
 	return relationships
+}
+
+func getRandomGender() string {
+	genders := []string{
+		"female",
+		"male",
+		"none",
+	}
+
+	return random.Item(genders)
 }
 
 func inSlice(value string, slice []string) bool {
