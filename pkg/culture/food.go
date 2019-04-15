@@ -5,6 +5,7 @@ import (
 
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // FoodStyle is a cultural food style
@@ -32,7 +33,7 @@ func (culture Culture) generateFoodStyle() FoodStyle {
 		}
 	}
 
-	if !inSlice("salt", foodStyle.CommonSpices) {
+	if !slices.StringIn("salt", foodStyle.CommonSpices) {
 		foodStyle.CommonSpices = append(foodStyle.CommonSpices, "salt")
 	}
 
@@ -64,7 +65,7 @@ func randomCookingTechniques() []string {
 
 	for i := 0; i < 3; i++ {
 		technique = random.String(potentialTechniques)
-		if !inSlice(technique, techniques) {
+		if !slices.StringIn(technique, techniques) {
 			techniques = append(techniques, technique)
 		}
 	}
@@ -109,7 +110,7 @@ func (culture Culture) randomBreads() []string {
 		numberOfBreads := rand.Intn(3) + 1
 		for i := 0; i < numberOfBreads; i++ {
 			bread = culture.randomBread()
-			if !inSlice(bread, breads) {
+			if !slices.StringIn(bread, breads) {
 				breads = append(breads, bread)
 			}
 		}
@@ -137,7 +138,7 @@ func (style FoodStyle) randomDishes() []string {
 	for i := 0; i < 5; i++ {
 		dish = random.String(flavors) + " " + random.String(style.CookingTechniques) + " " + random.String(style.CommonBases) + " with " + random.String(style.CommonSpices)
 
-		if !inSlice(dish, dishes) {
+		if !slices.StringIn(dish, dishes) {
 			dishes = append(dishes, dish)
 		}
 	}
@@ -189,7 +190,7 @@ func randomEatingTraits() []string {
 
 	for i := 0; i < 2; i++ {
 		t = random.String(potentialTraits)
-		if !inSlice(t, typesOfTraits) {
+		if !slices.StringIn(t, typesOfTraits) {
 			typesOfTraits = append(typesOfTraits, t)
 			if t == "utensils" {
 				trait = "eat with " + random.String(utensils)

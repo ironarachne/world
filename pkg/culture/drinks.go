@@ -5,6 +5,7 @@ import (
 
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Drink is an alcoholic drink
@@ -70,7 +71,7 @@ func (culture Culture) generateDrinks() []Drink {
 			drink.Ingredients = append(drink.Ingredients, drink.Base)
 			for i := 0; i < numberOfIngredients; i++ {
 				ingredient = random.String(possibleIngredients)
-				if !inSlice(ingredient, drink.Ingredients) {
+				if !slices.StringIn(ingredient, drink.Ingredients) {
 					drink.Ingredients = append(drink.Ingredients, ingredient)
 				}
 			}

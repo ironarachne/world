@@ -6,6 +6,7 @@ import (
 
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // ClothingItem is a type of clothing item
@@ -476,12 +477,12 @@ func randomColorSet() []string {
 	for i := 0; i < 3; i++ {
 		newColor = random.String(colors)
 
-		if !inSlice(newColor, []string{"white", "black"}) {
+		if !slices.StringIn(newColor, []string{"white", "black"}) {
 			saturation = randomSaturation()
 			newColor = saturation + " " + newColor
 		}
 
-		if !inSlice(newColor, colorSet) {
+		if !slices.StringIn(newColor, colorSet) {
 			colorSet = append(colorSet, newColor)
 		}
 	}

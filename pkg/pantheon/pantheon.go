@@ -5,6 +5,7 @@ import (
 
 	"github.com/ironarachne/naminglanguage"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Deity is a fictional god or goddess
@@ -49,7 +50,7 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 		domain = random.String(domains)
 
 		// Only add domain if it isn't already in Domains slice
-		if !inSlice(domain, deity.Domains) && !inSlice(domain, allDomains) {
+		if !slices.StringIn(domain, deity.Domains) && !slices.StringIn(domain, allDomains) {
 			deity.Domains = append(deity.Domains, domain)
 			allDomains = append(allDomains, domain)
 		}
@@ -124,15 +125,6 @@ func getRandomGender() string {
 	}
 
 	return random.String(genders)
-}
-
-func inSlice(value string, slice []string) bool {
-	for _, v := range slice {
-		if value == v {
-			return true
-		}
-	}
-	return false
 }
 
 func randomName() string {

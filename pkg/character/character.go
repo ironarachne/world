@@ -4,9 +4,9 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/utility"
-	"github.com/ironarachne/world/pkg/random"
-
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Character is a character
@@ -208,7 +208,7 @@ func Generate() Character {
 
 	for i := 0; i < 2; i++ {
 		trait := random.String(traits)
-		for utility.ItemInCollection(trait, char.PsychologicalTraits) {
+		for slices.StringIn(trait, char.PsychologicalTraits) {
 			trait = random.String(traits)
 		}
 		char.PsychologicalTraits = append(char.PsychologicalTraits, trait)

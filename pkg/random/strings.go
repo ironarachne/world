@@ -36,16 +36,6 @@ func StringFromThresholdMap(items map[string]int) string {
 	return result
 }
 
-// StringInSlice checks to see if a string is in an array of strings
-func StringInSlice(item string, slice []string) bool {
-	for _, i := range slice {
-		if item == i {
-			return true
-		}
-	}
-	return false
-}
-
 // SeedFromString uses a string to seed the random number generator
 func SeedFromString(source string) {
 	h := md5.New()

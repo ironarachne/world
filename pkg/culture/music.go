@@ -6,6 +6,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // MusicStyle is a cultural music style
@@ -126,8 +127,8 @@ func (culture Culture) generateMusicalInstruments() []Instrument {
 	}
 
 	for _, i := range allInstruments {
-		if slicePartlyWithin(i.BaseMaterialOptions, availableMaterials) {
-			if slicePartlyWithin(i.SupportMaterialOptions, availableMaterials) {
+		if slices.StringSlicePartlyWithin(i.BaseMaterialOptions, availableMaterials) {
+			if slices.StringSlicePartlyWithin(i.SupportMaterialOptions, availableMaterials) {
 				availableInstruments = append(availableInstruments, i)
 			}
 		}
@@ -141,13 +142,13 @@ func (culture Culture) generateMusicalInstruments() []Instrument {
 		availableSupportMaterials = []string{}
 
 		for _, m := range instrument.BaseMaterialOptions {
-			if inSlice(m, availableMaterials) {
+			if slices.StringIn(m, availableMaterials) {
 				availableBaseMaterials = append(availableBaseMaterials, m)
 			}
 		}
 
 		for _, m := range instrument.SupportMaterialOptions {
-			if inSlice(m, availableMaterials) {
+			if slices.StringIn(m, availableMaterials) {
 				availableSupportMaterials = append(availableSupportMaterials, m)
 			}
 		}

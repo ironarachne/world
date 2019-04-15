@@ -4,6 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Appearance is a set of physical characteristics
@@ -106,18 +107,18 @@ func (culture Culture) calculateEyeColors() []string {
 		"pale",
 	}
 
-	if inSlice("black", culture.Appearance.SkinColors) {
+	if slices.StringIn("black", culture.Appearance.SkinColors) {
 		colors = []string{
 			"amber",
 			"brown",
 		}
-	} else if inSlice("alabaster", culture.Appearance.SkinColors) {
+	} else if slices.StringIn("alabaster", culture.Appearance.SkinColors) {
 		colors = append(colors, "white")
 	}
 
 	for i := 0; i < 3; i++ {
 		eyeColor = random.String(colors)
-		if !inSlice(eyeColor, eyeColors) {
+		if !slices.StringIn(eyeColor, eyeColors) {
 			eyeColors = append(eyeColors, eyeColor)
 		}
 	}
@@ -139,20 +140,20 @@ func (culture Culture) calculateHairColors() []string {
 		"light brown",
 	}
 
-	if inSlice("black", culture.Appearance.SkinColors) {
+	if slices.StringIn("black", culture.Appearance.SkinColors) {
 		colors = []string{
 			"black",
 			"dark brown",
 		}
-	} else if inSlice("alabaster", culture.Appearance.SkinColors) {
+	} else if slices.StringIn("alabaster", culture.Appearance.SkinColors) {
 		colors = append(colors, "white")
-	} else if inSlice("white", culture.Appearance.SkinColors) {
+	} else if slices.StringIn("white", culture.Appearance.SkinColors) {
 		colors = append(colors, "blonde")
 	}
 
 	for i := 0; i < 2; i++ {
 		hairColor = random.String(colors)
-		if !inSlice(hairColor, hairColors) {
+		if !slices.StringIn(hairColor, hairColors) {
 			hairColors = append(hairColors, hairColor)
 		}
 	}
@@ -170,7 +171,7 @@ func (culture Culture) calculateHairConsistency() string {
 		consistencies = append(consistencies, "thin")
 	}
 
-	if inSlice("black", culture.Appearance.SkinColors) {
+	if slices.StringIn("black", culture.Appearance.SkinColors) {
 		consistencies = append(consistencies, "coarse")
 	}
 
@@ -201,7 +202,7 @@ func (culture Culture) calculateHairStyles() []string {
 
 	for i := 0; i < 3; i++ {
 		style = random.String(possibleStyles)
-		if !inSlice(style, styles) {
+		if !slices.StringIn(style, styles) {
 			styles = append(styles, style)
 		}
 	}
@@ -228,7 +229,7 @@ func randomFacialHair() []string {
 
 	for i := 0; i < 3; i++ {
 		style = random.String(possibleStyles)
-		if !inSlice(style, styles) {
+		if !slices.StringIn(style, styles) {
 			styles = append(styles, style)
 		}
 	}

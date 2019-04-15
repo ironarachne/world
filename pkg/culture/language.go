@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Language is a fantasy language
@@ -65,7 +66,7 @@ func deriveAdjective(name string) string {
 
 	potentialSuffixes := []string{"n", "lese", "ish"}
 
-	if inSlice(lastCharacter, consonants) {
+	if slices.StringIn(lastCharacter, consonants) {
 		potentialSuffixes = []string{"ish", "ian", "an", "i", "ese"}
 	}
 
@@ -94,7 +95,7 @@ func (language Language) GenerateNameList(nameType string) []string {
 
 	for i := 0; i < 10; i++ {
 		name = language.RandomName() + random.String(endings)
-		if !inSlice(name, names) {
+		if !slices.StringIn(name, names) {
 			names = append(names, name)
 		}
 	}
