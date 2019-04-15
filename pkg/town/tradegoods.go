@@ -4,7 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // TradeGood is a trade good entry
@@ -27,7 +27,7 @@ func generateTradeGoods(min int, max int, resources []climate.Resource) []TradeG
 
 	for i := 0; i < numberOfGoods; i++ {
 		good = TradeGood{}
-		newItem = random.Item(possibleGoods)
+		newItem = random.String(possibleGoods)
 		amount = rand.Intn(3) + 1
 		good.Name = newItem
 		good.Amount = amount
@@ -58,5 +58,5 @@ func randomQuality() string {
 		"pathetic":     1,
 	}
 
-	return random.ItemFromThresholdMap(qualities)
+	return random.StringFromThresholdMap(qualities)
 }

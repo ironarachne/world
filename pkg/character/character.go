@@ -3,8 +3,8 @@ package character
 import (
 	"math/rand"
 
-	"github.com/ironarachne/random"
 	"github.com/ironarachne/utility"
+	"github.com/ironarachne/world/pkg/random"
 
 	"github.com/ironarachne/world/pkg/culture"
 )
@@ -120,7 +120,7 @@ func getAgeFromParents(parents Couple) (int, string) {
 }
 
 func randomOrientation() string {
-	return random.ItemFromThresholdMap(orientations)
+	return random.StringFromThresholdMap(orientations)
 }
 
 func (character Character) randomHeight() int {
@@ -170,7 +170,7 @@ func (character Character) randomFacialHair() string {
 
 	hairChance := rand.Intn(10)
 	if hairChance > 8 {
-		return random.Item(character.Culture.Appearance.FacialHairStyles)
+		return random.String(character.Culture.Appearance.FacialHairStyles)
 	}
 
 	return "none"
@@ -180,36 +180,36 @@ func (character Character) randomFacialHair() string {
 func Generate() Character {
 	char := Character{}
 
-	char.Gender = random.Item(genders)
+	char.Gender = random.String(genders)
 	char.Culture = culture.Generate()
 
 	char.FirstName, char.LastName = getAppropriateName(char.Gender, char.Culture)
 
-	char.AgeCategory = random.ItemFromThresholdMap(ageCategories)
+	char.AgeCategory = random.StringFromThresholdMap(ageCategories)
 	char.Age = getRandomAge(char.AgeCategory)
 
-	char.HairColor = random.Item(char.Culture.Appearance.HairColors)
+	char.HairColor = random.String(char.Culture.Appearance.HairColors)
 	if char.Gender == "male" {
-		char.HairStyle = random.Item(char.Culture.Appearance.MaleHairStyles)
+		char.HairStyle = random.String(char.Culture.Appearance.MaleHairStyles)
 	} else {
-		char.HairStyle = random.Item(char.Culture.Appearance.FemaleHairStyles)
+		char.HairStyle = random.String(char.Culture.Appearance.FemaleHairStyles)
 	}
 	char.FacialHair = char.randomFacialHair()
 
-	char.EyeColor = random.Item(char.Culture.Appearance.EyeColors)
+	char.EyeColor = random.String(char.Culture.Appearance.EyeColors)
 	char.FaceShape = char.Culture.Appearance.FaceShape
 	char.MouthShape = char.Culture.Appearance.MouthShape
 	char.NoseShape = char.Culture.Appearance.NoseShape
 
 	char.Orientation = randomOrientation()
-	char.Profession = random.Item(professions)
+	char.Profession = random.String(professions)
 	char.Hobby = char.getRandomHobby()
-	char.Motivation = random.Item(motivations)
+	char.Motivation = random.String(motivations)
 
 	for i := 0; i < 2; i++ {
-		trait := random.Item(traits)
+		trait := random.String(traits)
 		for utility.ItemInCollection(trait, char.PsychologicalTraits) {
-			trait = random.Item(traits)
+			trait = random.String(traits)
 		}
 		char.PsychologicalTraits = append(char.PsychologicalTraits, trait)
 	}

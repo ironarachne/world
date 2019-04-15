@@ -3,7 +3,7 @@ package climate
 import (
 	"math/rand"
 
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Climate is a climate
@@ -118,15 +118,15 @@ func (climate Climate) getDescription() string {
 	waterComponents := []string{}
 	if climate.HasLakes {
 		lakes := []string{"many smaller lakes", "a few large lakes", "an enormous lake"}
-		waterComponents = append(waterComponents, random.Item(lakes))
+		waterComponents = append(waterComponents, random.String(lakes))
 	}
 	if climate.HasRivers {
 		rivers := []string{"a few rivers", "a major river", "many small rivers and streams"}
-		waterComponents = append(waterComponents, random.Item(rivers))
+		waterComponents = append(waterComponents, random.String(rivers))
 	}
 	if climate.HasWetlands {
 		wetlands := []string{"several bogs", "extensive wetlands", "scattered wetlands"}
-		waterComponents = append(waterComponents, random.Item(wetlands))
+		waterComponents = append(waterComponents, random.String(wetlands))
 	}
 	waterComponents = shuffle(waterComponents)
 
@@ -138,10 +138,10 @@ func (climate Climate) getDescription() string {
 	if climate.HasOcean {
 		description += ". It lies on the coast of "
 		oceanTypes := []string{"a large ocean", "a gulf", "a major sea", "a smaller sea", "an ocean"}
-		description += random.Item(oceanTypes)
+		description += random.String(oceanTypes)
 
 		beachTypes := []string{"white sandy beaches", "long sandy beaches", "rocky beaches", "sheer cliffs", "low cliffs", "sandy beaches", "beautiful sandy beaches"}
-		description += " with " + random.Item(beachTypes)
+		description += " with " + random.String(beachTypes)
 	}
 
 	weather := ". The weather is "

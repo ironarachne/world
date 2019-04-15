@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/ironarachne/world/pkg/climate"
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // ClothingItem is a type of clothing item
@@ -85,11 +85,11 @@ func (culture Culture) generateJewelry() []string {
 	numberOfJewelryPieces := rand.Intn(4) + 1
 
 	for i := 0; i < numberOfJewelryPieces; i++ {
-		jewelryItem = random.Item(descriptors) + " " + random.Item(materials) + " " + random.Item(foundations)
+		jewelryItem = random.String(descriptors) + " " + random.String(materials) + " " + random.String(foundations)
 		if len(gems) > 0 {
 			gemProbability = rand.Intn(10) + 1
 			if gemProbability > 5 {
-				jewelryItem += " " + random.Item(settings) + " " + random.Item(gems)
+				jewelryItem += " " + random.String(settings) + " " + random.String(gems)
 			}
 		}
 
@@ -453,7 +453,7 @@ func (culture Culture) randomDecorativeStyle() string {
 		styles = append(styles, "many layers")
 	}
 
-	return random.Item(styles)
+	return random.String(styles)
 }
 
 func randomColorSet() []string {
@@ -474,7 +474,7 @@ func randomColorSet() []string {
 	}
 
 	for i := 0; i < 3; i++ {
-		newColor = random.Item(colors)
+		newColor = random.String(colors)
 
 		if !inSlice(newColor, []string{"white", "black"}) {
 			saturation = randomSaturation()
@@ -499,5 +499,5 @@ func randomSaturation() string {
 		"subdued",
 	}
 
-	return random.Item(saturations)
+	return random.String(saturations)
 }

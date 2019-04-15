@@ -3,10 +3,10 @@ package town
 import (
 	"math/rand"
 
-	"github.com/ironarachne/random"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Town is a town
@@ -41,7 +41,7 @@ func (town Town) generateMayor() character.Character {
 }
 
 func generateRandomCategory() TownCategory {
-	categoryName := random.ItemFromThresholdMap(townCategoryOptions)
+	categoryName := random.StringFromThresholdMap(townCategoryOptions)
 
 	category := townCategories[categoryName]
 

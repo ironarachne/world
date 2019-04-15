@@ -1,8 +1,8 @@
 package culture
 
 import (
-	"github.com/ironarachne/random"
 	"github.com/ironarachne/world/pkg/pantheon"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Religion is a culture's religion
@@ -47,7 +47,7 @@ func (culture Culture) generateReligion() Religion {
 }
 
 func (religion Religion) randomGatheringPlaceName() string {
-	return random.Item(religion.Class.GatheringPlaceNames)
+	return random.String(religion.Class.GatheringPlaceNames)
 }
 
 func randomReligionClass() ReligionClass {
@@ -102,7 +102,7 @@ func randomReligionClass() ReligionClass {
 		},
 	}
 
-	className := random.ItemFromThresholdMap(weightedClasses)
+	className := random.StringFromThresholdMap(weightedClasses)
 
 	class := classes[className]
 

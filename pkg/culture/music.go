@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"math/rand"
 
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // MusicStyle is a cultural music style
@@ -74,7 +74,7 @@ func (culture Culture) generateMusicDescriptors() []string {
 	numberOfDescriptors := rand.Intn(4) + 1
 
 	for i := 0; i < numberOfDescriptors; i++ {
-		descriptors = append(descriptors, random.Item(possibleDescriptors))
+		descriptors = append(descriptors, random.String(possibleDescriptors))
 	}
 
 	return descriptors
@@ -152,22 +152,22 @@ func (culture Culture) generateMusicalInstruments() []Instrument {
 			}
 		}
 
-		materialType = random.Item(availableBaseMaterials)
+		materialType = random.String(availableBaseMaterials)
 		if materialType == "hide" {
-			instrument.BaseMaterial = random.Item(availableHides)
+			instrument.BaseMaterial = random.String(availableHides)
 		} else if materialType == "metal" {
-			instrument.BaseMaterial = random.Item(availableMetals)
+			instrument.BaseMaterial = random.String(availableMetals)
 		} else if materialType == "wood" {
-			instrument.BaseMaterial = random.Item(availableWoods)
+			instrument.BaseMaterial = random.String(availableWoods)
 		}
 
-		materialType = random.Item(availableSupportMaterials)
+		materialType = random.String(availableSupportMaterials)
 		if materialType == "hide" {
-			instrument.SupportMaterial = random.Item(availableHides)
+			instrument.SupportMaterial = random.String(availableHides)
 		} else if materialType == "metal" {
-			instrument.SupportMaterial = random.Item(availableMetals)
+			instrument.SupportMaterial = random.String(availableMetals)
 		} else if materialType == "wood" {
-			instrument.SupportMaterial = random.Item(availableWoods)
+			instrument.SupportMaterial = random.String(availableWoods)
 		}
 
 		instrument.Description = instrument.getDescription()

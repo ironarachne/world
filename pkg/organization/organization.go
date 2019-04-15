@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"math/rand"
 
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // NameData is name data
@@ -41,8 +41,8 @@ func (org Organization) setLeaderType() string {
 func (org Organization) setName() string {
 	var tplOutput bytes.Buffer
 
-	firstPart := random.Item(org.Type.NameFirstParts)
-	secondPart := random.Item(org.Type.NameSecondParts)
+	firstPart := random.String(org.Type.NameFirstParts)
+	secondPart := random.String(org.Type.NameSecondParts)
 	nameData := NameData{firstPart, secondPart}
 
 	tmpl, err := template.New("orgname").Parse(org.Type.NameTemplate)
@@ -59,7 +59,7 @@ func (org Organization) setName() string {
 }
 
 func (org Organization) setTrait() string {
-	return random.Item(org.Type.PossibleTraits)
+	return random.String(org.Type.PossibleTraits)
 }
 
 // Generate generates a org

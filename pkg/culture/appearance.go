@@ -3,7 +3,7 @@ package culture
 import (
 	"math/rand"
 
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Appearance is a set of physical characteristics
@@ -116,7 +116,7 @@ func (culture Culture) calculateEyeColors() []string {
 	}
 
 	for i := 0; i < 3; i++ {
-		eyeColor = random.Item(colors)
+		eyeColor = random.String(colors)
 		if !inSlice(eyeColor, eyeColors) {
 			eyeColors = append(eyeColors, eyeColor)
 		}
@@ -151,7 +151,7 @@ func (culture Culture) calculateHairColors() []string {
 	}
 
 	for i := 0; i < 2; i++ {
-		hairColor = random.Item(colors)
+		hairColor = random.String(colors)
 		if !inSlice(hairColor, hairColors) {
 			hairColors = append(hairColors, hairColor)
 		}
@@ -174,7 +174,7 @@ func (culture Culture) calculateHairConsistency() string {
 		consistencies = append(consistencies, "coarse")
 	}
 
-	return random.Item(consistencies)
+	return random.String(consistencies)
 }
 
 func (culture Culture) calculateHairStyles() []string {
@@ -200,7 +200,7 @@ func (culture Culture) calculateHairStyles() []string {
 	}
 
 	for i := 0; i < 3; i++ {
-		style = random.Item(possibleStyles)
+		style = random.String(possibleStyles)
 		if !inSlice(style, styles) {
 			styles = append(styles, style)
 		}
@@ -227,7 +227,7 @@ func randomFacialHair() []string {
 	}
 
 	for i := 0; i < 3; i++ {
-		style = random.Item(possibleStyles)
+		style = random.String(possibleStyles)
 		if !inSlice(style, styles) {
 			styles = append(styles, style)
 		}
@@ -248,7 +248,7 @@ func randomUniqueTrait() string {
 
 	chanceTrait := rand.Intn(10)
 	if chanceTrait > 9 {
-		return random.Item(possibleTraits)
+		return random.String(possibleTraits)
 	}
 	return "none"
 }
@@ -262,7 +262,7 @@ func randomEyeShape() string {
 		"slanted",
 	}
 
-	return random.Item(shapes)
+	return random.String(shapes)
 }
 
 func randomFaceShape() string {
@@ -274,7 +274,7 @@ func randomFaceShape() string {
 		"square",
 	}
 
-	return random.Item(shapes)
+	return random.String(shapes)
 }
 
 func randomMouthShape() string {
@@ -285,7 +285,7 @@ func randomMouthShape() string {
 		"wide",
 	}
 
-	return random.Item(shapes)
+	return random.String(shapes)
 }
 
 func randomNoseShape() string {
@@ -298,5 +298,5 @@ func randomNoseShape() string {
 		"wide",
 	}
 
-	return random.Item(shapes)
+	return random.String(shapes)
 }

@@ -3,7 +3,7 @@ package heraldry
 import (
 	"math/rand"
 
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Tincture is a tincture
@@ -69,7 +69,7 @@ func randomDivision() Division {
 }
 
 func randomTincture() Tincture {
-	typeOfTincture := random.ItemFromThresholdMap(tinctureChances)
+	typeOfTincture := random.StringFromThresholdMap(tinctureChances)
 
 	if typeOfTincture == "metal" {
 		return randomTinctureMetal()
@@ -105,7 +105,7 @@ func randomTinctureStain() Tincture {
 func randomComplementaryTincture(t Tincture) Tincture {
 	var availableTinctures []Tincture
 	if t.Type == "color" || t.Type == "stain" {
-		typeOfTincture := random.ItemFromThresholdMap(colorOrStainChances)
+		typeOfTincture := random.StringFromThresholdMap(colorOrStainChances)
 		if typeOfTincture == "color" {
 			for _, color := range Colors {
 				if color.Name != t.Name {
@@ -134,7 +134,7 @@ func randomComplementaryTincture(t Tincture) Tincture {
 func randomContrastingTincture(t Tincture) Tincture {
 	t2 := Tincture{}
 	if t.Type == "metal" {
-		typeOfTincture := random.ItemFromThresholdMap(colorOrStainChances)
+		typeOfTincture := random.StringFromThresholdMap(colorOrStainChances)
 		if typeOfTincture == "color" {
 			t2 = randomTinctureColor()
 		} else {

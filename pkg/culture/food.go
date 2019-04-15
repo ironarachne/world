@@ -4,7 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // FoodStyle is a cultural food style
@@ -63,7 +63,7 @@ func randomCookingTechniques() []string {
 	}
 
 	for i := 0; i < 3; i++ {
-		technique = random.Item(potentialTechniques)
+		technique = random.String(potentialTechniques)
 		if !inSlice(technique, techniques) {
 			techniques = append(techniques, technique)
 		}
@@ -94,7 +94,7 @@ func (culture Culture) randomBread() string {
 	if len(grains) > 0 {
 		grain := grains[rand.Intn(len(grains))]
 
-		bread = random.Item(flavors) + " " + random.Item(breadTypes) + " " + grain.Name + " bread"
+		bread = random.String(flavors) + " " + random.String(breadTypes) + " " + grain.Name + " bread"
 	}
 
 	return bread
@@ -135,7 +135,7 @@ func (style FoodStyle) randomDishes() []string {
 	}
 
 	for i := 0; i < 5; i++ {
-		dish = random.Item(flavors) + " " + random.Item(style.CookingTechniques) + " " + random.Item(style.CommonBases) + " with " + random.Item(style.CommonSpices)
+		dish = random.String(flavors) + " " + random.String(style.CookingTechniques) + " " + random.String(style.CommonBases) + " with " + random.String(style.CommonSpices)
 
 		if !inSlice(dish, dishes) {
 			dishes = append(dishes, dish)
@@ -188,17 +188,17 @@ func randomEatingTraits() []string {
 	}
 
 	for i := 0; i < 2; i++ {
-		t = random.Item(potentialTraits)
+		t = random.String(potentialTraits)
 		if !inSlice(t, typesOfTraits) {
 			typesOfTraits = append(typesOfTraits, t)
 			if t == "utensils" {
-				trait = "eat with " + random.Item(utensils)
+				trait = "eat with " + random.String(utensils)
 			} else if t == "spices" {
-				trait = random.Item(spices) + " spice"
+				trait = random.String(spices) + " spice"
 			} else if t == "heat" {
-				trait = "food is usually " + random.Item(heat)
+				trait = "food is usually " + random.String(heat)
 			} else if t == "customs" {
-				trait = random.Item(customs)
+				trait = random.String(customs)
 			}
 			traits = append(traits, trait)
 		}

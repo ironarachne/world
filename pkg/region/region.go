@@ -4,12 +4,12 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/ironarachne/random"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/organization"
+	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/town"
 )
 
@@ -39,7 +39,7 @@ type RegionClass struct {
 }
 
 func randomClass() RegionClass {
-	class := random.ItemFromThresholdMap(classes)
+	class := random.StringFromThresholdMap(classes)
 	regionClass := classData[class]
 
 	return regionClass

@@ -1,6 +1,6 @@
 package pantheon
 
-import "github.com/ironarachne/random"
+import "github.com/ironarachne/world/pkg/random"
 
 func getAllTraits() []string {
 	traits := []string{
@@ -43,7 +43,7 @@ func (deity Deity) getRandomTraits() []string {
 
 	for i := 0; i < 2; i++ {
 		// Only add a trait if it isn't already in the PersonalityTraits slice
-		trait := random.Item(possibleTraits)
+		trait := random.String(possibleTraits)
 		if !inSlice(trait, traits) {
 			traits = append(traits, trait)
 		}

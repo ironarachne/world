@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Language is a fantasy language
@@ -69,7 +69,7 @@ func deriveAdjective(name string) string {
 		potentialSuffixes = []string{"ish", "ian", "an", "i", "ese"}
 	}
 
-	suffix = random.Item(potentialSuffixes)
+	suffix = random.String(potentialSuffixes)
 
 	adjective += suffix
 
@@ -93,7 +93,7 @@ func (language Language) GenerateNameList(nameType string) []string {
 	}
 
 	for i := 0; i < 10; i++ {
-		name = language.RandomName() + random.Item(endings)
+		name = language.RandomName() + random.String(endings)
 		if !inSlice(name, names) {
 			names = append(names, name)
 		}
@@ -286,7 +286,7 @@ func (language Language) RandomGenderedName(gender string) string {
 		endings = language.Category.FeminineEndings
 	}
 
-	name = name + random.Item(endings)
+	name = name + random.String(endings)
 
 	return name
 }
@@ -342,13 +342,13 @@ func (language Language) RandomName() string {
 }
 
 func randomSyllable(category LanguageCategory, role string) string {
-	syllable := random.Item(category.Initiators) + random.Item(vowels)
+	syllable := random.String(category.Initiators) + random.String(vowels)
 	expand := rand.Intn(10) + 1
 	if expand > 2 {
 		if role == "connector" {
-			syllable += random.Item(category.Connectors)
+			syllable += random.String(category.Connectors)
 		} else {
-			syllable += random.Item(category.Finishers)
+			syllable += random.String(category.Finishers)
 		}
 	}
 
@@ -365,7 +365,7 @@ func randomStrokeType() string {
 		"runic",
 	}
 
-	return random.Item(strokeTypes)
+	return random.String(strokeTypes)
 }
 
 func randomWritingSystem() WritingSystem {
@@ -381,7 +381,7 @@ func randomWritingSystem() WritingSystem {
 		"syllabary",
 	}
 
-	writingSystem.Classification = random.Item(classifications)
+	writingSystem.Classification = random.String(classifications)
 	writingSystem.StrokeType = randomStrokeType()
 
 	return writingSystem

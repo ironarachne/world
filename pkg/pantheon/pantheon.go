@@ -4,7 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/naminglanguage"
-	"github.com/ironarachne/random"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Deity is a fictional god or goddess
@@ -46,7 +46,7 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 	}
 
 	for i := 0; i < numberOfDomains; i++ {
-		domain = random.Item(domains)
+		domain = random.String(domains)
 
 		// Only add domain if it isn't already in Domains slice
 		if !inSlice(domain, deity.Domains) && !inSlice(domain, allDomains) {
@@ -57,7 +57,7 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 
 	appearances := getAllAppearances()
 
-	deity.Appearance = random.Item(appearances)
+	deity.Appearance = random.String(appearances)
 	deity.Gender = getRandomGender()
 
 	deity.PersonalityTraits = deity.getRandomTraits()
@@ -105,7 +105,7 @@ func (pantheon Pantheon) GenerateRelationships() []Relationship {
 
 	for _, deity := range pantheon.Deities {
 		target = pantheon.Deities[rand.Intn(len(pantheon.Deities))]
-		descriptor = random.Item(descriptors)
+		descriptor = random.String(descriptors)
 		relationship = Relationship{Origin: deity, Target: target, Descriptor: descriptor}
 
 		if deity.Name != target.Name {
@@ -123,7 +123,7 @@ func getRandomGender() string {
 		"none",
 	}
 
-	return random.Item(genders)
+	return random.String(genders)
 }
 
 func inSlice(value string, slice []string) bool {
