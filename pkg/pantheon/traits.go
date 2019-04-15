@@ -1,7 +1,9 @@
 package pantheon
 
-var (
-	traits = []string{
+import "github.com/ironarachne/random"
+
+func getAllTraits() []string {
+	traits := []string{
 		"absent-minded",
 		"belligerent",
 		"boisterous",
@@ -31,4 +33,21 @@ var (
 		"vicious",
 		"wise",
 	}
-)
+
+	return traits
+}
+
+func (deity Deity) getRandomTraits() []string {
+	possibleTraits := getAllTraits()
+	traits := []string{}
+
+	for i := 0; i < 2; i++ {
+		// Only add a trait if it isn't already in the PersonalityTraits slice
+		trait := random.Item(possibleTraits)
+		if !inSlice(trait, traits) {
+			traits = append(traits, trait)
+		}
+	}
+
+	return traits
+}

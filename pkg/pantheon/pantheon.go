@@ -39,6 +39,8 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 	var domain string
 	var allDomains []string
 
+	domains := getAllDomains()
+
 	numberOfDomains := rand.Intn(3) + 1
 
 	for _, deity := range pantheon.Deities {
@@ -57,16 +59,12 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 		}
 	}
 
+	appearances := getAllAppearances()
+
 	deity.Appearance = random.Item(appearances)
 	deity.Gender = random.Item(genders)
 
-	for i := 0; i < 2; i++ {
-		// Only add a trait if it isn't already in the PersonalityTraits slice
-		trait := random.Item(traits)
-		if !inSlice(trait, deity.PersonalityTraits) {
-			deity.PersonalityTraits = append(deity.PersonalityTraits, trait)
-		}
-	}
+	deity.PersonalityTraits = deity.getRandomTraits()
 
 	deity.Name = randomName()
 
