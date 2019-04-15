@@ -24,24 +24,6 @@ type Organization struct {
 	PrimaryTrait string
 }
 
-// OrganizationType is a type of organization
-type OrganizationType struct {
-	Name            string
-	PossibleTraits  []string
-	CanBeLedByGroup bool
-	LeaderTitle     string
-	NameFirstParts  []string
-	NameSecondParts []string
-	NameTemplate    string
-}
-
-// SizeClass is a size range
-type SizeClass struct {
-	Name    string
-	MinSize int
-	MaxSize int
-}
-
 func (org Organization) setLeaderType() string {
 	leaderType := "individual"
 
@@ -84,8 +66,8 @@ func (org Organization) setTrait() string {
 func Generate() Organization {
 	org := Organization{}
 
-	org.Type = typeData[random.Item(types)]
-	org.SizeClass = sizeClassData[random.Item(sizeClasses)]
+	org.Type = getRandomType()
+	org.SizeClass = getRandomSizeClass()
 	org.Size = rand.Intn(org.SizeClass.MaxSize-org.SizeClass.MinSize) + org.SizeClass.MinSize
 	org.Name = org.setName()
 	org.LeaderType = org.setLeaderType()

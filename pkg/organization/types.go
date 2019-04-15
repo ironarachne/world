@@ -1,41 +1,23 @@
 package organization
 
-var (
-	sizeClasses = []string{
-		"small",
-		"medium",
-		"big",
-	}
+import "math/rand"
 
-	sizeClassData = map[string]SizeClass{
-		"small": {
-			"small",
-			6,
-			20,
-		},
-		"medium": {
-			"medium",
-			21,
-			50,
-		},
-		"big": {
-			"big",
-			51,
-			100,
-		},
-	}
+// OrganizationType is a type of organization
+type OrganizationType struct {
+	Name            string
+	PossibleTraits  []string
+	CanBeLedByGroup bool
+	LeaderTitle     string
+	NameFirstParts  []string
+	NameSecondParts []string
+	NameTemplate    string
+}
 
-	types = []string{
-		"adventuring company",
-		"church",
-		"guild",
-		"mercenary company",
-	}
-
-	typeData = map[string]OrganizationType{
-		"adventuring company": {
-			"an adventuring company",
-			[]string{
+func getAllTypes() []OrganizationType {
+	types := []OrganizationType{
+		OrganizationType{
+			Name: "an adventuring company",
+			PossibleTraits: []string{
 				"aggressive",
 				"avaricious",
 				"charismatic",
@@ -47,9 +29,9 @@ var (
 				"reserved",
 				"selfless",
 			},
-			false,
-			"captain",
-			[]string{
+			CanBeLedByGroup: false,
+			LeaderTitle:     "captain",
+			NameFirstParts: []string{
 				"Black",
 				"Burning",
 				"Crimson",
@@ -59,7 +41,7 @@ var (
 				"Wandering",
 				"White",
 			},
-			[]string{
+			NameSecondParts: []string{
 				"Axes",
 				"Blade",
 				"Coin",
@@ -72,11 +54,11 @@ var (
 				"Wolves",
 				"Wyverns",
 			},
-			"{{.FirstPart}} {{.SecondPart}}",
+			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
 		},
-		"church": {
-			"a church",
-			[]string{
+		OrganizationType{
+			Name: "a church",
+			PossibleTraits: []string{
 				"penitent",
 				"helpful",
 				"selfless",
@@ -86,9 +68,9 @@ var (
 				"penniless",
 				"proselytizing",
 			},
-			true,
-			"high priest",
-			[]string{
+			CanBeLedByGroup: true,
+			LeaderTitle:     "high priest",
+			NameFirstParts: []string{
 				"Holy",
 				"Glorious",
 				"Exalted",
@@ -96,7 +78,7 @@ var (
 				"Penitent",
 				"Righteous",
 			},
-			[]string{
+			NameSecondParts: []string{
 				"Divine Hand",
 				"Dove",
 				"Eye",
@@ -112,11 +94,11 @@ var (
 				"Three Truths",
 				"Truth",
 			},
-			"{{.FirstPart}} Church of the {{.SecondPart}}",
+			NameTemplate: "{{.FirstPart}} Church of the {{.SecondPart}}",
 		},
-		"guild": {
-			"a guild",
-			[]string{
+		OrganizationType{
+			Name: "a guild",
+			PossibleTraits: []string{
 				"ambitious",
 				"avaricious",
 				"charitable",
@@ -127,9 +109,9 @@ var (
 				"observant",
 				"productive",
 			},
-			true,
-			"guild leader",
-			[]string{
+			CanBeLedByGroup: true,
+			LeaderTitle:     "guild leader",
+			NameFirstParts: []string{
 				"August",
 				"East Wind",
 				"Global",
@@ -140,7 +122,7 @@ var (
 				"South Wind",
 				"West Wind",
 			},
-			[]string{
+			NameSecondParts: []string{
 				"Alchemist",
 				"Apothecary",
 				"Artist",
@@ -156,11 +138,11 @@ var (
 				"Sculptor",
 				"Tanner",
 			},
-			"{{.FirstPart}} {{.SecondPart}}'s Guild",
+			NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
 		},
-		"mercenary company": {
-			"a mercenary company",
-			[]string{
+		OrganizationType{
+			Name: "a mercenary company",
+			PossibleTraits: []string{
 				"aggressive",
 				"belligerent",
 				"avaricious",
@@ -169,9 +151,9 @@ var (
 				"dishonorable",
 				"trustworthy",
 			},
-			true,
-			"captain",
-			[]string{
+			CanBeLedByGroup: true,
+			LeaderTitle:     "captain",
+			NameFirstParts: []string{
 				"Black",
 				"Burning",
 				"Crimson",
@@ -181,7 +163,7 @@ var (
 				"Silver",
 				"White",
 			},
-			[]string{
+			NameSecondParts: []string{
 				"Army",
 				"Axes",
 				"Company",
@@ -194,7 +176,15 @@ var (
 				"Wolves",
 				"Wyverns",
 			},
-			"{{.FirstPart}} {{.SecondPart}}",
+			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
 		},
 	}
-)
+
+	return types
+}
+
+func getRandomType() OrganizationType {
+	orgTypes := getAllTypes()
+
+	return orgTypes[rand.Intn(len(orgTypes)-1)]
+}
