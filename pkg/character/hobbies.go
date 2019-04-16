@@ -65,13 +65,13 @@ func getAllHobbies() []Hobby {
 	return hobbies
 }
 
-func getHobbiesForAgeCategory(category string) []Hobby {
+func getHobbiesForAgeCategory(category AgeCategory) []Hobby {
 	potentialHobbies := getAllHobbies()
 	hobbies := []Hobby{}
 
-	if category == "infant" {
+	if category.Name == "infant" {
 		hobbies = []Hobby{}
-	} else if category == "child" {
+	} else if category.Name == "child" {
 		for _, h := range potentialHobbies {
 			if !h.IsAdultOnly {
 				hobbies = append(hobbies, h)
