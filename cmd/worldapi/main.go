@@ -13,7 +13,6 @@ import (
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/organization"
-	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/town"
@@ -85,28 +84,6 @@ func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(o)
 }
 
-func getPantheon(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-
-	var o pantheon.Pantheon
-
-	random.SeedFromString(id)
-
-	o = pantheon.Generate(26)
-
-	json.NewEncoder(w).Encode(o)
-}
-
-func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
-	var o pantheon.Pantheon
-
-	rand.Seed(time.Now().UnixNano())
-
-	o = pantheon.Generate(26)
-
-	json.NewEncoder(w).Encode(o)
-}
-
 func getRegion(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
@@ -171,9 +148,6 @@ func main() {
 
 	r.Get("/organization", getOrganizationRandom)
 	r.Get("/organization/{id}", getOrganization)
-
-	r.Get("/pantheon", getPantheonRandom)
-	r.Get("/pantheon/{id}", getPantheon)
 
 	r.Get("/region", getRegionRandom)
 	r.Get("/region/{id}", getRegion)

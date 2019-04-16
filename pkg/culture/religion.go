@@ -28,7 +28,7 @@ func (culture Culture) generateReligion() Religion {
 	religion.GatheringPlaceName = religion.randomGatheringPlaceName()
 
 	if religion.Class.PantheonMaxSize > 0 {
-		religion.Pantheon = pantheon.Generate(religion.Class.PantheonMaxSize)
+		religion.Pantheon = pantheon.Generate(religion.Class.PantheonMaxSize, culture.Language)
 	}
 
 	for _, deity := range religion.Pantheon.Deities {
