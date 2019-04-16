@@ -9,7 +9,6 @@ import (
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/organization"
-	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/town"
 )
 
@@ -19,7 +18,7 @@ type Region struct {
 	Culture       culture.Culture
 	Climate       climate.Climate
 	Capital       string
-	Class         RegionClass
+	Class         Class
 	Name          string
 	Ruler         character.Character
 	RulerBlazon   string
@@ -27,22 +26,6 @@ type Region struct {
 	RulerTitle    string
 	Towns         []town.Town
 	Organizations []organization.Organization
-}
-
-// RegionClass is a class of region
-type RegionClass struct {
-	MaxNumberOfTowns int
-	MinNumberOfTowns int
-	Name             string
-	RulerTitleFemale string
-	RulerTitleMale   string
-}
-
-func randomClass() RegionClass {
-	class := random.StringFromThresholdMap(classes)
-	regionClass := classData[class]
-
-	return regionClass
 }
 
 // Generate generates a random region
@@ -63,7 +46,7 @@ func Generate(regionType string) Region {
 	region.Culture = culture.Generate()
 	region.Culture = region.Culture.SetClimate(region.Biome)
 
-	region.Class = randomClass()
+	region.Class = getRandomWeightedClass()
 
 	newTown := town.Generate("city", regionType)
 	newTown = town.SetCulture(region.Culture, newTown)
