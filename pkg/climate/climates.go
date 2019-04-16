@@ -8,31 +8,35 @@ import (
 
 // Climate is a climate
 type Climate struct {
-	Name              string
-	Description       string
-	Habitability      int
-	Temperature       int
-	Humidity          int
-	HasWetlands       bool
-	HasRivers         bool
-	HasLakes          bool
-	HasOcean          bool
-	MaxAnimals        int
-	MaxCommonMetals   int
-	MaxGems           int
-	MaxPlants         int
-	MaxPreciousMetals int
-	MaxStones         int
-	Resources         []Resource
-	Seasons           []Season
-	Animals           []Animal
-	Fish              []Fish
-	CommonMetals      []Mineral
-	Gems              []Mineral
-	OtherMinerals     []Mineral
-	Plants            []Plant
-	PreciousMetals    []Mineral
-	Stones            []Mineral
+	Name               string
+	Description        string
+	Habitability       int
+	Temperature        int
+	Humidity           int
+	HasDeciduousTrees  bool
+	HasConiferousTrees bool
+	HasWetlands        bool
+	HasRivers          bool
+	HasLakes           bool
+	HasOcean           bool
+	MaxAnimals         int
+	MaxCommonMetals    int
+	MaxGems            int
+	MaxPlants          int
+	MaxPreciousMetals  int
+	MaxStones          int
+	MaxTrees           int
+	Resources          []Resource
+	Seasons            []Season
+	Animals            []Animal
+	Fish               []Fish
+	CommonMetals       []Mineral
+	Gems               []Mineral
+	OtherMinerals      []Mineral
+	Plants             []Plant
+	PreciousMetals     []Mineral
+	Stones             []Mineral
+	Trees              []Tree
 }
 
 func (climate Climate) calculateHabitability() int {
@@ -202,6 +206,7 @@ func (climate Climate) populate() Climate {
 	plants := climate.getFilteredPlants()
 	preciousMetals := getPreciousMetals()
 	stones := getStones()
+	trees := climate.getFilteredTrees()
 
 	climate.Seasons = climate.getSeasons()
 
@@ -239,6 +244,7 @@ func (climate Climate) populate() Climate {
 	climate.Plants = getRandomPlants(climate.MaxPlants, plants)
 	climate.PreciousMetals = getRandomMinerals(climate.MaxPreciousMetals, preciousMetals)
 	climate.Stones = getRandomMinerals(climate.MaxStones, stones)
+	climate.Trees = getRandomTrees(climate.MaxTrees, trees)
 
 	for _, i := range climate.Animals {
 		resources = append(resources, resourcesFromAnimal(i)...)
@@ -261,6 +267,9 @@ func (climate Climate) populate() Climate {
 	for _, i := range climate.Plants {
 		resources = append(resources, resourcesFromPlant(i)...)
 	}
+	for _, i := range climate.Trees {
+		resources = append(resources, resourcesFromTree(i)...)
+	}
 
 	climate.Resources = resources
 	climate.Description = climate.getDescription()
@@ -273,137 +282,173 @@ func (climate Climate) populate() Climate {
 func getAllClimates() []Climate {
 	climates := []Climate{
 		Climate{
-			Name:              "coniferous forest",
-			Temperature:       4,
-			Humidity:          6,
-			MaxAnimals:        15,
-			MaxCommonMetals:   2,
-			MaxGems:           2,
-			MaxPlants:         15,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "coniferous forest",
+			Temperature:        4,
+			HasDeciduousTrees:  false,
+			HasConiferousTrees: true,
+			Humidity:           6,
+			MaxAnimals:         15,
+			MaxCommonMetals:    2,
+			MaxGems:            2,
+			MaxPlants:          15,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           6,
 		},
 		Climate{
-			Name:              "deciduous forest",
-			Temperature:       5,
-			Humidity:          5,
-			MaxAnimals:        15,
-			MaxCommonMetals:   2,
-			MaxGems:           2,
-			MaxPlants:         15,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "deciduous forest",
+			Temperature:        5,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: false,
+			Humidity:           5,
+			MaxAnimals:         15,
+			MaxCommonMetals:    2,
+			MaxGems:            2,
+			MaxPlants:          15,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           7,
 		},
 		Climate{
-			Name:              "desert",
-			Temperature:       9,
-			Humidity:          0,
-			MaxAnimals:        5,
-			MaxCommonMetals:   3,
-			MaxGems:           2,
-			MaxPlants:         3,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "desert",
+			Temperature:        9,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           0,
+			MaxAnimals:         5,
+			MaxCommonMetals:    3,
+			MaxGems:            2,
+			MaxPlants:          3,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           0,
 		},
 		Climate{
-			Name:              "grassland",
-			Temperature:       5,
-			Humidity:          3,
-			MaxAnimals:        10,
-			MaxCommonMetals:   2,
-			MaxGems:           2,
-			MaxPlants:         15,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "grassland",
+			Temperature:        5,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           3,
+			MaxAnimals:         10,
+			MaxCommonMetals:    2,
+			MaxGems:            2,
+			MaxPlants:          15,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           3,
 		},
 		Climate{
-			Name:              "marshland",
-			Temperature:       7,
-			Humidity:          9,
-			HasWetlands:       true,
-			MaxAnimals:        15,
-			MaxCommonMetals:   1,
-			MaxGems:           1,
-			MaxPlants:         10,
-			MaxPreciousMetals: 1,
-			MaxStones:         0,
+			Name:               "marshland",
+			Temperature:        7,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           9,
+			HasWetlands:        true,
+			MaxAnimals:         15,
+			MaxCommonMetals:    1,
+			MaxGems:            1,
+			MaxPlants:          10,
+			MaxPreciousMetals:  1,
+			MaxStones:          0,
+			MaxTrees:           3,
 		},
 		Climate{
-			Name:              "tropical",
-			Temperature:       9,
-			Humidity:          7,
-			MaxAnimals:        16,
-			MaxCommonMetals:   1,
-			MaxGems:           4,
-			MaxPlants:         16,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "tropical",
+			Temperature:        9,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           7,
+			MaxAnimals:         16,
+			MaxCommonMetals:    1,
+			MaxGems:            4,
+			MaxPlants:          16,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           3,
 		},
 		Climate{
-			Name:              "mountain",
-			Temperature:       4,
-			Humidity:          4,
-			MaxAnimals:        5,
-			MaxCommonMetals:   10,
-			MaxGems:           2,
-			MaxPlants:         5,
-			MaxPreciousMetals: 5,
-			MaxStones:         5,
+			Name:               "mountain",
+			Temperature:        4,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           4,
+			MaxAnimals:         5,
+			MaxCommonMetals:    10,
+			MaxGems:            2,
+			MaxPlants:          5,
+			MaxPreciousMetals:  5,
+			MaxStones:          5,
+			MaxTrees:           3,
 		},
 		Climate{
-			Name:              "rainforest",
-			Temperature:       9,
-			Humidity:          9,
-			MaxAnimals:        16,
-			MaxCommonMetals:   1,
-			MaxGems:           2,
-			MaxPlants:         16,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "rainforest",
+			Temperature:        9,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           9,
+			MaxAnimals:         16,
+			MaxCommonMetals:    1,
+			MaxGems:            2,
+			MaxPlants:          16,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           3,
 		},
 		Climate{
-			Name:              "savanna",
-			Temperature:       9,
-			Humidity:          5,
-			MaxAnimals:        9,
-			MaxCommonMetals:   2,
-			MaxGems:           3,
-			MaxPlants:         6,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "savanna",
+			Temperature:        9,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           5,
+			MaxAnimals:         9,
+			MaxCommonMetals:    2,
+			MaxGems:            3,
+			MaxPlants:          6,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           3,
 		},
 		Climate{
-			Name:              "steppe",
-			Temperature:       7,
-			Humidity:          3,
-			MaxAnimals:        9,
-			MaxCommonMetals:   3,
-			MaxGems:           3,
-			MaxPlants:         8,
-			MaxPreciousMetals: 3,
-			MaxStones:         3,
+			Name:               "steppe",
+			Temperature:        7,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           3,
+			MaxAnimals:         9,
+			MaxCommonMetals:    3,
+			MaxGems:            3,
+			MaxPlants:          8,
+			MaxPreciousMetals:  3,
+			MaxStones:          3,
+			MaxTrees:           3,
 		},
 		Climate{
-			Name:              "taiga",
-			Temperature:       3,
-			Humidity:          3,
-			MaxAnimals:        9,
-			MaxCommonMetals:   2,
-			MaxGems:           3,
-			MaxPlants:         8,
-			MaxPreciousMetals: 1,
-			MaxStones:         1,
+			Name:               "taiga",
+			Temperature:        3,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           3,
+			MaxAnimals:         9,
+			MaxCommonMetals:    2,
+			MaxGems:            3,
+			MaxPlants:          8,
+			MaxPreciousMetals:  1,
+			MaxStones:          1,
+			MaxTrees:           5,
 		},
 		Climate{
-			Name:              "tundra",
-			Temperature:       1,
-			Humidity:          3,
-			MaxAnimals:        6,
-			MaxCommonMetals:   3,
-			MaxGems:           1,
-			MaxPlants:         7,
-			MaxPreciousMetals: 1,
-			MaxStones:         2,
+			Name:               "tundra",
+			Temperature:        1,
+			HasDeciduousTrees:  true,
+			HasConiferousTrees: true,
+			Humidity:           3,
+			MaxAnimals:         6,
+			MaxCommonMetals:    3,
+			MaxGems:            1,
+			MaxPlants:          7,
+			MaxPreciousMetals:  1,
+			MaxStones:          2,
+			MaxTrees:           3,
 		},
 	}
 

@@ -101,10 +101,6 @@ func resourcesFromMineral(source Mineral) []Resource {
 func resourcesFromPlant(source Plant) []Resource {
 	resources := []Resource{}
 
-	if source.HasWood {
-		resources = append(resources, Resource{Name: source.Name + " planks", Origin: source.Name, Type: "wood planks"})
-		resources = append(resources, Resource{Name: source.Name + " logs", Origin: source.Name, Type: "wood logs"})
-	}
 	if source.IsFiber {
 		if source.Name == "flax" {
 			resources = append(resources, Resource{Name: "linen", Origin: source.Name, Type: "fabric"})
@@ -133,6 +129,22 @@ func resourcesFromPlant(source Plant) []Resource {
 	}
 	if source.IsVegetable {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "vegetable"})
+	}
+
+	return resources
+}
+
+func resourcesFromTree(source Tree) []Resource {
+	resources := []Resource{}
+
+	resources = append(resources, Resource{Name: source.Name + " planks", Origin: source.Name, Type: "wood planks"})
+	resources = append(resources, Resource{Name: source.Name + " logs", Origin: source.Name, Type: "wood logs"})
+
+	if source.GivesFruit {
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "fruit"})
+	}
+	if source.GivesNuts {
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "nut"})
 	}
 
 	return resources

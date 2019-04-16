@@ -104,10 +104,8 @@ func (culture Culture) generateMusicalInstruments() []Instrument {
 		availableMetals = append(availableMetals, i.Name)
 	}
 
-	for _, i := range culture.HomeClimate.Plants {
-		if i.IsTree {
-			availableWoods = append(availableWoods, i.Name)
-		}
+	for _, i := range culture.HomeClimate.Trees {
+		availableWoods = append(availableWoods, i.Name)
 	}
 
 	for _, i := range culture.HomeClimate.Animals {

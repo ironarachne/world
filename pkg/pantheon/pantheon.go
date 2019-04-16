@@ -64,7 +64,7 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 
 	deity.PersonalityTraits = deity.getRandomTraits()
 
-	deity.Name = pantheon.randomName()
+	deity.Name = pantheon.Language.RandomName()
 
 	return deity
 }
@@ -76,12 +76,12 @@ func Generate(maxSize int, lang language.Language) Pantheon {
 
 	numberOfDeities := rand.Intn(maxSize) + 1
 
+	pantheon.Language = lang
+
 	for i := 0; i < numberOfDeities; i++ {
 		deity = pantheon.GenerateDeity()
 		pantheon.Deities = append(pantheon.Deities, deity)
 	}
-
-	pantheon.Language = lang
 
 	pantheon.Relationships = pantheon.GenerateRelationships()
 
@@ -128,10 +128,4 @@ func getRandomGender() string {
 	}
 
 	return random.String(genders)
-}
-
-func (pantheon Pantheon) randomName() string {
-	name := pantheon.Language.RandomName()
-
-	return name
 }
