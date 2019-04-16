@@ -4,13 +4,14 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
+	"github.com/ironarachne/world/pkg/language"
 )
 
 // Culture is a fantasy culture
 type Culture struct {
 	Name              string
 	Adjective         string
-	Language          Language
+	Language          language.Language
 	Appearance        Appearance
 	CommonMaleNames   []string
 	CommonFamilyNames []string
@@ -32,7 +33,7 @@ type Culture struct {
 func Generate() Culture {
 	culture := Culture{}
 
-	culture.Language = randomLanguage()
+	culture.Language = language.Generate()
 
 	culture.CommonMaleNames = culture.Language.GenerateNameList("male")
 	culture.CommonFemaleNames = culture.Language.GenerateNameList("female")

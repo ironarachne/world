@@ -1,4 +1,4 @@
-package culture
+package language
 
 import (
 	"math/rand"
@@ -13,13 +13,13 @@ type Language struct {
 	Name          string
 	Adjective     string
 	Descriptors   []string
-	Category      LanguageCategory
+	Category      Category
 	IsTonal       bool
 	WritingSystem WritingSystem
 }
 
-// LanguageCategory is a style of language
-type LanguageCategory struct {
+// Category is a style of language
+type Category struct {
 	Name             string
 	WordLength       int
 	UsesApostrophes  bool
@@ -30,8 +30,8 @@ type LanguageCategory struct {
 	FeminineEndings  []string
 }
 
-// LanguageMutation is a word mutation
-type LanguageMutation struct {
+// Mutation is a word mutation
+type Mutation struct {
 	From string
 	To   string
 }
@@ -77,6 +77,28 @@ func deriveAdjective(name string) string {
 	return adjective
 }
 
+// Generate creates a random language
+func Generate() Language {
+	var language Language
+
+	language.Category = randomCategory()
+	language.Name = strings.Title(randomLanguageName(language.Category))
+	language.Descriptors = append(language.Descriptors, language.Category.Name)
+	language.Adjective = deriveAdjective(language.Name)
+
+	tonalChance := rand.Intn(10) + 1
+	if tonalChance > 7 {
+		language.IsTonal = true
+	} else {
+		language.IsTonal = false
+	}
+
+	language.WritingSystem = randomWritingSystem()
+	language.WritingSystem.Name = language.Adjective
+
+	return language
+}
+
 // GenerateNameList generates a list of names appropriate for the language
 func (language Language) GenerateNameList(nameType string) []string {
 	var names []string
@@ -111,9 +133,9 @@ func mutateName(name string) string {
 	return name
 }
 
-func randomLanguageCategory() LanguageCategory {
-	languageCategories := []LanguageCategory{
-		LanguageCategory{
+func randomCategory() Category {
+	categories := []Category{
+		Category{
 			Name:             "musical",
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -123,7 +145,7 @@ func randomLanguageCategory() LanguageCategory {
 			MasculineEndings: []string{"ion", "on", "en", "o"},
 			FeminineEndings:  []string{"i", "a", "ia", "ila"},
 		},
-		LanguageCategory{
+		Category{
 			Name:             "guttural",
 			WordLength:       1,
 			UsesApostrophes:  false,
@@ -133,7 +155,7 @@ func randomLanguageCategory() LanguageCategory {
 			MasculineEndings: []string{"ur", "ar", "ach", "ag"},
 			FeminineEndings:  []string{"a", "agi"},
 		},
-		LanguageCategory{
+		Category{
 			Name:             "abrupt",
 			WordLength:       2,
 			UsesApostrophes:  true,
@@ -143,7 +165,7 @@ func randomLanguageCategory() LanguageCategory {
 			MasculineEndings: []string{"on", "en", "an"},
 			FeminineEndings:  []string{"a", "e", "et"},
 		},
-		LanguageCategory{
+		Category{
 			Name:             "nasal",
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -153,7 +175,7 @@ func randomLanguageCategory() LanguageCategory {
 			MasculineEndings: []string{"een", "oon", "in", "en"},
 			FeminineEndings:  []string{"ini", "nia", "mia", "mi"},
 		},
-		LanguageCategory{
+		Category{
 			Name:             "rhythmic",
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -163,7 +185,7 @@ func randomLanguageCategory() LanguageCategory {
 			MasculineEndings: []string{"ior", "iun", "ayan", "ar"},
 			FeminineEndings:  []string{"oa", "ua", "lia", "li"},
 		},
-		LanguageCategory{
+		Category{
 			Name:             "graceful",
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -173,7 +195,7 @@ func randomLanguageCategory() LanguageCategory {
 			MasculineEndings: []string{"em", "amn", "astor", "est", "and"},
 			FeminineEndings:  []string{"eela", "aela", "ali", "eli", "oli", "oa", "ea"},
 		},
-		LanguageCategory{
+		Category{
 			Name:             "breathy",
 			WordLength:       1,
 			UsesApostrophes:  false,
@@ -184,31 +206,10 @@ func randomLanguageCategory() LanguageCategory {
 			FeminineEndings:  []string{"eshi", "eha", "ala", "asha", "iha"},
 		},
 	}
-	return languageCategories[rand.Intn(len(languageCategories))]
+	return categories[rand.Intn(len(categories))]
 }
 
-func randomLanguage() Language {
-	var language Language
-
-	language.Category = randomLanguageCategory()
-	language.Name = strings.Title(randomLanguageName(language.Category))
-	language.Descriptors = append(language.Descriptors, language.Category.Name)
-	language.Adjective = deriveAdjective(language.Name)
-
-	tonalChance := rand.Intn(10) + 1
-	if tonalChance > 7 {
-		language.IsTonal = true
-	} else {
-		language.IsTonal = false
-	}
-
-	language.WritingSystem = randomWritingSystem()
-	language.WritingSystem.Name = language.Adjective
-
-	return language
-}
-
-func randomLanguageName(languageCategory LanguageCategory) string {
+func randomLanguageName(category Category) string {
 	var name string
 	var syllables []string
 	skewLonger := false
@@ -217,7 +218,7 @@ func randomLanguageName(languageCategory LanguageCategory) string {
 		skewLonger = true
 	}
 
-	randomLength := rand.Intn(languageCategory.WordLength) + 1
+	randomLength := rand.Intn(category.WordLength) + 1
 
 	if skewLonger {
 		randomLength++
@@ -229,7 +230,7 @@ func randomLanguageName(languageCategory LanguageCategory) string {
 		if randomLength-i == 1 {
 			role = "finisher"
 		}
-		syllables = append(syllables, randomSyllable(languageCategory, role))
+		syllables = append(syllables, randomSyllable(category, role))
 	}
 
 	for _, syllable := range syllables {
@@ -244,29 +245,29 @@ func randomLanguageName(languageCategory LanguageCategory) string {
 	return name
 }
 
-func randomMutation() LanguageMutation {
-	rules := []LanguageMutation{
-		LanguageMutation{
+func randomMutation() Mutation {
+	rules := []Mutation{
+		Mutation{
 			"s",
 			"ss",
 		},
-		LanguageMutation{
+		Mutation{
 			"s",
 			"sh",
 		},
-		LanguageMutation{
+		Mutation{
 			"f",
 			"ff",
 		},
-		LanguageMutation{
+		Mutation{
 			"f",
 			"fh",
 		},
-		LanguageMutation{
+		Mutation{
 			"g",
 			"gh",
 		},
-		LanguageMutation{
+		Mutation{
 			"l",
 			"l'",
 		},
@@ -342,7 +343,7 @@ func (language Language) RandomName() string {
 	return name
 }
 
-func randomSyllable(category LanguageCategory, role string) string {
+func randomSyllable(category Category, role string) string {
 	syllable := random.String(category.Initiators) + random.String(vowels)
 	expand := rand.Intn(10) + 1
 	if expand > 2 {
