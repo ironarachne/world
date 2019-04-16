@@ -6,14 +6,13 @@ import (
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/world/pkg/random"
 )
 
 // Town is a town
 type Town struct {
 	Name       string
 	Population int
-	Category   TownCategory
+	Category   Category
 	Climate    climate.Climate
 	Culture    culture.Culture
 	Mayor      character.Character
@@ -21,30 +20,11 @@ type Town struct {
 	Imports    []TradeGood
 }
 
-// TownCategory is a type of town
-type TownCategory struct {
-	Name       string
-	MinSize    int
-	MaxSize    int
-	MinExports int
-	MaxExports int
-	MinImports int
-	MaxImports int
-}
-
 func (town Town) generateMayor() character.Character {
 	mayor := character.GenerateCharacterOfCulture(town.Culture)
 	mayor = mayor.ChangeAge(rand.Intn(30) + 30)
 
 	return mayor
-}
-
-func generateRandomCategory() TownCategory {
-	categoryName := random.StringFromThresholdMap(townCategoryOptions)
-
-	category := townCategories[categoryName]
-
-	return category
 }
 
 func (town Town) generateRandomExports() []TradeGood {
@@ -65,7 +45,7 @@ func (town Town) generateRandomImports() []TradeGood {
 	return imports
 }
 
-func generateRandomPopulation(category TownCategory) int {
+func generateRandomPopulation(category Category) int {
 	sizeIncrement := category.MaxSize - category.MinSize
 
 	return rand.Intn(sizeIncrement) + category.MinSize
@@ -81,9 +61,9 @@ func Generate(category string, biome string) Town {
 	town := Town{}
 
 	if category == "random" {
-		town.Category = generateRandomCategory()
+		town.Category = getRandomWeightedCategory()
 	} else {
-		town.Category = townCategories[category]
+		town.Category = getCategoryByName(category)
 	}
 	if biome == "random" {
 		town.Climate = climate.Generate()
