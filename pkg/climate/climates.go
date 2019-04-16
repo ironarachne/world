@@ -4,6 +4,8 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
+	"github.com/ironarachne/world/pkg/words"
 )
 
 // Climate is a climate
@@ -112,7 +114,7 @@ func (climate Climate) getDescription() string {
 
 	firstLetter := string(climate.Name[0])
 
-	if inSlice(firstLetter, []string{"a", "e", "i", "o", "u"}) {
+	if slices.StringIn(firstLetter, []string{"a", "e", "i", "o", "u"}) {
 		description += "an "
 	} else {
 		description += "a "
@@ -132,11 +134,11 @@ func (climate Climate) getDescription() string {
 		wetlands := []string{"several bogs", "extensive wetlands", "scattered wetlands"}
 		waterComponents = append(waterComponents, random.String(wetlands))
 	}
-	waterComponents = shuffle(waterComponents)
+	waterComponents = slices.ShuffleStringSlice(waterComponents)
 
 	if len(waterComponents) > 0 {
 		description += " with "
-		description += combinePhrases(waterComponents)
+		description += words.CombinePhrases(waterComponents)
 	}
 
 	if climate.HasOcean {
@@ -159,7 +161,7 @@ func (climate Climate) getDescription() string {
 		}
 		weatherItems = append(weatherItems, weatherItem)
 	}
-	weather += combinePhrases(weatherItems)
+	weather += words.CombinePhrases(weatherItems)
 
 	description += weather + "."
 

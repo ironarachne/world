@@ -1,5 +1,21 @@
 package slices
 
+import (
+	"math/rand"
+	"time"
+)
+
+// ShuffleStringSlice randomly reorders a slice of strings
+func ShuffleStringSlice(vals []string) []string {
+	r := rand.New(rand.NewSource(time.Now().Unix()))
+	ret := make([]string, len(vals))
+	perm := r.Perm(len(vals))
+	for i, randIndex := range perm {
+		ret[i] = vals[randIndex]
+	}
+	return ret
+}
+
 // StringIn checks to see if a string is in an array of strings
 func StringIn(item string, collection []string) bool {
 	for _, element := range collection {

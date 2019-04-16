@@ -146,6 +146,9 @@ func resourcesFromTree(source Tree) []Resource {
 	if source.GivesNuts {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "nut"})
 	}
+	if source.IsSpice {
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "spice"})
+	}
 
 	return resources
 }

@@ -2,6 +2,8 @@ package climate
 
 import (
 	"math/rand"
+
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // WeatherProfile is a summary of a type of weather
@@ -44,9 +46,9 @@ func (climate Climate) generateWeatherProfileForSeason(season Season) WeatherPro
 	weatherProfile.CloudCover = weatherProfile.CloudCover + weatherProfile.PrecipitationAmount
 	weatherProfile.CloudFrequency = weatherProfile.CloudCover + weatherProfile.PrecipitationAmount
 
-	if weatherProfile.PrecipitationAmount > 5 && inSlice("rain", weatherProfile.PrecipitationTypes) {
+	if weatherProfile.PrecipitationAmount > 5 && slices.StringIn("rain", weatherProfile.PrecipitationTypes) {
 		description = "rainy"
-	} else if weatherProfile.PrecipitationAmount > 5 && inSlice("snow", weatherProfile.PrecipitationTypes) {
+	} else if weatherProfile.PrecipitationAmount > 5 && slices.StringIn("snow", weatherProfile.PrecipitationTypes) {
 		description = "snowy"
 	} else if temp > 3 && temp < 8 {
 		description = "pleasant"
