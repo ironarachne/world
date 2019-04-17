@@ -105,9 +105,9 @@ func resourcesFromPlant(source Plant) []Resource {
 		if source.Name == "flax" {
 			resources = append(resources, Resource{Name: "linen", Origin: source.Name, Type: "fabric"})
 		} else {
-			resources = append(resources, Resource{Name: source.Name + " cloth", Origin: source.Name, Type: "fabric"})
+			resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "fabric"})
 		}
-		resources = append(resources, Resource{Name: source.Name + " rope", Origin: source.Name, Type: "rope"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "rope"})
 	}
 	if source.IsFruit {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "fruit"})
@@ -116,16 +116,17 @@ func resourcesFromPlant(source Plant) []Resource {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "grain"})
 	}
 	if source.IsHerb {
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "herb"})
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "spice"})
 	}
 	if source.IsMedicine {
-		resources = append(resources, Resource{Name: "refined " + source.Name, Origin: source.Name, Type: "medicine"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "medicine"})
 	}
 	if source.IsNut {
-		resources = append(resources, Resource{Name: source.Name + " nut", Origin: source.Name, Type: "nut"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "nut"})
 	}
 	if source.IsToxic {
-		resources = append(resources, Resource{Name: "concentrated " + source.Name, Origin: source.Name, Type: "toxin"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "toxin"})
 	}
 	if source.IsVegetable {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "vegetable"})
@@ -137,8 +138,7 @@ func resourcesFromPlant(source Plant) []Resource {
 func resourcesFromTree(source Tree) []Resource {
 	resources := []Resource{}
 
-	resources = append(resources, Resource{Name: source.Name + " planks", Origin: source.Name, Type: "wood planks"})
-	resources = append(resources, Resource{Name: source.Name + " logs", Origin: source.Name, Type: "wood logs"})
+	resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "wood"})
 
 	if source.GivesFruit {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "fruit"})
