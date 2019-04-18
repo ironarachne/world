@@ -101,7 +101,7 @@ func Generate(category string, biome string) Town {
 	} else if town.Population < 10000 {
 		numberOfProducers = 40
 	} else {
-		numberOfProducers = 60
+		numberOfProducers = int(town.Population / 250)
 	}
 
 	town.NotableProducers = goods.GetRandomProducers(numberOfProducers, possibleProducers)

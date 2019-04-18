@@ -17,6 +17,16 @@ type Category struct {
 func getAllCategories() []Category {
 	categories := []Category{
 		Category{
+			Name:        "metropolis",
+			MinSize:     100000,
+			MaxSize:     1000000,
+			MinExports:  50,
+			MaxExports:  500,
+			MinImports:  50,
+			MaxImports:  100,
+			Commonality: 1,
+		},
+		Category{
 			Name:        "city",
 			MinSize:     10000,
 			MaxSize:     100000,
