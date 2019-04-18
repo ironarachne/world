@@ -16,6 +16,19 @@ func GenerateExportTradeGoods(min int, max int, producers []Producer, resources 
 	var quality string
 
 	goods := []TradeGood{}
+	possibleGoods := []TradeGood{}
+	tradeGoodNames := []string{}
+	amount := 0
+
+	farmGoods := getFarmGoods(resources)
+
+	for _, f := range farmGoods {
+		amount = rand.Intn(3) + 1
+		good.Name = f
+		good.Amount = amount
+		good.Quality = randomQuality()
+		possibleGoods = append(goods, good)
+	}
 
 	for _, p := range producers {
 		quality = qualityFromSkillLevel(p.SkillLevel)
@@ -33,24 +46,18 @@ func GenerateExportTradeGoods(min int, max int, producers []Producer, resources 
 				Quality: quality,
 				Amount:  rand.Intn(3) + 1,
 			}
-			goods = append(goods, good)
+			possibleGoods = append(possibleGoods, good)
 		}
 	}
 
-	possibleGoods := getFarmGoods(resources)
-
 	numberOfGoods := rand.Intn(max+1-min) + min
-	amount := 0
-	newItem := ""
 
 	for i := 0; i < numberOfGoods; i++ {
-		good = TradeGood{}
-		newItem = random.String(possibleGoods)
-		amount = rand.Intn(3) + 1
-		good.Name = newItem
-		good.Amount = amount
-		good.Quality = randomQuality()
-		goods = append(goods, good)
+		good = possibleGoods[rand.Intn(len(possibleGoods)-1)]
+		if !slices.StringIn(good.Name, tradeGoodNames) {
+			goods = append(goods, good)
+			tradeGoodNames = append(tradeGoodNames, good.Name)
+		}
 	}
 
 	return goods

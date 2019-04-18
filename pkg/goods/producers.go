@@ -9,9 +9,10 @@ import (
 
 // Producer is a type of person who creates a trade good
 type Producer struct {
-	Name       string
-	Patterns   []Pattern
-	SkillLevel int
+	Name             string
+	MinCommunitySize int
+	Patterns         []Pattern
+	SkillLevel       int
 }
 
 func getAllProducers() []Producer {
@@ -22,60 +23,79 @@ func getAllProducers() []Producer {
 
 	producers := []Producer{
 		Producer{
-			Name:     "alchemist",
-			Patterns: getPotions(),
+			Name:             "alchemist",
+			MinCommunitySize: 500,
+			Patterns:         getPotions(),
 		},
 		Producer{
-			Name:     "animal trainer",
-			Patterns: getAnimalTrainerGoods(),
+			Name:             "animal trainer",
+			MinCommunitySize: 10,
+			Patterns:         getAnimalTrainerGoods(),
 		},
 		Producer{
-			Name:     "apothecary",
-			Patterns: getMedicines(),
+			Name:             "apothecary",
+			MinCommunitySize: 100,
+			Patterns:         getMedicines(),
 		},
 		Producer{
-			Name:     "armorsmith",
-			Patterns: getArmor(),
+			Name:             "armorsmith",
+			MinCommunitySize: 500,
+			Patterns:         getArmor(),
 		},
 		Producer{
-			Name:     "baker",
-			Patterns: getBreads(),
+			Name:             "baker",
+			MinCommunitySize: 10,
+			Patterns:         getBreads(),
 		},
 		Producer{
-			Name:     "blacksmith",
-			Patterns: blacksmithPatterns,
+			Name:             "blacksmith",
+			MinCommunitySize: 20,
+			Patterns:         blacksmithPatterns,
 		},
 		Producer{
-			Name:     "brewer",
-			Patterns: getBrewed(),
+			Name:             "brewer",
+			MinCommunitySize: 10,
+			Patterns:         getBrewed(),
 		},
 		Producer{
-			Name:     "carpenter",
-			Patterns: getCarpenterGoods(),
+			Name:             "carpenter",
+			MinCommunitySize: 10,
+			Patterns:         getCarpenterGoods(),
 		},
 		Producer{
-			Name:     "cobbler",
-			Patterns: getCobblerGoods(),
+			Name:             "cobbler",
+			MinCommunitySize: 10,
+			Patterns:         getCobblerGoods(),
 		},
 		Producer{
-			Name:     "mason",
-			Patterns: getMasonGoods(),
+			Name:             "mason",
+			MinCommunitySize: 100,
+			Patterns:         getMasonGoods(),
 		},
 		Producer{
-			Name:     "tailor",
-			Patterns: getClothing(),
+			Name:             "miner",
+			MinCommunitySize: 10,
+			Patterns:         getMinerGoods(),
 		},
 		Producer{
-			Name:     "tanner",
-			Patterns: getTannerGoods(),
+			Name:             "tailor",
+			MinCommunitySize: 10,
+			Patterns:         getClothing(),
 		},
 		Producer{
-			Name:     "vintner",
-			Patterns: getWine(),
+			Name:             "tanner",
+			MinCommunitySize: 10,
+			Patterns:         getTannerGoods(),
 		},
 		Producer{
-			Name:     "weaponsmith",
-			Patterns: getWeapons(),
+			Name:             "vintner",
+			MinCommunitySize: 100,
+			Patterns:         getWine(),
+		},
+		Producer{
+			Name:             "weaponsmith",
+			MinCommunitySize: 500,
+			Patterns:         getWeapons(),
 		},
 	}
 
@@ -83,7 +103,7 @@ func getAllProducers() []Producer {
 }
 
 // GetPossibleProducers gets all possible producers for a given set of resources
-func GetPossibleProducers(resources []climate.Resource) []Producer {
+func GetPossibleProducers(resources []climate.Resource, communitySize int) []Producer {
 	possibleProducers := getAllProducers()
 
 	availableTypes := []string{}
@@ -100,13 +120,15 @@ func GetPossibleProducers(resources []climate.Resource) []Producer {
 	}
 
 	for _, p := range possibleProducers {
-		for _, i := range p.Patterns {
-			need1Met = slices.StringIn(i.Need1, availableTypes)
-			need2Met = i.Need2 == "" || i.Need2 != "" && slices.StringIn(i.Need2, availableTypes)
-			need3Met = i.Need3 == "" || i.Need3 != "" && slices.StringIn(i.Need3, availableTypes)
+		if p.MinCommunitySize <= communitySize {
+			for _, i := range p.Patterns {
+				need1Met = slices.StringIn(i.Need1, availableTypes)
+				need2Met = i.Need2 == "" || i.Need2 != "" && slices.StringIn(i.Need2, availableTypes)
+				need3Met = i.Need3 == "" || i.Need3 != "" && slices.StringIn(i.Need3, availableTypes)
 
-			if need1Met && need2Met && need3Met {
-				producers = append(producers, p)
+				if need1Met && need2Met && need3Met {
+					producers = append(producers, p)
+				}
 			}
 		}
 	}

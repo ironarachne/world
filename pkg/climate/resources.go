@@ -35,31 +35,31 @@ func resourcesFromAnimal(source Animal) []Resource {
 	resources := []Resource{}
 
 	if source.GivesBone {
-		resources = append(resources, Resource{Name: source.Name + " bone", Origin: source.Name, Type: "bone"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "bone"})
 	}
 	if source.GivesEggs {
-		resources = append(resources, Resource{Name: source.Name + " eggs", Origin: source.Name, Type: "eggs"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "eggs"})
 	}
 	if source.GivesHide {
-		resources = append(resources, Resource{Name: source.Name + " hide", Origin: source.Name, Type: "hide"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "hide"})
 	}
 	if source.GivesHorn {
-		resources = append(resources, Resource{Name: source.Name + " horn", Origin: source.Name, Type: "horn"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "horn"})
 	}
 	if source.GivesMeat {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "meat"})
 	}
 	if source.GivesMilk {
-		resources = append(resources, Resource{Name: source.Name + " milk", Origin: source.Name, Type: "milk"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "milk"})
 	}
 	if source.IsMount {
-		resources = append(resources, Resource{Name: "riding " + source.Name, Origin: source.Name, Type: "mount"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "mount"})
 	}
 	if source.IsPackAnimal {
-		resources = append(resources, Resource{Name: "pack " + source.Name, Origin: source.Name, Type: "pack animal"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "pack animal"})
 	}
 	if source.IsVenomous {
-		resources = append(resources, Resource{Name: source.Name + " venom", Origin: source.Name, Type: "toxin"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "toxin"})
 	}
 
 	return resources
@@ -77,19 +77,19 @@ func resourcesFromMineral(source Mineral) []Resource {
 	resources := []Resource{}
 
 	if source.HasOre {
-		resources = append(resources, Resource{Name: source.Name + " ore", Origin: source.Name, Type: "ore"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "ore"})
 	}
 	if source.IsGem {
 		resources = append(resources, Resource{Name: source.PluralName, Origin: source.Name, Type: "gem"})
 	}
 	if source.IsMetal {
-		resources = append(resources, Resource{Name: source.Name + " bar", Origin: source.Name, Type: "metal bar"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "metal bar"})
 	}
 	if source.IsPrecious && source.IsMetal {
-		resources = append(resources, Resource{Name: source.Name + " ingot", Origin: source.Name, Type: "metal ingot"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "metal ingot"})
 	}
 	if source.IsStone {
-		resources = append(resources, Resource{Name: source.Name + " block", Origin: source.Name, Type: "stone block"})
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "stone block"})
 	}
 	if source.IsEdible {
 		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "spice"})

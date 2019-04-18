@@ -77,15 +77,37 @@ func Generate(category string, biome string) Town {
 	culture = culture.SetClimate(town.Climate.Name)
 	town = SetCulture(culture, town)
 
+	town.Population = generateRandomPopulation(town.Category)
+
 	town.Mayor = town.generateMayor()
 	town.Name = town.generateTownName()
 
-	possibleProducers := goods.GetPossibleProducers(town.Climate.Resources)
-	town.NotableProducers = goods.GetRandomProducers(3, possibleProducers)
+	possibleProducers := goods.GetPossibleProducers(town.Climate.Resources, town.Population)
+
+	numberOfProducers := 0
+
+	if town.Population < 20 {
+		numberOfProducers = 1
+	} else if town.Population < 50 {
+		numberOfProducers = 3
+	} else if town.Population < 100 {
+		numberOfProducers = 4
+	} else if town.Population < 500 {
+		numberOfProducers = 6
+	} else if town.Population < 1000 {
+		numberOfProducers = 10
+	} else if town.Population < 5000 {
+		numberOfProducers = 20
+	} else if town.Population < 10000 {
+		numberOfProducers = 40
+	} else {
+		numberOfProducers = 60
+	}
+
+	town.NotableProducers = goods.GetRandomProducers(numberOfProducers, possibleProducers)
 
 	town.Exports = town.generateRandomExports()
 	town.Imports = town.generateRandomImports()
-	town.Population = generateRandomPopulation(town.Category)
 
 	return town
 }
