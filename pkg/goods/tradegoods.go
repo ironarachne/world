@@ -1,6 +1,8 @@
-package town
+package goods
 
 import (
+	"bytes"
+	"html/template"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
@@ -8,24 +10,26 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
-// TradeGood is a trade good entry
-type TradeGood struct {
-	Name    string
-	Quality string
-	Amount  int
-}
-
-func (town Town) generateExportTradeGoods(min int, max int) []TradeGood {
+// GenerateExportTradeGoods produces a list of trade goods based on local production
+func GenerateExportTradeGoods(min int, max int, producers []Producer, resources []climate.Resource) []TradeGood {
 	var good TradeGood
 	var quality string
 
 	goods := []TradeGood{}
 
-	for _, p := range town.NotableProducers {
+	for _, p := range producers {
 		quality = qualityFromSkillLevel(p.SkillLevel)
-		for _, m := range p.GoodsMade {
+		for _, pattern := range p.Patterns {
+			pattern.Material1 = randomMaterialFromType(pattern.Need1, resources)
+			if pattern.Need2 != "" {
+				pattern.Material2 = randomMaterialFromType(pattern.Need2, resources)
+			}
+			if pattern.Need3 != "" {
+				pattern.Material3 = randomMaterialFromType(pattern.Need3, resources)
+			}
+
 			good = TradeGood{
-				Name:    m,
+				Name:    pattern.getName(),
 				Quality: quality,
 				Amount:  rand.Intn(3) + 1,
 			}
@@ -33,7 +37,7 @@ func (town Town) generateExportTradeGoods(min int, max int) []TradeGood {
 		}
 	}
 
-	possibleGoods := getFarmGoods(town.Climate.Resources)
+	possibleGoods := getFarmGoods(resources)
 
 	numberOfGoods := rand.Intn(max+1-min) + min
 	amount := 0
@@ -52,7 +56,8 @@ func (town Town) generateExportTradeGoods(min int, max int) []TradeGood {
 	return goods
 }
 
-func (town Town) generateImportTradeGoods(min int, max int, resources []climate.Resource) []TradeGood {
+// GenerateImportTradeGoods produces a list of trade goods based on externally-available resources
+func GenerateImportTradeGoods(min int, max int, resources []climate.Resource) []TradeGood {
 	var good TradeGood
 
 	goods := []TradeGood{}
@@ -106,6 +111,34 @@ func getFarmGoods(resources []climate.Resource) []string {
 	}
 
 	return goods
+}
+
+func (pattern Pattern) getName() string {
+	var tplOutput bytes.Buffer
+
+	tmpl, err := template.New(pattern.Name).Parse(pattern.NameTemplate)
+	if err != nil {
+		panic(err)
+	}
+	err = tmpl.Execute(&tplOutput, pattern)
+	if err != nil {
+		panic(err)
+	}
+	name := tplOutput.String()
+
+	return name
+}
+
+func randomMaterialFromType(goodType string, resources []climate.Resource) string {
+	var possibles []string
+
+	for _, r := range resources {
+		if r.Type == goodType {
+			possibles = append(possibles, r.Name)
+		}
+	}
+
+	return random.String(possibles)
 }
 
 func randomQuality() string {

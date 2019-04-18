@@ -6,6 +6,7 @@ import (
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/goods"
 )
 
 // Town is a town
@@ -16,9 +17,9 @@ type Town struct {
 	Climate          climate.Climate
 	Culture          culture.Culture
 	Mayor            character.Character
-	NotableProducers []Producer
-	Exports          []TradeGood
-	Imports          []TradeGood
+	NotableProducers []goods.Producer
+	Exports          []goods.TradeGood
+	Imports          []goods.TradeGood
 }
 
 func (town Town) generateMayor() character.Character {
@@ -28,20 +29,20 @@ func (town Town) generateMayor() character.Character {
 	return mayor
 }
 
-func (town Town) generateRandomExports() []TradeGood {
-	var exports []TradeGood
+func (town Town) generateRandomExports() []goods.TradeGood {
+	var exports []goods.TradeGood
 
-	exports = town.generateExportTradeGoods(town.Category.MinExports, town.Category.MaxExports)
+	exports = goods.GenerateExportTradeGoods(town.Category.MinExports, town.Category.MaxExports, town.NotableProducers, town.Climate.Resources)
 
 	return exports
 }
 
-func (town Town) generateRandomImports() []TradeGood {
-	var imports []TradeGood
+func (town Town) generateRandomImports() []goods.TradeGood {
+	var imports []goods.TradeGood
 
 	foreignClimate := climate.GetForeignClimate(town.Climate)
 
-	imports = town.generateImportTradeGoods(town.Category.MinImports, town.Category.MaxImports, foreignClimate.Resources)
+	imports = goods.GenerateImportTradeGoods(town.Category.MinImports, town.Category.MaxImports, foreignClimate.Resources)
 
 	return imports
 }
@@ -79,7 +80,8 @@ func Generate(category string, biome string) Town {
 	town.Mayor = town.generateMayor()
 	town.Name = town.generateTownName()
 
-	town.NotableProducers = town.getRandomProducers(3)
+	possibleProducers := goods.GetPossibleProducers(town.Climate.Resources)
+	town.NotableProducers = goods.GetRandomProducers(3, possibleProducers)
 
 	town.Exports = town.generateRandomExports()
 	town.Imports = town.generateRandomImports()
