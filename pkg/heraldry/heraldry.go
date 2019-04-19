@@ -60,6 +60,12 @@ type Device struct {
 	AllTinctures []Tincture
 }
 
+// Heraldry is a rendered version of a device
+type Heraldry struct {
+	Blazon string
+	Device string
+}
+
 func randomCharge() Charge {
 	return AvailableCharges[rand.Intn(len(AvailableCharges))]
 }
@@ -215,4 +221,16 @@ func Generate() Device {
 	d := Device{Field: field, ChargeGroups: chargeGroups, AllTinctures: tinctures}
 
 	return d
+}
+
+// GenerateHeraldry renders a heraldic device and returns it
+func GenerateHeraldry() Heraldry {
+	device := Generate()
+
+	heraldry := Heraldry{
+		Blazon: device.RenderToBlazon(),
+		Device: device.RenderToSVG(320, 420),
+	}
+
+	return heraldry
 }

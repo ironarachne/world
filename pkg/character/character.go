@@ -4,6 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -12,6 +13,8 @@ import (
 type Character struct {
 	FirstName           string
 	LastName            string
+	Title               string
+	Heraldry            heraldry.Heraldry
 	Gender              string
 	Age                 int
 	AgeCategory         AgeCategory

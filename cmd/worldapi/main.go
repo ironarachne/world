@@ -11,6 +11,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/ironarachne/world/pkg/character"
+	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/random"
@@ -36,6 +37,28 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = character.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getCountry(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o country.Country
+
+	random.SeedFromString(id)
+
+	o = country.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getCountryRandom(w http.ResponseWriter, r *http.Request) {
+	var o country.Country
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = country.Generate()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -142,6 +165,9 @@ func main() {
 
 	r.Get("/character", getCharacterRandom)
 	r.Get("/character/{id}", getCharacter)
+
+	r.Get("/country", getCountryRandom)
+	r.Get("/country/{id}", getCountry)
 
 	r.Get("/culture", getCultureRandom)
 	r.Get("/culture/{id}", getCulture)

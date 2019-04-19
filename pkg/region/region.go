@@ -7,7 +7,7 @@ import (
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/town"
 )
@@ -21,11 +21,18 @@ type Region struct {
 	Class         Class
 	Name          string
 	Ruler         character.Character
-	RulerBlazon   string
-	RulerHeraldry string
-	RulerTitle    string
 	Towns         []town.Town
 	Organizations []organization.Organization
+	TilesOccupied []grid.Coordinate
+}
+
+// AssignTiles gives a set of coordinates for tiles to a region
+func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
+	placedRegion := region
+
+	placedRegion.TilesOccupied = coordinates
+
+	return placedRegion
 }
 
 // Generate generates a random region
@@ -69,15 +76,6 @@ func Generate(regionType string) Region {
 	}
 
 	region.Ruler = region.generateRuler()
-
-	region.RulerTitle = region.Class.RulerTitleFemale
-	if region.Ruler.Gender == "male" {
-		region.RulerTitle = region.Class.RulerTitleMale
-	}
-
-	device := heraldry.Generate()
-	region.RulerHeraldry = device.RenderToSVG(320, 420)
-	region.RulerBlazon = device.RenderToBlazon()
 
 	regionName := region.Culture.Language.RandomName()
 	region.Name = strings.Title(regionName)
