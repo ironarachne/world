@@ -11,28 +11,29 @@ import (
 
 // Character is a character
 type Character struct {
-	FirstName           string
-	LastName            string
-	Title               string
-	Heraldry            heraldry.Heraldry
-	Gender              string
-	Age                 int
-	AgeCategory         AgeCategory
-	Orientation         string
-	Height              int
-	Weight              int
-	Profession          string
-	Hobby               Hobby
-	PsychologicalTraits []string
-	Motivation          string
-	HairColor           string
-	HairStyle           string
-	FacialHair          string
-	EyeColor            string
-	FaceShape           string
-	MouthShape          string
-	NoseShape           string
-	Culture             culture.Culture
+	FirstName      string
+	LastName       string
+	Title          string
+	Heraldry       heraldry.Heraldry
+	Gender         string
+	Age            int
+	AgeCategory    AgeCategory
+	Orientation    string
+	Height         int
+	Weight         int
+	Profession     string
+	Hobby          Hobby
+	NegativeTraits []string
+	PositiveTraits []string
+	Motivation     string
+	HairColor      string
+	HairStyle      string
+	FacialHair     string
+	EyeColor       string
+	FaceShape      string
+	MouthShape     string
+	NoseShape      string
+	Culture        culture.Culture
 }
 
 // Couple is a pair of partners
@@ -157,7 +158,8 @@ func Generate() Character {
 	char.Hobby = char.getRandomHobby()
 	char.Motivation = getRandomMotivation()
 
-	char.PsychologicalTraits = getRandomTraits()
+	char.NegativeTraits = getRandomNegativeTraits(2)
+	char.PositiveTraits = getRandomPositiveTraits(3)
 
 	char.Height = char.randomHeight()
 	char.Weight = char.randomWeight()
