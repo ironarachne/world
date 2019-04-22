@@ -13,7 +13,7 @@ type Hobby struct {
 func getAllHobbies() []Hobby {
 	hobbies := []Hobby{
 		Hobby{
-			Name:           "whittling",
+			Name:           "archery",
 			RequiresOthers: false,
 			IsAdultOnly:    false,
 			IsChildOnly:    false,
@@ -25,19 +25,49 @@ func getAllHobbies() []Hobby {
 			IsChildOnly:    false,
 		},
 		Hobby{
+			Name:           "dancing",
+			RequiresOthers: true,
+			IsAdultOnly:    false,
+			IsChildOnly:    false,
+		},
+		Hobby{
 			Name:           "darts",
 			RequiresOthers: false,
 			IsAdultOnly:    false,
 			IsChildOnly:    false,
 		},
 		Hobby{
-			Name:           "tournaments",
+			Name:           "drinking",
 			RequiresOthers: false,
 			IsAdultOnly:    true,
 			IsChildOnly:    false,
 		},
 		Hobby{
+			Name:           "feasting",
+			RequiresOthers: false,
+			IsAdultOnly:    false,
+			IsChildOnly:    false,
+		},
+		Hobby{
 			Name:           "fishing",
+			RequiresOthers: false,
+			IsAdultOnly:    false,
+			IsChildOnly:    false,
+		},
+		Hobby{
+			Name:           "gambling",
+			RequiresOthers: false,
+			IsAdultOnly:    false,
+			IsChildOnly:    false,
+		},
+		Hobby{
+			Name:           "games of strategy",
+			RequiresOthers: false,
+			IsAdultOnly:    false,
+			IsChildOnly:    false,
+		},
+		Hobby{
+			Name:           "hawking",
 			RequiresOthers: false,
 			IsAdultOnly:    false,
 			IsChildOnly:    false,
@@ -55,9 +85,21 @@ func getAllHobbies() []Hobby {
 			IsChildOnly:    false,
 		},
 		Hobby{
-			Name:           "drinking",
+			Name:           "participating in tournaments",
 			RequiresOthers: false,
 			IsAdultOnly:    true,
+			IsChildOnly:    false,
+		},
+		Hobby{
+			Name:           "watching tournaments",
+			RequiresOthers: false,
+			IsAdultOnly:    false,
+			IsChildOnly:    false,
+		},
+		Hobby{
+			Name:           "whittling",
+			RequiresOthers: false,
+			IsAdultOnly:    false,
 			IsChildOnly:    false,
 		},
 	}
