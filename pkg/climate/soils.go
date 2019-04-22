@@ -1,6 +1,8 @@
 package climate
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 // Soil is a type of mineral
 type Soil struct {
@@ -16,7 +18,7 @@ func (climate Climate) getFilteredSoils() []Soil {
 	clays := getClays()
 	sands := getSands()
 
-	if climate.Humidity < 2 && climate.Temperature >= 9 {
+	if climate.Humidity == 0 && climate.Temperature == 9 {
 		soils = append(soils, sands...)
 	} else {
 		soils = append(soils, agSoils...)

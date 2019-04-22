@@ -78,6 +78,11 @@ func getAllProducers() []Producer {
 			Patterns:         getMinerGoods(),
 		},
 		Producer{
+			Name:             "potter",
+			MinCommunitySize: 10,
+			Patterns:         getPottery(),
+		},
+		Producer{
 			Name:             "tailor",
 			MinCommunitySize: 10,
 			Patterns:         getClothing(),

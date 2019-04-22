@@ -466,6 +466,63 @@ func getPotions() []Pattern {
 	return patterns
 }
 
+func getPottery() []Pattern {
+	patterns := []Pattern{
+		Pattern{
+			Name:         "jugs",
+			Material1:    "",
+			Material2:    "",
+			Material3:    "",
+			Need1:        "clay",
+			Need2:        "",
+			Need3:        "",
+			NameTemplate: "{{.Material1}} jugs",
+		},
+		Pattern{
+			Name:         "mugs",
+			Material1:    "",
+			Material2:    "",
+			Material3:    "",
+			Need1:        "clay",
+			Need2:        "",
+			Need3:        "",
+			NameTemplate: "{{.Material1}} mugs",
+		},
+		Pattern{
+			Name:         "pots",
+			Material1:    "",
+			Material2:    "",
+			Material3:    "",
+			Need1:        "clay",
+			Need2:        "",
+			Need3:        "",
+			NameTemplate: "{{.Material1}} pots",
+		},
+		Pattern{
+			Name:         "urns",
+			Material1:    "",
+			Material2:    "",
+			Material3:    "",
+			Need1:        "clay",
+			Need2:        "",
+			Need3:        "",
+			NameTemplate: "{{.Material1}} urns",
+		},
+		Pattern{
+			Name:         "vases",
+			Material1:    "",
+			Material2:    "",
+			Material3:    "",
+			Need1:        "clay",
+			Need2:        "",
+			Need3:        "",
+			NameTemplate: "{{.Material1}} vases",
+		},
+	}
+
+	return patterns
+}
+
 func getTannerGoods() []Pattern {
 	patterns := []Pattern{
 		Pattern{
