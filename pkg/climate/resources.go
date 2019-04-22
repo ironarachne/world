@@ -135,6 +135,22 @@ func resourcesFromPlant(source Plant) []Resource {
 	return resources
 }
 
+func resourcesFromSoil(source Soil) []Resource {
+	resources := []Resource{}
+
+	if source.UsedForAgriculture {
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "soil"})
+	}
+	if source.UsedForPottery {
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "clay"})
+	}
+	if source.IsSand {
+		resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "sand"})
+	}
+
+	return resources
+}
+
 func resourcesFromTree(source Tree) []Resource {
 	resources := []Resource{}
 

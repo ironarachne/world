@@ -12,6 +12,10 @@ The API supports the following routes:
 
 **Character, specific seed**: `/character/123`
 
+**Climate, random**: `/climate/`
+
+**Climate, specific seed**: `/climate/123`
+
 **Country, random**: `/country/`
 
 **Country, specific seed**: `/country/123`

@@ -11,6 +11,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/ironarachne/world/pkg/character"
+	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/heraldry"
@@ -38,6 +39,28 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = character.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getClimate(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o climate.Climate
+
+	random.SeedFromString(id)
+
+	o = climate.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getClimateRandom(w http.ResponseWriter, r *http.Request) {
+	var o climate.Climate
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = climate.Generate()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -194,6 +217,9 @@ func main() {
 
 	r.Get("/character", getCharacterRandom)
 	r.Get("/character/{id}", getCharacter)
+
+	r.Get("/climate", getClimateRandom)
+	r.Get("/climate/{id}", getClimate)
 
 	r.Get("/country", getCountryRandom)
 	r.Get("/country/{id}", getCountry)
