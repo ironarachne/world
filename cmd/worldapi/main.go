@@ -152,6 +152,12 @@ func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(o)
 }
 
+func getRoot(w http.ResponseWriter, r *http.Request) {
+	o := "This is the World Generation API."
+
+	json.NewEncoder(w).Encode(o)
+}
+
 func getTown(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
@@ -206,6 +212,8 @@ func main() {
 
 	r.Get("/town", getTownRandom)
 	r.Get("/town/{id}", getTown)
+
+	r.Get("/", getRoot)
 
 	fmt.Println("World Generator API is online.")
 	log.Fatal(http.ListenAndServe(":7531", r))
