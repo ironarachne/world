@@ -5,13 +5,12 @@ import (
 
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/random"
-	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Deity is a fictional god or goddess
 type Deity struct {
 	Name              string
-	Domains           []string
+	Domains           []Domain
 	Appearance        string
 	Gender            string
 	PersonalityTraits []string
@@ -34,8 +33,8 @@ type Relationship struct {
 // GenerateDeity generates a random deity
 func (pantheon Pantheon) GenerateDeity() Deity {
 	var deity Deity
-	var domain string
-	var allDomains []string
+	var domain Domain
+	var allDomains []Domain
 
 	domains := getAllDomains()
 
@@ -48,16 +47,17 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 	}
 
 	for i := 0; i < numberOfDomains; i++ {
-		domain = random.String(domains)
+		domain = getRandomDomain(domains)
 
 		// Only add domain if it isn't already in Domains slice
-		if !slices.StringIn(domain, deity.Domains) && !slices.StringIn(domain, allDomains) {
+		if !isDomainInSlice(domain, deity.Domains) && !isDomainInSlice(domain, allDomains) {
 			deity.Domains = append(deity.Domains, domain)
 			allDomains = append(allDomains, domain)
 		}
 	}
 
-	appearances := getAllAppearances()
+	appearances := getGeneralAppearances()
+	appearances = append(appearances, getAllAppearancesForDomains(deity.Domains)...)
 
 	deity.Appearance = random.String(appearances)
 	deity.Gender = getRandomGender()

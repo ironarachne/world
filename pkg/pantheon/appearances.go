@@ -1,6 +1,6 @@
 package pantheon
 
-func getAllAppearances() []string {
+func getGeneralAppearances() []string {
 	appearances := []string{
 		"anguished",
 		"attractive",

@@ -42,6 +42,7 @@ func getAllTraits() []string {
 
 func (deity Deity) getRandomTraits() []string {
 	possibleTraits := getAllTraits()
+	possibleTraits = append(possibleTraits, getAllPersonalitiesForDomains(deity.Domains)...)
 	traits := []string{}
 
 	for i := 0; i < 2; i++ {
