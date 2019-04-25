@@ -15,7 +15,9 @@ import (
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/organization"
+	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/town"
@@ -131,6 +133,28 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(o)
 }
 
+func getLanguage(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o language.Language
+
+	random.SeedFromString(id)
+
+	o = language.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
+	var o language.Language
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = language.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
 func getOrganization(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
@@ -149,6 +173,32 @@ func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = organization.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getPantheon(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o pantheon.Pantheon
+	var l language.Language
+
+	random.SeedFromString(id)
+
+	l = language.Generate()
+	o = pantheon.Generate(15, l)
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
+	var o pantheon.Pantheon
+	var l language.Language
+
+	rand.Seed(time.Now().UnixNano())
+
+	l = language.Generate()
+	o = pantheon.Generate(15, l)
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -230,8 +280,14 @@ func main() {
 	r.Get("/heraldry", getHeraldryRandom)
 	r.Get("/heraldry/{id}", getHeraldry)
 
+	r.Get("/language", getLanguageRandom)
+	r.Get("/language/{id}", getLanguage)
+
 	r.Get("/organization", getOrganizationRandom)
 	r.Get("/organization/{id}", getOrganization)
+
+	r.Get("/pantheon", getPantheonRandom)
+	r.Get("/pantheon/{id}", getPantheon)
 
 	r.Get("/region", getRegionRandom)
 	r.Get("/region/{id}", getRegion)

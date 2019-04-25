@@ -28,9 +28,17 @@ The API supports the following routes:
 
 **Heraldry, specific seed**: `/heraldry/123`
 
+**Language, random**: `/language/`
+
+**Language, specific seed**: `/language/123`
+
 **Organization, random**: `/organization/`
 
 **Organization, specific seed**: `/organization/123`
+
+**Pantheon, random**: `/pantheon/`
+
+**Pantheon, specific seed**: `/pantheon/123`
 
 **Region, random**: `/region/`
 
