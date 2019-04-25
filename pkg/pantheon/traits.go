@@ -41,7 +41,18 @@ func getAllTraits() []string {
 }
 
 func (deity Deity) getRandomTraits() []string {
-	possibleTraits := getAllTraits()
+	var possibleTraits []string
+	var trait string
+
+	allTraits := getAllTraits()
+
+	for i := 0; i < 4; i++ {
+		trait = random.String(allTraits)
+		if !slices.StringIn(trait, possibleTraits) {
+			possibleTraits = append(possibleTraits, trait)
+		}
+	}
+
 	possibleTraits = append(possibleTraits, getAllPersonalitiesForDomains(deity.Domains)...)
 	traits := []string{}
 
