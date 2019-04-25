@@ -189,234 +189,512 @@ func getAllDomains() []Domain {
 			},
 		},
 		Domain{
-			Name:              "evil",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "evil",
+			AppearanceTraits: []string{
+				"black-eyed",
+				"horned",
+				"spider-bodied",
+			},
+			PersonalityTraits: []string{
+				"brutal",
+				"cruel",
+				"vicious",
+			},
 		},
 		Domain{
-			Name:              "fear",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "fear",
+			AppearanceTraits: []string{
+				"shadowy",
+				"nebulous",
+				"unnaturally thin",
+			},
+			PersonalityTraits: []string{
+				"cruel",
+			},
 		},
 		Domain{
-			Name:              "fertility",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "fertility",
+			AppearanceTraits: []string{
+				"entrancing",
+				"hauntingly beautiful",
+			},
+			PersonalityTraits: []string{
+				"playful",
+				"seductive",
+			},
 		},
 		Domain{
-			Name:              "fire",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "fire",
+			AppearanceTraits: []string{
+				"black skin shot through with firey lines",
+				"ember-eyed",
+				"fire-for-hair",
+			},
+			PersonalityTraits: []string{
+				"easily upsettable",
+				"firey",
+				"passionate",
+				"quick to anger",
+			},
 		},
 		Domain{
-			Name:              "foxes",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "foxes",
+			AppearanceTraits: []string{
+				"fox-eared",
+				"fox-headed",
+				"fox-bodied",
+			},
+			PersonalityTraits: []string{
+				"playful",
+				"tricksy",
+			},
 		},
 		Domain{
-			Name:              "good",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "good",
+			AppearanceTraits: []string{
+				"taciturn",
+			},
+			PersonalityTraits: []string{
+				"jovial",
+				"tolerant",
+			},
 		},
 		Domain{
-			Name:              "harvests",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "harvests",
+			AppearanceTraits: []string{
+				"stocky",
+			},
+			PersonalityTraits: []string{
+				"festive",
+				"hard-working",
+			},
 		},
 		Domain{
-			Name:              "healing",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "healing",
+			AppearanceTraits: []string{
+				"green-haloed",
+			},
+			PersonalityTraits: []string{
+				"caring",
+				"compassionate",
+				"patient",
+			},
 		},
 		Domain{
-			Name:              "hope",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "hope",
+			AppearanceTraits: []string{
+				"haloed",
+			},
+			PersonalityTraits: []string{
+				"patient",
+			},
 		},
 		Domain{
-			Name:              "horses",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "horses",
+			AppearanceTraits: []string{
+				"horse-bodied",
+				"horse-headed",
+			},
+			PersonalityTraits: []string{
+				"ebullient",
+			},
 		},
 		Domain{
-			Name:              "hunting",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "hunting",
+			AppearanceTraits: []string{
+				"narrow-featured",
+				"tightly muscled",
+			},
+			PersonalityTraits: []string{
+				"patient",
+				"subtle",
+			},
 		},
 		Domain{
-			Name:              "justice",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "justice",
+			AppearanceTraits: []string{
+				"blindfolded",
+			},
+			PersonalityTraits: []string{
+				"callous",
+				"even-tempered",
+				"fair",
+			},
 		},
 		Domain{
-			Name:              "knowledge",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "knowledge",
+			AppearanceTraits: []string{
+				"old and wrinkled",
+				"bespectacled",
+			},
+			PersonalityTraits: []string{
+				"absent-minded",
+				"studious",
+			},
 		},
 		Domain{
-			Name:              "language",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name:             "language",
+			AppearanceTraits: []string{},
+			PersonalityTraits: []string{
+				"social",
+			},
 		},
 		Domain{
-			Name:              "law",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name:             "law",
+			AppearanceTraits: []string{},
+			PersonalityTraits: []string{
+				"fair",
+				"stern",
+			},
 		},
 		Domain{
-			Name:              "life",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "life",
+			AppearanceTraits: []string{
+				"haloed",
+				"surrounded by living things",
+			},
+			PersonalityTraits: []string{
+				"full of life",
+				"joyful",
+			},
 		},
 		Domain{
-			Name:              "light",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "light",
+			AppearanceTraits: []string{
+				"glowing",
+				"white-haired",
+			},
+			PersonalityTraits: []string{
+				"serious",
+			},
 		},
 		Domain{
-			Name:              "lightning",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "lightning",
+			AppearanceTraits: []string{
+				"lightning-eyed",
+				"surrounded by crackling sparks",
+			},
+			PersonalityTraits: []string{
+				"emotional",
+				"unpredictable",
+				"violent",
+			},
 		},
 		Domain{
-			Name:              "love",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "love",
+			AppearanceTraits: []string{
+				"beautiful",
+				"gorgeous",
+				"pretty",
+				"unabashedly naked",
+			},
+			PersonalityTraits: []string{
+				"joyful",
+				"lustful",
+				"passionate",
+			},
 		},
 		Domain{
-			Name:              "luck",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "luck",
+			AppearanceTraits: []string{
+				"always playing with cards",
+				"perpetually grinning",
+			},
+			PersonalityTraits: []string{
+				"adventurous",
+			},
 		},
 		Domain{
-			Name:              "mercy",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "mercy",
+			AppearanceTraits: []string{
+				"plain",
+			},
+			PersonalityTraits: []string{
+				"compassionate",
+				"fair",
+			},
 		},
 		Domain{
-			Name:              "music",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "music",
+			AppearanceTraits: []string{
+				"entracing",
+				"harpstrings for hair",
+			},
+			PersonalityTraits: []string{
+				"passionate",
+				"reflective",
+			},
 		},
 		Domain{
-			Name:              "nature",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "nature",
+			AppearanceTraits: []string{
+				"barefoot",
+				"leaf-haired",
+				"bark-skinned",
+			},
+			PersonalityTraits: []string{
+				"down-to-earth",
+				"moody",
+				"practical",
+			},
 		},
 		Domain{
-			Name:              "nature",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "nobility",
+			AppearanceTraits: []string{
+				"wears a crown",
+			},
+			PersonalityTraits: []string{
+				"arrogant",
+			},
 		},
 		Domain{
-			Name:              "nobility",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "oceans",
+			AppearanceTraits: []string{
+				"fishtailed",
+				"seaweed for hair",
+				"eyes like the ocean",
+			},
+			PersonalityTraits: []string{
+				"commanding",
+				"mercurial",
+				"passionate",
+			},
 		},
 		Domain{
-			Name:              "oceans",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "persistence",
+			AppearanceTraits: []string{
+				"heavily scarred",
+				"perpetually wounded",
+			},
+			PersonalityTraits: []string{
+				"enduring",
+				"persistent",
+			},
 		},
 		Domain{
-			Name:              "persistence",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "plants",
+			AppearanceTraits: []string{
+				"leaves for hair",
+				"pale green skin",
+				"vines for hair",
+			},
+			PersonalityTraits: []string{
+				"patient",
+			},
 		},
 		Domain{
-			Name:              "plants",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "protection",
+			AppearanceTraits: []string{
+				"armored",
+				"enormous",
+			},
+			PersonalityTraits: []string{
+				"enduring",
+				"protective",
+				"strong-willed",
+			},
 		},
 		Domain{
-			Name:              "protection",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "revenge",
+			AppearanceTraits: []string{
+				"bald",
+				"reed-thin",
+			},
+			PersonalityTraits: []string{
+				"brooding",
+				"perpetually angry",
+				"perpetually vexed",
+				"vengeful",
+			},
 		},
 		Domain{
-			Name:              "revenge",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "sky",
+			AppearanceTraits: []string{
+				"sits on a cloud",
+			},
+			PersonalityTraits: []string{
+				"wistful",
+			},
 		},
 		Domain{
-			Name:              "sky",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "spring",
+			AppearanceTraits: []string{
+				"damp",
+				"clothed in flowers",
+				"wears a crown of flowers",
+			},
+			PersonalityTraits: []string{
+				"energetic",
+				"frisky",
+			},
 		},
 		Domain{
-			Name:              "spring",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "strength",
+			AppearanceTraits: []string{
+				"heavily-muscled",
+				"powerfully built",
+			},
+			PersonalityTraits: []string{
+				"blunt",
+				"boisterous",
+				"courageous",
+			},
 		},
 		Domain{
-			Name:              "strength",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "summer",
+			AppearanceTraits: []string{
+				"orange-haired",
+				"red-haired",
+				"perpetually sunburnt",
+			},
+			PersonalityTraits: []string{
+				"warm",
+			},
 		},
 		Domain{
-			Name:              "summer",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "thieves",
+			AppearanceTraits: []string{
+				"clad in dark leather",
+				"cloaked",
+				"thin",
+			},
+			PersonalityTraits: []string{
+				"avaricious",
+			},
 		},
 		Domain{
-			Name:              "thieves",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "the moon",
+			AppearanceTraits: []string{
+				"cloaked in silver",
+				"naked",
+				"pale",
+			},
+			PersonalityTraits: []string{
+				"sad",
+				"thoughtful",
+			},
 		},
 		Domain{
-			Name:              "the moon",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "the sun",
+			AppearanceTraits: []string{
+				"glowing",
+				"ringed in a firey halo",
+			},
+			PersonalityTraits: []string{
+				"courageous",
+				"warm",
+			},
 		},
 		Domain{
-			Name:              "the sun",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "thunder",
+			AppearanceTraits: []string{
+				"barrel-chested",
+			},
+			PersonalityTraits: []string{
+				"booming",
+				"loud",
+			},
 		},
 		Domain{
-			Name:              "thunder",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "time",
+			AppearanceTraits: []string{
+				"ancient-looking",
+				"wizened",
+				"youthful",
+			},
+			PersonalityTraits: []string{
+				"aloof",
+				"unknowable",
+				"wise",
+			},
 		},
 		Domain{
-			Name:              "time",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "trade",
+			AppearanceTraits: []string{
+				"fat",
+				"rotund",
+				"round",
+				"well-fed",
+			},
+			PersonalityTraits: []string{
+				"calculating",
+				"greedy",
+				"measured",
+			},
 		},
 		Domain{
-			Name:              "trade",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "travel",
+			AppearanceTraits: []string{
+				"dusty",
+			},
+			PersonalityTraits: []string{
+				"wandering",
+			},
 		},
 		Domain{
-			Name:              "travel",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "trickery",
+			AppearanceTraits: []string{
+				"cloaked in night",
+				"shadowy",
+			},
+			PersonalityTraits: []string{
+				"cunning",
+				"mischievious",
+				"puzzling",
+				"tricky",
+			},
 		},
 		Domain{
-			Name:              "trickery",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "war",
+			AppearanceTraits: []string{
+				"bloody",
+				"crowned with knives",
+				"spined",
+			},
+			PersonalityTraits: []string{
+				"aggressive",
+				"bellicose",
+				"belligerent",
+			},
 		},
 		Domain{
-			Name:              "war",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "water",
+			AppearanceTraits: []string{
+				"blue-skinned",
+				"hairless",
+				"half fish",
+			},
+			PersonalityTraits: []string{
+				"mercurial",
+				"moody",
+			},
 		},
 		Domain{
-			Name:              "water",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "winter",
+			AppearanceTraits: []string{
+				"completely white",
+				"covered in frost",
+				"pale blue skin",
+				"white eyes",
+			},
+			PersonalityTraits: []string{
+				"cold",
+				"relentless",
+				"unforgiving",
+			},
 		},
 		Domain{
-			Name:              "winter",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
-		},
-		Domain{
-			Name:              "wisdom",
-			AppearanceTraits:  []string{},
-			PersonalityTraits: []string{},
+			Name: "wisdom",
+			AppearanceTraits: []string{
+				"frail",
+				"leans on a staff",
+				"old and wizened",
+			},
+			PersonalityTraits: []string{
+				"careful",
+				"knowing",
+				"wise",
+			},
 		},
 	}
 

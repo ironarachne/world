@@ -1,5 +1,10 @@
 package pantheon
 
+import (
+	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
+)
+
 func getGeneralAppearances() []string {
 	appearances := []string{
 		"anguished",
@@ -34,6 +39,22 @@ func getGeneralAppearances() []string {
 		"thin",
 		"tidy",
 		"weak",
+	}
+
+	return appearances
+}
+
+func getRandomGeneralAppearances(max int) []string {
+	var appearances []string
+	var appearance string
+
+	possibleAppearances := getGeneralAppearances()
+
+	for i := 0; i < max; i++ {
+		appearance = random.String(possibleAppearances)
+		if !slices.StringIn(appearance, appearances) {
+			appearances = append(appearances, appearance)
+		}
 	}
 
 	return appearances

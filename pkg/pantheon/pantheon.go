@@ -56,7 +56,7 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 		}
 	}
 
-	appearances := getGeneralAppearances()
+	appearances := getRandomGeneralAppearances(3)
 	appearances = append(appearances, getAllAppearancesForDomains(deity.Domains)...)
 
 	deity.Appearance = random.String(appearances)
