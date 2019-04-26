@@ -17,7 +17,7 @@ type NameData struct {
 // Organization is an organization
 type Organization struct {
 	Name         string
-	Type         OrganizationType
+	Type         Type
 	LeaderType   string
 	SizeClass    SizeClass
 	Size         int

@@ -2,8 +2,8 @@ package organization
 
 import "math/rand"
 
-// OrganizationType is a type of organization
-type OrganizationType struct {
+// Type is a type of organization
+type Type struct {
 	Name            string
 	PossibleTraits  []string
 	CanBeLedByGroup bool
@@ -13,9 +13,9 @@ type OrganizationType struct {
 	NameTemplate    string
 }
 
-func getAllTypes() []OrganizationType {
-	types := []OrganizationType{
-		OrganizationType{
+func getAllTypes() []Type {
+	types := []Type{
+		Type{
 			Name: "an adventuring company",
 			PossibleTraits: []string{
 				"aggressive",
@@ -56,7 +56,7 @@ func getAllTypes() []OrganizationType {
 			},
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
 		},
-		OrganizationType{
+		Type{
 			Name: "a church",
 			PossibleTraits: []string{
 				"penitent",
@@ -96,7 +96,7 @@ func getAllTypes() []OrganizationType {
 			},
 			NameTemplate: "{{.FirstPart}} Church of the {{.SecondPart}}",
 		},
-		OrganizationType{
+		Type{
 			Name: "a guild",
 			PossibleTraits: []string{
 				"ambitious",
@@ -140,7 +140,7 @@ func getAllTypes() []OrganizationType {
 			},
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
 		},
-		OrganizationType{
+		Type{
 			Name: "a mercenary company",
 			PossibleTraits: []string{
 				"aggressive",
@@ -183,7 +183,7 @@ func getAllTypes() []OrganizationType {
 	return types
 }
 
-func getRandomType() OrganizationType {
+func getRandomType() Type {
 	orgTypes := getAllTypes()
 
 	return orgTypes[rand.Intn(len(orgTypes)-1)]
