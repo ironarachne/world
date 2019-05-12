@@ -114,6 +114,8 @@ func GetPossibleProducers(resources []climate.Resource, communitySize int) []Pro
 	availableTypes := []string{}
 	producers := []Producer{}
 
+	patterns := []Pattern{}
+
 	need1Met := false
 	need2Met := false
 	need3Met := false
@@ -126,14 +128,19 @@ func GetPossibleProducers(resources []climate.Resource, communitySize int) []Pro
 
 	for _, p := range possibleProducers {
 		if p.MinCommunitySize <= communitySize {
+			patterns = []Pattern{}
 			for _, i := range p.Patterns {
 				need1Met = slices.StringIn(i.Need1, availableTypes)
 				need2Met = i.Need2 == "" || i.Need2 != "" && slices.StringIn(i.Need2, availableTypes)
 				need3Met = i.Need3 == "" || i.Need3 != "" && slices.StringIn(i.Need3, availableTypes)
 
 				if need1Met && need2Met && need3Met {
-					producers = append(producers, p)
+					patterns = append(patterns, i)
 				}
+			}
+			p.Patterns = patterns
+			if len(patterns) > 0 {
+				producers = append(producers, p)
 			}
 		}
 	}

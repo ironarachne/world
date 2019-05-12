@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"html/template"
 	"math/rand"
+	"strings"
 
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
@@ -138,11 +139,19 @@ func (pattern Pattern) getName() string {
 
 func randomMaterialFromType(goodType string, resources []climate.Resource) string {
 	var possibles []string
+	allTypes := ""
 
 	for _, r := range resources {
 		if r.Type == goodType {
 			possibles = append(possibles, r.Name)
 		}
+		if !strings.Contains(allTypes, r.Type) {
+			allTypes += r.Type + " "
+		}
+	}
+
+	if len(possibles) == 0 {
+		panic("Couldn't find any possible materials for a " + goodType + " in (" + allTypes + ")")
 	}
 
 	return random.String(possibles)

@@ -9,6 +9,9 @@ import (
 
 // String returns a random string from an array of strings
 func String(items []string) string {
+	if len(items) == 0 {
+		panic("Tried to get a random value from an empty slice of strings")
+	}
 	return items[rand.Intn(len(items))]
 }
 
