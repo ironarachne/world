@@ -1,16 +1,25 @@
 package organization
 
-import "math/rand"
+import (
+	"math/rand"
+
+	"github.com/ironarachne/world/pkg/random"
+)
 
 // Type is a type of organization
 type Type struct {
-	Name            string
-	PossibleTraits  []string
-	CanBeLedByGroup bool
-	LeaderTitle     string
-	NameFirstParts  []string
-	NameSecondParts []string
-	NameTemplate    string
+	Name              string
+	PossibleTraits    []string
+	CanBeLedByGroup   bool
+	LeaderMaxAge      int
+	LeaderMinAge      int
+	LeaderTitle       string
+	MemberMaxAge      int
+	MemberMinAge      int
+	MemberProfessions []string
+	NameFirstParts    []string
+	NameSecondParts   []string
+	NameTemplate      string
 }
 
 func getAllTypes() []Type {
@@ -30,7 +39,14 @@ func getAllTypes() []Type {
 				"selfless",
 			},
 			CanBeLedByGroup: false,
+			LeaderMaxAge:    50,
+			LeaderMinAge:    25,
 			LeaderTitle:     "captain",
+			MemberMaxAge:    50,
+			MemberMinAge:    15,
+			MemberProfessions: []string{
+				"adventurer",
+			},
 			NameFirstParts: []string{
 				"Black",
 				"Burning",
@@ -69,7 +85,14 @@ func getAllTypes() []Type {
 				"proselytizing",
 			},
 			CanBeLedByGroup: true,
+			LeaderMaxAge:    80,
+			LeaderMinAge:    35,
 			LeaderTitle:     "high priest",
+			MemberMaxAge:    90,
+			MemberMinAge:    15,
+			MemberProfessions: []string{
+				"priest",
+			},
 			NameFirstParts: []string{
 				"Holy",
 				"Glorious",
@@ -110,7 +133,16 @@ func getAllTypes() []Type {
 				"productive",
 			},
 			CanBeLedByGroup: true,
+			LeaderMaxAge:    70,
+			LeaderMinAge:    30,
 			LeaderTitle:     "guild leader",
+			MemberMaxAge:    90,
+			MemberMinAge:    20,
+			MemberProfessions: []string{
+				"artisan",
+				"financier",
+				"merchant",
+			},
 			NameFirstParts: []string{
 				"August",
 				"East Wind",
@@ -152,7 +184,14 @@ func getAllTypes() []Type {
 				"trustworthy",
 			},
 			CanBeLedByGroup: true,
+			LeaderMaxAge:    50,
+			LeaderMinAge:    25,
 			LeaderTitle:     "captain",
+			MemberMaxAge:    50,
+			MemberMinAge:    15,
+			MemberProfessions: []string{
+				"soldier",
+			},
 			NameFirstParts: []string{
 				"Black",
 				"Burning",
@@ -181,6 +220,21 @@ func getAllTypes() []Type {
 	}
 
 	return types
+}
+
+// GetRandomMemberProfession returns a random profession as a string
+func (t Type) GetRandomMemberProfession() string {
+	return random.String(t.MemberProfessions)
+}
+
+// GetRandomLeaderAge returns an appropriate age for a leader of this group
+func (t Type) GetRandomLeaderAge() int {
+	return rand.Intn(t.LeaderMaxAge-t.LeaderMinAge) + t.LeaderMinAge
+}
+
+// GetRandomMemberAge returns an appropriate age for a member of this group
+func (t Type) GetRandomMemberAge() int {
+	return rand.Intn(t.MemberMaxAge-t.MemberMinAge) + t.MemberMinAge
 }
 
 func getRandomType() Type {

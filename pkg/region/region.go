@@ -67,13 +67,7 @@ func Generate(regionType string) Region {
 		region.Towns = append(region.Towns, newTown)
 	}
 
-	numberOfOrgs := rand.Intn(3) + 1
-	newOrg := organization.Organization{}
-
-	for i := 0; i < numberOfOrgs; i++ {
-		newOrg = organization.Generate()
-		region.Organizations = append(region.Organizations, newOrg)
-	}
+	region.Organizations = region.getOrganizations()
 
 	region.Ruler = region.generateRuler()
 
@@ -81,4 +75,19 @@ func Generate(regionType string) Region {
 	region.Name = strings.Title(regionName)
 
 	return region
+}
+
+func (region Region) getOrganizations() []organization.Organization {
+	var org organization.Organization
+	organizations := []organization.Organization{}
+
+	numberOfOrgs := rand.Intn(3) + 1
+
+	for i := 0; i < numberOfOrgs; i++ {
+		org = organization.Generate()
+		org = org.SetCulture(region.Culture)
+		organizations = append(region.Organizations, org)
+	}
+
+	return organizations
 }
