@@ -122,6 +122,8 @@ func (character Character) ChangeAge(newAge int) Character {
 	c := getAgeCategoryFromAge(newAge)
 	character.Age = newAge
 	character.AgeCategory = c
+	character.Height = character.randomHeight()
+	character.Weight = character.randomWeight()
 
 	return character
 }

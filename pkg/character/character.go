@@ -33,6 +33,7 @@ type Character struct {
 	FaceShape      string
 	MouthShape     string
 	NoseShape      string
+	SkinColor      string
 	Culture        culture.Culture
 }
 
@@ -144,6 +145,7 @@ func Generate() Character {
 	char.FaceShape = char.Culture.Appearance.FaceShape
 	char.MouthShape = char.Culture.Appearance.MouthShape
 	char.NoseShape = char.Culture.Appearance.NoseShape
+	char.SkinColor = random.String(char.Culture.Appearance.SkinColors)
 
 	char.Orientation = randomOrientation()
 	char.Profession = getRandomProfession()
