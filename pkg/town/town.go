@@ -118,7 +118,7 @@ func SetCulture(culture culture.Culture, town Town) Town {
 
 	newTown.Culture = culture
 	newTown.Name = newTown.Culture.Language.RandomName()
-	newTown.Mayor.FirstName = newTown.Culture.Language.RandomGenderedName(town.Mayor.Gender)
+	newTown.Mayor.FirstName = newTown.Culture.Language.RandomGenderedName(town.Mayor.Gender.Name)
 	newTown.Mayor.LastName = newTown.Culture.Language.RandomName()
 
 	return newTown

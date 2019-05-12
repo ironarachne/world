@@ -15,7 +15,7 @@ type Character struct {
 	LastName       string
 	Title          string
 	Heraldry       heraldry.Heraldry
-	Gender         string
+	Gender         Gender
 	Age            int
 	AgeCategory    AgeCategory
 	Orientation    string
@@ -50,14 +50,6 @@ type Family struct {
 	Children   []Character
 }
 
-func getOppositeGender(gender string) string {
-	if gender == "male" {
-		return "female"
-	}
-
-	return "male"
-}
-
 func getAppropriateName(gender string, culture culture.Culture) (string, string) {
 	firstName := culture.Language.RandomGenderedName(gender)
 	lastName := culture.Language.RandomName()
@@ -79,7 +71,7 @@ func (character Character) randomHeight() int {
 	minHeight := character.Culture.Appearance.MinFemaleHeight
 	maxHeight := character.Culture.Appearance.MaxFemaleHeight
 
-	if character.Gender == "male" {
+	if character.Gender.Name == "male" {
 		minHeight = character.Culture.Appearance.MinMaleHeight
 		maxHeight = character.Culture.Appearance.MaxMaleHeight
 	}
@@ -99,7 +91,7 @@ func (character Character) randomWeight() int {
 	minWeight := character.Culture.Appearance.MinFemaleWeight
 	maxWeight := character.Culture.Appearance.MaxFemaleWeight
 
-	if character.Gender == "male" {
+	if character.Gender.Name == "male" {
 		minWeight = character.Culture.Appearance.MinMaleWeight
 		maxWeight = character.Culture.Appearance.MaxMaleWeight
 	}
@@ -116,7 +108,7 @@ func (character Character) randomWeight() int {
 }
 
 func (character Character) randomFacialHair() string {
-	if character.Gender == "female" {
+	if character.Gender.Name == "female" {
 		return "none"
 	}
 
@@ -135,13 +127,13 @@ func Generate() Character {
 	char.Gender = getRandomGender()
 	char.Culture = culture.Generate()
 
-	char.FirstName, char.LastName = getAppropriateName(char.Gender, char.Culture)
+	char.FirstName, char.LastName = getAppropriateName(char.Gender.Name, char.Culture)
 
 	char.AgeCategory = getWeightedAgeCategory()
 	char.Age = getRandomAge(char.AgeCategory)
 
 	char.HairColor = random.String(char.Culture.Appearance.HairColors)
-	if char.Gender == "male" {
+	if char.Gender.Name == "male" {
 		char.HairStyle = random.String(char.Culture.Appearance.MaleHairStyles)
 	} else {
 		char.HairStyle = random.String(char.Culture.Appearance.FemaleHairStyles)
@@ -200,10 +192,10 @@ func GenerateCouple() Couple {
 
 	if char1.Gender == char2.Gender && slices.StringIn("straight", orientations) {
 		char2.Gender = getOppositeGender(char1.Gender)
-		char2.FirstName, _ = getAppropriateName(char2.Gender, char2.Culture)
+		char2.FirstName, _ = getAppropriateName(char2.Gender.Name, char2.Culture)
 	} else if char1.Gender != char2.Gender && slices.StringIn("gay", orientations) {
 		char2.Gender = char1.Gender
-		char2.FirstName, _ = getAppropriateName(char2.Gender, char2.Culture)
+		char2.FirstName, _ = getAppropriateName(char2.Gender.Name, char2.Culture)
 	}
 
 	if char1.Gender != char2.Gender {
@@ -283,15 +275,6 @@ func GenerateFamily() Family {
 	return Family{familyName, parents, children}
 }
 
-func getRandomGender() string {
-	genders := []string{
-		"female",
-		"male",
-	}
-
-	return random.String(genders)
-}
-
 // MarryCouple returns a couple from two characters
 func MarryCouple(partner1 Character, partner2 Character) Couple {
 	canHaveChildren := false
@@ -308,7 +291,7 @@ func (character Character) SetCulture(culture culture.Culture) Character {
 	newCharacter := character
 
 	newCharacter.Culture = culture
-	newCharacter.FirstName, newCharacter.LastName = getAppropriateName(newCharacter.Gender, newCharacter.Culture)
+	newCharacter.FirstName, newCharacter.LastName = getAppropriateName(newCharacter.Gender.Name, newCharacter.Culture)
 
 	return newCharacter
 }

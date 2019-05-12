@@ -20,7 +20,7 @@ func (country Country) getNewMonarchy() Government {
 	monarch := character.GenerateCharacterOfCulture(country.DominantCulture)
 	monarch.ChangeAge(rand.Intn(30) + 20)
 
-	if monarch.Gender == "male" {
+	if monarch.Gender.Name == "male" {
 		monarch.Title = "King"
 		monarch.Profession = "monarch"
 	} else {

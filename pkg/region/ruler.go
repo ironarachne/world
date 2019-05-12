@@ -13,7 +13,7 @@ func (region Region) generateRuler() character.Character {
 	ruler = ruler.ChangeAge(rand.Intn(40) + 25)
 
 	ruler.Title = region.Class.RulerTitleFemale
-	if ruler.Gender == "male" {
+	if ruler.Gender.Name == "male" {
 		ruler.Title = region.Class.RulerTitleMale
 	}
 
