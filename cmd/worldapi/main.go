@@ -14,6 +14,7 @@ import (
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/organization"
@@ -107,6 +108,28 @@ func getCultureRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = culture.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getHeavens(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o heavens.Heavens
+
+	random.SeedFromString(id)
+
+	o = heavens.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getHeavensRandom(w http.ResponseWriter, r *http.Request) {
+	var o heavens.Heavens
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = heavens.Generate()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -276,6 +299,9 @@ func main() {
 
 	r.Get("/culture", getCultureRandom)
 	r.Get("/culture/{id}", getCulture)
+
+	r.Get("/heavens", getHeavensRandom)
+	r.Get("/heavens/{id}", getHeavens)
 
 	r.Get("/heraldry", getHeraldryRandom)
 	r.Get("/heraldry/{id}", getHeraldry)
