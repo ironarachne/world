@@ -32,6 +32,9 @@ func Generate(height int, width int) WorldMap {
 	tiles := worldMap.initializeTiles()
 	worldMap.Tiles = tiles
 	worldMap.Tiles = worldMap.generateLand()
+	for i := 0; i < 2; i++ {
+		worldMap.Tiles = worldMap.improveLand()
+	}
 
 	return worldMap
 }
@@ -64,13 +67,48 @@ func (worldMap WorldMap) initializeTiles() [][]Tile {
 	return tiles
 }
 
+func (worldMap WorldMap) improveLand() [][]Tile {
+	var adjacentTiles []Tile
+	var countOcean int
+	var isLandChance int
+	var row []Tile
+	var tile Tile
+	var tiles [][]Tile
+
+	for _, r := range worldMap.Tiles {
+		row = []Tile{}
+		for _, t := range r {
+			tile = t
+			adjacentTiles = worldMap.getAdjacentTiles(tile)
+			countOcean = 0
+			for _, a := range adjacentTiles {
+				if a.IsOcean {
+					countOcean++
+				}
+			}
+			isLandChance = 10 - countOcean
+			if isLandChance > 6 {
+				tile.IsOcean = false
+			} else {
+				tile.IsOcean = true
+			}
+			row = append(row, tile)
+		}
+		tiles = append(tiles, row)
+	}
+
+	return tiles
+}
+
 func (worldMap WorldMap) generateLand() [][]Tile {
 	var tile Tile
 	var tiles [][]Tile
 	var row []Tile
 	var isLandChance int
 
-	for _, r := range worldMap.Tiles {
+	sourceTiles := worldMap.Tiles
+
+	for _, r := range sourceTiles {
 		row = []Tile{}
 		for _, t := range r {
 			tile = t
@@ -90,16 +128,16 @@ func (worldMap WorldMap) getAdjacentTiles(tile Tile) []Tile {
 	var adjacentTiles []Tile
 
 	if tile.Coordinate.X > 0 {
-		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.X-1][tile.Coordinate.Y])
+		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.Y][tile.Coordinate.X-1])
 	}
-	if tile.Coordinate.X < worldMap.Width {
-		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.X+1][tile.Coordinate.Y])
+	if tile.Coordinate.X < worldMap.Width-1 {
+		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.Y][tile.Coordinate.X+1])
 	}
 	if tile.Coordinate.Y > 0 {
-		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.X][tile.Coordinate.Y-1])
+		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.Y-1][tile.Coordinate.X])
 	}
-	if tile.Coordinate.Y < worldMap.Height {
-		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.X][tile.Coordinate.Y+1])
+	if tile.Coordinate.Y < worldMap.Height-1 {
+		adjacentTiles = append(adjacentTiles, worldMap.Tiles[tile.Coordinate.Y+1][tile.Coordinate.X])
 	}
 
 	return adjacentTiles
