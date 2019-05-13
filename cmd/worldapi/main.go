@@ -22,6 +22,7 @@ import (
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/town"
+	"github.com/ironarachne/world/pkg/worldmap"
 )
 
 func getCharacter(w http.ResponseWriter, r *http.Request) {
@@ -276,6 +277,42 @@ func getTownRandom(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(o)
 }
 
+func getWorldMap(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var m worldmap.WorldMap
+
+	random.SeedFromString(id)
+
+	m = worldmap.Generate(60, 80)
+
+	json.NewEncoder(w).Encode(m)
+}
+
+func getWorldMapImage(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var m worldmap.WorldMap
+
+	random.SeedFromString(id)
+
+	m = worldmap.Generate(60, 80)
+	o := m.RenderAsText()
+
+	w.Header().Set("Content-Type", "text/plain")
+	w.Write([]byte(o))
+}
+
+func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
+	var m worldmap.WorldMap
+
+	rand.Seed(time.Now().UnixNano())
+
+	m = worldmap.Generate(60, 80)
+
+	json.NewEncoder(w).Encode(m)
+}
+
 func main() {
 	r := chi.NewRouter()
 
@@ -320,6 +357,10 @@ func main() {
 
 	r.Get("/town", getTownRandom)
 	r.Get("/town/{id}", getTown)
+
+	r.Get("/worldmap", getWorldMapRandom)
+	r.Get("/worldmap/{id}", getWorldMap)
+	r.Get("/worldmap/{id}/image", getWorldMapImage)
 
 	r.Get("/", getRoot)
 
