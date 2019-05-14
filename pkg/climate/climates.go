@@ -1,6 +1,7 @@
 package climate
 
 import (
+	"math"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -287,6 +288,26 @@ func (climate Climate) populate() Climate {
 	climate.Habitability = climate.calculateHabitability()
 
 	return climate
+}
+
+// GetClimateNameForConditions finds the closest matching climate for a given humidity and temperature and returns its name
+func GetClimateNameForConditions(humidity int, temperature int) string {
+	var name string
+
+	currentDistance := 100
+	distance := 0
+
+	climates := getAllClimates()
+
+	for _, c := range climates {
+		distance = int(math.Abs(float64(c.Temperature-temperature)) + math.Abs(float64(c.Humidity-humidity)))
+
+		if distance < currentDistance {
+			name = c.Name
+		}
+	}
+
+	return name
 }
 
 func getAllClimates() []Climate {

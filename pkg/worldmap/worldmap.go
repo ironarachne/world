@@ -18,6 +18,9 @@ func Generate(height int, width int) WorldMap {
 	worldMap.Tiles = tiles
 	worldMap.Tiles = worldMap.generateLandSIR()
 	worldMap.Tiles = worldMap.removeArtifactOceanTiles()
+	worldMap.Tiles = worldMap.setTileTemperatures()
+	worldMap.Tiles = worldMap.setTileHumidities()
+	worldMap.Tiles = worldMap.setTileTypes()
 
 	return worldMap
 }

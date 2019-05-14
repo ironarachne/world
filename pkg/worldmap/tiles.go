@@ -3,6 +3,7 @@ package worldmap
 import (
 	"math/rand"
 
+	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/grid"
 )
 
@@ -299,6 +300,93 @@ func (worldMap WorldMap) removeArtifactOceanTiles() [][]Tile {
 	for _, c := range coords {
 		tiles[c.Y][c.X].TileType = "land"
 		tiles[c.Y][c.X].IsOcean = false
+	}
+
+	return tiles
+}
+
+func (worldMap WorldMap) setTileTemperatures() [][]Tile {
+	arcticRange := int(float64(worldMap.Height) * 0.1)
+	equatorialRange := int(float64(worldMap.Height) * 0.3)
+
+	tiles := [][]Tile{}
+	newRow := []Tile{}
+
+	for y, row := range worldMap.Tiles {
+		newRow = []Tile{}
+		for _, tile := range row {
+			if y <= arcticRange || y >= worldMap.Height-arcticRange {
+				tile.Temperature -= rand.Intn(4)
+			}
+			if y >= equatorialRange && y <= worldMap.Height-equatorialRange {
+				tile.Temperature += rand.Intn(4)
+			}
+			newRow = append(newRow, tile)
+		}
+		tiles = append(tiles, newRow)
+	}
+
+	return tiles
+}
+
+func (worldMap WorldMap) setTileHumidities() [][]Tile {
+	newRow := []Tile{}
+	tiles := [][]Tile{}
+	adjacentTiles := []Tile{}
+	averageSurroundingHumidity := 0
+	isCoastal := false
+	totalAdjacentTiles := 0
+	totalHumidity := 0
+	upOrDown := 0
+
+	for _, row := range worldMap.Tiles {
+		newRow = []Tile{}
+		for _, tile := range row {
+			if !tile.IsOcean {
+				adjacentTiles = worldMap.getAdjacentTiles(tile)
+				totalAdjacentTiles = len(adjacentTiles)
+				totalHumidity = 0
+				isCoastal = false
+				for _, a := range adjacentTiles {
+					if a.TileType == "ocean" {
+						isCoastal = true
+					} else {
+						totalHumidity += a.Humidity
+					}
+				}
+				if isCoastal {
+					tile.Humidity += rand.Intn(6)
+				} else {
+					averageSurroundingHumidity = int(totalHumidity / totalAdjacentTiles)
+					upOrDown = rand.Intn(50)
+					if upOrDown > 25 {
+						tile.Humidity = averageSurroundingHumidity + 1
+					} else {
+						tile.Humidity = averageSurroundingHumidity - 1
+					}
+				}
+			}
+			newRow = append(newRow, tile)
+		}
+		tiles = append(tiles, newRow)
+	}
+
+	return tiles
+}
+
+func (worldMap WorldMap) setTileTypes() [][]Tile {
+	tiles := [][]Tile{}
+	newRow := []Tile{}
+
+	for _, row := range worldMap.Tiles {
+		newRow = []Tile{}
+		for _, tile := range row {
+			if !tile.IsOcean {
+				tile.TileType = climate.GetClimateNameForConditions(tile.Humidity, tile.Temperature)
+			}
+			newRow = append(newRow, tile)
+		}
+		tiles = append(tiles, newRow)
 	}
 
 	return tiles
