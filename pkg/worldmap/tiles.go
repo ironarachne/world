@@ -6,6 +6,16 @@ import (
 	"github.com/ironarachne/world/pkg/grid"
 )
 
+// Tile is a map tile
+type Tile struct {
+	Coordinate  grid.Coordinate
+	Temperature int
+	Humidity    int
+	IsInhabited bool
+	IsOcean     bool
+	TileType    string
+}
+
 type tileGenerator struct {
 	state    string
 	tileType string
@@ -30,6 +40,7 @@ func (worldMap WorldMap) initializeTiles() [][]Tile {
 				Humidity:    5,
 				IsOcean:     true,
 				IsInhabited: false,
+				TileType:    "ocean",
 			}
 			row = append(row, tile)
 		}
@@ -173,6 +184,7 @@ func (worldMap WorldMap) generateLandSIR() [][]Tile {
 		for x, model := range row {
 			if model.tileType == "land" {
 				sourceTiles[y][x].IsOcean = false
+				sourceTiles[y][x].TileType = "land"
 			}
 		}
 	}
@@ -192,6 +204,33 @@ func evaluateTile(tile tileGenerator) tileGenerator {
 	return tile
 }
 
+func (worldMap WorldMap) findArtifactTilesOfType(tileType string) []grid.Coordinate {
+	filteredCoords := []grid.Coordinate{}
+	coords := findTilesOfType(tileType, worldMap.Tiles)
+
+	for _, c := range coords {
+		if !worldMap.isTileContiguous(6, worldMap.Tiles[c.Y][c.X]) {
+			filteredCoords = append(filteredCoords, c)
+		}
+	}
+
+	return filteredCoords
+}
+
+func findTilesOfType(tileType string, tiles [][]Tile) []grid.Coordinate {
+	coords := []grid.Coordinate{}
+
+	for y, row := range tiles {
+		for x, tile := range row {
+			if tile.TileType == tileType {
+				coords = append(coords, grid.Coordinate{X: x, Y: y})
+			}
+		}
+	}
+
+	return coords
+}
+
 func (worldMap WorldMap) getAdjacentTiles(tile Tile) []Tile {
 	var adjacentTiles []Tile
 
@@ -209,4 +248,58 @@ func (worldMap WorldMap) getAdjacentTiles(tile Tile) []Tile {
 	}
 
 	return adjacentTiles
+}
+
+func (worldMap WorldMap) isTileContiguous(level int, tile Tile) bool {
+	var adjacentTiles []Tile
+	var contiguousTiles []Tile
+
+	contiguousDistance := 0
+	checkNext := true
+
+	workingTile := tile
+
+	for i := 1; i <= level; i++ {
+		adjacentTiles = worldMap.getAdjacentTiles(workingTile)
+		if checkNext {
+			checkNext = false
+			for _, a := range adjacentTiles {
+				if a.TileType == tile.TileType {
+					if !isTileInSlice(a, contiguousTiles) {
+						contiguousTiles = append(contiguousTiles, a)
+					}
+					workingTile = a
+					checkNext = true
+				}
+			}
+		}
+	}
+
+	contiguousDistance = len(contiguousTiles)
+	if contiguousDistance >= level {
+		return true
+	}
+
+	return false
+}
+
+func isTileInSlice(tile Tile, tiles []Tile) bool {
+	for _, t := range tiles {
+		if tile.Coordinate.X == t.Coordinate.X && tile.Coordinate.Y == t.Coordinate.Y {
+			return true
+		}
+	}
+	return false
+}
+
+func (worldMap WorldMap) removeArtifactOceanTiles() [][]Tile {
+	tiles := worldMap.Tiles
+	coords := worldMap.findArtifactTilesOfType("ocean")
+
+	for _, c := range coords {
+		tiles[c.Y][c.X].TileType = "land"
+		tiles[c.Y][c.X].IsOcean = false
+	}
+
+	return tiles
 }
