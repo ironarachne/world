@@ -294,16 +294,19 @@ func (climate Climate) populate() Climate {
 func GetClimateNameForConditions(humidity int, temperature int) string {
 	var name string
 
-	currentDistance := 100
-	distance := 0
+	scores := make(map[string]int)
 
+	lowestScore := 20
 	climates := getAllClimates()
 
 	for _, c := range climates {
-		distance = int(math.Abs(float64(c.Temperature-temperature)) + math.Abs(float64(c.Humidity-humidity)))
+		scores[c.Name] = int(math.Abs(float64(c.Temperature-temperature)) + math.Abs(float64(c.Humidity-humidity)))
+	}
 
-		if distance < currentDistance {
-			name = c.Name
+	for n, s := range scores {
+		if s < lowestScore {
+			name = n
+			lowestScore = s
 		}
 	}
 
