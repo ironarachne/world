@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ajstarks/svgo"
+	svg "github.com/ajstarks/svgo"
 	"github.com/divan/num2words"
 )
 
@@ -62,27 +62,6 @@ func (device Device) RenderToSVG(width int, height int) string {
 	lineColor := "#000000"
 
 	blazon := device.RenderToBlazon()
-
-	/*
-		blazonLength := len(blazon)
-		blazonSize := "10"
-
-		if blazonLength < 25 {
-			blazonSize = "28"
-		} else if blazonLength < 30 {
-			blazonSize = "26"
-		} else if blazonLength < 35 {
-			blazonSize = "20"
-		} else if blazonLength < 40 {
-			blazonSize = "18"
-		} else if blazonLength < 50 {
-			blazonSize = "14"
-		} else if blazonLength < 60 {
-			blazonSize = "12"
-		} else if blazonLength < 80 {
-			blazonSize = "11"
-		}
-	*/
 
 	canvas := svg.New(buffer)
 	canvas.Start(width, height+50)

@@ -289,7 +289,21 @@ func getWorldMap(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(m)
 }
 
-func getWorldMapImage(w http.ResponseWriter, r *http.Request) {
+func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var m worldmap.WorldMap
+
+	random.SeedFromString(id)
+
+	m = worldmap.Generate(60, 80)
+	o := m.RenderAsSVG()
+
+	w.Header().Set("Content-Type", "image/svg+xml")
+	w.Write([]byte(o))
+}
+
+func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
 	var m worldmap.WorldMap
@@ -360,7 +374,8 @@ func main() {
 
 	r.Get("/worldmap", getWorldMapRandom)
 	r.Get("/worldmap/{id}", getWorldMap)
-	r.Get("/worldmap/{id}/image", getWorldMapImage)
+	r.Get("/worldmap/{id}/image", getWorldMapSVGImage)
+	r.Get("/worldmap/{id}/textimage", getWorldMapTextImage)
 
 	r.Get("/", getRoot)
 
