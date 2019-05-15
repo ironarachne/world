@@ -8,20 +8,15 @@ import (
 
 // RenderAsSVG renders a world map to SVG
 func (worldMap WorldMap) RenderAsSVG() string {
-	tileWidth := 10
-	tileHeight := 10
-	tileColor := ""
+	tileWidth := 16
+	tileHeight := 16
+
 	buffer := new(bytes.Buffer)
 	canvas := svg.New(buffer)
 	canvas.Start(worldMap.Width*tileWidth, worldMap.Height*tileHeight)
 	for y, row := range worldMap.Tiles {
 		for x, tile := range row {
-			if tile.IsOcean {
-				tileColor = "#CCFFFF"
-			} else {
-				tileColor = "#55FF55"
-			}
-			canvas.Rect(x*tileWidth, y*tileHeight, tileWidth, tileHeight, "fill:"+tileColor)
+			tile.renderSVG(canvas, tileWidth, tileHeight, x, y)
 		}
 	}
 	canvas.End()
@@ -60,4 +55,24 @@ func (worldMap WorldMap) RenderAsText() string {
 	}
 
 	return output
+}
+
+func (tile Tile) renderSVG(canvas *svg.SVG, width int, height int, x int, y int) {
+	fillValues := map[string]string{
+		"coniferous forest": "#21840e",
+		"deciduous forest":  "#267717",
+		"desert":            "#cfd16e",
+		"grassland":         "#629b4a",
+		"marshland":         "#0c421d",
+		"tropical":          "#3fa517",
+		"mountain":          "#5a6768",
+		"ocean":             "#cde5f4",
+		"rainforest":        "#0eb514",
+		"savanna":           "#bec697",
+		"steppe":            "#96af83",
+		"taiga":             "#0f6d44",
+		"tundra":            "#a3d1bd",
+	}
+
+	canvas.Rect(x*width, y*height, width, height, "fill:"+fillValues[tile.TileType])
 }

@@ -312,13 +312,16 @@ func (worldMap WorldMap) setTileTemperatures() [][]Tile {
 	tiles := [][]Tile{}
 	newRow := []Tile{}
 
+	variance := 0
+
 	for y, row := range worldMap.Tiles {
 		newRow = []Tile{}
 		for _, tile := range row {
-			if y <= arcticRange || y >= worldMap.Height-arcticRange {
+			variance = rand.Intn(3)
+			if y <= arcticRange+variance || y >= worldMap.Height-arcticRange+variance {
 				tile.Temperature -= rand.Intn(4)
 			}
-			if y >= equatorialRange && y <= worldMap.Height-equatorialRange {
+			if y >= equatorialRange+variance && y <= worldMap.Height-equatorialRange+variance {
 				tile.Temperature += rand.Intn(4)
 			}
 			newRow = append(newRow, tile)
