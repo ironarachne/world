@@ -22,6 +22,7 @@ import (
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/town"
+	"github.com/ironarachne/world/pkg/world"
 	"github.com/ironarachne/world/pkg/worldmap"
 )
 
@@ -277,6 +278,28 @@ func getTownRandom(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(o)
 }
 
+func getWorld(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o world.World
+
+	random.SeedFromString(id)
+
+	o = world.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getWorldRandom(w http.ResponseWriter, r *http.Request) {
+	var o world.World
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = world.Generate()
+
+	json.NewEncoder(w).Encode(o)
+}
+
 func getWorldMap(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
@@ -371,6 +394,10 @@ func main() {
 
 	r.Get("/town", getTownRandom)
 	r.Get("/town/{id}", getTown)
+
+	r.Get("/world", getWorldRandom)
+	r.Get("/world/{id}", getWorld)
+	r.Get("/world/{id}/map", getWorldMapSVGImage)
 
 	r.Get("/worldmap", getWorldMapRandom)
 	r.Get("/worldmap/{id}", getWorldMap)

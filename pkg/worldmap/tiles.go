@@ -22,6 +22,35 @@ type tileGenerator struct {
 	tileType string
 }
 
+// AllCoordinates gets a slice of all coordinates in the map
+func (worldMap WorldMap) AllCoordinates() []grid.Coordinate {
+	coords := []grid.Coordinate{}
+
+	for _, row := range worldMap.Tiles {
+		for _, t := range row {
+			coords = append(coords, t.Coordinate)
+		}
+	}
+
+	return coords
+}
+
+// AllLandCoordinates gets a slice of all coordinates that are not ocean
+func (worldMap WorldMap) AllLandCoordinates() []grid.Coordinate {
+	tiles := worldMap.Tiles
+	coords := []grid.Coordinate{}
+
+	for _, row := range tiles {
+		for _, t := range row {
+			if !t.IsOcean {
+				coords = append(coords, t.Coordinate)
+			}
+		}
+	}
+
+	return coords
+}
+
 func (worldMap WorldMap) initializeTiles() [][]Tile {
 	var tiles [][]Tile
 	var c grid.Coordinate
@@ -63,7 +92,7 @@ func (worldMap WorldMap) improveLand() [][]Tile {
 		row = []Tile{}
 		for _, t := range r {
 			tile = t
-			adjacentTiles = worldMap.getAdjacentTiles(tile)
+			adjacentTiles = worldMap.GetAdjacentTiles(tile)
 			countOcean = 0
 			for _, a := range adjacentTiles {
 				if a.IsOcean {
@@ -207,7 +236,7 @@ func evaluateTile(tile tileGenerator) tileGenerator {
 
 func (worldMap WorldMap) findArtifactTilesOfType(tileType string) []grid.Coordinate {
 	filteredCoords := []grid.Coordinate{}
-	coords := findTilesOfType(tileType, worldMap.Tiles)
+	coords := FindTilesOfType(tileType, worldMap.Tiles)
 
 	for _, c := range coords {
 		if !worldMap.isTileContiguous(6, worldMap.Tiles[c.Y][c.X]) {
@@ -218,7 +247,8 @@ func (worldMap WorldMap) findArtifactTilesOfType(tileType string) []grid.Coordin
 	return filteredCoords
 }
 
-func findTilesOfType(tileType string, tiles [][]Tile) []grid.Coordinate {
+// FindTilesOfType finds tiles that match the tile type
+func FindTilesOfType(tileType string, tiles [][]Tile) []grid.Coordinate {
 	coords := []grid.Coordinate{}
 
 	for y, row := range tiles {
@@ -232,7 +262,8 @@ func findTilesOfType(tileType string, tiles [][]Tile) []grid.Coordinate {
 	return coords
 }
 
-func (worldMap WorldMap) getAdjacentTiles(tile Tile) []Tile {
+// GetAdjacentTiles returns a slice of tiles adjacent to the given tile
+func (worldMap WorldMap) GetAdjacentTiles(tile Tile) []Tile {
 	var adjacentTiles []Tile
 
 	if tile.Coordinate.X > 0 {
@@ -261,7 +292,7 @@ func (worldMap WorldMap) isTileContiguous(level int, tile Tile) bool {
 	workingTile := tile
 
 	for i := 1; i <= level; i++ {
-		adjacentTiles = worldMap.getAdjacentTiles(workingTile)
+		adjacentTiles = worldMap.GetAdjacentTiles(workingTile)
 		if checkNext {
 			checkNext = false
 			for _, a := range adjacentTiles {
@@ -346,7 +377,7 @@ func (worldMap WorldMap) setTileHumidities() [][]Tile {
 		newRow = []Tile{}
 		for _, tile := range row {
 			if !tile.IsOcean {
-				adjacentTiles = worldMap.getAdjacentTiles(tile)
+				adjacentTiles = worldMap.GetAdjacentTiles(tile)
 				totalAdjacentTiles = len(adjacentTiles)
 				totalHumidity = 0
 				isCoastal = false

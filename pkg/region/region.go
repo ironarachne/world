@@ -91,3 +91,28 @@ func (region Region) getOrganizations() []organization.Organization {
 
 	return organizations
 }
+
+// SetCulture sets the culture for a region and derived values
+func (region Region) SetCulture(culture.Culture) Region {
+	region.Culture = region.Culture.SetClimate(region.Biome)
+	newTown := town.Generate("city", region.Biome)
+	newTown = town.SetCulture(region.Culture, newTown)
+	region.Towns = append(region.Towns, newTown)
+
+	region.Capital = newTown.Name
+
+	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
+		newTown = town.Generate("random", region.Biome)
+		newTown = town.SetCulture(region.Culture, newTown)
+		region.Towns = append(region.Towns, newTown)
+	}
+
+	region.Organizations = region.getOrganizations()
+
+	region.Ruler = region.generateRuler()
+
+	regionName := region.Culture.Language.RandomName()
+	region.Name = strings.Title(regionName)
+
+	return region
+}
