@@ -2,9 +2,11 @@ package worldmap
 
 // WorldMap is a world map. It contains tiles.
 type WorldMap struct {
-	Height int
-	Width  int
-	Tiles  [][]Tile
+	Height     int
+	Width      int
+	Tiles      [][]Tile
+	Boundaries []Boundary
+	SVG        string
 }
 
 // Generate creates a world map

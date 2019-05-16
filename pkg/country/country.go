@@ -4,6 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/region"
 )
@@ -26,6 +27,7 @@ func Generate() Country {
 	country.DominantCulture = culture.Generate()
 	country.Government = country.getNewMonarchy()
 	country.Heraldry = heraldry.GenerateHeraldry()
+	country.Name = country.DominantCulture.Language.RandomName()
 
 	size := rand.Intn(10) + 4
 
@@ -53,4 +55,17 @@ func Generate() Country {
 	country.Regions = regions
 
 	return country
+}
+
+// GetAllTileCoordinates returns a slice of all coordinates in the country
+func (c Country) GetAllTileCoordinates() []grid.Coordinate {
+	coords := []grid.Coordinate{}
+
+	for _, r := range c.Regions {
+		for _, d := range r.TilesOccupied {
+			coords = append(coords, d)
+		}
+	}
+
+	return coords
 }

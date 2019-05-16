@@ -19,6 +19,8 @@ type World struct {
 
 // Generate procedurally generates a world
 func Generate() World {
+	var boundary worldmap.Boundary
+	var boundaries []worldmap.Boundary
 	var homeTile worldmap.Tile
 	var homeTileCoordinates grid.Coordinate
 	var newCountry country.Country
@@ -80,6 +82,13 @@ func Generate() World {
 		newCountry.Regions = newRegions
 		world.Countries = append(world.Countries, newCountry)
 	}
+
+	for _, c := range world.Countries {
+		boundary = worldmap.CreateBoundary(c.Name, c.GetAllTileCoordinates())
+		boundaries = append(boundaries, boundary)
+	}
+	world.WorldMap.Boundaries = boundaries
+	world.WorldMap.SVG = world.WorldMap.RenderAsSVG()
 
 	return world
 }

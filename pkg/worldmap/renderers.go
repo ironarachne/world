@@ -4,10 +4,12 @@ import (
 	"bytes"
 
 	svg "github.com/ajstarks/svgo"
+	"github.com/ironarachne/world/pkg/grid"
 )
 
 // RenderAsSVG renders a world map to SVG
 func (worldMap WorldMap) RenderAsSVG() string {
+	var labelMidpoint grid.Coordinate
 	tileWidth := 16
 	tileHeight := 16
 
@@ -18,6 +20,17 @@ func (worldMap WorldMap) RenderAsSVG() string {
 		for x, tile := range row {
 			tile.renderSVG(canvas, tileWidth, tileHeight, x, y)
 		}
+	}
+	for _, b := range worldMap.Boundaries {
+		labelMidpoint = grid.Coordinate{X: 0, Y: 0}
+		for _, c := range b.TileCoordinates {
+			labelMidpoint.X += c.X * tileWidth
+			labelMidpoint.Y += c.Y * tileHeight
+			canvas.Rect(c.X*tileWidth, c.Y*tileHeight, tileWidth, tileHeight, "fill:#FF0000;fill-opacity:0.5")
+		}
+		labelMidpoint.X = int(labelMidpoint.X / len(b.TileCoordinates))
+		labelMidpoint.Y = int(labelMidpoint.Y/len(b.TileCoordinates)) + tileHeight
+		canvas.Text(labelMidpoint.X, labelMidpoint.Y, b.Label, "fill:#000000;font-size:20px")
 	}
 	canvas.End()
 

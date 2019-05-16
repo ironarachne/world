@@ -23,7 +23,6 @@ import (
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/town"
 	"github.com/ironarachne/world/pkg/world"
-	"github.com/ironarachne/world/pkg/worldmap"
 )
 
 func getCharacter(w http.ResponseWriter, r *http.Request) {
@@ -303,24 +302,24 @@ func getWorldRandom(w http.ResponseWriter, r *http.Request) {
 func getWorldMap(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var m worldmap.WorldMap
+	var l world.World
 
 	random.SeedFromString(id)
 
-	m = worldmap.Generate(60, 80)
+	l = world.Generate()
 
-	json.NewEncoder(w).Encode(m)
+	json.NewEncoder(w).Encode(l.WorldMap)
 }
 
 func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var m worldmap.WorldMap
+	var l world.World
 
 	random.SeedFromString(id)
 
-	m = worldmap.Generate(60, 80)
-	o := m.RenderAsSVG()
+	l = world.Generate()
+	o := l.WorldMap.RenderAsSVG()
 
 	w.Header().Set("Content-Type", "image/svg+xml")
 	w.Write([]byte(o))
@@ -329,25 +328,25 @@ func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
 func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var m worldmap.WorldMap
+	var l world.World
 
 	random.SeedFromString(id)
 
-	m = worldmap.Generate(60, 80)
-	o := m.RenderAsText()
+	l = world.Generate()
+	o := l.WorldMap.RenderAsText()
 
-	w.Header().Set("Content-Type", "text/plain")
+	w.Header().Set("Content-Type", "image/svg+xml")
 	w.Write([]byte(o))
 }
 
 func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
-	var m worldmap.WorldMap
+	var l world.World
 
 	rand.Seed(time.Now().UnixNano())
 
-	m = worldmap.Generate(60, 80)
+	l = world.Generate()
 
-	json.NewEncoder(w).Encode(m)
+	json.NewEncoder(w).Encode(l.WorldMap)
 }
 
 func main() {
