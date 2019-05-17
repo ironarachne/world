@@ -4,6 +4,8 @@ package worldmap
 type WorldMap struct {
 	Height     int
 	Width      int
+	TileHeight int
+	TileWidth  int
 	Tiles      [][]Tile
 	Boundaries []Boundary
 	SVG        string
@@ -15,6 +17,8 @@ func Generate(height int, width int) WorldMap {
 
 	worldMap.Height = height
 	worldMap.Width = width
+	worldMap.TileHeight = 32
+	worldMap.TileWidth = 32
 
 	tiles := worldMap.initializeTiles()
 	worldMap.Tiles = tiles

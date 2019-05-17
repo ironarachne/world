@@ -1,11 +1,5 @@
 package grid
 
-// Coordinate is an x, y location
-type Coordinate struct {
-	X int
-	Y int
-}
-
 // Grid is a grid
 type Grid struct {
 	Coordinates [][]Coordinate

@@ -6,21 +6,33 @@ import (
 	svg "github.com/ajstarks/svgo"
 	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // RenderAsSVG renders a world map to SVG
 func (worldMap WorldMap) RenderAsSVG() string {
 	var labelMidpoint grid.Coordinate
-	tileWidth := 32
-	tileHeight := 32
+	var line string
+	var xs []int
+	var ys []int
+	var maxX int
+	var maxY int
+	var minX int
+	var minY int
+
+	tileWidth := worldMap.TileWidth
+	tileHeight := worldMap.TileHeight
+
+	existingPatterns := []string{}
 
 	buffer := new(bytes.Buffer)
 	canvas := svg.New(buffer)
 	canvas.Start(worldMap.Width*tileWidth, worldMap.Height*tileHeight)
 	canvas.Def()
 	for _, b := range worldMap.Boundaries {
-		if b.Pattern != "" {
+		if b.Pattern != "" && !slices.StringIn(b.Pattern, existingPatterns) {
 			heraldry.InsertErmine(canvas, b.Pattern)
+			existingPatterns = append(existingPatterns, b.Pattern)
 		}
 	}
 	canvas.DefEnd()
@@ -31,13 +43,33 @@ func (worldMap WorldMap) RenderAsSVG() string {
 	}
 	for _, b := range worldMap.Boundaries {
 		labelMidpoint = grid.Coordinate{X: 0, Y: 0}
-		for _, c := range b.TileCoordinates {
-			labelMidpoint.X += c.X * tileWidth
-			labelMidpoint.Y += c.Y * tileHeight
-			canvas.Rect(c.X*tileWidth, c.Y*tileHeight, tileWidth, tileHeight, b.Style)
+		line = "M"
+		xs = []int{}
+		ys = []int{}
+		minX = b.Vertices[0].X
+		minY = b.Vertices[0].Y
+		maxX = 0
+		maxY = 0
+		for _, v := range b.Vertices {
+			if minX > v.X {
+				minX = v.X
+			}
+			if minY > v.Y {
+				minY = v.Y
+			}
+			if maxX < v.X {
+				maxX = v.X
+			}
+			if maxY < v.Y {
+				maxY = v.Y
+			}
+			xs = append(xs, v.X)
+			ys = append(ys, v.Y)
 		}
-		labelMidpoint.X = int(labelMidpoint.X / len(b.TileCoordinates))
-		labelMidpoint.Y = int(labelMidpoint.Y/len(b.TileCoordinates)) + tileHeight
+		labelMidpoint.X = int((minX + maxX) / 2)
+		labelMidpoint.Y = int((minY + maxY) / 2)
+		canvas.Polygon(xs, ys, b.Style)
+		canvas.Path(line, b.Style)
 		canvas.Text(labelMidpoint.X, labelMidpoint.Y, b.Label, "fill:#000000;font-size:20px")
 	}
 	canvas.End()

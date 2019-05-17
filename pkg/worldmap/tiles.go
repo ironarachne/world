@@ -10,6 +10,8 @@ import (
 // Tile is a map tile
 type Tile struct {
 	Coordinate  grid.Coordinate
+	Points      []grid.Coordinate
+	Edges       []grid.Edge
 	Temperature int
 	Humidity    int
 	IsInhabited bool
@@ -20,6 +22,40 @@ type Tile struct {
 type tileGenerator struct {
 	state    string
 	tileType string
+}
+
+// CalculateTilePoints returns the pixel positions for the vertices of the tile
+func (worldMap WorldMap) CalculateTilePoints(tile Tile) []grid.Coordinate {
+	coords := []grid.Coordinate{}
+	tileHeight := worldMap.TileHeight
+	tileWidth := worldMap.TileWidth
+
+	point := grid.Coordinate{X: tileWidth * tile.Coordinate.X, Y: tileHeight * tile.Coordinate.Y}
+	coords = append(coords, point)
+	point = grid.Coordinate{X: (tileWidth * tile.Coordinate.X) + tileWidth, Y: tileHeight * tile.Coordinate.Y}
+	coords = append(coords, point)
+	point = grid.Coordinate{X: (tileWidth * tile.Coordinate.X) + tileWidth, Y: (tileHeight * tile.Coordinate.Y) + tileHeight}
+	coords = append(coords, point)
+	point = grid.Coordinate{X: tileWidth * tile.Coordinate.X, Y: (tileHeight * tile.Coordinate.Y) + tileHeight}
+	coords = append(coords, point)
+
+	return coords
+}
+
+// CalculateEdges returns the pixel edges of a tile
+func (tile Tile) CalculateEdges(tileHeight int, tileWidth int) []grid.Edge {
+	edges := []grid.Edge{}
+
+	edge1 := grid.Edge{A: tile.Points[0], B: tile.Points[1]}
+	edges = append(edges, edge1)
+	edge2 := grid.Edge{A: tile.Points[1], B: tile.Points[2]}
+	edges = append(edges, edge2)
+	edge3 := grid.Edge{A: tile.Points[2], B: tile.Points[3]}
+	edges = append(edges, edge3)
+	edge4 := grid.Edge{A: tile.Points[3], B: tile.Points[0]}
+	edges = append(edges, edge4)
+
+	return edges
 }
 
 // AllCoordinates gets a slice of all coordinates in the map
@@ -56,6 +92,8 @@ func (worldMap WorldMap) initializeTiles() [][]Tile {
 	var c grid.Coordinate
 	var row []Tile
 	var tile Tile
+	var points []grid.Coordinate
+	var edges []grid.Edge
 
 	for y := 0; y < worldMap.Height; y++ {
 		row = []Tile{}
@@ -72,6 +110,10 @@ func (worldMap WorldMap) initializeTiles() [][]Tile {
 				IsInhabited: false,
 				TileType:    "ocean",
 			}
+			points = worldMap.CalculateTilePoints(tile)
+			tile.Points = points
+			edges = tile.CalculateEdges(worldMap.TileHeight, worldMap.TileWidth)
+			tile.Edges = edges
 			row = append(row, tile)
 		}
 		tiles = append(tiles, row)
@@ -245,6 +287,20 @@ func (worldMap WorldMap) findArtifactTilesOfType(tileType string) []grid.Coordin
 	}
 
 	return filteredCoords
+}
+
+// FindTilesByCoordinates finds tiles that match the given slice of coordinates
+func FindTilesByCoordinates(coords []grid.Coordinate, tiles [][]Tile) []Tile {
+	var tile Tile
+
+	filteredTiles := []Tile{}
+
+	for _, c := range coords {
+		tile = tiles[c.Y][c.X]
+		filteredTiles = append(filteredTiles, tile)
+	}
+
+	return filteredTiles
 }
 
 // FindTilesOfType finds tiles that match the tile type

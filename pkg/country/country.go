@@ -7,6 +7,7 @@ import (
 	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/region"
+	"github.com/ironarachne/world/pkg/worldmap"
 )
 
 // Country is a geographic and political area
@@ -55,6 +56,15 @@ func Generate() Country {
 	country.Regions = regions
 
 	return country
+}
+
+// GetAllTiles returns a slice of all tiles in the country
+func (c Country) GetAllTiles(worldMap worldmap.WorldMap) []worldmap.Tile {
+	coords := c.GetAllTileCoordinates()
+
+	tiles := worldmap.FindTilesByCoordinates(coords, worldMap.Tiles)
+
+	return tiles
 }
 
 // GetAllTileCoordinates returns a slice of all coordinates in the country
