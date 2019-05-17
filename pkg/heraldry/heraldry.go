@@ -62,8 +62,10 @@ type Device struct {
 
 // Heraldry is a rendered version of a device
 type Heraldry struct {
-	Blazon string
-	Device string
+	Blazon    string
+	Device    string
+	Tinctures []string
+	Patterns  []string
 }
 
 func randomCharge() Charge {
@@ -225,11 +227,22 @@ func Generate() Device {
 
 // GenerateHeraldry renders a heraldic device and returns it
 func GenerateHeraldry() Heraldry {
+	patterns := []string{}
+	tinctures := []string{}
 	device := Generate()
 
+	for _, t := range device.AllTinctures {
+		tinctures = append(tinctures, t.Hexcode)
+		if t.Type == "fur" {
+			patterns = append(patterns, t.Name)
+		}
+	}
+
 	heraldry := Heraldry{
-		Blazon: device.RenderToBlazon(),
-		Device: device.RenderToSVG(320, 420),
+		Blazon:    device.RenderToBlazon(),
+		Device:    device.RenderToSVG(320, 420),
+		Tinctures: tinctures,
+		Patterns:  patterns,
 	}
 
 	return heraldry

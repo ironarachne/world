@@ -72,13 +72,13 @@ func (device Device) RenderToSVG(width int, height int) string {
 	canvas.MaskEnd()
 	for _, tincture := range device.AllTinctures {
 		if tincture.Name == "erminois" {
-			insertErmine(canvas, "erminois")
+			InsertErmine(canvas, "erminois")
 		} else if tincture.Name == "ermine" {
-			insertErmine(canvas, "ermine")
+			InsertErmine(canvas, "ermine")
 		} else if tincture.Name == "ermines" {
-			insertErmine(canvas, "ermines")
+			InsertErmine(canvas, "ermines")
 		} else if tincture.Name == "pean" {
-			insertErmine(canvas, "pean")
+			InsertErmine(canvas, "pean")
 		}
 	}
 	if device.Field.HasVariation {

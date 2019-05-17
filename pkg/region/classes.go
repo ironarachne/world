@@ -10,6 +10,7 @@ type Class struct {
 	RulerTitleFemale string
 	RulerTitleMale   string
 	Commonality      int
+	NumberOfTiles    int
 }
 
 func getAllClasses() []Class {
@@ -21,6 +22,7 @@ func getAllClasses() []Class {
 			MinNumberOfTowns: 2,
 			MaxNumberOfTowns: 4,
 			Commonality:      3,
+			NumberOfTiles:    8,
 		},
 		Class{
 			Name:             "County",
@@ -29,6 +31,7 @@ func getAllClasses() []Class {
 			MinNumberOfTowns: 1,
 			MaxNumberOfTowns: 3,
 			Commonality:      4,
+			NumberOfTiles:    4,
 		},
 		Class{
 			Name:             "Duchy",
@@ -37,6 +40,7 @@ func getAllClasses() []Class {
 			MinNumberOfTowns: 3,
 			MaxNumberOfTowns: 6,
 			Commonality:      2,
+			NumberOfTiles:    16,
 		},
 		Class{
 			Name:             "March",
@@ -45,6 +49,7 @@ func getAllClasses() []Class {
 			MinNumberOfTowns: 2,
 			MaxNumberOfTowns: 4,
 			Commonality:      2,
+			NumberOfTiles:    2,
 		},
 		Class{
 			Name:             "Viscounty",
@@ -53,6 +58,7 @@ func getAllClasses() []Class {
 			MinNumberOfTowns: 1,
 			MaxNumberOfTowns: 2,
 			Commonality:      1,
+			NumberOfTiles:    1,
 		},
 	}
 

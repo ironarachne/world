@@ -33,7 +33,8 @@ var (
 	}
 )
 
-func insertErmine(canvas *svg.SVG, variant string) {
+// InsertErmine adds a pattern to a canvas
+func InsertErmine(canvas *svg.SVG, variant string) {
 	fillColor := "#FFFFFF"
 	objectColor := "#000000"
 	if variant == "erminois" {

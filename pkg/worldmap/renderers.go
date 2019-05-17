@@ -5,17 +5,25 @@ import (
 
 	svg "github.com/ajstarks/svgo"
 	"github.com/ironarachne/world/pkg/grid"
+	"github.com/ironarachne/world/pkg/heraldry"
 )
 
 // RenderAsSVG renders a world map to SVG
 func (worldMap WorldMap) RenderAsSVG() string {
 	var labelMidpoint grid.Coordinate
-	tileWidth := 16
-	tileHeight := 16
+	tileWidth := 32
+	tileHeight := 32
 
 	buffer := new(bytes.Buffer)
 	canvas := svg.New(buffer)
 	canvas.Start(worldMap.Width*tileWidth, worldMap.Height*tileHeight)
+	canvas.Def()
+	for _, b := range worldMap.Boundaries {
+		if b.Pattern != "" {
+			heraldry.InsertErmine(canvas, b.Pattern)
+		}
+	}
+	canvas.DefEnd()
 	for y, row := range worldMap.Tiles {
 		for x, tile := range row {
 			tile.renderSVG(canvas, tileWidth, tileHeight, x, y)
@@ -26,7 +34,7 @@ func (worldMap WorldMap) RenderAsSVG() string {
 		for _, c := range b.TileCoordinates {
 			labelMidpoint.X += c.X * tileWidth
 			labelMidpoint.Y += c.Y * tileHeight
-			canvas.Rect(c.X*tileWidth, c.Y*tileHeight, tileWidth, tileHeight, "fill:#FF0000;fill-opacity:0.5")
+			canvas.Rect(c.X*tileWidth, c.Y*tileHeight, tileWidth, tileHeight, b.Style)
 		}
 		labelMidpoint.X = int(labelMidpoint.X / len(b.TileCoordinates))
 		labelMidpoint.Y = int(labelMidpoint.Y/len(b.TileCoordinates)) + tileHeight
@@ -79,7 +87,7 @@ func (tile Tile) renderSVG(canvas *svg.SVG, width int, height int, x int, y int)
 		"marshland":         "#0c421d",
 		"tropical":          "#3fa517",
 		"mountain":          "#5a6768",
-		"ocean":             "#cde5f4",
+		"ocean":             "#1744d6",
 		"rainforest":        "#0eb514",
 		"savanna":           "#bec697",
 		"steppe":            "#96af83",
