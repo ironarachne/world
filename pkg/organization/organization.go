@@ -66,8 +66,8 @@ func (org Organization) setTrait() string {
 	return random.String(org.Type.PossibleTraits)
 }
 
-func (org Organization) getLeader() character.Character {
-	leader := character.Generate()
+func (org Organization) getLeader(originCulture culture.Culture) character.Character {
+	leader := character.Generate(originCulture)
 	leader = leader.ChangeAge(org.Type.GetRandomLeaderAge())
 	leader.Profession = org.Type.GetRandomMemberProfession()
 	leader.Title = org.Type.LeaderTitle
@@ -75,7 +75,7 @@ func (org Organization) getLeader() character.Character {
 	return leader
 }
 
-func (org Organization) getNotableMembers() []character.Character {
+func (org Organization) getNotableMembers(originCulture culture.Culture) []character.Character {
 	var member character.Character
 	members := []character.Character{}
 
@@ -85,7 +85,7 @@ func (org Organization) getNotableMembers() []character.Character {
 	}
 
 	for i := 0; i < maxMemberCount; i++ {
-		member = character.Generate()
+		member = character.Generate(originCulture)
 		member = member.ChangeAge(org.Type.GetRandomMemberAge())
 		member.Profession = org.Type.GetRandomMemberProfession()
 		members = append(members, member)
@@ -95,7 +95,7 @@ func (org Organization) getNotableMembers() []character.Character {
 }
 
 // Generate generates a org
-func Generate() Organization {
+func Generate(originCulture culture.Culture) Organization {
 	org := Organization{}
 
 	org.Type = getRandomType()
@@ -103,27 +103,18 @@ func Generate() Organization {
 	org.Size = rand.Intn(org.SizeClass.MaxSize-org.SizeClass.MinSize) + org.SizeClass.MinSize
 	org.Name = org.setName()
 	org.LeaderType = org.setLeaderType()
-	org.Leader = org.getLeader()
+	org.Leader = org.getLeader(originCulture)
 	org.PrimaryTrait = org.setTrait()
-	org.NotableMembers = org.getNotableMembers()
+	org.NotableMembers = org.getNotableMembers(originCulture)
 
 	return org
 }
 
-// SetCulture changes the culture of an organization
-func (org Organization) SetCulture(c culture.Culture) Organization {
-	var newMember character.Character
-	newMembers := []character.Character{}
+// Random generates a completely random organization
+func Random() Organization {
+	originCulture := culture.Generate()
 
-	newLeader := org.Leader.SetCulture(c)
-	org.Leader = newLeader
-
-	for _, m := range org.NotableMembers {
-		newMember = m.SetCulture(c)
-		newMembers = append(newMembers, newMember)
-	}
-
-	org.NotableMembers = newMembers
+	org := Generate(originCulture)
 
 	return org
 }

@@ -123,11 +123,11 @@ func (character Character) randomFacialHair() string {
 }
 
 // Generate generates a random character
-func Generate() Character {
+func Generate(originCulture culture.Culture) Character {
 	char := Character{}
 
 	char.Gender = gender.Random()
-	char.Culture = culture.Generate()
+	char.Culture = originCulture
 
 	char.FirstName, char.LastName = getAppropriateName(char.Gender.Name, char.Culture)
 
@@ -162,18 +162,10 @@ func Generate() Character {
 	return char
 }
 
-// GenerateCharacterOfCulture generates a random character with a given culture
-func GenerateCharacterOfCulture(culture culture.Culture) Character {
-	character := Generate()
-	character = character.SetCulture(culture)
-
-	return character
-}
-
 // GenerateCouple generates a couple
 func GenerateCouple() Couple {
-	char1 := Generate()
-	char2 := Generate()
+	char1 := Random()
+	char2 := Generate(char1.Culture)
 	canHaveChildren := false
 
 	if char1.AgeCategory.Name == "child" {
@@ -212,7 +204,7 @@ func GenerateCouple() Couple {
 
 // GenerateAdultDescendent generates an adult character based on a couple
 func GenerateAdultDescendent(couple Couple) Character {
-	descendent := Generate()
+	descendent := Generate(couple.Partner1.Culture)
 
 	descendent.LastName = couple.Partner1.LastName
 
@@ -226,7 +218,7 @@ func GenerateAdultDescendent(couple Couple) Character {
 
 // GenerateChild generates a child character for a couple
 func GenerateChild(couple Couple) Character {
-	child := Generate()
+	child := Generate(couple.Partner1.Culture)
 
 	child.LastName = couple.Partner1.LastName
 	child.Age, child.AgeCategory = getAgeFromParents(couple)
@@ -240,7 +232,7 @@ func GenerateChild(couple Couple) Character {
 
 // GenerateCompatibleMate generates a character appropriate as a mate for another
 func GenerateCompatibleMate(char Character) Character {
-	mate := Generate()
+	mate := Generate(char.Culture)
 
 	mate.Age = getRandomAge(char.AgeCategory)
 	mate.AgeCategory = getAgeCategoryFromAge(mate.Age)
@@ -289,12 +281,11 @@ func MarryCouple(partner1 Character, partner2 Character) Couple {
 	return Couple{partner1, partner2, canHaveChildren}
 }
 
-// SetCulture sets the culture of the character
-func (character Character) SetCulture(culture culture.Culture) Character {
-	newCharacter := character
+// Random generates a completely random character
+func Random() Character {
+	randomCulture := culture.Generate()
 
-	newCharacter.Culture = culture
-	newCharacter.FirstName, newCharacter.LastName = getAppropriateName(newCharacter.Gender.Name, newCharacter.Culture)
+	character := Generate(randomCulture)
 
-	return newCharacter
+	return character
 }

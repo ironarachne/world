@@ -8,7 +8,7 @@ import (
 )
 
 func (region Region) generateRuler() character.Character {
-	ruler := character.GenerateCharacterOfCulture(region.Culture)
+	ruler := character.Generate(region.Culture)
 	ruler.Profession = "noble"
 	ruler = ruler.ChangeAge(rand.Intn(40) + 25)
 

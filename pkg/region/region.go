@@ -82,8 +82,7 @@ func (region Region) getOrganizations() []organization.Organization {
 	numberOfOrgs := rand.Intn(3) + 1
 
 	for i := 0; i < numberOfOrgs; i++ {
-		org = organization.Generate()
-		org = org.SetCulture(region.Culture)
+		org = organization.Generate(region.Culture)
 		organizations = append(organizations, org)
 	}
 

@@ -23,7 +23,7 @@ type Town struct {
 }
 
 func (town Town) generateMayor() character.Character {
-	mayor := character.GenerateCharacterOfCulture(town.Culture)
+	mayor := character.Generate(town.Culture)
 	mayor = mayor.ChangeAge(rand.Intn(30) + 30)
 
 	return mayor

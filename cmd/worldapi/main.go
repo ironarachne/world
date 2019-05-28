@@ -32,7 +32,7 @@ func getCharacter(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = character.Generate()
+	o = character.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -42,7 +42,7 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = character.Generate()
+	o = character.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -186,7 +186,7 @@ func getOrganization(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = organization.Generate()
+	o = organization.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -196,7 +196,7 @@ func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = organization.Generate()
+	o = organization.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
