@@ -33,7 +33,7 @@ func (culture Culture) generateReligion() Religion {
 	}
 
 	for _, deity := range religion.Pantheon.Deities {
-		if deity.Gender == "male" {
+		if deity.Gender.Name == "male" {
 			deity.Name = culture.Language.RandomGenderedName("male")
 		} else {
 			deity.Name = culture.Language.RandomGenderedName("female")

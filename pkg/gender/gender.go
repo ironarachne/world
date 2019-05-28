@@ -1,4 +1,4 @@
-package character
+package gender
 
 import "math/rand"
 
@@ -15,15 +15,17 @@ type Gender struct {
 	SubjectPronoun       string
 }
 
-func getAllGenders() []Gender {
+// All returns all genders
+func All() []Gender {
 	genders := []Gender{}
-	genders = append(genders, getFemale())
-	genders = append(genders, getMale())
+	genders = append(genders, Female())
+	genders = append(genders, Male())
 
 	return genders
 }
 
-func getFemale() Gender {
+// Female returns the female gender
+func Female() Gender {
 	gender := Gender{
 		Name:                 "female",
 		Noun:                 "woman",
@@ -39,7 +41,8 @@ func getFemale() Gender {
 	return gender
 }
 
-func getMale() Gender {
+// Male returns the male gender
+func Male() Gender {
 	gender := Gender{
 		Name:                 "male",
 		Noun:                 "man",
@@ -55,16 +58,18 @@ func getMale() Gender {
 	return gender
 }
 
-func getOppositeGender(gender Gender) Gender {
+// Opposite returns the opposite gender from a given gender
+func (gender Gender) Opposite() Gender {
 	if gender.Name == "male" {
-		return getFemale()
+		return Female()
 	}
 
-	return getMale()
+	return Male()
 }
 
-func getRandomGender() Gender {
-	genders := getAllGenders()
+// Random returns a random gender
+func Random() Gender {
+	genders := All()
 
-	return genders[rand.Intn(len(genders)-1)]
+	return genders[rand.Intn(len(genders))]
 }

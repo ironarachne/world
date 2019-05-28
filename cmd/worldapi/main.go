@@ -204,25 +204,25 @@ func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
 func getPantheon(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o pantheon.Pantheon
+	var o pantheon.SimplifiedPantheon
 	var l language.Language
 
 	random.SeedFromString(id)
 
 	l = language.Generate()
-	o = pantheon.Generate(15, l)
+	o = pantheon.GenerateForDisplay(15, l)
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
-	var o pantheon.Pantheon
+	var o pantheon.SimplifiedPantheon
 	var l language.Language
 
 	rand.Seed(time.Now().UnixNano())
 
 	l = language.Generate()
-	o = pantheon.Generate(15, l)
+	o = pantheon.GenerateForDisplay(15, l)
 
 	json.NewEncoder(w).Encode(o)
 }

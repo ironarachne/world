@@ -35,20 +35,20 @@ func (pantheon Pantheon) GenerateRelationships() map[string]Deity {
 	for _, deity := range pantheon.Deities {
 		for i := 0; i < 3; i++ {
 			target = randomDeityNameFromMap(pantheon.Deities)
-			relationshipType = relationshipTypes[rand.Intn(len(relationshipTypes)-1)]
+			relationshipType = relationshipTypes[rand.Intn(len(relationshipTypes))]
 			descriptor = random.String(relationshipType.Descriptors)
 
 			if deity.Name != target {
 				if relationshipType.Name == "parent" {
-					if deity.Gender == "male" {
+					if deity.Gender.Name == "male" {
 						descriptor = "is the father of"
-					} else if deity.Gender == "female" {
+					} else if deity.Gender.Name == "female" {
 						descriptor = "is the mother of"
 					}
 				} else if relationshipType.Name == "child" {
-					if deity.Gender == "male" {
+					if deity.Gender.Name == "male" {
 						descriptor = "is the son of"
-					} else if deity.Gender == "female" {
+					} else if deity.Gender.Name == "female" {
 						descriptor = "is the daughter of"
 					}
 				}

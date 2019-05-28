@@ -4,6 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/gender"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
@@ -15,7 +16,7 @@ type Character struct {
 	LastName       string
 	Title          string
 	Heraldry       heraldry.Heraldry
-	Gender         Gender
+	Gender         gender.Gender
 	Age            int
 	AgeCategory    AgeCategory
 	Orientation    string
@@ -125,7 +126,7 @@ func (character Character) randomFacialHair() string {
 func Generate() Character {
 	char := Character{}
 
-	char.Gender = getRandomGender()
+	char.Gender = gender.Random()
 	char.Culture = culture.Generate()
 
 	char.FirstName, char.LastName = getAppropriateName(char.Gender.Name, char.Culture)
@@ -192,10 +193,10 @@ func GenerateCouple() Couple {
 		orientations = []string{char1.Orientation}
 	}
 
-	if char1.Gender == char2.Gender && slices.StringIn("straight", orientations) {
-		char2.Gender = getOppositeGender(char1.Gender)
+	if char1.Gender.Name == char2.Gender.Name && slices.StringIn("straight", orientations) {
+		char2.Gender = char1.Gender.Opposite()
 		char2.FirstName, _ = getAppropriateName(char2.Gender.Name, char2.Culture)
-	} else if char1.Gender != char2.Gender && slices.StringIn("gay", orientations) {
+	} else if char1.Gender.Name != char2.Gender.Name && slices.StringIn("gay", orientations) {
 		char2.Gender = char1.Gender
 		char2.FirstName, _ = getAppropriateName(char2.Gender.Name, char2.Culture)
 	}
@@ -245,7 +246,7 @@ func GenerateCompatibleMate(char Character) Character {
 	mate.AgeCategory = getAgeCategoryFromAge(mate.Age)
 
 	if char.Orientation == "straight" {
-		mate.Gender = getOppositeGender(char.Gender)
+		mate.Gender = char.Gender.Opposite()
 		mate.Orientation = "straight"
 	} else {
 		mate.Gender = char.Gender
@@ -281,7 +282,7 @@ func GenerateFamily() Family {
 func MarryCouple(partner1 Character, partner2 Character) Couple {
 	canHaveChildren := false
 
-	if partner1.Gender != partner2.Gender {
+	if partner1.Gender.Name != partner2.Gender.Name {
 		canHaveChildren = true
 	}
 
