@@ -13,7 +13,7 @@ type Pantheon struct {
 
 // SimplifiedPantheon is a simplified version of the data for display
 type SimplifiedPantheon struct {
-	Deities []SimplifiedDeity
+	Deities []SimplifiedDeity `json:"deities"`
 }
 
 // Generate creates a random pantheon of deities
@@ -30,7 +30,9 @@ func Generate(maxSize int, lang language.Language) Pantheon {
 		pantheon.Deities[deity.Name] = deity
 	}
 
-	pantheon.Deities = pantheon.GenerateRelationships()
+	if len(pantheon.Deities) > 1 {
+		pantheon.Deities = pantheon.GenerateRelationships()
+	}
 
 	return pantheon
 }

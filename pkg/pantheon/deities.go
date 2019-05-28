@@ -22,10 +22,10 @@ type Deity struct {
 
 // SimplifiedDeity is a display version of deity
 type SimplifiedDeity struct {
-	Name        string
-	Gender string
-	Domains     []string
-	Description string
+	Name        string `json:"name"`
+	Gender	    string `json:"gender"`
+	Domains     []string `json:"domains"`
+	Description string `json:"description"`
 }
 
 // GenerateDeity generates a random deity
@@ -62,7 +62,7 @@ func (pantheon Pantheon) GenerateDeity(lang language.Language) Deity {
 
 	deity.PersonalityTraits = deity.getRandomTraits()
 
-	deity.Name = lang.RandomName()
+	deity.Name = lang.RandomGenderedName(deity.Gender.Name)
 
 	return deity
 }
@@ -73,7 +73,7 @@ func randomDeityNameFromMap(deities map[string]Deity) string {
 		names = append(names, d.Name)
 	}
 
-	return names[rand.Intn(len(names)-1)]
+	return names[rand.Intn(len(names))]
 }
 
 func (deity Deity) simplify() SimplifiedDeity {
@@ -110,12 +110,14 @@ func (deity Deity) simplify() SimplifiedDeity {
 
 	relationships := []string{}
 
-	for _, r := range deity.Relationships {
-		relationship = r.Descriptor + " " + r.Target
-		relationships = append(relationships, relationship)
-	}
+	if len(deity.Relationships) > 0 {
+		for _, r := range deity.Relationships {
+			relationship = r.Descriptor + " " + r.Target
+			relationships = append(relationships, relationship)
+		}
 
-	description += deity.Name + " " + words.CombinePhrases(relationships) + "."
+		description += deity.Name + " " + words.CombinePhrases(relationships) + "."
+	}
 
 	sd.Description = description
 

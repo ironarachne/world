@@ -8,7 +8,7 @@ import (
 // Religion is a culture's religion
 type Religion struct {
 	Class              ReligionClass
-	Pantheon           pantheon.Pantheon
+	Pantheon           pantheon.SimplifiedPantheon
 	GatheringPlaceName string
 }
 
@@ -23,26 +23,12 @@ type ReligionClass struct {
 func (culture Culture) generateReligion() Religion {
 	religion := Religion{}
 
-	deities := make(map[string]pantheon.Deity)
-
 	religion.Class = randomReligionClass()
 	religion.GatheringPlaceName = religion.randomGatheringPlaceName()
 
 	if religion.Class.PantheonMaxSize > 0 {
-		religion.Pantheon = pantheon.Generate(religion.Class.PantheonMaxSize, culture.Language)
+		religion.Pantheon = pantheon.GenerateForDisplay(religion.Class.PantheonMaxSize, culture.Language)
 	}
-
-	for _, deity := range religion.Pantheon.Deities {
-		if deity.Gender.Name == "male" {
-			deity.Name = culture.Language.RandomGenderedName("male")
-		} else {
-			deity.Name = culture.Language.RandomGenderedName("female")
-		}
-		deities[deity.Name] = deity
-	}
-
-	religion.Pantheon.Deities = deities
-	religion.Pantheon.Deities = religion.Pantheon.GenerateRelationships()
 
 	return religion
 }
