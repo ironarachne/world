@@ -194,3 +194,8 @@ func qualityFromSkillLevel(level int) string {
 
 	return qualities[level]
 }
+
+// Skill returns the word version of the producer's skill level
+func (producer Producer) Skill() string {
+	return qualityFromSkillLevel(producer.SkillLevel)
+}

@@ -28,21 +28,21 @@ import (
 func getCharacter(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o character.Character
+	var o character.SimplifiedCharacter
 
 	random.SeedFromString(id)
 
-	o = character.Random()
+	o = character.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
-	var o character.Character
+	var o character.SimplifiedCharacter
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = character.Random()
+	o = character.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -182,21 +182,21 @@ func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
 func getOrganization(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o organization.Organization
+	var o organization.SimplifiedOrganization
 
 	random.SeedFromString(id)
 
-	o = organization.Random()
+	o = organization.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
-	var o organization.Organization
+	var o organization.SimplifiedOrganization
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = organization.Random()
+	o = organization.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -230,21 +230,21 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 func getRegion(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o region.Region
+	var o region.SimplifiedRegion
 
 	random.SeedFromString(id)
 
-	o = region.Random()
+	o = region.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getRegionRandom(w http.ResponseWriter, r *http.Request) {
-	var o region.Region
+	var o region.SimplifiedRegion
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = region.Random()
+	o = region.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -258,21 +258,21 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 func getTown(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o town.Town
+	var o town.SimplifiedTown
 
 	random.SeedFromString(id)
 
-	o = town.Random()
+	o = town.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getTownRandom(w http.ResponseWriter, r *http.Request) {
-	var o town.Town
+	var o town.SimplifiedTown
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = town.Random()
+	o = town.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
