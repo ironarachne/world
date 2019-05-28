@@ -55,15 +55,13 @@ func Generate(regionType string) Region {
 
 	region.Class = getRandomWeightedClass()
 
-	newTown := town.Generate("city", regionType)
-	newTown = town.SetCulture(region.Culture, newTown)
+	newTown := town.Generate("city", regionType, region.Culture)
 	region.Towns = append(region.Towns, newTown)
 
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown = town.Generate("random", regionType)
-		newTown = town.SetCulture(region.Culture, newTown)
+		newTown = town.Generate("random", regionType, region.Culture)
 		region.Towns = append(region.Towns, newTown)
 	}
 
@@ -95,15 +93,13 @@ func (region Region) getOrganizations() []organization.Organization {
 // SetCulture sets the culture for a region and derived values
 func (region Region) SetCulture(culture.Culture) Region {
 	region.Culture = region.Culture.SetClimate(region.Biome)
-	newTown := town.Generate("city", region.Biome)
-	newTown = town.SetCulture(region.Culture, newTown)
+	newTown := town.Generate("city", region.Biome, region.Culture)
 	region.Towns = append(region.Towns, newTown)
 
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown = town.Generate("random", region.Biome)
-		newTown = town.SetCulture(region.Culture, newTown)
+		newTown = town.Generate("random", region.Biome, region.Culture)
 		region.Towns = append(region.Towns, newTown)
 	}
 

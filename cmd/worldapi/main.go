@@ -262,7 +262,7 @@ func getTown(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = town.Generate("random", "random")
+	o = town.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -272,7 +272,7 @@ func getTownRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = town.Generate("random", "random")
+	o = town.Random()
 
 	json.NewEncoder(w).Encode(o)
 }

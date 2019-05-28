@@ -59,7 +59,7 @@ func (town Town) generateTownName() string {
 }
 
 // Generate generates a random town
-func Generate(category string, biome string) Town {
+func Generate(category string, biome string, originCulture culture.Culture) Town {
 	town := Town{}
 
 	if category == "random" {
@@ -73,14 +73,15 @@ func Generate(category string, biome string) Town {
 		town.Climate = climate.GetClimate(biome)
 	}
 
-	culture := culture.Generate()
-	culture = culture.SetClimate(town.Climate.Name)
-	town = SetCulture(culture, town)
+	town.Culture = originCulture
+	town.Name = town.Culture.Language.RandomName()
 
 	town.Population = generateRandomPopulation(town.Category)
 
-	town.Mayor = town.generateMayor()
-	town.Name = town.generateTownName()
+	mayor := town.generateMayor()
+	mayor.FirstName = town.Culture.Language.RandomGenderedName(mayor.Gender.Name)
+	mayor.LastName = town.Culture.Language.RandomName()
+	town.Mayor = mayor
 
 	possibleProducers := goods.GetPossibleProducers(town.Climate.Resources, town.Population)
 
@@ -112,14 +113,11 @@ func Generate(category string, biome string) Town {
 	return town
 }
 
-// SetCulture sets the culture of a town and recalculates some things
-func SetCulture(culture culture.Culture, town Town) Town {
-	newTown := town
+// Random generates a completely random town
+func Random() Town {
+	randomCulture := culture.Generate()
 
-	newTown.Culture = culture
-	newTown.Name = newTown.Culture.Language.RandomName()
-	newTown.Mayor.FirstName = newTown.Culture.Language.RandomGenderedName(town.Mayor.Gender.Name)
-	newTown.Mayor.LastName = newTown.Culture.Language.RandomName()
+	town := Generate("random", "random", randomCulture)
 
-	return newTown
+	return town
 }
