@@ -234,7 +234,7 @@ func getRegion(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = region.Generate("random")
+	o = region.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -244,7 +244,7 @@ func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = region.Generate("random")
+	o = region.Random()
 
 	json.NewEncoder(w).Encode(o)
 }

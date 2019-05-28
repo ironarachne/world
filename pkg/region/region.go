@@ -35,8 +35,8 @@ func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
 	return placedRegion
 }
 
-// Generate generates a random region
-func Generate(regionType string) Region {
+// Generate generates a region
+func Generate(regionType string, originCulture culture.Culture) Region {
 	region := Region{}
 	biome := climate.Climate{}
 
@@ -50,7 +50,7 @@ func Generate(regionType string) Region {
 
 	region.Biome = biome.Name
 	region.Climate = biome
-	region.Culture = culture.Generate()
+	region.Culture = originCulture
 	region.Culture = region.Culture.SetClimate(region.Biome)
 
 	region.Class = getRandomWeightedClass()
@@ -89,25 +89,11 @@ func (region Region) getOrganizations() []organization.Organization {
 	return organizations
 }
 
-// SetCulture sets the culture for a region and derived values
-func (region Region) SetCulture(culture.Culture) Region {
-	region.Culture = region.Culture.SetClimate(region.Biome)
-	newTown := town.Generate("city", region.Biome, region.Culture)
-	region.Towns = append(region.Towns, newTown)
+// Random generates a completely random region
+func Random() Region {
+	randomCulture := culture.Generate()
 
-	region.Capital = newTown.Name
-
-	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown = town.Generate("random", region.Biome, region.Culture)
-		region.Towns = append(region.Towns, newTown)
-	}
-
-	region.Organizations = region.getOrganizations()
-
-	region.Ruler = region.generateRuler()
-
-	regionName := region.Culture.Language.RandomName()
-	region.Name = strings.Title(regionName)
+	region := Generate("random", randomCulture)
 
 	return region
 }

@@ -35,7 +35,7 @@ func Generate() Country {
 	r := region.Region{}
 
 	for i := 0; i < size; i++ {
-		r = region.Generate(country.DominantCulture.HomeClimate.Name)
+		r = region.Generate(country.DominantCulture.HomeClimate.Name, country.DominantCulture)
 		regions = append(regions, r)
 	}
 

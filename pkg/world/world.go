@@ -56,7 +56,7 @@ func Generate() World {
 		homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 		homeTile.IsInhabited = true
 		world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-		newRegion = region.Generate(homeTile.TileType)
+		newRegion = region.Generate(homeTile.TileType, newCountry.DominantCulture)
 		newCountry.DominantCulture = newRegion.Culture
 		regionCoordinates = append(regionCoordinates, homeTileCoordinates)
 		activeTile = homeTile
@@ -103,8 +103,7 @@ func Generate() World {
 				homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 				homeTile.IsInhabited = true
 				world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-				newRegion = region.Generate(homeTile.TileType)
-				newRegion = newRegion.SetCulture(newCountry.DominantCulture)
+				newRegion = region.Generate(homeTile.TileType, newCountry.DominantCulture)
 				regionCoordinates = append(regionCoordinates, homeTileCoordinates)
 				activeTile = homeTile
 				for j := 1; j < newRegion.Class.NumberOfTiles; j++ {
