@@ -22,7 +22,8 @@ type ReligionClass struct {
 
 func (culture Culture) generateReligion() Religion {
 	religion := Religion{}
-	var deities []pantheon.Deity
+
+	deities := make(map[string]pantheon.Deity)
 
 	religion.Class = randomReligionClass()
 	religion.GatheringPlaceName = religion.randomGatheringPlaceName()
@@ -37,11 +38,11 @@ func (culture Culture) generateReligion() Religion {
 		} else {
 			deity.Name = culture.Language.RandomGenderedName("female")
 		}
-		deities = append(deities, deity)
+		deities[deity.Name] = deity
 	}
 
 	religion.Pantheon.Deities = deities
-	religion.Pantheon.Relationships = religion.Pantheon.GenerateRelationships()
+	religion.Pantheon.Deities = religion.Pantheon.GenerateRelationships()
 
 	return religion
 }

@@ -3,6 +3,7 @@ package pantheon
 import (
 	"math/rand"
 
+	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/random"
 )
 
@@ -13,10 +14,11 @@ type Deity struct {
 	Appearance        string
 	Gender            string
 	PersonalityTraits []string
+	Relationships     []Relationship
 }
 
 // GenerateDeity generates a random deity
-func (pantheon Pantheon) GenerateDeity() Deity {
+func (pantheon Pantheon) GenerateDeity(lang language.Language) Deity {
 	var deity Deity
 	var domain Domain
 	var allDomains []Domain
@@ -49,7 +51,7 @@ func (pantheon Pantheon) GenerateDeity() Deity {
 
 	deity.PersonalityTraits = deity.getRandomTraits()
 
-	deity.Name = pantheon.Language.RandomName()
+	deity.Name = lang.RandomName()
 
 	return deity
 }
@@ -62,4 +64,13 @@ func getRandomGender() string {
 	}
 
 	return random.StringFromThresholdMap(genders)
+}
+
+func randomDeityNameFromMap(deities map[string]Deity) string {
+	names := []string{}
+	for _, d := range deities {
+		names = append(names, d.Name)
+	}
+
+	return names[rand.Intn(len(names)-1)]
 }
