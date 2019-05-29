@@ -1,26 +1,25 @@
 package character
 
-import "github.com/ironarachne/world/pkg/random"
+import (
+	"github.com/ironarachne/world/pkg/goods"
+	"github.com/ironarachne/world/pkg/random"
+)
 
 func getAllProfessions() []string {
 	professions := []string{
-		"alchemist",
-		"baker",
 		"bartender",
-		"blacksmith",
-		"bowyer",
-		"carpenter",
 		"cook",
 		"farmer",
-		"ferrier",
-		"fletcher",
 		"guard",
 		"guildmaster",
 		"healer",
-		"herbalist",
 		"mage",
 		"merchant",
 	}
+
+	producers := goods.ProducerList()
+
+	professions = append(professions, producers...)
 
 	return professions
 }

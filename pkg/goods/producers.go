@@ -178,6 +178,19 @@ func isProducerInSlice(producer Producer, slice []Producer) bool {
 	return false
 }
 
+// ProducerList returns a string slice of all producer names
+func ProducerList() []string {
+	producers := getAllProducers()
+
+	list := []string{}
+
+	for _, p := range producers {
+		list = append(list, p.Name)
+	}
+
+	return list
+}
+
 func qualityFromSkillLevel(level int) string {
 	qualities := map[int]string{
 		1:  "poor",

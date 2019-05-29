@@ -1,7 +1,9 @@
 package character
 
 import (
+	"math"
 	"math/rand"
+	"strconv"
 
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/gender"
@@ -31,6 +33,7 @@ type Character struct {
 	HairStyle      string
 	FacialHair     string
 	EyeColor       string
+	EyeShape       string
 	FaceShape      string
 	MouthShape     string
 	NoseShape      string
@@ -114,7 +117,7 @@ func (character Character) randomFacialHair() string {
 		return "none"
 	}
 
-	hairChance := rand.Intn(10)
+	hairChance := rand.Intn(15)
 	if hairChance > 8 {
 		return random.String(character.Culture.Appearance.FacialHairStyles)
 	}
@@ -143,6 +146,7 @@ func Generate(originCulture culture.Culture) Character {
 	char.FacialHair = char.randomFacialHair()
 
 	char.EyeColor = random.String(char.Culture.Appearance.EyeColors)
+	char.EyeShape = char.Culture.Appearance.EyeShape
 	char.FaceShape = char.Culture.Appearance.FaceShape
 	char.MouthShape = char.Culture.Appearance.MouthShape
 	char.NoseShape = char.Culture.Appearance.NoseShape
@@ -268,6 +272,16 @@ func GenerateFamily() Family {
 	}
 
 	return Family{familyName, parents, children}
+}
+
+// HeightSimplified returns a string in the common format for height
+func (character Character) HeightSimplified() string {
+	feet := strconv.Itoa(int(math.Floor(float64(character.Height) / 12.0)))
+	inches := strconv.Itoa(int(math.Mod(float64(character.Height), 12.0)))
+
+	display := feet + "'" + inches + "\""
+
+	return display
 }
 
 // MarryCouple returns a couple from two characters

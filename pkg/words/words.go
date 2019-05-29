@@ -1,5 +1,7 @@
 package words
 
+import "github.com/ironarachne/world/pkg/slices"
+
 // CombinePhrases combines phrases with "and" and commas
 func CombinePhrases(phrases []string) string {
 	combined := ""
@@ -16,4 +18,13 @@ func CombinePhrases(phrases []string) string {
 	}
 
 	return combined
+}
+
+// Pronoun returns the right singular pronoun based on starting letter of a word
+func Pronoun(word string) string {
+	if slices.StringIn(string(word[0]), []string{"a", "e", "i", "o", "u"}) {
+		return "an"
+	}
+
+	return "a"
 }
