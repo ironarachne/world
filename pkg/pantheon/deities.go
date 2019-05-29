@@ -22,10 +22,10 @@ type Deity struct {
 
 // SimplifiedDeity is a display version of deity
 type SimplifiedDeity struct {
-	Name        string `json:"name"`
-	Gender	    string `json:"gender"`
+	Name        string   `json:"name"`
+	Gender      string   `json:"gender"`
 	Domains     []string `json:"domains"`
-	Description string `json:"description"`
+	Description string   `json:"description"`
 }
 
 // GenerateDeity generates a random deity
@@ -80,7 +80,7 @@ func (deity Deity) simplify() SimplifiedDeity {
 	var relationship string
 
 	sd := SimplifiedDeity{
-		Name: deity.Name,
+		Name:   deity.Name,
 		Gender: deity.Gender.Name,
 	}
 
