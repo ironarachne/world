@@ -14,6 +14,7 @@ import (
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/language"
@@ -110,6 +111,28 @@ func getCultureRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = culture.Random()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getFoodStyle(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o food.Style
+
+	random.SeedFromString(id)
+
+	o = food.Random()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getFoodStyleRandom(w http.ResponseWriter, r *http.Request) {
+	var o food.Style
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = food.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -395,6 +418,9 @@ func main() {
 
 	r.Get("/culture", getCultureRandom)
 	r.Get("/culture/{id}", getCulture)
+
+	r.Get("/foodstyle", getFoodStyleRandom)
+	r.Get("/foodstyle/{id}", getFoodStyle)
 
 	r.Get("/heavens", getHeavensRandom)
 	r.Get("/heavens/{id}", getHeavens)

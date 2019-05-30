@@ -4,6 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
+	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/music"
 	"github.com/ironarachne/world/pkg/religion"
@@ -26,7 +27,7 @@ type Culture struct {
 	Superstition      int
 	HomeClimate       climate.Climate
 	ClothingStyle     ClothingStyle
-	FoodStyle         FoodStyle
+	FoodStyle         food.Style
 	AlcoholicDrinks   []Drink
 	Religion          religion.Religion
 }
@@ -47,8 +48,9 @@ func Generate(homeClimate climate.Climate) Culture {
 
 	instruments := music.GenerateInstruments(culture.HomeClimate)
 	culture.MusicStyle = music.GenerateStyle(instruments)
+
 	culture.ClothingStyle = culture.generateClothingStyle()
-	culture.FoodStyle = culture.generateFoodStyle()
+	culture.FoodStyle = food.GenerateStyle(culture.HomeClimate)
 	culture.AlcoholicDrinks = culture.generateDrinks()
 
 	culture.AttributeMax = 100
@@ -71,7 +73,7 @@ func (culture Culture) SetClimate(query string) Culture {
 	instruments := music.GenerateInstruments(newCulture.HomeClimate)
 	newCulture.MusicStyle = music.GenerateStyle(instruments)
 	newCulture.ClothingStyle = newCulture.generateClothingStyle()
-	newCulture.FoodStyle = newCulture.generateFoodStyle()
+	newCulture.FoodStyle = food.GenerateStyle(newCulture.HomeClimate)
 	newCulture.AlcoholicDrinks = newCulture.generateDrinks()
 
 	return newCulture
