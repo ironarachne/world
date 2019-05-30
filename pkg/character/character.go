@@ -297,7 +297,7 @@ func MarryCouple(partner1 Character, partner2 Character) Couple {
 
 // Random generates a completely random character
 func Random() Character {
-	randomCulture := culture.Generate()
+	randomCulture := culture.Random()
 
 	character := Generate(randomCulture)
 

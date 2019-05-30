@@ -25,7 +25,7 @@ func Generate() Country {
 	regions := []region.Region{}
 	country := Country{}
 
-	country.DominantCulture = culture.Generate()
+	country.DominantCulture = culture.Random()
 	country.Government = country.getNewMonarchy()
 	country.Heraldry = heraldry.GenerateHeraldry()
 	country.Name = country.DominantCulture.Language.RandomName()

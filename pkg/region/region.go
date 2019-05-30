@@ -91,7 +91,7 @@ func (region Region) getOrganizations() []organization.Organization {
 
 // Random generates a completely random region
 func Random() Region {
-	randomCulture := culture.Generate()
+	randomCulture := culture.Random()
 
 	region := Generate("random", randomCulture)
 

@@ -115,7 +115,7 @@ func Generate(category string, biome string, originCulture culture.Culture) Town
 
 // Random generates a completely random town
 func Random() Town {
-	randomCulture := culture.Generate()
+	randomCulture := culture.Random()
 
 	town := Generate("random", "random", randomCulture)
 

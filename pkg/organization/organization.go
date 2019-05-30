@@ -112,7 +112,7 @@ func Generate(originCulture culture.Culture) Organization {
 
 // Random generates a completely random organization
 func Random() Organization {
-	originCulture := culture.Generate()
+	originCulture := culture.Random()
 
 	org := Generate(originCulture)
 

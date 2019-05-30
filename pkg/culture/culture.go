@@ -5,6 +5,7 @@ import (
 
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/language"
+	"github.com/ironarachne/world/pkg/music"
 )
 
 // Culture is a fantasy culture
@@ -16,7 +17,7 @@ type Culture struct {
 	CommonMaleNames   []string
 	CommonFamilyNames []string
 	CommonFemaleNames []string
-	MusicStyle        MusicStyle
+	MusicStyle        music.Style
 	AttributeMax      int
 	Aggression        int
 	Curiosity         int
@@ -30,8 +31,9 @@ type Culture struct {
 }
 
 // Generate generates a culture
-func Generate() Culture {
+func Generate(homeClimate climate.Climate) Culture {
 	culture := Culture{}
+	culture.HomeClimate = homeClimate
 
 	culture.Language = language.Generate()
 
@@ -42,8 +44,8 @@ func Generate() Culture {
 	culture.Name = culture.Language.Name
 	culture.Adjective = culture.Language.Adjective
 
-	culture.HomeClimate = climate.Generate()
-	culture.MusicStyle = culture.randomMusicStyle()
+	instruments := music.GenerateInstruments(culture.HomeClimate)
+	culture.MusicStyle = music.GenerateStyle(instruments)
 	culture.ClothingStyle = culture.generateClothingStyle()
 	culture.FoodStyle = culture.generateFoodStyle()
 	culture.AlcoholicDrinks = culture.generateDrinks()
@@ -65,10 +67,17 @@ func Generate() Culture {
 func (culture Culture) SetClimate(query string) Culture {
 	newCulture := culture
 	newCulture.HomeClimate = climate.GetClimate(query)
-	newCulture.MusicStyle = newCulture.randomMusicStyle()
+	instruments := music.GenerateInstruments(newCulture.HomeClimate)
+	newCulture.MusicStyle = music.GenerateStyle(instruments)
 	newCulture.ClothingStyle = newCulture.generateClothingStyle()
 	newCulture.FoodStyle = newCulture.generateFoodStyle()
 	newCulture.AlcoholicDrinks = newCulture.generateDrinks()
 
 	return newCulture
+}
+
+// Random returns a completely random culture
+func Random() Culture {
+	homeClimate := climate.Generate()
+	return Generate(homeClimate)
 }

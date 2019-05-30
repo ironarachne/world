@@ -98,7 +98,7 @@ func getCulture(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = culture.Generate()
+	o = culture.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -108,7 +108,7 @@ func getCultureRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = culture.Generate()
+	o = culture.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
