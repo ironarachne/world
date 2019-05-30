@@ -12,6 +12,7 @@ import (
 	"github.com/go-chi/chi/middleware"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
+	"github.com/ironarachne/world/pkg/clothing"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/food"
@@ -67,6 +68,28 @@ func getClimateRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = climate.Generate().Simplify()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getClothingStyle(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o clothing.Style
+
+	random.SeedFromString(id)
+
+	o = clothing.Random()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getClothingStyleRandom(w http.ResponseWriter, r *http.Request) {
+	var o clothing.Style
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = clothing.Random()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -412,6 +435,9 @@ func main() {
 
 	r.Get("/climate", getClimateRandom)
 	r.Get("/climate/{id}", getClimate)
+
+	r.Get("/clothingstyle", getClothingStyleRandom)
+	r.Get("/clothingstyle/{id}", getClothingStyle)
 
 	r.Get("/country", getCountryRandom)
 	r.Get("/country/{id}", getCountry)
