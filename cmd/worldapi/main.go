@@ -50,21 +50,21 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 func getClimate(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o climate.Climate
+	var o climate.SimplifiedClimate
 
 	random.SeedFromString(id)
 
-	o = climate.Generate()
+	o = climate.Generate().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getClimateRandom(w http.ResponseWriter, r *http.Request) {
-	var o climate.Climate
+	var o climate.SimplifiedClimate
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = climate.Generate()
+	o = climate.Generate().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
