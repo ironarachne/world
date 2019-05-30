@@ -160,21 +160,21 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 func getLanguage(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o language.Language
+	var o language.SimplifiedLanguage
 
 	random.SeedFromString(id)
 
-	o = language.Generate()
+	o = language.Generate().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
-	var o language.Language
+	var o language.SimplifiedLanguage
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = language.Generate()
+	o = language.Generate().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }

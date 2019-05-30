@@ -80,6 +80,9 @@ func Generate() Language {
 	} else {
 		language.IsTonal = false
 	}
+	if language.IsTonal {
+		language.Descriptors = append(language.Descriptors, "tonal")
+	}
 
 	language.WritingSystem = randomWritingSystem()
 	language.WritingSystem.Name = language.Adjective
