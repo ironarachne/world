@@ -1,4 +1,4 @@
-package culture
+package food
 
 import (
 	"math/rand"
@@ -16,7 +16,8 @@ type Drink struct {
 	Ingredients []string
 }
 
-func (culture Culture) generateDrinks() []Drink {
+// GenerateDrinks procedurally generates some alcoholic drinks
+func GenerateDrinks(originClimate climate.Climate) []Drink {
 	var drink Drink
 	var drinks []Drink
 	var types []string
@@ -24,9 +25,9 @@ func (culture Culture) generateDrinks() []Drink {
 	var numberOfIngredients int
 	var possibleIngredients []string
 
-	spices := climate.ListResourcesOfType("spice", culture.HomeClimate.Resources)
-	fruit := climate.ListResourcesOfType("fruit", culture.HomeClimate.Resources)
-	grain := climate.ListResourcesOfType("grain", culture.HomeClimate.Resources)
+	spices := climate.ListResourcesOfType("spice", originClimate.Resources)
+	fruit := climate.ListResourcesOfType("fruit", originClimate.Resources)
+	grain := climate.ListResourcesOfType("grain", originClimate.Resources)
 
 	strengths := []string{
 		"very strong",

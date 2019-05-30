@@ -51,7 +51,6 @@ func Generate(regionType string, originCulture culture.Culture) Region {
 	region.Biome = biome.Name
 	region.Climate = biome
 	region.Culture = originCulture
-	region.Culture = region.Culture.SetClimate(region.Biome)
 
 	region.Class = getRandomWeightedClass()
 

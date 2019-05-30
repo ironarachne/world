@@ -28,7 +28,7 @@ type Culture struct {
 	HomeClimate       climate.Climate
 	ClothingStyle     ClothingStyle
 	FoodStyle         food.Style
-	AlcoholicDrinks   []Drink
+	AlcoholicDrinks   []food.Drink
 	Religion          religion.Religion
 }
 
@@ -51,7 +51,7 @@ func Generate(homeClimate climate.Climate) Culture {
 
 	culture.ClothingStyle = culture.generateClothingStyle()
 	culture.FoodStyle = food.GenerateStyle(culture.HomeClimate)
-	culture.AlcoholicDrinks = culture.generateDrinks()
+	culture.AlcoholicDrinks = food.GenerateDrinks(culture.HomeClimate)
 
 	culture.AttributeMax = 100
 	culture.Aggression = rand.Intn(culture.AttributeMax) + 1
@@ -64,19 +64,6 @@ func Generate(homeClimate climate.Climate) Culture {
 	culture.Religion = religion.Generate(culture.Language)
 
 	return culture
-}
-
-// SetClimate sets the climate and recalculates some traits
-func (culture Culture) SetClimate(query string) Culture {
-	newCulture := culture
-	newCulture.HomeClimate = climate.GetClimate(query)
-	instruments := music.GenerateInstruments(newCulture.HomeClimate)
-	newCulture.MusicStyle = music.GenerateStyle(instruments)
-	newCulture.ClothingStyle = newCulture.generateClothingStyle()
-	newCulture.FoodStyle = food.GenerateStyle(newCulture.HomeClimate)
-	newCulture.AlcoholicDrinks = newCulture.generateDrinks()
-
-	return newCulture
 }
 
 // Random returns a completely random culture
