@@ -25,7 +25,7 @@ type Type struct {
 func getAllTypes() []Type {
 	types := []Type{
 		Type{
-			Name: "an adventuring company",
+			Name: "adventuring company",
 			PossibleTraits: []string{
 				"aggressive",
 				"avaricious",
@@ -45,13 +45,21 @@ func getAllTypes() []Type {
 			MemberMaxAge:    50,
 			MemberMinAge:    15,
 			MemberProfessions: []string{
-				"adventurer",
+				"barbarian",
+				"bard",
+				"cleric",
+				"mage",
+				"paladin",
+				"rogue",
+				"warrior",
 			},
 			NameFirstParts: []string{
 				"Black",
 				"Burning",
 				"Crimson",
 				"Free",
+				"Golden",
+				"Iron",
 				"Righteous",
 				"Silver",
 				"Wandering",
@@ -59,13 +67,13 @@ func getAllTypes() []Type {
 			},
 			NameSecondParts: []string{
 				"Axes",
-				"Blade",
-				"Coin",
+				"Blades",
+				"Coins",
 				"Company",
 				"Dragons",
 				"Giants",
 				"Lords",
-				"Pike",
+				"Pikes",
 				"Swords",
 				"Wolves",
 				"Wyverns",
@@ -73,7 +81,7 @@ func getAllTypes() []Type {
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
 		},
 		Type{
-			Name: "a church",
+			Name: "church",
 			PossibleTraits: []string{
 				"penitent",
 				"helpful",
@@ -91,6 +99,8 @@ func getAllTypes() []Type {
 			MemberMaxAge:    90,
 			MemberMinAge:    15,
 			MemberProfessions: []string{
+				"acolyte",
+				"monk",
 				"priest",
 			},
 			NameFirstParts: []string{
@@ -120,7 +130,7 @@ func getAllTypes() []Type {
 			NameTemplate: "{{.FirstPart}} Church of the {{.SecondPart}}",
 		},
 		Type{
-			Name: "a guild",
+			Name: "guild",
 			PossibleTraits: []string{
 				"ambitious",
 				"avaricious",
@@ -140,6 +150,7 @@ func getAllTypes() []Type {
 			MemberMinAge:    20,
 			MemberProfessions: []string{
 				"artisan",
+				"craftsman",
 				"financier",
 				"merchant",
 			},
@@ -173,7 +184,7 @@ func getAllTypes() []Type {
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
 		},
 		Type{
-			Name: "a mercenary company",
+			Name: "mercenary company",
 			PossibleTraits: []string{
 				"aggressive",
 				"belligerent",
@@ -190,7 +201,12 @@ func getAllTypes() []Type {
 			MemberMaxAge:    50,
 			MemberMinAge:    15,
 			MemberProfessions: []string{
-				"soldier",
+				"archer",
+				"cavalryman",
+				"heavy footman",
+				"knife fighter",
+				"pikeman",
+				"swordsman",
 			},
 			NameFirstParts: []string{
 				"Black",
@@ -198,7 +214,9 @@ func getAllTypes() []Type {
 				"Crimson",
 				"Free",
 				"Gilded",
+				"Iron",
 				"Ivory",
+				"Red",
 				"Silver",
 				"White",
 			},
