@@ -6,6 +6,7 @@ import (
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/music"
+	"github.com/ironarachne/world/pkg/religion"
 )
 
 // Culture is a fantasy culture
@@ -27,7 +28,7 @@ type Culture struct {
 	ClothingStyle     ClothingStyle
 	FoodStyle         FoodStyle
 	AlcoholicDrinks   []Drink
-	Religion          Religion
+	Religion          religion.Religion
 }
 
 // Generate generates a culture
@@ -58,7 +59,7 @@ func Generate(homeClimate climate.Climate) Culture {
 
 	culture.Appearance = culture.generateAppearance()
 
-	culture.Religion = culture.generateReligion()
+	culture.Religion = religion.Generate(culture.Language)
 
 	return culture
 }

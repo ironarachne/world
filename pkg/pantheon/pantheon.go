@@ -17,13 +17,20 @@ type SimplifiedPantheon struct {
 }
 
 // Generate creates a random pantheon of deities
-func Generate(maxSize int, lang language.Language) Pantheon {
+func Generate(minSize int, maxSize int, lang language.Language) Pantheon {
 	var deity Deity
 	var pantheon Pantheon
+	numberOfDeities := minSize
 
 	pantheon.Deities = make(map[string]Deity)
 
-	numberOfDeities := rand.Intn(maxSize) + 1
+	if maxSize-minSize > 0 {
+		numberOfDeities = rand.Intn(maxSize-minSize) + minSize
+	}
+
+	if numberOfDeities < 1 {
+		return pantheon
+	}
 
 	for i := 0; i < numberOfDeities; i++ {
 		deity = pantheon.GenerateDeity(lang)
@@ -37,16 +44,8 @@ func Generate(maxSize int, lang language.Language) Pantheon {
 	return pantheon
 }
 
-// GenerateForDisplay returns a simplified pantheon for display purposes
-func GenerateForDisplay(maxSize int, lang language.Language) SimplifiedPantheon {
-	pantheon := Generate(maxSize, lang)
-
-	display := pantheon.simplify()
-
-	return display
-}
-
-func (pantheon Pantheon) simplify() SimplifiedPantheon {
+// Simplify returns a simplified pantheon for display
+func (pantheon Pantheon) Simplify() SimplifiedPantheon {
 	sp := SimplifiedPantheon{}
 
 	for _, d := range pantheon.Deities {

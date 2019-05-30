@@ -21,6 +21,7 @@ import (
 	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
+	"github.com/ironarachne/world/pkg/religion"
 	"github.com/ironarachne/world/pkg/town"
 	"github.com/ironarachne/world/pkg/world"
 )
@@ -210,7 +211,7 @@ func getPantheon(w http.ResponseWriter, r *http.Request) {
 	random.SeedFromString(id)
 
 	l = language.Generate()
-	o = pantheon.GenerateForDisplay(15, l)
+	o = pantheon.Generate(6, 15, l).Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -222,7 +223,7 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	l = language.Generate()
-	o = pantheon.GenerateForDisplay(15, l)
+	o = pantheon.Generate(6, 15, l).Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -245,6 +246,28 @@ func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = region.RandomSimplified()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getReligion(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o religion.SimplifiedReligion
+
+	random.SeedFromString(id)
+
+	o = religion.Random().Simplify()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getReligionRandom(w http.ResponseWriter, r *http.Request) {
+	var o religion.SimplifiedReligion
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = religion.Random().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -390,6 +413,9 @@ func main() {
 
 	r.Get("/region", getRegionRandom)
 	r.Get("/region/{id}", getRegion)
+
+	r.Get("/religion", getReligionRandom)
+	r.Get("/religion/{id}", getReligion)
 
 	r.Get("/town", getTownRandom)
 	r.Get("/town/{id}", getTown)
