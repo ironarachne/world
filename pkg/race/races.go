@@ -1,9 +1,9 @@
 package race
 
-func getAllRaces() []Race{
+func getAllRaces() []Race {
 	races := []Race{
 		Race{
-			Name: "human",
+			Name:      "human",
 			Adjective: "human",
 			AgeCategories: []AgeCategory{
 				AgeCategory{
@@ -46,12 +46,12 @@ func getAllRaces() []Race{
 			Appearance: Appearance{
 				MaxFemaleHeight: 72,
 				MinFemaleHeight: 48,
-				MaxMaleHeight: 80,
-				MinMaleHeight: 55,
+				MaxMaleHeight:   80,
+				MinMaleHeight:   55,
 				MaxFemaleWeight: 150,
 				MinFemaleWeight: 90,
-				MaxMaleWeight: 250,
-				MinMaleWeight: 150,
+				MaxMaleWeight:   250,
+				MinMaleWeight:   150,
 				FaceShapes: []string{
 					"broad",
 					"chiseled",
@@ -148,13 +148,12 @@ func getAllRaces() []Race{
 					"hazel",
 					"grey",
 				},
-				UniqueTraits: []string{
-				},
+				UniqueTraits: []string{},
 			},
 			Commonality: 10,
 		},
 		Race{
-			Name: "elf",
+			Name:      "elf",
 			Adjective: "elven",
 			AgeCategories: []AgeCategory{
 				AgeCategory{
@@ -197,12 +196,12 @@ func getAllRaces() []Race{
 			Appearance: Appearance{
 				MaxFemaleHeight: 62,
 				MinFemaleHeight: 38,
-				MaxMaleHeight: 70,
-				MinMaleHeight: 45,
+				MaxMaleHeight:   70,
+				MinMaleHeight:   45,
 				MaxFemaleWeight: 100,
 				MinFemaleWeight: 50,
-				MaxMaleWeight: 200,
-				MinMaleWeight: 100,
+				MaxMaleWeight:   200,
+				MinMaleWeight:   100,
 				FaceShapes: []string{
 					"chiseled",
 					"oval",
@@ -275,8 +274,7 @@ func getAllRaces() []Race{
 					"purple",
 					"silver",
 				},
-				UniqueTraits: []string{
-				},
+				UniqueTraits: []string{},
 			},
 			Commonality: 2,
 		},

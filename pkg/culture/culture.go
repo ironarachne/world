@@ -61,7 +61,8 @@ func Generate(homeClimate climate.Climate) Culture {
 	culture.Rigidity = rand.Intn(culture.AttributeMax) + 1
 	culture.Superstition = rand.Intn(culture.AttributeMax) + 1
 
-	culture.PrimaryRace = race.GetRandom()
+	parentRace := race.GetRandom()
+	culture.PrimaryRace = race.GenerateSubrace(parentRace)
 
 	culture.Religion = religion.Generate(culture.Language)
 

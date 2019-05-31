@@ -8,11 +8,11 @@ import (
 
 // Race is a race. It can have variations within.
 type Race struct {
-	Name       string
-	Adjective  string
+	Name          string
+	Adjective     string
 	AgeCategories []AgeCategory
-	Appearance Appearance
-	Commonality int
+	Appearance    Appearance
+	Commonality   int
 }
 
 // GenerateSubrace generates a random subrace based on a parent race
