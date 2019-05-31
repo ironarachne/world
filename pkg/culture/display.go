@@ -14,7 +14,7 @@ import (
 type SimplifiedCulture struct {
 	Adjective         string                      `json:"adjective"`
 	AlcoholicDrinks   []string                    `json:"alcoholic_drinks"`
-	ClothingStyle     clothing.Style              `json:"clothing_style"`
+	ClothingStyle     clothing.SimplifiedStyle    `json:"clothing_style"`
 	CommonFamilyNames []string                    `json:"common_family_names"`
 	CommonFemaleNames []string                    `json:"common_female_names"`
 	CommonMaleNames   []string                    `json:"common_male_names"`
@@ -36,7 +36,7 @@ func (culture Culture) Simplify() SimplifiedCulture {
 	return SimplifiedCulture{
 		Adjective:         culture.Adjective,
 		AlcoholicDrinks:   drinks,
-		ClothingStyle:     culture.ClothingStyle,
+		ClothingStyle:     culture.ClothingStyle.Simplify(),
 		CommonFamilyNames: culture.CommonFamilyNames,
 		CommonFemaleNames: culture.CommonFemaleNames,
 		CommonMaleNames:   culture.CommonMaleNames,
