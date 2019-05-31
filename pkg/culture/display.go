@@ -13,7 +13,7 @@ import (
 // SimplifiedCulture is a simplified version of culture for display
 type SimplifiedCulture struct {
 	Adjective         string                      `json:"adjective"`
-	AlcoholicDrinks   []food.Drink                `json:"alcoholic_drinks"`
+	AlcoholicDrinks   []string                    `json:"alcoholic_drinks"`
 	ClothingStyle     clothing.Style              `json:"clothing_style"`
 	CommonFamilyNames []string                    `json:"common_family_names"`
 	CommonFemaleNames []string                    `json:"common_female_names"`
@@ -29,9 +29,13 @@ type SimplifiedCulture struct {
 
 // Simplify returns a simplified version of a culture for display
 func (culture Culture) Simplify() SimplifiedCulture {
+	drinks := []string{}
+	for _, d := range culture.AlcoholicDrinks {
+		drinks = append(drinks, d.Describe())
+	}
 	return SimplifiedCulture{
 		Adjective:         culture.Adjective,
-		AlcoholicDrinks:   culture.AlcoholicDrinks,
+		AlcoholicDrinks:   drinks,
 		ClothingStyle:     culture.ClothingStyle,
 		CommonFamilyNames: culture.CommonFamilyNames,
 		CommonFemaleNames: culture.CommonFemaleNames,
