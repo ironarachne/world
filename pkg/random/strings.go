@@ -5,14 +5,39 @@ import (
 	"encoding/binary"
 	"io"
 	"math/rand"
+
+	"github.com/ironarachne/world/pkg/slices"
 )
 
-// String returns a random string from an array of strings
+// String returns a random string from a slice of strings
 func String(items []string) string {
 	if len(items) == 0 {
 		panic("Tried to get a random value from an empty slice of strings")
 	}
 	return items[rand.Intn(len(items))]
+}
+
+// StringSubset returns a random slice of strings from a slice of strings
+func StringSubset(items []string, maxItems int) []string {
+	result := []string{}
+	newItem := ""
+
+	if len(items) == 0 {
+		panic("Tried to get a random value from an empty slice of strings")
+	}
+
+	if maxItems > len(items) {
+		maxItems = len(items)
+	}
+
+	for i:=0;i<maxItems;i++ {
+		newItem = items[rand.Intn(len(items))]
+		if !slices.StringIn(newItem, result) {
+			result = append(result, newItem)
+		}
+	}
+
+	return result
 }
 
 // StringFromThresholdMap returns a random weighted string

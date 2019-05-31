@@ -1,6 +1,10 @@
 package character
 
-import "math/rand"
+import (
+	"math/rand"
+
+	"github.com/ironarachne/world/pkg/race"
+)
 
 // Hobby is a pasttime
 type Hobby struct {
@@ -107,7 +111,7 @@ func getAllHobbies() []Hobby {
 	return hobbies
 }
 
-func getHobbiesForAgeCategory(category AgeCategory) []Hobby {
+func getHobbiesForAgeCategory(category race.AgeCategory) []Hobby {
 	potentialHobbies := getAllHobbies()
 	hobbies := []Hobby{}
 

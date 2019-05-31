@@ -53,7 +53,7 @@ func (character Character) Describe() string {
 		noun = character.Gender.Noun
 	}
 
-	description += character.FirstName + " " + character.LastName + " is a " + strconv.Itoa(character.Age) + "-year-old " + character.Culture.Adjective + " " + noun + " with "
+	description += character.FirstName + " " + character.LastName + " is a " + strconv.Itoa(character.Age) + "-year-old " + character.Culture.Adjective + " " + character.Race.Adjective + " " + noun + " with "
 	description += character.HairColor + ", " + character.HairStyle + " hair and " + character.SkinColor + " skin. "
 	if character.FacialHair != "none" {
 		description += strings.Title(character.Gender.SubjectPronoun) + " has a " + character.FacialHair + ". "

@@ -8,6 +8,7 @@ import (
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/music"
+	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/religion"
 )
 
@@ -16,7 +17,7 @@ type Culture struct {
 	Name              string
 	Adjective         string
 	Language          language.Language
-	Appearance        Appearance
+	PrimaryRace        race.Race
 	CommonMaleNames   []string
 	CommonFamilyNames []string
 	CommonFemaleNames []string
@@ -60,7 +61,7 @@ func Generate(homeClimate climate.Climate) Culture {
 	culture.Rigidity = rand.Intn(culture.AttributeMax) + 1
 	culture.Superstition = rand.Intn(culture.AttributeMax) + 1
 
-	culture.Appearance = culture.generateAppearance()
+	culture.PrimaryRace = race.GetRandom()
 
 	culture.Religion = religion.Generate(culture.Language)
 

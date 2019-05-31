@@ -8,6 +8,7 @@ import (
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/gender"
 	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -20,7 +21,7 @@ type Character struct {
 	Heraldry       heraldry.Heraldry
 	Gender         gender.Gender
 	Age            int
-	AgeCategory    AgeCategory
+	AgeCategory    race.AgeCategory
 	Orientation    string
 	Height         int
 	Weight         int
@@ -39,6 +40,7 @@ type Character struct {
 	NoseShape      string
 	SkinColor      string
 	Culture        culture.Culture
+	Race race.Race
 }
 
 // Couple is a pair of partners
@@ -73,12 +75,12 @@ func randomOrientation() string {
 }
 
 func (character Character) randomHeight() int {
-	minHeight := character.Culture.Appearance.MinFemaleHeight
-	maxHeight := character.Culture.Appearance.MaxFemaleHeight
+	minHeight := character.Race.Appearance.MinFemaleHeight
+	maxHeight := character.Race.Appearance.MaxFemaleHeight
 
 	if character.Gender.Name == "male" {
-		minHeight = character.Culture.Appearance.MinMaleHeight
-		maxHeight = character.Culture.Appearance.MaxMaleHeight
+		minHeight = character.Race.Appearance.MinMaleHeight
+		maxHeight = character.Race.Appearance.MaxMaleHeight
 	}
 
 	height := rand.Intn(maxHeight-minHeight) + minHeight
@@ -93,12 +95,12 @@ func (character Character) randomHeight() int {
 }
 
 func (character Character) randomWeight() int {
-	minWeight := character.Culture.Appearance.MinFemaleWeight
-	maxWeight := character.Culture.Appearance.MaxFemaleWeight
+	minWeight := character.Race.Appearance.MinFemaleWeight
+	maxWeight := character.Race.Appearance.MaxFemaleWeight
 
 	if character.Gender.Name == "male" {
-		minWeight = character.Culture.Appearance.MinMaleWeight
-		maxWeight = character.Culture.Appearance.MaxMaleWeight
+		minWeight = character.Race.Appearance.MinMaleWeight
+		maxWeight = character.Race.Appearance.MaxMaleWeight
 	}
 
 	weight := rand.Intn(maxWeight-minWeight) + minWeight
@@ -119,7 +121,7 @@ func (character Character) randomFacialHair() string {
 
 	hairChance := rand.Intn(15)
 	if hairChance > 8 {
-		return random.String(character.Culture.Appearance.FacialHairStyles)
+		return random.String(character.Race.Appearance.FacialHairStyles)
 	}
 
 	return "none"
@@ -131,26 +133,27 @@ func Generate(originCulture culture.Culture) Character {
 
 	char.Gender = gender.Random()
 	char.Culture = originCulture
+	char.Race = char.Culture.PrimaryRace
 
 	char.FirstName, char.LastName = getAppropriateName(char.Gender.Name, char.Culture)
 
-	char.AgeCategory = getWeightedAgeCategory()
-	char.Age = getRandomAge(char.AgeCategory)
+	char.AgeCategory = char.Race.GetWeightedAgeCategory()
+	char.Age = race.GetRandomAge(char.AgeCategory)
 
-	char.HairColor = random.String(char.Culture.Appearance.HairColors)
+	char.HairColor = random.String(char.Race.Appearance.HairColors)
 	if char.Gender.Name == "male" {
-		char.HairStyle = random.String(char.Culture.Appearance.MaleHairStyles)
+		char.HairStyle = random.String(char.Race.Appearance.MaleHairStyles)
 	} else {
-		char.HairStyle = random.String(char.Culture.Appearance.FemaleHairStyles)
+		char.HairStyle = random.String(char.Race.Appearance.FemaleHairStyles)
 	}
 	char.FacialHair = char.randomFacialHair()
 
-	char.EyeColor = random.String(char.Culture.Appearance.EyeColors)
-	char.EyeShape = char.Culture.Appearance.EyeShape
-	char.FaceShape = char.Culture.Appearance.FaceShape
-	char.MouthShape = char.Culture.Appearance.MouthShape
-	char.NoseShape = char.Culture.Appearance.NoseShape
-	char.SkinColor = random.String(char.Culture.Appearance.SkinColors)
+	char.EyeColor = random.String(char.Race.Appearance.EyeColors)
+	char.EyeShape = random.String(char.Race.Appearance.EyeShapes)
+	char.FaceShape = random.String(char.Race.Appearance.FaceShapes)
+	char.MouthShape = random.String(char.Race.Appearance.MouthShapes)
+	char.NoseShape = random.String(char.Race.Appearance.NoseShapes)
+	char.SkinColor = random.String(char.Race.Appearance.SkinColors)
 
 	char.Orientation = randomOrientation()
 	char.Profession = getRandomProfession()
@@ -173,13 +176,13 @@ func GenerateCouple() Couple {
 	canHaveChildren := false
 
 	if char1.AgeCategory.Name == "child" {
-		char1.AgeCategory = getAgeCategoryByName("adult")
-		char1.Age = getRandomAge(char1.AgeCategory)
+		char1.AgeCategory = char1.Race.GetAgeCategoryByName("adult")
+		char1.Age = race.GetRandomAge(char1.AgeCategory)
 	}
 
 	if char2.AgeCategory.Name == "child" {
-		char2.AgeCategory = getAgeCategoryByName("adult")
-		char2.Age = getRandomAge(char2.AgeCategory)
+		char2.AgeCategory = char2.Race.GetAgeCategoryByName("adult")
+		char2.Age = race.GetRandomAge(char2.AgeCategory)
 	}
 
 	orientations := []string{char1.Orientation, char2.Orientation}
@@ -212,10 +215,10 @@ func GenerateAdultDescendent(couple Couple) Character {
 
 	descendent.LastName = couple.Partner1.LastName
 
-	ac := getAgeCategoryByName("adult")
+	ac := couple.Partner1.Race.GetAgeCategoryByName("adult")
 
-	descendent.Age = getRandomAge(ac)
-	descendent.AgeCategory = getAgeCategoryFromAge(descendent.Age)
+	descendent.Age = race.GetRandomAge(ac)
+	descendent.AgeCategory = couple.Partner1.Race.GetAgeCategoryFromAge(descendent.Age)
 
 	return descendent
 }
@@ -238,8 +241,10 @@ func GenerateChild(couple Couple) Character {
 func GenerateCompatibleMate(char Character) Character {
 	mate := Generate(char.Culture)
 
-	mate.Age = getRandomAge(char.AgeCategory)
-	mate.AgeCategory = getAgeCategoryFromAge(mate.Age)
+	mate.Race = char.Race
+
+	mate.Age = race.GetRandomAge(char.AgeCategory)
+	mate.AgeCategory = mate.Race.GetAgeCategoryFromAge(mate.Age)
 
 	if char.Orientation == "straight" {
 		mate.Gender = char.Gender.Opposite()
