@@ -2,8 +2,8 @@ package race
 
 // SimplifiedRace is a simplified version of a race for display
 type SimplifiedRace struct {
-	Name      string
-	Adjective string
+	Name      string `json:"name"`
+	Adjective string `json:"adjective"`
 }
 
 // Simplify returns a simplified version of a race

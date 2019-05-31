@@ -119,21 +119,21 @@ func getCountryRandom(w http.ResponseWriter, r *http.Request) {
 func getCulture(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o culture.Culture
+	var o culture.SimplifiedCulture
 
 	random.SeedFromString(id)
 
-	o = culture.Random()
+	o = culture.Random().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getCultureRandom(w http.ResponseWriter, r *http.Request) {
-	var o culture.Culture
+	var o culture.SimplifiedCulture
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = culture.Random()
+	o = culture.Random().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }

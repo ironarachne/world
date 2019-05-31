@@ -17,7 +17,7 @@ type Culture struct {
 	Name              string
 	Adjective         string
 	Language          language.Language
-	PrimaryRace        race.Race
+	PrimaryRace       race.Race
 	CommonMaleNames   []string
 	CommonFamilyNames []string
 	CommonFemaleNames []string
