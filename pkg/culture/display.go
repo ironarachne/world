@@ -18,7 +18,7 @@ type SimplifiedCulture struct {
 	CommonFamilyNames []string                    `json:"common_family_names"`
 	CommonFemaleNames []string                    `json:"common_female_names"`
 	CommonMaleNames   []string                    `json:"common_male_names"`
-	FoodStyle         food.Style                  `json:"food_style"`
+	FoodStyle         food.SimplifiedStyle        `json:"food_style"`
 	HomeClimate       climate.SimplifiedClimate   `json:"home_climate"`
 	Language          language.SimplifiedLanguage `json:"language"`
 	MusicStyle        music.SimplifiedStyle       `json:"music_style"`
@@ -36,7 +36,7 @@ func (culture Culture) Simplify() SimplifiedCulture {
 		CommonFamilyNames: culture.CommonFamilyNames,
 		CommonFemaleNames: culture.CommonFemaleNames,
 		CommonMaleNames:   culture.CommonMaleNames,
-		FoodStyle:         culture.FoodStyle,
+		FoodStyle:         culture.FoodStyle.Simplify(),
 		HomeClimate:       culture.HomeClimate.Simplify(),
 		Language:          culture.Language.Simplify(),
 		MusicStyle:        culture.MusicStyle.Simplify(),
