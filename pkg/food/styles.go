@@ -7,12 +7,13 @@ import (
 
 // Style is a cultural food style
 type Style struct {
+	Breads            []string
 	CommonBases       []string
+	CommonDishes      []string
 	CommonSpices      []string
 	CookingTechniques []string
-	CommonDishes      []string
 	EatingTraits      []string
-	Breads            []string
+	Noodles           []string
 }
 
 // GenerateStyle procedurally generates a style of food
@@ -28,6 +29,8 @@ func GenerateStyle(originClimate climate.Climate) Style {
 			style.CommonBases = append(style.CommonBases, r.Name)
 		} else if r.Type == "vegetable" {
 			style.CommonBases = append(style.CommonBases, r.Name)
+		} else if r.Type == "grain" {
+			style.Noodles = append(style.Noodles, getNoodles(r.Name)...)
 		}
 	}
 

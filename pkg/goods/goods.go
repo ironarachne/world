@@ -378,6 +378,23 @@ func getCobblerGoods() []Pattern {
 	return patterns
 }
 
+func getFlour() []Pattern {
+	patterns := []Pattern{
+		Pattern{
+			Name:         "flour",
+			Material1:    "",
+			Material2:    "",
+			Material3:    "",
+			Need1:        "grain",
+			Need2:        "",
+			Need3:        "",
+			NameTemplate: "{{.Material1}} flour",
+		},
+	}
+
+	return patterns
+}
+
 func getMasonGoods() []Pattern {
 	patterns := []Pattern{
 		Pattern{

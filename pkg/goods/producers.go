@@ -73,6 +73,11 @@ func getAllProducers() []Producer {
 			Patterns:         getMasonGoods(),
 		},
 		Producer{
+			Name:             "miller",
+			MinCommunitySize: 10,
+			Patterns:         getFlour(),
+		},
+		Producer{
 			Name:             "miner",
 			MinCommunitySize: 10,
 			Patterns:         getMinerGoods(),
