@@ -24,13 +24,6 @@ type Mutation struct {
 	To   string
 }
 
-// WritingSystem is a system of writing
-type WritingSystem struct {
-	Name           string
-	Classification string
-	StrokeType     string
-}
-
 var (
 	consonants = []string{"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"}
 	vowels     = []string{"a", "e", "i", "o", "u"}
@@ -69,9 +62,15 @@ func deriveAdjective(name string) string {
 func Generate() Language {
 	var language Language
 
-	language.Category = randomCategory()
+	combinedChance := rand.Intn(100)
+	if combinedChance > 70 {
+		language.Category = randomCombinedCategory()
+	} else {
+		language.Category = randomCategory()
+	}
+
 	language.Name = strings.Title(randomLanguageName(language.Category))
-	language.Descriptors = append(language.Descriptors, language.Category.Name)
+	language.Descriptors = append(language.Descriptors, language.Category.Descriptors...)
 	language.Adjective = deriveAdjective(language.Name)
 
 	tonalChance := rand.Intn(10) + 1
@@ -270,36 +269,4 @@ func randomSyllable(category Category, role string) string {
 	}
 
 	return syllable
-}
-
-func randomStrokeType() string {
-	strokeTypes := []string{
-		"arcs and loops",
-		"dots and slashes",
-		"flowing",
-		"geometric shapes",
-		"right angles",
-		"runic",
-	}
-
-	return random.String(strokeTypes)
-}
-
-func randomWritingSystem() WritingSystem {
-	var writingSystem WritingSystem
-
-	classifications := []string{
-		"abjad",
-		"abugida",
-		"alphabet",
-		"ideograms",
-		"pictograms",
-		"semanto-phonetic",
-		"syllabary",
-	}
-
-	writingSystem.Classification = random.String(classifications)
-	writingSystem.StrokeType = randomStrokeType()
-
-	return writingSystem
 }

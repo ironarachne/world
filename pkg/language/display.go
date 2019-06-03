@@ -6,7 +6,7 @@ import (
 
 // SimplifiedLanguage is a simplified version of Language meant for display
 type SimplifiedLanguage struct {
-	Name string `json:"name"`
+	Name        string `json:"name"`
 	Description string `json:"description"`
 }
 
@@ -14,7 +14,7 @@ type SimplifiedLanguage struct {
 func (language Language) Describe() string {
 	description := language.Name + " is " + words.Pronoun(language.Descriptors[0]) + " " + words.CombinePhrases(language.Descriptors) + " language. "
 	description += "It uses " + words.Pronoun(language.WritingSystem.Classification) + " " + language.WritingSystem.Classification + " writing system, "
-	description += "with characters composed of " + language.WritingSystem.StrokeType + " strokes."
+	description += "with characters composed of " + language.WritingSystem.StrokeType + "."
 
 	return description
 }
@@ -22,7 +22,7 @@ func (language Language) Describe() string {
 // Simplify creates a simplified version of a language for display
 func (language Language) Simplify() SimplifiedLanguage {
 	return SimplifiedLanguage{
-		Name: language.Name,
+		Name:        language.Name,
 		Description: language.Describe(),
 	}
 }

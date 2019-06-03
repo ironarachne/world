@@ -4,7 +4,7 @@ import "math/rand"
 
 // Category is a style of language
 type Category struct {
-	Name             string
+	Descriptors      []string
 	WordLength       int
 	UsesApostrophes  bool
 	Initiators       []string
@@ -14,10 +14,49 @@ type Category struct {
 	FeminineEndings  []string
 }
 
-func randomCategory() Category {
-	categories := []Category{
+func isCategoryInSlice(cat Category, categories []Category) bool {
+	for _, c := range categories {
+		if cat.Descriptors[0] == c.Descriptors[0] {
+			return true
+		}
+	}
+	return false
+}
+
+func randomCombinedCategory() Category {
+	var cat Category
+
+	categories := []Category{}
+
+	for i := 0; i < 2; i++ {
+		cat = randomCategory()
+		if !isCategoryInSlice(cat, categories) {
+			categories = append(categories, cat)
+		} else {
+			i--
+		}
+	}
+
+	newCategory := Category{}
+
+	for _, c := range categories {
+		newCategory.Descriptors = append(newCategory.Descriptors, c.Descriptors...)
+		newCategory.WordLength = c.WordLength
+		newCategory.UsesApostrophes = c.UsesApostrophes
+		newCategory.Initiators = append(newCategory.Initiators, c.Initiators...)
+		newCategory.Connectors = append(newCategory.Connectors, c.Connectors...)
+		newCategory.Finishers = append(newCategory.Finishers, c.Finishers...)
+		newCategory.MasculineEndings = append(newCategory.MasculineEndings, c.MasculineEndings...)
+		newCategory.FeminineEndings = append(newCategory.FeminineEndings, c.FeminineEndings...)
+	}
+
+	return newCategory
+}
+
+func getAllCategories() []Category {
+	return []Category{
 		Category{
-			Name:             "musical",
+			Descriptors:      []string{"musical"},
 			WordLength:       2,
 			UsesApostrophes:  false,
 			Initiators:       fricatives,
@@ -27,7 +66,7 @@ func randomCategory() Category {
 			FeminineEndings:  []string{"i", "a", "ia", "ila"},
 		},
 		Category{
-			Name:             "guttural",
+			Descriptors:      []string{"guttural"},
 			WordLength:       1,
 			UsesApostrophes:  false,
 			Initiators:       append(glottals, growls...),
@@ -37,7 +76,7 @@ func randomCategory() Category {
 			FeminineEndings:  []string{"a", "agi"},
 		},
 		Category{
-			Name:             "abrupt",
+			Descriptors:      []string{"abrupt"},
 			WordLength:       2,
 			UsesApostrophes:  true,
 			Initiators:       stops,
@@ -47,7 +86,7 @@ func randomCategory() Category {
 			FeminineEndings:  []string{"a", "e", "et"},
 		},
 		Category{
-			Name:             "nasal",
+			Descriptors:      []string{"nasal"},
 			WordLength:       2,
 			UsesApostrophes:  false,
 			Initiators:       glottals,
@@ -57,7 +96,7 @@ func randomCategory() Category {
 			FeminineEndings:  []string{"ini", "nia", "mia", "mi"},
 		},
 		Category{
-			Name:             "rhythmic",
+			Descriptors:      []string{"rhythmic"},
 			WordLength:       2,
 			UsesApostrophes:  false,
 			Initiators:       append(glottals, fricatives...),
@@ -67,7 +106,7 @@ func randomCategory() Category {
 			FeminineEndings:  []string{"oa", "ua", "lia", "li"},
 		},
 		Category{
-			Name:             "graceful",
+			Descriptors:      []string{"graceful"},
 			WordLength:       2,
 			UsesApostrophes:  false,
 			Initiators:       consonants,
@@ -77,7 +116,7 @@ func randomCategory() Category {
 			FeminineEndings:  []string{"eela", "aela", "ali", "eli", "oli", "oa", "ea"},
 		},
 		Category{
-			Name:             "breathy",
+			Descriptors:      []string{"breathy"},
 			WordLength:       1,
 			UsesApostrophes:  false,
 			Initiators:       append(breaths, fricatives...),
@@ -87,5 +126,10 @@ func randomCategory() Category {
 			FeminineEndings:  []string{"eshi", "eha", "ala", "asha", "iha"},
 		},
 	}
+}
+
+func randomCategory() Category {
+	categories := getAllCategories()
+
 	return categories[rand.Intn(len(categories))]
 }
