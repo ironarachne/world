@@ -14,24 +14,29 @@ import (
 
 // Culture is a fantasy culture
 type Culture struct {
-	Name              string
-	Adjective         string
-	Language          language.Language
-	PrimaryRace       race.Race
-	CommonMaleNames   []string
+	Adjective       string
+	AlcoholicDrinks []food.Drink
+	AttributeMax    int
+	Attributes      struct {
+		Aggression      int
+		Curiosity       int
+		MagicPrevalence int
+		MagicStrength   int
+		Rigidity        int
+		Superstition    int
+	}
+	ClothingStyle     clothing.Style
 	CommonFamilyNames []string
 	CommonFemaleNames []string
-	MusicStyle        music.Style
-	AttributeMax      int
-	Aggression        int
-	Curiosity         int
-	Rigidity          int
-	Superstition      int
-	HomeClimate       climate.Climate
-	ClothingStyle     clothing.Style
+	CommonMaleNames   []string
 	FoodStyle         food.Style
-	AlcoholicDrinks   []food.Drink
+	HomeClimate       climate.Climate
+	Language          language.Language
+	MusicStyle        music.Style
+	Name              string
+	PrimaryRace       race.Race
 	Religion          religion.Religion
+	Views             []string
 }
 
 // Generate generates a culture
@@ -56,15 +61,19 @@ func Generate(homeClimate climate.Climate) Culture {
 	culture.AlcoholicDrinks = food.GenerateDrinks(culture.HomeClimate)
 
 	culture.AttributeMax = 100
-	culture.Aggression = rand.Intn(culture.AttributeMax) + 1
-	culture.Curiosity = rand.Intn(culture.AttributeMax) + 1
-	culture.Rigidity = rand.Intn(culture.AttributeMax) + 1
-	culture.Superstition = rand.Intn(culture.AttributeMax) + 1
+	culture.Attributes.Aggression = rand.Intn(culture.AttributeMax) + 1
+	culture.Attributes.Curiosity = rand.Intn(culture.AttributeMax) + 1
+	culture.Attributes.MagicPrevalence = rand.Intn(culture.AttributeMax) + 1
+	culture.Attributes.MagicStrength = rand.Intn(culture.AttributeMax) + 1
+	culture.Attributes.Rigidity = rand.Intn(culture.AttributeMax) + 1
+	culture.Attributes.Superstition = rand.Intn(culture.AttributeMax) + 1
 
 	parentRace := race.GetRandom()
 	culture.PrimaryRace = race.GenerateSubrace(parentRace)
 
 	culture.Religion = religion.Generate(culture.Language)
+
+	culture.Views = culture.getViews()
 
 	return culture
 }

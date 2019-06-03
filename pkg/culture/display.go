@@ -25,6 +25,7 @@ type SimplifiedCulture struct {
 	Name              string                      `json:"name"`
 	PrimaryRace       race.SimplifiedRace         `json:"primary_race"`
 	Religion          religion.SimplifiedReligion `json:"religion"`
+	Views             []string                    `json:"views"`
 }
 
 // Simplify returns a simplified version of a culture for display
@@ -47,5 +48,6 @@ func (culture Culture) Simplify() SimplifiedCulture {
 		Name:              culture.Name,
 		PrimaryRace:       culture.PrimaryRace.Simplify(),
 		Religion:          culture.Religion.Simplify(),
+		Views:             culture.Views,
 	}
 }
