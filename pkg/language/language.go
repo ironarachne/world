@@ -18,15 +18,8 @@ type Language struct {
 	WritingSystem WritingSystem
 }
 
-// Mutation is a word mutation
-type Mutation struct {
-	From string
-	To   string
-}
-
 var (
 	consonants = []string{"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"}
-	vowels     = []string{"a", "e", "i", "o", "u"}
 	breaths    = []string{"h", "th", "f", "ch", "sh"}
 	fricatives = []string{"f", "v", "th", "ð", "s", "z", "ch", "zh"}
 	glides     = []string{"j", "w"}
@@ -159,37 +152,6 @@ func randomLanguageName(category Category) string {
 	return name
 }
 
-func randomMutation() Mutation {
-	rules := []Mutation{
-		Mutation{
-			"s",
-			"ss",
-		},
-		Mutation{
-			"s",
-			"sh",
-		},
-		Mutation{
-			"f",
-			"ff",
-		},
-		Mutation{
-			"f",
-			"fh",
-		},
-		Mutation{
-			"g",
-			"gh",
-		},
-		Mutation{
-			"l",
-			"l'",
-		},
-	}
-
-	return rules[rand.Intn(len(rules)-1)]
-}
-
 // RandomGenderedName generates a random gendered first name
 func (language Language) RandomGenderedName(gender string) string {
 	var endings []string
@@ -255,18 +217,4 @@ func (language Language) RandomName() string {
 	name = strings.Title(name)
 
 	return name
-}
-
-func randomSyllable(category Category, role string) string {
-	syllable := random.String(category.Initiators) + random.String(vowels)
-	expand := rand.Intn(10) + 1
-	if expand > 2 {
-		if role == "connector" {
-			syllable += random.String(category.Connectors)
-		} else {
-			syllable += random.String(category.Finishers)
-		}
-	}
-
-	return syllable
 }
