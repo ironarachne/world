@@ -2,9 +2,9 @@ package climate
 
 // SimplifiedClimate is a simplified version of Climate for display purposes
 type SimplifiedClimate struct {
-	Name        string
-	Adjective   string
-	Description string
+	Name        string `json:"name"`
+	Adjective   string `json:"adjective"`
+	Description string `json:"description"`
 }
 
 // Simplify returns a simplified version of a Climate
