@@ -3,6 +3,7 @@ package town
 import (
 	"math/rand"
 
+	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
@@ -13,6 +14,7 @@ import (
 type Town struct {
 	Name             string
 	Population       int
+	BuildingStyle    buildings.BuildingStyle
 	Category         Category
 	Climate          climate.Climate
 	Culture          culture.Culture
@@ -77,6 +79,8 @@ func Generate(category string, biome string, originCulture culture.Culture) Town
 	town.Name = town.Culture.Language.RandomName()
 
 	town.Population = generateRandomPopulation(town.Category)
+
+	town.BuildingStyle = town.Culture.BuildingStyle
 
 	mayor := town.generateMayor()
 	mayor.FirstName = town.Culture.Language.RandomGenderedName(mayor.Gender.Name)

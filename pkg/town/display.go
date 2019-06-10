@@ -6,6 +6,7 @@ import "github.com/ironarachne/world/pkg/character"
 type SimplifiedTown struct {
 	Name            string                        `json:"name"`
 	Population      int                           `json:"population"`
+	BuildingStyle   string                        `json:"building_style"`
 	Climate         string                        `json:"climate"`
 	DominantCulture string                        `json:"dominant_culture"`
 	Category        string                        `json:"category"`
@@ -27,6 +28,7 @@ func (town Town) Simplify() SimplifiedTown {
 	simplified := SimplifiedTown{
 		Name:            town.Name,
 		Population:      town.Population,
+		BuildingStyle:   town.BuildingStyle.Simplify().Description,
 		Climate:         town.Climate.Description,
 		DominantCulture: town.Culture.Name,
 		Category:        town.Category.Name,
