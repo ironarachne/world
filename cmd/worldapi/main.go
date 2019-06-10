@@ -10,6 +10,7 @@ import (
 
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
+	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/clothing"
@@ -27,6 +28,28 @@ import (
 	"github.com/ironarachne/world/pkg/town"
 	"github.com/ironarachne/world/pkg/world"
 )
+
+func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o buildings.SimplifiedBuildingStyle
+
+	random.SeedFromString(id)
+
+	o = buildings.GenerateStyle().Simplify()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getBuildingStyleRandom(w http.ResponseWriter, r *http.Request) {
+	var o buildings.SimplifiedBuildingStyle
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = buildings.GenerateStyle().Simplify()
+
+	json.NewEncoder(w).Encode(o)
+}
 
 func getCharacter(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
@@ -429,6 +452,9 @@ func main() {
 	r.Use(middleware.SetHeader("Content-Type", "application/json"))
 
 	r.Use(middleware.Timeout(60 * time.Second))
+
+	r.Get("/buildingstyle", getBuildingStyleRandom)
+	r.Get("/buildingstyle/{id}", getBuildingStyle)
 
 	r.Get("/character", getCharacterRandom)
 	r.Get("/character/{id}", getCharacter)

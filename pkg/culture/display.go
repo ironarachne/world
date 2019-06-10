@@ -1,6 +1,7 @@
 package culture
 
 import (
+	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/clothing"
 	"github.com/ironarachne/world/pkg/food"
@@ -12,20 +13,21 @@ import (
 
 // SimplifiedCulture is a simplified version of culture for display
 type SimplifiedCulture struct {
-	Adjective         string                      `json:"adjective"`
-	AlcoholicDrinks   []string                    `json:"alcoholic_drinks"`
-	ClothingStyle     clothing.SimplifiedStyle    `json:"clothing_style"`
-	CommonFamilyNames []string                    `json:"common_family_names"`
-	CommonFemaleNames []string                    `json:"common_female_names"`
-	CommonMaleNames   []string                    `json:"common_male_names"`
-	FoodStyle         food.SimplifiedStyle        `json:"food_style"`
-	HomeClimate       climate.SimplifiedClimate   `json:"home_climate"`
-	Language          language.SimplifiedLanguage `json:"language"`
-	MusicStyle        music.SimplifiedStyle       `json:"music_style"`
-	Name              string                      `json:"name"`
-	PrimaryRace       race.SimplifiedRace         `json:"primary_race"`
-	Religion          religion.SimplifiedReligion `json:"religion"`
-	Views             []string                    `json:"views"`
+	Adjective         string                            `json:"adjective"`
+	AlcoholicDrinks   []string                          `json:"alcoholic_drinks"`
+	BuildingStyle     buildings.SimplifiedBuildingStyle `json:"building_style"`
+	ClothingStyle     clothing.SimplifiedStyle          `json:"clothing_style"`
+	CommonFamilyNames []string                          `json:"common_family_names"`
+	CommonFemaleNames []string                          `json:"common_female_names"`
+	CommonMaleNames   []string                          `json:"common_male_names"`
+	FoodStyle         food.SimplifiedStyle              `json:"food_style"`
+	HomeClimate       climate.SimplifiedClimate         `json:"home_climate"`
+	Language          language.SimplifiedLanguage       `json:"language"`
+	MusicStyle        music.SimplifiedStyle             `json:"music_style"`
+	Name              string                            `json:"name"`
+	PrimaryRace       race.SimplifiedRace               `json:"primary_race"`
+	Religion          religion.SimplifiedReligion       `json:"religion"`
+	Views             []string                          `json:"views"`
 }
 
 // Simplify returns a simplified version of a culture for display
@@ -37,6 +39,7 @@ func (culture Culture) Simplify() SimplifiedCulture {
 	return SimplifiedCulture{
 		Adjective:         culture.Adjective,
 		AlcoholicDrinks:   drinks,
+		BuildingStyle:     culture.BuildingStyle.Simplify(),
 		ClothingStyle:     culture.ClothingStyle.Simplify(),
 		CommonFamilyNames: culture.CommonFamilyNames,
 		CommonFemaleNames: culture.CommonFemaleNames,
