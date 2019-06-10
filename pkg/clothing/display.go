@@ -6,7 +6,6 @@ type SimplifiedStyle struct {
 	CommonMaleItems   []string `json:"common_male_items"`
 	CommonJewelry     []string `json:"common_jewelry"`
 	CommonColors      []string `json:"common_colors"`
-	CommonMaterials   []string `json:"common_materials"`
 	DecorativeStyle   string   `json:"decorative_style"`
 }
 
@@ -28,7 +27,6 @@ func (style Style) Simplify() SimplifiedStyle {
 		CommonMaleItems:   male,
 		CommonJewelry:     style.CommonJewelry,
 		CommonColors:      style.CommonColors,
-		CommonMaterials:   style.CommonMaterials,
 		DecorativeStyle:   style.DecorativeStyle,
 	}
 }

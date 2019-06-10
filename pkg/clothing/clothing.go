@@ -12,7 +12,6 @@ type Style struct {
 	CommonMaleItems   []Item
 	CommonJewelry     []string
 	CommonColors      []string
-	CommonMaterials   []string
 	DecorativeStyle   string
 }
 
@@ -20,7 +19,6 @@ type Style struct {
 func GenerateStyle(originClimate climate.Climate) Style {
 	style := Style{}
 
-	style.CommonMaterials = getFabrics(originClimate)
 	style.CommonFemaleItems = getItems(originClimate)
 	style.CommonMaleItems = getItems(originClimate)
 
@@ -46,18 +44,28 @@ func getFabrics(originClimate climate.Climate) []string {
 	for _, i := range originClimate.Animals {
 		if i.GivesWool {
 			fabrics = append(fabrics, i.Name+" wool")
-		} else if i.GivesFur {
-			fabrics = append(fabrics, i.Name+" fur")
-		} else if i.Name == "cow" {
-			fabrics = append(fabrics, "leather")
-		} else if i.AnimalType == "reptile" {
-			fabrics = append(fabrics, i.Name+" skin")
-		} else if i.GivesHide {
-			fabrics = append(fabrics, i.Name+" hide")
 		}
 	}
 
 	return fabrics
+}
+
+func getHides(originClimate climate.Climate) []string {
+	hides := []string{}
+
+	for _, i := range originClimate.Animals {
+		if i.GivesFur {
+			hides = append(hides, i.Name+" fur")
+		} else if i.Name == "cow" {
+			hides = append(hides, "leather")
+		} else if i.AnimalType == "reptile" {
+			hides = append(hides, i.Name+" skin")
+		} else if i.GivesHide {
+			hides = append(hides, i.Name+" hide")
+		}
+	}
+
+	return hides
 }
 
 func randomDecorativeStyle(originClimate climate.Climate) string {

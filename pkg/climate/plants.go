@@ -27,7 +27,23 @@ func (climate Climate) getFilteredPlants() []Plant {
 	plants = filterPlantsForHumidity(climate.Humidity, plants)
 	plants = filterPlantsForTemperature(climate.Temperature, plants)
 
+	if len(plants) < 1 {
+		panic("Found no plants for climate " + climate.Name)
+	}
+
 	return plants
+}
+
+func getRandomFiber(from []Plant) Plant {
+	var fibers []Plant
+
+	for _, p := range from {
+		if p.IsFiber {
+			fibers = append(fibers, p)
+		}
+	}
+
+	return fibers[rand.Intn(len(fibers))]
 }
 
 func getRandomPlants(amount int, from []Plant) []Plant {
@@ -39,8 +55,10 @@ func getRandomPlants(amount int, from []Plant) []Plant {
 		amount = len(from)
 	}
 
-	for i := 0; i < amount; i++ {
-		plant = from[rand.Intn(len(from)-1)]
+	plants = append(plants, getRandomFiber(from))
+
+	for i := 1; i < amount; i++ {
+		plant = from[rand.Intn(len(from))]
 		if !isPlantInSlice(plant, plants) {
 			plants = append(plants, plant)
 		}
@@ -116,10 +134,10 @@ func getFibers() []Plant {
 			IsSpice:        false,
 			IsToxic:        false,
 			IsVegetable:    false,
-			MinHumidity:    3,
+			MinHumidity:    0,
 			MaxHumidity:    10,
-			MinTemperature: 2,
-			MaxTemperature: 9,
+			MinTemperature: 0,
+			MaxTemperature: 10,
 		},
 		Plant{
 			Name:           "flax",
@@ -134,10 +152,10 @@ func getFibers() []Plant {
 			IsSpice:        false,
 			IsToxic:        false,
 			IsVegetable:    false,
-			MinHumidity:    3,
+			MinHumidity:    0,
 			MaxHumidity:    10,
-			MinTemperature: 2,
-			MaxTemperature: 9,
+			MinTemperature: 0,
+			MaxTemperature: 10,
 		},
 		Plant{
 			Name:           "hemp",
@@ -188,7 +206,7 @@ func getFibers() []Plant {
 			IsSpice:        false,
 			IsToxic:        false,
 			IsVegetable:    false,
-			MinHumidity:    3,
+			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 2,
 			MaxTemperature: 9,
