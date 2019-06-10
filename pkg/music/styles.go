@@ -4,6 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Style is a music style
@@ -59,6 +60,7 @@ func getAllStyleDescriptors() []string {
 }
 
 func getRandomStyleDescriptors(maxDescriptors int) []string {
+	var randomDescriptor string
 	descriptors := []string{}
 
 	possibleDescriptors := getAllStyleDescriptors()
@@ -66,7 +68,12 @@ func getRandomStyleDescriptors(maxDescriptors int) []string {
 	numberOfDescriptors := rand.Intn(maxDescriptors) + 1
 
 	for i := 0; i < numberOfDescriptors; i++ {
-		descriptors = append(descriptors, random.String(possibleDescriptors))
+		randomDescriptor = random.String(possibleDescriptors)
+		if !slices.StringIn(randomDescriptor, descriptors) {
+			descriptors = append(descriptors, randomDescriptor)
+		} else {
+			i--
+		}
 	}
 
 	return descriptors
