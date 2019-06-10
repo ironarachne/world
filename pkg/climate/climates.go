@@ -12,6 +12,7 @@ import (
 // Climate is a climate
 type Climate struct {
 	Name               string
+	Adjective          string
 	Description        string
 	Habitability       int
 	Temperature        int
@@ -317,6 +318,7 @@ func getAllClimates() []Climate {
 	climates := []Climate{
 		Climate{
 			Name:               "coniferous forest",
+			Adjective:          "coniferous forest",
 			Temperature:        4,
 			HasDeciduousTrees:  false,
 			HasConiferousTrees: true,
@@ -332,6 +334,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "deciduous forest",
+			Adjective:          "deciduous forest",
 			Temperature:        5,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: false,
@@ -347,6 +350,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "desert",
+			Adjective:          "desert",
 			Temperature:        9,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -362,6 +366,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "grassland",
+			Adjective:          "grassland",
 			Temperature:        5,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -377,6 +382,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "marshland",
+			Adjective:          "marshy",
 			Temperature:        7,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -393,6 +399,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "tropical",
+			Adjective:          "tropical",
 			Temperature:        9,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -408,6 +415,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "mountain",
+			Adjective:          "mountainous",
 			Temperature:        4,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -423,6 +431,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "rainforest",
+			Adjective:          "rainforest",
 			Temperature:        9,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -438,6 +447,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "savanna",
+			Adjective:          "savanna",
 			Temperature:        9,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -453,6 +463,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "steppe",
+			Adjective:          "steppe",
 			Temperature:        7,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -468,6 +479,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "taiga",
+			Adjective:          "taiga",
 			Temperature:        3,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
@@ -483,6 +495,7 @@ func getAllClimates() []Climate {
 		},
 		Climate{
 			Name:               "tundra",
+			Adjective:          "tundra",
 			Temperature:        1,
 			HasDeciduousTrees:  true,
 			HasConiferousTrees: true,
