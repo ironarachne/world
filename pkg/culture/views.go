@@ -1,5 +1,27 @@
 package culture
 
+func (culture Culture) getViewOnOtherCultures() string {
+	view := "This culture has neither a strong interest in nor a strong avoidance of other cultures."
+
+	if culture.Attributes.Aggression > 80 {
+		if culture.Attributes.Curiosity > 80 {
+			view = "This culture finds other cultures fascinating and incorporates their views when possible."
+		} else if culture.Attributes.Curiosity < 30 {
+			view = "This culture finds no value in other cultures and seeks to destroy them."
+		} else {
+			view = "This culture values conquest."
+		}
+	} else if culture.Attributes.Aggression < 30 {
+		if culture.Attributes.Curiosity > 70 {
+			view = "This culture is very curious about other cultures and strives to learn about them."
+		} else if culture.Attributes.Curiosity < 30 {
+			view = "This culture keeps to itself and avoids contact with other cultures."
+		}
+	}
+
+	return view
+}
+
 func (culture Culture) getViewOnMagic() string {
 	view := "Magic is "
 
@@ -79,6 +101,7 @@ func (culture Culture) getViews() []string {
 	views := []string{}
 
 	views = append(views, culture.getViewOnMagic())
+	views = append(views, culture.getViewOnOtherCultures())
 
 	return views
 }
