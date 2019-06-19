@@ -19,6 +19,7 @@ type Deity struct {
 	PersonalityTraits []string
 	Relationships     []Relationship
 	HolyItem          string
+	HolySymbol        string
 }
 
 // SimplifiedDeity is a display version of deity
@@ -40,6 +41,30 @@ func (deity Deity) getRandomHolyItem() string {
 
 	for _, d := range deity.Domains {
 		options = append(options, d.HolyItems...)
+	}
+
+	return random.String(options)
+}
+
+func (deity Deity) getRandomHolySymbol() string {
+	options := []string{}
+
+	if len(deity.Domains) == 0 {
+		options = []string{
+			"circle divided in three",
+			"closed eye",
+			"open eye",
+			"pair of circles",
+			"pair of triangles",
+			"square",
+			"triangle mirrored",
+			"triangle",
+			"trio of slanted lines",
+		}
+	} else {
+		for _, d := range deity.Domains {
+			options = append(options, d.HolySymbols...)
+		}
 	}
 
 	return random.String(options)
@@ -80,6 +105,7 @@ func (pantheon Pantheon) GenerateDeity(lang language.Language) Deity {
 	deity.PersonalityTraits = deity.getRandomTraits()
 
 	deity.HolyItem = deity.getRandomHolyItem()
+	deity.HolySymbol = deity.getRandomHolySymbol()
 
 	deity.Name = lang.RandomGenderedName(deity.Gender.Name)
 
@@ -119,7 +145,8 @@ func (deity Deity) Describe() string {
 
 	description += strings.Title(deity.Gender.SubjectPronoun) + " is " + words.CombinePhrases(deity.PersonalityTraits) + ". "
 
-	description += strings.Title(deity.Gender.PossessivePronoun) + " holy item is " + words.Pronoun(deity.HolyItem) + " " + deity.HolyItem + ". "
+	description += strings.Title(deity.Gender.PossessivePronoun) + " holy item is " + words.Pronoun(deity.HolyItem) + " " + deity.HolyItem + ", and "
+	description += deity.Gender.PossessivePronoun + " holy symbol is " + words.Pronoun(deity.HolySymbol) + " " + deity.HolySymbol + ". "
 
 	relationships := []string{}
 
