@@ -9,10 +9,12 @@ import (
 // Race is a race. It can have variations within.
 type Race struct {
 	Name          string
+	PluralName    string
 	Adjective     string
 	AgeCategories []AgeCategory
 	Appearance    Appearance
 	Commonality   int
+	Size          Size
 }
 
 // GenerateSubrace generates a random subrace based on a parent race
@@ -64,4 +66,11 @@ func GetRandomWeighted() Race {
 	}
 
 	return Race{}
+}
+
+// RandomSimplified returns a random simplified race
+func RandomSimplified() SimplifiedRace {
+	races := getAllRaces()
+
+	return races[rand.Intn(len(races))].Simplify()
 }

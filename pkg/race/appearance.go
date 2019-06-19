@@ -1,7 +1,9 @@
 package race
 
 import (
+	"math"
 	"math/rand"
+	"strconv"
 
 	"github.com/ironarachne/world/pkg/random"
 )
@@ -61,4 +63,27 @@ func (race Race) generateRandomSubraceAppearance() Appearance {
 	}
 
 	return appearance
+}
+
+func heightToString(heightInInches int) string {
+	feet := strconv.Itoa(int(math.Floor(float64(heightInInches) / 12.0)))
+	inches := strconv.Itoa(int(math.Mod(float64(heightInInches), 12.0)))
+
+	display := feet + "'" + inches + "\""
+
+	return display
+}
+
+func (race Race) getAverageHeight() int {
+	min := math.Min(float64(race.Appearance.MinFemaleHeight), float64(race.Appearance.MinMaleHeight))
+	max := math.Max(float64(race.Appearance.MaxFemaleHeight), float64(race.Appearance.MaxMaleHeight))
+
+	return int((min + max) / 2)
+}
+
+func (race Race) getAverageWeight() int {
+	min := math.Min(float64(race.Appearance.MinFemaleWeight), float64(race.Appearance.MinMaleWeight))
+	max := math.Max(float64(race.Appearance.MaxFemaleWeight), float64(race.Appearance.MaxMaleWeight))
+
+	return int((min + max) / 2)
 }
