@@ -9,6 +9,7 @@ type Domain struct {
 	Name              string
 	AppearanceTraits  []string
 	PersonalityTraits []string
+	HolyItems         []string
 }
 
 func getAllAppearancesForDomains(domains []Domain) []string {
@@ -64,6 +65,16 @@ func isDomainInSlice(domain Domain, domains []Domain) bool {
 	return false
 }
 
+func getDomainNames(domains []Domain) []string {
+	names := []string{}
+
+	for _, d := range domains {
+		names = append(names, d.Name)
+	}
+
+	return names
+}
+
 func getAllDomains() []Domain {
 	domains := []Domain{
 		Domain{
@@ -73,6 +84,10 @@ func getAllDomains() []Domain {
 				"ethereal",
 				"wind-blown",
 				"winged",
+			},
+			HolyItems: []string{
+				"feather",
+				"crystal orb",
 			},
 			PersonalityTraits: []string{
 				"mercurial",
@@ -85,6 +100,10 @@ func getAllDomains() []Domain {
 				"dog-headed",
 				"bird-headed",
 			},
+			HolyItems: []string{
+				"talon",
+				"fang",
+			},
 			PersonalityTraits: []string{
 				"brutish",
 				"short-tempered",
@@ -96,6 +115,10 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"rainbow-hued",
 			},
+			HolyItems: []string{
+				"brush",
+				"quill pen",
+			},
 			PersonalityTraits: []string{},
 		},
 		Domain{
@@ -103,11 +126,17 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"leaf-haired",
 			},
+			HolyItems: []string{
+				"leaf",
+			},
 			PersonalityTraits: []string{},
 		},
 		Domain{
 			Name:             "balance",
 			AppearanceTraits: []string{},
+			HolyItems: []string{
+				"scales",
+			},
 			PersonalityTraits: []string{
 				"careful",
 				"measured",
@@ -118,6 +147,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"blurred",
 				"shifting",
+			},
+			HolyItems: []string{
+				"eight-pointed star",
 			},
 			PersonalityTraits: []string{
 				"unpredictable",
@@ -130,6 +162,9 @@ func getAllDomains() []Domain {
 				"dark as night",
 				"shadowy",
 			},
+			HolyItems: []string{
+				"cloak",
+			},
 			PersonalityTraits: []string{},
 		},
 		Domain{
@@ -139,6 +174,9 @@ func getAllDomains() []Domain {
 				"glowing",
 				"radiant",
 			},
+			HolyItems: []string{
+				"torch",
+			},
 			PersonalityTraits: []string{},
 		},
 		Domain{
@@ -146,6 +184,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"gaunt",
 				"skeletal",
+			},
+			HolyItems: []string{
+				"funerary mask",
 			},
 			PersonalityTraits: []string{},
 		},
@@ -156,12 +197,20 @@ func getAllDomains() []Domain {
 				"ember-eyed",
 				"horned",
 			},
+			HolyItems: []string{
+				"three-legged bowl",
+				"cauldron",
+			},
 			PersonalityTraits: []string{},
 		},
 		Domain{
 			Name: "destruction",
 			AppearanceTraits: []string{
 				"spined",
+			},
+			HolyItems: []string{
+				"sword",
+				"axe",
 			},
 			PersonalityTraits: []string{
 				"wrathful",
@@ -173,6 +222,9 @@ func getAllDomains() []Domain {
 				"dark-skinned",
 				"twilight-eyed",
 			},
+			HolyItems: []string{
+				"mask",
+			},
 			PersonalityTraits: []string{
 				"brooding",
 			},
@@ -181,6 +233,10 @@ func getAllDomains() []Domain {
 			Name: "earth",
 			AppearanceTraits: []string{
 				"stone-skinned",
+			},
+			HolyItems: []string{
+				"pick",
+				"mallet",
 			},
 			PersonalityTraits: []string{
 				"grounded",
@@ -195,6 +251,9 @@ func getAllDomains() []Domain {
 				"horned",
 				"spider-bodied",
 			},
+			HolyItems: []string{
+				"spiral dagger",
+			},
 			PersonalityTraits: []string{
 				"brutal",
 				"cruel",
@@ -208,6 +267,9 @@ func getAllDomains() []Domain {
 				"nebulous",
 				"unnaturally thin",
 			},
+			HolyItems: []string{
+				"mask",
+			},
 			PersonalityTraits: []string{
 				"cruel",
 			},
@@ -217,6 +279,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"entrancing",
 				"hauntingly beautiful",
+			},
+			HolyItems: []string{
+				"egg",
 			},
 			PersonalityTraits: []string{
 				"playful",
@@ -229,6 +294,10 @@ func getAllDomains() []Domain {
 				"black skin shot through with firey lines",
 				"ember-eyed",
 				"fire-for-hair",
+			},
+			HolyItems: []string{
+				"torch",
+				"brazier",
 			},
 			PersonalityTraits: []string{
 				"easily upsettable",
@@ -244,6 +313,10 @@ func getAllDomains() []Domain {
 				"fox-headed",
 				"fox-bodied",
 			},
+			HolyItems: []string{
+				"fox tail",
+				"fox paw",
+			},
 			PersonalityTraits: []string{
 				"playful",
 				"tricksy",
@@ -253,6 +326,9 @@ func getAllDomains() []Domain {
 			Name: "good",
 			AppearanceTraits: []string{
 				"taciturn",
+			},
+			HolyItems: []string{
+				"shield",
 			},
 			PersonalityTraits: []string{
 				"jovial",
@@ -264,6 +340,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"stocky",
 			},
+			HolyItems: []string{
+				"sickle",
+			},
 			PersonalityTraits: []string{
 				"festive",
 				"hard-working",
@@ -273,6 +352,9 @@ func getAllDomains() []Domain {
 			Name: "healing",
 			AppearanceTraits: []string{
 				"green-haloed",
+			},
+			HolyItems: []string{
+				"wand",
 			},
 			PersonalityTraits: []string{
 				"caring",
@@ -285,6 +367,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"haloed",
 			},
+			HolyItems: []string{
+				"hoop",
+			},
 			PersonalityTraits: []string{
 				"patient",
 			},
@@ -294,6 +379,10 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"horse-bodied",
 				"horse-headed",
+			},
+			HolyItems: []string{
+				"horse skull",
+				"horse tooth",
 			},
 			PersonalityTraits: []string{
 				"ebullient",
@@ -305,6 +394,11 @@ func getAllDomains() []Domain {
 				"narrow-featured",
 				"tightly muscled",
 			},
+			HolyItems: []string{
+				"bow",
+				"arrow",
+				"spear",
+			},
 			PersonalityTraits: []string{
 				"patient",
 				"subtle",
@@ -314,6 +408,10 @@ func getAllDomains() []Domain {
 			Name: "justice",
 			AppearanceTraits: []string{
 				"blindfolded",
+			},
+			HolyItems: []string{
+				"scales",
+				"sword",
 			},
 			PersonalityTraits: []string{
 				"callous",
@@ -327,6 +425,9 @@ func getAllDomains() []Domain {
 				"old and wrinkled",
 				"bespectacled",
 			},
+			HolyItems: []string{
+				"book",
+			},
 			PersonalityTraits: []string{
 				"absent-minded",
 				"studious",
@@ -335,6 +436,9 @@ func getAllDomains() []Domain {
 		Domain{
 			Name:             "language",
 			AppearanceTraits: []string{},
+			HolyItems: []string{
+				"book",
+			},
 			PersonalityTraits: []string{
 				"social",
 			},
@@ -342,6 +446,11 @@ func getAllDomains() []Domain {
 		Domain{
 			Name:             "law",
 			AppearanceTraits: []string{},
+			HolyItems: []string{
+				"book",
+				"sword",
+				"hammer",
+			},
 			PersonalityTraits: []string{
 				"fair",
 				"stern",
@@ -352,6 +461,10 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"haloed",
 				"surrounded by living things",
+			},
+			HolyItems: []string{
+				"egg",
+				"seed",
 			},
 			PersonalityTraits: []string{
 				"full of life",
@@ -364,6 +477,9 @@ func getAllDomains() []Domain {
 				"glowing",
 				"white-haired",
 			},
+			HolyItems: []string{
+				"torch",
+			},
 			PersonalityTraits: []string{
 				"serious",
 			},
@@ -373,6 +489,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"lightning-eyed",
 				"surrounded by crackling sparks",
+			},
+			HolyItems: []string{
+				"rod",
 			},
 			PersonalityTraits: []string{
 				"emotional",
@@ -388,6 +507,7 @@ func getAllDomains() []Domain {
 				"pretty",
 				"unabashedly naked",
 			},
+			HolyItems: []string{},
 			PersonalityTraits: []string{
 				"joyful",
 				"lustful",
@@ -400,6 +520,10 @@ func getAllDomains() []Domain {
 				"always playing with cards",
 				"perpetually grinning",
 			},
+			HolyItems: []string{
+				"rabbit's foot",
+				"dice",
+			},
 			PersonalityTraits: []string{
 				"adventurous",
 			},
@@ -408,6 +532,9 @@ func getAllDomains() []Domain {
 			Name: "mercy",
 			AppearanceTraits: []string{
 				"plain",
+			},
+			HolyItems: []string{
+				"blunt sword",
 			},
 			PersonalityTraits: []string{
 				"compassionate",
@@ -419,6 +546,12 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"entracing",
 				"harpstrings for hair",
+			},
+			HolyItems: []string{
+				"harp",
+				"lute",
+				"lyre",
+				"drum",
 			},
 			PersonalityTraits: []string{
 				"passionate",
@@ -432,6 +565,9 @@ func getAllDomains() []Domain {
 				"leaf-haired",
 				"bark-skinned",
 			},
+			HolyItems: []string{
+				"staff",
+			},
 			PersonalityTraits: []string{
 				"down-to-earth",
 				"moody",
@@ -443,6 +579,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"wears a crown",
 			},
+			HolyItems: []string{
+				"crown",
+			},
 			PersonalityTraits: []string{
 				"arrogant",
 			},
@@ -453,6 +592,9 @@ func getAllDomains() []Domain {
 				"fishtailed",
 				"seaweed for hair",
 				"eyes like the ocean",
+			},
+			HolyItems: []string{
+				"shell",
 			},
 			PersonalityTraits: []string{
 				"commanding",
@@ -466,6 +608,9 @@ func getAllDomains() []Domain {
 				"heavily scarred",
 				"perpetually wounded",
 			},
+			HolyItems: []string{
+				"shield",
+			},
 			PersonalityTraits: []string{
 				"enduring",
 				"persistent",
@@ -478,6 +623,9 @@ func getAllDomains() []Domain {
 				"pale green skin",
 				"vines for hair",
 			},
+			HolyItems: []string{
+				"hoe",
+			},
 			PersonalityTraits: []string{
 				"patient",
 			},
@@ -487,6 +635,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"armored",
 				"enormous",
+			},
+			HolyItems: []string{
+				"shield",
 			},
 			PersonalityTraits: []string{
 				"enduring",
@@ -500,6 +651,7 @@ func getAllDomains() []Domain {
 				"bald",
 				"reed-thin",
 			},
+			HolyItems: []string{},
 			PersonalityTraits: []string{
 				"brooding",
 				"perpetually angry",
@@ -512,6 +664,7 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"sits on a cloud",
 			},
+			HolyItems: []string{},
 			PersonalityTraits: []string{
 				"wistful",
 			},
@@ -523,6 +676,9 @@ func getAllDomains() []Domain {
 				"clothed in flowers",
 				"wears a crown of flowers",
 			},
+			HolyItems: []string{
+				"staff",
+			},
 			PersonalityTraits: []string{
 				"energetic",
 				"frisky",
@@ -533,6 +689,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"heavily-muscled",
 				"powerfully built",
+			},
+			HolyItems: []string{
+				"gauntlet",
 			},
 			PersonalityTraits: []string{
 				"blunt",
@@ -547,6 +706,9 @@ func getAllDomains() []Domain {
 				"red-haired",
 				"perpetually sunburnt",
 			},
+			HolyItems: []string{
+				"wreath",
+			},
 			PersonalityTraits: []string{
 				"warm",
 			},
@@ -557,6 +719,10 @@ func getAllDomains() []Domain {
 				"clad in dark leather",
 				"cloaked",
 				"thin",
+			},
+			HolyItems: []string{
+				"dagger",
+				"coin purse",
 			},
 			PersonalityTraits: []string{
 				"avaricious",
@@ -569,6 +735,9 @@ func getAllDomains() []Domain {
 				"naked",
 				"pale",
 			},
+			HolyItems: []string{
+				"plate",
+			},
 			PersonalityTraits: []string{
 				"sad",
 				"thoughtful",
@@ -580,6 +749,9 @@ func getAllDomains() []Domain {
 				"glowing",
 				"ringed in a firey halo",
 			},
+			HolyItems: []string{
+				"plate",
+			},
 			PersonalityTraits: []string{
 				"courageous",
 				"warm",
@@ -589,6 +761,9 @@ func getAllDomains() []Domain {
 			Name: "thunder",
 			AppearanceTraits: []string{
 				"barrel-chested",
+			},
+			HolyItems: []string{
+				"drum",
 			},
 			PersonalityTraits: []string{
 				"booming",
@@ -601,6 +776,10 @@ func getAllDomains() []Domain {
 				"ancient-looking",
 				"wizened",
 				"youthful",
+			},
+			HolyItems: []string{
+				"sundial",
+				"hourglass",
 			},
 			PersonalityTraits: []string{
 				"aloof",
@@ -616,6 +795,10 @@ func getAllDomains() []Domain {
 				"round",
 				"well-fed",
 			},
+			HolyItems: []string{
+				"scales",
+				"coin",
+			},
 			PersonalityTraits: []string{
 				"calculating",
 				"greedy",
@@ -627,6 +810,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"dusty",
 			},
+			HolyItems: []string{
+				"staff",
+			},
 			PersonalityTraits: []string{
 				"wandering",
 			},
@@ -636,6 +822,9 @@ func getAllDomains() []Domain {
 			AppearanceTraits: []string{
 				"cloaked in night",
 				"shadowy",
+			},
+			HolyItems: []string{
+				"two-faced mask",
 			},
 			PersonalityTraits: []string{
 				"cunning",
@@ -651,6 +840,10 @@ func getAllDomains() []Domain {
 				"crowned with knives",
 				"spined",
 			},
+			HolyItems: []string{
+				"sword",
+				"spear",
+			},
 			PersonalityTraits: []string{
 				"aggressive",
 				"bellicose",
@@ -663,6 +856,9 @@ func getAllDomains() []Domain {
 				"blue-skinned",
 				"hairless",
 				"half fish",
+			},
+			HolyItems: []string{
+				"flask",
 			},
 			PersonalityTraits: []string{
 				"mercurial",
@@ -677,6 +873,9 @@ func getAllDomains() []Domain {
 				"pale blue skin",
 				"white eyes",
 			},
+			HolyItems: []string{
+				"cloak",
+			},
 			PersonalityTraits: []string{
 				"cold",
 				"relentless",
@@ -689,6 +888,9 @@ func getAllDomains() []Domain {
 				"frail",
 				"leans on a staff",
 				"old and wizened",
+			},
+			HolyItems: []string{
+				"book",
 			},
 			PersonalityTraits: []string{
 				"careful",

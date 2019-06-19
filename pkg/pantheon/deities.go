@@ -18,6 +18,7 @@ type Deity struct {
 	Gender            gender.Gender
 	PersonalityTraits []string
 	Relationships     []Relationship
+	HolyItem          string
 }
 
 // SimplifiedDeity is a display version of deity
@@ -26,6 +27,22 @@ type SimplifiedDeity struct {
 	Gender      string   `json:"gender"`
 	Domains     []string `json:"domains"`
 	Description string   `json:"description"`
+}
+
+func (deity Deity) getRandomHolyItem() string {
+	options := []string{
+		"amulet",
+		"necklace",
+		"orb",
+		"ring",
+		"staff",
+	}
+
+	for _, d := range deity.Domains {
+		options = append(options, d.HolyItems...)
+	}
+
+	return random.String(options)
 }
 
 // GenerateDeity generates a random deity
@@ -62,6 +79,8 @@ func (pantheon Pantheon) GenerateDeity(lang language.Language) Deity {
 
 	deity.PersonalityTraits = deity.getRandomTraits()
 
+	deity.HolyItem = deity.getRandomHolyItem()
+
 	deity.Name = lang.RandomGenderedName(deity.Gender.Name)
 
 	return deity
@@ -76,26 +95,18 @@ func randomDeityNameFromMap(deities map[string]Deity) string {
 	return names[rand.Intn(len(names))]
 }
 
-func (deity Deity) simplify() SimplifiedDeity {
+// Describe describes a deity
+func (deity Deity) Describe() string {
 	var relationship string
-
-	sd := SimplifiedDeity{
-		Name:   deity.Name,
-		Gender: deity.Gender.Name,
-	}
-
-	for _, d := range deity.Domains {
-		sd.Domains = append(sd.Domains, d.Name)
-	}
 
 	description := deity.Name
 
-	if len(sd.Domains) > 0 {
+	if len(deity.Domains) > 0 {
 		description += " is the god"
 		if deity.Gender.Name == "female" {
 			description += "dess"
 		}
-		description += " of " + words.CombinePhrases(sd.Domains) + ". "
+		description += " of " + words.CombinePhrases(getDomainNames(deity.Domains)) + ". "
 	} else {
 		description += " is a god"
 		if deity.Gender.Name == "female" {
@@ -108,6 +119,8 @@ func (deity Deity) simplify() SimplifiedDeity {
 
 	description += strings.Title(deity.Gender.SubjectPronoun) + " is " + words.CombinePhrases(deity.PersonalityTraits) + ". "
 
+	description += strings.Title(deity.Gender.PossessivePronoun) + " holy item is " + words.Pronoun(deity.HolyItem) + " " + deity.HolyItem + ". "
+
 	relationships := []string{}
 
 	if len(deity.Relationships) > 0 {
@@ -119,7 +132,15 @@ func (deity Deity) simplify() SimplifiedDeity {
 		description += deity.Name + " " + words.CombinePhrases(relationships) + "."
 	}
 
-	sd.Description = description
+	return description
+}
 
-	return sd
+// Simplify returns a simplified version of a deity
+func (deity Deity) Simplify() SimplifiedDeity {
+	return SimplifiedDeity{
+		Name:        deity.Name,
+		Gender:      deity.Gender.Name,
+		Domains:     getDomainNames(deity.Domains),
+		Description: deity.Describe(),
+	}
 }

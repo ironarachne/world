@@ -49,7 +49,7 @@ func (pantheon Pantheon) Simplify() SimplifiedPantheon {
 	sp := SimplifiedPantheon{}
 
 	for _, d := range pantheon.Deities {
-		sp.Deities = append(sp.Deities, d.simplify())
+		sp.Deities = append(sp.Deities, d.Simplify())
 	}
 
 	return sp
