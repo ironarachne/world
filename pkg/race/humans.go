@@ -10,7 +10,7 @@ func getHumans() []Race {
 	maleWeightModifier := 50
 	weightRange := 100
 
-	return []Race{
+	races := []Race{
 		Race{
 			Name:       "human",
 			PluralName: "humans",
@@ -164,4 +164,6 @@ func getHumans() []Race {
 			Size:        baseSize,
 		},
 	}
+
+	return races
 }

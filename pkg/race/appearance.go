@@ -74,16 +74,32 @@ func heightToString(heightInInches int) string {
 	return display
 }
 
-func (race Race) getAverageHeight() int {
+func (race Race) getAverageHeight(gender string) int {
 	min := math.Min(float64(race.Appearance.MinFemaleHeight), float64(race.Appearance.MinMaleHeight))
 	max := math.Max(float64(race.Appearance.MaxFemaleHeight), float64(race.Appearance.MaxMaleHeight))
+
+	if gender == "male" {
+		min = float64(race.Appearance.MinMaleHeight)
+		max = float64(race.Appearance.MaxMaleHeight)
+	} else if gender == "female" {
+		min = float64(race.Appearance.MinFemaleHeight)
+		max = float64(race.Appearance.MaxFemaleHeight)
+	}
 
 	return int((min + max) / 2)
 }
 
-func (race Race) getAverageWeight() int {
+func (race Race) getAverageWeight(gender string) int {
 	min := math.Min(float64(race.Appearance.MinFemaleWeight), float64(race.Appearance.MinMaleWeight))
 	max := math.Max(float64(race.Appearance.MaxFemaleWeight), float64(race.Appearance.MaxMaleWeight))
+
+	if gender == "male" {
+		min = float64(race.Appearance.MinMaleWeight)
+		max = float64(race.Appearance.MaxMaleWeight)
+	} else if gender == "female" {
+		min = float64(race.Appearance.MinFemaleWeight)
+		max = float64(race.Appearance.MaxFemaleWeight)
+	}
 
 	return int((min + max) / 2)
 }
