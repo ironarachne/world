@@ -39,7 +39,7 @@ func getFabrics(originClimate climate.Climate) []string {
 	for _, i := range originClimate.Plants {
 		if i.Name == "flax" {
 			fabrics = append(fabrics, "linen")
-		} else if i.IsFiber {
+		} else if i.IsFabric {
 			fabrics = append(fabrics, i.Name)
 		}
 	}

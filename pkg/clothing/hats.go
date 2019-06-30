@@ -20,7 +20,6 @@ func getHatTemplates() []ItemTemplate {
 				"with a narrow brim",
 				"with ear flaps",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "cap",
@@ -37,7 +36,6 @@ func getHatTemplates() []ItemTemplate {
 			SuffixModifiers: []string{
 				"with straps",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "turban",
@@ -53,7 +51,6 @@ func getHatTemplates() []ItemTemplate {
 			SuffixModifiers: []string{
 				"with a draped neck cover",
 			},
-			IdealHeatLevel: "any",
 		},
 	}
 }

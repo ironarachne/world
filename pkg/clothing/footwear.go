@@ -21,7 +21,6 @@ func getBootTemplates() []ItemTemplate {
 				"with thick soles",
 				"with thin soles",
 			},
-			IdealHeatLevel: "cold",
 		},
 	}
 }
@@ -42,7 +41,6 @@ func getShoeTemplates() []ItemTemplate {
 				"with thick soles",
 				"with ankle strapping",
 			},
-			IdealHeatLevel: "warm",
 		},
 		ItemTemplate{
 			Name:         "turnshoes",
@@ -60,7 +58,6 @@ func getShoeTemplates() []ItemTemplate {
 				"with stiff soles",
 				"with folded-over tops",
 			},
-			IdealHeatLevel: "any",
 		},
 	}
 }
