@@ -26,6 +26,7 @@ type Animal struct {
 	MaxHumidity    int
 	MinTemperature int
 	MaxTemperature int
+	Size           string
 }
 
 // All returns all pre-defined animals

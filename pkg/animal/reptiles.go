@@ -25,6 +25,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "medium",
 		},
 		Animal{
 			Name:           "crocodile",
@@ -49,6 +50,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "medium",
 		},
 		Animal{
 			Name:           "cobra",
@@ -73,6 +75,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "asp",
@@ -97,6 +100,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "rattlesnake",
@@ -121,6 +125,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "black mamba",
@@ -145,6 +150,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "coral snake",
@@ -169,6 +175,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "boa constrictor",
@@ -193,6 +200,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "monitor lizard",
@@ -217,6 +225,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 	}
 

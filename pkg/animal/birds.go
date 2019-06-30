@@ -25,6 +25,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "chicken",
@@ -49,6 +50,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "mudhen",
@@ -73,6 +75,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "quail",
@@ -97,6 +100,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "duck",
@@ -121,6 +125,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "flamingo",
@@ -145,6 +150,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "eagle",
@@ -169,6 +175,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "falcon",
@@ -193,6 +200,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 		Animal{
 			Name:           "hawk",
@@ -217,6 +225,7 @@ func getBirds() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Size:           "tiny",
 		},
 	}
 
