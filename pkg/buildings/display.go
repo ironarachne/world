@@ -8,7 +8,7 @@ type SimplifiedBuildingStyle struct {
 // Describe describes a building style
 func (style BuildingStyle) Describe() string {
 	description := "Buildings have walls made of " + style.WallStyle + ", and roofs are " + style.RoofStyle + ". "
-	description += "Doors are " + style.DoorStyle + " and set between " + style.WindowStyle + " windows. "
+	description += "Doors are " + style.DoorStyle + ". Windows are " + style.WindowStyle + ". "
 	description += "For decoration, " + style.Decorations + ". "
 
 	return description

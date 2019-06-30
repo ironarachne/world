@@ -2,35 +2,40 @@ package buildings
 
 import (
 	"github.com/ironarachne/world/pkg/random"
-	"github.com/ironarachne/world/pkg/words"
 )
 
-func getRandomWindowStyle() string {
-	descriptors := []string{}
-	descriptors = append(descriptors, getRandomWindowSize())
-	descriptors = append(descriptors, getRandomWindowShape())
-
-	return words.CombinePhrases(descriptors)
-}
-
-func getRandomWindowShape() string {
-	shapes := map[string]int{
-		"rectangular": 20,
-		"square":      6,
-		"round":       3,
-		"oval":        1,
-		"triangular":  1,
+func getRandomWindowDescriptor() string {
+	descriptors := []string{
+		"and narrow",
+		"and ornate",
+		"and oval-shaped",
+		"and rectangular",
+		"and round",
+		"and square",
+		"with stained glass",
+		"with thick-paned glass",
+		"with thin-paned glass",
+		"and triangular",
+		"and wide",
 	}
 
-	return random.StringFromThresholdMap(shapes)
+	return random.String(descriptors)
 }
 
 func getRandomWindowSize() string {
-	sizes := map[string]int{
-		"large":  5,
-		"medium": 15,
-		"small":  3,
+	sizes := []string{
+		"large",
+		"medium",
+		"small",
 	}
 
-	return random.StringFromThresholdMap(sizes)
+	return random.String(sizes)
+}
+
+func getRandomWindowStyle() string {
+	description := getRandomWindowSize()
+
+	description += " " + getRandomWindowDescriptor()
+
+	return description
 }

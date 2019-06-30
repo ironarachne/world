@@ -8,19 +8,22 @@ import (
 
 // Style describes what kind of clothing the culture wears
 type Style struct {
-	CommonFemaleItems []Item
-	CommonMaleItems   []Item
-	CommonJewelry     []string
-	CommonColors      []string
-	DecorativeStyle   string
+	FemaleOutfit    []Item
+	MaleOutfit      []Item
+	CommonJewelry   []string
+	CommonColors    []string
+	DecorativeStyle string
 }
 
 // GenerateStyle generates a random clothing style based on a climate
 func GenerateStyle(originClimate climate.Climate) Style {
 	style := Style{}
 
-	style.CommonFemaleItems = getItems(originClimate)
-	style.CommonMaleItems = getItems(originClimate)
+	hides := getHides(originClimate)
+	fabrics := getFabrics(originClimate)
+
+	style.FemaleOutfit = GenerateOutfit(originClimate.Temperature, hides, fabrics, "female")
+	style.MaleOutfit = GenerateOutfit(originClimate.Temperature, hides, fabrics, "male")
 
 	style.CommonJewelry = generateJewelry(originClimate)
 
@@ -36,7 +39,7 @@ func getFabrics(originClimate climate.Climate) []string {
 	for _, i := range originClimate.Plants {
 		if i.Name == "flax" {
 			fabrics = append(fabrics, "linen")
-		} else if i.IsFiber {
+		} else if i.IsFabric {
 			fabrics = append(fabrics, i.Name)
 		}
 	}

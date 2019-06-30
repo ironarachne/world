@@ -1,5 +1,10 @@
 package climate
 
+import (
+	"github.com/ironarachne/world/pkg/animal"
+	"github.com/ironarachne/world/pkg/plant"
+)
+
 // Resource is a refined resource derived from raw materials
 type Resource struct {
 	Name   string
@@ -31,7 +36,7 @@ func ListResourcesOfType(typeName string, resources []Resource) []Resource {
 	return filteredResources
 }
 
-func resourcesFromAnimal(source Animal) []Resource {
+func resourcesFromAnimal(source animal.Animal) []Resource {
 	resources := []Resource{}
 
 	if source.GivesBone {
@@ -65,7 +70,7 @@ func resourcesFromAnimal(source Animal) []Resource {
 	return resources
 }
 
-func resourcesFromFish(source Fish) []Resource {
+func resourcesFromFish(source animal.Fish) []Resource {
 	resources := []Resource{}
 
 	resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "meat"})
@@ -98,7 +103,7 @@ func resourcesFromMineral(source Mineral) []Resource {
 	return resources
 }
 
-func resourcesFromPlant(source Plant) []Resource {
+func resourcesFromPlant(source plant.Plant) []Resource {
 	resources := []Resource{}
 
 	if source.IsFiber {
@@ -151,7 +156,7 @@ func resourcesFromSoil(source Soil) []Resource {
 	return resources
 }
 
-func resourcesFromTree(source Tree) []Resource {
+func resourcesFromTree(source plant.Tree) []Resource {
 	resources := []Resource{}
 
 	resources = append(resources, Resource{Name: source.Name, Origin: source.Name, Type: "wood"})

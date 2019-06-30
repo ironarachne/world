@@ -3,6 +3,7 @@ package music
 import (
 	"bytes"
 	"math/rand"
+	"strings"
 	"text/template"
 
 	"github.com/ironarachne/world/pkg/climate"
@@ -28,6 +29,7 @@ func GenerateInstruments(originClimate climate.Climate) []Instrument {
 	var materialType string
 	var availableBaseMaterials []string
 	var availableSupportMaterials []string
+	var woodName string
 
 	availableHides := []string{}
 	availableMetals := []string{}
@@ -47,7 +49,11 @@ func GenerateInstruments(originClimate climate.Climate) []Instrument {
 	}
 
 	for _, i := range originClimate.Trees {
-		availableWoods = append(availableWoods, i.Name)
+		woodName = i.Name
+		if !strings.HasSuffix(i.Name, "wood") {
+			woodName += "-wood"
+		}
+		availableWoods = append(availableWoods, woodName)
 	}
 
 	for _, i := range originClimate.Animals {

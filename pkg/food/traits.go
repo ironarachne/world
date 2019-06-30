@@ -54,9 +54,9 @@ func randomEatingTraits() []string {
 			if t == "utensils" {
 				trait = "eat with " + random.String(utensils)
 			} else if t == "spices" {
-				trait = random.String(spices) + " spice"
+				trait = "use " + random.String(spices) + " spice"
 			} else if t == "heat" {
-				trait = "food is usually " + random.String(heat)
+				trait = "serve food " + random.String(heat)
 			} else if t == "customs" {
 				trait = random.String(customs)
 			}
