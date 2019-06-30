@@ -37,7 +37,7 @@ func addMaterials(items []Item, hides []string, fabrics []string) []Item {
 func getItems(originClimate climate.Climate) []Item {
 	filteredItems := []Item{}
 
-	items := getAllItems()
+	items := All()
 	heatLevel := "warm"
 
 	if originClimate.Temperature < 5 {
@@ -126,247 +126,18 @@ func getItemsForType(clothingType string, source []Item) []Item {
 	return items
 }
 
-func getAllItems() []Item {
-	items := []Item{
-		Item{
-			Name:           "short tunic",
-			Type:           "top",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "knee-length tunic",
-			Type:           "top",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "ankle-length tunic",
-			Type:           "top",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "cold",
-			Layer:          1,
-		},
-		Item{
-			Name:           "pantaloons",
-			Type:           "bottom",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "sleeveless shirt",
-			Type:           "top",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "warm",
-			Layer:          1,
-		},
-		Item{
-			Name:           "vest",
-			Type:           "top",
-			MaterialType:   "hide",
-			IdealHeatLevel: "any",
-			Layer:          2,
-		},
-		Item{
-			Name:           "loincloth",
-			Type:           "undergarment",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          0,
-		},
-		Item{
-			Name:           "breeches",
-			Type:           "bottom",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "long pants",
-			Type:           "bottom",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "sandals",
-			Type:           "footwear",
-			MaterialType:   "hide",
-			IdealHeatLevel: "warm",
-			Layer:          1,
-		},
-		Item{
-			Name:           "knee-high boots",
-			Type:           "footwear",
-			MaterialType:   "hide",
-			IdealHeatLevel: "cold",
-			Layer:          1,
-		},
-		Item{
-			Name:           "short boots",
-			Type:           "footwear",
-			MaterialType:   "hide",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "strapped boots",
-			Type:           "footwear",
-			MaterialType:   "hide",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "turnshoes",
-			Type:           "footwear",
-			MaterialType:   "hide",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "robe",
-			Type:           "full",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "cold",
-			Layer:          1,
-		},
-		Item{
-			Name:           "dress",
-			Type:           "full",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "belt",
-			Type:           "waist",
-			MaterialType:   "hide",
-			IdealHeatLevel: "any",
-			Layer:          3,
-		},
-		Item{
-			Name:           "sash",
-			Type:           "waist",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          3,
-		},
-		Item{
-			Name:           "skirt",
-			Type:           "bottom",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "warm",
-			Layer:          1,
-		},
-		Item{
-			Name:           "kilt",
-			Type:           "bottom",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "warm",
-			Layer:          1,
-		},
-		Item{
-			Name:           "short gloves",
-			Type:           "handwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "long gloves",
-			Type:           "handwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "mittens",
-			Type:           "handwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "short coat",
-			Type:           "overwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "cold",
-			Layer:          2,
-		},
-		Item{
-			Name:           "cloak",
-			Type:           "overwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          3,
-		},
-		Item{
-			Name:           "long coat",
-			Type:           "overwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "cold",
-			Layer:          2,
-		},
-		Item{
-			Name:           "hooded cloak",
-			Type:           "overwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          3,
-		},
-		Item{
-			Name:           "wide-brim hat",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "fez",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "conical hat",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "skullcap",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "kufi",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "conical cap",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "turban",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-	}
+// All returns all clothing items
+func All() []Item {
+	items := []Item{}
+
+	items = append(items, getHandwear()...)
+	items = append(items, getFull()...)
+	items = append(items, getWaist()...)
+	items = append(items, getBottoms()...)
+	items = append(items, getHats()...)
+	items = append(items, getTops()...)
+	items = append(items, getFootwear()...)
+	items = append(items, getOverwear()...)
 
 	return items
 }
