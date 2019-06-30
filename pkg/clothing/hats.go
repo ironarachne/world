@@ -1,55 +1,67 @@
 package clothing
 
-func getHats() []Item {
-	return []Item{
-		Item{
-			Name:           "wide-brim hat",
-			Type:           "hat",
-			MaterialType:   "fabric",
+import "math/rand"
+
+func getHatTemplates() []ItemTemplate {
+	return []ItemTemplate{
+		ItemTemplate{
+			Name:         "hat",
+			Type:         "hat",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"wide-brimmed",
+				"narrow-brimmed",
+				"conical",
+				"cylindrical",
+				"tricorn",
+			},
+			SuffixModifiers: []string{
+				"with a wide brim",
+				"with a narrow brim",
+				"with ear flaps",
+			},
 			IdealHeatLevel: "any",
-			Layer:          1,
 		},
-		Item{
-			Name:           "fez",
-			Type:           "hat",
-			MaterialType:   "fabric",
+		ItemTemplate{
+			Name:         "cap",
+			Type:         "hat",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"conical",
+				"skull",
+				"tight",
+				"light",
+				"heavy",
+				"tapered",
+			},
+			SuffixModifiers: []string{
+				"with straps",
+			},
 			IdealHeatLevel: "any",
-			Layer:          1,
 		},
-		Item{
-			Name:           "conical hat",
-			Type:           "hat",
-			MaterialType:   "fabric",
+		ItemTemplate{
+			Name:         "turban",
+			Type:         "hat",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"wide",
+				"tight",
+				"complexly woven",
+				"tightly woven",
+				"loosely woven",
+			},
+			SuffixModifiers: []string{
+				"with a draped neck cover",
+			},
 			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "skullcap",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "kufi",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "conical cap",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "turban",
-			Type:           "hat",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
 		},
 	}
+}
+
+func getRandomHat() Item {
+	potentialTemplates := getHatTemplates()
+
+	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
+
+	return getItemFromTemplate(template)
 }

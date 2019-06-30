@@ -1,34 +1,53 @@
 package clothing
 
-func getOverwear() []Item {
-	return []Item{
-		Item{
-			Name:           "short coat",
-			Type:           "overwear",
-			MaterialType:   "fabric",
+import "math/rand"
+
+func getOverwearTemplates() []ItemTemplate {
+	return []ItemTemplate{
+		ItemTemplate{
+			Name:         "coat",
+			Type:         "overwear",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"long",
+				"short",
+				"thick",
+				"ankle-length",
+				"waist-length",
+				"hip-length",
+			},
+			SuffixModifiers: []string{
+				"with large lapels",
+			},
 			IdealHeatLevel: "cold",
-			Layer:          2,
 		},
-		Item{
-			Name:           "cloak",
-			Type:           "overwear",
-			MaterialType:   "fabric",
+		ItemTemplate{
+			Name:         "cloak",
+			Type:         "overwear",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"hooded",
+				"long",
+				"thick",
+				"triangular",
+				"half-circle",
+				"full-circle",
+				"hoodless",
+			},
+			SuffixModifiers: []string{
+				"with a deep hood",
+				"with a shallow hood",
+				"with no hood",
+			},
 			IdealHeatLevel: "any",
-			Layer:          3,
-		},
-		Item{
-			Name:           "long coat",
-			Type:           "overwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "cold",
-			Layer:          2,
-		},
-		Item{
-			Name:           "hooded cloak",
-			Type:           "overwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          3,
 		},
 	}
+}
+
+func getRandomOverwear() Item {
+	potentialTemplates := getOverwearTemplates()
+
+	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
+
+	return getItemFromTemplate(template)
 }

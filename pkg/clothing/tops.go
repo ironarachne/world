@@ -1,41 +1,53 @@
 package clothing
 
-func getTops() []Item {
-	return []Item{
-		Item{
-			Name:           "short tunic",
-			Type:           "top",
-			MaterialType:   "fabric",
+import (
+	"math/rand"
+)
+
+func getTopTemplates() []ItemTemplate {
+	return []ItemTemplate{
+		ItemTemplate{
+			Name:         "tunic",
+			Type:         "top",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"short",
+				"long",
+				"knee-length",
+				"ankle-length",
+				"waist-length",
+				"sleeveless",
+			},
+			SuffixModifiers: []string{
+				"with broad sleeves",
+				"with short sleeves",
+				"with no sleeves",
+			},
 			IdealHeatLevel: "any",
-			Layer:          1,
 		},
-		Item{
-			Name:           "knee-length tunic",
-			Type:           "top",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "ankle-length tunic",
-			Type:           "top",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "cold",
-			Layer:          1,
-		},
-		Item{
-			Name:           "sleeveless shirt",
-			Type:           "top",
-			MaterialType:   "fabric",
+		ItemTemplate{
+			Name:         "shirt",
+			Type:         "top",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"short",
+				"long",
+				"sleeveless",
+			},
+			SuffixModifiers: []string{
+				"with broad sleeves",
+				"with short sleeves",
+				"with no sleeves",
+			},
 			IdealHeatLevel: "warm",
-			Layer:          1,
-		},
-		Item{
-			Name:           "vest",
-			Type:           "top",
-			MaterialType:   "hide",
-			IdealHeatLevel: "any",
-			Layer:          2,
 		},
 	}
+}
+
+func getRandomTop() Item {
+	potentialTemplates := getTopTemplates()
+
+	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
+
+	return getItemFromTemplate(template)
 }

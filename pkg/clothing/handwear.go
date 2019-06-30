@@ -1,27 +1,46 @@
 package clothing
 
-func getHandwear() []Item {
-	return []Item{
-		Item{
-			Name:           "short gloves",
-			Type:           "handwear",
-			MaterialType:   "fabric",
+import "math/rand"
+
+func getHandwearTemplates() []ItemTemplate {
+	return []ItemTemplate{
+		ItemTemplate{
+			Name:         "gloves",
+			Type:         "handwear",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"long",
+				"short",
+				"elbow-length",
+				"thick",
+				"thin",
+				"fingerless",
+			},
+			SuffixModifiers: []string{
+				"that reach up to the elbow",
+			},
 			IdealHeatLevel: "any",
-			Layer:          1,
 		},
-		Item{
-			Name:           "long gloves",
-			Type:           "handwear",
-			MaterialType:   "fabric",
+		ItemTemplate{
+			Name:         "mittens",
+			Type:         "handwear",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"heavy",
+				"light",
+			},
+			SuffixModifiers: []string{
+				"with thick lining",
+			},
 			IdealHeatLevel: "any",
-			Layer:          1,
-		},
-		Item{
-			Name:           "mittens",
-			Type:           "handwear",
-			MaterialType:   "fabric",
-			IdealHeatLevel: "any",
-			Layer:          1,
 		},
 	}
+}
+
+func getRandomHandwear() Item {
+	potentialTemplates := getHandwearTemplates()
+
+	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
+
+	return getItemFromTemplate(template)
 }
