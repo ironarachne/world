@@ -5,6 +5,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "blackberry",
 			PluralName:     "blackberries",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -23,6 +24,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "blueberry",
 			PluralName:     "blueberries",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -41,6 +43,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "raspberry",
 			PluralName:     "raspberries",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -59,6 +62,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "strawberry",
 			PluralName:     "strawberries",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -77,6 +81,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "boysenberry",
 			PluralName:     "boysenberries",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -95,6 +100,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "gooseberry",
 			PluralName:     "gooseberries",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -113,6 +119,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "avocado",
 			PluralName:     "avocados",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -131,6 +138,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "cantaloupe",
 			PluralName:     "cantaloupes",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -149,6 +157,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "coconut",
 			PluralName:     "coconuts",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -167,6 +176,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "dragonfruit",
 			PluralName:     "dragonfruits",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -185,6 +195,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "honeydew",
 			PluralName:     "honeydews",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,
@@ -203,6 +214,7 @@ func getFruits() []Plant {
 		Plant{
 			Name:           "watermelon",
 			PluralName:     "watermelons",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        true,
 			IsGrain:        false,

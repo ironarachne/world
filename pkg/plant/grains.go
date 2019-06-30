@@ -5,6 +5,7 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "rye",
 			PluralName:     "ryes",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        true,
@@ -23,6 +24,7 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "oat",
 			PluralName:     "oats",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        true,
@@ -41,6 +43,7 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "millet",
 			PluralName:     "millets",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        true,
@@ -59,6 +62,7 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "barley",
 			PluralName:     "barleys",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        true,
@@ -77,6 +81,7 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "wheat",
 			PluralName:     "wheats",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        true,
@@ -95,6 +100,7 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "rice",
 			PluralName:     "rices",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        true,

@@ -5,6 +5,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "parsley",
 			PluralName:     "parsleys",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -23,6 +24,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "brahmi",
 			PluralName:     "brahmis",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -41,6 +43,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "basil",
 			PluralName:     "basils",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -59,6 +62,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "cilantro",
 			PluralName:     "cilantros",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -77,6 +81,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "saffron",
 			PluralName:     "saffrons",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -95,6 +100,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "rosemary",
 			PluralName:     "rosemarys",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -113,6 +119,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "thyme",
 			PluralName:     "thymes",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -131,6 +138,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "black pepper",
 			PluralName:     "black peppers",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -149,6 +157,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "oregano",
 			PluralName:     "oreganos",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -167,6 +176,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "mint",
 			PluralName:     "mints",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -185,6 +195,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "lemongrass",
 			PluralName:     "lemongrasses",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -203,6 +214,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "coriander",
 			PluralName:     "corianders",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -221,6 +233,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "clove",
 			PluralName:     "cloves",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -239,6 +252,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "sage",
 			PluralName:     "sages",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -257,6 +271,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "turmeric",
 			PluralName:     "turmerics",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -275,6 +290,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "vanilla",
 			PluralName:     "vanillas",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -293,6 +309,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "galangal",
 			PluralName:     "galangals",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -311,6 +328,7 @@ func getHerbs() []Plant {
 		Plant{
 			Name:           "ginger",
 			PluralName:     "gingers",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,

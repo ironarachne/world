@@ -5,6 +5,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "potato",
 			PluralName:     "potatoes",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -23,6 +24,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "onion",
 			PluralName:     "onions",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -41,6 +43,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "beet",
 			PluralName:     "beets",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -59,6 +62,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "radish",
 			PluralName:     "radishes",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -77,6 +81,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "yam",
 			PluralName:     "yams",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -95,6 +100,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "carrot",
 			PluralName:     "carrots",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -113,6 +119,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "eggplant",
 			PluralName:     "eggplants",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -131,6 +138,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "kohlrabi",
 			PluralName:     "kohlrabis",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -149,6 +157,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "cabbage",
 			PluralName:     "cabbages",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -167,6 +176,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "lettuce",
 			PluralName:     "lettuces",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -185,6 +195,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "fiddlehead",
 			PluralName:     "fiddleheads",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -203,6 +214,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "broccoli",
 			PluralName:     "broccolis",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -221,6 +233,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "cauliflower",
 			PluralName:     "cauliflowers",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -239,6 +252,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "tomato",
 			PluralName:     "tomatoes",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -257,6 +271,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "bell pepper",
 			PluralName:     "bell peppers",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -275,6 +290,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "bok choy",
 			PluralName:     "bok choys",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -293,6 +309,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "leek",
 			PluralName:     "leeks",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -311,6 +328,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "brussel sprout",
 			PluralName:     "brussel sprouts",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -329,6 +347,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "green bean",
 			PluralName:     "green beans",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -347,6 +366,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "black bean",
 			PluralName:     "black beans",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -365,6 +385,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "pinto bean",
 			PluralName:     "pinto beans",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -383,6 +404,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "lima bean",
 			PluralName:     "lima beans",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -401,6 +423,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "kidney bean",
 			PluralName:     "kidney beans",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -419,6 +442,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "corn",
 			PluralName:     "corns",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -437,6 +461,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "jalapeno",
 			PluralName:     "jalapenos",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -455,6 +480,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "habanero",
 			PluralName:     "habaneros",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,
@@ -473,6 +499,7 @@ func getVegetables() []Plant {
 		Plant{
 			Name:           "serrano",
 			PluralName:     "serranos",
+			IsFabric:       false,
 			IsFiber:        false,
 			IsFruit:        false,
 			IsGrain:        false,

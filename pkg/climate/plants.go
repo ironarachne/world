@@ -8,7 +8,6 @@ func (climate Climate) getFilteredPlants() []plant.Plant {
 	plants := plant.All()
 	plants = filterPlantsForHumidity(climate.Humidity, plants)
 	plants = filterPlantsForTemperature(climate.Temperature, plants)
-	plants = append(plants, plant.RandomFiber())
 
 	if len(plants) < 1 {
 		panic("Found no plants for climate " + climate.Name)

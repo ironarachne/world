@@ -253,7 +253,7 @@ func (climate Climate) populate() Climate {
 	climate.Gems = getRandomMinerals(climate.MaxGems, gems)
 	climate.OtherMinerals = getOtherMinerals()
 	climate.Plants = plant.Random(climate.MaxPlants-1, plants)
-	climate.Plants = append(climate.Plants, plant.RandomFiber())
+	climate.Plants = append(climate.Plants, plant.RandomFabric())
 	climate.PreciousMetals = getRandomMinerals(climate.MaxPreciousMetals, preciousMetals)
 	climate.Soils = getRandomSoils(climate.MaxSoils, soils)
 	climate.Stones = getRandomMinerals(climate.MaxStones, stones)

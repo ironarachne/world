@@ -6,6 +6,7 @@ import "math/rand"
 type Plant struct {
 	Name           string
 	PluralName     string
+	IsFabric       bool
 	IsFiber        bool
 	IsFruit        bool
 	IsGrain        bool
@@ -72,9 +73,17 @@ func Random(amount int, from []Plant) []Plant {
 	return plants
 }
 
-// RandomFiber returns a random fiber
-func RandomFiber() Plant {
+// RandomFabric returns a random fabric plant
+func RandomFabric() Plant {
 	fibers := getFibers()
 
-	return fibers[rand.Intn(len(fibers))]
+	fabrics := []Plant{}
+
+	for _, f := range fibers {
+		if f.IsFabric {
+			fabrics = append(fabrics, f)
+		}
+	}
+
+	return fabrics[rand.Intn(len(fabrics))]
 }

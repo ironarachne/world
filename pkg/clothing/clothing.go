@@ -19,8 +19,11 @@ type Style struct {
 func GenerateStyle(originClimate climate.Climate) Style {
 	style := Style{}
 
-	style.FemaleOutfit = GenerateOutfit(originClimate.Temperature, getHides(originClimate), getFabrics(originClimate), "female")
-	style.MaleOutfit = GenerateOutfit(originClimate.Temperature, getHides(originClimate), getFabrics(originClimate), "male")
+	hides := getHides(originClimate)
+	fabrics := getFabrics(originClimate)
+
+	style.FemaleOutfit = GenerateOutfit(originClimate.Temperature, hides, fabrics, "female")
+	style.MaleOutfit = GenerateOutfit(originClimate.Temperature, hides, fabrics, "male")
 
 	style.CommonJewelry = generateJewelry(originClimate)
 

@@ -36,7 +36,7 @@ func addMaterials(items []Item, hides []string, fabrics []string) []Item {
 		if i.MaterialType == "fabric" {
 			newItem.Material = random.String(fabrics)
 			result = append(result, newItem)
-		} else if i.MaterialType == "hide " {
+		} else if i.MaterialType == "hide" {
 			newItem.Material = random.String(hides)
 			result = append(result, newItem)
 		}
@@ -56,7 +56,8 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 
 	if chanceOfFull > 50 {
 		if gender == "female" {
-			if rand.Intn(100) > 30 {
+			dressChance := rand.Intn(100)
+			if dressChance > 30 {
 				items = append(items, getRandomDress())
 			} else {
 				items = append(items, getRandomRobe())
