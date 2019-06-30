@@ -20,7 +20,6 @@ func getBottomTemplates() []ItemTemplate {
 				"with flared ends",
 				"tied at the waist",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "pants",
@@ -41,7 +40,6 @@ func getBottomTemplates() []ItemTemplate {
 				"tied at the ankles",
 				"gathered at the hips",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "pantaloons",
@@ -54,7 +52,6 @@ func getBottomTemplates() []ItemTemplate {
 				"bunched at the hips",
 				"flared at the ends",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "skirt",
@@ -69,7 +66,6 @@ func getBottomTemplates() []ItemTemplate {
 			SuffixModifiers: []string{
 				"tied at the waist",
 			},
-			IdealHeatLevel: "warm",
 		},
 		ItemTemplate{
 			Name:            "kilt",
@@ -77,7 +73,6 @@ func getBottomTemplates() []ItemTemplate {
 			MaterialType:    "fabric",
 			PrefixModifiers: []string{},
 			SuffixModifiers: []string{},
-			IdealHeatLevel:  "warm",
 		},
 	}
 }

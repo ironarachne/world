@@ -19,7 +19,6 @@ func getOverwearTemplates() []ItemTemplate {
 			SuffixModifiers: []string{
 				"with large lapels",
 			},
-			IdealHeatLevel: "cold",
 		},
 		ItemTemplate{
 			Name:         "cloak",
@@ -39,7 +38,6 @@ func getOverwearTemplates() []ItemTemplate {
 				"with a shallow hood",
 				"with no hood",
 			},
-			IdealHeatLevel: "any",
 		},
 	}
 }

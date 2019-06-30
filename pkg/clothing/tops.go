@@ -23,7 +23,6 @@ func getTopTemplates() []ItemTemplate {
 				"with short sleeves",
 				"with no sleeves",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "shirt",
@@ -39,7 +38,6 @@ func getTopTemplates() []ItemTemplate {
 				"with short sleeves",
 				"with no sleeves",
 			},
-			IdealHeatLevel: "warm",
 		},
 	}
 }

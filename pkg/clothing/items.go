@@ -13,7 +13,6 @@ type ItemTemplate struct {
 	MaterialType    string
 	PrefixModifiers []string
 	SuffixModifiers []string
-	IdealHeatLevel  string
 }
 
 // Item is a type of clothing item
@@ -24,7 +23,6 @@ type Item struct {
 	MaterialType   string
 	PrefixModifier string
 	SuffixModifier string
-	IdealHeatLevel string
 }
 
 func addMaterials(items []Item, hides []string, fabrics []string) []Item {
@@ -100,10 +98,9 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 
 func getItemFromTemplate(template ItemTemplate) Item {
 	item := Item{
-		Name:           template.Name,
-		Type:           template.Type,
-		MaterialType:   template.MaterialType,
-		IdealHeatLevel: template.IdealHeatLevel,
+		Name:         template.Name,
+		Type:         template.Type,
+		MaterialType: template.MaterialType,
 	}
 
 	weights := map[string]int{

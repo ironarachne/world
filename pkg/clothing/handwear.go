@@ -19,7 +19,6 @@ func getHandwearTemplates() []ItemTemplate {
 			SuffixModifiers: []string{
 				"that reach up to the elbow",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "mittens",
@@ -32,7 +31,6 @@ func getHandwearTemplates() []ItemTemplate {
 			SuffixModifiers: []string{
 				"with thick lining",
 			},
-			IdealHeatLevel: "any",
 		},
 	}
 }

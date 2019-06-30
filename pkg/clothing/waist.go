@@ -17,7 +17,6 @@ func getWaistTemplates() []ItemTemplate {
 				"with a thick buckle",
 				"with a narrow clasp",
 			},
-			IdealHeatLevel: "any",
 		},
 		ItemTemplate{
 			Name:         "sash",
@@ -33,7 +32,6 @@ func getWaistTemplates() []ItemTemplate {
 				"over the shoulder",
 				"around the waist",
 			},
-			IdealHeatLevel: "any",
 		},
 	}
 }

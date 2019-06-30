@@ -25,7 +25,6 @@ func getRandomDress() Item {
 			"with no sleeves",
 			"with tapered sleeves",
 		},
-		IdealHeatLevel: "cold",
 	}
 
 	dress := getItemFromTemplate(template)
@@ -54,7 +53,6 @@ func getRandomRobe() Item {
 			"with no sleeves",
 			"with tapered sleeves",
 		},
-		IdealHeatLevel: "cold",
 	}
 
 	robe := getItemFromTemplate(template)
