@@ -43,7 +43,9 @@ func (deity Deity) getRandomHolyItem() string {
 		options = append(options, d.HolyItems...)
 	}
 
-	return random.String(options)
+	holyItem := random.String(options)
+
+	return holyItem
 }
 
 func (deity Deity) getRandomHolySymbol() string {
@@ -67,7 +69,9 @@ func (deity Deity) getRandomHolySymbol() string {
 		}
 	}
 
-	return random.String(options)
+	holySymbol := random.String(options)
+
+	return holySymbol
 }
 
 // GenerateDeity generates a random deity

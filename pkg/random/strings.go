@@ -14,6 +14,9 @@ func String(items []string) string {
 	if len(items) == 0 {
 		panic("Tried to get a random value from an empty slice of strings")
 	}
+	if len(items) == 1 {
+		return items[0]
+	}
 	return items[rand.Intn(len(items))]
 }
 
@@ -30,7 +33,7 @@ func StringSubset(items []string, maxItems int) []string {
 		maxItems = len(items)
 	}
 
-	for i:=0;i<maxItems;i++ {
+	for i := 0; i < maxItems; i++ {
 		newItem = items[rand.Intn(len(items))]
 		if !slices.StringIn(newItem, result) {
 			result = append(result, newItem)

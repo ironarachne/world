@@ -5,8 +5,8 @@ import (
 )
 
 func (climate Climate) getFish() []animal.Fish {
+	fish := []animal.Fish{}
 	allFish := animal.AllFish()
-
 	potentialFish := []animal.Fish{}
 
 	if !climate.HasLakes {
@@ -31,7 +31,9 @@ func (climate Climate) getFish() []animal.Fish {
 		}
 	}
 
-	fish := animal.RandomFish(climate.MaxFish, potentialFish)
+	if len(potentialFish) > 1 {
+		fish = animal.RandomFish(climate.MaxFish, potentialFish)
+	}
 
 	return fish
 }
