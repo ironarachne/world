@@ -70,12 +70,28 @@ func (language Language) GenerateWordList() map[string]string {
 	for _, t := range wordTypes {
 		for _, w := range t.WordList {
 			for {
-				newWord = language.randomWord(t.NumSyllables)
-				if !isInWordList(newWord, wordList) {
-					wordList[w] = language.randomWord(t.NumSyllables)
+				newWord = language.randomWord(t.MaxSyllables)
+				if !IsInWordList(newWord, wordList) {
+					wordList[w] = language.randomWord(t.MaxSyllables)
 					break
 				}
 			}
+		}
+	}
+
+	return wordList
+}
+
+// AddNounToWordList adds a new noun to an existing word list for a language
+func (language Language) AddNounToWordList(word string) map[string]string {
+	newWord := ""
+	wordList := language.WordList
+
+	for {
+		newWord = language.randomWord(3)
+		if !IsInWordList(newWord, wordList) {
+			wordList[word] = language.randomWord(3)
+			break
 		}
 	}
 

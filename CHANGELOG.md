@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.2.4 (2019-07-01)
+
+Adds translation to languages and population of word lists based
+on the culture's origin climate.
+
+### Change List
+
+- Update word list based on culture climate
+- Add translation functions
+- Add capitalize first function
+
 ## 0.2.3 (2019-07-01)
 
 Big update to languages this time around. This is foundational work

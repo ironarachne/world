@@ -1,6 +1,20 @@
 package words
 
-import "github.com/ironarachne/world/pkg/slices"
+import (
+	"strings"
+
+	"github.com/ironarachne/world/pkg/slices"
+)
+
+// CapitalizeFirst capitalizes the first letter of the string
+func CapitalizeFirst(phrase string) string {
+	firstLetter := string(phrase[0])
+	rest := strings.TrimPrefix(phrase, firstLetter)
+
+	result := strings.Title(firstLetter) + rest
+
+	return result
+}
 
 // CombinePhrases combines phrases with "and" and commas
 func CombinePhrases(phrases []string) string {

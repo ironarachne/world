@@ -3,7 +3,7 @@ package language
 // WordType is a type of word. This is used as rules to construct words.
 type WordType struct {
 	Name         string
-	NumSyllables int
+	MaxSyllables int
 	Prefix       string
 	Suffix       string
 	WordList     []string
@@ -26,15 +26,20 @@ func getAllWordTypes() []WordType {
 func getAdjectives() WordType {
 	return WordType{
 		Name:         "adjective",
-		NumSyllables: 2,
+		MaxSyllables: 2,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
+			"aromatic",
+			"basted",
 			"big",
+			"bitter",
 			"black",
 			"blue",
 			"brown",
+			"chilled",
 			"cold",
+			"curried",
 			"dark",
 			"deep",
 			"divine",
@@ -43,7 +48,9 @@ func getAdjectives() WordType {
 			"evil",
 			"familiar",
 			"fat",
+			"flat",
 			"frail",
+			"fried",
 			"full",
 			"good",
 			"green",
@@ -51,21 +58,36 @@ func getAdjectives() WordType {
 			"honest",
 			"hot",
 			"light",
+			"long",
 			"loud",
 			"mortal",
 			"mysterious",
 			"narrow",
 			"old",
 			"orange",
+			"pungent",
 			"purple",
 			"quiet",
+			"raw",
+			"rectangular",
 			"red",
+			"roasted",
+			"round",
+			"salty",
+			"savory",
 			"shallow",
 			"short",
+			"smoked",
 			"sober",
+			"sour",
+			"spicy",
+			"spiral",
+			"square",
+			"steamed",
 			"strange",
 			"strong",
 			"sturdy",
+			"sweet",
 			"tall",
 			"thick",
 			"thin",
@@ -82,7 +104,7 @@ func getAdjectives() WordType {
 func getInterjections() WordType {
 	return WordType{
 		Name:         "interjection",
-		NumSyllables: 2,
+		MaxSyllables: 2,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
@@ -95,7 +117,7 @@ func getInterjections() WordType {
 func getPrepositions() WordType {
 	return WordType{
 		Name:         "preposition",
-		NumSyllables: 1,
+		MaxSyllables: 1,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
@@ -108,6 +130,7 @@ func getPrepositions() WordType {
 			"or",
 			"to",
 			"will",
+			"with",
 		},
 	}
 }
@@ -115,7 +138,7 @@ func getPrepositions() WordType {
 func getQuestionWords() WordType {
 	return WordType{
 		Name:         "question word",
-		NumSyllables: 1,
+		MaxSyllables: 1,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
@@ -131,10 +154,11 @@ func getQuestionWords() WordType {
 func getVerbs() WordType {
 	return WordType{
 		Name:         "verb",
-		NumSyllables: 2,
+		MaxSyllables: 2,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
+			"to bake",
 			"to be",
 			"to belong",
 			"to bite",
@@ -153,8 +177,10 @@ func getVerbs() WordType {
 			"to go",
 			"to growl",
 			"to hate",
+			"to have",
 			"to hear",
 			"to hide",
+			"to hold",
 			"to hunt",
 			"to jump",
 			"to kill",
@@ -167,6 +193,7 @@ func getVerbs() WordType {
 			"to love",
 			"to need",
 			"to own",
+			"to roast",
 			"to run",
 			"to see",
 			"to sit",
@@ -174,9 +201,11 @@ func getVerbs() WordType {
 			"to smell",
 			"to smile",
 			"to stand",
+			"to strike",
 			"to swallow",
 			"to swim",
 			"to taste",
+			"to throw",
 			"to walk",
 			"to want",
 		},
@@ -186,7 +215,7 @@ func getVerbs() WordType {
 func getNouns() WordType {
 	return WordType{
 		Name:         "noun",
-		NumSyllables: 3,
+		MaxSyllables: 3,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
@@ -269,8 +298,10 @@ func getNouns() WordType {
 			"name",
 			"neck",
 			"night",
+			"noodle",
 			"nose",
 			"ocean",
+			"pepper",
 			"person",
 			"pie",
 			"pig",
@@ -281,13 +312,16 @@ func getNouns() WordType {
 			"robe",
 			"rock",
 			"root",
+			"salt",
 			"sand",
 			"seed",
 			"skin",
 			"sky",
 			"smoke",
 			"snake",
+			"soup",
 			"star",
+			"stew",
 			"stomach",
 			"stone",
 			"stream",
@@ -311,7 +345,7 @@ func getNouns() WordType {
 func getNumbers() WordType {
 	return WordType{
 		Name:         "number",
-		NumSyllables: 1,
+		MaxSyllables: 1,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
@@ -333,7 +367,7 @@ func getNumbers() WordType {
 func getPronouns() WordType {
 	return WordType{
 		Name:         "pronoun",
-		NumSyllables: 1,
+		MaxSyllables: 1,
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
@@ -352,7 +386,8 @@ func getPronouns() WordType {
 	}
 }
 
-func isInWordList(word string, wordList map[string]string) bool {
+// IsInWordList checks to see if a given word is in a word list
+func IsInWordList(word string, wordList map[string]string) bool {
 	for _, w := range wordList {
 		if w == word {
 			return true

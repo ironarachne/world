@@ -48,6 +48,24 @@ func Generate(homeClimate climate.Climate) Culture {
 
 	culture.Language = language.Generate()
 
+	for _, a := range homeClimate.Animals {
+		if !language.IsInWordList(a.Name, culture.Language.WordList) {
+			culture.Language.WordList = culture.Language.AddNounToWordList(a.Name)
+		}
+	}
+
+	for _, p := range homeClimate.Plants {
+		if !language.IsInWordList(p.Name, culture.Language.WordList) {
+			culture.Language.WordList = culture.Language.AddNounToWordList(p.Name)
+		}
+	}
+
+	for _, f := range homeClimate.Fish {
+		if !language.IsInWordList(f.Name, culture.Language.WordList) {
+			culture.Language.WordList = culture.Language.AddNounToWordList(f.Name)
+		}
+	}
+
 	culture.CommonMaleNames = culture.Language.GenerateNameList("male")
 	culture.CommonFemaleNames = culture.Language.GenerateNameList("female")
 	culture.CommonFamilyNames = culture.Language.GenerateNameList("family")

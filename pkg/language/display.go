@@ -6,10 +6,11 @@ import (
 
 // SimplifiedLanguage is a simplified version of Language meant for display
 type SimplifiedLanguage struct {
-	Name        string `json:"name"`
-	Description string `json:"description"`
-	Phrase      string `json:"phrase"`
-	Translation string `json:"translation"`
+	Name        string            `json:"name"`
+	Description string            `json:"description"`
+	Phrase      string            `json:"phrase"`
+	Translation string            `json:"translation"`
+	WordList    map[string]string `json:"word_list"`
 }
 
 // Describe describes a Language as a string
@@ -29,5 +30,6 @@ func (language Language) Simplify() SimplifiedLanguage {
 		Description: language.Describe(),
 		Phrase:      "Hello! It is good to see you, friend.",
 		Translation: language.RosettaStone(),
+		WordList:    language.WordList,
 	}
 }

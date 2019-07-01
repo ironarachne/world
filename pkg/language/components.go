@@ -69,13 +69,18 @@ func randomSyllable(category Category, role string) string {
 	return syllable
 }
 
-func (language Language) randomWord(numSyllables int) string {
+func (language Language) randomWord(maxSyllables int) string {
 	var word string
 	var syllables []string
+	numSyllables := 1
 
 	role := "connector"
 	syllable := ""
 	shouldIUseAnApostrophe := 0
+
+	if maxSyllables > 1 {
+		numSyllables = rand.Intn(maxSyllables) + 1
+	}
 
 	for i := 0; i < numSyllables; i++ {
 		if numSyllables-i == 1 {
