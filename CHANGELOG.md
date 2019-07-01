@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.2.2 (2019-07-01)
+
+Fixed two crash bugs.
+
+### Change List
+
+- Fixed a crash when holy items weren't being calculated correctly
+- Fixed a crash when no fish were generated for a climate
+
 ## 0.2.1 (2019-06-30)
 
 Building styles and clothing styles are the big winners in this release.
