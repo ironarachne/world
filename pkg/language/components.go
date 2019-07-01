@@ -68,3 +68,34 @@ func randomSyllable(category Category, role string) string {
 
 	return syllable
 }
+
+func (language Language) randomWord(numSyllables int) string {
+	var word string
+	var syllables []string
+
+	role := "connector"
+	syllable := ""
+	shouldIUseAnApostrophe := 0
+
+	for i := 0; i < numSyllables; i++ {
+		if numSyllables-i == 1 {
+			role = "finisher"
+		}
+		syllable = randomSyllable(language.Category, role)
+
+		if language.Category.UsesApostrophes {
+			shouldIUseAnApostrophe = rand.Intn(10)
+			if shouldIUseAnApostrophe > 8 {
+				syllable += "'"
+			}
+		}
+
+		syllables = append(syllables, syllable)
+	}
+
+	for _, syllable := range syllables {
+		word += syllable
+	}
+
+	return word
+}

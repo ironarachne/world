@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.2.3 (2019-07-01)
+
+Big update to languages this time around. This is foundational work
+for real phrasebooks and better name generation.
+
+### Change List
+
+- Added generation of coherent word lists to languages
+- Added a "Rosetta stone" phrase to language output
+- Added basic verb conjugation support
+
 ## 0.2.2 (2019-07-01)
 
 Fixed two crash bugs.

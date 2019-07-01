@@ -8,6 +8,8 @@ import (
 type SimplifiedLanguage struct {
 	Name        string `json:"name"`
 	Description string `json:"description"`
+	Phrase      string `json:"phrase"`
+	Translation string `json:"translation"`
 }
 
 // Describe describes a Language as a string
@@ -21,8 +23,11 @@ func (language Language) Describe() string {
 
 // Simplify creates a simplified version of a language for display
 func (language Language) Simplify() SimplifiedLanguage {
+
 	return SimplifiedLanguage{
 		Name:        language.Name,
 		Description: language.Describe(),
+		Phrase:      "Hello! It is good to see you, friend.",
+		Translation: language.RosettaStone(),
 	}
 }
