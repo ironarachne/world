@@ -168,10 +168,13 @@ func (deity Deity) Describe() string {
 
 // Simplify returns a simplified version of a deity
 func (deity Deity) Simplify() SimplifiedDeity {
+	domains := getDomainNames(deity.Domains)
+	description := deity.Describe()
+
 	return SimplifiedDeity{
 		Name:        deity.Name,
 		Gender:      deity.Gender.Name,
-		Domains:     getDomainNames(deity.Domains),
-		Description: deity.Describe(),
+		Domains:     domains,
+		Description: description,
 	}
 }

@@ -36,7 +36,7 @@ func CombinePhrases(phrases []string) string {
 
 // Pronoun returns the right singular pronoun based on starting letter of a word
 func Pronoun(word string) string {
-	if slices.StringIn(string(word[0]), []string{"a", "e", "i", "o", "u"}) {
+	if len(word) > 0 && slices.StringIn(string(word[0]), []string{"a", "e", "i", "o", "u"}) {
 		return "an"
 	}
 

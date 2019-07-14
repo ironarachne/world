@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.2.5 (2019-07-14)
+
+Fixes a bug in deity simplification.
+
+### Change List
+
+- Fix a bug in generating deities where sometimes a blank simplified deity would be created
+
 ## 0.2.4 (2019-07-01)
 
 Adds translation to languages and population of word lists based

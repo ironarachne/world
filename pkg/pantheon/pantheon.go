@@ -47,9 +47,11 @@ func Generate(minSize int, maxSize int, lang language.Language) Pantheon {
 // Simplify returns a simplified pantheon for display
 func (pantheon Pantheon) Simplify() SimplifiedPantheon {
 	sp := SimplifiedPantheon{}
+	simplifiedDeity := SimplifiedDeity{}
 
 	for _, d := range pantheon.Deities {
-		sp.Deities = append(sp.Deities, d.Simplify())
+		simplifiedDeity = d.Simplify()
+		sp.Deities = append(sp.Deities, simplifiedDeity)
 	}
 
 	return sp
