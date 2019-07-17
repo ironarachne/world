@@ -11,6 +11,7 @@ type Monster struct {
 	Type                 string
 	IdealTemperature     int
 	TemperatureTolerance int
+	NumAppearing         func() int
 }
 
 func getAllMonsters() []Monster {

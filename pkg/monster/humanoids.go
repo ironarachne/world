@@ -1,5 +1,7 @@
 package monster
 
+import "github.com/ironarachne/world/pkg/random"
+
 func getAllHumanoids() []Monster {
 	return []Monster{
 		Monster{
@@ -9,6 +11,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 4)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "bullywug",
@@ -17,6 +23,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 4)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "goblin",
@@ -25,6 +35,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(2, 4)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "hobgoblin",
@@ -33,6 +47,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 4)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "kobold",
@@ -41,6 +59,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 6)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "ogre",
@@ -49,6 +71,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 2)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "orc",
@@ -57,6 +83,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 6)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "troglodyte",
@@ -65,6 +95,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 6)
+				return num
+			},
 		},
 		Monster{
 			Name:                 "troll",
@@ -73,6 +107,10 @@ func getAllHumanoids() []Monster {
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 4)
+				return num
+			},
 		},
 	}
 }
