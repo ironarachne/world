@@ -1,5 +1,7 @@
 package animal
 
+import "github.com/ironarachne/world/pkg/size"
+
 func getMammals() []Animal {
 	mammals := []Animal{
 		Animal{
@@ -25,7 +27,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "brown bear",
@@ -50,7 +52,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "beaver",
@@ -75,7 +77,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "small",
+			Size:           size.GetCategoryByName("small"),
 		},
 		Animal{
 			Name:           "deer",
@@ -100,7 +102,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "squirrel",
@@ -125,7 +127,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "wolf",
@@ -150,7 +152,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "camel",
@@ -175,7 +177,7 @@ func getMammals() []Animal {
 			MaxHumidity:    6,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "bison",
@@ -200,7 +202,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "bobcat",
@@ -225,7 +227,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "small",
+			Size:           size.GetCategoryByName("small"),
 		},
 		Animal{
 			Name:           "coyote",
@@ -250,7 +252,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "horse",
@@ -275,7 +277,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "cow",
@@ -300,7 +302,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "elephant",
@@ -325,7 +327,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "large",
+			Size:           size.GetCategoryByName("large"),
 		},
 		Animal{
 			Name:           "jaguar",
@@ -350,7 +352,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "tiger",
@@ -375,7 +377,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "goat",
@@ -400,7 +402,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "sheep",
@@ -425,7 +427,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "cougar",
@@ -450,7 +452,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "alpaca",
@@ -475,7 +477,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 4,
 			MaxTemperature: 7,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "llama",
@@ -500,7 +502,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 7,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "leopard",
@@ -525,7 +527,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 7,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "cheetah",
@@ -550,7 +552,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "lion",
@@ -575,7 +577,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "hippopotamus",
@@ -600,7 +602,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
-			Size:           "large",
+			Size:           size.GetCategoryByName("large"),
 		},
 		Animal{
 			Name:           "zebra",
@@ -625,7 +627,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 7,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "antelope",
@@ -650,7 +652,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "gazelle",
@@ -675,7 +677,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "donkey",
@@ -700,7 +702,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "rabbit",
@@ -725,7 +727,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "ermine",
@@ -750,7 +752,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "small",
+			Size:           size.GetCategoryByName("small"),
 		},
 		Animal{
 			Name:           "mink",
@@ -775,7 +777,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "small",
+			Size:           size.GetCategoryByName("small"),
 		},
 		Animal{
 			Name:           "fox",
@@ -800,7 +802,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 6,
-			Size:           "small",
+			Size:           size.GetCategoryByName("small"),
 		},
 		Animal{
 			Name:           "raccoon",
@@ -825,7 +827,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 7,
-			Size:           "small",
+			Size:           size.GetCategoryByName("small"),
 		},
 		Animal{
 			Name:           "reindeer",
@@ -850,7 +852,7 @@ func getMammals() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 4,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 	}
 

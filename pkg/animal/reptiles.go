@@ -1,5 +1,7 @@
 package animal
 
+import "github.com/ironarachne/world/pkg/size"
+
 func getReptiles() []Animal {
 	reptiles := []Animal{
 		Animal{
@@ -25,7 +27,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "crocodile",
@@ -50,7 +52,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "medium",
+			Size:           size.GetCategoryByName("medium"),
 		},
 		Animal{
 			Name:           "cobra",
@@ -75,7 +77,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "asp",
@@ -100,7 +102,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "rattlesnake",
@@ -125,7 +127,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "black mamba",
@@ -150,7 +152,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "coral snake",
@@ -175,7 +177,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "boa constrictor",
@@ -200,7 +202,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 		Animal{
 			Name:           "monitor lizard",
@@ -225,7 +227,7 @@ func getReptiles() []Animal {
 			MaxHumidity:    10,
 			MinTemperature: 5,
 			MaxTemperature: 10,
-			Size:           "tiny",
+			Size:           size.GetCategoryByName("tiny"),
 		},
 	}
 

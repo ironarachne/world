@@ -20,6 +20,7 @@ import (
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/language"
+	"github.com/ironarachne/world/pkg/monster"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/world/pkg/race"
@@ -246,6 +247,28 @@ func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = language.Generate().Simplify()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getMonster(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o monster.SimplifiedMonster
+
+	random.SeedFromString(id)
+
+	o = monster.Random().Simplify()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getMonsterRandom(w http.ResponseWriter, r *http.Request) {
+	var o monster.SimplifiedMonster
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = monster.Random().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -505,6 +528,9 @@ func main() {
 
 	r.Get("/language", getLanguageRandom)
 	r.Get("/language/{id}", getLanguage)
+
+	r.Get("/monster", getMonsterRandom)
+	r.Get("/monster/{id}", getMonster)
 
 	r.Get("/organization", getOrganizationRandom)
 	r.Get("/organization/{id}", getOrganization)

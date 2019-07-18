@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.2.6 (2019-07-18)
+
+Adds basic monsters.
+
+### Change List
+
+- Add basic monsters and a monster API
+- Add size package and use it with monsters and animals
+
 ## 0.2.5 (2019-07-14)
 
 Fixes a bug in deity simplification.

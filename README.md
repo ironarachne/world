@@ -6,7 +6,7 @@ The API runs on port 7531.
 
 ## API Routes
 
-The API supports the following routes:
+The API supports the following routes. Where `123` is specified, it refers to an alphanumeric seed.
 
 **Character, random**: `/character/`
 
@@ -31,6 +31,10 @@ The API supports the following routes:
 **Language, random**: `/language/`
 
 **Language, specific seed**: `/language/123`
+
+**Monster, random**: `/monster/`
+
+**Monster, specific seed**: `/monster/123`
 
 **Organization, random**: `/organization/`
 
