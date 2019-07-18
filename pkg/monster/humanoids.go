@@ -41,6 +41,18 @@ func getAllHumanoids() []Monster {
 			},
 		},
 		Monster{
+			Name:                 "gorgon",
+			PluralName:           "gorgons",
+			SizeCategory:         "medium",
+			Type:                 "humanoid",
+			IdealTemperature:     5,
+			TemperatureTolerance: 5,
+			NumAppearing: func() int {
+				num := random.DiceTotal(1, 3)
+				return num
+			},
+		},
+		Monster{
 			Name:                 "hobgoblin",
 			PluralName:           "hobgoblins",
 			SizeCategory:         "medium",
@@ -61,18 +73,6 @@ func getAllHumanoids() []Monster {
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
 				num := random.DiceTotal(1, 6)
-				return num
-			},
-		},
-		Monster{
-			Name:                 "ogre",
-			PluralName:           "ogres",
-			SizeCategory:         "medium",
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				num := random.DiceTotal(1, 2)
 				return num
 			},
 		},

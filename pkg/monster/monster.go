@@ -17,8 +17,12 @@ type Monster struct {
 func getAllMonsters() []Monster {
 	monsters := []Monster{}
 
+	draconids := getAllDraconids()
+	giants := getAllGiants()
 	humanoids := getAllHumanoids()
 
+	monsters = append(monsters, draconids...)
+	monsters = append(monsters, giants...)
 	monsters = append(monsters, humanoids...)
 
 	return monsters
