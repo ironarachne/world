@@ -1,6 +1,10 @@
 package animal
 
-import "math/rand"
+import (
+	"math/rand"
+
+	"github.com/ironarachne/world/pkg/size"
+)
 
 // Animal is an animal
 type Animal struct {
@@ -26,7 +30,7 @@ type Animal struct {
 	MaxHumidity    int
 	MinTemperature int
 	MaxTemperature int
-	Size           string
+	Size           size.Category
 }
 
 // All returns all pre-defined animals

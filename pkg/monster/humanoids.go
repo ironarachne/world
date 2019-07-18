@@ -1,13 +1,16 @@
 package monster
 
-import "github.com/ironarachne/world/pkg/random"
+import (
+	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/size"
+)
 
 func getAllHumanoids() []Monster {
 	return []Monster{
 		Monster{
 			Name:                 "bugbear",
 			PluralName:           "bugbears",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -19,7 +22,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "bullywug",
 			PluralName:           "bullywugs",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -31,7 +34,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "goblin",
 			PluralName:           "goblins",
-			SizeCategory:         "small",
+			SizeCategory:         size.GetCategoryByName("small"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -43,7 +46,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "gorgon",
 			PluralName:           "gorgons",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -55,7 +58,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "hobgoblin",
 			PluralName:           "hobgoblins",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -67,7 +70,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "kobold",
 			PluralName:           "kobolds",
-			SizeCategory:         "small",
+			SizeCategory:         size.GetCategoryByName("small"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -79,7 +82,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "orc",
 			PluralName:           "orcs",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -91,7 +94,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "troglodyte",
 			PluralName:           "troglodytes",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -103,7 +106,7 @@ func getAllHumanoids() []Monster {
 		Monster{
 			Name:                 "troll",
 			PluralName:           "trolls",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "humanoid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,

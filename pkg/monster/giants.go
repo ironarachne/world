@@ -1,13 +1,16 @@
 package monster
 
-import "github.com/ironarachne/world/pkg/random"
+import (
+	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/size"
+)
 
 func getAllGiants() []Monster {
 	return []Monster{
 		Monster{
 			Name:                 "cyclops",
 			PluralName:           "cyclopses",
-			SizeCategory:         "huge",
+			SizeCategory:         size.GetCategoryByName("huge"),
 			Type:                 "giant",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -18,7 +21,7 @@ func getAllGiants() []Monster {
 		Monster{
 			Name:                 "ettin",
 			PluralName:           "ettins",
-			SizeCategory:         "large",
+			SizeCategory:         size.GetCategoryByName("large"),
 			Type:                 "giant",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -30,7 +33,7 @@ func getAllGiants() []Monster {
 		Monster{
 			Name:                 "giant",
 			PluralName:           "giants",
-			SizeCategory:         "huge",
+			SizeCategory:         size.GetCategoryByName("huge"),
 			Type:                 "giant",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -41,7 +44,7 @@ func getAllGiants() []Monster {
 		Monster{
 			Name:                 "ogre",
 			PluralName:           "ogres",
-			SizeCategory:         "large",
+			SizeCategory:         size.GetCategoryByName("large"),
 			Type:                 "giant",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,

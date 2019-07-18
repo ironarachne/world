@@ -1,13 +1,16 @@
 package monster
 
-import "github.com/ironarachne/world/pkg/random"
+import (
+	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/size"
+)
 
 func getAllDraconids() []Monster {
 	return []Monster{
 		Monster{
 			Name:                 "dragon",
 			PluralName:           "dragons",
-			SizeCategory:         "gargantuan",
+			SizeCategory:         size.GetCategoryByName("gargantuan"),
 			Type:                 "draconid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -18,7 +21,7 @@ func getAllDraconids() []Monster {
 		Monster{
 			Name:                 "drake",
 			PluralName:           "drakes",
-			SizeCategory:         "medium",
+			SizeCategory:         size.GetCategoryByName("medium"),
 			Type:                 "draconid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
@@ -30,7 +33,7 @@ func getAllDraconids() []Monster {
 		Monster{
 			Name:                 "wyvern",
 			PluralName:           "wyverns",
-			SizeCategory:         "large",
+			SizeCategory:         size.GetCategoryByName("large"),
 			Type:                 "draconid",
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,

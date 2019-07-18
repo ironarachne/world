@@ -1,13 +1,17 @@
 package monster
 
-import "math/rand"
+import (
+	"math/rand"
+
+	"github.com/ironarachne/world/pkg/size"
+)
 
 // Monster is a monstrous creature or other intelligent threat
 type Monster struct {
 	Name                 string
 	PluralName           string
 	Description          string
-	SizeCategory         string
+	SizeCategory         size.Category
 	Type                 string
 	IdealTemperature     int
 	TemperatureTolerance int

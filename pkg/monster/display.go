@@ -19,7 +19,7 @@ func (monster Monster) Simplify() SimplifiedMonster {
 		PluralName:   monster.PluralName,
 		Description:  monster.Description,
 		NumAppearing: numAppearing,
-		SizeCategory: monster.SizeCategory,
+		SizeCategory: monster.SizeCategory.Name,
 		Type:         monster.Type,
 	}
 
