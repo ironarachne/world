@@ -4,6 +4,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/size"
 )
 
 // Race is a race. It can have variations within.
@@ -14,7 +15,7 @@ type Race struct {
 	AgeCategories []AgeCategory
 	Appearance    Appearance
 	Commonality   int
-	Size          Size
+	SizeCategory  size.Category
 }
 
 // GenerateSubrace generates a random subrace based on a parent race

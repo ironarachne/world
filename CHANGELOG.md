@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.2.7 (2019-07-18)
+
+Integrates size package with races.
+
+### Change List
+
+- Replace race size with race size category
+- Add unique traits to each race
+- Add unique traits to race description
+
 ## 0.2.6 (2019-07-18)
 
 Adds basic monsters.

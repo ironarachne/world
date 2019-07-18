@@ -1,7 +1,11 @@
 package race
 
+import "github.com/ironarachne/world/pkg/size"
+
 func getHalflings() []Race {
-	baseSize := getSizeByName("small")
+	heightBase := 48
+	weightBase := 50
+	sizeCategory := size.GetCategoryByName("small")
 
 	femaleHeightModifier := 0
 	femaleWeightModifier := 20
@@ -54,14 +58,14 @@ func getHalflings() []Race {
 				},
 			},
 			Appearance: Appearance{
-				MaxFemaleHeight: baseSize.HeightBase + femaleHeightModifier + heightRange,
-				MinFemaleHeight: baseSize.HeightBase + femaleHeightModifier,
-				MaxMaleHeight:   baseSize.HeightBase + maleHeightModifier + heightRange,
-				MinMaleHeight:   baseSize.HeightBase + maleHeightModifier,
-				MaxFemaleWeight: baseSize.WeightBase + femaleWeightModifier + weightRange,
-				MinFemaleWeight: baseSize.WeightBase + femaleWeightModifier,
-				MaxMaleWeight:   baseSize.WeightBase + maleWeightModifier + weightRange,
-				MinMaleWeight:   baseSize.WeightBase + maleWeightModifier,
+				MaxFemaleHeight: heightBase + femaleHeightModifier + heightRange,
+				MinFemaleHeight: heightBase + femaleHeightModifier,
+				MaxMaleHeight:   heightBase + maleHeightModifier + heightRange,
+				MinMaleHeight:   heightBase + maleHeightModifier,
+				MaxFemaleWeight: weightBase + femaleWeightModifier + weightRange,
+				MinFemaleWeight: weightBase + femaleWeightModifier,
+				MaxMaleWeight:   weightBase + maleWeightModifier + weightRange,
+				MinMaleWeight:   weightBase + maleWeightModifier,
 				FaceShapes: []string{
 					"oval",
 					"round",
@@ -146,10 +150,12 @@ func getHalflings() []Race {
 					"hazel",
 					"grey",
 				},
-				UniqueTraits: []string{},
+				UniqueTraits: []string{
+					"have large, hairy feet",
+				},
 			},
-			Commonality: 2,
-			Size:        baseSize,
+			Commonality:  2,
+			SizeCategory: sizeCategory,
 		},
 	}
 }

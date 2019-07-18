@@ -3,6 +3,8 @@ package race
 import (
 	"strconv"
 	"strings"
+
+	"github.com/ironarachne/world/pkg/words"
 )
 
 // SimplifiedRace is a simplified version of a race for display
@@ -25,9 +27,14 @@ func (race Race) Simplify() SimplifiedRace {
 func (race Race) Describe() string {
 	description := ""
 
-	description += strings.Title(race.PluralName) + " are " + race.Size.Name + ", with men averaging " + heightToString(race.getAverageHeight("male")) + " tall and "
+	description += strings.Title(race.PluralName) + " are " + race.SizeCategory.Name + ", with men averaging " + heightToString(race.getAverageHeight("male")) + " tall and "
 	description += "weighing " + strconv.Itoa(race.getAverageWeight("male")) + " pounds, and women averaging " + heightToString(race.getAverageHeight("female")) + " tall and "
 	description += "weighing " + strconv.Itoa(race.getAverageWeight("female")) + " pounds. "
+
+	if len(race.Appearance.UniqueTraits) > 0 {
+		uniqueTraits := words.CombinePhrases(race.Appearance.UniqueTraits)
+		description += strings.Title(race.PluralName) + " " + uniqueTraits + ". "
+	}
 
 	return description
 }

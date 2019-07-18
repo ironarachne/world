@@ -1,7 +1,11 @@
 package race
 
+import "github.com/ironarachne/world/pkg/size"
+
 func getDwarves() []Race {
-	baseSize := getSizeByName("small")
+	heightBase := 48
+	weightBase := 50
+	sizeCategory := size.GetCategoryByName("medium")
 
 	femaleHeightModifier := 3
 	femaleWeightModifier := 50
@@ -54,14 +58,14 @@ func getDwarves() []Race {
 				},
 			},
 			Appearance: Appearance{
-				MaxFemaleHeight: baseSize.HeightBase + femaleHeightModifier + heightRange,
-				MinFemaleHeight: baseSize.HeightBase + femaleHeightModifier,
-				MaxMaleHeight:   baseSize.HeightBase + maleHeightModifier + heightRange,
-				MinMaleHeight:   baseSize.HeightBase + maleHeightModifier,
-				MaxFemaleWeight: baseSize.WeightBase + femaleWeightModifier + weightRange,
-				MinFemaleWeight: baseSize.WeightBase + femaleWeightModifier,
-				MaxMaleWeight:   baseSize.WeightBase + maleWeightModifier + weightRange,
-				MinMaleWeight:   baseSize.WeightBase + maleWeightModifier,
+				MaxFemaleHeight: heightBase + femaleHeightModifier + heightRange,
+				MinFemaleHeight: heightBase + femaleHeightModifier,
+				MaxMaleHeight:   heightBase + maleHeightModifier + heightRange,
+				MinMaleHeight:   heightBase + maleHeightModifier,
+				MaxFemaleWeight: weightBase + femaleWeightModifier + weightRange,
+				MinFemaleWeight: weightBase + femaleWeightModifier,
+				MaxMaleWeight:   weightBase + maleWeightModifier + weightRange,
+				MinMaleWeight:   weightBase + maleWeightModifier,
 				FaceShapes: []string{
 					"chiseled",
 					"square",
@@ -137,10 +141,13 @@ func getDwarves() []Race {
 					"hazel",
 					"grey",
 				},
-				UniqueTraits: []string{},
+				UniqueTraits: []string{
+					"usually have beards",
+					"are stocky but well-muscled",
+				},
 			},
-			Commonality: 2,
-			Size:        baseSize,
+			Commonality:  2,
+			SizeCategory: sizeCategory,
 		},
 	}
 }

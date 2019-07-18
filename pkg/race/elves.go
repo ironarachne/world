@@ -1,7 +1,11 @@
 package race
 
+import "github.com/ironarachne/world/pkg/size"
+
 func getElves() []Race {
-	baseSize := getSizeByName("medium")
+	heightBase := 60
+	weightBase := 100
+	sizeCategory := size.GetCategoryByName("medium")
 
 	femaleHeightModifier := -6
 	femaleWeightModifier := -50
@@ -54,14 +58,14 @@ func getElves() []Race {
 				},
 			},
 			Appearance: Appearance{
-				MaxFemaleHeight: baseSize.HeightBase + femaleHeightModifier + heightRange,
-				MinFemaleHeight: baseSize.HeightBase + femaleHeightModifier,
-				MaxMaleHeight:   baseSize.HeightBase + maleHeightModifier + heightRange,
-				MinMaleHeight:   baseSize.HeightBase + maleHeightModifier,
-				MaxFemaleWeight: baseSize.WeightBase + femaleWeightModifier + weightRange,
-				MinFemaleWeight: baseSize.WeightBase + femaleWeightModifier,
-				MaxMaleWeight:   baseSize.WeightBase + maleWeightModifier + weightRange,
-				MinMaleWeight:   baseSize.WeightBase + maleWeightModifier,
+				MaxFemaleHeight: heightBase + femaleHeightModifier + heightRange,
+				MinFemaleHeight: heightBase + femaleHeightModifier,
+				MaxMaleHeight:   heightBase + maleHeightModifier + heightRange,
+				MinMaleHeight:   heightBase + maleHeightModifier,
+				MaxFemaleWeight: weightBase + femaleWeightModifier + weightRange,
+				MinFemaleWeight: weightBase + femaleWeightModifier,
+				MaxMaleWeight:   weightBase + maleWeightModifier + weightRange,
+				MinMaleWeight:   weightBase + maleWeightModifier,
 				FaceShapes: []string{
 					"chiseled",
 					"oval",
@@ -134,10 +138,12 @@ func getElves() []Race {
 					"purple",
 					"silver",
 				},
-				UniqueTraits: []string{},
+				UniqueTraits: []string{
+					"are thin, almost ethereal",
+				},
 			},
-			Commonality: 2,
-			Size:        baseSize,
+			Commonality:  2,
+			SizeCategory: sizeCategory,
 		},
 	}
 }
