@@ -140,7 +140,7 @@ func getBreads() []Pattern {
 			Material1:    "",
 			Material2:    "",
 			Material3:    "",
-			Need1:        "grain",
+			Need1:        "flour",
 			Need2:        "",
 			Need3:        "",
 			NameTemplate: "{{.Material1}} bread",
@@ -150,7 +150,7 @@ func getBreads() []Pattern {
 			Material1:    "",
 			Material2:    "",
 			Material3:    "",
-			Need1:        "grain",
+			Need1:        "flour",
 			Need2:        "",
 			Need3:        "",
 			NameTemplate: "{{.Material1}} buns",
@@ -160,7 +160,7 @@ func getBreads() []Pattern {
 			Material1:    "",
 			Material2:    "",
 			Material3:    "",
-			Need1:        "grain",
+			Need1:        "flour",
 			Need2:        "",
 			Need3:        "",
 			NameTemplate: "{{.Material1}} rolls",
@@ -577,7 +577,7 @@ func getWeapons() []Pattern {
 			Need1:        "metal",
 			Need2:        "",
 			Need3:        "",
-			NameTemplate: "{{.Material}} axes",
+			NameTemplate: "{{.Material1}} axes",
 		},
 		Pattern{
 			Name:         "maces",
@@ -587,7 +587,7 @@ func getWeapons() []Pattern {
 			Need1:        "metal",
 			Need2:        "",
 			Need3:        "",
-			NameTemplate: "{{.Material}} maces",
+			NameTemplate: "{{.Material1}} maces",
 		},
 		Pattern{
 			Name:         "polearms",
@@ -597,7 +597,7 @@ func getWeapons() []Pattern {
 			Need1:        "metal",
 			Need2:        "",
 			Need3:        "",
-			NameTemplate: "{{.Material}} polearms",
+			NameTemplate: "{{.Material1}} polearms",
 		},
 		Pattern{
 			Name:         "spears",
@@ -607,7 +607,7 @@ func getWeapons() []Pattern {
 			Need1:        "metal",
 			Need2:        "",
 			Need3:        "",
-			NameTemplate: "{{.Material}} spears",
+			NameTemplate: "{{.Material1}} spears",
 		},
 		Pattern{
 			Name:         "swords",
@@ -617,7 +617,7 @@ func getWeapons() []Pattern {
 			Need1:        "metal",
 			Need2:        "",
 			Need3:        "",
-			NameTemplate: "{{.Material}} swords",
+			NameTemplate: "{{.Material1}} swords",
 		},
 	}
 

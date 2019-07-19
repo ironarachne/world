@@ -67,24 +67,24 @@ func Random(amount int, from []Plant) []Plant {
 	return plants
 }
 
-// RandomFabric returns a random fabric plant
-func RandomFabric() Plant {
+// RandomPlantOfType returns a random plant with a resource of the specified type
+func RandomPlantOfType(plantType string) Plant {
 	var resources []resource.Resource
 
-	fibers := getFibers()
+	plants := All()
 
-	for _, p := range fibers {
+	for _, p := range plants {
 		resources = append(resources, p.Resources...)
 	}
-	fabrics := resource.ListOfType("fabric", resources)
+	filtered := resource.ListOfType(plantType, resources)
 
-	fabric := fabrics[rand.Intn(len(fabrics))]
+	plant := filtered[rand.Intn(len(filtered))]
 
-	for _, p := range fibers {
-		if p.Name == fabric.Origin {
+	for _, p := range plants {
+		if p.Name == plant.Origin {
 			return p
 		}
 	}
 
-	panic("Lost my fabric!")
+	panic("Couldn't find the specified plant '" + plant.Name + "' in the slice!")
 }

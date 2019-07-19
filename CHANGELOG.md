@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.3.1 (2019-07-19)
+
+Small bug fixes.
+
+### Change List
+
+- Fix a bug where weapons as trade goods would cause a crash
+- Fix a bug where a climate wouldn't always include at least one fabric plant, one fruit, and one grain
+
 ## 0.3.0 (2019-07-19)
 
 Big upgrade to how resources are dealt with.

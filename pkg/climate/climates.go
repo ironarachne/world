@@ -120,14 +120,7 @@ func getRandomClimate() Climate {
 func (climate Climate) getDescription() string {
 	description := "This is "
 
-	firstLetter := string(climate.Name[0])
-
-	if slices.StringIn(firstLetter, []string{"a", "e", "i", "o", "u"}) {
-		description += "an "
-	} else {
-		description += "a "
-	}
-	description += climate.Name + " region"
+	description += words.Pronoun(climate.Name) + " " + climate.Name + " region"
 
 	waterComponents := []string{}
 	if climate.HasLakes {
@@ -253,7 +246,9 @@ func (climate Climate) populate() Climate {
 	climate.Gems = mineral.Random(climate.MaxGems, gems)
 	climate.OtherMinerals = mineral.OtherMinerals()
 	climate.Plants = plant.Random(climate.MaxPlants-1, plants)
-	climate.Plants = append(climate.Plants, plant.RandomFabric())
+	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("fabric"))
+	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("grain"))
+	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("fruit"))
 	climate.Soils = soil.Random(climate.MaxSoils, soils)
 	climate.Stones = mineral.Random(climate.MaxStones, stones)
 	climate.Trees = plant.RandomTrees(climate.MaxTrees, trees)
