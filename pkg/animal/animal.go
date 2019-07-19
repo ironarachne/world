@@ -32,6 +32,10 @@ func All() []Animal {
 
 	birds := getBirds()
 	animals = append(animals, birds...)
+	gameBirds := getGameBirds()
+	animals = append(animals, gameBirds...)
+	raptors := getRaptors()
+	animals = append(animals, raptors...)
 	cats := getBigCats()
 	animals = append(animals, cats...)
 	canines := getCanines()
