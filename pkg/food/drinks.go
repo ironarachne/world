@@ -3,8 +3,8 @@ package food
 import (
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -17,7 +17,7 @@ type Drink struct {
 }
 
 // GenerateDrinks procedurally generates some alcoholic drinks
-func GenerateDrinks(originClimate climate.Climate) []Drink {
+func GenerateDrinks(resources []resource.Resource) []Drink {
 	var drink Drink
 	var drinks []Drink
 	var types []string
@@ -25,9 +25,9 @@ func GenerateDrinks(originClimate climate.Climate) []Drink {
 	var numberOfIngredients int
 	var possibleIngredients []string
 
-	spices := climate.ListResourcesOfType("spice", originClimate.Resources)
-	fruit := climate.ListResourcesOfType("fruit", originClimate.Resources)
-	grain := climate.ListResourcesOfType("grain", originClimate.Resources)
+	spices := resource.ListOfType("spice", resources)
+	fruit := resource.ListOfType("fruit", resources)
+	grains := resource.ListOfType("grain", resources)
 
 	strengths := []string{
 		"very strong",
@@ -51,8 +51,8 @@ func GenerateDrinks(originClimate climate.Climate) []Drink {
 		}
 	}
 
-	if len(grain) > 0 {
-		for _, g := range grain {
+	if len(grains) > 0 {
+		for _, g := range grains {
 			types = append(types, g.Name)
 		}
 	}

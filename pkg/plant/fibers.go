@@ -1,155 +1,152 @@
 package plant
 
 import (
-	"math/rand"
+	"github.com/ironarachne/world/pkg/resource"
 )
-
-func getRandomFiber(from []Plant) Plant {
-	var fibers []Plant
-
-	for _, p := range from {
-		if p.IsFiber {
-			fibers = append(fibers, p)
-		}
-	}
-
-	return fibers[rand.Intn(len(fibers))]
-}
 
 func getFibers() []Plant {
 	fibers := []Plant{
 		Plant{
 			Name:           "cotton",
 			PluralName:     "cotton",
-			IsFabric:       true,
-			IsFiber:        true,
-			IsFruit:        false,
-			IsGrain:        false,
-			IsHerb:         false,
-			IsMedicine:     false,
-			IsNut:          false,
-			IsRoot:         false,
-			IsSpice:        false,
-			IsToxic:        false,
-			IsVegetable:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				resource.Resource{
+					Name:        "cotton",
+					Origin:      "cotton",
+					Type:        "fabric",
+					Commonality: 5,
+				},
+				resource.Resource{
+					Name:        "cotton thread",
+					Origin:      "cotton",
+					Type:        "thread",
+					Commonality: 5,
+				},
+			},
 		},
 		Plant{
 			Name:           "flax",
 			PluralName:     "flax",
-			IsFabric:       true,
-			IsFiber:        true,
-			IsFruit:        false,
-			IsGrain:        false,
-			IsHerb:         false,
-			IsMedicine:     false,
-			IsNut:          false,
-			IsRoot:         false,
-			IsSpice:        false,
-			IsToxic:        false,
-			IsVegetable:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				resource.Resource{
+					Name:        "linen",
+					Origin:      "flax",
+					Type:        "fabric",
+					Commonality: 5,
+				},
+				resource.Resource{
+					Name:        "linen thread",
+					Origin:      "flax",
+					Type:        "thread",
+					Commonality: 5,
+				},
+			},
 		},
 		Plant{
 			Name:           "hemp",
 			PluralName:     "hemp",
-			IsFabric:       true,
-			IsFiber:        true,
-			IsFruit:        false,
-			IsGrain:        false,
-			IsHerb:         false,
-			IsMedicine:     false,
-			IsNut:          false,
-			IsRoot:         false,
-			IsSpice:        false,
-			IsToxic:        false,
-			IsVegetable:    false,
 			MinHumidity:    3,
 			MaxHumidity:    10,
 			MinTemperature: 2,
 			MaxTemperature: 9,
+			Resources: []resource.Resource{
+				resource.Resource{
+					Name:        "hemp",
+					Origin:      "hemp",
+					Type:        "fabric",
+					Commonality: 5,
+				},
+				resource.Resource{
+					Name:        "hemp thread",
+					Origin:      "hemp",
+					Type:        "thread",
+					Commonality: 5,
+				},
+			},
 		},
 		Plant{
 			Name:           "coir",
 			PluralName:     "coir",
-			IsFabric:       false,
-			IsFiber:        true,
-			IsFruit:        false,
-			IsGrain:        false,
-			IsHerb:         false,
-			IsMedicine:     false,
-			IsNut:          false,
-			IsRoot:         false,
-			IsSpice:        false,
-			IsToxic:        false,
-			IsVegetable:    false,
 			MinHumidity:    6,
 			MaxHumidity:    10,
 			MinTemperature: 8,
 			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				resource.Resource{
+					Name:        "coir seed",
+					Origin:      "coir",
+					Type:        "seed",
+					Commonality: 5,
+				},
+			},
 		},
 		Plant{
 			Name:           "papyrus",
 			PluralName:     "papyrus",
-			IsFabric:       false,
-			IsFiber:        true,
-			IsFruit:        false,
-			IsGrain:        false,
-			IsHerb:         false,
-			IsMedicine:     false,
-			IsNut:          false,
-			IsRoot:         false,
-			IsSpice:        false,
-			IsToxic:        false,
-			IsVegetable:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 2,
 			MaxTemperature: 9,
+			Resources: []resource.Resource{
+				resource.Resource{
+					Name:        "papyrus",
+					Origin:      "papyrus",
+					Type:        "paper",
+					Commonality: 5,
+				},
+			},
 		},
 		Plant{
 			Name:           "jute",
 			PluralName:     "jute",
-			IsFabric:       true,
-			IsFiber:        true,
-			IsFruit:        false,
-			IsGrain:        false,
-			IsHerb:         false,
-			IsMedicine:     false,
-			IsNut:          false,
-			IsRoot:         false,
-			IsSpice:        false,
-			IsToxic:        false,
-			IsVegetable:    false,
 			MinHumidity:    3,
 			MaxHumidity:    10,
 			MinTemperature: 2,
 			MaxTemperature: 9,
+			Resources: []resource.Resource{
+				resource.Resource{
+					Name:        "jute",
+					Origin:      "jute",
+					Type:        "fabric",
+					Commonality: 5,
+				},
+				resource.Resource{
+					Name:        "jute thread",
+					Origin:      "jute",
+					Type:        "thread",
+					Commonality: 5,
+				},
+			},
 		},
 		Plant{
 			Name:           "ramie",
 			PluralName:     "ramie",
-			IsFabric:       true,
-			IsFiber:        true,
-			IsFruit:        false,
-			IsGrain:        false,
-			IsHerb:         false,
-			IsMedicine:     false,
-			IsNut:          false,
-			IsRoot:         false,
-			IsSpice:        false,
-			IsToxic:        false,
-			IsVegetable:    false,
 			MinHumidity:    3,
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				resource.Resource{
+					Name:        "ramie",
+					Origin:      "ramie",
+					Type:        "fabric",
+					Commonality: 5,
+				},
+				resource.Resource{
+					Name:        "ramie thread",
+					Origin:      "ramie",
+					Type:        "thread",
+					Commonality: 5,
+				},
+			},
 		},
 	}
 

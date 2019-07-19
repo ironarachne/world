@@ -5,9 +5,12 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/animal"
+	"github.com/ironarachne/world/pkg/mineral"
 	"github.com/ironarachne/world/pkg/plant"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
+	"github.com/ironarachne/world/pkg/soil"
 	"github.com/ironarachne/world/pkg/words"
 )
 
@@ -26,25 +29,23 @@ type Climate struct {
 	HasLakes           bool
 	HasOcean           bool
 	MaxAnimals         int
-	MaxCommonMetals    int
 	MaxFish            int
 	MaxGems            int
+	MaxMetals          int
 	MaxPlants          int
-	MaxPreciousMetals  int
 	MaxSoils           int
 	MaxStones          int
 	MaxTrees           int
-	Resources          []Resource
-	Seasons            []Season
 	Animals            []animal.Animal
 	Fish               []animal.Fish
-	CommonMetals       []Mineral
-	Gems               []Mineral
-	OtherMinerals      []Mineral
+	Gems               []mineral.Mineral
+	Metals             []mineral.Mineral
+	OtherMinerals      []mineral.Mineral
 	Plants             []plant.Plant
-	PreciousMetals     []Mineral
-	Soils              []Soil
-	Stones             []Mineral
+	Resources          []resource.Resource
+	Seasons            []Season
+	Soils              []soil.Soil
+	Stones             []mineral.Mineral
 	Trees              []plant.Tree
 }
 
@@ -207,14 +208,13 @@ func (climate Climate) getCurrentTemperature(season Season) int {
 }
 
 func (climate Climate) populate() Climate {
-	resources := []Resource{}
+	resources := []resource.Resource{}
 
 	animals := climate.getFilteredAnimals()
-	commonMetals := getCommonMetals()
-	gems := getGems()
+	metals := mineral.Metals()
+	gems := mineral.Gems()
 	plants := climate.getFilteredPlants()
-	preciousMetals := getPreciousMetals()
-	stones := getStones()
+	stones := mineral.Stones()
 	trees := climate.getFilteredTrees()
 
 	climate.Seasons = climate.getSeasons()
@@ -242,49 +242,45 @@ func (climate Climate) populate() Climate {
 	if climate.HasLakes || climate.HasRivers || climate.HasOcean {
 		climate.Fish = climate.getFish()
 		for _, i := range climate.Fish {
-			resources = append(resources, resourcesFromFish(i)...)
+			resources = append(resources, i.Resources...)
 		}
 	} else {
 		climate.Fish = []animal.Fish{}
 	}
 
 	climate.Animals = animal.Random(climate.MaxAnimals, animals)
-	climate.CommonMetals = getRandomMinerals(climate.MaxCommonMetals, commonMetals)
-	climate.Gems = getRandomMinerals(climate.MaxGems, gems)
-	climate.OtherMinerals = getOtherMinerals()
+	climate.Metals = mineral.Random(climate.MaxMetals, metals)
+	climate.Gems = mineral.Random(climate.MaxGems, gems)
+	climate.OtherMinerals = mineral.OtherMinerals()
 	climate.Plants = plant.Random(climate.MaxPlants-1, plants)
 	climate.Plants = append(climate.Plants, plant.RandomFabric())
-	climate.PreciousMetals = getRandomMinerals(climate.MaxPreciousMetals, preciousMetals)
-	climate.Soils = getRandomSoils(climate.MaxSoils, soils)
-	climate.Stones = getRandomMinerals(climate.MaxStones, stones)
+	climate.Soils = soil.Random(climate.MaxSoils, soils)
+	climate.Stones = mineral.Random(climate.MaxStones, stones)
 	climate.Trees = plant.RandomTrees(climate.MaxTrees, trees)
 
 	for _, i := range climate.Animals {
-		resources = append(resources, resourcesFromAnimal(i)...)
+		resources = append(resources, i.Resources...)
 	}
-	for _, i := range climate.CommonMetals {
-		resources = append(resources, resourcesFromMineral(i)...)
-	}
-	for _, i := range climate.PreciousMetals {
-		resources = append(resources, resourcesFromMineral(i)...)
+	for _, i := range climate.Metals {
+		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Gems {
-		resources = append(resources, resourcesFromMineral(i)...)
+		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Stones {
-		resources = append(resources, resourcesFromMineral(i)...)
+		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.OtherMinerals {
-		resources = append(resources, resourcesFromMineral(i)...)
+		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Plants {
-		resources = append(resources, resourcesFromPlant(i)...)
+		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Soils {
-		resources = append(resources, resourcesFromSoil(i)...)
+		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Trees {
-		resources = append(resources, resourcesFromTree(i)...)
+		resources = append(resources, i.Resources...)
 	}
 
 	climate.Resources = resources
@@ -328,11 +324,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           6,
 			MaxAnimals:         15,
-			MaxCommonMetals:    2,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            2,
 			MaxPlants:          15,
-			MaxPreciousMetals:  1,
 			MaxSoils:           4,
 			MaxStones:          1,
 			MaxTrees:           6,
@@ -345,11 +340,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: false,
 			Humidity:           5,
 			MaxAnimals:         15,
-			MaxCommonMetals:    2,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            2,
 			MaxPlants:          15,
-			MaxPreciousMetals:  1,
 			MaxSoils:           4,
 			MaxStones:          1,
 			MaxTrees:           7,
@@ -362,11 +356,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           0,
 			MaxAnimals:         5,
-			MaxCommonMetals:    3,
+			MaxMetals:          3,
 			MaxFish:            2,
 			MaxGems:            2,
 			MaxPlants:          3,
-			MaxPreciousMetals:  1,
 			MaxSoils:           2,
 			MaxStones:          1,
 			MaxTrees:           0,
@@ -379,11 +372,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           3,
 			MaxAnimals:         10,
-			MaxCommonMetals:    2,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            2,
 			MaxPlants:          15,
-			MaxPreciousMetals:  1,
 			MaxSoils:           3,
 			MaxStones:          1,
 			MaxTrees:           3,
@@ -397,11 +389,10 @@ func getAllClimates() []Climate {
 			Humidity:           9,
 			HasWetlands:        true,
 			MaxAnimals:         15,
-			MaxCommonMetals:    1,
+			MaxMetals:          1,
 			MaxFish:            6,
 			MaxGems:            1,
 			MaxPlants:          10,
-			MaxPreciousMetals:  1,
 			MaxSoils:           4,
 			MaxStones:          0,
 			MaxTrees:           3,
@@ -414,11 +405,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           7,
 			MaxAnimals:         16,
-			MaxCommonMetals:    1,
+			MaxMetals:          1,
 			MaxFish:            6,
 			MaxGems:            4,
 			MaxPlants:          16,
-			MaxPreciousMetals:  1,
 			MaxSoils:           3,
 			MaxStones:          1,
 			MaxTrees:           3,
@@ -431,11 +421,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           4,
 			MaxAnimals:         5,
-			MaxCommonMetals:    10,
+			MaxMetals:          10,
 			MaxFish:            3,
 			MaxGems:            2,
 			MaxPlants:          5,
-			MaxPreciousMetals:  5,
 			MaxSoils:           2,
 			MaxStones:          5,
 			MaxTrees:           3,
@@ -448,11 +437,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           9,
 			MaxAnimals:         16,
-			MaxCommonMetals:    1,
+			MaxMetals:          1,
 			MaxFish:            6,
 			MaxGems:            2,
 			MaxPlants:          16,
-			MaxPreciousMetals:  1,
 			MaxSoils:           3,
 			MaxStones:          1,
 			MaxTrees:           3,
@@ -465,11 +453,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           5,
 			MaxAnimals:         9,
-			MaxCommonMetals:    2,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            3,
 			MaxPlants:          6,
-			MaxPreciousMetals:  1,
 			MaxSoils:           2,
 			MaxStones:          1,
 			MaxTrees:           3,
@@ -482,11 +469,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           3,
 			MaxAnimals:         9,
-			MaxCommonMetals:    3,
+			MaxMetals:          3,
 			MaxFish:            6,
 			MaxGems:            3,
 			MaxPlants:          8,
-			MaxPreciousMetals:  3,
 			MaxSoils:           2,
 			MaxStones:          3,
 			MaxTrees:           3,
@@ -499,11 +485,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           3,
 			MaxAnimals:         9,
-			MaxCommonMetals:    2,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            3,
 			MaxPlants:          8,
-			MaxPreciousMetals:  1,
 			MaxSoils:           2,
 			MaxStones:          1,
 			MaxTrees:           5,
@@ -516,11 +501,10 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           3,
 			MaxAnimals:         6,
-			MaxCommonMetals:    3,
+			MaxMetals:          3,
 			MaxFish:            6,
 			MaxGems:            1,
 			MaxPlants:          7,
-			MaxPreciousMetals:  1,
 			MaxSoils:           1,
 			MaxStones:          2,
 			MaxTrees:           3,

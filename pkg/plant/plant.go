@@ -1,26 +1,20 @@
 package plant
 
-import "math/rand"
+import (
+	"math/rand"
+
+	"github.com/ironarachne/world/pkg/resource"
+)
 
 // Plant is a plant
 type Plant struct {
 	Name           string
 	PluralName     string
-	IsFabric       bool
-	IsFiber        bool
-	IsFruit        bool
-	IsGrain        bool
-	IsHerb         bool
-	IsMedicine     bool
-	IsNut          bool
-	IsRoot         bool
-	IsSpice        bool
-	IsToxic        bool
-	IsVegetable    bool
 	MinHumidity    int
 	MaxHumidity    int
 	MinTemperature int
 	MaxTemperature int
+	Resources      []resource.Resource
 }
 
 // All returns all predefined plants
@@ -75,15 +69,22 @@ func Random(amount int, from []Plant) []Plant {
 
 // RandomFabric returns a random fabric plant
 func RandomFabric() Plant {
+	var resources []resource.Resource
+
 	fibers := getFibers()
 
-	fabrics := []Plant{}
+	for _, p := range fibers {
+		resources = append(resources, p.Resources...)
+	}
+	fabrics := resource.ListOfType("fabric", resources)
 
-	for _, f := range fibers {
-		if f.IsFabric {
-			fabrics = append(fabrics, f)
+	fabric := fabrics[rand.Intn(len(fabrics))]
+
+	for _, p := range fibers {
+		if p.Name == fabric.Origin {
+			return p
 		}
 	}
 
-	return fabrics[rand.Intn(len(fabrics))]
+	panic("Lost my fabric!")
 }

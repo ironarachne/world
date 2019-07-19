@@ -79,7 +79,7 @@ func Generate(homeClimate climate.Climate) Culture {
 	culture.BuildingStyle = buildings.GenerateStyle()
 	culture.ClothingStyle = clothing.GenerateStyle(culture.HomeClimate)
 	culture.FoodStyle = food.GenerateStyle(culture.HomeClimate)
-	culture.AlcoholicDrinks = food.GenerateDrinks(culture.HomeClimate)
+	culture.AlcoholicDrinks = food.GenerateDrinks(culture.HomeClimate.Resources)
 
 	culture.AttributeMax = 100
 	culture.Attributes.Aggression = rand.Intn(culture.AttributeMax) + 1

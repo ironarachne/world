@@ -14,7 +14,7 @@ func (style Style) getRandomTreatment() string {
 
 	if len(style.Noodles) > 0 {
 		for _, n := range style.Noodles {
-			treatments = append(treatments, " on "+n)
+			treatments = append(treatments, " on "+n+"s")
 			treatments = append(treatments, " in "+n+" soup")
 		}
 	}

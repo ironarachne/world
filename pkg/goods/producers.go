@@ -3,7 +3,7 @@ package goods
 import (
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/climate"
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -113,7 +113,7 @@ func getAllProducers() []Producer {
 }
 
 // GetPossibleProducers gets all possible producers for a given set of resources
-func GetPossibleProducers(resources []climate.Resource, communitySize int) []Producer {
+func GetPossibleProducers(resources []resource.Resource, communitySize int) []Producer {
 	possibleProducers := getAllProducers()
 
 	availableTypes := []string{}

@@ -8,6 +8,7 @@ import (
 
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -40,11 +41,7 @@ func GenerateInstruments(originClimate climate.Climate) []Instrument {
 	availableInstruments := []Instrument{}
 	instruments := []Instrument{}
 
-	for _, i := range originClimate.CommonMetals {
-		availableMetals = append(availableMetals, i.Name)
-	}
-
-	for _, i := range originClimate.PreciousMetals {
+	for _, i := range originClimate.Metals {
 		availableMetals = append(availableMetals, i.Name)
 	}
 
@@ -56,10 +53,9 @@ func GenerateInstruments(originClimate climate.Climate) []Instrument {
 		availableWoods = append(availableWoods, woodName)
 	}
 
-	for _, i := range originClimate.Animals {
-		if i.GivesHide {
-			availableHides = append(availableHides, i.Name)
-		}
+	hides := resource.ListOfType("hide", originClimate.Resources)
+	for _, h := range hides {
+		availableHides = append(availableHides, h.Name)
 	}
 
 	if len(availableHides) > 0 {

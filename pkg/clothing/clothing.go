@@ -3,6 +3,7 @@ package clothing
 import (
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -34,38 +35,22 @@ func GenerateStyle(originClimate climate.Climate) Style {
 }
 
 func getFabrics(originClimate climate.Climate) []string {
+	resources := resource.ListOfType("fabric", originClimate.Resources)
 	fabrics := []string{}
 
-	for _, i := range originClimate.Plants {
-		if i.Name == "flax" {
-			fabrics = append(fabrics, "linen")
-		} else if i.IsFabric {
-			fabrics = append(fabrics, i.Name)
-		}
-	}
-
-	for _, i := range originClimate.Animals {
-		if i.GivesWool {
-			fabrics = append(fabrics, i.Name+" wool")
-		}
+	for _, r := range resources {
+		fabrics = append(fabrics, r.Name)
 	}
 
 	return fabrics
 }
 
 func getHides(originClimate climate.Climate) []string {
+	resources := resource.ListOfType("hide", originClimate.Resources)
 	hides := []string{}
 
-	for _, i := range originClimate.Animals {
-		if i.GivesFur {
-			hides = append(hides, i.Name+" fur")
-		} else if i.Name == "cow" {
-			hides = append(hides, "leather")
-		} else if i.AnimalType == "reptile" {
-			hides = append(hides, i.Name+" skin")
-		} else if i.GivesHide {
-			hides = append(hides, i.Name+" hide")
-		}
+	for _, i := range resources {
+		hides = append(hides, i.Name)
 	}
 
 	return hides
@@ -84,11 +69,11 @@ func randomDecorativeStyle(originClimate climate.Climate) string {
 		"tassels",
 	}
 
-	if climate.IsTypeInResources("ivory", originClimate.Resources) {
+	if resource.IsTypeInResources("ivory", originClimate.Resources) {
 		styles = append(styles, "ivory decorations")
 	}
 
-	if climate.IsTypeInResources("feathers", originClimate.Resources) {
+	if resource.IsTypeInResources("feather", originClimate.Resources) {
 		styles = append(styles, "feather decorations")
 	}
 

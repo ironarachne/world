@@ -2,8 +2,10 @@ package food
 
 import (
 	"math/rand"
+
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -26,7 +28,7 @@ func generateBread(originClimate climate.Climate) string {
 		"savory",
 		"sweet",
 	}
-	grains := climate.ListResourcesOfType("grain", originClimate.Resources)
+	grains := resource.ListOfType("flour", originClimate.Resources)
 
 	if len(grains) > 0 {
 		grain := grains[rand.Intn(len(grains))]
@@ -41,7 +43,7 @@ func randomBreads(originClimate climate.Climate) []string {
 	var bread string
 	var breads []string
 
-	grains := climate.ListResourcesOfType("grain", originClimate.Resources)
+	grains := resource.ListOfType("flour", originClimate.Resources)
 	if len(grains) > 0 {
 		numberOfBreads := rand.Intn(3) + 1
 		for i := 0; i < numberOfBreads; i++ {

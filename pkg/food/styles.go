@@ -26,7 +26,7 @@ func GenerateStyle(originClimate climate.Climate) Style {
 	for _, r := range originClimate.Resources {
 		if r.Type == "meat" {
 			style.CommonBases = append(style.CommonBases, r.Name)
-		} else if r.Type == "spice" {
+		} else if r.Type == "spice" || r.Type == "herb" {
 			if r.Name == "gold" {
 				chanceForGoldFlakes = rand.Intn(100)
 				if chanceForGoldFlakes > 89 {
@@ -39,7 +39,7 @@ func GenerateStyle(originClimate climate.Climate) Style {
 			style.CommonBases = append(style.CommonBases, r.Name)
 		} else if r.Type == "vegetable" {
 			style.CommonBases = append(style.CommonBases, r.Name)
-		} else if r.Type == "grain" {
+		} else if r.Type == "flour" {
 			style.Noodles = append(style.Noodles, getNoodles(r.Name)...)
 		}
 	}

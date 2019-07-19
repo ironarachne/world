@@ -33,7 +33,7 @@ func getNoodles(flour string) []string {
 	}
 
 	for _, s := range noodleStyles {
-		noodles = append(noodles, s+" "+flour+" noodles")
+		noodles = append(noodles, s+" "+flour+" noodle")
 	}
 
 	return noodles

@@ -3,6 +3,7 @@ package animal
 import (
 	"math/rand"
 
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/size"
 )
 
@@ -13,23 +14,15 @@ type Animal struct {
 	AnimalType     string
 	EatsAnimals    bool
 	EatsPlants     bool
-	GivesBone      bool
-	GivesEggs      bool
-	GivesFur       bool
-	GivesHide      bool
-	GivesHorn      bool
-	GivesMeat      bool
-	GivesMilk      bool
-	GivesWool      bool
 	IsAquatic      bool
 	IsMount        bool
 	IsPackAnimal   bool
 	IsScavenger    bool
-	IsVenomous     bool
 	MinHumidity    int
 	MaxHumidity    int
 	MinTemperature int
 	MaxTemperature int
+	Resources      []resource.Resource
 	Size           size.Category
 }
 
@@ -39,6 +32,12 @@ func All() []Animal {
 
 	birds := getBirds()
 	animals = append(animals, birds...)
+	cats := getBigCats()
+	animals = append(animals, cats...)
+	canines := getCanines()
+	animals = append(animals, canines...)
+	equines := getEquines()
+	animals = append(animals, equines...)
 	mammals := getMammals()
 	animals = append(animals, mammals...)
 	reptiles := getReptiles()

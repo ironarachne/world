@@ -6,13 +6,13 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
 // GenerateExportTradeGoods produces a list of trade goods based on local production
-func GenerateExportTradeGoods(min int, max int, producers []Producer, resources []climate.Resource) []TradeGood {
+func GenerateExportTradeGoods(min int, max int, producers []Producer, resources []resource.Resource) []TradeGood {
 	var good TradeGood
 	var quality string
 
@@ -65,7 +65,7 @@ func GenerateExportTradeGoods(min int, max int, producers []Producer, resources 
 }
 
 // GenerateImportTradeGoods produces a list of trade goods based on externally-available resources
-func GenerateImportTradeGoods(min int, max int, resources []climate.Resource) []TradeGood {
+func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) []TradeGood {
 	var good TradeGood
 
 	goods := []TradeGood{}
@@ -90,7 +90,7 @@ func GenerateImportTradeGoods(min int, max int, resources []climate.Resource) []
 }
 
 // GetAllTradeGoods converts a list of resources into a list of trade goods
-func GetAllTradeGoods(resources []climate.Resource) []string {
+func GetAllTradeGoods(resources []resource.Resource) []string {
 	goods := []string{}
 
 	for _, resource := range resources {
@@ -100,7 +100,7 @@ func GetAllTradeGoods(resources []climate.Resource) []string {
 	return goods
 }
 
-func getFarmGoods(resources []climate.Resource) []string {
+func getFarmGoods(resources []resource.Resource) []string {
 	goods := []string{}
 
 	goodTypes := []string{
@@ -137,7 +137,7 @@ func (pattern Pattern) getName() string {
 	return name
 }
 
-func randomMaterialFromType(goodType string, resources []climate.Resource) string {
+func randomMaterialFromType(goodType string, resources []resource.Resource) string {
 	var possibles []string
 	allTypes := ""
 

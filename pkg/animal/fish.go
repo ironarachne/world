@@ -1,6 +1,10 @@
 package animal
 
-import "math/rand"
+import (
+	"math/rand"
+
+	"github.com/ironarachne/world/pkg/resource"
+)
 
 // Fish is a fish
 type Fish struct {
@@ -10,6 +14,7 @@ type Fish struct {
 	LivesInLakes     bool
 	LivesInOceans    bool
 	LivesInRivers    bool
+	Resources        []resource.Resource
 }
 
 // AllFish returns all predefined fish
@@ -19,6 +24,17 @@ func AllFish() []Fish {
 	fish = append(fish, getLakeFish()...)
 	fish = append(fish, getOceanFish()...)
 	fish = append(fish, getRiverFish()...)
+
+	for _, f := range fish {
+		f.Resources = []resource.Resource{
+			resource.Resource{
+				Name:        f.Name,
+				Origin:      f.Name,
+				Type:        "meat",
+				Commonality: 4,
+			},
+		}
+	}
 
 	return fish
 }
