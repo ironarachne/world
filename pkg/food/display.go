@@ -1,9 +1,5 @@
 package food
 
-import (
-	"github.com/ironarachne/world/pkg/words"
-)
-
 // SimplifiedStyle is a simplified version of style for display
 type SimplifiedStyle struct {
 	CommonDishes []string `json:"common_dishes"`
@@ -18,11 +14,4 @@ func (style Style) Simplify() SimplifiedStyle {
 		EatingTraits: style.EatingTraits,
 		Breads:       style.Breads,
 	}
-}
-
-// Describe returns a description of a drink
-func (drink Drink) Describe() string {
-	description := drink.Strength + " " + drink.Name + " made with " + words.CombinePhrases(drink.Ingredients)
-
-	return description
 }

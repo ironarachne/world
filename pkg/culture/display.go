@@ -34,7 +34,7 @@ type SimplifiedCulture struct {
 func (culture Culture) Simplify() SimplifiedCulture {
 	drinks := []string{}
 	for _, d := range culture.AlcoholicDrinks {
-		drinks = append(drinks, d.Describe())
+		drinks = append(drinks, d.Description)
 	}
 	return SimplifiedCulture{
 		Adjective:         culture.Adjective,

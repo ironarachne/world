@@ -6,6 +6,7 @@ import (
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/clothing"
+	"github.com/ironarachne/world/pkg/drink"
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/music"
@@ -16,7 +17,7 @@ import (
 // Culture is a fantasy culture
 type Culture struct {
 	Adjective       string
-	AlcoholicDrinks []food.Drink
+	AlcoholicDrinks []drink.Drink
 	AttributeMax    int
 	Attributes      struct {
 		Aggression      int
@@ -79,7 +80,7 @@ func Generate(homeClimate climate.Climate) Culture {
 	culture.BuildingStyle = buildings.GenerateStyle()
 	culture.ClothingStyle = clothing.GenerateStyle(culture.HomeClimate)
 	culture.FoodStyle = food.GenerateStyle(culture.HomeClimate)
-	culture.AlcoholicDrinks = food.GenerateDrinks(culture.HomeClimate.Resources)
+	culture.AlcoholicDrinks = drink.RandomSet(3, culture.HomeClimate.Resources)
 
 	culture.AttributeMax = 100
 	culture.Attributes.Aggression = rand.Intn(culture.AttributeMax) + 1

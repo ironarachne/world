@@ -8,9 +8,9 @@ func getGrains() []Plant {
 			Name:           "rye",
 			PluralName:     "ryes",
 			MinHumidity:    3,
-			MaxHumidity:    7,
+			MaxHumidity:    10,
 			MinTemperature: 3,
-			MaxTemperature: 7,
+			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				resource.Resource{
 					Name:        "rye",
@@ -30,9 +30,9 @@ func getGrains() []Plant {
 			Name:           "oat",
 			PluralName:     "oats",
 			MinHumidity:    3,
-			MaxHumidity:    7,
+			MaxHumidity:    10,
 			MinTemperature: 3,
-			MaxTemperature: 7,
+			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				resource.Resource{
 					Name:        "oat",
@@ -52,9 +52,9 @@ func getGrains() []Plant {
 			Name:           "millet",
 			PluralName:     "millets",
 			MinHumidity:    3,
-			MaxHumidity:    7,
+			MaxHumidity:    10,
 			MinTemperature: 3,
-			MaxTemperature: 7,
+			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				resource.Resource{
 					Name:        "millet",
@@ -74,9 +74,9 @@ func getGrains() []Plant {
 			Name:           "barley",
 			PluralName:     "barleys",
 			MinHumidity:    3,
-			MaxHumidity:    7,
+			MaxHumidity:    10,
 			MinTemperature: 3,
-			MaxTemperature: 7,
+			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				resource.Resource{
 					Name:        "barley",
@@ -95,10 +95,10 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "wheat",
 			PluralName:     "wheats",
-			MinHumidity:    3,
-			MaxHumidity:    7,
-			MinTemperature: 3,
-			MaxTemperature: 7,
+			MinHumidity:    0,
+			MaxHumidity:    10,
+			MinTemperature: 0,
+			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				resource.Resource{
 					Name:        "wheat",
@@ -117,9 +117,9 @@ func getGrains() []Plant {
 		Plant{
 			Name:           "rice",
 			PluralName:     "rices",
-			MinHumidity:    6,
+			MinHumidity:    3,
 			MaxHumidity:    10,
-			MinTemperature: 6,
+			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				resource.Resource{
