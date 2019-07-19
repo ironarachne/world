@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.3.0 (2019-07-19)
+
+Big upgrade to how resources are dealt with.
+
+### Change List
+
+- Move resources to their own package
+- Declare resources with their owning item instead of elsewhere
+- Move drinks to their own package
+- Add more detail to drinks and make them ingredient-dependent
+
 ## 0.2.7 (2019-07-18)
 
 Integrates size package with races.
