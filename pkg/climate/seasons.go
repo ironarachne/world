@@ -13,22 +13,22 @@ func (climate Climate) getSeasons() []Season {
 	var newSeason Season
 
 	fourSeasons := []Season{
-		Season{
+		{
 			Name:              "spring",
 			HumidityChange:    0,
 			TemperatureChange: 0,
 		},
-		Season{
+		{
 			Name:              "summer",
 			HumidityChange:    1,
 			TemperatureChange: 3,
 		},
-		Season{
+		{
 			Name:              "autumn",
 			HumidityChange:    -1,
 			TemperatureChange: 1,
 		},
-		Season{
+		{
 			Name:              "winter",
 			HumidityChange:    -2,
 			TemperatureChange: -2,
@@ -36,12 +36,12 @@ func (climate Climate) getSeasons() []Season {
 	}
 
 	twoSeasons := []Season{
-		Season{
+		{
 			Name:              "dry",
 			HumidityChange:    -1,
 			TemperatureChange: +1,
 		},
-		Season{
+		{
 			Name:              "wet",
 			HumidityChange:    +1,
 			TemperatureChange: 0,

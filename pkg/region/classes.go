@@ -15,7 +15,7 @@ type Class struct {
 
 func getAllClasses() []Class {
 	classes := []Class{
-		Class{
+		{
 			Name:             "Barony",
 			RulerTitleFemale: "Baroness",
 			RulerTitleMale:   "Baron",
@@ -24,7 +24,7 @@ func getAllClasses() []Class {
 			Commonality:      3,
 			NumberOfTiles:    8,
 		},
-		Class{
+		{
 			Name:             "County",
 			RulerTitleFemale: "Countess",
 			RulerTitleMale:   "Count",
@@ -33,7 +33,7 @@ func getAllClasses() []Class {
 			Commonality:      4,
 			NumberOfTiles:    4,
 		},
-		Class{
+		{
 			Name:             "Duchy",
 			RulerTitleFemale: "Duchess",
 			RulerTitleMale:   "Duke",
@@ -42,7 +42,7 @@ func getAllClasses() []Class {
 			Commonality:      2,
 			NumberOfTiles:    16,
 		},
-		Class{
+		{
 			Name:             "March",
 			RulerTitleFemale: "Marchioness",
 			RulerTitleMale:   "Marquess",
@@ -51,7 +51,7 @@ func getAllClasses() []Class {
 			Commonality:      2,
 			NumberOfTiles:    2,
 		},
-		Class{
+		{
 			Name:             "Viscounty",
 			RulerTitleFemale: "Viscountess",
 			RulerTitleMale:   "Viscount",

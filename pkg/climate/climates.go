@@ -311,7 +311,7 @@ func GetClimateNameForConditions(humidity int, temperature int) string {
 
 func getAllClimates() []Climate {
 	climates := []Climate{
-		Climate{
+		{
 			Name:               "coniferous forest",
 			Adjective:          "coniferous forest",
 			Temperature:        4,
@@ -327,7 +327,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           6,
 		},
-		Climate{
+		{
 			Name:               "deciduous forest",
 			Adjective:          "deciduous forest",
 			Temperature:        5,
@@ -343,7 +343,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           7,
 		},
-		Climate{
+		{
 			Name:               "desert",
 			Adjective:          "desert",
 			Temperature:        9,
@@ -359,7 +359,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           0,
 		},
-		Climate{
+		{
 			Name:               "grassland",
 			Adjective:          "grassland",
 			Temperature:        5,
@@ -375,7 +375,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           3,
 		},
-		Climate{
+		{
 			Name:               "marshland",
 			Adjective:          "marshy",
 			Temperature:        7,
@@ -392,7 +392,7 @@ func getAllClimates() []Climate {
 			MaxStones:          0,
 			MaxTrees:           3,
 		},
-		Climate{
+		{
 			Name:               "tropical",
 			Adjective:          "tropical",
 			Temperature:        9,
@@ -408,7 +408,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           3,
 		},
-		Climate{
+		{
 			Name:               "mountain",
 			Adjective:          "mountainous",
 			Temperature:        4,
@@ -424,7 +424,7 @@ func getAllClimates() []Climate {
 			MaxStones:          5,
 			MaxTrees:           3,
 		},
-		Climate{
+		{
 			Name:               "rainforest",
 			Adjective:          "rainforest",
 			Temperature:        9,
@@ -440,7 +440,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           3,
 		},
-		Climate{
+		{
 			Name:               "savanna",
 			Adjective:          "savanna",
 			Temperature:        9,
@@ -456,7 +456,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           3,
 		},
-		Climate{
+		{
 			Name:               "steppe",
 			Adjective:          "steppe",
 			Temperature:        7,
@@ -472,7 +472,7 @@ func getAllClimates() []Climate {
 			MaxStones:          3,
 			MaxTrees:           3,
 		},
-		Climate{
+		{
 			Name:               "taiga",
 			Adjective:          "taiga",
 			Temperature:        3,
@@ -488,7 +488,7 @@ func getAllClimates() []Climate {
 			MaxStones:          1,
 			MaxTrees:           5,
 		},
-		Climate{
+		{
 			Name:               "tundra",
 			Adjective:          "tundra",
 			Temperature:        1,

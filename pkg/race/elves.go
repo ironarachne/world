@@ -15,42 +15,42 @@ func getElves() []Race {
 	weightRange := 50
 
 	return []Race{
-		Race{
+		{
 			Name:       "elf",
 			PluralName: "elves",
 			Adjective:  "elven",
 			AgeCategories: []AgeCategory{
-				AgeCategory{
+				{
 					Name:        "adult",
 					MinAge:      76,
 					MaxAge:      269,
 					Commonality: 12,
 				},
-				AgeCategory{
+				{
 					Name:        "elderly",
 					MinAge:      270,
 					MaxAge:      500,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "young adult",
 					MinAge:      40,
 					MaxAge:      75,
 					Commonality: 2,
 				},
-				AgeCategory{
+				{
 					Name:        "teenager",
 					MinAge:      23,
 					MaxAge:      39,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "child",
 					MinAge:      2,
 					MaxAge:      22,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "infant",
 					MinAge:      0,
 					MaxAge:      1,

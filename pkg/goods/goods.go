@@ -1,5 +1,13 @@
 package goods
 
+import (
+	"github.com/ironarachne/world/pkg/profession"
+	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/slices"
+	"math/rand"
+)
+
 // TradeGood is a trade good entry
 type TradeGood struct {
 	Name    string
@@ -7,636 +15,117 @@ type TradeGood struct {
 	Amount  int
 }
 
-// Pattern is a structure for building a trade good
-type Pattern struct {
-	Name         string
-	Material1    string
-	Material2    string
-	Material3    string
-	Need1        string
-	Need2        string
-	Need3        string
-	NameTemplate string
-}
+// GenerateExportTradeGoods produces a list of trade goods based on local production
+func GenerateExportTradeGoods(min int, max int, professions []profession.Profession, resources []resource.Resource) []TradeGood {
+	var filledPattern resource.Pattern
+	var good TradeGood
+	var description string
+	var patterns []resource.Pattern
+	var possiblePatterns []resource.Pattern
+	var quality string
+	var skillLevel int
+	var resourcesForSlot []resource.Resource
+	var resourceForSlot resource.Resource
 
-func getAnimalTrainerGoods() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "mount",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "mount",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "riding {{.Material1}}s",
-		},
-		Pattern{
-			Name:         "pack animal",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "pack animal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "pack {{.Material1}}s",
-		},
-		Pattern{
-			Name:         "war mount",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "mount",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "war {{.Material1}}s",
-		},
+	goods := []TradeGood{}
+	possibleGoods := []TradeGood{}
+	tradeGoodNames := []string{}
+	amount := 0
+	allPatterns := resource.AllPatterns()
+
+	for _, p := range professions {
+		possiblePatterns = []resource.Pattern{}
+		skillLevel = rand.Intn(5)
+		quality = qualityFromSkillLevel(skillLevel)
+		patterns = resource.FindPatternsForProfession(p, allPatterns)
+		for _, n := range patterns {
+			if n.CanMake(resources) {
+				possiblePatterns = append(possiblePatterns, n)
+			}
+		}
+		if len(possiblePatterns) > 0 {
+			for _, n := range possiblePatterns {
+				filledPattern = resource.Pattern{
+					Name: n.Name,
+					Description: n.Description,
+					Profession: n.Profession,
+					Slots: []resource.Slot{},
+				}
+				for _, s := range n.Slots {
+					resourcesForSlot = resource.ListOfType(s.RequiredType, resources)
+					resourceForSlot = resource.Random(resourcesForSlot)
+					s.Resource = resourceForSlot
+					filledPattern.Slots = append(filledPattern.Slots, s)
+				}
+				description = filledPattern.Render()
+				amount = rand.Intn(3)+1
+				good = TradeGood{
+					Name: description,
+					Quality: quality,
+					Amount: amount,
+				}
+				possibleGoods = append(possibleGoods, good)
+			}
+		}
 	}
 
-	return patterns
-}
+	numberOfGoods := rand.Intn(max+1-min) + min
 
-func getArmor() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "chestplates",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} chestplates",
-		},
-		Pattern{
-			Name:         "full plate",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} full plate",
-		},
-		Pattern{
-			Name:         "gauntlets",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} gauntlets",
-		},
-		Pattern{
-			Name:         "greeves",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} greeves",
-		},
-		Pattern{
-			Name:         "mail shirt",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} mail shirt",
-		},
-		Pattern{
-			Name:         "mail hauberks",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} mail hauberks",
-		},
-		Pattern{
-			Name:         "spaulders",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} spaulders",
-		},
+	for i := 0; i < numberOfGoods; i++ {
+		good = possibleGoods[rand.Intn(len(possibleGoods)-1)]
+		if !slices.StringIn(good.Name, tradeGoodNames) {
+			goods = append(goods, good)
+			tradeGoodNames = append(tradeGoodNames, good.Name)
+		}
 	}
 
-	return patterns
+	return goods
 }
 
-func getBreads() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "bread",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "flour",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} bread",
-		},
-		Pattern{
-			Name:         "buns",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "flour",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} buns",
-		},
-		Pattern{
-			Name:         "rolls",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "flour",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} rolls",
-		},
+// GenerateImportTradeGoods produces a list of trade goods based on externally-available resources
+func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) []TradeGood {
+	var good TradeGood
+
+	goods := []TradeGood{}
+
+	possibleGoods := GetAllTradeGoods(resources)
+
+	numberOfGoods := rand.Intn(max+1-min) + min
+	amount := 0
+	newItem := ""
+
+	for i := 0; i < numberOfGoods; i++ {
+		good = TradeGood{}
+		newItem = random.String(possibleGoods)
+		amount = rand.Intn(3) + 1
+		good.Name = newItem
+		good.Amount = amount
+		good.Quality = randomQuality()
+		goods = append(goods, good)
 	}
 
-	return patterns
+	return goods
 }
 
-func getBrewed() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "ale",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "grain",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} ale",
-		},
-		Pattern{
-			Name:         "beer",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "grain",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} beer",
-		},
-		Pattern{
-			Name:         "lager",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "grain",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} lager",
-		},
+// GetAllTradeGoods converts a list of resources into a list of trade goods
+func GetAllTradeGoods(resources []resource.Resource) []string {
+	goods := []string{}
+
+	for _, r := range resources {
+		goods = append(goods, r.Name)
 	}
 
-	return patterns
+	return goods
 }
 
-func getCarpenterGoods() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "wood benches",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "wood",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} wood benches",
-		},
-		Pattern{
-			Name:         "wooden bowls",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "wood",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} wooden bowls",
-		},
-		Pattern{
-			Name:         "wood chairs",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "wood",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} wood chairs",
-		},
-		Pattern{
-			Name:         "wooden mugs",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "wood",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} wooden mugs",
-		},
-		Pattern{
-			Name:         "wood tables",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "wood",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} wood tables",
-		},
-		Pattern{
-			Name:         "wood tankards",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "wood",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} wood tankards",
-		},
+func randomQuality() string {
+	qualities := map[string]int{
+		"exceptional":  1,
+		"fine":         2,
+		"":             11,
+		"questionable": 2,
+		"pathetic":     1,
 	}
 
-	return patterns
-}
-
-func getClothing() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "breeches",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fabric",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} breeches",
-		},
-		Pattern{
-			Name:         "gloves",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fabric",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} gloves",
-		},
-		Pattern{
-			Name:         "hoods",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fabric",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} hoods",
-		},
-		Pattern{
-			Name:         "pants",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fabric",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} pants",
-		},
-		Pattern{
-			Name:         "pantaloons",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fabric",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} pantaloons",
-		},
-		Pattern{
-			Name:         "shirts",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fabric",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} shirts",
-		},
-		Pattern{
-			Name:         "tunics",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fabric",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} tunics",
-		},
-	}
-
-	return patterns
-}
-
-func getCobblerGoods() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "boots",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "hide",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} boots",
-		},
-		Pattern{
-			Name:         "shoes",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "hide",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} shoes",
-		},
-	}
-
-	return patterns
-}
-
-func getFlour() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "flour",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "grain",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} flour",
-		},
-	}
-
-	return patterns
-}
-
-func getMasonGoods() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "stone blocks",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "stone",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} blocks",
-		},
-		Pattern{
-			Name:         "stone slabs",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "stone",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} slabs",
-		},
-	}
-
-	return patterns
-}
-
-func getMedicines() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "healing draughts",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "herb",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "healing draughts",
-		},
-		Pattern{
-			Name:         "healing salves",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "herb",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "healing salves",
-		},
-	}
-
-	return patterns
-}
-
-func getMinerGoods() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "ore",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "ore",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} ore",
-		},
-	}
-
-	return patterns
-}
-
-func getPotions() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "healing potions",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "herb",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "healing potions",
-		},
-	}
-
-	return patterns
-}
-
-func getPottery() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "jugs",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "clay",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} jugs",
-		},
-		Pattern{
-			Name:         "mugs",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "clay",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} mugs",
-		},
-		Pattern{
-			Name:         "pots",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "clay",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} pots",
-		},
-		Pattern{
-			Name:         "urns",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "clay",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} urns",
-		},
-		Pattern{
-			Name:         "vases",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "clay",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} vases",
-		},
-	}
-
-	return patterns
-}
-
-func getTannerGoods() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "hides",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "hide",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} hides",
-		},
-		Pattern{
-			Name:         "leather",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "hide",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} leather",
-		},
-	}
-
-	return patterns
-}
-
-func getWeapons() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "axes",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} axes",
-		},
-		Pattern{
-			Name:         "maces",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} maces",
-		},
-		Pattern{
-			Name:         "polearms",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} polearms",
-		},
-		Pattern{
-			Name:         "spears",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} spears",
-		},
-		Pattern{
-			Name:         "swords",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "metal",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} swords",
-		},
-	}
-
-	return patterns
-}
-
-func getWine() []Pattern {
-	patterns := []Pattern{
-		Pattern{
-			Name:         "wine",
-			Material1:    "",
-			Material2:    "",
-			Material3:    "",
-			Need1:        "fruit",
-			Need2:        "",
-			Need3:        "",
-			NameTemplate: "{{.Material1}} wine",
-		},
-	}
-
-	return patterns
+	return random.StringFromThresholdMap(qualities)
 }

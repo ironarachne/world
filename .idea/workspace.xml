@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8efa93de-4abc-4460-89c4-fd331c44d638" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VERSION" beforeDir="false" afterPath="$PROJECT_DIR$/VERSION" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/bigcats.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/bigcats.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/birds.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/birds.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/canines.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/canines.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/equines.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/equines.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/fish.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/fish.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/gamebirds.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/gamebirds.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/mammals.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/mammals.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/raptors.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/raptors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/reptiles.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/reptiles.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/snakes.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/snakes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/animal/ursines.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/animal/ursines.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/character/character.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/character/character.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/character/display.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/character/display.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/character/hobbies.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/character/hobbies.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/character/professions.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/climate/climates.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/climate/climates.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/climate/seasons.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/climate/seasons.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/clothing/bottoms.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/clothing/bottoms.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/clothing/footwear.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/clothing/footwear.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/clothing/handwear.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/clothing/handwear.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/clothing/hats.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/clothing/hats.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/clothing/overwear.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/clothing/overwear.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/clothing/tops.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/clothing/tops.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/clothing/waist.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/clothing/waist.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/country/governments.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/country/governments.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/drink/patterns.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/drink/patterns.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/goods/goods.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/goods/goods.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/goods/producers.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/goods/producers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/goods/tradegoods.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/language/categories.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/language/categories.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/language/components.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/language/components.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mineral/gems.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/mineral/gems.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mineral/metals.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/mineral/metals.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mineral/other.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/mineral/other.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/mineral/stones.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/mineral/stones.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/monster/draconids.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/monster/draconids.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/monster/giants.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/monster/giants.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/monster/humanoids.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/monster/humanoids.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/music/instruments.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/music/instruments.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/organization/sizes.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/organization/sizes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/organization/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/organization/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/pantheon/domains.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/pantheon/domains.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/pantheon/relationships.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/pantheon/relationships.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/plant/fibers.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/plant/fibers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/plant/fruit.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/plant/fruit.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/plant/grains.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/plant/grains.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/plant/herbs.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/plant/herbs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/plant/trees.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/plant/trees.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/plant/vegetables.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/plant/vegetables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/race/dwarves.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/race/dwarves.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/race/elves.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/race/elves.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/race/halflings.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/race/halflings.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/race/humans.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/race/humans.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/region/classes.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/region/classes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/region/ruler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/region/ruler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/religion/classes.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/religion/classes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/size/size.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/size/size.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/soil/agricultural.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/soil/agricultural.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/soil/clays.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/soil/clays.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/soil/sands.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/soil/sands.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/town/categories.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/town/categories.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/town/display.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/town/display.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/town/names.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/town/names.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/town/town.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/town/town.go" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pkg/resource/mounts.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/armor.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/breads.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/brewed.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/clothing.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/cobbler.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/milled.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/stone.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/mined.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/potions.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/medicine.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/pottery.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/tannery.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/glass.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/wine.go" />
+        <option value="$PROJECT_DIR$/pkg/goods/tradegoods.go" />
+        <option value="$PROJECT_DIR$/pkg/character/professions.go" />
+        <option value="$PROJECT_DIR$/pkg/character/display.go" />
+        <option value="$PROJECT_DIR$/pkg/goods/producers.go" />
+        <option value="$PROJECT_DIR$/pkg/town/display.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/resource.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/patterns.go" />
+        <option value="$PROJECT_DIR$/pkg/town/town.go" />
+        <option value="$PROJECT_DIR$/pkg/character/character.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/warriors.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/blacksmiths.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/finishers.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/mages.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/refiners.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/social.go" />
+        <option value="$PROJECT_DIR$/pkg/organization/types.go" />
+        <option value="$PROJECT_DIR$/pkg/region/ruler.go" />
+        <option value="$PROJECT_DIR$/pkg/country/governments.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/profession.go" />
+        <option value="$PROJECT_DIR$/pkg/profession/fighters.go" />
+        <option value="$PROJECT_DIR$/pkg/goods/goods.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/weapons.go" />
+        <option value="$PROJECT_DIR$/pkg/resource/carpentry.go" />
+        <option value="$PROJECT_DIR$/VERSION" />
+        <option value="$PROJECT_DIR$/CHANGELOG.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/world.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1020" />
+    <option name="y" value="200" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+              <item name="worldapi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+              <item name="pkg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+              <item name="pkg" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+              <item name="pkg" type="462c0819:PsiDirectoryNode" />
+              <item name="profession" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+              <item name="pkg" type="462c0819:PsiDirectoryNode" />
+              <item name="resource" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="world" type="b2602c69:ProjectViewProjectNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
+              <item name="pkg" type="462c0819:PsiDirectoryNode" />
+              <item name="town" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="world" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/cmd/worldapi/main.go" />
+      <package value="github.com/ironarachne/world" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="3456" height="1416" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09864546" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32969603" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32969603" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pkg/resource/breads.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="28" column="55" lean-forward="true" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/mounts.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/armor.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="35" column="10" lean-forward="true" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/clothing.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="51" column="82" selection-start-line="51" selection-start-column="82" selection-end-line="51" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/brewed.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="24" lean-forward="true" selection-end-line="47" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/cobbler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/stone.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="18" lean-forward="true" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/mined.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/medicine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/potions.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/pottery.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/tannery.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/milled.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="33" lean-forward="true" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/wine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/goods/tradegoods.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/character/professions.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/character/display.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1145">
+          <caret line="65" column="174" selection-start-line="65" selection-start-column="174" selection-end-line="65" selection-end-column="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/glass.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/goods/producers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/town/display.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="38" column="67" lean-forward="true" selection-start-line="38" selection-start-column="67" selection-end-line="38" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/town/town.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="91" column="80" lean-forward="true" selection-start-line="91" selection-start-column="80" selection-end-line="91" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/resource.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/profession/refiners.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1922">
+          <caret line="93" column="14" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/profession/mages.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/profession/finishers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/profession/fighters.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/profession/social.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/country/governments.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/region/ruler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="13" column="47" lean-forward="true" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/organization/types.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/organization/organization.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1134" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/profession/blacksmiths.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/profession/profession.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/character/character.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="233" column="36" selection-start-line="233" selection-start-column="36" selection-end-line="233" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/patterns.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1932">
+          <caret line="97" column="68" lean-forward="true" selection-start-line="97" selection-start-column="68" selection-end-line="97" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/goods/goods.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/weapons.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1491">
+          <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/resource/carpentry.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VERSION">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

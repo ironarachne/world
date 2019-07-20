@@ -1,6 +1,7 @@
 package country
 
 import (
+	"github.com/ironarachne/world/pkg/profession"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/character"
@@ -22,10 +23,10 @@ func (country Country) getNewMonarchy() Government {
 
 	if monarch.Gender.Name == "male" {
 		monarch.Title = "King"
-		monarch.Profession = "monarch"
+		monarch.Profession = profession.ByName("noble")
 	} else {
 		monarch.Title = "Queen"
-		monarch.Profession = "monarch"
+		monarch.Profession = profession.ByName("noble")
 	}
 
 	monarch.Heraldry = heraldry.GenerateHeraldry()

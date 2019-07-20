@@ -1,6 +1,7 @@
 package character
 
 import (
+	"github.com/ironarachne/world/pkg/profession"
 	"math"
 	"math/rand"
 	"strconv"
@@ -25,7 +26,7 @@ type Character struct {
 	Orientation    string
 	Height         int
 	Weight         int
-	Profession     string
+	Profession     profession.Profession
 	Hobby          Hobby
 	NegativeTraits []string
 	PositiveTraits []string
@@ -156,7 +157,7 @@ func Generate(originCulture culture.Culture) Character {
 	char.SkinColor = random.String(char.Race.Appearance.SkinColors)
 
 	char.Orientation = randomOrientation()
-	char.Profession = getRandomProfession()
+	char.Profession = profession.Random()
 	char.Hobby = char.getRandomHobby()
 	char.Motivation = getRandomMotivation()
 
@@ -231,7 +232,7 @@ func GenerateChild(couple Couple) Character {
 	child.Age, child.AgeCategory = getAgeFromParents(couple)
 
 	if child.AgeCategory.Name == "child" {
-		child.Profession = "none"
+		child.Profession = profession.ByName("none")
 	}
 
 	return child

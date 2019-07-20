@@ -4,7 +4,7 @@ import "math/rand"
 
 func getBottomTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "breeches",
 			Type:         "bottom",
 			MaterialType: "fabric",
@@ -21,7 +21,7 @@ func getBottomTemplates() []ItemTemplate {
 				"tied at the waist",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "pants",
 			Type:         "bottom",
 			MaterialType: "fabric",
@@ -41,7 +41,7 @@ func getBottomTemplates() []ItemTemplate {
 				"gathered at the hips",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "pantaloons",
 			Type:         "bottom",
 			MaterialType: "fabric",
@@ -53,7 +53,7 @@ func getBottomTemplates() []ItemTemplate {
 				"flared at the ends",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "skirt",
 			Type:         "bottom",
 			MaterialType: "fabric",
@@ -67,7 +67,7 @@ func getBottomTemplates() []ItemTemplate {
 				"tied at the waist",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:            "kilt",
 			Type:            "bottom",
 			MaterialType:    "fabric",

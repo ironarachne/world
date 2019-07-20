@@ -11,17 +11,17 @@ type SizeClass struct {
 
 func getAllSizeClasses() []SizeClass {
 	classes := []SizeClass{
-		SizeClass{
+		{
 			Name:    "small",
 			MinSize: 6,
 			MaxSize: 20,
 		},
-		SizeClass{
+		{
 			Name:    "medium",
 			MinSize: 21,
 			MaxSize: 50,
 		},
-		SizeClass{
+		{
 			Name:    "big",
 			MinSize: 51,
 			MaxSize: 100,

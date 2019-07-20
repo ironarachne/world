@@ -15,42 +15,42 @@ func getHumans() []Race {
 	weightRange := 100
 
 	races := []Race{
-		Race{
+		{
 			Name:       "human",
 			PluralName: "humans",
 			Adjective:  "human",
 			AgeCategories: []AgeCategory{
-				AgeCategory{
+				{
 					Name:        "adult",
 					MinAge:      26,
 					MaxAge:      69,
 					Commonality: 12,
 				},
-				AgeCategory{
+				{
 					Name:        "elderly",
 					MinAge:      70,
 					MaxAge:      110,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "young adult",
 					MinAge:      20,
 					MaxAge:      25,
 					Commonality: 2,
 				},
-				AgeCategory{
+				{
 					Name:        "teenager",
 					MinAge:      13,
 					MaxAge:      19,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "child",
 					MinAge:      2,
 					MaxAge:      12,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "infant",
 					MinAge:      0,
 					MaxAge:      1,

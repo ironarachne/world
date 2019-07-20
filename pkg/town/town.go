@@ -1,6 +1,8 @@
 package town
 
 import (
+	"github.com/ironarachne/world/pkg/profession"
+	"github.com/ironarachne/world/pkg/resource"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/buildings"
@@ -19,7 +21,7 @@ type Town struct {
 	Climate          climate.Climate
 	Culture          culture.Culture
 	Mayor            character.Character
-	NotableProducers []goods.Producer
+	NotableProducers []profession.Profession
 	Exports          []goods.TradeGood
 	Imports          []goods.TradeGood
 }
@@ -87,7 +89,7 @@ func Generate(category string, biome string, originCulture culture.Culture) Town
 	mayor.LastName = town.Culture.Language.RandomName()
 	town.Mayor = mayor
 
-	possibleProducers := goods.GetPossibleProducers(town.Climate.Resources, town.Population)
+	possibleProducers := resource.GetPossibleProfessions(town.Climate.Resources)
 
 	numberOfProducers := 0
 
@@ -109,7 +111,7 @@ func Generate(category string, biome string, originCulture culture.Culture) Town
 		numberOfProducers = int(town.Population / 250)
 	}
 
-	town.NotableProducers = goods.GetRandomProducers(numberOfProducers, possibleProducers)
+	town.NotableProducers = profession.RandomSet(numberOfProducers, possibleProducers)
 
 	town.Exports = town.generateRandomExports()
 	town.Imports = town.generateRandomImports()

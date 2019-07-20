@@ -7,7 +7,7 @@ import (
 
 func getAllGiants() []Monster {
 	return []Monster{
-		Monster{
+		{
 			Name:                 "cyclops",
 			PluralName:           "cyclopses",
 			SizeCategory:         size.GetCategoryByName("huge"),
@@ -18,7 +18,7 @@ func getAllGiants() []Monster {
 				return 1
 			},
 		},
-		Monster{
+		{
 			Name:                 "ettin",
 			PluralName:           "ettins",
 			SizeCategory:         size.GetCategoryByName("large"),
@@ -30,7 +30,7 @@ func getAllGiants() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "giant",
 			PluralName:           "giants",
 			SizeCategory:         size.GetCategoryByName("huge"),
@@ -41,7 +41,7 @@ func getAllGiants() []Monster {
 				return 1
 			},
 		},
-		Monster{
+		{
 			Name:                 "ogre",
 			PluralName:           "ogres",
 			SizeCategory:         size.GetCategoryByName("large"),

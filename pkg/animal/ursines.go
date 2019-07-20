@@ -7,11 +7,11 @@ import (
 
 func getUrsines() []Animal {
 	animals := []Animal{
-		Animal{
+		{
 			Name:       "black bear",
 			PluralName: "black bears",
 		},
-		Animal{
+		{
 			Name:       "brown bear",
 			PluralName: "brown bears",
 		},
@@ -30,19 +30,19 @@ func getUrsines() []Animal {
 		a.MaxTemperature = 10
 		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
-			resource.Resource{
+			{
 				Name:        a.Name + " hide",
 				Origin:      a.Name,
 				Type:        "hide",
 				Commonality: 5,
 			},
-			resource.Resource{
+			{
 				Name:        a.Name + " teeth",
 				Origin:      a.Name,
 				Type:        "teeth",
 				Commonality: 3,
 			},
-			resource.Resource{
+			{
 				Name:        a.Name,
 				Origin:      a.Name,
 				Type:        "meat",

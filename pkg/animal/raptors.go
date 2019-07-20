@@ -7,7 +7,7 @@ import (
 
 func getRaptors() []Animal {
 	birds := []Animal{
-		Animal{
+		{
 			Name:           "eagle",
 			PluralName:     "eagles",
 			EatsAnimals:    true,
@@ -21,7 +21,7 @@ func getRaptors() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "eagle feathers",
 					Origin:      "eagle",
 					Type:        "feather",
@@ -30,7 +30,7 @@ func getRaptors() []Animal {
 			},
 			Size: size.GetCategoryByName("tiny"),
 		},
-		Animal{
+		{
 			Name:           "falcon",
 			PluralName:     "falcons",
 			EatsAnimals:    true,
@@ -44,7 +44,7 @@ func getRaptors() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "falcon feathers",
 					Origin:      "falcon",
 					Type:        "feather",
@@ -53,7 +53,7 @@ func getRaptors() []Animal {
 			},
 			Size: size.GetCategoryByName("tiny"),
 		},
-		Animal{
+		{
 			Name:           "hawk",
 			PluralName:     "hawks",
 			EatsAnimals:    true,
@@ -67,7 +67,7 @@ func getRaptors() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "hawk feathers",
 					Origin:      "hawk",
 					Type:        "feather",

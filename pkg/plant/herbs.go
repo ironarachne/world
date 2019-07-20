@@ -4,7 +4,7 @@ import "github.com/ironarachne/world/pkg/resource"
 
 func getHerbs() []Plant {
 	herbs := []Plant{
-		Plant{
+		{
 			Name:           "parsley",
 			PluralName:     "parsleys",
 			MinHumidity:    3,
@@ -12,7 +12,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "parsley",
 					Origin:      "parsley",
 					Type:        "herb",
@@ -20,7 +20,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "brahmi",
 			PluralName:     "brahmis",
 			MinHumidity:    3,
@@ -28,7 +28,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "brahmi",
 					Origin:      "brahmi",
 					Type:        "herb",
@@ -36,7 +36,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "basil",
 			PluralName:     "basils",
 			MinHumidity:    3,
@@ -44,7 +44,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "basil",
 					Origin:      "basil",
 					Type:        "herb",
@@ -52,7 +52,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "cilantro",
 			PluralName:     "cilantros",
 			MinHumidity:    3,
@@ -60,7 +60,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "cilantro",
 					Origin:      "cilantro",
 					Type:        "herb",
@@ -68,7 +68,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "saffron",
 			PluralName:     "saffrons",
 			MinHumidity:    5,
@@ -76,7 +76,7 @@ func getHerbs() []Plant {
 			MinTemperature: 6,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "saffron",
 					Origin:      "saffron",
 					Type:        "herb",
@@ -84,7 +84,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "rosemary",
 			PluralName:     "rosemarys",
 			MinHumidity:    3,
@@ -92,7 +92,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "rosemary",
 					Origin:      "rosemary",
 					Type:        "herb",
@@ -100,7 +100,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "thyme",
 			PluralName:     "thymes",
 			MinHumidity:    3,
@@ -108,7 +108,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "thyme",
 					Origin:      "thyme",
 					Type:        "herb",
@@ -116,7 +116,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "black pepper",
 			PluralName:     "black peppers",
 			MinHumidity:    3,
@@ -124,7 +124,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "black pepper",
 					Origin:      "black pepper",
 					Type:        "spice",
@@ -132,7 +132,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "oregano",
 			PluralName:     "oreganos",
 			MinHumidity:    3,
@@ -140,7 +140,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "oregano",
 					Origin:      "oregano",
 					Type:        "herb",
@@ -148,7 +148,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "mint",
 			PluralName:     "mints",
 			MinHumidity:    3,
@@ -156,7 +156,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "mint",
 					Origin:      "mint",
 					Type:        "herb",
@@ -164,7 +164,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "lemongrass",
 			PluralName:     "lemongrasses",
 			MinHumidity:    5,
@@ -172,7 +172,7 @@ func getHerbs() []Plant {
 			MinTemperature: 7,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "lemongrass",
 					Origin:      "lemongrass",
 					Type:        "herb",
@@ -180,7 +180,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "coriander",
 			PluralName:     "corianders",
 			MinHumidity:    3,
@@ -188,7 +188,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "coriander",
 					Origin:      "coriander",
 					Type:        "spice",
@@ -196,7 +196,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "clove",
 			PluralName:     "cloves",
 			MinHumidity:    3,
@@ -204,7 +204,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "clove",
 					Origin:      "clove",
 					Type:        "spice",
@@ -212,7 +212,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "sage",
 			PluralName:     "sages",
 			MinHumidity:    3,
@@ -220,7 +220,7 @@ func getHerbs() []Plant {
 			MinTemperature: 3,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "sage",
 					Origin:      "sage",
 					Type:        "herb",
@@ -228,7 +228,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "turmeric",
 			PluralName:     "turmerics",
 			MinHumidity:    3,
@@ -236,7 +236,7 @@ func getHerbs() []Plant {
 			MinTemperature: 7,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "turmeric",
 					Origin:      "turmeric",
 					Type:        "spice",
@@ -244,7 +244,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "vanilla",
 			PluralName:     "vanillas",
 			MinHumidity:    3,
@@ -252,7 +252,7 @@ func getHerbs() []Plant {
 			MinTemperature: 7,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "vanilla",
 					Origin:      "vanilla",
 					Type:        "herb",
@@ -260,7 +260,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "galangal",
 			PluralName:     "galangals",
 			MinHumidity:    5,
@@ -268,7 +268,7 @@ func getHerbs() []Plant {
 			MinTemperature: 7,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "galangal",
 					Origin:      "galangal",
 					Type:        "spice",
@@ -276,7 +276,7 @@ func getHerbs() []Plant {
 				},
 			},
 		},
-		Plant{
+		{
 			Name:           "ginger",
 			PluralName:     "gingers",
 			MinHumidity:    5,
@@ -284,7 +284,7 @@ func getHerbs() []Plant {
 			MinTemperature: 7,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "ginger",
 					Origin:      "ginger",
 					Type:        "spice",

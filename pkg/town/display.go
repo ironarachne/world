@@ -36,11 +36,11 @@ func (town Town) Simplify() SimplifiedTown {
 	}
 
 	for _, p := range town.NotableProducers {
-		simplified.Producers = append(simplified.Producers, p.Skill()+" "+p.Name)
+		simplified.Producers = append(simplified.Producers, p.Name)
 	}
 
 	for _, e := range town.Exports {
-		simplified.Exports = append(simplified.Exports, e.Quality+" "+e.Name)
+		simplified.Exports = append(simplified.Exports, e.Quality+e.Name)
 	}
 
 	for _, i := range town.Imports {

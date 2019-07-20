@@ -4,7 +4,7 @@ import "math/rand"
 
 func getWaistTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "belt",
 			Type:         "waist",
 			MaterialType: "hide",
@@ -18,7 +18,7 @@ func getWaistTemplates() []ItemTemplate {
 				"with a narrow clasp",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "sash",
 			Type:         "waist",
 			MaterialType: "fabric",

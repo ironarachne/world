@@ -16,7 +16,7 @@ type Category struct {
 
 func getAllCategories() []Category {
 	categories := []Category{
-		Category{
+		{
 			Name:        "metropolis",
 			MinSize:     100000,
 			MaxSize:     1000000,
@@ -26,7 +26,7 @@ func getAllCategories() []Category {
 			MaxImports:  100,
 			Commonality: 1,
 		},
-		Category{
+		{
 			Name:        "city",
 			MinSize:     10000,
 			MaxSize:     100000,
@@ -36,7 +36,7 @@ func getAllCategories() []Category {
 			MaxImports:  6,
 			Commonality: 3,
 		},
-		Category{
+		{
 			Name:        "town",
 			MinSize:     1000,
 			MaxSize:     10000,
@@ -46,7 +46,7 @@ func getAllCategories() []Category {
 			MaxImports:  3,
 			Commonality: 5,
 		},
-		Category{
+		{
 			Name:        "village",
 			MinSize:     10,
 			MaxSize:     100,

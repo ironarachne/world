@@ -12,7 +12,7 @@ type Pattern struct {
 
 func getAllPatterns() []Pattern {
 	patterns := []Pattern{
-		Pattern{
+		{
 			Name:         "ale",
 			RequiredBase: "grain",
 			BaseStrength: 1,
@@ -25,7 +25,7 @@ func getAllPatterns() []Pattern {
 				"pale",
 			},
 		},
-		Pattern{
+		{
 			Name:         "beer",
 			RequiredBase: "grain",
 			BaseStrength: 1,
@@ -40,7 +40,7 @@ func getAllPatterns() []Pattern {
 				"pale",
 			},
 		},
-		Pattern{
+		{
 			Name:         "brandy",
 			RequiredBase: "fruit",
 			BaseStrength: 3,
@@ -53,7 +53,7 @@ func getAllPatterns() []Pattern {
 				"pale red in color",
 			},
 		},
-		Pattern{
+		{
 			Name:         "liquor",
 			RequiredBase: "grain",
 			BaseStrength: 3,
@@ -69,7 +69,7 @@ func getAllPatterns() []Pattern {
 				"yellow-hued",
 			},
 		},
-		Pattern{
+		{
 			Name:         "wine",
 			RequiredBase: "fruit",
 			BaseStrength: 2,

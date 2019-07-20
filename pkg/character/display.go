@@ -63,7 +63,7 @@ func (character Character) Describe() string {
 	description += strings.Title(character.Gender.SubjectPronoun) + " is motivated by " + character.Motivation + ". "
 	description += "While " + character.Gender.SubjectPronoun + " is " + words.CombinePhrases(character.PositiveTraits) + ", "
 	description += character.Gender.SubjectPronoun + " has also been described as " + words.CombinePhrases(character.NegativeTraits) + ". "
-	description += character.FirstName + "'s hobby is " + character.Hobby.Name + ", and " + character.Gender.SubjectPronoun + " is " + words.Pronoun(character.Profession) + " " + character.Profession + ". "
+	description += character.FirstName + "'s hobby is " + character.Hobby.Name + ", and " + character.Gender.SubjectPronoun + " is " + words.Pronoun(character.Profession.Name) + " " + character.Profession.Name + ". "
 
 	if character.Heraldry.Blazon != "" {
 		description += strings.Title(character.Gender.PossessivePronoun) + " coat of arms is described as \"" + character.Heraldry.Blazon + ".\""

@@ -78,7 +78,7 @@ func getDomainNames(domains []Domain) []string {
 
 func getAllDomains() []Domain {
 	domains := []Domain{
-		Domain{
+		{
 			Name: "air",
 			AppearanceTraits: []string{
 				"bird-headed",
@@ -96,7 +96,7 @@ func getAllDomains() []Domain {
 				"mercurial",
 			},
 		},
-		Domain{
+		{
 			Name: "animals",
 			AppearanceTraits: []string{
 				"dirty",
@@ -117,7 +117,7 @@ func getAllDomains() []Domain {
 				"skittish",
 			},
 		},
-		Domain{
+		{
 			Name: "art",
 			AppearanceTraits: []string{
 				"rainbow-hued",
@@ -132,7 +132,7 @@ func getAllDomains() []Domain {
 			},
 			PersonalityTraits: []string{},
 		},
-		Domain{
+		{
 			Name: "autumn",
 			AppearanceTraits: []string{
 				"leaf-haired",
@@ -146,7 +146,7 @@ func getAllDomains() []Domain {
 			},
 			PersonalityTraits: []string{},
 		},
-		Domain{
+		{
 			Name: "balance",
 			AppearanceTraits: []string{
 				"grey-eyed",
@@ -162,7 +162,7 @@ func getAllDomains() []Domain {
 				"measured",
 			},
 		},
-		Domain{
+		{
 			Name: "chaos",
 			AppearanceTraits: []string{
 				"perpetually blurry",
@@ -179,7 +179,7 @@ func getAllDomains() []Domain {
 				"wild",
 			},
 		},
-		Domain{
+		{
 			Name: "darkness",
 			AppearanceTraits: []string{
 				"dark as night",
@@ -194,7 +194,7 @@ func getAllDomains() []Domain {
 			},
 			PersonalityTraits: []string{},
 		},
-		Domain{
+		{
 			Name: "dawn",
 			AppearanceTraits: []string{
 				"bright",
@@ -209,7 +209,7 @@ func getAllDomains() []Domain {
 			},
 			PersonalityTraits: []string{},
 		},
-		Domain{
+		{
 			Name: "death",
 			AppearanceTraits: []string{
 				"gaunt",
@@ -227,7 +227,7 @@ func getAllDomains() []Domain {
 			},
 			PersonalityTraits: []string{},
 		},
-		Domain{
+		{
 			Name: "demons",
 			AppearanceTraits: []string{
 				"black-eyed",
@@ -244,7 +244,7 @@ func getAllDomains() []Domain {
 			},
 			PersonalityTraits: []string{},
 		},
-		Domain{
+		{
 			Name: "destruction",
 			AppearanceTraits: []string{
 				"spined",
@@ -261,7 +261,7 @@ func getAllDomains() []Domain {
 				"wrathful",
 			},
 		},
-		Domain{
+		{
 			Name: "dusk",
 			AppearanceTraits: []string{
 				"dark-skinned",
@@ -278,7 +278,7 @@ func getAllDomains() []Domain {
 				"brooding",
 			},
 		},
-		Domain{
+		{
 			Name: "earth",
 			AppearanceTraits: []string{
 				"stone-skinned",
@@ -296,7 +296,7 @@ func getAllDomains() []Domain {
 				"practical",
 			},
 		},
-		Domain{
+		{
 			Name: "evil",
 			AppearanceTraits: []string{
 				"black-eyed",
@@ -316,7 +316,7 @@ func getAllDomains() []Domain {
 				"vicious",
 			},
 		},
-		Domain{
+		{
 			Name: "fear",
 			AppearanceTraits: []string{
 				"shadowy",
@@ -333,7 +333,7 @@ func getAllDomains() []Domain {
 				"cruel",
 			},
 		},
-		Domain{
+		{
 			Name: "fertility",
 			AppearanceTraits: []string{
 				"entrancing",
@@ -352,7 +352,7 @@ func getAllDomains() []Domain {
 				"seductive",
 			},
 		},
-		Domain{
+		{
 			Name: "fire",
 			AppearanceTraits: []string{
 				"black skinned, with firey veins like magma",
@@ -373,7 +373,7 @@ func getAllDomains() []Domain {
 				"quick to anger",
 			},
 		},
-		Domain{
+		{
 			Name: "foxes",
 			AppearanceTraits: []string{
 				"fox-eared",
@@ -392,7 +392,7 @@ func getAllDomains() []Domain {
 				"tricksy",
 			},
 		},
-		Domain{
+		{
 			Name: "good",
 			AppearanceTraits: []string{
 				"taciturn",
@@ -408,7 +408,7 @@ func getAllDomains() []Domain {
 				"tolerant",
 			},
 		},
-		Domain{
+		{
 			Name: "harvests",
 			AppearanceTraits: []string{
 				"stocky",
@@ -426,7 +426,7 @@ func getAllDomains() []Domain {
 				"hard-working",
 			},
 		},
-		Domain{
+		{
 			Name: "healing",
 			AppearanceTraits: []string{
 				"green-haloed",
@@ -444,7 +444,7 @@ func getAllDomains() []Domain {
 				"patient",
 			},
 		},
-		Domain{
+		{
 			Name: "hope",
 			AppearanceTraits: []string{
 				"haloed",
@@ -460,7 +460,7 @@ func getAllDomains() []Domain {
 				"patient",
 			},
 		},
-		Domain{
+		{
 			Name: "horses",
 			AppearanceTraits: []string{
 				"horse-bodied",
@@ -478,7 +478,7 @@ func getAllDomains() []Domain {
 				"ebullient",
 			},
 		},
-		Domain{
+		{
 			Name: "hunting",
 			AppearanceTraits: []string{
 				"narrow-featured",
@@ -498,7 +498,7 @@ func getAllDomains() []Domain {
 				"subtle",
 			},
 		},
-		Domain{
+		{
 			Name: "justice",
 			AppearanceTraits: []string{
 				"blind",
@@ -520,7 +520,7 @@ func getAllDomains() []Domain {
 				"fair",
 			},
 		},
-		Domain{
+		{
 			Name: "knowledge",
 			AppearanceTraits: []string{
 				"old and wrinkled",
@@ -539,7 +539,7 @@ func getAllDomains() []Domain {
 				"studious",
 			},
 		},
-		Domain{
+		{
 			Name: "language",
 			AppearanceTraits: []string{
 				"covered in mouths",
@@ -559,7 +559,7 @@ func getAllDomains() []Domain {
 				"social",
 			},
 		},
-		Domain{
+		{
 			Name: "law",
 			AppearanceTraits: []string{
 				"grim-faced",
@@ -581,7 +581,7 @@ func getAllDomains() []Domain {
 				"stern",
 			},
 		},
-		Domain{
+		{
 			Name: "life",
 			AppearanceTraits: []string{
 				"haloed",
@@ -600,7 +600,7 @@ func getAllDomains() []Domain {
 				"joyful",
 			},
 		},
-		Domain{
+		{
 			Name: "light",
 			AppearanceTraits: []string{
 				"glowing",
@@ -617,7 +617,7 @@ func getAllDomains() []Domain {
 				"serious",
 			},
 		},
-		Domain{
+		{
 			Name: "lightning",
 			AppearanceTraits: []string{
 				"lightning-eyed",
@@ -635,7 +635,7 @@ func getAllDomains() []Domain {
 				"violent",
 			},
 		},
-		Domain{
+		{
 			Name: "love",
 			AppearanceTraits: []string{
 				"beautiful",
@@ -653,7 +653,7 @@ func getAllDomains() []Domain {
 				"passionate",
 			},
 		},
-		Domain{
+		{
 			Name: "luck",
 			AppearanceTraits: []string{
 				"always playing with cards",
@@ -672,7 +672,7 @@ func getAllDomains() []Domain {
 				"adventurous",
 			},
 		},
-		Domain{
+		{
 			Name: "mercy",
 			AppearanceTraits: []string{
 				"plain",
@@ -689,7 +689,7 @@ func getAllDomains() []Domain {
 				"fair",
 			},
 		},
-		Domain{
+		{
 			Name: "music",
 			AppearanceTraits: []string{
 				"entracing",
@@ -712,7 +712,7 @@ func getAllDomains() []Domain {
 				"reflective",
 			},
 		},
-		Domain{
+		{
 			Name: "nature",
 			AppearanceTraits: []string{
 				"barefoot",
@@ -732,7 +732,7 @@ func getAllDomains() []Domain {
 				"practical",
 			},
 		},
-		Domain{
+		{
 			Name: "nobility",
 			AppearanceTraits: []string{
 				"wearing a crown",
@@ -748,7 +748,7 @@ func getAllDomains() []Domain {
 				"arrogant",
 			},
 		},
-		Domain{
+		{
 			Name: "oceans",
 			AppearanceTraits: []string{
 				"surrounded by seaweed",
@@ -767,7 +767,7 @@ func getAllDomains() []Domain {
 				"passionate",
 			},
 		},
-		Domain{
+		{
 			Name: "persistence",
 			AppearanceTraits: []string{
 				"heavily scarred",
@@ -785,7 +785,7 @@ func getAllDomains() []Domain {
 				"persistent",
 			},
 		},
-		Domain{
+		{
 			Name: "plants",
 			AppearanceTraits: []string{
 				"wreathed in vines",
@@ -803,7 +803,7 @@ func getAllDomains() []Domain {
 				"patient",
 			},
 		},
-		Domain{
+		{
 			Name: "protection",
 			AppearanceTraits: []string{
 				"heavily armored with no skin visible",
@@ -822,7 +822,7 @@ func getAllDomains() []Domain {
 				"strong-willed",
 			},
 		},
-		Domain{
+		{
 			Name: "revenge",
 			AppearanceTraits: []string{
 				"bald",
@@ -840,7 +840,7 @@ func getAllDomains() []Domain {
 				"vengeful",
 			},
 		},
-		Domain{
+		{
 			Name: "sky",
 			AppearanceTraits: []string{
 				"sitting on a cloud",
@@ -853,7 +853,7 @@ func getAllDomains() []Domain {
 				"wistful",
 			},
 		},
-		Domain{
+		{
 			Name: "spring",
 			AppearanceTraits: []string{
 				"perpetually damp",
@@ -872,7 +872,7 @@ func getAllDomains() []Domain {
 				"frisky",
 			},
 		},
-		Domain{
+		{
 			Name: "strength",
 			AppearanceTraits: []string{
 				"heavily-muscled",
@@ -892,7 +892,7 @@ func getAllDomains() []Domain {
 				"courageous",
 			},
 		},
-		Domain{
+		{
 			Name: "summer",
 			AppearanceTraits: []string{
 				"orange-haired",
@@ -910,7 +910,7 @@ func getAllDomains() []Domain {
 				"warm",
 			},
 		},
-		Domain{
+		{
 			Name: "thieves",
 			AppearanceTraits: []string{
 				"clad in dark leather",
@@ -929,7 +929,7 @@ func getAllDomains() []Domain {
 				"avaricious",
 			},
 		},
-		Domain{
+		{
 			Name: "the moon",
 			AppearanceTraits: []string{
 				"cloaked in silver",
@@ -947,7 +947,7 @@ func getAllDomains() []Domain {
 				"thoughtful",
 			},
 		},
-		Domain{
+		{
 			Name: "the sun",
 			AppearanceTraits: []string{
 				"glowing",
@@ -964,7 +964,7 @@ func getAllDomains() []Domain {
 				"warm",
 			},
 		},
-		Domain{
+		{
 			Name: "thunder",
 			AppearanceTraits: []string{
 				"barrel-chested",
@@ -984,7 +984,7 @@ func getAllDomains() []Domain {
 				"loud",
 			},
 		},
-		Domain{
+		{
 			Name: "time",
 			AppearanceTraits: []string{
 				"ancient-looking",
@@ -1005,7 +1005,7 @@ func getAllDomains() []Domain {
 				"wise",
 			},
 		},
-		Domain{
+		{
 			Name: "trade",
 			AppearanceTraits: []string{
 				"fat",
@@ -1028,7 +1028,7 @@ func getAllDomains() []Domain {
 				"measured",
 			},
 		},
-		Domain{
+		{
 			Name: "travel",
 			AppearanceTraits: []string{
 				"dusty",
@@ -1044,7 +1044,7 @@ func getAllDomains() []Domain {
 				"wandering",
 			},
 		},
-		Domain{
+		{
 			Name: "trickery",
 			AppearanceTraits: []string{
 				"cloaked in night",
@@ -1063,7 +1063,7 @@ func getAllDomains() []Domain {
 				"tricky",
 			},
 		},
-		Domain{
+		{
 			Name: "war",
 			AppearanceTraits: []string{
 				"bloody",
@@ -1084,7 +1084,7 @@ func getAllDomains() []Domain {
 				"belligerent",
 			},
 		},
-		Domain{
+		{
 			Name: "water",
 			AppearanceTraits: []string{
 				"blue-skinned",
@@ -1103,7 +1103,7 @@ func getAllDomains() []Domain {
 				"moody",
 			},
 		},
-		Domain{
+		{
 			Name: "winter",
 			AppearanceTraits: []string{
 				"completely white",
@@ -1124,7 +1124,7 @@ func getAllDomains() []Domain {
 				"unforgiving",
 			},
 		},
-		Domain{
+		{
 			Name: "wisdom",
 			AppearanceTraits: []string{
 				"frail",

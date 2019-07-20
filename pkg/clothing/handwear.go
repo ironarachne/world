@@ -4,7 +4,7 @@ import "math/rand"
 
 func getHandwearTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "gloves",
 			Type:         "handwear",
 			MaterialType: "fabric",
@@ -20,7 +20,7 @@ func getHandwearTemplates() []ItemTemplate {
 				"that reach up to the elbow",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "mittens",
 			Type:         "handwear",
 			MaterialType: "fabric",

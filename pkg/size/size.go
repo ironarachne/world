@@ -34,27 +34,27 @@ func (category Category) Smaller() Category {
 
 func getAllSizeCategories() []Category {
 	return []Category{
-		Category{
+		{
 			Name:  "tiny",
 			Level: 1,
 		},
-		Category{
+		{
 			Name:  "small",
 			Level: 2,
 		},
-		Category{
+		{
 			Name:  "medium",
 			Level: 3,
 		},
-		Category{
+		{
 			Name:  "large",
 			Level: 4,
 		},
-		Category{
+		{
 			Name:  "huge",
 			Level: 5,
 		},
-		Category{
+		{
 			Name:  "gargantuan",
 			Level: 6,
 		},

@@ -7,7 +7,7 @@ import (
 
 func getAllDraconids() []Monster {
 	return []Monster{
-		Monster{
+		{
 			Name:                 "dragon",
 			PluralName:           "dragons",
 			SizeCategory:         size.GetCategoryByName("gargantuan"),
@@ -18,7 +18,7 @@ func getAllDraconids() []Monster {
 				return 1
 			},
 		},
-		Monster{
+		{
 			Name:                 "drake",
 			PluralName:           "drakes",
 			SizeCategory:         size.GetCategoryByName("medium"),
@@ -30,7 +30,7 @@ func getAllDraconids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "wyvern",
 			PluralName:           "wyverns",
 			SizeCategory:         size.GetCategoryByName("large"),

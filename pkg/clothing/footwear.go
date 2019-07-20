@@ -4,7 +4,7 @@ import "math/rand"
 
 func getBootTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "boots",
 			Type:         "footwear",
 			MaterialType: "hide",
@@ -27,7 +27,7 @@ func getBootTemplates() []ItemTemplate {
 
 func getShoeTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "sandals",
 			Type:         "footwear",
 			MaterialType: "hide",
@@ -42,7 +42,7 @@ func getShoeTemplates() []ItemTemplate {
 				"with ankle strapping",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "turnshoes",
 			Type:         "footwear",
 			MaterialType: "hide",

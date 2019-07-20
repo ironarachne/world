@@ -7,31 +7,31 @@ import (
 
 func getBigCats() []Animal {
 	animals := []Animal{
-		Animal{
+		{
 			Name:       "bobcat",
 			PluralName: "bobcats",
 		},
-		Animal{
+		{
 			Name:       "cheetah",
 			PluralName: "cheetahs",
 		},
-		Animal{
+		{
 			Name:       "cougar",
 			PluralName: "cougars",
 		},
-		Animal{
+		{
 			Name:       "jaguar",
 			PluralName: "jaguars",
 		},
-		Animal{
+		{
 			Name:       "leopard",
 			PluralName: "leopards",
 		},
-		Animal{
+		{
 			Name:       "lion",
 			PluralName: "lions",
 		},
-		Animal{
+		{
 			Name:       "tiger",
 			PluralName: "tigers",
 		},
@@ -50,19 +50,19 @@ func getBigCats() []Animal {
 		a.MaxTemperature = 10
 		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
-			resource.Resource{
+			{
 				Name:        a.Name + " hide",
 				Origin:      a.Name,
 				Type:        "hide",
 				Commonality: 5,
 			},
-			resource.Resource{
+			{
 				Name:        a.Name + " fangs",
 				Origin:      a.Name,
 				Type:        "teeth",
 				Commonality: 3,
 			},
-			resource.Resource{
+			{
 				Name:        a.Name,
 				Origin:      a.Name,
 				Type:        "meat",

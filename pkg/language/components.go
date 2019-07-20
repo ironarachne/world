@@ -26,27 +26,27 @@ func getRandomWeightedVowel() string {
 
 func randomMutation() Mutation {
 	rules := []Mutation{
-		Mutation{
+		{
 			"s",
 			"ss",
 		},
-		Mutation{
+		{
 			"s",
 			"sh",
 		},
-		Mutation{
+		{
 			"f",
 			"ff",
 		},
-		Mutation{
+		{
 			"f",
 			"fh",
 		},
-		Mutation{
+		{
 			"g",
 			"gh",
 		},
-		Mutation{
+		{
 			"l",
 			"l'",
 		},

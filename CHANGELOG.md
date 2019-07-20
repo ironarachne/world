@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.4.0 (2019-07-20)
+
+Massive rework of resources and institution of professions.
+
+### Change List
+
+- Add professions
+- Use professions everywhere, including for resource generation and for characters
+- Add resource system to replace existing "trade goods" resources
+
 ## 0.3.2 (2019-07-19)
 
 Changes to food.

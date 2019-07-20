@@ -1,9 +1,8 @@
 package organization
 
 import (
+	"github.com/ironarachne/world/pkg/profession"
 	"math/rand"
-
-	"github.com/ironarachne/world/pkg/random"
 )
 
 // Type is a type of organization
@@ -16,15 +15,26 @@ type Type struct {
 	LeaderTitle       string
 	MemberMaxAge      int
 	MemberMinAge      int
-	MemberProfessions []string
+	MemberProfessions []profession.Profession
 	NameFirstParts    []string
 	NameSecondParts   []string
 	NameTemplate      string
 }
 
 func getAllTypes() []Type {
+	var adventurers []profession.Profession
+
+	crafters := profession.ByTag("crafter")
+	divine := profession.ByTag("divine")
+	fighters := profession.ByTag("fighter")
+	mages := profession.ByTag("mage")
+
+	adventurers = append(adventurers, fighters...)
+	adventurers = append(adventurers, mages...)
+	adventurers = append(adventurers, divine...)
+
 	types := []Type{
-		Type{
+		{
 			Name: "adventuring company",
 			PossibleTraits: []string{
 				"aggressive",
@@ -44,15 +54,7 @@ func getAllTypes() []Type {
 			LeaderTitle:     "captain",
 			MemberMaxAge:    50,
 			MemberMinAge:    15,
-			MemberProfessions: []string{
-				"barbarian",
-				"bard",
-				"cleric",
-				"mage",
-				"paladin",
-				"rogue",
-				"warrior",
-			},
+			MemberProfessions: adventurers,
 			NameFirstParts: []string{
 				"Black",
 				"Burning",
@@ -80,7 +82,7 @@ func getAllTypes() []Type {
 			},
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
 		},
-		Type{
+		{
 			Name: "church",
 			PossibleTraits: []string{
 				"penitent",
@@ -98,11 +100,7 @@ func getAllTypes() []Type {
 			LeaderTitle:     "high priest",
 			MemberMaxAge:    90,
 			MemberMinAge:    15,
-			MemberProfessions: []string{
-				"acolyte",
-				"monk",
-				"priest",
-			},
+			MemberProfessions: divine,
 			NameFirstParts: []string{
 				"Holy",
 				"Glorious",
@@ -129,7 +127,7 @@ func getAllTypes() []Type {
 			},
 			NameTemplate: "{{.FirstPart}} Church of the {{.SecondPart}}",
 		},
-		Type{
+		{
 			Name: "guild",
 			PossibleTraits: []string{
 				"ambitious",
@@ -148,12 +146,7 @@ func getAllTypes() []Type {
 			LeaderTitle:     "guild leader",
 			MemberMaxAge:    90,
 			MemberMinAge:    20,
-			MemberProfessions: []string{
-				"artisan",
-				"craftsman",
-				"financier",
-				"merchant",
-			},
+			MemberProfessions: crafters,
 			NameFirstParts: []string{
 				"August",
 				"East Wind",
@@ -166,24 +159,12 @@ func getAllTypes() []Type {
 				"West Wind",
 			},
 			NameSecondParts: []string{
-				"Alchemist",
-				"Apothecary",
-				"Artist",
-				"Blacksmith",
-				"Bowyer",
-				"Carpenter",
-				"Fletcher",
-				"Furrier",
-				"Mason",
-				"Merchant",
-				"Moneylender",
-				"Painter",
-				"Sculptor",
-				"Tanner",
+				"Artisan",
+				"Crafter",
 			},
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
 		},
-		Type{
+		{
 			Name: "mercenary company",
 			PossibleTraits: []string{
 				"aggressive",
@@ -200,14 +181,7 @@ func getAllTypes() []Type {
 			LeaderTitle:     "captain",
 			MemberMaxAge:    50,
 			MemberMinAge:    15,
-			MemberProfessions: []string{
-				"archer",
-				"cavalryman",
-				"heavy footman",
-				"knife fighter",
-				"pikeman",
-				"swordsman",
-			},
+			MemberProfessions: fighters,
 			NameFirstParts: []string{
 				"Black",
 				"Burning",
@@ -240,9 +214,11 @@ func getAllTypes() []Type {
 	return types
 }
 
-// GetRandomMemberProfession returns a random profession as a string
-func (t Type) GetRandomMemberProfession() string {
-	return random.String(t.MemberProfessions)
+// GetRandomMemberProfession returns a random profession from those available to the organization
+func (t Type) GetRandomMemberProfession() profession.Profession {
+	prof := profession.RandomSet(1, t.MemberProfessions)
+
+	return prof[0]
 }
 
 // GetRandomLeaderAge returns an appropriate age for a leader of this group

@@ -2,7 +2,7 @@ package town
 
 var (
 	townNames = map[string]NamePattern{
-		"general": NamePattern{
+		"general": {
 			"general",
 			[]string{
 				"Ast",

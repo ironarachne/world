@@ -55,7 +55,7 @@ func randomCombinedCategory() Category {
 
 func getAllCategories() []Category {
 	return []Category{
-		Category{
+		{
 			Descriptors:      []string{"musical"},
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -65,7 +65,7 @@ func getAllCategories() []Category {
 			MasculineEndings: []string{"ion", "on", "en", "o"},
 			FeminineEndings:  []string{"i", "a", "ia", "ila"},
 		},
-		Category{
+		{
 			Descriptors:      []string{"guttural"},
 			WordLength:       1,
 			UsesApostrophes:  false,
@@ -75,7 +75,7 @@ func getAllCategories() []Category {
 			MasculineEndings: []string{"ur", "ar", "ach", "ag"},
 			FeminineEndings:  []string{"a", "agi"},
 		},
-		Category{
+		{
 			Descriptors:      []string{"abrupt"},
 			WordLength:       2,
 			UsesApostrophes:  true,
@@ -85,7 +85,7 @@ func getAllCategories() []Category {
 			MasculineEndings: []string{"on", "en", "an"},
 			FeminineEndings:  []string{"a", "e", "et"},
 		},
-		Category{
+		{
 			Descriptors:      []string{"nasal"},
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -95,7 +95,7 @@ func getAllCategories() []Category {
 			MasculineEndings: []string{"een", "oon", "in", "en"},
 			FeminineEndings:  []string{"ini", "nia", "mia", "mi"},
 		},
-		Category{
+		{
 			Descriptors:      []string{"rhythmic"},
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -105,7 +105,7 @@ func getAllCategories() []Category {
 			MasculineEndings: []string{"ior", "iun", "ayan", "ar"},
 			FeminineEndings:  []string{"oa", "ua", "lia", "li"},
 		},
-		Category{
+		{
 			Descriptors:      []string{"graceful"},
 			WordLength:       2,
 			UsesApostrophes:  false,
@@ -115,7 +115,7 @@ func getAllCategories() []Category {
 			MasculineEndings: []string{"em", "amn", "astor", "est", "and"},
 			FeminineEndings:  []string{"eela", "aela", "ali", "eli", "oli", "oa", "ea"},
 		},
-		Category{
+		{
 			Descriptors:      []string{"breathy"},
 			WordLength:       1,
 			UsesApostrophes:  false,

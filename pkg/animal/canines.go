@@ -7,15 +7,15 @@ import (
 
 func getCanines() []Animal {
 	animals := []Animal{
-		Animal{
+		{
 			Name:       "coyote",
 			PluralName: "coyotes",
 		},
-		Animal{
+		{
 			Name:       "fox",
 			PluralName: "foxes",
 		},
-		Animal{
+		{
 			Name:       "wolf",
 			PluralName: "wolves",
 		},
@@ -34,19 +34,19 @@ func getCanines() []Animal {
 		a.MaxTemperature = 10
 		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
-			resource.Resource{
+			{
 				Name:        a.Name + " hide",
 				Origin:      a.Name,
 				Type:        "hide",
 				Commonality: 4,
 			},
-			resource.Resource{
+			{
 				Name:        a.Name + " fangs",
 				Origin:      a.Name,
 				Type:        "teeth",
 				Commonality: 4,
 			},
-			resource.Resource{
+			{
 				Name:        a.Name,
 				Origin:      a.Name,
 				Type:        "meat",

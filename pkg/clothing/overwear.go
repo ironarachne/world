@@ -4,7 +4,7 @@ import "math/rand"
 
 func getOverwearTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "coat",
 			Type:         "overwear",
 			MaterialType: "fabric",
@@ -20,7 +20,7 @@ func getOverwearTemplates() []ItemTemplate {
 				"with large lapels",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "cloak",
 			Type:         "overwear",
 			MaterialType: "fabric",

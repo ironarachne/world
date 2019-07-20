@@ -7,7 +7,7 @@ import (
 
 func getMammals() []Animal {
 	animals := []Animal{
-		Animal{
+		{
 			Name:           "beaver",
 			PluralName:     "beavers",
 			AnimalType:     "mammal",
@@ -22,28 +22,28 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "beaver hide",
-					Origin: "beaver",
-					Type:   "hide",
+				{
+					Name:        "beaver hide",
+					Origin:      "beaver",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "beaver teeth",
-					Origin: "beaver",
-					Type:   "teeth",
+				{
+					Name:        "beaver teeth",
+					Origin:      "beaver",
+					Type:        "teeth",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "beaver meat",
-					Origin: "beaver",
-					Type:   "meat",
+				{
+					Name:        "beaver meat",
+					Origin:      "beaver",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
 		},
-		Animal{
+		{
 			Name:           "deer",
 			PluralName:     "deer",
 			AnimalType:     "mammal",
@@ -58,34 +58,34 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "deer hide",
-					Origin: "deer",
-					Type:   "hide",
+				{
+					Name:        "deer hide",
+					Origin:      "deer",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "deer teeth",
-					Origin: "deer",
-					Type:   "teeth",
+				{
+					Name:        "deer teeth",
+					Origin:      "deer",
+					Type:        "teeth",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "venison",
-					Origin: "deer",
-					Type:   "meat",
+				{
+					Name:        "venison",
+					Origin:      "deer",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "deer antler",
-					Origin: "deer",
-					Type:   "bone",
+				{
+					Name:        "deer antler",
+					Origin:      "deer",
+					Type:        "bone",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "squirrel",
 			PluralName:     "squirrels",
 			AnimalType:     "mammal",
@@ -100,22 +100,22 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "squirrel hide",
-					Origin: "squirrel",
-					Type:   "hide",
+				{
+					Name:        "squirrel hide",
+					Origin:      "squirrel",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "squirrel meat",
-					Origin: "squirrel",
-					Type:   "meat",
+				{
+					Name:        "squirrel meat",
+					Origin:      "squirrel",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
 		},
-		Animal{
+		{
 			Name:           "camel",
 			PluralName:     "camels",
 			AnimalType:     "mammal",
@@ -130,34 +130,34 @@ func getMammals() []Animal {
 			MinTemperature: 5,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "camel hide",
-					Origin: "camel",
-					Type:   "hide",
+				{
+					Name:        "camel hide",
+					Origin:      "camel",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "camel teeth",
-					Origin: "camel",
-					Type:   "teeth",
+				{
+					Name:        "camel teeth",
+					Origin:      "camel",
+					Type:        "teeth",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "camel meat",
-					Origin: "camel",
-					Type:   "meat",
+				{
+					Name:        "camel meat",
+					Origin:      "camel",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "camel milk",
-					Origin: "camel",
-					Type:   "milk",
+				{
+					Name:        "camel milk",
+					Origin:      "camel",
+					Type:        "milk",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "bison",
 			PluralName:     "bison",
 			AnimalType:     "mammal",
@@ -172,34 +172,34 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "bison hide",
-					Origin: "bison",
-					Type:   "hide",
+				{
+					Name:        "bison hide",
+					Origin:      "bison",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "bison teeth",
-					Origin: "bison",
-					Type:   "teeth",
+				{
+					Name:        "bison teeth",
+					Origin:      "bison",
+					Type:        "teeth",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "bison",
-					Origin: "bison",
-					Type:   "meat",
+				{
+					Name:        "bison",
+					Origin:      "bison",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "bison bone",
-					Origin: "bison",
-					Type:   "bone",
+				{
+					Name:        "bison bone",
+					Origin:      "bison",
+					Type:        "bone",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "cow",
 			PluralName:     "cows",
 			AnimalType:     "mammal",
@@ -214,46 +214,46 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "leather",
-					Origin: "cow",
-					Type:   "hide",
+				{
+					Name:        "leather",
+					Origin:      "cow",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "cow teeth",
-					Origin: "cow",
-					Type:   "teeth",
+				{
+					Name:        "cow teeth",
+					Origin:      "cow",
+					Type:        "teeth",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "beef",
-					Origin: "cow",
-					Type:   "meat",
+				{
+					Name:        "beef",
+					Origin:      "cow",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "beef loin",
-					Origin: "cow",
-					Type:   "meat",
+				{
+					Name:        "beef loin",
+					Origin:      "cow",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "beef ribs",
-					Origin: "cow",
-					Type:   "meat",
+				{
+					Name:        "beef ribs",
+					Origin:      "cow",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "cow bone",
-					Origin: "cow",
-					Type:   "bone",
+				{
+					Name:        "cow bone",
+					Origin:      "cow",
+					Type:        "bone",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "elephant",
 			PluralName:     "elephants",
 			AnimalType:     "mammal",
@@ -268,34 +268,34 @@ func getMammals() []Animal {
 			MinTemperature: 5,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "elephant hide",
-					Origin: "elephant",
-					Type:   "hide",
+				{
+					Name:        "elephant hide",
+					Origin:      "elephant",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "elephant milk",
-					Origin: "elephant",
-					Type:   "milk",
+				{
+					Name:        "elephant milk",
+					Origin:      "elephant",
+					Type:        "milk",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "elephant",
-					Origin: "elephant",
-					Type:   "meat",
+				{
+					Name:        "elephant",
+					Origin:      "elephant",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "ivory",
-					Origin: "elephant",
-					Type:   "bone",
+				{
+					Name:        "ivory",
+					Origin:      "elephant",
+					Type:        "bone",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("large"),
 		},
-		Animal{
+		{
 			Name:           "goat",
 			PluralName:     "goats",
 			AnimalType:     "mammal",
@@ -310,28 +310,28 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "goat hide",
-					Origin: "goat",
-					Type:   "hide",
+				{
+					Name:        "goat hide",
+					Origin:      "goat",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "goat's milk",
-					Origin: "goat",
-					Type:   "milk",
+				{
+					Name:        "goat's milk",
+					Origin:      "goat",
+					Type:        "milk",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "goat",
-					Origin: "goat",
-					Type:   "meat",
+				{
+					Name:        "goat",
+					Origin:      "goat",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "sheep",
 			PluralName:     "sheep",
 			AnimalType:     "mammal",
@@ -346,28 +346,28 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "wool",
-					Origin: "sheep",
-					Type:   "hide",
+				{
+					Name:        "wool",
+					Origin:      "sheep",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "sheep's milk",
-					Origin: "sheep",
-					Type:   "milk",
+				{
+					Name:        "sheep's milk",
+					Origin:      "sheep",
+					Type:        "milk",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "lamb",
-					Origin: "sheep",
-					Type:   "meat",
+				{
+					Name:        "lamb",
+					Origin:      "sheep",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "alpaca",
 			PluralName:     "alpacas",
 			AnimalType:     "mammal",
@@ -382,28 +382,28 @@ func getMammals() []Animal {
 			MinTemperature: 4,
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "alpaca wool",
-					Origin: "alpaca",
-					Type:   "hide",
+				{
+					Name:        "alpaca wool",
+					Origin:      "alpaca",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "alpaca milk",
-					Origin: "alpaca",
-					Type:   "milk",
+				{
+					Name:        "alpaca milk",
+					Origin:      "alpaca",
+					Type:        "milk",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "alpaca",
-					Origin: "alpaca",
-					Type:   "meat",
+				{
+					Name:        "alpaca",
+					Origin:      "alpaca",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "llama",
 			PluralName:     "llamas",
 			AnimalType:     "mammal",
@@ -418,28 +418,28 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "llama wool",
-					Origin: "llama",
-					Type:   "hide",
+				{
+					Name:        "llama wool",
+					Origin:      "llama",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "llama",
-					Origin: "llama",
-					Type:   "meat",
+				{
+					Name:        "llama",
+					Origin:      "llama",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "llama milk",
-					Origin: "llama",
-					Type:   "milk",
+				{
+					Name:        "llama milk",
+					Origin:      "llama",
+					Type:        "milk",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "hippopotamus",
 			PluralName:     "hippopotamuses",
 			AnimalType:     "mammal",
@@ -454,28 +454,28 @@ func getMammals() []Animal {
 			MinTemperature: 6,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "hippopotamus hide",
-					Origin: "hippopotamus",
-					Type:   "hide",
+				{
+					Name:        "hippopotamus hide",
+					Origin:      "hippopotamus",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "hippopotamus",
-					Origin: "hippopotamus",
-					Type:   "meat",
+				{
+					Name:        "hippopotamus",
+					Origin:      "hippopotamus",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "hippopotamus milk",
-					Origin: "hippopotamus",
-					Type:   "milk",
+				{
+					Name:        "hippopotamus milk",
+					Origin:      "hippopotamus",
+					Type:        "milk",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("large"),
 		},
-		Animal{
+		{
 			Name:           "antelope",
 			PluralName:     "antelopes",
 			AnimalType:     "mammal",
@@ -490,28 +490,28 @@ func getMammals() []Animal {
 			MinTemperature: 6,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "antelope hide",
-					Origin: "antelope",
-					Type:   "hide",
+				{
+					Name:        "antelope hide",
+					Origin:      "antelope",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "antelope",
-					Origin: "antelope",
-					Type:   "meat",
+				{
+					Name:        "antelope",
+					Origin:      "antelope",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "antelope milk",
-					Origin: "antelope",
-					Type:   "milk",
+				{
+					Name:        "antelope milk",
+					Origin:      "antelope",
+					Type:        "milk",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "gazelle",
 			PluralName:     "gazelles",
 			AnimalType:     "mammal",
@@ -526,28 +526,28 @@ func getMammals() []Animal {
 			MinTemperature: 6,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "gazelle hide",
-					Origin: "gazelle",
-					Type:   "hide",
+				{
+					Name:        "gazelle hide",
+					Origin:      "gazelle",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "gazelle",
-					Origin: "gazelle",
-					Type:   "meat",
+				{
+					Name:        "gazelle",
+					Origin:      "gazelle",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "gazelle milk",
-					Origin: "gazelle",
-					Type:   "milk",
+				{
+					Name:        "gazelle milk",
+					Origin:      "gazelle",
+					Type:        "milk",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "rabbit",
 			PluralName:     "rabbits",
 			AnimalType:     "mammal",
@@ -562,22 +562,22 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "rabbit hide",
-					Origin: "rabbit",
-					Type:   "hide",
+				{
+					Name:        "rabbit hide",
+					Origin:      "rabbit",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "rabbit",
-					Origin: "rabbit",
-					Type:   "meat",
+				{
+					Name:        "rabbit",
+					Origin:      "rabbit",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
 		},
-		Animal{
+		{
 			Name:           "ermine",
 			PluralName:     "ermines",
 			AnimalType:     "mammal",
@@ -592,22 +592,22 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "ermine fur",
-					Origin: "ermine",
-					Type:   "fur",
+				{
+					Name:        "ermine fur",
+					Origin:      "ermine",
+					Type:        "fur",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "ermine",
-					Origin: "ermine",
-					Type:   "meat",
+				{
+					Name:        "ermine",
+					Origin:      "ermine",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
 		},
-		Animal{
+		{
 			Name:           "mink",
 			PluralName:     "minks",
 			AnimalType:     "mammal",
@@ -622,22 +622,22 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "mink fur",
-					Origin: "mink",
-					Type:   "fur",
+				{
+					Name:        "mink fur",
+					Origin:      "mink",
+					Type:        "fur",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "mink",
-					Origin: "mink",
-					Type:   "meat",
+				{
+					Name:        "mink",
+					Origin:      "mink",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
 		},
-		Animal{
+		{
 			Name:           "pig",
 			PluralName:     "pigs",
 			AnimalType:     "mammal",
@@ -652,46 +652,46 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "pig hide",
-					Origin: "pig",
-					Type:   "hide",
+				{
+					Name:        "pig hide",
+					Origin:      "pig",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "pork",
-					Origin: "pig",
-					Type:   "meat",
+				{
+					Name:        "pork",
+					Origin:      "pig",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "pork loin",
-					Origin: "pig",
-					Type:   "meat",
+				{
+					Name:        "pork loin",
+					Origin:      "pig",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "pork intestine",
-					Origin: "pig",
-					Type:   "meat",
+				{
+					Name:        "pork intestine",
+					Origin:      "pig",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "pork ribs",
-					Origin: "pig",
-					Type:   "meat",
+				{
+					Name:        "pork ribs",
+					Origin:      "pig",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "bacon",
-					Origin: "pig",
-					Type:   "meat",
+				{
+					Name:        "bacon",
+					Origin:      "pig",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "raccoon",
 			PluralName:     "raccoons",
 			AnimalType:     "mammal",
@@ -706,22 +706,22 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "raccoon hide",
-					Origin: "raccoon",
-					Type:   "hide",
+				{
+					Name:        "raccoon hide",
+					Origin:      "raccoon",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "raccoon",
-					Origin: "raccoon",
-					Type:   "meat",
+				{
+					Name:        "raccoon",
+					Origin:      "raccoon",
+					Type:        "meat",
 					Commonality: 5,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
 		},
-		Animal{
+		{
 			Name:           "reindeer",
 			PluralName:     "reindeer",
 			AnimalType:     "mammal",
@@ -736,28 +736,28 @@ func getMammals() []Animal {
 			MinTemperature: 0,
 			MaxTemperature: 4,
 			Resources: []resource.Resource{
-				resource.Resource{
-					Name:   "reindeer hide",
-					Origin: "reindeer",
-					Type:   "hide",
+				{
+					Name:        "reindeer hide",
+					Origin:      "reindeer",
+					Type:        "hide",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "reindeer",
-					Origin: "reindeer",
-					Type:   "meat",
+				{
+					Name:        "reindeer",
+					Origin:      "reindeer",
+					Type:        "meat",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "reindeer milk",
-					Origin: "reindeer",
-					Type:   "milk",
+				{
+					Name:        "reindeer milk",
+					Origin:      "reindeer",
+					Type:        "milk",
 					Commonality: 5,
 				},
-				resource.Resource{
-					Name:   "reindeer bone",
-					Origin: "reindeer",
-					Type:   "bone",
+				{
+					Name:        "reindeer bone",
+					Origin:      "reindeer",
+					Type:        "bone",
 					Commonality: 5,
 				},
 			},

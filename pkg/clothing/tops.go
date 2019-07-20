@@ -6,7 +6,7 @@ import (
 
 func getTopTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "tunic",
 			Type:         "top",
 			MaterialType: "fabric",
@@ -24,7 +24,7 @@ func getTopTemplates() []ItemTemplate {
 				"with no sleeves",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "shirt",
 			Type:         "top",
 			MaterialType: "fabric",

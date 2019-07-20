@@ -78,7 +78,7 @@ func (pantheon Pantheon) GenerateRelationships() map[string]Deity {
 
 func getAllRelationshipTypes() []RelationshipType {
 	types := []RelationshipType{
-		RelationshipType{
+		{
 			Name: "parent",
 			Descriptors: []string{
 				"created",
@@ -86,14 +86,14 @@ func getAllRelationshipTypes() []RelationshipType {
 				"is parent of",
 			},
 		},
-		RelationshipType{
+		{
 			Name: "child",
 			Descriptors: []string{
 				"was created by",
 				"is child of",
 			},
 		},
-		RelationshipType{
+		{
 			Name: "friend",
 			Descriptors: []string{
 				"is a confidant of",
@@ -101,7 +101,7 @@ func getAllRelationshipTypes() []RelationshipType {
 				"is an ally of",
 			},
 		},
-		RelationshipType{
+		{
 			Name: "enemy",
 			Descriptors: []string{
 				"despises",
@@ -112,14 +112,14 @@ func getAllRelationshipTypes() []RelationshipType {
 				"is the hated foe of",
 			},
 		},
-		RelationshipType{
+		{
 			Name: "lover",
 			Descriptors: []string{
 				"loves",
 				"adores",
 			},
 		},
-		RelationshipType{
+		{
 			Name: "opinion",
 			Descriptors: []string{
 				"is amused by",

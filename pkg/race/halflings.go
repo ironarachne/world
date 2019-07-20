@@ -15,42 +15,42 @@ func getHalflings() []Race {
 	weightRange := 100
 
 	return []Race{
-		Race{
+		{
 			Name:       "halfling",
 			PluralName: "halflings",
 			Adjective:  "halfling",
 			AgeCategories: []AgeCategory{
-				AgeCategory{
+				{
 					Name:        "adult",
 					MinAge:      36,
 					MaxAge:      99,
 					Commonality: 12,
 				},
-				AgeCategory{
+				{
 					Name:        "elderly",
 					MinAge:      100,
 					MaxAge:      200,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "young adult",
 					MinAge:      20,
 					MaxAge:      35,
 					Commonality: 2,
 				},
-				AgeCategory{
+				{
 					Name:        "teenager",
 					MinAge:      13,
 					MaxAge:      19,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "child",
 					MinAge:      2,
 					MaxAge:      12,
 					Commonality: 1,
 				},
-				AgeCategory{
+				{
 					Name:        "infant",
 					MinAge:      0,
 					MaxAge:      1,

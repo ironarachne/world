@@ -14,7 +14,7 @@ type Class struct {
 
 func getAllClasses() []Class {
 	return []Class{
-		Class{
+		{
 			Name:            "monotheistic",
 			Commonality:     5,
 			LeaderTitle:     "priest",
@@ -26,7 +26,7 @@ func getAllClasses() []Class {
 				"church",
 			},
 		},
-		Class{
+		{
 			Name:            "duotheistic",
 			Commonality:     1,
 			LeaderTitle:     "priest",
@@ -38,7 +38,7 @@ func getAllClasses() []Class {
 				"church",
 			},
 		},
-		Class{
+		{
 			Name:            "polytheistic",
 			Commonality:     12,
 			LeaderTitle:     "priest",
@@ -50,7 +50,7 @@ func getAllClasses() []Class {
 				"church",
 			},
 		},
-		Class{
+		{
 			Name:            "shamanistic",
 			Commonality:     2,
 			LeaderTitle:     "shaman",
@@ -62,7 +62,7 @@ func getAllClasses() []Class {
 				"spirit lodge",
 			},
 		},
-		Class{
+		{
 			Name:            "philosophical",
 			Commonality:     1,
 			LeaderTitle:     "sage",

@@ -7,7 +7,7 @@ import (
 
 func getAllHumanoids() []Monster {
 	return []Monster{
-		Monster{
+		{
 			Name:                 "bugbear",
 			PluralName:           "bugbears",
 			SizeCategory:         size.GetCategoryByName("medium"),
@@ -19,7 +19,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "bullywug",
 			PluralName:           "bullywugs",
 			SizeCategory:         size.GetCategoryByName("medium"),
@@ -31,7 +31,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "goblin",
 			PluralName:           "goblins",
 			SizeCategory:         size.GetCategoryByName("small"),
@@ -43,7 +43,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "gorgon",
 			PluralName:           "gorgons",
 			SizeCategory:         size.GetCategoryByName("medium"),
@@ -55,7 +55,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "hobgoblin",
 			PluralName:           "hobgoblins",
 			SizeCategory:         size.GetCategoryByName("medium"),
@@ -67,7 +67,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "kobold",
 			PluralName:           "kobolds",
 			SizeCategory:         size.GetCategoryByName("small"),
@@ -79,7 +79,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "orc",
 			PluralName:           "orcs",
 			SizeCategory:         size.GetCategoryByName("medium"),
@@ -91,7 +91,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "troglodyte",
 			PluralName:           "troglodytes",
 			SizeCategory:         size.GetCategoryByName("medium"),
@@ -103,7 +103,7 @@ func getAllHumanoids() []Monster {
 				return num
 			},
 		},
-		Monster{
+		{
 			Name:                 "troll",
 			PluralName:           "trolls",
 			SizeCategory:         size.GetCategoryByName("medium"),

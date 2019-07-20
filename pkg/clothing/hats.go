@@ -4,7 +4,7 @@ import "math/rand"
 
 func getHatTemplates() []ItemTemplate {
 	return []ItemTemplate{
-		ItemTemplate{
+		{
 			Name:         "hat",
 			Type:         "hat",
 			MaterialType: "fabric",
@@ -21,7 +21,7 @@ func getHatTemplates() []ItemTemplate {
 				"with ear flaps",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "cap",
 			Type:         "hat",
 			MaterialType: "fabric",
@@ -37,7 +37,7 @@ func getHatTemplates() []ItemTemplate {
 				"with straps",
 			},
 		},
-		ItemTemplate{
+		{
 			Name:         "turban",
 			Type:         "hat",
 			MaterialType: "fabric",

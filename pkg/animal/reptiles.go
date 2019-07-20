@@ -7,7 +7,7 @@ import (
 
 func getReptiles() []Animal {
 	reptiles := []Animal{
-		Animal{
+		{
 			Name:           "alligator",
 			PluralName:     "alligators",
 			AnimalType:     "reptile",
@@ -22,19 +22,19 @@ func getReptiles() []Animal {
 			MinTemperature: 5,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "alligator hide",
 					Origin:      "alligator",
 					Type:        "hide",
 					Commonality: 4,
 				},
-				resource.Resource{
+				{
 					Name:        "alligator fangs",
 					Origin:      "alligator",
 					Type:        "teeth",
 					Commonality: 4,
 				},
-				resource.Resource{
+				{
 					Name:        "alligator",
 					Origin:      "alligator",
 					Type:        "meat",
@@ -43,7 +43,7 @@ func getReptiles() []Animal {
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "crocodile",
 			PluralName:     "crocodiles",
 			AnimalType:     "reptile",
@@ -58,19 +58,19 @@ func getReptiles() []Animal {
 			MinTemperature: 5,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "crocodile hide",
 					Origin:      "crocodile",
 					Type:        "hide",
 					Commonality: 4,
 				},
-				resource.Resource{
+				{
 					Name:        "crocodile fangs",
 					Origin:      "crocodile",
 					Type:        "teeth",
 					Commonality: 4,
 				},
-				resource.Resource{
+				{
 					Name:        "crocodile",
 					Origin:      "crocodile",
 					Type:        "meat",
@@ -79,7 +79,7 @@ func getReptiles() []Animal {
 			},
 			Size: size.GetCategoryByName("medium"),
 		},
-		Animal{
+		{
 			Name:           "monitor lizard",
 			PluralName:     "monitor lizards",
 			AnimalType:     "reptile",
@@ -94,25 +94,25 @@ func getReptiles() []Animal {
 			MinTemperature: 5,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
-				resource.Resource{
+				{
 					Name:        "monitor lizard hide",
 					Origin:      "monitor lizard",
 					Type:        "hide",
 					Commonality: 4,
 				},
-				resource.Resource{
+				{
 					Name:        "monitor lizard fangs",
 					Origin:      "monitor lizard",
 					Type:        "teeth",
 					Commonality: 4,
 				},
-				resource.Resource{
+				{
 					Name:        "monitor lizard",
 					Origin:      "monitor lizard",
 					Type:        "meat",
 					Commonality: 4,
 				},
-				resource.Resource{
+				{
 					Name:        "monitor lizard venom",
 					Origin:      "monitor lizard",
 					Type:        "venom",

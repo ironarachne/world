@@ -142,119 +142,119 @@ func (instrument Instrument) getDescription() string {
 
 func getAllInstruments() []Instrument {
 	instruments := []Instrument{
-		Instrument{
+		{
 			Name:                   "short flute",
 			Type:                   "flute",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"metal", "wood"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} trimmed with {{.SupportMaterial}}",
 		},
-		Instrument{
+		{
 			Name:                   "long flute",
 			Type:                   "flute",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"metal", "wood"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} trimmed with {{.SupportMaterial}}",
 		},
-		Instrument{
+		{
 			Name:                   "twin flute",
 			Type:                   "flute",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"metal", "wood"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} trimmed with {{.SupportMaterial}}",
 		},
-		Instrument{
+		{
 			Name:                   "short harp",
 			Type:                   "harp",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "long harp",
 			Type:                   "harp",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "full harp",
 			Type:                   "harp",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "lyre",
 			Type:                   "lyre",
 			BaseMaterialOptions:    []string{"wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "lijerica",
 			Type:                   "lyre",
 			BaseMaterialOptions:    []string{"wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "long-necked lute",
 			Type:                   "lute",
 			BaseMaterialOptions:    []string{"wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "pierced lute",
 			Type:                   "lute",
 			BaseMaterialOptions:    []string{"wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "short-necked lute",
 			Type:                   "lute",
 			BaseMaterialOptions:    []string{"wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} strung with {{.SupportMaterial}} sinew",
 		},
-		Instrument{
+		{
 			Name:                   "single-drone bagpipes",
 			Type:                   "bagpipes",
 			BaseMaterialOptions:    []string{"hide"},
 			SupportMaterialOptions: []string{"metal", "wood"},
 			DescriptionTemplate:    "{{.BaseMaterial}}-hide {{.Name}} with {{.SupportMaterial}} drone",
 		},
-		Instrument{
+		{
 			Name:                   "multiple-drone bagpipes",
 			Type:                   "bagpipes",
 			BaseMaterialOptions:    []string{"hide"},
 			SupportMaterialOptions: []string{"metal", "wood"},
 			DescriptionTemplate:    "{{.BaseMaterial}}-hide {{.Name}} with {{.SupportMaterial}} drones",
 		},
-		Instrument{
+		{
 			Name:                   "hand drum",
 			Type:                   "drum",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} skinned with {{.SupportMaterial}} hide",
 		},
-		Instrument{
+		{
 			Name:                   "short drum",
 			Type:                   "drum",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} skinned with {{.SupportMaterial}} hide",
 		},
-		Instrument{
+		{
 			Name:                   "walking drum",
 			Type:                   "drum",
 			BaseMaterialOptions:    []string{"metal", "wood"},
 			SupportMaterialOptions: []string{"hide"},
 			DescriptionTemplate:    "{{.BaseMaterial}} {{.Name}} skinned with {{.SupportMaterial}} hide",
 		},
-		Instrument{
+		{
 			Name:                   "heavy drum",
 			Type:                   "drum",
 			BaseMaterialOptions:    []string{"metal", "wood"},
