@@ -7,61 +7,66 @@ func getCarpentry() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "bench",
+			Name:        "bench",
 			Description: "a bench",
-			Profession: producer,
+			Type:        "furniture",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "wood",
+					Name:                "body",
+					RequiredType:        "wood",
 					DescriptionTemplate: "{{.Resource.Name}} wood bench",
 				},
 			},
 		},
 		{
-			Name: "bowl",
+			Name:        "bowl",
 			Description: "a bowl",
-			Profession: producer,
+			Type:        "food vessel",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "wood",
+					Name:                "body",
+					RequiredType:        "wood",
 					DescriptionTemplate: "{{.Resource.Name}} wood bowl",
 				},
 			},
 		},
 		{
-			Name: "chair",
+			Name:        "chair",
 			Description: "a chair",
-			Profession: producer,
+			Type:        "furniture",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "wood",
+					Name:                "body",
+					RequiredType:        "wood",
 					DescriptionTemplate: "{{.Resource.Name}} wood chair",
 				},
 			},
 		},
 		{
-			Name: "table",
+			Name:        "table",
 			Description: "a table",
-			Profession: producer,
+			Type:        "furniture",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "wood",
+					Name:                "body",
+					RequiredType:        "wood",
 					DescriptionTemplate: "{{.Resource.Name}} wood table",
 				},
 			},
 		},
 		{
-			Name: "tankard",
+			Name:        "tankard",
 			Description: "a tankard",
-			Profession: producer,
+			Type:        "drinking vessel",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "wood",
+					Name:                "body",
+					RequiredType:        "wood",
 					DescriptionTemplate: "{{.Resource.Name}} wood tankard",
 				},
 			},

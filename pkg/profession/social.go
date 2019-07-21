@@ -3,7 +3,7 @@ package profession
 func social() []Profession {
 	professions := []Profession{
 		{
-			Name: "bard",
+			Name:        "bard",
 			Description: "Bards are minstrels who travel and entertain.",
 			Tags: []string{
 				"musician",

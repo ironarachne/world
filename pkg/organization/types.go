@@ -3,6 +3,7 @@ package organization
 import (
 	"github.com/ironarachne/world/pkg/profession"
 	"math/rand"
+	"strings"
 )
 
 // Type is a type of organization
@@ -24,7 +25,6 @@ type Type struct {
 func getAllTypes() []Type {
 	var adventurers []profession.Profession
 
-	crafters := profession.ByTag("crafter")
 	divine := profession.ByTag("divine")
 	fighters := profession.ByTag("fighter")
 	mages := profession.ByTag("mage")
@@ -128,43 +128,6 @@ func getAllTypes() []Type {
 			NameTemplate: "{{.FirstPart}} Church of the {{.SecondPart}}",
 		},
 		{
-			Name: "guild",
-			PossibleTraits: []string{
-				"ambitious",
-				"avaricious",
-				"charitable",
-				"fair",
-				"frugal",
-				"lazy",
-				"manipulative",
-				"observant",
-				"productive",
-			},
-			CanBeLedByGroup: true,
-			LeaderMaxAge:    70,
-			LeaderMinAge:    30,
-			LeaderTitle:     "guild leader",
-			MemberMaxAge:    90,
-			MemberMinAge:    20,
-			MemberProfessions: crafters,
-			NameFirstParts: []string{
-				"August",
-				"East Wind",
-				"Global",
-				"Imperial",
-				"Incorporated",
-				"North Wind",
-				"Royal",
-				"South Wind",
-				"West Wind",
-			},
-			NameSecondParts: []string{
-				"Artisan",
-				"Crafter",
-			},
-			NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
-		},
-		{
 			Name: "mercenary company",
 			PossibleTraits: []string{
 				"aggressive",
@@ -211,7 +174,55 @@ func getAllTypes() []Type {
 		},
 	}
 
+	guild := getCraftingGuild()
+
+	types = append(types, guild)
+
 	return types
+}
+
+func getCraftingGuild() Type {
+	guild := Type{
+		Name: "guild",
+		PossibleTraits: []string{
+			"ambitious",
+			"avaricious",
+			"charitable",
+			"fair",
+			"frugal",
+			"lazy",
+			"manipulative",
+			"observant",
+			"productive",
+		},
+		CanBeLedByGroup: true,
+		LeaderMaxAge:    70,
+		LeaderMinAge:    30,
+		LeaderTitle:     "guild leader",
+		MemberMaxAge:    90,
+		MemberMinAge:    20,
+		NameFirstParts: []string{
+			"August",
+			"East Wind",
+			"Global",
+			"Imperial",
+			"Incorporated",
+			"North Wind",
+			"Royal",
+			"South Wind",
+			"West Wind",
+		},
+		NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
+	}
+
+	crafters := profession.ByTag("crafter")
+	memberProfessions := profession.RandomSet(1, crafters)
+	guild.MemberProfessions = memberProfessions
+	guild.NameSecondParts = []string{
+		strings.Title(memberProfessions[0].Name),
+	}
+
+	return guild
 }
 
 // GetRandomMemberProfession returns a random profession from those available to the organization
@@ -234,5 +245,5 @@ func (t Type) GetRandomMemberAge() int {
 func getRandomType() Type {
 	orgTypes := getAllTypes()
 
-	return orgTypes[rand.Intn(len(orgTypes)-1)]
+	return orgTypes[rand.Intn(len(orgTypes))]
 }

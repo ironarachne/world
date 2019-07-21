@@ -7,25 +7,27 @@ func getGlass() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "glass bottle",
+			Name:        "glass bottle",
 			Description: "glass bottle",
-			Profession: producer,
+			Type:        "drinking vessel",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "sand",
+					Name:                "body",
+					RequiredType:        "sand",
 					DescriptionTemplate: "{{.Resource.Name}} glass bottle",
 				},
 			},
 		},
 		{
-			Name: "glass",
+			Name:        "glass",
 			Description: "glass",
-			Profession: producer,
+			Type:        "glass",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "sand",
+					Name:                "body",
+					RequiredType:        "sand",
 					DescriptionTemplate: "{{.Resource.Name}} glass",
 				},
 			},

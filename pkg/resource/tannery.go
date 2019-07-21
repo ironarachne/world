@@ -7,13 +7,14 @@ func getTannery() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "leather",
+			Name:        "leather",
 			Description: "leather",
-			Profession: producer,
+			Type:        "leather",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "hide",
+					Name:                "body",
+					RequiredType:        "hide",
 					DescriptionTemplate: "{{.Resource.Name}} leather",
 				},
 			},

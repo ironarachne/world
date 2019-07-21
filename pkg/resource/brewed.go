@@ -7,37 +7,40 @@ func getBrewed() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "ale",
+			Name:        "ale",
 			Description: "an ale",
-			Profession: producer,
+			Type:        "alcohol",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "grain",
+					Name:                "body",
+					RequiredType:        "grain",
 					DescriptionTemplate: "{{.Resource.Name}} ale",
 				},
 			},
 		},
 		{
-			Name: "beer",
+			Name:        "beer",
 			Description: "a beer",
-			Profession: producer,
+			Type:        "alcohol",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "grain",
+					Name:                "body",
+					RequiredType:        "grain",
 					DescriptionTemplate: "{{.Resource.Name}} beer",
 				},
 			},
 		},
 		{
-			Name: "lager",
+			Name:        "lager",
 			Description: "an lager",
-			Profession: producer,
+			Type:        "alcohol",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "grain",
+					Name:                "body",
+					RequiredType:        "grain",
 					DescriptionTemplate: "{{.Resource.Name}} lager",
 				},
 			},

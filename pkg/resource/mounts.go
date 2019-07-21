@@ -9,6 +9,7 @@ func getMounts() []Pattern {
 		{
 			Name:        "mount",
 			Description: "a riding mount",
+			Type:        "trained mount",
 			Profession:  producer,
 			Slots: []Slot{
 				{
@@ -21,6 +22,7 @@ func getMounts() []Pattern {
 		{
 			Name:        "pack animal",
 			Description: "a beast of burden",
+			Type:        "trained pack animal",
 			Profession:  producer,
 			Slots: []Slot{
 				{
@@ -33,6 +35,7 @@ func getMounts() []Pattern {
 		{
 			Name:        "war mount",
 			Description: "a riding mount specifically trained for battle",
+			Type:        "trained mount",
 			Profession:  producer,
 			Slots: []Slot{
 				{

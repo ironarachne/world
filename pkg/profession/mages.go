@@ -7,6 +7,7 @@ func mages() []Profession {
 			Description: "Alchemists take raw materials and use magic to turn them into new substances.",
 			Tags: []string{
 				"crafter",
+				"mage",
 			},
 		},
 		{
@@ -24,12 +25,18 @@ func mages() []Profession {
 			},
 		},
 		{
-			Name: "sorcerer",
-			Description:"Sorcerers wield intuitive magic.",
+			Name:        "sorcerer",
+			Description: "Sorcerers wield intuitive magic.",
+			Tags: []string{
+				"mage",
+			},
 		},
 		{
-			Name: "wizard",
+			Name:        "wizard",
 			Description: "Wizards study magic as a science and wield it in complex and powerful ways.",
+			Tags: []string{
+				"mage",
+			},
 		},
 	}
 

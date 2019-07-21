@@ -7,13 +7,14 @@ func getWine() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "wine",
+			Name:        "wine",
 			Description: "wine",
-			Profession: producer,
+			Type:        "alcohol",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "fruit",
+					Name:                "body",
+					RequiredType:        "fruit",
 					DescriptionTemplate: "{{.Resource.Name}} wine",
 				},
 			},

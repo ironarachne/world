@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.4.1 (2019-07-21)
+
+Improved resources, professions, and organizations.
+
+### Change List
+
+- Fix bug in organization generation where it didn't recognize all types of organization
+- Add crafting guilds back to organization generation
+- Add blacksmith, bowyer, and farrier goods
+- Add many more patterns, especially to armor and weapons
+- Add ability to turn patterns into resources
+- Add a few new professions
+- Add tags to professions that were missing them
+
 ## 0.4.0 (2019-07-20)
 
 Massive rework of resources and institution of professions.

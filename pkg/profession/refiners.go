@@ -38,7 +38,7 @@ func refiners() []Profession {
 			},
 		},
 		{
-			Name: "glassmaker",
+			Name:        "glassmaker",
 			Description: "Glassmakers turn sand and other materials into glass.",
 			Tags: []string{
 				"crafter",

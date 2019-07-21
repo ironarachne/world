@@ -8,7 +8,7 @@ import (
 type Profession struct {
 	Name        string
 	Description string
-	Tags []string
+	Tags        []string
 }
 
 // All returns all professions
@@ -28,7 +28,7 @@ func All() []Profession {
 	social := social()
 	professions = append(professions, social...)
 	none := Profession{
-		Name: "none",
+		Name:        "none",
 		Description: "no profession",
 	}
 	professions = append(professions, none)

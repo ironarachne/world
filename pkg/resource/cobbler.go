@@ -7,25 +7,27 @@ func getCobbler() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "boots",
+			Name:        "boots",
 			Description: "boots",
-			Profession: producer,
+			Type:        "footwear",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "hide",
+					Name:                "body",
+					RequiredType:        "hide",
 					DescriptionTemplate: "{{.Resource.Name}} boots",
 				},
 			},
 		},
 		{
-			Name: "shoes",
+			Name:        "shoes",
 			Description: "shoes",
-			Profession: producer,
+			Type:        "footwear",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "hide",
+					Name:                "body",
+					RequiredType:        "hide",
 					DescriptionTemplate: "{{.Resource.Name}} shoes",
 				},
 			},

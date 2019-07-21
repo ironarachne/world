@@ -7,13 +7,14 @@ func getMedicine() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "healing draught",
+			Name:        "healing draught",
 			Description: "a healing draught",
-			Profession: producer,
+			Type:        "potion",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "herb",
+					Name:                "body",
+					RequiredType:        "herb",
 					DescriptionTemplate: "healing draught",
 				},
 			},

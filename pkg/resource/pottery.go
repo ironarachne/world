@@ -7,49 +7,53 @@ func getPottery() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "bowl",
+			Name:        "bowl",
 			Description: "a clay bowl",
-			Profession: producer,
+			Type:        "food vessel",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "clay",
+					Name:                "body",
+					RequiredType:        "clay",
 					DescriptionTemplate: "{{.Resource.Name}} bowl",
 				},
 			},
 		},
 		{
-			Name: "mug",
+			Name:        "mug",
 			Description: "a clay mug",
-			Profession: producer,
+			Type:        "drinking vessel",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "clay",
+					Name:                "body",
+					RequiredType:        "clay",
 					DescriptionTemplate: "{{.Resource.Name}} mug",
 				},
 			},
 		},
 		{
-			Name: "pitcher",
+			Name:        "pitcher",
 			Description: "a clay pitcher",
-			Profession: producer,
+			Type:        "liquid vessel",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "clay",
+					Name:                "body",
+					RequiredType:        "clay",
 					DescriptionTemplate: "{{.Resource.Name}} pitcher",
 				},
 			},
 		},
 		{
-			Name: "vase",
+			Name:        "vase",
 			Description: "a clay vase",
-			Profession: producer,
+			Type:        "vase",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "clay",
+					Name:                "body",
+					RequiredType:        "clay",
 					DescriptionTemplate: "{{.Resource.Name}} vase",
 				},
 			},

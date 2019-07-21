@@ -9,6 +9,7 @@ func getBreads() []Pattern {
 		{
 			Name:        "bread",
 			Description: "a loaf of simple bread",
+			Type:        "bread",
 			Profession:  producer,
 			Slots: []Slot{
 				{
@@ -21,6 +22,7 @@ func getBreads() []Pattern {
 		{
 			Name:        "roll",
 			Description: "a small hand-sized roll",
+			Type:        "bread",
 			Profession:  producer,
 			Slots: []Slot{
 				{

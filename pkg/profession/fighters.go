@@ -11,7 +11,7 @@ func fighters() []Profession {
 			},
 		},
 		{
-			Name: "paladin",
+			Name:        "paladin",
 			Description: "Paladins are holy warriors who wield divine magic in addition to their fighing skill.",
 			Tags: []string{
 				"divine",
@@ -19,14 +19,14 @@ func fighters() []Profession {
 			},
 		},
 		{
-			Name: "soldier",
+			Name:        "soldier",
 			Description: "Soldiers are formally trained fighters with allegiance to a fighting unit.",
 			Tags: []string{
 				"fighter",
 			},
 		},
 		{
-			Name: "warrior",
+			Name:        "warrior",
 			Description: "Warriors are fighters who have no formal training, but have gained experience in battle.",
 			Tags: []string{
 				"fighter",

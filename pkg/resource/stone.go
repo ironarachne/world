@@ -7,25 +7,27 @@ func getStone() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "stone block",
+			Name:        "stone block",
 			Description: "a block of stone",
-			Profession: producer,
+			Type:        "building block",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "stone",
+					Name:                "body",
+					RequiredType:        "stone",
 					DescriptionTemplate: "{{.Resource.Name}} block",
 				},
 			},
 		},
 		{
-			Name: "stone slab",
+			Name:        "stone slab",
 			Description: "a slab of stone",
-			Profession: producer,
+			Type:        "building block",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "stone",
+					Name:                "body",
+					RequiredType:        "stone",
 					DescriptionTemplate: "{{.Resource.Name}} slab",
 				},
 			},

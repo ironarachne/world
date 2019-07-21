@@ -11,6 +11,8 @@ import (
 type Pattern struct {
 	Name        string
 	Description string
+	Type        string
+	Commonality int
 	Profession  profession.Profession
 	Slots       []Slot
 }
@@ -27,6 +29,7 @@ type Slot struct {
 func AllPatterns() []Pattern {
 	var patterns []Pattern
 	armor := getArmor()
+	bowery := getBowery()
 	breads := getBreads()
 	brewed := getBrewed()
 	carpentry := getCarpentry()
@@ -39,11 +42,14 @@ func AllPatterns() []Pattern {
 	mounts := getMounts()
 	potions := getPotions()
 	pottery := getPottery()
+	smithing := getSmithing()
+	stone := getStone()
 	tannery := getTannery()
 	weapons := getWeapons()
 	wine := getWine()
 
 	patterns = append(patterns, armor...)
+	patterns = append(patterns, bowery...)
 	patterns = append(patterns, breads...)
 	patterns = append(patterns, brewed...)
 	patterns = append(patterns, carpentry...)
@@ -56,6 +62,8 @@ func AllPatterns() []Pattern {
 	patterns = append(patterns, mounts...)
 	patterns = append(patterns, potions...)
 	patterns = append(patterns, pottery...)
+	patterns = append(patterns, smithing...)
+	patterns = append(patterns, stone...)
 	patterns = append(patterns, tannery...)
 	patterns = append(patterns, weapons...)
 	patterns = append(patterns, wine...)
@@ -135,6 +143,18 @@ func (pattern Pattern) Render() string {
 	}
 
 	return description
+}
+
+// ToResource transforms a completed pattern into a resource
+func (pattern Pattern) ToResource() Resource {
+	var resource Resource
+
+	resource.Name = pattern.Render()
+	resource.Origin = pattern.Name
+	resource.Type = pattern.Type
+	resource.Commonality = pattern.Commonality
+
+	return resource
 }
 
 func (slot Slot) describe() string {

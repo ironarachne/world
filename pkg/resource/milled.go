@@ -7,13 +7,14 @@ func getMilled() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "flour",
+			Name:        "flour",
 			Description: "flour",
-			Profession: producer,
+			Type:        "flour",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "grain",
+					Name:                "body",
+					RequiredType:        "grain",
 					DescriptionTemplate: "{{.Resource.Name}} flour",
 				},
 			},

@@ -7,13 +7,14 @@ func getMined() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "refined ore",
+			Name:        "refined ore",
 			Description: "refined ore",
-			Profession: producer,
+			Type:        "refined ore",
+			Profession:  producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "ore",
+					Name:                "body",
+					RequiredType:        "ore",
 					DescriptionTemplate: "refined {{.Resource.Name}} ore",
 				},
 			},
