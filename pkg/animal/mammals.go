@@ -25,19 +25,25 @@ func getMammals() []Animal {
 				{
 					Name:        "beaver hide",
 					Origin:      "beaver",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "beaver teeth",
 					Origin:      "beaver",
-					Type:        "teeth",
+					Tags: []string{
+						"teeth",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "beaver meat",
 					Origin:      "beaver",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 			},
@@ -61,25 +67,42 @@ func getMammals() []Animal {
 				{
 					Name:        "deer hide",
 					Origin:      "deer",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "deer teeth",
 					Origin:      "deer",
-					Type:        "teeth",
+					Tags: []string{
+						"teeth",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "venison",
 					Origin:      "deer",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "deer antler",
 					Origin:      "deer",
-					Type:        "bone",
+					Tags: []string{
+						"antler",
+						"bone",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "deer sinew",
+					Origin: "deer",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -103,13 +126,17 @@ func getMammals() []Animal {
 				{
 					Name:        "squirrel hide",
 					Origin:      "squirrel",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
-					Name:        "squirrel meat",
+					Name:        "squirrel",
 					Origin:      "squirrel",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 			},
@@ -133,25 +160,41 @@ func getMammals() []Animal {
 				{
 					Name:        "camel hide",
 					Origin:      "camel",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "camel teeth",
 					Origin:      "camel",
-					Type:        "teeth",
+					Tags: []string{
+						"teeth",
+					},
 					Commonality: 5,
 				},
 				{
-					Name:        "camel meat",
+					Name:        "camel",
 					Origin:      "camel",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "camel milk",
 					Origin:      "camel",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "camel sinew",
+					Origin: "camel",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -175,25 +218,41 @@ func getMammals() []Animal {
 				{
 					Name:        "bison hide",
 					Origin:      "bison",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "bison teeth",
 					Origin:      "bison",
-					Type:        "teeth",
+					Tags: []string{
+						"teeth",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "bison",
 					Origin:      "bison",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "bison bone",
 					Origin:      "bison",
-					Type:        "bone",
+					Tags: []string{
+						"bone",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "bison sinew",
+					Origin: "bison",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -215,39 +274,67 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "leather",
+					Name: "calf brains",
+					Origin: "cow",
+					Tags: []string{
+						"brains",
+						"meat",
+					},
+				},
+				{
+					Name:        "cow hide",
 					Origin:      "cow",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "cow teeth",
 					Origin:      "cow",
-					Type:        "teeth",
+					Tags: []string{
+						"teeth",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "beef",
 					Origin:      "cow",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "beef loin",
 					Origin:      "cow",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "beef ribs",
 					Origin:      "cow",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "cow bone",
 					Origin:      "cow",
-					Type:        "bone",
+					Tags: []string{
+						"bone",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "cow sinew",
+					Origin: "cow",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -271,25 +358,41 @@ func getMammals() []Animal {
 				{
 					Name:        "elephant hide",
 					Origin:      "elephant",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "elephant milk",
 					Origin:      "elephant",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "elephant",
 					Origin:      "elephant",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "ivory",
 					Origin:      "elephant",
-					Type:        "bone",
+					Tags: []string{
+						"bone",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "elephant sinew",
+					Origin: "elephant",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -313,19 +416,33 @@ func getMammals() []Animal {
 				{
 					Name:        "goat hide",
 					Origin:      "goat",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "goat's milk",
 					Origin:      "goat",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "goat",
 					Origin:      "goat",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "goat sinew",
+					Origin: "goat",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -349,19 +466,33 @@ func getMammals() []Animal {
 				{
 					Name:        "wool",
 					Origin:      "sheep",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "sheep's milk",
 					Origin:      "sheep",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "lamb",
 					Origin:      "sheep",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "sheep sinew",
+					Origin: "sheep",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -385,19 +516,34 @@ func getMammals() []Animal {
 				{
 					Name:        "alpaca wool",
 					Origin:      "alpaca",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+						"wool",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "alpaca milk",
 					Origin:      "alpaca",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "alpaca",
 					Origin:      "alpaca",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "alpaca sinew",
+					Origin: "alpaca",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -421,19 +567,34 @@ func getMammals() []Animal {
 				{
 					Name:        "llama wool",
 					Origin:      "llama",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+						"wool",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "llama",
 					Origin:      "llama",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "llama milk",
 					Origin:      "llama",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "llama sinew",
+					Origin: "llama",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -457,19 +618,25 @@ func getMammals() []Animal {
 				{
 					Name:        "hippopotamus hide",
 					Origin:      "hippopotamus",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "hippopotamus",
 					Origin:      "hippopotamus",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "hippopotamus milk",
 					Origin:      "hippopotamus",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
 					Commonality: 5,
 				},
 			},
@@ -493,19 +660,33 @@ func getMammals() []Animal {
 				{
 					Name:        "antelope hide",
 					Origin:      "antelope",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "antelope",
 					Origin:      "antelope",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "antelope milk",
 					Origin:      "antelope",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "antelope sinew",
+					Origin: "antelope",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -529,19 +710,33 @@ func getMammals() []Animal {
 				{
 					Name:        "gazelle hide",
 					Origin:      "gazelle",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "gazelle",
 					Origin:      "gazelle",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "gazelle milk",
 					Origin:      "gazelle",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "gazelle sinew",
+					Origin: "gazelle",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -565,13 +760,17 @@ func getMammals() []Animal {
 				{
 					Name:        "rabbit hide",
 					Origin:      "rabbit",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "rabbit",
 					Origin:      "rabbit",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 			},
@@ -595,13 +794,17 @@ func getMammals() []Animal {
 				{
 					Name:        "ermine fur",
 					Origin:      "ermine",
-					Type:        "fur",
+					Tags: []string{
+						"fur",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "ermine",
 					Origin:      "ermine",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 			},
@@ -625,13 +828,17 @@ func getMammals() []Animal {
 				{
 					Name:        "mink fur",
 					Origin:      "mink",
-					Type:        "fur",
+					Tags: []string{
+						"fur",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "mink",
 					Origin:      "mink",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 			},
@@ -655,37 +862,57 @@ func getMammals() []Animal {
 				{
 					Name:        "pig hide",
 					Origin:      "pig",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "pork",
 					Origin:      "pig",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "pork loin",
 					Origin:      "pig",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "pork intestine",
 					Origin:      "pig",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "pork ribs",
 					Origin:      "pig",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "bacon",
 					Origin:      "pig",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "pig sinew",
+					Origin: "pig",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},
@@ -709,13 +936,17 @@ func getMammals() []Animal {
 				{
 					Name:        "raccoon hide",
 					Origin:      "raccoon",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "raccoon",
 					Origin:      "raccoon",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 			},
@@ -739,25 +970,41 @@ func getMammals() []Animal {
 				{
 					Name:        "reindeer hide",
 					Origin:      "reindeer",
-					Type:        "hide",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "reindeer",
 					Origin:      "reindeer",
-					Type:        "meat",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "reindeer milk",
 					Origin:      "reindeer",
-					Type:        "milk",
+					Tags: []string{
+						"milk",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "reindeer bone",
 					Origin:      "reindeer",
-					Type:        "bone",
+					Tags: []string{
+						"bone",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:   "reindeer sinew",
+					Origin: "reindeer",
+					Tags: []string{
+						"sinew",
+					},
 					Commonality: 5,
 				},
 			},

@@ -9,26 +9,32 @@ func getCobbler() []Pattern {
 		{
 			Name:        "boots",
 			Description: "boots",
-			Type:        "footwear",
-			Profession:  producer,
+			Tags: []string{
+				"clothing",
+				"footwear",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "hide",
-					DescriptionTemplate: "{{.Resource.Name}} boots",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.Origin}} boots",
 				},
 			},
 		},
 		{
 			Name:        "shoes",
 			Description: "shoes",
-			Type:        "footwear",
-			Profession:  producer,
+			Tags: []string{
+				"clothing",
+				"footwear",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "hide",
-					DescriptionTemplate: "{{.Resource.Name}} shoes",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.Origin}} shoes",
 				},
 			},
 		},

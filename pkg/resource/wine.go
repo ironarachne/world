@@ -9,13 +9,16 @@ func getWine() []Pattern {
 		{
 			Name:        "wine",
 			Description: "wine",
-			Type:        "alcohol",
-			Profession:  producer,
+			Tags: []string{
+				"alcohol",
+				"beverage",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "fruit",
-					DescriptionTemplate: "{{.Resource.Name}} wine",
+					RequiredTag:         "fruit",
+					DescriptionTemplate: "{{.Resource.Origin}} wine",
 				},
 			},
 		},

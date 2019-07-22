@@ -12,9 +12,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "black sand",
-					Origin:      "black sand",
-					Type:        "sand",
+					Name:   "black sand",
+					Origin: "black sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 3,
 				},
 			},
@@ -26,9 +28,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "continental sand",
-					Origin:      "continental sand",
-					Type:        "sand",
+					Name:   "continental sand",
+					Origin: "continental sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 4,
 				},
 			},
@@ -40,9 +44,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "coral sand",
-					Origin:      "coral sand",
-					Type:        "sand",
+					Name:   "coral sand",
+					Origin: "coral sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 1,
 				},
 			},
@@ -54,9 +60,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "dune sand",
-					Origin:      "dune sand",
-					Type:        "sand",
+					Name:   "dune sand",
+					Origin: "dune sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 4,
 				},
 			},
@@ -68,9 +76,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "green sand",
-					Origin:      "green sand",
-					Type:        "sand",
+					Name:   "green sand",
+					Origin: "green sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 1,
 				},
 			},
@@ -82,9 +92,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "red sand",
-					Origin:      "red sand",
-					Type:        "sand",
+					Name:   "red sand",
+					Origin: "red sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 2,
 				},
 			},
@@ -96,9 +108,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "volcanic sand",
-					Origin:      "volcanic sand",
-					Type:        "sand",
+					Name:   "volcanic sand",
+					Origin: "volcanic sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 3,
 				},
 			},
@@ -110,9 +124,11 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "white sand",
-					Origin:      "white sand",
-					Type:        "sand",
+					Name:   "white sand",
+					Origin: "white sand",
+					Tags: []string{
+						"sand",
+					},
 					Commonality: 5,
 				},
 			},

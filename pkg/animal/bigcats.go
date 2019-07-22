@@ -51,21 +51,36 @@ func getBigCats() []Animal {
 		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
 			{
-				Name:        a.Name + " hide",
-				Origin:      a.Name,
-				Type:        "hide",
+				Name:   a.Name + " hide",
+				Origin: a.Name,
+				Tags: []string{
+					"hide",
+				},
 				Commonality: 5,
 			},
 			{
-				Name:        a.Name + " fangs",
-				Origin:      a.Name,
-				Type:        "teeth",
+				Name:   a.Name + " fangs",
+				Origin: a.Name,
+				Tags: []string{
+					"fangs",
+					"teeth",
+				},
 				Commonality: 3,
 			},
 			{
-				Name:        a.Name,
-				Origin:      a.Name,
-				Type:        "meat",
+				Name:   a.Name,
+				Origin: a.Name,
+				Tags: []string{
+					"meat",
+				},
+				Commonality: 5,
+			},
+			{
+				Name:   a.Name,
+				Origin: a.Name,
+				Tags: []string{
+					"sinew",
+				},
 				Commonality: 5,
 			},
 		}

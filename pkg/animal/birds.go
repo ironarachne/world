@@ -22,9 +22,11 @@ func getBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "flamingo feathers",
-					Origin:      "flamingo",
-					Type:        "feather",
+					Name:   "flamingo feathers",
+					Origin: "flamingo",
+					Tags: []string{
+						"feather",
+					},
 					Commonality: 4,
 				},
 			},
@@ -45,9 +47,11 @@ func getBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "peacock feathers",
-					Origin:      "peacock",
-					Type:        "feather",
+					Name:   "peacock feathers",
+					Origin: "peacock",
+					Tags: []string{
+						"feather",
+					},
 					Commonality: 4,
 				},
 			},

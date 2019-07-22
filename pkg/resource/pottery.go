@@ -9,52 +9,60 @@ func getPottery() []Pattern {
 		{
 			Name:        "bowl",
 			Description: "a clay bowl",
-			Type:        "food vessel",
-			Profession:  producer,
+			Tags: []string{
+				"food vessel",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "clay",
-					DescriptionTemplate: "{{.Resource.Name}} bowl",
+					RequiredTag:        "clay",
+					DescriptionTemplate: "{{.Resource.Origin}} bowl",
 				},
 			},
 		},
 		{
 			Name:        "mug",
 			Description: "a clay mug",
-			Type:        "drinking vessel",
-			Profession:  producer,
+			Tags: []string{
+				"drinking vessel",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "clay",
-					DescriptionTemplate: "{{.Resource.Name}} mug",
+					RequiredTag:        "clay",
+					DescriptionTemplate: "{{.Resource.Origin}} mug",
 				},
 			},
 		},
 		{
 			Name:        "pitcher",
 			Description: "a clay pitcher",
-			Type:        "liquid vessel",
-			Profession:  producer,
+			Tags: []string{
+				"liquid vessel",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "clay",
-					DescriptionTemplate: "{{.Resource.Name}} pitcher",
+					RequiredTag:        "clay",
+					DescriptionTemplate: "{{.Resource.Origin}} pitcher",
 				},
 			},
 		},
 		{
 			Name:        "vase",
 			Description: "a clay vase",
-			Type:        "vase",
-			Profession:  producer,
+			Tags: []string{
+				"vase",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "clay",
-					DescriptionTemplate: "{{.Resource.Name}} vase",
+					RequiredTag:        "clay",
+					DescriptionTemplate: "{{.Resource.Origin}} vase",
 				},
 			},
 		},

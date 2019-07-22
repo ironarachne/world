@@ -75,9 +75,9 @@ func Random(resources []resource.Resource) Drink {
 	var pattern Pattern
 	var possibleIngredients []string
 
-	spices := resource.ListOfType("spice", resources)
-	herbs := resource.ListOfType("herb", resources)
-	fruit := resource.ListOfType("fruit", resources)
+	spices := resource.ByTag("spice", resources)
+	herbs := resource.ByTag("herb", resources)
+	fruit := resource.ByTag("fruit", resources)
 
 	patterns := getValidPatterns(resources)
 
@@ -91,7 +91,7 @@ func Random(resources []resource.Resource) Drink {
 
 	appearance := random.String(pattern.Descriptors)
 
-	baseOptions := resource.ListOfType(pattern.RequiredBase, resources)
+	baseOptions := resource.ByTag(pattern.RequiredBase, resources)
 
 	if len(baseOptions) == 1 {
 		base = baseOptions[0]

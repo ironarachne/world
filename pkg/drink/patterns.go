@@ -1,6 +1,9 @@
 package drink
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/slices"
+)
 
 // Pattern is a pattern for making a drink
 type Pattern struct {
@@ -88,12 +91,17 @@ func getAllPatterns() []Pattern {
 }
 
 func getValidPatterns(resources []resource.Resource) []Pattern {
+	var allTags []string
 	var patterns []Pattern
 
 	all := getAllPatterns()
 
+	for _, r := range resources {
+		allTags = append(allTags, r.Tags...)
+	}
+
 	for _, p := range all {
-		if resource.IsTypeInResources(p.RequiredBase, resources) {
+		if slices.StringIn(p.RequiredBase, allTags) {
 			patterns = append(patterns, p)
 		}
 	}

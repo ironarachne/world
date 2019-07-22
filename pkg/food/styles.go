@@ -27,9 +27,9 @@ func GenerateStyle(originClimate climate.Climate) Style {
 	style := Style{}
 
 	for _, r := range originClimate.Resources {
-		if r.Type == "meat" {
+		if r.HasTag("meat") {
 			style.CommonBases = append(style.CommonBases, r.Name)
-		} else if r.Type == "spice" || r.Type == "herb" {
+		} else if r.HasTag("spice") || r.HasTag("herb") {
 			if r.Name == "gold" {
 				chanceForGoldFlakes = rand.Intn(100)
 				if chanceForGoldFlakes > 89 {
@@ -38,20 +38,20 @@ func GenerateStyle(originClimate climate.Climate) Style {
 			} else {
 				style.CommonSpices = append(style.CommonSpices, r.Name)
 			}
-		} else if r.Type == "egg" {
+		} else if r.HasTag("egg") {
 			style.CommonBases = append(style.CommonBases, r.Name)
-		} else if r.Type == "milk" {
+		} else if r.HasTag("milk") {
 			if !slices.StringIn("pudding", style.DessertTypes) {
 				style.DessertTypes = append(style.DessertTypes, "pudding")
 			}
-		} else if r.Type == "fruit" {
+		} else if r.HasTag("fruit") {
 			style.CommonDessertBases = append(style.CommonDessertBases, r.Name)
 			if !slices.StringIn("fruit", style.DessertTypes) {
 				style.DessertTypes = append(style.DessertTypes, "fruit")
 			}
-		} else if r.Type == "vegetable" {
+		} else if r.HasTag("vegetable") || r.HasTag("squash") {
 			style.CommonBases = append(style.CommonBases, r.Name)
-		} else if r.Type == "flour" {
+		} else if r.HasTag("flour") {
 			style.Noodles = append(style.Noodles, getNoodles(r.Name)...)
 			if !slices.StringIn("pie", style.DessertTypes) {
 				style.DessertTypes = append(style.DessertTypes, "pie")

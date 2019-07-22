@@ -12,9 +12,11 @@ func Agricultural() []Soil {
 			UsedForAgriculture: true,
 			Resources: []resource.Resource{
 				{
-					Name:        "loam",
-					Origin:      "loam",
-					Type:        "soil",
+					Name:   "loam",
+					Origin: "loam",
+					Tags: []string{
+						"soil",
+					},
 					Commonality: 5,
 				},
 			},
@@ -26,9 +28,11 @@ func Agricultural() []Soil {
 			UsedForAgriculture: true,
 			Resources: []resource.Resource{
 				{
-					Name:        "loam",
-					Origin:      "loam",
-					Type:        "soil",
+					Name:   "loam",
+					Origin: "loam",
+					Tags: []string{
+						"soil",
+					},
 					Commonality: 5,
 				},
 			},

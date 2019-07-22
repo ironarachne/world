@@ -12,15 +12,12 @@ func Metals() []Mineral {
 			Malleability: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "copper",
-					Origin:      "copper",
-					Type:        "metal",
-					Commonality: 5,
-				},
-				{
-					Name:        "copper",
-					Origin:      "copper",
-					Type:        "ore",
+					Name:   "copper",
+					Origin: "copper",
+					Tags: []string{
+						"metal ore",
+						"ore",
+					},
 					Commonality: 5,
 				},
 			},
@@ -32,15 +29,12 @@ func Metals() []Mineral {
 			Malleability: 8,
 			Resources: []resource.Resource{
 				{
-					Name:        "gold",
-					Origin:      "gold",
-					Type:        "metal",
-					Commonality: 1,
-				},
-				{
-					Name:        "gold",
-					Origin:      "gold",
-					Type:        "ore",
+					Name:   "gold",
+					Origin: "gold",
+					Tags: []string{
+						"metal ore",
+						"ore",
+					},
 					Commonality: 1,
 				},
 			},
@@ -52,15 +46,12 @@ func Metals() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:        "iron",
-					Origin:      "iron",
-					Type:        "metal",
-					Commonality: 5,
-				},
-				{
-					Name:        "iron",
-					Origin:      "iron",
-					Type:        "ore",
+					Name:   "iron",
+					Origin: "iron",
+					Tags: []string{
+						"metal ore",
+						"ore",
+					},
 					Commonality: 5,
 				},
 			},
@@ -72,15 +63,12 @@ func Metals() []Mineral {
 			Malleability: 8,
 			Resources: []resource.Resource{
 				{
-					Name:        "tin",
-					Origin:      "tin",
-					Type:        "metal",
-					Commonality: 5,
-				},
-				{
-					Name:        "tin",
-					Origin:      "tin",
-					Type:        "ore",
+					Name:   "tin",
+					Origin: "tin",
+					Tags: []string{
+						"metal ore",
+						"ore",
+					},
 					Commonality: 5,
 				},
 			},
@@ -92,15 +80,12 @@ func Metals() []Mineral {
 			Malleability: 9,
 			Resources: []resource.Resource{
 				{
-					Name:        "lead",
-					Origin:      "lead",
-					Type:        "metal",
-					Commonality: 5,
-				},
-				{
-					Name:        "lead",
-					Origin:      "lead",
-					Type:        "ore",
+					Name:   "lead",
+					Origin: "lead",
+					Tags: []string{
+						"metal ore",
+						"ore",
+					},
 					Commonality: 5,
 				},
 			},
@@ -112,15 +97,12 @@ func Metals() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:        "nickel",
-					Origin:      "nickel",
-					Type:        "metal",
-					Commonality: 5,
-				},
-				{
-					Name:        "nickel",
-					Origin:      "nickel",
-					Type:        "ore",
+					Name:   "nickel",
+					Origin: "nickel",
+					Tags: []string{
+						"metal ore",
+						"ore",
+					},
 					Commonality: 5,
 				},
 			},
@@ -132,15 +114,12 @@ func Metals() []Mineral {
 			Malleability: 7,
 			Resources: []resource.Resource{
 				{
-					Name:        "silver",
-					Origin:      "silver",
-					Type:        "metal",
-					Commonality: 3,
-				},
-				{
-					Name:        "silver",
-					Origin:      "silver",
-					Type:        "ore",
+					Name:   "silver",
+					Origin: "silver",
+					Tags: []string{
+						"metal ore",
+						"ore",
+					},
 					Commonality: 3,
 				},
 			},

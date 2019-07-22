@@ -11,7 +11,6 @@ type SimplifiedTown struct {
 	DominantCulture string                        `json:"dominant_culture"`
 	Category        string                        `json:"category"`
 	Mayor           character.SimplifiedCharacter `json:"mayor"`
-	Producers       []string                      `json:"producers"`
 	Exports         []string                      `json:"exports"`
 	Imports         []string                      `json:"imports"`
 }
@@ -33,10 +32,6 @@ func (town Town) Simplify() SimplifiedTown {
 		DominantCulture: town.Culture.Name,
 		Category:        town.Category.Name,
 		Mayor:           town.Mayor.Simplify(),
-	}
-
-	for _, p := range town.NotableProducers {
-		simplified.Producers = append(simplified.Producers, p.Name)
 	}
 
 	for _, e := range town.Exports {

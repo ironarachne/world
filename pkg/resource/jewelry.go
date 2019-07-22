@@ -2,22 +2,22 @@ package resource
 
 import "github.com/ironarachne/world/pkg/profession"
 
-func getTannery() []Pattern {
-	producer := profession.ByName("tanner")
+func getJewelry() []Pattern {
+	producer := profession.ByName("jeweller")
 
 	patterns := []Pattern{
 		{
-			Name:        "leather",
-			Description: "leather",
+			Name:        "gemstone",
+			Description: "a gemstone",
 			Tags: []string{
-				"leather",
+				"gem",
 			},
 			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "hide",
-					DescriptionTemplate: "{{.Resource.Origin}} leather",
+					RequiredTag:         "refined gem ore",
+					DescriptionTemplate: "{{.Resource.Origin}}",
 				},
 			},
 		},

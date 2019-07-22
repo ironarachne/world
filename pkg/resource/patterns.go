@@ -2,16 +2,16 @@ package resource
 
 import (
 	"bytes"
-	"github.com/ironarachne/world/pkg/profession"
-	"github.com/ironarachne/world/pkg/slices"
 	"text/template"
+
+	"github.com/ironarachne/world/pkg/profession"
 )
 
 // Pattern is a pattern for a resource
 type Pattern struct {
 	Name        string
 	Description string
-	Type        string
+	Tags        []string
 	Commonality int
 	Profession  profession.Profession
 	Slots       []Slot
@@ -20,7 +20,7 @@ type Pattern struct {
 // Slot is a slot for a resource requirement
 type Slot struct {
 	Name                string
-	RequiredType        string
+	RequiredTag         string
 	Resource            Resource
 	DescriptionTemplate string
 }
@@ -36,6 +36,7 @@ func AllPatterns() []Pattern {
 	clothing := getClothing()
 	cobbler := getCobbler()
 	glass := getGlass()
+	logging := getLogging()
 	medicine := getMedicine()
 	milled := getMilled()
 	mined := getMined()
@@ -56,6 +57,7 @@ func AllPatterns() []Pattern {
 	patterns = append(patterns, clothing...)
 	patterns = append(patterns, cobbler...)
 	patterns = append(patterns, glass...)
+	patterns = append(patterns, logging...)
 	patterns = append(patterns, medicine...)
 	patterns = append(patterns, milled...)
 	patterns = append(patterns, mined...)
@@ -89,17 +91,10 @@ func GetPossibleProfessions(resources []Resource) []profession.Profession {
 	var possiblePatterns []Pattern
 	possibleProducers := profession.All()
 
-	availableTypes := []string{}
 	producers := []profession.Profession{}
 
 	patterns := []Pattern{}
 	allPatterns := AllPatterns()
-
-	for _, r := range resources {
-		if !slices.StringIn(r.Type, availableTypes) {
-			availableTypes = append(availableTypes, r.Type)
-		}
-	}
 
 	for _, p := range possibleProducers {
 		patterns = []Pattern{}
@@ -112,7 +107,9 @@ func GetPossibleProfessions(resources []Resource) []profession.Profession {
 		}
 
 		if len(patterns) > 0 {
-			producers = append(producers, p)
+			if !p.InSlice(producers) {
+				producers = append(producers, p)
+			}
 		}
 	}
 
@@ -121,10 +118,12 @@ func GetPossibleProfessions(resources []Resource) []profession.Profession {
 
 // CanMake returns true if the pattern can be made with the resources given
 func (pattern Pattern) CanMake(resources []Resource) bool {
+	var matchingResources []Resource
 	possible := true
 
 	for _, s := range pattern.Slots {
-		if !IsTypeInResources(s.RequiredType, resources) {
+		matchingResources = ByTag(s.RequiredTag, resources)
+		if len(matchingResources) == 0 {
 			possible = false
 		}
 	}
@@ -150,8 +149,8 @@ func (pattern Pattern) ToResource() Resource {
 	var resource Resource
 
 	resource.Name = pattern.Render()
-	resource.Origin = pattern.Name
-	resource.Type = pattern.Type
+	resource.Origin = pattern.Slots[0].Resource.Origin
+	resource.Tags = pattern.Tags
 	resource.Commonality = pattern.Commonality
 
 	return resource

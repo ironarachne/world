@@ -9,39 +9,45 @@ func getMounts() []Pattern {
 		{
 			Name:        "mount",
 			Description: "a riding mount",
-			Type:        "trained mount",
-			Profession:  producer,
+			Tags: []string{
+				"trained mount",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "animal",
-					RequiredType:        "mount",
-					DescriptionTemplate: "riding {{.Resource.Name}}",
+					RequiredTag:         "mount",
+					DescriptionTemplate: "riding {{.Resource.Origin}}",
 				},
 			},
 		},
 		{
 			Name:        "pack animal",
 			Description: "a beast of burden",
-			Type:        "trained pack animal",
-			Profession:  producer,
+			Tags: []string{
+				"trained pack animal",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "animal",
-					RequiredType:        "pack animal",
-					DescriptionTemplate: "pack {{.Resource.Name}}",
+					RequiredTag:         "pack animal",
+					DescriptionTemplate: "pack {{.Resource.Origin}}",
 				},
 			},
 		},
 		{
 			Name:        "war mount",
 			Description: "a riding mount specifically trained for battle",
-			Type:        "trained mount",
-			Profession:  producer,
+			Tags: []string{
+				"trained mount",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "animal",
-					RequiredType:        "mount",
-					DescriptionTemplate: "war {{.Resource.Name}}",
+					RequiredTag:         "mount",
+					DescriptionTemplate: "war {{.Resource.Origin}}",
 				},
 			},
 		},

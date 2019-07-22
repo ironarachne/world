@@ -29,6 +29,8 @@ func All() []Plant {
 	plants = append(plants, grains...)
 	herbs := getHerbs()
 	plants = append(plants, herbs...)
+	squash := getSquash()
+	plants = append(plants, squash...)
 	vegetables := getVegetables()
 	plants = append(plants, vegetables...)
 
@@ -76,7 +78,7 @@ func RandomPlantOfType(plantType string) Plant {
 	for _, p := range plants {
 		resources = append(resources, p.Resources...)
 	}
-	filtered := resource.ListOfType(plantType, resources)
+	filtered := resource.ByTag(plantType, resources)
 
 	plant := filtered[rand.Intn(len(filtered))]
 

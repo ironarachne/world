@@ -53,7 +53,7 @@ func GenerateInstruments(originClimate climate.Climate) []Instrument {
 		availableWoods = append(availableWoods, woodName)
 	}
 
-	hides := resource.ListOfType("hide", originClimate.Resources)
+	hides := resource.ByTag("hide", originClimate.Resources)
 	for _, h := range hides {
 		availableHides = append(availableHides, h.Name)
 	}
