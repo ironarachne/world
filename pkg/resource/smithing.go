@@ -67,36 +67,6 @@ func getSmithing() []Pattern {
 			},
 		},
 		{
-			Name:        "metal bar",
-			Description: "a metal bar",
-			Tags: []string{
-				"metal bar",
-			},
-			Profession: producer,
-			Slots: []Slot{
-				{
-					Name:                "body",
-					RequiredTag:         "refined metal ore",
-					DescriptionTemplate: "{{.Resource.Origin}} metal bar",
-				},
-			},
-		},
-		{
-			Name:        "metal ingot",
-			Description: "a metal ingot",
-			Tags: []string{
-				"metal ingot",
-			},
-			Profession: producer,
-			Slots: []Slot{
-				{
-					Name:                "body",
-					RequiredTag:         "refined metal ore",
-					DescriptionTemplate: "{{.Resource.Origin}} metal ingot",
-				},
-			},
-		},
-		{
 			Name:        "spoon",
 			Description: "a spoon",
 			Tags: []string{

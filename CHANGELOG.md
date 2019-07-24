@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.4.2 (2019-07-24)
+
+Add resource tiers
+
+### Change List
+
+- Implements tiered resources
+- Summarizes resources as trade goods
+- Adds a number of resources and patterns
+
 ## 0.4.1 (2019-07-21)
 
 Improved resources, professions, and organizations.

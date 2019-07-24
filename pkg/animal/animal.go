@@ -50,6 +50,38 @@ func All() []Animal {
 	return animals
 }
 
+// Birds returns all birds
+func Birds() []Animal {
+	var animals []Animal
+
+	birds := getBirds()
+	animals = append(animals, birds...)
+	gameBirds := getGameBirds()
+	animals = append(animals, gameBirds...)
+	raptors := getRaptors()
+	animals = append(animals, raptors...)
+
+	return animals
+}
+
+// Land returns all land animals
+func Land() []Animal {
+	var animals []Animal
+
+	cats := getBigCats()
+	animals = append(animals, cats...)
+	canines := getCanines()
+	animals = append(animals, canines...)
+	equines := getEquines()
+	animals = append(animals, equines...)
+	mammals := getMammals()
+	animals = append(animals, mammals...)
+	reptiles := getReptiles()
+	animals = append(animals, reptiles...)
+
+	return animals
+}
+
 // InSlice checks whether a given animal is in a slice of animals
 func (animal Animal) InSlice(animals []Animal) bool {
 	isIt := false

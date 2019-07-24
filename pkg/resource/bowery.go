@@ -16,7 +16,7 @@ func getBowery() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "head",
-					RequiredTag:         "metal ingot",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "arrow with a {{.Resource.Origin}} head",
 				},
 				{
@@ -27,7 +27,7 @@ func getBowery() []Pattern {
 				{
 					Name:                "fletching",
 					RequiredTag:         "feather",
-					DescriptionTemplate: " and {{.Resource.Origin}} fletching",
+					DescriptionTemplate: " and {{.Resource.Origin}}-feather fletching",
 				},
 			},
 		},

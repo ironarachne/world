@@ -48,7 +48,7 @@ func getAllCategories() []Category {
 			MinImports:           1,
 			MaxImports:           3,
 			ProductionIterations: 3,
-			Commonality:          5,
+			Commonality:          15,
 		},
 		{
 			Name:                 "village",
@@ -59,7 +59,7 @@ func getAllCategories() []Category {
 			MinImports:           1,
 			MaxImports:           2,
 			ProductionIterations: 1,
-			Commonality:          10,
+			Commonality:          20,
 		},
 	}
 

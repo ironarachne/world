@@ -23,17 +23,33 @@ func getMined() []Pattern {
 			},
 		},
 		{
-			Name:        "refined metal ore",
-			Description: "refined metal ore",
+			Name:        "refined soft metal ore",
+			Description: "refined soft metal ore",
 			Tags: []string{
 				"refined ore",
-				"refined metal ore",
+				"refined soft metal ore",
 			},
 			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:         "metal ore",
+					RequiredTag:         "soft metal ore",
+					DescriptionTemplate: "refined {{.Resource.Origin}} ore",
+				},
+			},
+		},
+		{
+			Name:        "refined hard metal ore",
+			Description: "refined hard metal ore",
+			Tags: []string{
+				"refined ore",
+				"refined hard metal ore",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "hard metal ore",
 					DescriptionTemplate: "refined {{.Resource.Origin}} ore",
 				},
 			},

@@ -17,18 +17,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "bastard sword with a {{.Resource.Origin}} blade,",
 				},
 				{
 					Name:                "hilt",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " {{.Resource.Origin}} hilt,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -43,18 +43,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "battle axe with a {{.Resource.Origin}} blade,",
 				},
 				{
 					Name:                "haft",
-					RequiredTag:        "wood plank",
+					RequiredTag:         "wood plank",
 					DescriptionTemplate: " {{.Resource.Origin}} haft,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -69,18 +69,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "long sword with a {{.Resource.Origin}} blade,",
 				},
 				{
 					Name:                "hilt",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " {{.Resource.Origin}} hilt,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -95,18 +95,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "mace with a {{.Resource.Origin}} head,",
 				},
 				{
 					Name:                "haft",
-					RequiredTag:        "wood plank",
+					RequiredTag:         "wood plank",
 					DescriptionTemplate: " {{.Resource.Origin}} haft,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -121,18 +121,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "morningstar with a {{.Resource.Origin}} head,",
 				},
 				{
 					Name:                "haft",
-					RequiredTag:        "wood plank",
+					RequiredTag:         "wood plank",
 					DescriptionTemplate: " {{.Resource.Origin}} haft,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -147,18 +147,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "pike with a {{.Resource.Origin}} blade,",
 				},
 				{
 					Name:                "haft",
-					RequiredTag:        "wood plank",
+					RequiredTag:         "wood plank",
 					DescriptionTemplate: " {{.Resource.Origin}} haft,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -173,18 +173,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "short sword with a {{.Resource.Origin}} blade,",
 				},
 				{
 					Name:                "hilt",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " {{.Resource.Origin}} hilt,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -199,18 +199,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "spear with a {{.Resource.Origin}} blade,",
 				},
 				{
 					Name:                "haft",
-					RequiredTag:        "wood plank",
+					RequiredTag:         "wood plank",
 					DescriptionTemplate: " {{.Resource.Origin}} haft,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},
@@ -225,18 +225,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "blade",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "two-handed sword with a {{.Resource.Origin}} blade,",
 				},
 				{
 					Name:                "hilt",
-					RequiredTag:        "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " {{.Resource.Origin}} hilt,",
 				},
 				{
 					Name:                "handle",
-					RequiredTag:        "leather",
-					DescriptionTemplate: " and {{.Resource.Origin}} wrapped handle",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
 		},

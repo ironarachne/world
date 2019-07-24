@@ -242,7 +242,7 @@ func (climate Climate) populate() Climate {
 	}
 
 	climate.Animals = animal.Random(climate.MaxAnimals, animals)
-	climate.Metals = mineral.Random(climate.MaxMetals, metals)
+	climate.Metals = mineral.RandomWeightedSet(climate.MaxMetals, metals)
 	climate.Gems = mineral.Random(climate.MaxGems, gems)
 	climate.OtherMinerals = mineral.OtherMinerals()
 	climate.Plants = plant.Random(climate.MaxPlants-1, plants)

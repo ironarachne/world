@@ -15,6 +15,17 @@ type TradeGood struct {
 	Amount  int
 }
 
+// InSlice checks to see if a good is in a list of goods
+func (good TradeGood) InSlice(goods []TradeGood) bool {
+	for _, g := range goods {
+		if g.Name == good.Name {
+			return true
+		}
+	}
+
+	return false
+}
+
 // GenerateExportTradeGoods produces a list of trade goods based on given resources
 func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) []TradeGood {
 	var good TradeGood
@@ -27,15 +38,17 @@ func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) [
 	amount := 0
 
 	for _, r := range resources {
-		amount = rand.Intn(3) + 1
-		skillLevel = rand.Intn(5)
-		quality = qualityFromSkillLevel(skillLevel)
-		good = TradeGood{
-			Name:    r.Name,
-			Quality: quality,
-			Amount:  amount,
+		if len(r.Tags) > 0 {
+			amount = rand.Intn(3) + 1
+			skillLevel = rand.Intn(5)
+			quality = qualityFromSkillLevel(skillLevel)
+			good = TradeGood{
+				Name:    r.Tags[0],
+				Quality: quality,
+				Amount:  amount,
+			}
+			possibleGoods = append(possibleGoods, good)
 		}
-		possibleGoods = append(possibleGoods, good)
 	}
 
 	numberOfGoods := rand.Intn(max+1-min) + min
@@ -70,7 +83,9 @@ func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) [
 		good.Name = newItem
 		good.Amount = amount
 		good.Quality = randomQuality()
-		goods = append(goods, good)
+		if !good.InSlice(goods) {
+			goods = append(goods, good)
+		}
 	}
 
 	return goods
@@ -81,7 +96,9 @@ func GetAllTradeGoods(resources []resource.Resource) []string {
 	goods := []string{}
 
 	for _, r := range resources {
-		goods = append(goods, r.Name)
+		if len(r.Tags) > 0 && !slices.StringIn(r.Tags[0], goods) {
+			goods = append(goods, r.Tags[0])
+		}
 	}
 
 	return goods

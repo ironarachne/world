@@ -43,10 +43,12 @@ func AllPatterns() []Pattern {
 	mounts := getMounts()
 	potions := getPotions()
 	pottery := getPottery()
+	smelting := getSmelting()
 	smithing := getSmithing()
 	stone := getStone()
 	tannery := getTannery()
 	weapons := getWeapons()
+	weaving := getWeaving()
 	wine := getWine()
 
 	patterns = append(patterns, armor...)
@@ -64,10 +66,12 @@ func AllPatterns() []Pattern {
 	patterns = append(patterns, mounts...)
 	patterns = append(patterns, potions...)
 	patterns = append(patterns, pottery...)
+	patterns = append(patterns, smelting...)
 	patterns = append(patterns, smithing...)
 	patterns = append(patterns, stone...)
 	patterns = append(patterns, tannery...)
 	patterns = append(patterns, weapons...)
+	patterns = append(patterns, weaving...)
 	patterns = append(patterns, wine...)
 
 	return patterns
@@ -151,6 +155,7 @@ func (pattern Pattern) ToResource() Resource {
 	resource.Name = pattern.Render()
 	resource.Origin = pattern.Slots[0].Resource.Origin
 	resource.Tags = pattern.Tags
+	resource.Tags = append(resource.Tags, resource.Name)
 	resource.Commonality = pattern.Commonality
 
 	return resource

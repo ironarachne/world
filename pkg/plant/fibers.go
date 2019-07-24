@@ -22,14 +22,6 @@ func getFibers() []Plant {
 					},
 					Commonality: 5,
 				},
-				{
-					Name:   "cotton thread",
-					Origin: "cotton",
-					Tags: []string{
-						"thread",
-					},
-					Commonality: 5,
-				},
 			},
 		},
 		{
@@ -48,14 +40,6 @@ func getFibers() []Plant {
 					},
 					Commonality: 5,
 				},
-				{
-					Name:   "linen thread",
-					Origin: "flax",
-					Tags: []string{
-						"thread",
-					},
-					Commonality: 5,
-				},
 			},
 		},
 		{
@@ -71,14 +55,6 @@ func getFibers() []Plant {
 					Origin: "hemp",
 					Tags: []string{
 						"fabric fiber",
-					},
-					Commonality: 5,
-				},
-				{
-					Name:   "hemp thread",
-					Origin: "hemp",
-					Tags: []string{
-						"thread",
 					},
 					Commonality: 5,
 				},
@@ -136,14 +112,6 @@ func getFibers() []Plant {
 					},
 					Commonality: 5,
 				},
-				{
-					Name:   "jute thread",
-					Origin: "jute",
-					Tags: []string{
-						"thread",
-					},
-					Commonality: 5,
-				},
 			},
 		},
 		{
@@ -159,14 +127,6 @@ func getFibers() []Plant {
 					Origin: "ramie",
 					Tags: []string{
 						"fabric fiber",
-					},
-					Commonality: 5,
-				},
-				{
-					Name:   "ramie thread",
-					Origin: "ramie",
-					Tags: []string{
-						"thread",
 					},
 					Commonality: 5,
 				},

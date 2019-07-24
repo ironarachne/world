@@ -28,21 +28,6 @@ func getClothing() []Pattern {
 			},
 		},
 		{
-			Name:        "fabric",
-			Description: "a bolt of fabric",
-			Tags: []string{
-				"fabric",
-			},
-			Profession: producer,
-			Slots: []Slot{
-				{
-					Name:                "body",
-					RequiredTag:         "fabric fiber",
-					DescriptionTemplate: "{{.Resource.Origin}}",
-				},
-			},
-		},
-		{
 			Name:        "pants",
 			Description: "pants",
 			Tags: []string{
