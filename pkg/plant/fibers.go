@@ -15,15 +15,11 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "cotton",
-					Origin:      "cotton",
-					Type:        "fabric",
-					Commonality: 5,
-				},
-				{
-					Name:        "cotton thread",
-					Origin:      "cotton",
-					Type:        "thread",
+					Name:   "cotton",
+					Origin: "cotton",
+					Tags: []string{
+						"fabric fiber",
+					},
 					Commonality: 5,
 				},
 			},
@@ -37,15 +33,11 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "linen",
-					Origin:      "flax",
-					Type:        "fabric",
-					Commonality: 5,
-				},
-				{
-					Name:        "linen thread",
-					Origin:      "flax",
-					Type:        "thread",
+					Name:   "linen",
+					Origin: "flax",
+					Tags: []string{
+						"fabric fiber",
+					},
 					Commonality: 5,
 				},
 			},
@@ -59,15 +51,11 @@ func getFibers() []Plant {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:        "hemp",
-					Origin:      "hemp",
-					Type:        "fabric",
-					Commonality: 5,
-				},
-				{
-					Name:        "hemp thread",
-					Origin:      "hemp",
-					Type:        "thread",
+					Name:   "hemp",
+					Origin: "hemp",
+					Tags: []string{
+						"fabric fiber",
+					},
 					Commonality: 5,
 				},
 			},
@@ -81,9 +69,11 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "coir seed",
-					Origin:      "coir",
-					Type:        "seed",
+					Name:   "coir seed",
+					Origin: "coir",
+					Tags: []string{
+						"seed",
+					},
 					Commonality: 5,
 				},
 			},
@@ -97,9 +87,11 @@ func getFibers() []Plant {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:        "papyrus",
-					Origin:      "papyrus",
-					Type:        "paper",
+					Name:   "papyrus",
+					Origin: "papyrus",
+					Tags: []string{
+						"paper",
+					},
 					Commonality: 5,
 				},
 			},
@@ -113,15 +105,11 @@ func getFibers() []Plant {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:        "jute",
-					Origin:      "jute",
-					Type:        "fabric",
-					Commonality: 5,
-				},
-				{
-					Name:        "jute thread",
-					Origin:      "jute",
-					Type:        "thread",
+					Name:   "jute",
+					Origin: "jute",
+					Tags: []string{
+						"fabric fiber",
+					},
 					Commonality: 5,
 				},
 			},
@@ -135,15 +123,11 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "ramie",
-					Origin:      "ramie",
-					Type:        "fabric",
-					Commonality: 5,
-				},
-				{
-					Name:        "ramie thread",
-					Origin:      "ramie",
-					Type:        "thread",
+					Name:   "ramie",
+					Origin: "ramie",
+					Tags: []string{
+						"fabric fiber",
+					},
 					Commonality: 5,
 				},
 			},

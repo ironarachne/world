@@ -35,7 +35,7 @@ func GenerateStyle(originClimate climate.Climate) Style {
 }
 
 func getFabrics(originClimate climate.Climate) []string {
-	resources := resource.ListOfType("fabric", originClimate.Resources)
+	resources := resource.ByTag("fabric fiber", originClimate.Resources)
 	fabrics := []string{}
 
 	for _, r := range resources {
@@ -46,7 +46,7 @@ func getFabrics(originClimate climate.Climate) []string {
 }
 
 func getHides(originClimate climate.Climate) []string {
-	resources := resource.ListOfType("hide", originClimate.Resources)
+	resources := resource.ByTag("hide", originClimate.Resources)
 	hides := []string{}
 
 	for _, i := range resources {
@@ -69,11 +69,13 @@ func randomDecorativeStyle(originClimate climate.Climate) string {
 		"tassels",
 	}
 
-	if resource.IsTypeInResources("ivory", originClimate.Resources) {
+	ivory := resource.ByTag("ivory", originClimate.Resources)
+	if len(ivory) > 0 {
 		styles = append(styles, "ivory decorations")
 	}
 
-	if resource.IsTypeInResources("feather", originClimate.Resources) {
+	feathers := resource.ByTag("feather", originClimate.Resources)
+	if len(feathers) > 0 {
 		styles = append(styles, "feather decorations")
 	}
 

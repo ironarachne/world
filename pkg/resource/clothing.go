@@ -9,57 +9,69 @@ func getClothing() []Pattern {
 		{
 			Name:        "belt",
 			Description: "belt",
-			Type:        "belt",
-			Profession:  producer,
+			Tags: []string{
+				"belt",
+				"clothing",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "hide",
-					DescriptionTemplate: "{{.Resource.Name}} belt",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.Origin}} leather belt",
 				},
 				{
 					Name:                "buckle",
-					RequiredType:        "metal",
-					DescriptionTemplate: " with a {{.Resource.Name}} buckle",
+					RequiredTag:         "metal ingot",
+					DescriptionTemplate: " with a {{.Resource.Origin}} buckle",
 				},
 			},
 		},
 		{
 			Name:        "pants",
 			Description: "pants",
-			Type:        "pants",
-			Profession:  producer,
+			Tags: []string{
+				"clothing",
+				"pants",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "fabric",
-					DescriptionTemplate: "{{.Resource.Name}} pants",
+					RequiredTag:         "fabric",
+					DescriptionTemplate: "{{.Resource.Origin}} pants",
 				},
 			},
 		},
 		{
 			Name:        "shirt",
 			Description: "a shirt with long sleeves",
-			Type:        "shirt",
-			Profession:  producer,
+			Tags: []string{
+				"clothing",
+				"shirt",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "fabric",
-					DescriptionTemplate: "{{.Resource.Name}} shirt",
+					RequiredTag:         "fabric",
+					DescriptionTemplate: "{{.Resource.Origin}} shirt",
 				},
 			},
 		},
 		{
 			Name:        "tunic",
 			Description: "a tunic with long sleeves that reaches down to the knees",
-			Type:        "shirt",
-			Profession:  producer,
+			Tags: []string{
+				"clothing",
+				"shirt",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "fabric",
-					DescriptionTemplate: "{{.Resource.Name}} tunic",
+					RequiredTag:         "fabric",
+					DescriptionTemplate: "{{.Resource.Origin}} tunic",
 				},
 			},
 		},

@@ -34,7 +34,7 @@ func getSnakes() []Animal {
 	}
 
 	for _, a := range animals {
-		a.AnimalType = "mammal"
+		a.AnimalType = "snake"
 		a.EatsAnimals = true
 		a.EatsPlants = false
 		a.IsMount = false
@@ -47,33 +47,44 @@ func getSnakes() []Animal {
 		a.Size = size.GetCategoryByName("tiny")
 		a.Resources = []resource.Resource{
 			{
-				Name:        a.Name + " hide",
-				Origin:      a.Name,
-				Type:        "hide",
+				Name:   a.Name + " hide",
+				Origin: a.Name,
+				Tags: []string{
+					"hide",
+				},
 				Commonality: 3,
 			},
 			{
-				Name:        a.Name + " fangs",
-				Origin:      a.Name,
-				Type:        "teeth",
+				Name:   a.Name + " fangs",
+				Origin: a.Name,
+				Tags: []string{
+					"fangs",
+					"teeth",
+				},
 				Commonality: 3,
 			},
 			{
-				Name:        a.Name,
-				Origin:      a.Name,
-				Type:        "meat",
+				Name:   a.Name,
+				Origin: a.Name,
+				Tags: []string{
+					"meat",
+				},
 				Commonality: 3,
 			},
 			{
-				Name:        a.Name + " heart",
-				Origin:      a.Name,
-				Type:        "meat",
+				Name:   a.Name + " heart",
+				Origin: a.Name,
+				Tags: []string{
+					"meat",
+				},
 				Commonality: 1,
 			},
 			{
-				Name:        a.Name + " venom",
-				Origin:      a.Name,
-				Type:        "venom",
+				Name:   a.Name + " venom",
+				Origin: a.Name,
+				Tags: []string{
+					"venom",
+				},
 				Commonality: 3,
 			},
 		}

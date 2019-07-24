@@ -67,7 +67,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "acacia",
 					Origin:      "acacia",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -85,7 +87,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "alder",
 					Origin:      "alder",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -103,13 +107,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "apple",
 					Origin:      "apple",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "apple",
 					Origin:      "apple",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -127,7 +135,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "ash",
 					Origin:      "ash",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -145,7 +155,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "aspen",
 					Origin:      "aspen",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -163,7 +175,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "balsa",
 					Origin:      "balsa",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 2,
 				},
 			},
@@ -181,13 +195,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "banana",
 					Origin:      "banana",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "banana",
 					Origin:      "banana",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -205,7 +223,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "birch",
 					Origin:      "birch",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -223,7 +243,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "black pine",
 					Origin:      "black pine",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -241,7 +263,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "blackwood",
 					Origin:      "blackwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -259,7 +283,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "boxwood",
 					Origin:      "boxwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -277,7 +303,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "cedar",
 					Origin:      "cedar",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -295,13 +323,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "cherry",
 					Origin:      "cherry",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "cherry",
 					Origin:      "cherry",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -319,13 +351,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "cinnamon",
 					Origin:      "cinnamon",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "cinnamon",
 					Origin:      "cinnamon",
-					Type:        "spice",
+					Tags: []string{
+						"spice",
+					},
 					Commonality: 5,
 				},
 			},
@@ -343,7 +379,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "coachwood",
 					Origin:      "coachwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -361,13 +399,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "coconut",
 					Origin:      "coconut",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "coconut",
 					Origin:      "coconut",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -385,7 +427,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "corkwood",
 					Origin:      "corkwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -403,7 +447,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "cottonwood",
 					Origin:      "cottonwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -421,13 +467,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "crabapple",
 					Origin:      "crabapple",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "crabapple",
 					Origin:      "crabapple",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -445,7 +495,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "cypress",
 					Origin:      "cypress",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -463,7 +515,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "dogwood",
 					Origin:      "dogwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -481,7 +535,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "elm",
 					Origin:      "elm",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -499,7 +555,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "eucalyptus",
 					Origin:      "eucalyptus",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -517,7 +575,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "fir",
 					Origin:      "fir",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -535,7 +595,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "hemlock",
 					Origin:      "hemlock",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -553,7 +615,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "ironwood",
 					Origin:      "ironwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -571,7 +635,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "juniper",
 					Origin:      "juniper",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -589,7 +655,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "kingwood",
 					Origin:      "kingwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -607,7 +675,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "lacewood",
 					Origin:      "lacewood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -625,7 +695,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "larch",
 					Origin:      "larch",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -643,13 +715,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "lemon",
 					Origin:      "lemon",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "lemon",
 					Origin:      "lemon",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -667,13 +743,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "lime",
 					Origin:      "lime",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "lime",
 					Origin:      "lime",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -691,7 +771,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "mahogany",
 					Origin:      "mahogany",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -709,13 +791,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "mango",
 					Origin:      "mango",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "mango",
 					Origin:      "mango",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -733,7 +819,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "maple",
 					Origin:      "maple",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -751,7 +839,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "oak",
 					Origin:      "oak",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -769,13 +859,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "olive",
 					Origin:      "olive",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "olives",
 					Origin:      "olive",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -793,13 +887,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "papaya",
 					Origin:      "papaya",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "papaya",
 					Origin:      "papaya",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -817,7 +915,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "pine",
 					Origin:      "pine",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -835,13 +935,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "pineapple",
 					Origin:      "pineapple",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "pineapple",
 					Origin:      "pineapple",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -859,7 +963,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "palm",
 					Origin:      "palm",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -877,13 +983,17 @@ func AllTrees() []Tree {
 				{
 					Name:        "pear",
 					Origin:      "pear",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 				{
 					Name:        "pear",
 					Origin:      "pear",
-					Type:        "fruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -901,7 +1011,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "poplar",
 					Origin:      "poplar",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -919,7 +1031,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "red oak",
 					Origin:      "red oak",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -937,7 +1051,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "red pine",
 					Origin:      "red pine",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -955,7 +1071,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "rosewood",
 					Origin:      "rosewood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -973,7 +1091,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "sandalwood",
 					Origin:      "sandalwood",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -991,7 +1111,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "spruce",
 					Origin:      "spruce",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -1009,7 +1131,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "teak",
 					Origin:      "teak",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 3,
 				},
 			},
@@ -1027,7 +1151,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "walnut",
 					Origin:      "walnut",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -1045,7 +1171,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "white oak",
 					Origin:      "white oak",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -1063,7 +1191,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "white pine",
 					Origin:      "white pine",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -1081,7 +1211,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "willow",
 					Origin:      "willow",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -1099,7 +1231,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "yew",
 					Origin:      "yew",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},
@@ -1117,7 +1251,9 @@ func AllTrees() []Tree {
 				{
 					Name:        "yellow pine",
 					Origin:      "yellow pine",
-					Type:        "wood",
+					Tags: []string{
+						"wood",
+					},
 					Commonality: 5,
 				},
 			},

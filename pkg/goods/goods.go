@@ -1,11 +1,11 @@
 package goods
 
 import (
-	"github.com/ironarachne/world/pkg/profession"
+	"math/rand"
+
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
-	"math/rand"
 )
 
 // TradeGood is a trade good entry
@@ -15,64 +15,46 @@ type TradeGood struct {
 	Amount  int
 }
 
-// GenerateExportTradeGoods produces a list of trade goods based on local production
-func GenerateExportTradeGoods(min int, max int, professions []profession.Profession, resources []resource.Resource) []TradeGood {
-	var filledPattern resource.Pattern
+// InSlice checks to see if a good is in a list of goods
+func (good TradeGood) InSlice(goods []TradeGood) bool {
+	for _, g := range goods {
+		if g.Name == good.Name {
+			return true
+		}
+	}
+
+	return false
+}
+
+// GenerateExportTradeGoods produces a list of trade goods based on given resources
+func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) []TradeGood {
 	var good TradeGood
-	var description string
-	var patterns []resource.Pattern
-	var possiblePatterns []resource.Pattern
 	var quality string
 	var skillLevel int
-	var resourcesForSlot []resource.Resource
-	var resourceForSlot resource.Resource
 
 	goods := []TradeGood{}
 	possibleGoods := []TradeGood{}
 	tradeGoodNames := []string{}
 	amount := 0
-	allPatterns := resource.AllPatterns()
 
-	for _, p := range professions {
-		possiblePatterns = []resource.Pattern{}
-		skillLevel = rand.Intn(5)
-		quality = qualityFromSkillLevel(skillLevel)
-		patterns = resource.FindPatternsForProfession(p, allPatterns)
-		for _, n := range patterns {
-			if n.CanMake(resources) {
-				possiblePatterns = append(possiblePatterns, n)
+	for _, r := range resources {
+		if len(r.Tags) > 0 {
+			amount = rand.Intn(3) + 1
+			skillLevel = rand.Intn(5)
+			quality = qualityFromSkillLevel(skillLevel)
+			good = TradeGood{
+				Name:    r.Tags[0],
+				Quality: quality,
+				Amount:  amount,
 			}
-		}
-		if len(possiblePatterns) > 0 {
-			for _, n := range possiblePatterns {
-				filledPattern = resource.Pattern{
-					Name: n.Name,
-					Description: n.Description,
-					Profession: n.Profession,
-					Slots: []resource.Slot{},
-				}
-				for _, s := range n.Slots {
-					resourcesForSlot = resource.ListOfType(s.RequiredType, resources)
-					resourceForSlot = resource.Random(resourcesForSlot)
-					s.Resource = resourceForSlot
-					filledPattern.Slots = append(filledPattern.Slots, s)
-				}
-				description = filledPattern.Render()
-				amount = rand.Intn(3)+1
-				good = TradeGood{
-					Name: description,
-					Quality: quality,
-					Amount: amount,
-				}
-				possibleGoods = append(possibleGoods, good)
-			}
+			possibleGoods = append(possibleGoods, good)
 		}
 	}
 
 	numberOfGoods := rand.Intn(max+1-min) + min
 
 	for i := 0; i < numberOfGoods; i++ {
-		good = possibleGoods[rand.Intn(len(possibleGoods)-1)]
+		good = possibleGoods[rand.Intn(len(possibleGoods))]
 		if !slices.StringIn(good.Name, tradeGoodNames) {
 			goods = append(goods, good)
 			tradeGoodNames = append(tradeGoodNames, good.Name)
@@ -101,7 +83,9 @@ func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) [
 		good.Name = newItem
 		good.Amount = amount
 		good.Quality = randomQuality()
-		goods = append(goods, good)
+		if !good.InSlice(goods) {
+			goods = append(goods, good)
+		}
 	}
 
 	return goods
@@ -112,7 +96,9 @@ func GetAllTradeGoods(resources []resource.Resource) []string {
 	goods := []string{}
 
 	for _, r := range resources {
-		goods = append(goods, r.Name)
+		if len(r.Tags) > 0 && !slices.StringIn(r.Tags[0], goods) {
+			goods = append(goods, r.Tags[0])
+		}
 	}
 
 	return goods

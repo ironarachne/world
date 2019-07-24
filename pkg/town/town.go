@@ -1,9 +1,10 @@
 package town
 
 import (
+	"math/rand"
+
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/resource"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/character"
@@ -24,6 +25,7 @@ type Town struct {
 	NotableProducers []profession.Profession
 	Exports          []goods.TradeGood
 	Imports          []goods.TradeGood
+	Resources        []resource.Resource
 }
 
 func (town Town) generateMayor() character.Character {
@@ -36,7 +38,7 @@ func (town Town) generateMayor() character.Character {
 func (town Town) generateRandomExports() []goods.TradeGood {
 	var exports []goods.TradeGood
 
-	exports = goods.GenerateExportTradeGoods(town.Category.MinExports, town.Category.MaxExports, town.NotableProducers, town.Climate.Resources)
+	exports = goods.GenerateExportTradeGoods(town.Category.MinExports, town.Category.MaxExports, town.Resources)
 
 	return exports
 }
@@ -64,6 +66,10 @@ func (town Town) generateTownName() string {
 
 // Generate generates a random town
 func Generate(category string, biome string, originCulture culture.Culture) Town {
+	var newProducers []profession.Profession
+	var producers []profession.Profession
+	var newResources []resource.Resource
+
 	town := Town{}
 
 	if category == "random" {
@@ -89,29 +95,17 @@ func Generate(category string, biome string, originCulture culture.Culture) Town
 	mayor.LastName = town.Culture.Language.RandomName()
 	town.Mayor = mayor
 
-	possibleProducers := resource.GetPossibleProfessions(town.Climate.Resources)
+	resources := town.Climate.Resources
 
-	numberOfProducers := 0
-
-	if town.Population < 20 {
-		numberOfProducers = 1
-	} else if town.Population < 50 {
-		numberOfProducers = 3
-	} else if town.Population < 100 {
-		numberOfProducers = 4
-	} else if town.Population < 500 {
-		numberOfProducers = 6
-	} else if town.Population < 1000 {
-		numberOfProducers = 10
-	} else if town.Population < 5000 {
-		numberOfProducers = 20
-	} else if town.Population < 10000 {
-		numberOfProducers = 40
-	} else {
-		numberOfProducers = int(town.Population / 250)
+	for i := 0; i < town.Category.ProductionIterations; i++ {
+		newProducers = getProducers(town.Population, resources)
+		newResources = goods.Produce(newProducers, resources)
+		resources = append(resources, newResources...)
+		producers = append(producers, newProducers...)
 	}
 
-	town.NotableProducers = profession.RandomSet(numberOfProducers, possibleProducers)
+	town.Resources = resources
+	town.NotableProducers = producers
 
 	town.Exports = town.generateRandomExports()
 	town.Imports = town.generateRandomImports()

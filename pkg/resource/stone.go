@@ -9,26 +9,30 @@ func getStone() []Pattern {
 		{
 			Name:        "stone block",
 			Description: "a block of stone",
-			Type:        "building block",
-			Profession:  producer,
+			Tags: []string{
+				"building block",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "stone",
-					DescriptionTemplate: "{{.Resource.Name}} block",
+					RequiredTag:         "stone",
+					DescriptionTemplate: "{{.Resource.Origin}}",
 				},
 			},
 		},
 		{
 			Name:        "stone slab",
 			Description: "a slab of stone",
-			Type:        "building block",
-			Profession:  producer,
+			Tags: []string{
+				"building block",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "stone",
-					DescriptionTemplate: "{{.Resource.Name}} slab",
+					RequiredTag:         "stone",
+					DescriptionTemplate: "{{.Resource.Origin}}",
 				},
 			},
 		},

@@ -242,11 +242,11 @@ func (climate Climate) populate() Climate {
 	}
 
 	climate.Animals = animal.Random(climate.MaxAnimals, animals)
-	climate.Metals = mineral.Random(climate.MaxMetals, metals)
+	climate.Metals = mineral.RandomWeightedSet(climate.MaxMetals, metals)
 	climate.Gems = mineral.Random(climate.MaxGems, gems)
 	climate.OtherMinerals = mineral.OtherMinerals()
 	climate.Plants = plant.Random(climate.MaxPlants-1, plants)
-	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("fabric"))
+	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("fabric fiber"))
 	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("grain"))
 	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("fruit"))
 	climate.Soils = soil.Random(climate.MaxSoils, soils)
@@ -384,7 +384,7 @@ func getAllClimates() []Climate {
 			Humidity:           9,
 			HasWetlands:        true,
 			MaxAnimals:         15,
-			MaxMetals:          1,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            1,
 			MaxPlants:          10,
@@ -400,7 +400,7 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           7,
 			MaxAnimals:         16,
-			MaxMetals:          1,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            4,
 			MaxPlants:          16,
@@ -432,7 +432,7 @@ func getAllClimates() []Climate {
 			HasConiferousTrees: true,
 			Humidity:           9,
 			MaxAnimals:         16,
-			MaxMetals:          1,
+			MaxMetals:          2,
 			MaxFish:            6,
 			MaxGems:            2,
 			MaxPlants:          16,

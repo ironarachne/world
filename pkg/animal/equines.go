@@ -33,33 +33,43 @@ func getEquines() []Animal {
 		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
 			{
-				Name:        a.Name + " hide",
-				Origin:      a.Name,
-				Type:        "hide",
+				Name:   a.Name + " hide",
+				Origin: a.Name,
+				Tags: []string{
+					"hide",
+				},
 				Commonality: 3,
 			},
 			{
-				Name:        a.Name + " milk",
-				Origin:      a.Name,
-				Type:        "milk",
+				Name:   a.Name + " milk",
+				Origin: a.Name,
+				Tags: []string{
+					"milk",
+				},
 				Commonality: 3,
 			},
 			{
-				Name:        a.Name,
-				Origin:      a.Name,
-				Type:        "meat",
+				Name:   a.Name,
+				Origin: a.Name,
+				Tags: []string{
+					"meat",
+				},
 				Commonality: 3,
 			},
 			{
-				Name:        a.Name,
-				Origin:      a.Name,
-				Type:        "mount",
+				Name:   a.Name,
+				Origin: a.Name,
+				Tags: []string{
+					"mount",
+				},
 				Commonality: 7,
 			},
 			{
-				Name:        a.Name,
-				Origin:      a.Name,
-				Type:        "pack animal",
+				Name:   a.Name,
+				Origin: a.Name,
+				Tags: []string{
+					"pack animal",
+				},
 				Commonality: 5,
 			},
 		}

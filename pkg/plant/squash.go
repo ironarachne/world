@@ -1,0 +1,123 @@
+package plant
+
+import "github.com/ironarachne/world/pkg/resource"
+
+func getSquash() []Plant {
+	plants := []Plant{
+		{
+			Name:           "acorn squash",
+			PluralName:     "acorn squashes",
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "acorn squash",
+					Origin: "acorn squash",
+					Tags: []string{
+						"squash",
+					},
+					Commonality: 5,
+				},
+			},
+		},
+		{
+			Name:           "buttercup squash",
+			PluralName:     "buttercup squashes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 3,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "buttercup squash",
+					Origin: "buttercup squash",
+					Tags: []string{
+						"squash",
+					},
+					Commonality: 5,
+				},
+			},
+		},
+		{
+			Name:           "butternut squash",
+			PluralName:     "butternut squashes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 3,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "butternut squash",
+					Origin: "butternut squash",
+					Tags: []string{
+						"squash",
+					},
+					Commonality: 5,
+				},
+			},
+		},
+		{
+			Name:           "pumpkin",
+			PluralName:     "pumpkins",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "pumpkin",
+					Origin: "pumpkin",
+					Tags: []string{
+						"squash",
+					},
+					Commonality: 5,
+				},
+				{
+					Name:        "pumpkin seed oil",
+					Origin:      "pumpkin",
+					Commonality: 2,
+				},
+			},
+		},
+		{
+			Name:           "spaghetti squash",
+			PluralName:     "spaghetti squashes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 3,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "spaghetti squash",
+					Origin: "spaghetti squash",
+					Tags: []string{
+						"squash",
+					},
+					Commonality: 5,
+				},
+			},
+		},
+		{
+			Name:           "zucchini",
+			PluralName:     "zucchini",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "zucchini",
+					Origin: "zucchini",
+					Tags: []string{
+						"squash",
+					},
+					Commonality: 5,
+				},
+			},
+		},
+	}
+
+	return plants
+}

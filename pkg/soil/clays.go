@@ -12,9 +12,11 @@ func Clays() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "earthenware",
-					Origin:      "earthenware",
-					Type:        "clay",
+					Name:   "earthenware",
+					Origin: "earthenware",
+					Tags: []string{
+						"clay",
+					},
 					Commonality: 5,
 				},
 			},
@@ -26,9 +28,11 @@ func Clays() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "porcelin",
-					Origin:      "porcelin",
-					Type:        "clay",
+					Name:   "porcelain",
+					Origin: "porcelain",
+					Tags: []string{
+						"clay",
+					},
 					Commonality: 5,
 				},
 			},
@@ -40,9 +44,11 @@ func Clays() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "stoneware",
-					Origin:      "stoneware",
-					Type:        "clay",
+					Name:   "stoneware",
+					Origin: "stoneware",
+					Tags: []string{
+						"clay",
+					},
 					Commonality: 5,
 				},
 			},
@@ -54,9 +60,11 @@ func Clays() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:        "terra cotta",
-					Origin:      "terra cotta",
-					Type:        "clay",
+					Name:   "terra cotta",
+					Origin: "terra cotta",
+					Tags: []string{
+						"clay",
+					},
 					Commonality: 5,
 				},
 			},

@@ -6,32 +6,33 @@ func blacksmiths() []Profession {
 			Name:        "armorsmith",
 			Description: "Armorsmiths make armor from raw materials.",
 			Tags: []string{
-				"smith",
 				"crafter",
+				"smith",
 			},
 		},
 		{
 			Name:        "blacksmith",
 			Description: "Blacksmiths turn raw metal into useful materials.",
 			Tags: []string{
-				"smith",
 				"crafter",
+				"refiner",
+				"smith",
 			},
 		},
 		{
 			Name:        "farrier",
 			Description: "Farriers make horseshoes and perform veterinarian surgery.",
 			Tags: []string{
-				"smith",
 				"crafter",
+				"smith",
 			},
 		},
 		{
 			Name:        "weaponsmith",
 			Description: "Weaponsmiths specialize in making weapons.",
 			Tags: []string{
-				"smith",
 				"crafter",
+				"smith",
 			},
 		},
 	}

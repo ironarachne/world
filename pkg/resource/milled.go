@@ -9,13 +9,15 @@ func getMilled() []Pattern {
 		{
 			Name:        "flour",
 			Description: "flour",
-			Type:        "flour",
-			Profession:  producer,
+			Tags: []string{
+				"flour",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "grain",
-					DescriptionTemplate: "{{.Resource.Name}} flour",
+					RequiredTag:        "grain",
+					DescriptionTemplate: "{{.Resource.Origin}} flour",
 				},
 			},
 		},

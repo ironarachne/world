@@ -9,13 +9,15 @@ func getTannery() []Pattern {
 		{
 			Name:        "leather",
 			Description: "leather",
-			Type:        "leather",
-			Profession:  producer,
+			Tags: []string{
+				"leather",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "hide",
-					DescriptionTemplate: "{{.Resource.Name}} leather",
+					RequiredTag:        "hide",
+					DescriptionTemplate: "{{.Resource.Origin}} leather",
 				},
 			},
 		},

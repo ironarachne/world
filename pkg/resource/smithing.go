@@ -7,67 +7,77 @@ func getSmithing() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name: "fork",
+			Name:        "fork",
 			Description: "a fork",
-			Type: "eating utensil",
+			Tags: []string{
+				"eating utensil",
+			},
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "metal",
-					DescriptionTemplate: "{{.Resource.Name}} fork",
+					Name:                "body",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: "{{.Resource.Origin}} fork",
 				},
 			},
 		},
 		{
-			Name: "hammer",
+			Name:        "hammer",
 			Description: "a hammer",
-			Type: "tool",
+			Tags: []string{
+				"tool",
+			},
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "metal",
-					DescriptionTemplate: "{{.Resource.Name}} hammer",
+					Name:                "body",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: "{{.Resource.Origin}} hammer",
 				},
 			},
 		},
 		{
-			Name: "knife",
+			Name:        "knife",
 			Description: "a knife",
-			Type: "eating utensil",
+			Tags: []string{
+				"eating utensil",
+			},
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "metal",
-					DescriptionTemplate: "{{.Resource.Name}} knife",
+					Name:                "body",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: "{{.Resource.Origin}} knife",
 				},
 			},
 		},
 		{
-			Name: "hand saw",
+			Name:        "hand saw",
 			Description: "a hand saw",
-			Type: "tool",
+			Tags: []string{
+				"tool",
+			},
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "metal",
-					DescriptionTemplate: "{{.Resource.Name}} hand saw",
+					Name:                "body",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: "{{.Resource.Origin}} hand saw",
 				},
 			},
 		},
 		{
-			Name: "spoon",
+			Name:        "spoon",
 			Description: "a spoon",
-			Type: "eating utensil",
+			Tags: []string{
+				"eating utensil",
+			},
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "metal",
-					DescriptionTemplate: "{{.Resource.Name}} spoon",
+					Name:                "body",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: "{{.Resource.Origin}} spoon",
 				},
 			},
 		},
@@ -77,15 +87,17 @@ func getSmithing() []Pattern {
 
 	farrierPatterns := []Pattern{
 		{
-			Name: "horseshoe",
+			Name:        "horseshoe",
 			Description: "a horseshoe",
-			Type: "horseshoe",
+			Tags: []string{
+				"horseshoe",
+			},
 			Profession: farrier,
 			Slots: []Slot{
 				{
-					Name: "body",
-					RequiredType: "metal",
-					DescriptionTemplate: "{{.Resource.Name}} horseshoe",
+					Name:                "body",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: "{{.Resource.Origin}} horseshoe",
 				},
 			},
 		},

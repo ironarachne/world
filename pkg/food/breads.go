@@ -28,7 +28,7 @@ func generateBread(originClimate climate.Climate) string {
 		"savory",
 		"sweet",
 	}
-	grains := resource.ListOfType("flour", originClimate.Resources)
+	grains := resource.ByTag("flour", originClimate.Resources)
 
 	if len(grains) > 0 {
 		grain := grains[rand.Intn(len(grains))]
@@ -43,7 +43,7 @@ func randomBreads(originClimate climate.Climate) []string {
 	var bread string
 	var breads []string
 
-	grains := resource.ListOfType("flour", originClimate.Resources)
+	grains := resource.ByTag("flour", originClimate.Resources)
 	if len(grains) > 0 {
 		numberOfBreads := rand.Intn(3) + 1
 		for i := 0; i < numberOfBreads; i++ {

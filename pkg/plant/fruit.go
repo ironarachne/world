@@ -13,9 +13,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "blackberry",
-					Origin:      "blackberry",
-					Type:        "fruit",
+					Name:   "blackberry",
+					Origin: "blackberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -29,9 +32,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "blueberry",
-					Origin:      "blueberry",
-					Type:        "fruit",
+					Name:   "blueberry",
+					Origin: "blueberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -45,9 +51,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "raspberry",
-					Origin:      "raspberry",
-					Type:        "fruit",
+					Name:   "raspberry",
+					Origin: "raspberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -61,9 +70,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "strawberry",
-					Origin:      "strawberry",
-					Type:        "fruit",
+					Name:   "strawberry",
+					Origin: "strawberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -77,9 +89,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "boysenberry",
-					Origin:      "boysenberry",
-					Type:        "fruit",
+					Name:   "boysenberry",
+					Origin: "boysenberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -93,9 +108,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "gooseberry",
-					Origin:      "gooseberry",
-					Type:        "fruit",
+					Name:   "gooseberry",
+					Origin: "gooseberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -109,9 +127,11 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "avocado",
-					Origin:      "avocado",
-					Type:        "fruit",
+					Name:   "avocado",
+					Origin: "avocado",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -125,9 +145,11 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "cantaloupe",
-					Origin:      "cantaloupe",
-					Type:        "fruit",
+					Name:   "cantaloupe",
+					Origin: "cantaloupe",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -141,9 +163,11 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "dragonfruit",
-					Origin:      "dragonfruit",
-					Type:        "fruit",
+					Name:   "dragonfruit",
+					Origin: "dragonfruit",
+					Tags: []string{
+						"fruit",
+					},
 					Commonality: 5,
 				},
 			},
@@ -157,25 +181,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "honeydew",
-					Origin:      "honeydew",
-					Type:        "fruit",
-					Commonality: 5,
-				},
-			},
-		},
-		{
-			Name:           "pumpkin",
-			PluralName:     "pumpkins",
-			MinHumidity:    3,
-			MaxHumidity:    10,
-			MinTemperature: 3,
-			MaxTemperature: 10,
-			Resources: []resource.Resource{
-				{
-					Name:        "pumpkin",
-					Origin:      "pumpkin",
-					Type:        "fruit",
+					Name:   "honeydew",
+					Origin: "honeydew",
+					Tags: []string{
+						"fruit",
+						"melon",
+					},
 					Commonality: 5,
 				},
 			},
@@ -189,25 +200,12 @@ func getFruits() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "watermelon",
-					Origin:      "watermelon",
-					Type:        "fruit",
-					Commonality: 5,
-				},
-			},
-		},
-		{
-			Name:           "zuccini",
-			PluralName:     "zuccinis",
-			MinHumidity:    2,
-			MaxHumidity:    10,
-			MinTemperature: 2,
-			MaxTemperature: 10,
-			Resources: []resource.Resource{
-				{
-					Name:        "zuccini",
-					Origin:      "zuccini",
-					Type:        "fruit",
+					Name:   "watermelon",
+					Origin: "watermelon",
+					Tags: []string{
+						"fruit",
+						"melon",
+					},
 					Commonality: 5,
 				},
 			},

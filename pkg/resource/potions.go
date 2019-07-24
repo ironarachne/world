@@ -9,12 +9,14 @@ func getPotions() []Pattern {
 		{
 			Name:        "healing potion",
 			Description: "a healing potion",
-			Type:        "potion",
-			Profession:  producer,
+			Tags: []string{
+				"potion",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "herb",
+					RequiredTag:         "herb",
 					DescriptionTemplate: "healing potion",
 				},
 			},

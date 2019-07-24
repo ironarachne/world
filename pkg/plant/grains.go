@@ -13,15 +13,11 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "rye",
-					Origin:      "rye",
-					Type:        "grain",
-					Commonality: 5,
-				},
-				{
-					Name:        "rye",
-					Origin:      "rye",
-					Type:        "flour",
+					Name:   "rye",
+					Origin: "rye",
+					Tags: []string{
+						"grain",
+					},
 					Commonality: 5,
 				},
 			},
@@ -35,15 +31,11 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "oat",
-					Origin:      "oat",
-					Type:        "grain",
-					Commonality: 5,
-				},
-				{
-					Name:        "oat",
-					Origin:      "oat",
-					Type:        "flour",
+					Name:   "oat",
+					Origin: "oat",
+					Tags: []string{
+						"grain",
+					},
 					Commonality: 5,
 				},
 			},
@@ -57,15 +49,11 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "millet",
-					Origin:      "millet",
-					Type:        "grain",
-					Commonality: 5,
-				},
-				{
-					Name:        "millet",
-					Origin:      "millet",
-					Type:        "flour",
+					Name:   "millet",
+					Origin: "millet",
+					Tags: []string{
+						"grain",
+					},
 					Commonality: 5,
 				},
 			},
@@ -79,15 +67,11 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "barley",
-					Origin:      "barley",
-					Type:        "grain",
-					Commonality: 5,
-				},
-				{
-					Name:        "barley",
-					Origin:      "barley",
-					Type:        "flour",
+					Name:   "barley",
+					Origin: "barley",
+					Tags: []string{
+						"grain",
+					},
 					Commonality: 5,
 				},
 			},
@@ -101,15 +85,11 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "wheat",
-					Origin:      "wheat",
-					Type:        "grain",
-					Commonality: 5,
-				},
-				{
-					Name:        "wheat",
-					Origin:      "wheat",
-					Type:        "flour",
+					Name:   "wheat",
+					Origin: "wheat",
+					Tags: []string{
+						"grain",
+					},
 					Commonality: 5,
 				},
 			},
@@ -123,15 +103,11 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "rice",
-					Origin:      "rice",
-					Type:        "grain",
-					Commonality: 5,
-				},
-				{
-					Name:        "rice",
-					Origin:      "rice",
-					Type:        "flour",
+					Name:   "rice",
+					Origin: "rice",
+					Tags: []string{
+						"grain",
+					},
 					Commonality: 5,
 				},
 			},

@@ -36,8 +36,8 @@ func generateJewelry(originClimate climate.Climate) []string {
 		"set with",
 	}
 
-	metals := resource.ListOfType("metal", originClimate.Resources)
-	gems := resource.ListOfType("gem", originClimate.Resources)
+	metals := resource.ByTag("metal ore", originClimate.Resources)
+	gems := resource.ByTag("gem ore", originClimate.Resources)
 
 	numberOfJewelryPieces := rand.Intn(4) + 1
 

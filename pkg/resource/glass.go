@@ -9,26 +9,30 @@ func getGlass() []Pattern {
 		{
 			Name:        "glass bottle",
 			Description: "glass bottle",
-			Type:        "drinking vessel",
-			Profession:  producer,
+			Tags: []string{
+				"drinking vessel",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "sand",
-					DescriptionTemplate: "{{.Resource.Name}} glass bottle",
+					RequiredTag:        "sand",
+					DescriptionTemplate: "{{.Resource.Origin}} glass bottle",
 				},
 			},
 		},
 		{
 			Name:        "glass",
 			Description: "glass",
-			Type:        "glass",
-			Profession:  producer,
+			Tags: []string{
+				"glass",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "sand",
-					DescriptionTemplate: "{{.Resource.Name}} glass",
+					RequiredTag:        "sand",
+					DescriptionTemplate: "{{.Resource.Origin}} glass",
 				},
 			},
 		},

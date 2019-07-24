@@ -9,39 +9,48 @@ func getBrewed() []Pattern {
 		{
 			Name:        "ale",
 			Description: "an ale",
-			Type:        "alcohol",
-			Profession:  producer,
+			Tags: []string{
+				"alcohol",
+				"beverage",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "grain",
-					DescriptionTemplate: "{{.Resource.Name}} ale",
+					RequiredTag:         "grain",
+					DescriptionTemplate: "{{.Resource.Origin}} ale",
 				},
 			},
 		},
 		{
 			Name:        "beer",
 			Description: "a beer",
-			Type:        "alcohol",
-			Profession:  producer,
+			Tags: []string{
+				"alcohol",
+				"beverage",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "grain",
-					DescriptionTemplate: "{{.Resource.Name}} beer",
+					RequiredTag:         "grain",
+					DescriptionTemplate: "{{.Resource.Origin}} beer",
 				},
 			},
 		},
 		{
 			Name:        "lager",
 			Description: "an lager",
-			Type:        "alcohol",
-			Profession:  producer,
+			Tags: []string{
+				"alcohol",
+				"beverage",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "grain",
-					DescriptionTemplate: "{{.Resource.Name}} lager",
+					RequiredTag:         "grain",
+					DescriptionTemplate: "{{.Resource.Origin}} lager",
 				},
 			},
 		},

@@ -7,6 +7,7 @@ func refiners() []Profession {
 			Description: "Animal trainers tame animals and turn them into disciplined followers.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -14,6 +15,7 @@ func refiners() []Profession {
 			Description: "Bakers bake bread and other oven-derived goods from grain and related ingredients.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -21,6 +23,7 @@ func refiners() []Profession {
 			Description: "Brewers turn grain into ale, beer, and related beverages.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -28,6 +31,7 @@ func refiners() []Profession {
 			Description: "Distillers make hard alcoholic beverages.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -35,6 +39,7 @@ func refiners() []Profession {
 			Description: "Farmers till the earth and practice animal husbandry.",
 			Tags: []string{
 				"harvester",
+				"refiner",
 			},
 		},
 		{
@@ -42,6 +47,15 @@ func refiners() []Profession {
 			Description: "Glassmakers turn sand and other materials into glass.",
 			Tags: []string{
 				"crafter",
+				"refiner",
+			},
+		},
+		{
+			Name:        "jeweller",
+			Description: "Jewellers cut raw gem ore into sparkling gemstones.",
+			Tags: []string{
+				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -49,6 +63,7 @@ func refiners() []Profession {
 			Description: "Loggers cut down trees to make lumber.",
 			Tags: []string{
 				"harvester",
+				"refiner",
 			},
 		},
 		{
@@ -56,6 +71,7 @@ func refiners() []Profession {
 			Description: "Millers take raw grain and turn it into flour.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -63,6 +79,7 @@ func refiners() []Profession {
 			Description: "Miners extract raw ore from the earth.",
 			Tags: []string{
 				"harvester",
+				"refiner",
 			},
 		},
 		{
@@ -70,6 +87,7 @@ func refiners() []Profession {
 			Description: "Potters turn raw clay into finished pots and other ceramics.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -77,6 +95,7 @@ func refiners() []Profession {
 			Description: "Spinners create thread and cloth from raw fibers.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -84,6 +103,7 @@ func refiners() []Profession {
 			Description: "Tanners turn raw animal skin into cured hides.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 		{
@@ -91,6 +111,7 @@ func refiners() []Profession {
 			Description: "Vintners make wine.",
 			Tags: []string{
 				"crafter",
+				"refiner",
 			},
 		},
 	}

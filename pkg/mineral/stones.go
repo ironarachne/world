@@ -12,9 +12,11 @@ func Stones() []Mineral {
 			Malleability: 2,
 			Resources: []resource.Resource{
 				{
-					Name:        "granite",
-					Origin:      "granite",
-					Type:        "stone",
+					Name:   "granite",
+					Origin: "granite",
+					Tags: []string{
+						"stone",
+					},
 					Commonality: 5,
 				},
 			},
@@ -26,9 +28,11 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:        "limestone",
-					Origin:      "limestone",
-					Type:        "stone",
+					Name:   "limestone",
+					Origin: "limestone",
+					Tags: []string{
+						"stone",
+					},
 					Commonality: 5,
 				},
 			},
@@ -40,9 +44,11 @@ func Stones() []Mineral {
 			Malleability: 2,
 			Resources: []resource.Resource{
 				{
-					Name:        "marble",
-					Origin:      "marble",
-					Type:        "stone",
+					Name:   "marble",
+					Origin: "marble",
+					Tags: []string{
+						"stone",
+					},
 					Commonality: 2,
 				},
 			},
@@ -54,9 +60,11 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:        "sandstone",
-					Origin:      "sandstone",
-					Type:        "stone",
+					Name:   "sandstone",
+					Origin: "sandstone",
+					Tags: []string{
+						"stone",
+					},
 					Commonality: 5,
 				},
 			},

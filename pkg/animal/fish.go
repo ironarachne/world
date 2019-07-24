@@ -28,9 +28,11 @@ func AllFish() []Fish {
 	for _, f := range fish {
 		f.Resources = []resource.Resource{
 			{
-				Name:        f.Name,
-				Origin:      f.Name,
-				Type:        "meat",
+				Name:   f.Name,
+				Origin: f.Name,
+				Tags: []string{
+					"meat",
+				},
 				Commonality: 4,
 			},
 		}

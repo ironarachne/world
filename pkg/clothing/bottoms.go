@@ -47,6 +47,7 @@ func getBottomTemplates() []ItemTemplate {
 			MaterialType: "fabric",
 			PrefixModifiers: []string{
 				"baggy",
+				"wide",
 			},
 			SuffixModifiers: []string{
 				"bunched at the hips",
@@ -64,6 +65,8 @@ func getBottomTemplates() []ItemTemplate {
 				"pleated",
 			},
 			SuffixModifiers: []string{
+				"down to the knees",
+				"flared at the hem",
 				"tied at the waist",
 			},
 		},

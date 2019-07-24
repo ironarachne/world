@@ -23,21 +23,28 @@ func getReptiles() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "alligator hide",
-					Origin:      "alligator",
-					Type:        "hide",
+					Name:   "alligator hide",
+					Origin: "alligator",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "alligator fangs",
-					Origin:      "alligator",
-					Type:        "teeth",
+					Name:   "alligator fangs",
+					Origin: "alligator",
+					Tags: []string{
+						"fangs",
+						"teeth",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "alligator",
-					Origin:      "alligator",
-					Type:        "meat",
+					Name:   "alligator",
+					Origin: "alligator",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 			},
@@ -59,21 +66,28 @@ func getReptiles() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "crocodile hide",
-					Origin:      "crocodile",
-					Type:        "hide",
+					Name:   "crocodile hide",
+					Origin: "crocodile",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "crocodile fangs",
-					Origin:      "crocodile",
-					Type:        "teeth",
+					Name:   "crocodile fangs",
+					Origin: "crocodile",
+					Tags: []string{
+						"fangs",
+						"teeth",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "crocodile",
-					Origin:      "crocodile",
-					Type:        "meat",
+					Name:   "crocodile",
+					Origin: "crocodile",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 			},
@@ -95,27 +109,36 @@ func getReptiles() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "monitor lizard hide",
-					Origin:      "monitor lizard",
-					Type:        "hide",
+					Name:   "monitor lizard hide",
+					Origin: "monitor lizard",
+					Tags: []string{
+						"hide",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "monitor lizard fangs",
-					Origin:      "monitor lizard",
-					Type:        "teeth",
+					Name:   "monitor lizard fangs",
+					Origin: "monitor lizard",
+					Tags: []string{
+						"fangs",
+						"teeth",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "monitor lizard",
-					Origin:      "monitor lizard",
-					Type:        "meat",
+					Name:   "monitor lizard",
+					Origin: "monitor lizard",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "monitor lizard venom",
-					Origin:      "monitor lizard",
-					Type:        "venom",
+					Name:   "monitor lizard venom",
+					Origin: "monitor lizard",
+					Tags: []string{
+						"venom",
+					},
 					Commonality: 4,
 				},
 			},

@@ -9,26 +9,30 @@ func getBreads() []Pattern {
 		{
 			Name:        "bread",
 			Description: "a loaf of simple bread",
-			Type:        "bread",
-			Profession:  producer,
+			Tags: []string{
+				"bread",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "flour",
-					DescriptionTemplate: "{{.Resource.Name}} bread",
+					RequiredTag:         "flour",
+					DescriptionTemplate: "{{.Resource.Origin}} bread",
 				},
 			},
 		},
 		{
 			Name:        "roll",
 			Description: "a small hand-sized roll",
-			Type:        "bread",
-			Profession:  producer,
+			Tags: []string{
+				"bread",
+			},
+			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredType:        "flour",
-					DescriptionTemplate: "{{.Resource.Name}} roll",
+					RequiredTag:         "flour",
+					DescriptionTemplate: "{{.Resource.Origin}} roll",
 				},
 			},
 		},

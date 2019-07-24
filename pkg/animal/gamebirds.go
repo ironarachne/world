@@ -22,27 +22,35 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "goose eggs",
-					Origin:      "goose",
-					Type:        "egg",
+					Name:   "goose eggs",
+					Origin: "goose",
+					Tags: []string{
+						"egg",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "goose feathers",
-					Origin:      "goose",
-					Type:        "feather",
+					Name:   "goose feathers",
+					Origin: "goose",
+					Tags: []string{
+						"feather",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "goose",
-					Origin:      "goose",
-					Type:        "meat",
+					Name:   "goose",
+					Origin: "goose",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "goose liver",
-					Origin:      "goose",
-					Type:        "meat",
+					Name:   "goose liver",
+					Origin: "goose",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 			},
@@ -63,27 +71,35 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "chicken eggs",
-					Origin:      "chicken",
-					Type:        "egg",
+					Name:   "chicken eggs",
+					Origin: "chicken",
+					Tags: []string{
+						"egg",
+					},
 					Commonality: 5,
 				},
 				{
-					Name:        "chicken feathers",
-					Origin:      "chicken",
-					Type:        "feather",
+					Name:   "chicken feathers",
+					Origin: "chicken",
+					Tags: []string{
+						"feather",
+					},
 					Commonality: 5,
 				},
 				{
-					Name:        "chicken",
-					Origin:      "chicken",
-					Type:        "meat",
+					Name:   "chicken",
+					Origin: "chicken",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "chicken liver",
-					Origin:      "chicken",
-					Type:        "meat",
+					Name:   "chicken liver",
+					Origin: "chicken",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 			},
@@ -104,21 +120,27 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "mudhen eggs",
-					Origin:      "mudhen",
-					Type:        "egg",
+					Name:   "mudhen eggs",
+					Origin: "mudhen",
+					Tags: []string{
+						"egg",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "mudhen feathers",
-					Origin:      "mudhen",
-					Type:        "feather",
+					Name:   "mudhen feathers",
+					Origin: "mudhen",
+					Tags: []string{
+						"feather",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "mudhen",
-					Origin:      "mudhen",
-					Type:        "meat",
+					Name:   "mudhen",
+					Origin: "mudhen",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 			},
@@ -139,21 +161,27 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "quail eggs",
-					Origin:      "quail",
-					Type:        "egg",
+					Name:   "quail eggs",
+					Origin: "quail",
+					Tags: []string{
+						"egg",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "quail feathers",
-					Origin:      "quail",
-					Type:        "feather",
+					Name:   "quail feathers",
+					Origin: "quail",
+					Tags: []string{
+						"feather",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "quail",
-					Origin:      "quail",
-					Type:        "meat",
+					Name:   "quail",
+					Origin: "quail",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 			},
@@ -174,27 +202,35 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "duck eggs",
-					Origin:      "duck",
-					Type:        "egg",
+					Name:   "duck eggs",
+					Origin: "duck",
+					Tags: []string{
+						"egg",
+					},
 					Commonality: 5,
 				},
 				{
-					Name:        "duck feathers",
-					Origin:      "duck",
-					Type:        "feather",
+					Name:   "duck feathers",
+					Origin: "duck",
+					Tags: []string{
+						"feather",
+					},
 					Commonality: 4,
 				},
 				{
-					Name:        "duck",
-					Origin:      "duck",
-					Type:        "meat",
+					Name:   "duck",
+					Origin: "duck",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 5,
 				},
 				{
-					Name:        "duck liver",
-					Origin:      "duck",
-					Type:        "meat",
+					Name:   "duck liver",
+					Origin: "duck",
+					Tags: []string{
+						"meat",
+					},
 					Commonality: 4,
 				},
 			},
