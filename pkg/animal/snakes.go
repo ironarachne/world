@@ -88,6 +88,12 @@ func getSnakes() []Animal {
 				Commonality: 3,
 			},
 		}
+		a.Tags = []string{
+			"animal",
+			"reptile",
+			"snake",
+			"carnivore",
+		}
 	}
 
 	return animals

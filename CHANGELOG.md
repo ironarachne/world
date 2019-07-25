@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.4.3 (2019-07-25)
+
+Add tags to animals
+
+### Change List
+
+- Add tags to animals
+- Fix bug in climate generation that sometimes prevented clothing styles from being created
+
 ## 0.4.2 (2019-07-24)
 
 Add resource tiers

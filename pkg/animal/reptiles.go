@@ -49,6 +49,11 @@ func getReptiles() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
+			Tags: []string{
+				"animal",
+				"reptile",
+				"carnivore",
+			},
 		},
 		{
 			Name:           "crocodile",
@@ -92,6 +97,11 @@ func getReptiles() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
+			Tags: []string{
+				"animal",
+				"reptile",
+				"carnivore",
+			},
 		},
 		{
 			Name:           "monitor lizard",
@@ -143,6 +153,11 @@ func getReptiles() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("small"),
+			Tags: []string{
+				"animal",
+				"reptile",
+				"carnivore",
+			},
 		},
 	}
 

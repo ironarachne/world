@@ -55,6 +55,12 @@ func getGameBirds() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"game bird",
+				"herbivore",
+			},
 		},
 		{
 			Name:           "chicken",
@@ -104,6 +110,12 @@ func getGameBirds() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"game bird",
+				"herbivore",
+			},
 		},
 		{
 			Name:           "mudhen",
@@ -145,6 +157,12 @@ func getGameBirds() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"game bird",
+				"herbivore",
+			},
 		},
 		{
 			Name:           "quail",
@@ -186,6 +204,12 @@ func getGameBirds() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"game bird",
+				"herbivore",
+			},
 		},
 		{
 			Name:           "duck",
@@ -235,6 +259,12 @@ func getGameBirds() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"game bird",
+				"herbivore",
+			},
 		},
 	}
 

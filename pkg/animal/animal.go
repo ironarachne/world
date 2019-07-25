@@ -24,6 +24,7 @@ type Animal struct {
 	MaxTemperature int
 	Resources      []resource.Resource
 	Size           size.Category
+	Tags           []string
 }
 
 // All returns all pre-defined animals
@@ -50,36 +51,28 @@ func All() []Animal {
 	return animals
 }
 
-// Birds returns all birds
-func Birds() []Animal {
+// ByTag returns a slice of animals that have the given tag
+func ByTag(tag string, from []Animal) []Animal {
 	var animals []Animal
 
-	birds := getBirds()
-	animals = append(animals, birds...)
-	gameBirds := getGameBirds()
-	animals = append(animals, gameBirds...)
-	raptors := getRaptors()
-	animals = append(animals, raptors...)
+	for _, p := range from {
+		if p.HasTag(tag) {
+			animals = append(animals, p)
+		}
+	}
 
 	return animals
 }
 
-// Land returns all land animals
-func Land() []Animal {
-	var animals []Animal
+// HasTag returns true if the animal has a given tag
+func (animal Animal) HasTag(tag string) bool {
+	for _, t := range animal.Tags {
+		if t == tag {
+			return true
+		}
+	}
 
-	cats := getBigCats()
-	animals = append(animals, cats...)
-	canines := getCanines()
-	animals = append(animals, canines...)
-	equines := getEquines()
-	animals = append(animals, equines...)
-	mammals := getMammals()
-	animals = append(animals, mammals...)
-	reptiles := getReptiles()
-	animals = append(animals, reptiles...)
-
-	return animals
+	return false
 }
 
 // InSlice checks whether a given animal is in a slice of animals

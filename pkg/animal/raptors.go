@@ -31,6 +31,12 @@ func getRaptors() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"raptor",
+				"carnivore",
+			},
 		},
 		{
 			Name:           "falcon",
@@ -56,6 +62,12 @@ func getRaptors() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"raptor",
+				"carnivore",
+			},
 		},
 		{
 			Name:           "hawk",
@@ -81,6 +93,12 @@ func getRaptors() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+				"raptor",
+				"carnivore",
+			},
 		},
 	}
 

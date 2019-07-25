@@ -31,6 +31,10 @@ func getBirds() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+			},
 		},
 		{
 			Name:           "peacock",
@@ -56,6 +60,10 @@ func getBirds() []Animal {
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
+			Tags: []string{
+				"animal",
+				"bird",
+			},
 		},
 	}
 

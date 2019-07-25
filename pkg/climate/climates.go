@@ -241,7 +241,10 @@ func (climate Climate) populate() Climate {
 		climate.Fish = []animal.Fish{}
 	}
 
+	hideAnimals := animal.ByTag("hide", animals)
+	hideAnimal := animal.Random(1, hideAnimals)
 	climate.Animals = animal.Random(climate.MaxAnimals, animals)
+	climate.Animals = append(climate.Animals, hideAnimal...)
 	climate.Metals = mineral.RandomWeightedSet(climate.MaxMetals, metals)
 	climate.Gems = mineral.Random(climate.MaxGems, gems)
 	climate.OtherMinerals = mineral.OtherMinerals()
