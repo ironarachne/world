@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.4.4 (2019-07-28)
+
+This is a big refactor of the heraldry package. This work enables a later addition of generating heraldry with specific charge types.
+
+### Change List
+
+- Refactor heraldry package to improve adherence to Go best practices
+- Add heraldry utility functions for finding charges by tag
+- Add more tags to charges
+
 ## 0.4.3 (2019-07-25)
 
 Add tags to animals

@@ -65,8 +65,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "acacia",
-					Origin:      "acacia",
+					Name:   "acacia",
+					Origin: "acacia",
 					Tags: []string{
 						"wood",
 					},
@@ -85,8 +85,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "alder",
-					Origin:      "alder",
+					Name:   "alder",
+					Origin: "alder",
 					Tags: []string{
 						"wood",
 					},
@@ -105,16 +105,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "apple",
-					Origin:      "apple",
+					Name:   "apple",
+					Origin: "apple",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "apple",
-					Origin:      "apple",
+					Name:   "apple",
+					Origin: "apple",
 					Tags: []string{
 						"fruit",
 					},
@@ -133,8 +133,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "ash",
-					Origin:      "ash",
+					Name:   "ash",
+					Origin: "ash",
 					Tags: []string{
 						"wood",
 					},
@@ -153,8 +153,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "aspen",
-					Origin:      "aspen",
+					Name:   "aspen",
+					Origin: "aspen",
 					Tags: []string{
 						"wood",
 					},
@@ -173,8 +173,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "balsa",
-					Origin:      "balsa",
+					Name:   "balsa",
+					Origin: "balsa",
 					Tags: []string{
 						"wood",
 					},
@@ -193,16 +193,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "banana",
-					Origin:      "banana",
+					Name:   "banana",
+					Origin: "banana",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "banana",
-					Origin:      "banana",
+					Name:   "banana",
+					Origin: "banana",
 					Tags: []string{
 						"fruit",
 					},
@@ -221,8 +221,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "birch",
-					Origin:      "birch",
+					Name:   "birch",
+					Origin: "birch",
 					Tags: []string{
 						"wood",
 					},
@@ -241,8 +241,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "black pine",
-					Origin:      "black pine",
+					Name:   "black pine",
+					Origin: "black pine",
 					Tags: []string{
 						"wood",
 					},
@@ -261,8 +261,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "blackwood",
-					Origin:      "blackwood",
+					Name:   "blackwood",
+					Origin: "blackwood",
 					Tags: []string{
 						"wood",
 					},
@@ -281,8 +281,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "boxwood",
-					Origin:      "boxwood",
+					Name:   "boxwood",
+					Origin: "boxwood",
 					Tags: []string{
 						"wood",
 					},
@@ -301,8 +301,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "cedar",
-					Origin:      "cedar",
+					Name:   "cedar",
+					Origin: "cedar",
 					Tags: []string{
 						"wood",
 					},
@@ -321,16 +321,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "cherry",
-					Origin:      "cherry",
+					Name:   "cherry",
+					Origin: "cherry",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "cherry",
-					Origin:      "cherry",
+					Name:   "cherry",
+					Origin: "cherry",
 					Tags: []string{
 						"fruit",
 					},
@@ -349,16 +349,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 8,
 			Resources: []resource.Resource{
 				{
-					Name:        "cinnamon",
-					Origin:      "cinnamon",
+					Name:   "cinnamon",
+					Origin: "cinnamon",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "cinnamon",
-					Origin:      "cinnamon",
+					Name:   "cinnamon",
+					Origin: "cinnamon",
 					Tags: []string{
 						"spice",
 					},
@@ -377,8 +377,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "coachwood",
-					Origin:      "coachwood",
+					Name:   "coachwood",
+					Origin: "coachwood",
 					Tags: []string{
 						"wood",
 					},
@@ -397,16 +397,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "coconut",
-					Origin:      "coconut",
+					Name:   "coconut",
+					Origin: "coconut",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "coconut",
-					Origin:      "coconut",
+					Name:   "coconut",
+					Origin: "coconut",
 					Tags: []string{
 						"fruit",
 					},
@@ -425,8 +425,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "corkwood",
-					Origin:      "corkwood",
+					Name:   "corkwood",
+					Origin: "corkwood",
 					Tags: []string{
 						"wood",
 					},
@@ -445,8 +445,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "cottonwood",
-					Origin:      "cottonwood",
+					Name:   "cottonwood",
+					Origin: "cottonwood",
 					Tags: []string{
 						"wood",
 					},
@@ -465,16 +465,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "crabapple",
-					Origin:      "crabapple",
+					Name:   "crabapple",
+					Origin: "crabapple",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "crabapple",
-					Origin:      "crabapple",
+					Name:   "crabapple",
+					Origin: "crabapple",
 					Tags: []string{
 						"fruit",
 					},
@@ -493,8 +493,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "cypress",
-					Origin:      "cypress",
+					Name:   "cypress",
+					Origin: "cypress",
 					Tags: []string{
 						"wood",
 					},
@@ -513,8 +513,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "dogwood",
-					Origin:      "dogwood",
+					Name:   "dogwood",
+					Origin: "dogwood",
 					Tags: []string{
 						"wood",
 					},
@@ -533,8 +533,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:        "elm",
-					Origin:      "elm",
+					Name:   "elm",
+					Origin: "elm",
 					Tags: []string{
 						"wood",
 					},
@@ -553,8 +553,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "eucalyptus",
-					Origin:      "eucalyptus",
+					Name:   "eucalyptus",
+					Origin: "eucalyptus",
 					Tags: []string{
 						"wood",
 					},
@@ -573,8 +573,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "fir",
-					Origin:      "fir",
+					Name:   "fir",
+					Origin: "fir",
 					Tags: []string{
 						"wood",
 					},
@@ -593,8 +593,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "hemlock",
-					Origin:      "hemlock",
+					Name:   "hemlock",
+					Origin: "hemlock",
 					Tags: []string{
 						"wood",
 					},
@@ -613,8 +613,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "ironwood",
-					Origin:      "ironwood",
+					Name:   "ironwood",
+					Origin: "ironwood",
 					Tags: []string{
 						"wood",
 					},
@@ -633,8 +633,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "juniper",
-					Origin:      "juniper",
+					Name:   "juniper",
+					Origin: "juniper",
 					Tags: []string{
 						"wood",
 					},
@@ -653,8 +653,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "kingwood",
-					Origin:      "kingwood",
+					Name:   "kingwood",
+					Origin: "kingwood",
 					Tags: []string{
 						"wood",
 					},
@@ -673,8 +673,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "lacewood",
-					Origin:      "lacewood",
+					Name:   "lacewood",
+					Origin: "lacewood",
 					Tags: []string{
 						"wood",
 					},
@@ -693,8 +693,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "larch",
-					Origin:      "larch",
+					Name:   "larch",
+					Origin: "larch",
 					Tags: []string{
 						"wood",
 					},
@@ -713,16 +713,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:        "lemon",
-					Origin:      "lemon",
+					Name:   "lemon",
+					Origin: "lemon",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "lemon",
-					Origin:      "lemon",
+					Name:   "lemon",
+					Origin: "lemon",
 					Tags: []string{
 						"fruit",
 					},
@@ -741,16 +741,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:        "lime",
-					Origin:      "lime",
+					Name:   "lime",
+					Origin: "lime",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "lime",
-					Origin:      "lime",
+					Name:   "lime",
+					Origin: "lime",
 					Tags: []string{
 						"fruit",
 					},
@@ -769,8 +769,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "mahogany",
-					Origin:      "mahogany",
+					Name:   "mahogany",
+					Origin: "mahogany",
 					Tags: []string{
 						"wood",
 					},
@@ -789,16 +789,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "mango",
-					Origin:      "mango",
+					Name:   "mango",
+					Origin: "mango",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "mango",
-					Origin:      "mango",
+					Name:   "mango",
+					Origin: "mango",
 					Tags: []string{
 						"fruit",
 					},
@@ -817,8 +817,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:        "maple",
-					Origin:      "maple",
+					Name:   "maple",
+					Origin: "maple",
 					Tags: []string{
 						"wood",
 					},
@@ -837,8 +837,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:        "oak",
-					Origin:      "oak",
+					Name:   "oak",
+					Origin: "oak",
 					Tags: []string{
 						"wood",
 					},
@@ -857,16 +857,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "olive",
-					Origin:      "olive",
+					Name:   "olive",
+					Origin: "olive",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "olives",
-					Origin:      "olive",
+					Name:   "olives",
+					Origin: "olive",
 					Tags: []string{
 						"fruit",
 					},
@@ -885,16 +885,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "papaya",
-					Origin:      "papaya",
+					Name:   "papaya",
+					Origin: "papaya",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "papaya",
-					Origin:      "papaya",
+					Name:   "papaya",
+					Origin: "papaya",
 					Tags: []string{
 						"fruit",
 					},
@@ -913,8 +913,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "pine",
-					Origin:      "pine",
+					Name:   "pine",
+					Origin: "pine",
 					Tags: []string{
 						"wood",
 					},
@@ -933,16 +933,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:        "pineapple",
-					Origin:      "pineapple",
+					Name:   "pineapple",
+					Origin: "pineapple",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "pineapple",
-					Origin:      "pineapple",
+					Name:   "pineapple",
+					Origin: "pineapple",
 					Tags: []string{
 						"fruit",
 					},
@@ -961,8 +961,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:        "palm",
-					Origin:      "palm",
+					Name:   "palm",
+					Origin: "palm",
 					Tags: []string{
 						"wood",
 					},
@@ -981,16 +981,16 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "pear",
-					Origin:      "pear",
+					Name:   "pear",
+					Origin: "pear",
 					Tags: []string{
 						"wood",
 					},
 					Commonality: 5,
 				},
 				{
-					Name:        "pear",
-					Origin:      "pear",
+					Name:   "pear",
+					Origin: "pear",
 					Tags: []string{
 						"fruit",
 					},
@@ -1009,8 +1009,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "poplar",
-					Origin:      "poplar",
+					Name:   "poplar",
+					Origin: "poplar",
 					Tags: []string{
 						"wood",
 					},
@@ -1029,8 +1029,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "red oak",
-					Origin:      "red oak",
+					Name:   "red oak",
+					Origin: "red oak",
 					Tags: []string{
 						"wood",
 					},
@@ -1049,8 +1049,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "red pine",
-					Origin:      "red pine",
+					Name:   "red pine",
+					Origin: "red pine",
 					Tags: []string{
 						"wood",
 					},
@@ -1069,8 +1069,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "rosewood",
-					Origin:      "rosewood",
+					Name:   "rosewood",
+					Origin: "rosewood",
 					Tags: []string{
 						"wood",
 					},
@@ -1089,8 +1089,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "sandalwood",
-					Origin:      "sandalwood",
+					Name:   "sandalwood",
+					Origin: "sandalwood",
 					Tags: []string{
 						"wood",
 					},
@@ -1109,8 +1109,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "spruce",
-					Origin:      "spruce",
+					Name:   "spruce",
+					Origin: "spruce",
 					Tags: []string{
 						"wood",
 					},
@@ -1129,8 +1129,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "teak",
-					Origin:      "teak",
+					Name:   "teak",
+					Origin: "teak",
 					Tags: []string{
 						"wood",
 					},
@@ -1149,8 +1149,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "walnut",
-					Origin:      "walnut",
+					Name:   "walnut",
+					Origin: "walnut",
 					Tags: []string{
 						"wood",
 					},
@@ -1169,8 +1169,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "white oak",
-					Origin:      "white oak",
+					Name:   "white oak",
+					Origin: "white oak",
 					Tags: []string{
 						"wood",
 					},
@@ -1189,8 +1189,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "white pine",
-					Origin:      "white pine",
+					Name:   "white pine",
+					Origin: "white pine",
 					Tags: []string{
 						"wood",
 					},
@@ -1209,8 +1209,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "willow",
-					Origin:      "willow",
+					Name:   "willow",
+					Origin: "willow",
 					Tags: []string{
 						"wood",
 					},
@@ -1229,8 +1229,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "yew",
-					Origin:      "yew",
+					Name:   "yew",
+					Origin: "yew",
 					Tags: []string{
 						"wood",
 					},
@@ -1249,8 +1249,8 @@ func AllTrees() []Tree {
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
 				{
-					Name:        "yellow pine",
-					Origin:      "yellow pine",
+					Name:   "yellow pine",
+					Origin: "yellow pine",
 					Tags: []string{
 						"wood",
 					},

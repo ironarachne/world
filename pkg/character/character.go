@@ -41,7 +41,7 @@ type Character struct {
 	NoseShape      string
 	SkinColor      string
 	Culture        culture.Culture
-	Race race.Race
+	Race           race.Race
 }
 
 // Couple is a pair of partners

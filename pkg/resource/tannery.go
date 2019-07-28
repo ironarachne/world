@@ -16,7 +16,7 @@ func getTannery() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "hide",
+					RequiredTag:         "hide",
 					DescriptionTemplate: "{{.Resource.Origin}} leather",
 				},
 			},

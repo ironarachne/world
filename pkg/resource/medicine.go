@@ -17,7 +17,7 @@ func getMedicine() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "herb",
+					RequiredTag:         "herb",
 					DescriptionTemplate: "healing draught",
 				},
 			},

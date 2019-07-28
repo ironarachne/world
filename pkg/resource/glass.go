@@ -16,7 +16,7 @@ func getGlass() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "sand",
+					RequiredTag:         "sand",
 					DescriptionTemplate: "{{.Resource.Origin}} glass bottle",
 				},
 			},
@@ -31,7 +31,7 @@ func getGlass() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "sand",
+					RequiredTag:         "sand",
 					DescriptionTemplate: "{{.Resource.Origin}} glass",
 				},
 			},

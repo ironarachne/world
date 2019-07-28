@@ -16,7 +16,7 @@ func getPottery() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "clay",
+					RequiredTag:         "clay",
 					DescriptionTemplate: "{{.Resource.Origin}} bowl",
 				},
 			},
@@ -31,7 +31,7 @@ func getPottery() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "clay",
+					RequiredTag:         "clay",
 					DescriptionTemplate: "{{.Resource.Origin}} mug",
 				},
 			},
@@ -46,7 +46,7 @@ func getPottery() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "clay",
+					RequiredTag:         "clay",
 					DescriptionTemplate: "{{.Resource.Origin}} pitcher",
 				},
 			},
@@ -61,7 +61,7 @@ func getPottery() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "clay",
+					RequiredTag:         "clay",
 					DescriptionTemplate: "{{.Resource.Origin}} vase",
 				},
 			},

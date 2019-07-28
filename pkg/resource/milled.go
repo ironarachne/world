@@ -16,7 +16,7 @@ func getMilled() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:        "grain",
+					RequiredTag:         "grain",
 					DescriptionTemplate: "{{.Resource.Origin}} flour",
 				},
 			},
