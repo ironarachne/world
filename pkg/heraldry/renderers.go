@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
+	"github.com/ironarachne/world/pkg/save"
 	"github.com/ironarachne/world/pkg/words"
 	"io"
 	"os"
@@ -181,4 +182,11 @@ func RenderToSVGFile(device Device, fileName string, width int, height int) {
 	io.WriteString(writer, contents)
 
 	defer writer.Close()
+}
+
+// RenderToRemoteSVG renders a device to SVG and saves it remotely
+func RenderToRemoteSVG(device Device, fileName string, width int, height int) {
+	contents := device.RenderToSVG(width, height)
+
+	save.SVG("heraldry/devices/"+fileName, contents)
 }

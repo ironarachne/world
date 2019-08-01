@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.4.5 (2019-08-01)
+
+Add ability to save to Digital Ocean Spaces.
+
+### Change List
+
+- Add ability to save PNG and SVG images to Digital Ocean Spaces
+
 ## 0.4.4 (2019-07-28)
 
 This is a big refactor of the heraldry package. This work enables a later addition of generating heraldry with specific charge types.
