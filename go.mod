@@ -5,6 +5,7 @@ require (
 	github.com/ajstarks/svgo v0.0.0-20181006003313-6ce6a3bcf6cd
 	github.com/divan/num2words v0.0.0-20170904212200-57dba452f942
 	github.com/flosch/pongo2 v0.0.0-20190707114632-bbf5a6c351f4 // indirect
+	github.com/getsentry/sentry-go v0.2.1
 	github.com/go-chi/chi v4.0.2+incompatible
 	github.com/go-ini/ini v1.44.0 // indirect
 	github.com/ironarachne/heraldry v0.0.0-20190325172346-07bf7eeae990

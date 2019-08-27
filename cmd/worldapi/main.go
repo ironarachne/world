@@ -6,8 +6,11 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"time"
 
+	"github.com/getsentry/sentry-go"
+	sentryhttp "github.com/getsentry/sentry-go/http"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/ironarachne/world/pkg/buildings"
@@ -487,7 +490,41 @@ func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(l.WorldMap)
 }
 
+func errorTracking(h http.Handler) http.Handler {
+	sentryDSN := os.Getenv("SENTRY_DSN")
+
+	if sentryDSN != "" {
+		sentry.Init(sentry.ClientOptions{
+			Dsn: sentryDSN,
+		})
+
+		sentryHandler := sentryhttp.New(sentryhttp.Options{})
+
+		fn := func(w http.ResponseWriter, r *http.Request) {
+			h.ServeHTTP(w, r)
+		}
+
+		return sentryHandler.HandleFunc(fn)
+	}
+
+	return h
+}
+
 func main() {
+	sentryDSN := os.Getenv("SENTRY_DSN")
+
+	if sentryDSN == "" {
+		panic("Sentry not set up!")
+	}
+
+	sentry.Init(sentry.ClientOptions{
+		Dsn: sentryDSN,
+	})
+
+	sentryHandler := sentryhttp.New(sentryhttp.Options{
+		Repanic: true,
+	})
+
 	r := chi.NewRouter()
 
 	r.Use(middleware.RequestID)
@@ -499,67 +536,67 @@ func main() {
 
 	r.Use(middleware.Timeout(60 * time.Second))
 
-	r.Get("/buildingstyle", getBuildingStyleRandom)
-	r.Get("/buildingstyle/{id}", getBuildingStyle)
+	r.Get("/buildingstyle", sentryHandler.HandleFunc(getBuildingStyleRandom))
+	r.Get("/buildingstyle/{id}", sentryHandler.HandleFunc(getBuildingStyle))
 
-	r.Get("/character", getCharacterRandom)
-	r.Get("/character/{id}", getCharacter)
+	r.Get("/character", sentryHandler.HandleFunc(getCharacterRandom))
+	r.Get("/character/{id}", sentryHandler.HandleFunc(getCharacter))
 
-	r.Get("/climate", getClimateRandom)
-	r.Get("/climate/{id}", getClimate)
+	r.Get("/climate", sentryHandler.HandleFunc(getClimateRandom))
+	r.Get("/climate/{id}", sentryHandler.HandleFunc(getClimate))
 
-	r.Get("/clothingstyle", getClothingStyleRandom)
-	r.Get("/clothingstyle/{id}", getClothingStyle)
+	r.Get("/clothingstyle", sentryHandler.HandleFunc(getClothingStyleRandom))
+	r.Get("/clothingstyle/{id}", sentryHandler.HandleFunc(getClothingStyle))
 
-	r.Get("/country", getCountryRandom)
-	r.Get("/country/{id}", getCountry)
+	r.Get("/country", sentryHandler.HandleFunc(getCountryRandom))
+	r.Get("/country/{id}", sentryHandler.HandleFunc(getCountry))
 
-	r.Get("/culture", getCultureRandom)
-	r.Get("/culture/{id}", getCulture)
+	r.Get("/culture", sentryHandler.HandleFunc(getCultureRandom))
+	r.Get("/culture/{id}", sentryHandler.HandleFunc(getCulture))
 
-	r.Get("/foodstyle", getFoodStyleRandom)
-	r.Get("/foodstyle/{id}", getFoodStyle)
+	r.Get("/foodstyle", sentryHandler.HandleFunc(getFoodStyleRandom))
+	r.Get("/foodstyle/{id}", sentryHandler.HandleFunc(getFoodStyle))
 
-	r.Get("/heavens", getHeavensRandom)
-	r.Get("/heavens/{id}", getHeavens)
+	r.Get("/heavens", sentryHandler.HandleFunc(getHeavensRandom))
+	r.Get("/heavens/{id}", sentryHandler.HandleFunc(getHeavens))
 
-	r.Get("/heraldry", getHeraldryRandom)
-	r.Get("/heraldry/{id}", getHeraldry)
+	r.Get("/heraldry", sentryHandler.HandleFunc(getHeraldryRandom))
+	r.Get("/heraldry/{id}", sentryHandler.HandleFunc(getHeraldry))
 
-	r.Get("/language", getLanguageRandom)
-	r.Get("/language/{id}", getLanguage)
+	r.Get("/language", sentryHandler.HandleFunc(getLanguageRandom))
+	r.Get("/language/{id}", sentryHandler.HandleFunc(getLanguage))
 
-	r.Get("/monster", getMonsterRandom)
-	r.Get("/monster/{id}", getMonster)
+	r.Get("/monster", sentryHandler.HandleFunc(getMonsterRandom))
+	r.Get("/monster/{id}", sentryHandler.HandleFunc(getMonster))
 
-	r.Get("/organization", getOrganizationRandom)
-	r.Get("/organization/{id}", getOrganization)
+	r.Get("/organization", sentryHandler.HandleFunc(getOrganizationRandom))
+	r.Get("/organization/{id}", sentryHandler.HandleFunc(getOrganization))
 
-	r.Get("/pantheon", getPantheonRandom)
-	r.Get("/pantheon/{id}", getPantheon)
+	r.Get("/pantheon", sentryHandler.HandleFunc(getPantheonRandom))
+	r.Get("/pantheon/{id}", sentryHandler.HandleFunc(getPantheon))
 
-	r.Get("/race", getRaceRandom)
-	r.Get("/race/{id}", getRace)
+	r.Get("/race", sentryHandler.HandleFunc(getRaceRandom))
+	r.Get("/race/{id}", sentryHandler.HandleFunc(getRace))
 
-	r.Get("/region", getRegionRandom)
-	r.Get("/region/{id}", getRegion)
+	r.Get("/region", sentryHandler.HandleFunc(getRegionRandom))
+	r.Get("/region/{id}", sentryHandler.HandleFunc(getRegion))
 
-	r.Get("/religion", getReligionRandom)
-	r.Get("/religion/{id}", getReligion)
+	r.Get("/religion", sentryHandler.HandleFunc(getReligionRandom))
+	r.Get("/religion/{id}", sentryHandler.HandleFunc(getReligion))
 
-	r.Get("/town", getTownRandom)
-	r.Get("/town/{id}", getTown)
+	r.Get("/town", sentryHandler.HandleFunc(getTownRandom))
+	r.Get("/town/{id}", sentryHandler.HandleFunc(getTown))
 
-	r.Get("/world", getWorldRandom)
-	r.Get("/world/{id}", getWorld)
-	r.Get("/world/{id}/map", getWorldMapSVGImage)
+	r.Get("/world", sentryHandler.HandleFunc(getWorldRandom))
+	r.Get("/world/{id}", sentryHandler.HandleFunc(getWorld))
+	r.Get("/world/{id}/map", sentryHandler.HandleFunc(getWorldMapSVGImage))
 
-	r.Get("/worldmap", getWorldMapRandom)
-	r.Get("/worldmap/{id}", getWorldMap)
-	r.Get("/worldmap/{id}/image", getWorldMapSVGImage)
-	r.Get("/worldmap/{id}/textimage", getWorldMapTextImage)
+	r.Get("/worldmap", sentryHandler.HandleFunc(getWorldMapRandom))
+	r.Get("/worldmap/{id}", sentryHandler.HandleFunc(getWorldMap))
+	r.Get("/worldmap/{id}/image", sentryHandler.HandleFunc(getWorldMapSVGImage))
+	r.Get("/worldmap/{id}/textimage", sentryHandler.HandleFunc(getWorldMapTextImage))
 
-	r.Get("/", getRoot)
+	r.Get("/", sentryHandler.HandleFunc(getRoot))
 
 	fmt.Println("World Generator API is online.")
 	log.Fatal(http.ListenAndServe(":7531", r))

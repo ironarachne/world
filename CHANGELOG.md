@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.4.6 (2019-08-27)
+
+Add Sentry error tracking.
+
+### Change List
+
+- Add mandatory Sentry error tracking
+
 ## 0.4.5 (2019-08-01)
 
 Add ability to save to Digital Ocean Spaces.
