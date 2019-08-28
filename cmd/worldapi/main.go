@@ -23,6 +23,7 @@ import (
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/language"
+	"github.com/ironarachne/world/pkg/merchant"
 	"github.com/ironarachne/world/pkg/monster"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
@@ -250,6 +251,28 @@ func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
 	rand.Seed(time.Now().UnixNano())
 
 	o = language.Generate().Simplify()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getMerchant(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o merchant.SimplifiedMerchant
+
+	random.SeedFromString(id)
+
+	o = merchant.RandomSimplified()
+
+	json.NewEncoder(w).Encode(o)
+}
+
+func getMerchantRandom(w http.ResponseWriter, r *http.Request) {
+	var o merchant.SimplifiedMerchant
+
+	rand.Seed(time.Now().UnixNano())
+
+	o = merchant.RandomSimplified()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -565,6 +588,9 @@ func main() {
 
 	r.Get("/language", sentryHandler.HandleFunc(getLanguageRandom))
 	r.Get("/language/{id}", sentryHandler.HandleFunc(getLanguage))
+
+	r.Get("/merchant", sentryHandler.HandleFunc(getMerchantRandom))
+	r.Get("/merchant/{id}", sentryHandler.HandleFunc(getMerchant))
 
 	r.Get("/monster", sentryHandler.HandleFunc(getMonsterRandom))
 	r.Get("/monster/{id}", sentryHandler.HandleFunc(getMonster))

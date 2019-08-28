@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.4.8 (2019-08-28)
+
+Add travelling merchants.
+
+### Change List
+
+- Add merchant endpoint
+- Add values to resources
+- Add price calculation to trade goods
+- Improve a number of basic and refined resources
+- Add a few new resources
+
 ## 0.4.7 (2019-08-28)
 
 Add several new resources and the ability to override resource origins.

@@ -31,6 +31,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "battle axe",
@@ -57,6 +58,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "long sword",
@@ -83,6 +85,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "mace",
@@ -109,6 +112,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 6,
 		},
 		{
 			Name:        "morningstar",
@@ -135,6 +139,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 6,
 		},
 		{
 			Name:        "pike",
@@ -161,6 +166,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "short sword",
@@ -187,6 +193,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 8,
 		},
 		{
 			Name:        "spear",
@@ -213,6 +220,29 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 5,
+		},
+		{
+			Name:        "short spear",
+			Description: "a short spear",
+			Tags: []string{
+				"spear",
+				"weapon",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "haft",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "short {{.Resource.Origin}} spear",
+				},
+				{
+					Name:                "blade",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: " with a {{.Resource.Origin}} point",
+				},
+			},
+			Value: 5,
 		},
 		{
 			Name:        "two-handed sword",
@@ -239,6 +269,7 @@ func getWeapons() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} leather wrapped handle",
 				},
 			},
+			Value: 10,
 		},
 	}
 

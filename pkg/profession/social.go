@@ -19,6 +19,14 @@ func social() []Profession {
 			},
 		},
 		{
+			Name:        "merchant",
+			Description: "Merchants buy, sell, and trade goods.",
+			Tags: []string{
+				"trader",
+				"social",
+			},
+		},
+		{
 			Name:        "noble",
 			Description: "Nobles act as military coordinators, protectors, and leaders.",
 			Tags: []string{

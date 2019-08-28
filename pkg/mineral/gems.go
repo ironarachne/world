@@ -12,13 +12,14 @@ func Gems() []Mineral {
 			Malleability: 1,
 			Resources: []resource.Resource{
 				{
-					Name:   "diamond",
+					Name:   "raw diamond ore",
 					Origin: "diamond",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 1,
+					Value:       100,
 				},
 			},
 		},
@@ -29,13 +30,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "garnet",
+					Name:   "raw garnet ore",
 					Origin: "garnet",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       10,
 				},
 			},
 		},
@@ -46,13 +48,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "ruby",
+					Name:   "raw ruby ore",
 					Origin: "ruby",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 2,
+					Value:       50,
 				},
 			},
 		},
@@ -63,13 +66,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "sapphire",
+					Name:   "raw sapphire ore",
 					Origin: "sapphire",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 4,
+					Value:       40,
 				},
 			},
 		},
@@ -80,13 +84,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "amethyst",
+					Name:   "raw amethyst ore",
 					Origin: "amethyst",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       10,
 				},
 			},
 		},
@@ -97,13 +102,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "agate",
+					Name:   "raw agate ore",
 					Origin: "agate",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       5,
 				},
 			},
 		},
@@ -114,13 +120,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "jade",
+					Name:   "raw jade ore",
 					Origin: "jade",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       15,
 				},
 			},
 		},
@@ -131,13 +138,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "jasper",
+					Name:   "raw jasper ore",
 					Origin: "jasper",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       5,
 				},
 			},
 		},
@@ -148,13 +156,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "moonstone",
+					Name:   "raw moonstone ore",
 					Origin: "moonstone",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       5,
 				},
 			},
 		},
@@ -165,13 +174,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "opal",
+					Name:   "raw opal ore",
 					Origin: "opal",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       5,
 				},
 			},
 		},
@@ -182,13 +192,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "peridot",
+					Name:   "raw peridot ore",
 					Origin: "peridot",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       5,
 				},
 			},
 		},
@@ -199,13 +210,14 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "topaz",
+					Name:   "raw topaz ore",
 					Origin: "topaz",
 					Tags: []string{
 						"gem ore",
 						"ore",
 					},
 					Commonality: 5,
+					Value:       5,
 				},
 			},
 		},

@@ -18,9 +18,10 @@ func getWine() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fruit",
-					DescriptionTemplate: "{{.Resource.Origin}} wine",
+					DescriptionTemplate: "bottle of {{.Resource.Origin}} wine",
 				},
 			},
+			Value: 1,
 		},
 	}
 

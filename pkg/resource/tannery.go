@@ -20,6 +20,7 @@ func getTannery() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} leather",
 				},
 			},
+			Value: 1,
 		},
 	}
 

@@ -21,6 +21,7 @@ func getMedicine() []Pattern {
 					DescriptionTemplate: "healing draught",
 				},
 			},
+			Value: 5,
 		},
 	}
 

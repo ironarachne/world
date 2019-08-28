@@ -16,6 +16,7 @@ type Pattern struct {
 	Profession     profession.Profession
 	Slots          []Slot
 	OriginOverride string
+	Value          int
 }
 
 // Slot is a slot for a resource requirement
@@ -163,6 +164,13 @@ func (pattern Pattern) ToResource() Resource {
 	resource.Tags = pattern.Tags
 	resource.Tags = append(resource.Tags, resource.Name)
 	resource.Commonality = pattern.Commonality
+	value := 0
+
+	for _, s := range pattern.Slots {
+		value += s.Resource.Value
+	}
+	value += pattern.Value
+	resource.Value = value
 
 	return resource
 }

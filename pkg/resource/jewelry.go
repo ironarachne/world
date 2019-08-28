@@ -20,6 +20,7 @@ func getJewelry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}}",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "necklace",
@@ -35,6 +36,7 @@ func getJewelry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} necklace",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "pendant",
@@ -55,6 +57,7 @@ func getJewelry() []Pattern {
 					DescriptionTemplate: " on a {{.Resource.Origin}} leather thong",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "ring",
@@ -75,6 +78,7 @@ func getJewelry() []Pattern {
 					DescriptionTemplate: " set with {{.Resource.Origin}}",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "ring",
@@ -90,6 +94,7 @@ func getJewelry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} ring",
 				},
 			},
+			Value: 10,
 		},
 	}
 

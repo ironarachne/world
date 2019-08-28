@@ -7,6 +7,22 @@ func getCarpentry() []Pattern {
 
 	patterns := []Pattern{
 		{
+			Name:        "barrel",
+			Description: "a barrel",
+			Tags: []string{
+				"furniture",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.Origin}} wood barrel",
+				},
+			},
+			Value: 1,
+		},
+		{
 			Name:        "bench",
 			Description: "a bench",
 			Tags: []string{
@@ -20,6 +36,7 @@ func getCarpentry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} wood bench",
 				},
 			},
+			Value: 3,
 		},
 		{
 			Name:        "bowl",
@@ -35,6 +52,23 @@ func getCarpentry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} wood bowl",
 				},
 			},
+			Value: 1,
+		},
+		{
+			Name:        "cask",
+			Description: "a cask",
+			Tags: []string{
+				"furniture",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.Origin}} wood cask",
+				},
+			},
+			Value: 1,
 		},
 		{
 			Name:        "chair",
@@ -50,6 +84,7 @@ func getCarpentry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} wood chair",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "table",
@@ -65,6 +100,7 @@ func getCarpentry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} wood table",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "tankard",
@@ -80,6 +116,7 @@ func getCarpentry() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} wood tankard",
 				},
 			},
+			Value: 1,
 		},
 	}
 

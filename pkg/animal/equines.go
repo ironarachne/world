@@ -39,6 +39,7 @@ func getEquines() []Animal {
 					"hide",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name + " milk",
@@ -47,6 +48,7 @@ func getEquines() []Animal {
 					"milk",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name,
@@ -55,6 +57,7 @@ func getEquines() []Animal {
 					"meat",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name,
@@ -63,6 +66,7 @@ func getEquines() []Animal {
 					"mount",
 				},
 				Commonality: 7,
+				Value:       50,
 			},
 			{
 				Name:   a.Name,
@@ -71,6 +75,7 @@ func getEquines() []Animal {
 					"pack animal",
 				},
 				Commonality: 5,
+				Value:       5,
 			},
 		}
 		a.Tags = []string{

@@ -18,9 +18,10 @@ func getDistilled() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "corn",
-					DescriptionTemplate: "bourbon",
+					DescriptionTemplate: "bottle of bourbon",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "brandy",
@@ -34,9 +35,10 @@ func getDistilled() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wine",
-					DescriptionTemplate: "brandy",
+					DescriptionTemplate: "bottle of brandy",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "gin",
@@ -50,9 +52,10 @@ func getDistilled() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "juniper",
-					DescriptionTemplate: "gin",
+					DescriptionTemplate: "bottle of gin",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "whiskey",
@@ -66,9 +69,10 @@ func getDistilled() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "rye",
-					DescriptionTemplate: "{{.Resource.Origin}} whiskey",
+					DescriptionTemplate: "bottle of {{.Resource.Origin}} whiskey",
 				},
 			},
+			Value: 1,
 		},
 	}
 

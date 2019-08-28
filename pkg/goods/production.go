@@ -34,6 +34,7 @@ func Produce(professions []profession.Profession, resources []resource.Resource)
 					Profession:  n.Profession,
 					Tags:        n.Tags,
 					Slots:       []resource.Slot{},
+					Value:       n.Value,
 				}
 				for _, s := range n.Slots {
 					resourcesForSlot = resource.ByTag(s.RequiredTag, resources)

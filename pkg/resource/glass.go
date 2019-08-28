@@ -20,6 +20,7 @@ func getGlass() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} glass bottle",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "glass",
@@ -35,6 +36,7 @@ func getGlass() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} glass",
 				},
 			},
+			Value: 1,
 		},
 	}
 

@@ -32,6 +32,10 @@ The API supports the following routes. Where `123` is specified, it refers to an
 
 **Language, specific seed**: `/language/123`
 
+**Merchant, random**: `/merchant/`
+
+**Merchant, specific seed**: `/merchant/123`
+
 **Monster, random**: `/monster/`
 
 **Monster, specific seed**: `/monster/123`

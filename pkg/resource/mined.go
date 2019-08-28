@@ -21,6 +21,7 @@ func getMined() []Pattern {
 					DescriptionTemplate: "refined {{.Resource.Origin}} ore",
 				},
 			},
+			Value: 2,
 		},
 		{
 			Name:        "refined soft metal ore",
@@ -37,6 +38,7 @@ func getMined() []Pattern {
 					DescriptionTemplate: "refined {{.Resource.Origin}} ore",
 				},
 			},
+			Value: 2,
 		},
 		{
 			Name:        "refined hard metal ore",
@@ -53,6 +55,7 @@ func getMined() []Pattern {
 					DescriptionTemplate: "refined {{.Resource.Origin}} ore",
 				},
 			},
+			Value: 1,
 		},
 	}
 

@@ -18,9 +18,44 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} boots",
+					DescriptionTemplate: "{{.Resource.Origin}} leather boots",
 				},
 			},
+			Value: 1,
+		},
+		{
+			Name:        "boots",
+			Description: "boots",
+			Tags: []string{
+				"clothing",
+				"footwear",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.Origin}} hide boots",
+				},
+			},
+			Value: 1,
+		},
+		{
+			Name:        "sandals",
+			Description: "sandals",
+			Tags: []string{
+				"clothing",
+				"footwear",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.Origin}} hide sandals",
+				},
+			},
+			Value: 1,
 		},
 		{
 			Name:        "shoes",
@@ -34,9 +69,44 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} shoes",
+					DescriptionTemplate: "{{.Resource.Origin}} hide shoes",
 				},
 			},
+			Value: 1,
+		},
+		{
+			Name:        "slippers",
+			Description: "slippers",
+			Tags: []string{
+				"clothing",
+				"footwear",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "fabric",
+					DescriptionTemplate: "{{.Resource.Origin}} slippers",
+				},
+			},
+			Value: 1,
+		},
+		{
+			Name:        "turnshoes",
+			Description: "turnshoes",
+			Tags: []string{
+				"clothing",
+				"footwear",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.Origin}} hide turnshoes",
+				},
+			},
+			Value: 1,
 		},
 	}
 

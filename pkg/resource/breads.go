@@ -20,6 +20,7 @@ func getBreads() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} bread",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "roll",
@@ -35,6 +36,7 @@ func getBreads() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} roll",
 				},
 			},
+			Value: 1,
 		},
 	}
 

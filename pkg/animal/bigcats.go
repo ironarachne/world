@@ -57,6 +57,7 @@ func getBigCats() []Animal {
 					"hide",
 				},
 				Commonality: 5,
+				Value:       4,
 			},
 			{
 				Name:   a.Name + " fangs",
@@ -66,6 +67,7 @@ func getBigCats() []Animal {
 					"teeth",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name,
@@ -74,6 +76,7 @@ func getBigCats() []Animal {
 					"meat",
 				},
 				Commonality: 5,
+				Value:       1,
 			},
 			{
 				Name:   a.Name,
@@ -82,6 +85,7 @@ func getBigCats() []Animal {
 					"sinew",
 				},
 				Commonality: 5,
+				Value:       1,
 			},
 		}
 		a.Tags = []string{

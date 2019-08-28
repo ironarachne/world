@@ -28,6 +28,7 @@ func getGameBirds() []Animal {
 						"egg",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "goose feathers",
@@ -36,6 +37,7 @@ func getGameBirds() []Animal {
 						"feather",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "goose",
@@ -44,6 +46,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "goose liver",
@@ -52,6 +55,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
@@ -83,6 +87,7 @@ func getGameBirds() []Animal {
 						"egg",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "chicken feathers",
@@ -91,6 +96,7 @@ func getGameBirds() []Animal {
 						"feather",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "chicken",
@@ -99,6 +105,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "chicken liver",
@@ -107,6 +114,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
@@ -138,6 +146,7 @@ func getGameBirds() []Animal {
 						"egg",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "mudhen feathers",
@@ -146,6 +155,7 @@ func getGameBirds() []Animal {
 						"feather",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "mudhen",
@@ -154,6 +164,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
@@ -185,6 +196,7 @@ func getGameBirds() []Animal {
 						"egg",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "quail feathers",
@@ -193,6 +205,7 @@ func getGameBirds() []Animal {
 						"feather",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "quail",
@@ -201,6 +214,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
@@ -232,6 +246,7 @@ func getGameBirds() []Animal {
 						"egg",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "duck feathers",
@@ -240,6 +255,7 @@ func getGameBirds() []Animal {
 						"feather",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "duck",
@@ -248,6 +264,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "duck liver",
@@ -256,6 +273,7 @@ func getGameBirds() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),

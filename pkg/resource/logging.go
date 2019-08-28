@@ -19,9 +19,10 @@ func getLogging() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood",
-					DescriptionTemplate: "{{.Resource.Origin}} log",
+					DescriptionTemplate: "a bundle of {{.Resource.Origin}} logs",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "wood plank",
@@ -34,9 +35,10 @@ func getLogging() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood",
-					DescriptionTemplate: "{{.Resource.Origin}} plank",
+					DescriptionTemplate: "a bundle of {{.Resource.Origin}} planks",
 				},
 			},
+			Value: 1,
 		},
 	}
 

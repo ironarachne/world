@@ -7,7 +7,7 @@ func getWeaving() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "blanket",
+			Name:        "large blanket",
 			Description: "a large blanket",
 			Tags: []string{
 				"blanket",
@@ -17,9 +17,26 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} blanket",
+					DescriptionTemplate: "large {{.Resource.Origin}} blanket",
 				},
 			},
+			Value: 1,
+		},
+		{
+			Name:        "small blanket",
+			Description: "a small blanket",
+			Tags: []string{
+				"blanket",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "fabric",
+					DescriptionTemplate: "small {{.Resource.Origin}} blanket",
+				},
+			},
+			Value: 1,
 		},
 		{
 			Name:        "fabric",
@@ -32,9 +49,10 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric fiber",
-					DescriptionTemplate: "{{.Resource.Origin}}",
+					DescriptionTemplate: "bolt of {{.Resource.Origin}} fabric",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "fabric",
@@ -47,9 +65,10 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "cotton",
-					DescriptionTemplate: "velveteen",
+					DescriptionTemplate: "bolt of velveteen fabric",
 				},
 			},
+			Value:          5,
 			OriginOverride: "velveteen",
 		},
 		{
@@ -63,9 +82,26 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric fiber",
-					DescriptionTemplate: "{{.Resource.Origin}} thread",
+					DescriptionTemplate: "spool of {{.Resource.Origin}} thread",
 				},
 			},
+			Value: 1,
+		},
+		{
+			Name:        "quilt",
+			Description: "a quilt",
+			Tags: []string{
+				"blanket",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "fabric",
+					DescriptionTemplate: "{{.Resource.Origin}} quilt",
+				},
+			},
+			Value: 1,
 		},
 	}
 

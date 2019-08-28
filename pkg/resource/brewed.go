@@ -18,9 +18,10 @@ func getBrewed() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "grain",
-					DescriptionTemplate: "{{.Resource.Origin}} ale",
+					DescriptionTemplate: "bottle of {{.Resource.Origin}} ale",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "beer",
@@ -34,9 +35,10 @@ func getBrewed() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "grain",
-					DescriptionTemplate: "{{.Resource.Origin}} beer",
+					DescriptionTemplate: "bottle of {{.Resource.Origin}} beer",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "lager",
@@ -50,9 +52,10 @@ func getBrewed() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "grain",
-					DescriptionTemplate: "{{.Resource.Origin}} lager",
+					DescriptionTemplate: "bottle of {{.Resource.Origin}} lager",
 				},
 			},
+			Value: 1,
 		},
 	}
 

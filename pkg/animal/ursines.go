@@ -37,6 +37,7 @@ func getUrsines() []Animal {
 					"hide",
 				},
 				Commonality: 5,
+				Value:       5,
 			},
 			{
 				Name:   a.Name + " teeth",
@@ -45,6 +46,7 @@ func getUrsines() []Animal {
 					"teeth",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name,
@@ -53,6 +55,7 @@ func getUrsines() []Animal {
 					"meat",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name,
@@ -61,6 +64,7 @@ func getUrsines() []Animal {
 					"sinew",
 				},
 				Commonality: 5,
+				Value:       1,
 			},
 		}
 		a.Tags = []string{

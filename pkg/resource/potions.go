@@ -20,6 +20,7 @@ func getPotions() []Pattern {
 					DescriptionTemplate: "healing potion",
 				},
 			},
+			Value: 20,
 		},
 	}
 

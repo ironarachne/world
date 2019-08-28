@@ -34,6 +34,7 @@ func AllFish() []Fish {
 					"meat",
 				},
 				Commonality: 4,
+				Value:       1,
 			},
 		}
 	}

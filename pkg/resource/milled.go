@@ -17,9 +17,10 @@ func getMilled() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "grain",
-					DescriptionTemplate: "{{.Resource.Origin}} flour",
+					DescriptionTemplate: "bag of {{.Resource.Origin}} flour",
 				},
 			},
+			Value: 1,
 		},
 	}
 

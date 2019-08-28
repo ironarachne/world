@@ -29,6 +29,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "beaver teeth",
@@ -37,6 +38,7 @@ func getMammals() []Animal {
 						"teeth",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "beaver meat",
@@ -45,6 +47,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
@@ -77,6 +80,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "deer teeth",
@@ -85,6 +89,7 @@ func getMammals() []Animal {
 						"teeth",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "venison",
@@ -93,6 +98,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "deer antler",
@@ -102,6 +108,7 @@ func getMammals() []Animal {
 						"bone",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "deer sinew",
@@ -110,6 +117,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -142,6 +150,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "squirrel",
@@ -150,6 +159,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
@@ -181,6 +191,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "camel teeth",
@@ -189,6 +200,7 @@ func getMammals() []Animal {
 						"teeth",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "camel",
@@ -197,6 +209,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "camel milk",
@@ -205,6 +218,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "camel sinew",
@@ -213,6 +227,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -245,6 +260,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "bison teeth",
@@ -253,6 +269,7 @@ func getMammals() []Animal {
 						"teeth",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "bison",
@@ -261,6 +278,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "bison bone",
@@ -269,6 +287,7 @@ func getMammals() []Animal {
 						"bone",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "bison sinew",
@@ -277,6 +296,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -309,6 +329,8 @@ func getMammals() []Animal {
 						"brains",
 						"meat",
 					},
+					Commonality: 2,
+					Value:       5,
 				},
 				{
 					Name:   "cow hide",
@@ -317,6 +339,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "cow teeth",
@@ -325,6 +348,7 @@ func getMammals() []Animal {
 						"teeth",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "beef",
@@ -333,6 +357,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "beef loin",
@@ -341,6 +366,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "beef ribs",
@@ -349,6 +375,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "cow bone",
@@ -357,6 +384,7 @@ func getMammals() []Animal {
 						"bone",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "cow sinew",
@@ -365,6 +393,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -397,6 +426,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "elephant milk",
@@ -405,6 +435,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "elephant",
@@ -413,6 +444,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "ivory",
@@ -421,6 +453,7 @@ func getMammals() []Animal {
 						"bone",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "elephant sinew",
@@ -429,6 +462,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("large"),
@@ -461,6 +495,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "goat's milk",
@@ -469,6 +504,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "goat",
@@ -477,6 +513,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "goat sinew",
@@ -485,6 +522,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -517,6 +555,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "sheep's milk",
@@ -525,6 +564,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "lamb",
@@ -533,6 +573,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "sheep sinew",
@@ -541,6 +582,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -574,6 +616,7 @@ func getMammals() []Animal {
 						"wool",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "alpaca milk",
@@ -582,6 +625,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "alpaca",
@@ -590,6 +634,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "alpaca sinew",
@@ -598,6 +643,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -631,6 +677,7 @@ func getMammals() []Animal {
 						"wool",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "llama",
@@ -639,6 +686,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "llama milk",
@@ -647,6 +695,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "llama sinew",
@@ -655,6 +704,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -687,6 +737,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "hippopotamus",
@@ -695,6 +746,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "hippopotamus milk",
@@ -703,6 +755,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("large"),
@@ -735,6 +788,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "antelope",
@@ -743,6 +797,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "antelope milk",
@@ -751,6 +806,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "antelope sinew",
@@ -759,6 +815,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -791,6 +848,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "gazelle",
@@ -799,6 +857,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "gazelle milk",
@@ -807,6 +866,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "gazelle sinew",
@@ -815,6 +875,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -847,6 +908,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "rabbit",
@@ -855,6 +917,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("tiny"),
@@ -886,6 +949,7 @@ func getMammals() []Animal {
 						"fur",
 					},
 					Commonality: 5,
+					Value:       10,
 				},
 				{
 					Name:   "ermine",
@@ -894,6 +958,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
@@ -925,6 +990,7 @@ func getMammals() []Animal {
 						"fur",
 					},
 					Commonality: 5,
+					Value:       10,
 				},
 				{
 					Name:   "mink",
@@ -933,6 +999,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
@@ -964,6 +1031,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "pork",
@@ -972,6 +1040,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "pork loin",
@@ -980,6 +1049,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "pork intestine",
@@ -988,6 +1058,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "pork ribs",
@@ -996,6 +1067,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "bacon",
@@ -1004,6 +1076,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "pig sinew",
@@ -1012,6 +1085,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -1044,6 +1118,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "raccoon",
@@ -1052,6 +1127,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("small"),
@@ -1083,6 +1159,7 @@ func getMammals() []Animal {
 						"hide",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "reindeer",
@@ -1091,6 +1168,7 @@ func getMammals() []Animal {
 						"meat",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "reindeer milk",
@@ -1099,6 +1177,7 @@ func getMammals() []Animal {
 						"milk",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "reindeer bone",
@@ -1107,6 +1186,7 @@ func getMammals() []Animal {
 						"bone",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 				{
 					Name:   "reindeer sinew",
@@ -1115,6 +1195,7 @@ func getMammals() []Animal {
 						"sinew",
 					},
 					Commonality: 5,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),

@@ -39,6 +39,7 @@ func getBodyArmor() []Pattern {
 					DescriptionTemplate: " with {{.Resource.Origin}} leather straps",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "brigandine",
@@ -60,6 +61,7 @@ func getBodyArmor() []Pattern {
 					DescriptionTemplate: " with {{.Resource.Origin}} plates",
 				},
 			},
+			Value: 6,
 		},
 		{
 			Name:        "chain hauberk",
@@ -72,10 +74,11 @@ func getBodyArmor() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "links",
-					RequiredTag:         "metal ingot",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "{{.Resource.Origin}} chain hauberk",
 				},
 			},
+			Value: 8,
 		},
 		{
 			Name:        "chain shirt",
@@ -88,10 +91,11 @@ func getBodyArmor() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "links",
-					RequiredTag:         "metal ingot",
+					RequiredTag:         "metal bar",
 					DescriptionTemplate: "{{.Resource.Origin}} chain shirt",
 				},
 			},
+			Value: 6,
 		},
 		{
 			Name:        "gauntlet",
@@ -108,6 +112,7 @@ func getBodyArmor() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} gauntlet",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "gorget",
@@ -129,6 +134,7 @@ func getBodyArmor() []Pattern {
 					DescriptionTemplate: " with {{.Resource.Origin}} leather straps",
 				},
 			},
+			Value: 4,
 		},
 		{
 			Name:        "greave",
@@ -145,6 +151,7 @@ func getBodyArmor() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} greave",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "pauldron",
@@ -161,6 +168,7 @@ func getBodyArmor() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} pauldron",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "spaulder",
@@ -177,6 +185,7 @@ func getBodyArmor() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} spaulder",
 				},
 			},
+			Value: 5,
 		},
 	}
 
@@ -203,7 +212,7 @@ func getHelmets() []Pattern {
 				},
 				{
 					Name:                "trim",
-					RequiredTag:         "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 				{
@@ -212,6 +221,7 @@ func getHelmets() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} padding inside",
 				},
 			},
+			Value: 6,
 		},
 		{
 			Name:        "nasal helm",
@@ -229,7 +239,7 @@ func getHelmets() []Pattern {
 				},
 				{
 					Name:                "trim",
-					RequiredTag:         "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 				{
@@ -238,6 +248,7 @@ func getHelmets() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} padding",
 				},
 			},
+			Value: 6,
 		},
 		{
 			Name:        "pot helm",
@@ -255,7 +266,7 @@ func getHelmets() []Pattern {
 				},
 				{
 					Name:                "trim",
-					RequiredTag:         "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 				{
@@ -264,6 +275,7 @@ func getHelmets() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} padding",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "spangenhelm",
@@ -281,7 +293,7 @@ func getHelmets() []Pattern {
 				},
 				{
 					Name:                "trim",
-					RequiredTag:         "metal bar",
+					RequiredTag:         "metal ingot",
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 				{
@@ -290,6 +302,7 @@ func getHelmets() []Pattern {
 					DescriptionTemplate: " and {{.Resource.Origin}} padding",
 				},
 			},
+			Value: 5,
 		},
 	}
 
@@ -320,6 +333,7 @@ func getShields() []Pattern {
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "heater shield",
@@ -341,6 +355,7 @@ func getShields() []Pattern {
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "kite shield",
@@ -362,6 +377,7 @@ func getShields() []Pattern {
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "tower shield",
@@ -383,6 +399,7 @@ func getShields() []Pattern {
 					DescriptionTemplate: " with {{.Resource.Origin}} trim",
 				},
 			},
+			Value: 10,
 		},
 	}
 

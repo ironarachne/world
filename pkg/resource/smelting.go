@@ -20,6 +20,7 @@ func getSmelting() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} metal bar",
 				},
 			},
+			Value: 2,
 		},
 		{
 			Name:        "metal bar",
@@ -41,6 +42,7 @@ func getSmelting() []Pattern {
 				},
 			},
 			OriginOverride: "brass",
+			Value:          5,
 		},
 		{
 			Name:        "metal bar",
@@ -62,6 +64,7 @@ func getSmelting() []Pattern {
 				},
 			},
 			OriginOverride: "bronze",
+			Value:          5,
 		},
 		{
 			Name:        "metal ingot",
@@ -77,6 +80,7 @@ func getSmelting() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} metal ingot",
 				},
 			},
+			Value: 2,
 		},
 		{
 			Name:        "metal ingot",
@@ -98,6 +102,7 @@ func getSmelting() []Pattern {
 				},
 			},
 			OriginOverride: "electrum",
+			Value:          5,
 		},
 	}
 

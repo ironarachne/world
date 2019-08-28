@@ -20,6 +20,7 @@ func getPottery() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} bowl",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "mug",
@@ -35,6 +36,7 @@ func getPottery() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} mug",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "pitcher",
@@ -50,6 +52,7 @@ func getPottery() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} pitcher",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "vase",
@@ -65,6 +68,7 @@ func getPottery() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} vase",
 				},
 			},
+			Value: 1,
 		},
 	}
 

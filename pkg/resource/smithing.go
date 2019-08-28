@@ -20,6 +20,7 @@ func getSmithing() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} fork",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "hammer",
@@ -35,6 +36,7 @@ func getSmithing() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} hammer",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "knife",
@@ -50,6 +52,7 @@ func getSmithing() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} knife",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "hand saw",
@@ -65,6 +68,7 @@ func getSmithing() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} hand saw",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "spoon",
@@ -80,6 +84,7 @@ func getSmithing() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} spoon",
 				},
 			},
+			Value: 1,
 		},
 	}
 
@@ -100,6 +105,7 @@ func getSmithing() []Pattern {
 					DescriptionTemplate: "{{.Resource.Origin}} horseshoe",
 				},
 			},
+			Value: 1,
 		},
 	}
 

@@ -17,9 +17,10 @@ func getStone() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "stone",
-					DescriptionTemplate: "{{.Resource.Origin}}",
+					DescriptionTemplate: "{{.Resource.Origin}} block",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "stone slab",
@@ -32,9 +33,10 @@ func getStone() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "stone",
-					DescriptionTemplate: "{{.Resource.Origin}}",
+					DescriptionTemplate: "{{.Resource.Origin}} slab",
 				},
 			},
+			Value: 1,
 		},
 	}
 

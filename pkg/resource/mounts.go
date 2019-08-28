@@ -20,6 +20,7 @@ func getMounts() []Pattern {
 					DescriptionTemplate: "riding {{.Resource.Origin}}",
 				},
 			},
+			Value: 10,
 		},
 		{
 			Name:        "pack animal",
@@ -35,6 +36,7 @@ func getMounts() []Pattern {
 					DescriptionTemplate: "pack {{.Resource.Origin}}",
 				},
 			},
+			Value: 5,
 		},
 		{
 			Name:        "war mount",
@@ -50,6 +52,7 @@ func getMounts() []Pattern {
 					DescriptionTemplate: "war {{.Resource.Origin}}",
 				},
 			},
+			Value: 100,
 		},
 	}
 

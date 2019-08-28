@@ -29,6 +29,7 @@ func getReptiles() []Animal {
 						"hide",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "alligator fangs",
@@ -38,6 +39,7 @@ func getReptiles() []Animal {
 						"teeth",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "alligator",
@@ -46,6 +48,7 @@ func getReptiles() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -77,6 +80,7 @@ func getReptiles() []Animal {
 						"hide",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "crocodile fangs",
@@ -86,6 +90,7 @@ func getReptiles() []Animal {
 						"teeth",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "crocodile",
@@ -94,6 +99,7 @@ func getReptiles() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("medium"),
@@ -125,6 +131,7 @@ func getReptiles() []Animal {
 						"hide",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "monitor lizard fangs",
@@ -134,6 +141,7 @@ func getReptiles() []Animal {
 						"teeth",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "monitor lizard",
@@ -142,6 +150,7 @@ func getReptiles() []Animal {
 						"meat",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 				{
 					Name:   "monitor lizard venom",
@@ -150,6 +159,7 @@ func getReptiles() []Animal {
 						"venom",
 					},
 					Commonality: 4,
+					Value:       1,
 				},
 			},
 			Size: size.GetCategoryByName("small"),

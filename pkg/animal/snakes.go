@@ -53,6 +53,7 @@ func getSnakes() []Animal {
 					"hide",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name + " fangs",
@@ -62,6 +63,7 @@ func getSnakes() []Animal {
 					"teeth",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name,
@@ -70,6 +72,7 @@ func getSnakes() []Animal {
 					"meat",
 				},
 				Commonality: 3,
+				Value:       1,
 			},
 			{
 				Name:   a.Name + " heart",
@@ -78,6 +81,7 @@ func getSnakes() []Animal {
 					"meat",
 				},
 				Commonality: 1,
+				Value:       1,
 			},
 			{
 				Name:   a.Name + " venom",
@@ -86,6 +90,7 @@ func getSnakes() []Animal {
 					"venom",
 				},
 				Commonality: 3,
+				Value:       10,
 			},
 		}
 		a.Tags = []string{

@@ -10,6 +10,7 @@ type Resource struct {
 	Origin      string
 	Tags        []string
 	Commonality int
+	Value       int
 }
 
 // ByTag returns a slice of resources that have the given tag

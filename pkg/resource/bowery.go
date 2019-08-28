@@ -8,7 +8,7 @@ func getBowery() []Pattern {
 	patterns := []Pattern{
 		{
 			Name:        "arrow",
-			Description: "an arrow",
+			Description: "a quiver of arrows",
 			Tags: []string{
 				"ammunition",
 			},
@@ -17,19 +17,20 @@ func getBowery() []Pattern {
 				{
 					Name:                "head",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "arrow with a {{.Resource.Origin}} head",
+					DescriptionTemplate: "quiver of arrows with {{.Resource.Origin}} heads",
 				},
 				{
 					Name:                "shaft",
 					RequiredTag:         "wood",
-					DescriptionTemplate: " and {{.Resource.Origin}} shaft",
+					DescriptionTemplate: ", {{.Resource.Origin}} shafts",
 				},
 				{
 					Name:                "fletching",
 					RequiredTag:         "feather",
-					DescriptionTemplate: " and {{.Resource.Origin}}-feather fletching",
+					DescriptionTemplate: ", and {{.Resource.Origin}}-feather fletching",
 				},
 			},
+			Value: 1,
 		},
 		{
 			Name:        "long bow",
@@ -56,6 +57,7 @@ func getBowery() []Pattern {
 					DescriptionTemplate: " with a {{.Resource.Origin}} wrapped grip",
 				},
 			},
+			Value: 7,
 		},
 		{
 			Name:        "short bow",
@@ -82,6 +84,29 @@ func getBowery() []Pattern {
 					DescriptionTemplate: " with a {{.Resource.Origin}} wrapped grip",
 				},
 			},
+			Value: 5,
+		},
+		{
+			Name:        "crossbow",
+			Description: "a crossbow",
+			Tags: []string{
+				"crossbow",
+				"ranged weapon",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "limbs",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.Origin}} crossbow",
+				},
+				{
+					Name:                "bar",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: " with a {{.Resource.Origin}} bar",
+				},
+			},
+			Value: 8,
 		},
 	}
 
