@@ -119,6 +119,25 @@ func getFruits() []Plant {
 			},
 		},
 		{
+			Name:           "juniper",
+			PluralName:     "juniper berries",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "juniper",
+					Origin: "juniper",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+				},
+			},
+		},
+		{
 			Name:           "avocado",
 			PluralName:     "avocados",
 			MinHumidity:    6,

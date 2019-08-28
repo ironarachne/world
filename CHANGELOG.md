@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.4.7 (2019-08-28)
+
+Add several new resources and the ability to override resource origins.
+
+### Change List
+
+- Add distilled beverages
+- Add metal alloys
+- Add velveteen as a fabric
+- Support overriding the origin of a resource
+
 ## 0.4.6 (2019-08-27)
 
 Add Sentry error tracking.

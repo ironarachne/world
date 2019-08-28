@@ -9,12 +9,13 @@ import (
 
 // Pattern is a pattern for a resource
 type Pattern struct {
-	Name        string
-	Description string
-	Tags        []string
-	Commonality int
-	Profession  profession.Profession
-	Slots       []Slot
+	Name           string
+	Description    string
+	Tags           []string
+	Commonality    int
+	Profession     profession.Profession
+	Slots          []Slot
+	OriginOverride string
 }
 
 // Slot is a slot for a resource requirement
@@ -35,6 +36,7 @@ func AllPatterns() []Pattern {
 	carpentry := getCarpentry()
 	clothing := getClothing()
 	cobbler := getCobbler()
+	distilled := getDistilled()
 	glass := getGlass()
 	logging := getLogging()
 	medicine := getMedicine()
@@ -58,6 +60,7 @@ func AllPatterns() []Pattern {
 	patterns = append(patterns, carpentry...)
 	patterns = append(patterns, clothing...)
 	patterns = append(patterns, cobbler...)
+	patterns = append(patterns, distilled...)
 	patterns = append(patterns, glass...)
 	patterns = append(patterns, logging...)
 	patterns = append(patterns, medicine...)
@@ -154,6 +157,9 @@ func (pattern Pattern) ToResource() Resource {
 
 	resource.Name = pattern.Render()
 	resource.Origin = pattern.Slots[0].Resource.Origin
+	if pattern.OriginOverride != "" {
+		resource.Origin = pattern.OriginOverride
+	}
 	resource.Tags = pattern.Tags
 	resource.Tags = append(resource.Tags, resource.Name)
 	resource.Commonality = pattern.Commonality

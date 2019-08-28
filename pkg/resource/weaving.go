@@ -37,6 +37,22 @@ func getWeaving() []Pattern {
 			},
 		},
 		{
+			Name:        "fabric",
+			Description: "a bolt of fabric",
+			Tags: []string{
+				"fabric",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "cotton",
+					DescriptionTemplate: "velveteen",
+				},
+			},
+			OriginOverride: "velveteen",
+		},
+		{
 			Name:        "thread",
 			Description: "a spool of thread",
 			Tags: []string{
