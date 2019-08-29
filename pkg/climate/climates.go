@@ -11,6 +11,7 @@ import (
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 	"github.com/ironarachne/world/pkg/soil"
+	"github.com/ironarachne/world/pkg/tree"
 	"github.com/ironarachne/world/pkg/words"
 )
 
@@ -46,7 +47,7 @@ type Climate struct {
 	Seasons            []Season
 	Soils              []soil.Soil
 	Stones             []mineral.Mineral
-	Trees              []plant.Tree
+	Trees              []tree.Tree
 }
 
 func (climate Climate) calculateHabitability() int {
@@ -254,7 +255,7 @@ func (climate Climate) populate() Climate {
 	climate.Plants = append(climate.Plants, plant.RandomPlantOfType("fruit"))
 	climate.Soils = soil.Random(climate.MaxSoils, soils)
 	climate.Stones = mineral.Random(climate.MaxStones, stones)
-	climate.Trees = plant.RandomTrees(climate.MaxTrees, trees)
+	climate.Trees = tree.RandomSubset(climate.MaxTrees, trees)
 
 	for _, i := range climate.Animals {
 		resources = append(resources, i.Resources...)

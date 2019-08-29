@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.4.9 (2019-09-29)
+
+Add cactii, move trees to their own package, recategorize "fruits" into different groups.
+
+### Change List
+
+- Move trees into their own package
+- Move "fruits" into bushes and melons
+- Move avocados to trees
+- Add cactii
+
 ## 0.4.8 (2019-08-28)
 
 Add travelling merchants.

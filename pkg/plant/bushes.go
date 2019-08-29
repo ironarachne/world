@@ -1,0 +1,130 @@
+package plant
+
+import "github.com/ironarachne/world/pkg/resource"
+
+func getBushes() []Plant {
+	plants := []Plant{
+		{
+			Name:           "blackberry bush",
+			PluralName:     "blackberry bushes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "blackberry",
+					Origin: "blackberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+			},
+		},
+		{
+			Name:           "blueberry bush",
+			PluralName:     "blueberry bushes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "blueberry",
+					Origin: "blueberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+			},
+		},
+		{
+			Name:           "raspberry bush",
+			PluralName:     "raspberry bushes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "raspberry",
+					Origin: "raspberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+			},
+		},
+		{
+			Name:           "strawberry bush",
+			PluralName:     "strawberry bushes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "strawberry",
+					Origin: "strawberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+			},
+		},
+		{
+			Name:           "boysenberry bush",
+			PluralName:     "boysenberry bushes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "boysenberry",
+					Origin: "boysenberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+			},
+		},
+		{
+			Name:           "gooseberry bush",
+			PluralName:     "gooseberry bushes",
+			MinHumidity:    3,
+			MaxHumidity:    10,
+			MinTemperature: 2,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "gooseberry",
+					Origin: "gooseberry",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+			},
+		},
+	}
+
+	return plants
+}

@@ -1,11 +1,11 @@
 package climate
 
 import (
-	"github.com/ironarachne/world/pkg/plant"
+	"github.com/ironarachne/world/pkg/tree"
 )
 
-func (climate Climate) getFilteredTrees() []plant.Tree {
-	trees := plant.AllTrees()
+func (climate Climate) getFilteredTrees() []tree.Tree {
+	trees := tree.All()
 	trees = filterTreesForHumidity(climate.Humidity, trees)
 	trees = filterTreesForTemperature(climate.Temperature, trees)
 	trees = filterTreesForType(climate, trees)
@@ -13,8 +13,8 @@ func (climate Climate) getFilteredTrees() []plant.Tree {
 	return trees
 }
 
-func filterTreesForType(climate Climate, trees []plant.Tree) []plant.Tree {
-	var filteredTrees []plant.Tree
+func filterTreesForType(climate Climate, trees []tree.Tree) []tree.Tree {
+	var filteredTrees []tree.Tree
 
 	for _, a := range trees {
 		if (climate.HasDeciduousTrees && a.IsDeciduous) || (climate.HasConiferousTrees && a.IsConiferous) {
@@ -25,8 +25,8 @@ func filterTreesForType(climate Climate, trees []plant.Tree) []plant.Tree {
 	return filteredTrees
 }
 
-func filterTreesForHumidity(humidity int, trees []plant.Tree) []plant.Tree {
-	var filteredTrees []plant.Tree
+func filterTreesForHumidity(humidity int, trees []tree.Tree) []tree.Tree {
+	var filteredTrees []tree.Tree
 
 	for _, a := range trees {
 		if a.MinHumidity <= humidity && a.MaxHumidity >= humidity {
@@ -37,8 +37,8 @@ func filterTreesForHumidity(humidity int, trees []plant.Tree) []plant.Tree {
 	return filteredTrees
 }
 
-func filterTreesForTemperature(temperature int, trees []plant.Tree) []plant.Tree {
-	var filteredTrees []plant.Tree
+func filterTreesForTemperature(temperature int, trees []tree.Tree) []tree.Tree {
+	var filteredTrees []tree.Tree
 
 	for _, a := range trees {
 		if a.MinTemperature <= temperature && a.MaxTemperature >= temperature {

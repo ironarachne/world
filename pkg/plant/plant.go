@@ -21,14 +21,18 @@ type Plant struct {
 func All() []Plant {
 	var plants []Plant
 
+	bushes := getBushes()
+	plants = append(plants, bushes...)
+	cactii := getCactii()
+	plants = append(plants, cactii...)
 	fibers := getFibers()
 	plants = append(plants, fibers...)
-	fruits := getFruits()
-	plants = append(plants, fruits...)
 	grains := getGrains()
 	plants = append(plants, grains...)
 	herbs := getHerbs()
 	plants = append(plants, herbs...)
+	melons := getMelons()
+	plants = append(plants, melons...)
 	squash := getSquash()
 	plants = append(plants, squash...)
 	vegetables := getVegetables()

@@ -1,58 +1,11 @@
-package plant
+package tree
 
 import (
-	"math/rand"
-
 	"github.com/ironarachne/world/pkg/resource"
 )
 
-// Tree is a tree
-type Tree struct {
-	Name           string
-	PluralName     string
-	IsDeciduous    bool
-	IsConiferous   bool
-	MinHumidity    int
-	MaxHumidity    int
-	MinTemperature int
-	MaxTemperature int
-	Resources      []resource.Resource
-}
-
-// InSlice checks if a tree is in the given slice
-func (tree Tree) InSlice(trees []Tree) bool {
-	isIt := false
-	for _, a := range trees {
-		if a.Name == tree.Name {
-			isIt = true
-		}
-	}
-
-	return isIt
-}
-
-// RandomTrees returns a random subset of plants
-func RandomTrees(amount int, from []Tree) []Tree {
-	var tree Tree
-
-	trees := []Tree{}
-
-	if amount > len(from) {
-		amount = len(from)
-	}
-
-	for i := 1; i < amount; i++ {
-		tree = from[rand.Intn(len(from))]
-		if !tree.InSlice(trees) {
-			trees = append(trees, tree)
-		}
-	}
-
-	return trees
-}
-
-// AllTrees returns all predefined trees
-func AllTrees() []Tree {
+// All returns all predefined trees
+func All() []Tree {
 	trees := []Tree{
 		{
 			Name:           "acacia",
@@ -164,6 +117,36 @@ func AllTrees() []Tree {
 						"wood",
 					},
 					Commonality: 5,
+					Value:       1,
+				},
+			},
+		},
+		{
+			Name:           "avocado",
+			PluralName:     "avocados",
+			IsDeciduous:    true,
+			IsConiferous:   false,
+			MinHumidity:    6,
+			MaxHumidity:    10,
+			MinTemperature: 6,
+			MaxTemperature: 10,
+			Resources: []resource.Resource{
+				{
+					Name:   "avocado",
+					Origin: "avocado",
+					Tags: []string{
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+				{
+					Name:   "avocado",
+					Origin: "avocado",
+					Tags: []string{
+						"wood",
+					},
+					Commonality: 4,
 					Value:       1,
 				},
 			},
@@ -664,6 +647,16 @@ func AllTrees() []Tree {
 			MinTemperature: 0,
 			MaxTemperature: 5,
 			Resources: []resource.Resource{
+				{
+					Name:   "juniper",
+					Origin: "juniper",
+					Tags: []string{
+						"berry",
+						"fruit",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
 				{
 					Name:   "juniper",
 					Origin: "juniper",
