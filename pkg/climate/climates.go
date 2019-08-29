@@ -5,6 +5,7 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/animal"
+	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/mineral"
 	"github.com/ironarachne/world/pkg/plant"
 	"github.com/ironarachne/world/pkg/random"
@@ -40,6 +41,7 @@ type Climate struct {
 	Animals            []animal.Animal
 	Fish               []animal.Fish
 	Gems               []mineral.Mineral
+	Insects            []insect.Insect
 	Metals             []mineral.Mineral
 	OtherMinerals      []mineral.Mineral
 	Plants             []plant.Plant
@@ -205,8 +207,9 @@ func (climate Climate) populate() Climate {
 	resources := []resource.Resource{}
 
 	animals := climate.getFilteredAnimals()
-	metals := mineral.Metals()
 	gems := mineral.Gems()
+	insects := climate.getFilteredInsects()
+	metals := mineral.Metals()
 	plants := climate.getFilteredPlants()
 	stones := mineral.Stones()
 	trees := climate.getFilteredTrees()
@@ -246,6 +249,7 @@ func (climate Climate) populate() Climate {
 	hideAnimal := animal.Random(1, hideAnimals)
 	climate.Animals = animal.Random(climate.MaxAnimals, animals)
 	climate.Animals = append(climate.Animals, hideAnimal...)
+	climate.Insects = insect.RandomSubset(7, insects)
 	climate.Metals = mineral.RandomWeightedSet(climate.MaxMetals, metals)
 	climate.Gems = mineral.Random(climate.MaxGems, gems)
 	climate.OtherMinerals = mineral.OtherMinerals()
@@ -264,6 +268,9 @@ func (climate Climate) populate() Climate {
 		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Gems {
+		resources = append(resources, i.Resources...)
+	}
+	for _, i := range climate.Insects {
 		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Stones {

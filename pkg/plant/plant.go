@@ -75,22 +75,20 @@ func Random(amount int, from []Plant) []Plant {
 
 // RandomPlantOfType returns a random plant with a resource of the specified type
 func RandomPlantOfType(plantType string) Plant {
-	var resources []resource.Resource
-
 	plants := All()
+	filtered := []Plant{}
 
 	for _, p := range plants {
-		resources = append(resources, p.Resources...)
-	}
-	filtered := resource.ByTag(plantType, resources)
-
-	plant := filtered[rand.Intn(len(filtered))]
-
-	for _, p := range plants {
-		if p.Name == plant.Origin {
-			return p
+		for _, r := range p.Resources {
+			if r.HasTag(plantType) {
+				if !p.InSlice(filtered) {
+					filtered = append(filtered, p)
+				}
+			}
 		}
 	}
 
-	panic("Couldn't find the specified plant '" + plant.Name + "' in the slice!")
+	plant := filtered[rand.Intn(len(filtered))]
+
+	return plant
 }

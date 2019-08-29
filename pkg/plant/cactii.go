@@ -51,7 +51,7 @@ func getCactii() []Plant {
 			Resources: []resource.Resource{
 				{
 					Name:   "dragonfruit",
-					Origin: "pitahaya",
+					Origin: "dragonfruit",
 					Tags: []string{
 						"fruit",
 					},

@@ -19,6 +19,14 @@ func refiners() []Profession {
 			},
 		},
 		{
+			Name:        "beekeeper",
+			Description: "Beekeepers produce refined honey products.",
+			Tags: []string{
+				"crafter",
+				"refiner",
+			},
+		},
+		{
 			Name:        "brewer",
 			Description: "Brewers turn grain into ale, beer, and related beverages.",
 			Tags: []string{

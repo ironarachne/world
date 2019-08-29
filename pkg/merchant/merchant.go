@@ -32,7 +32,7 @@ func Generate(originTown town.Town) Merchant {
 // Random returns a complete random merchant
 func Random() Merchant {
 	originCulture := culture.Random()
-	originTown := town.Generate("city", "random", originCulture)
+	originTown := town.Generate("metropolis", "random", originCulture)
 
 	merchant := Generate(originTown)
 

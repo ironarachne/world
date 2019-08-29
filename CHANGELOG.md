@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.4.10 (2019-09-29)
+
+Add insects, honey, and beekeepers.
+
+### Change List
+
+- Add insects
+- Add honey
+- Add beekeepers
+- Fix some bugs with plants
+
 ## 0.4.9 (2019-09-29)
 
 Add cactii, move trees to their own package, recategorize "fruits" into different groups.

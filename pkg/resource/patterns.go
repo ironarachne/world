@@ -31,6 +31,7 @@ type Slot struct {
 func AllPatterns() []Pattern {
 	var patterns []Pattern
 	armor := getArmor()
+	beekeeping := getBeekeeping()
 	bowery := getBowery()
 	breads := getBreads()
 	brewed := getBrewed()
@@ -55,6 +56,7 @@ func AllPatterns() []Pattern {
 	wine := getWine()
 
 	patterns = append(patterns, armor...)
+	patterns = append(patterns, beekeeping...)
 	patterns = append(patterns, bowery...)
 	patterns = append(patterns, breads...)
 	patterns = append(patterns, brewed...)
