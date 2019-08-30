@@ -1,8 +1,9 @@
 package character
 
 import (
-	"strconv"
+	"bytes"
 	"strings"
+	"text/template"
 
 	"github.com/ironarachne/world/pkg/words"
 )
@@ -40,34 +41,28 @@ func RandomSimplified() SimplifiedCharacter {
 
 // Describe returns a prose description of a character based on his or her traits and attributes
 func (character Character) Describe() string {
-	description := ""
-	noun := ""
+	descriptionObject := character.compileDescription()
+	descriptionTemplate := randomDescriptionTemplate()
 
-	if character.Title != "" {
-		description += strings.Title(character.Title) + " "
-	}
+	var tplOutput bytes.Buffer
 
-	if character.AgeCategory.Name == "child" || character.AgeCategory.Name == "infant" {
-		noun = character.Gender.AdolescentNoun
-	} else {
-		noun = character.Gender.Noun
+	tmpl, err := template.New(descriptionObject.FullName).Funcs(template.FuncMap{
+		"caseStart": func(word string) string {
+			return strings.Title(word)
+		},
+		"pronoun": func(word string) string {
+			phrase := words.Pronoun(word) + " " + word
+			return phrase
+		},
+	}).Parse(descriptionTemplate)
+	if err != nil {
+		panic(err)
 	}
-
-	description += character.FirstName + " " + character.LastName + " is a " + strconv.Itoa(character.Age) + "-year-old " + character.Culture.Adjective + " " + character.Race.Adjective + " " + noun + " with "
-	description += character.HairColor + ", " + character.HairStyle + " hair and " + character.SkinColor + " skin. "
-	if character.FacialHair != "none" {
-		description += strings.Title(character.Gender.SubjectPronoun) + " has a " + character.FacialHair + ". "
+	err = tmpl.Execute(&tplOutput, descriptionObject)
+	if err != nil {
+		panic(err)
 	}
-	description += strings.Title(character.Gender.SubjectPronoun) + " has " + character.EyeColor + " " + character.EyeShape + " eyes, a " + character.NoseShape + " nose, and a "
-	description += character.MouthShape + " mouth. " + character.FirstName + " is " + character.HeightSimplified() + " tall and weighs " + strconv.Itoa(character.Weight) + " lbs. "
-	description += strings.Title(character.Gender.SubjectPronoun) + " is motivated by " + character.Motivation + ". "
-	description += "While " + character.Gender.SubjectPronoun + " is " + words.CombinePhrases(character.PositiveTraits) + ", "
-	description += character.Gender.SubjectPronoun + " has also been described as " + words.CombinePhrases(character.NegativeTraits) + ". "
-	description += character.FirstName + "'s hobby is " + character.Hobby.Name + ", and " + character.Gender.SubjectPronoun + " is " + words.Pronoun(character.Profession.Name) + " " + character.Profession.Name + ". "
-
-	if character.Heraldry.Blazon != "" {
-		description += strings.Title(character.Gender.PossessivePronoun) + " coat of arms is described as \"" + character.Heraldry.Blazon + ".\""
-	}
+	description := tplOutput.String()
 
 	return description
 }

@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.4.11 (2019-09-30)
+
+Improve character description variety.
+
+### Change List
+
+- Replace static character description format with a new random template system
+
 ## 0.4.10 (2019-09-29)
 
 Add insects, honey, and beekeepers.
