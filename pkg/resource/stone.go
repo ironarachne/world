@@ -7,6 +7,22 @@ func getStone() []Pattern {
 
 	patterns := []Pattern{
 		{
+			Name:        "milling wheel",
+			Description: "a milling wheel",
+			Tags: []string{
+				"construction component",
+			},
+			Profession: producer,
+			Slots: []Slot{
+				{
+					Name:                "body",
+					RequiredTag:         "building stone",
+					DescriptionTemplate: "{{.Resource.Origin}} milling wheel",
+				},
+			},
+			Value: 15,
+		},
+		{
 			Name:        "stone block",
 			Description: "a block of stone",
 			Tags: []string{
@@ -16,11 +32,11 @@ func getStone() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:         "stone",
+					RequiredTag:         "building stone",
 					DescriptionTemplate: "{{.Resource.Origin}} block",
 				},
 			},
-			Value: 1,
+			Value: 3,
 		},
 		{
 			Name:        "stone slab",
@@ -32,7 +48,7 @@ func getStone() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "body",
-					RequiredTag:         "stone",
+					RequiredTag:         "building stone",
 					DescriptionTemplate: "{{.Resource.Origin}} slab",
 				},
 			},

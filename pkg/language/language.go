@@ -10,14 +10,15 @@ import (
 
 // Language is a fantasy language
 type Language struct {
-	Name             string
-	Adjective        string
-	Descriptors      []string
-	Category         Category
-	IsTonal          bool
-	WritingSystem    WritingSystem
-	WordList         map[string]string
-	ConjugationRules ConjugationRules
+	Name                 string
+	Adjective            string
+	Descriptors          []string
+	Category             Category
+	IsTonal              bool
+	WritingSystem        WritingSystem
+	WordList             map[string]string
+	VerbConjugationRules ConjugationRules
+	PracticeSuffix       string
 }
 
 var (
@@ -34,7 +35,7 @@ var (
 	velars     = []string{"k", "g", "ng", "w"}
 )
 
-func deriveAdjective(name string) string {
+func deriveLanguageAdjective(name string) string {
 	var suffix string
 
 	adjective := name
@@ -66,7 +67,7 @@ func Generate() Language {
 
 	language.Name = strings.Title(randomLanguageName(language.Category))
 	language.Descriptors = append(language.Descriptors, language.Category.Descriptors...)
-	language.Adjective = deriveAdjective(language.Name)
+	language.Adjective = deriveLanguageAdjective(language.Name)
 
 	tonalChance := rand.Intn(10) + 1
 	if tonalChance > 7 {
@@ -81,7 +82,8 @@ func Generate() Language {
 	language.WritingSystem = randomWritingSystem()
 	language.WritingSystem.Name = language.Adjective
 	language.WordList = language.GenerateWordList()
-	language.ConjugationRules = language.deriveConjugationRules()
+	language.VerbConjugationRules = language.deriveConjugationRules()
+	language.PracticeSuffix = randomSyllable(language.Category, "finisher")
 
 	return language
 }

@@ -31,29 +31,29 @@ func (language Language) Conjugate(root string, tense string) string {
 	template := ""
 
 	if tense == "simple present" {
-		template = language.ConjugationRules.SimplePresent
+		template = language.VerbConjugationRules.SimplePresent
 	} else if tense == "simple past" {
-		template = language.ConjugationRules.SimplePast
+		template = language.VerbConjugationRules.SimplePast
 	} else if tense == "simple future" {
-		template = language.ConjugationRules.SimpleFuture
+		template = language.VerbConjugationRules.SimpleFuture
 	} else if tense == "present continuous" {
-		template = language.ConjugationRules.PresentContinuous
+		template = language.VerbConjugationRules.PresentContinuous
 	} else if tense == "past continuous" {
-		template = language.ConjugationRules.PastContinuous
+		template = language.VerbConjugationRules.PastContinuous
 	} else if tense == "future continuous" {
-		template = language.ConjugationRules.FutureContinuous
+		template = language.VerbConjugationRules.FutureContinuous
 	} else if tense == "present perfect" {
-		template = language.ConjugationRules.PresentPerfect
+		template = language.VerbConjugationRules.PresentPerfect
 	} else if tense == "past perfect" {
-		template = language.ConjugationRules.PastPerfect
+		template = language.VerbConjugationRules.PastPerfect
 	} else if tense == "future perfect" {
-		template = language.ConjugationRules.FuturePerfect
+		template = language.VerbConjugationRules.FuturePerfect
 	} else if tense == "present perfect continuous" {
-		template = language.ConjugationRules.PresentPerfectContinuous
+		template = language.VerbConjugationRules.PresentPerfectContinuous
 	} else if tense == "past perfect continuous" {
-		template = language.ConjugationRules.PastPerfectContinuous
+		template = language.VerbConjugationRules.PastPerfectContinuous
 	} else if tense == "future perfect continuous" {
-		template = language.ConjugationRules.FuturePerfectContinuous
+		template = language.VerbConjugationRules.FuturePerfectContinuous
 	}
 	word := renderWord(root, template)
 
@@ -96,6 +96,13 @@ func (language Language) AddNounToWordList(word string) map[string]string {
 	}
 
 	return wordList
+}
+
+// MakePractice changes a word into an "-ism" form word
+func (language Language) MakePractice(word string) string {
+	practice := word + language.PracticeSuffix
+
+	return practice
 }
 
 func renderWord(word string, wordTemplate string) string {

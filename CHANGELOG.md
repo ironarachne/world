@@ -1,6 +1,17 @@
 # Change Log
 
-## 0.4.11 (2019-09-30)
+## 0.4.12 (2019-09-03)
+
+Improve stone and religion just a bit.
+
+### Change List
+
+- Add stone types
+- Modify generation of stone resources
+- Add virtues to religion
+- Add names to religion
+
+## 0.4.11 (2019-08-30)
 
 Improve character description variety.
 

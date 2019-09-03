@@ -1,11 +1,14 @@
 package religion
 
-import "github.com/ironarachne/world/pkg/random"
+import (
+	"github.com/ironarachne/world/pkg/random"
+)
 
 // Class is a type of religion
 type Class struct {
 	Name            string
 	Commonality     int
+	FounderTitle    string
 	LeaderTitle     string
 	PantheonMinSize int
 	PantheonMaxSize int
@@ -17,6 +20,7 @@ func getAllClasses() []Class {
 		{
 			Name:            "monotheistic",
 			Commonality:     5,
+			FounderTitle:    "prophet",
 			LeaderTitle:     "priest",
 			PantheonMinSize: 1,
 			PantheonMaxSize: 1,
@@ -29,6 +33,7 @@ func getAllClasses() []Class {
 		{
 			Name:            "duotheistic",
 			Commonality:     1,
+			FounderTitle:    "prophet",
 			LeaderTitle:     "priest",
 			PantheonMinSize: 2,
 			PantheonMaxSize: 2,
@@ -41,6 +46,7 @@ func getAllClasses() []Class {
 		{
 			Name:            "polytheistic",
 			Commonality:     12,
+			FounderTitle:    "prophet",
 			LeaderTitle:     "priest",
 			PantheonMinSize: 10,
 			PantheonMaxSize: 30,
@@ -53,6 +59,7 @@ func getAllClasses() []Class {
 		{
 			Name:            "shamanistic",
 			Commonality:     2,
+			FounderTitle:    "shaman",
 			LeaderTitle:     "shaman",
 			PantheonMinSize: 0,
 			PantheonMaxSize: 0,
@@ -65,6 +72,7 @@ func getAllClasses() []Class {
 		{
 			Name:            "philosophical",
 			Commonality:     1,
+			FounderTitle:    "philosopher",
 			LeaderTitle:     "sage",
 			PantheonMinSize: 0,
 			PantheonMaxSize: 0,
