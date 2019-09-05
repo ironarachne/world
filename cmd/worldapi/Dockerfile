@@ -1,5 +1,5 @@
 # build stage
-FROM golang:1.12 AS build-env
+FROM golang:1.13 AS build-env
 WORKDIR /go/src/app
 COPY . .
 RUN go get -d -v ./...
