@@ -55,7 +55,7 @@ func Generate() (World, error) {
 		newRegions = []region.Region{}
 		regionCoordinates = []grid.Coordinate{}
 
-		homeTileCoordinates = availableCoords[rand.Intn(len(availableCoords)-1)]
+		homeTileCoordinates = availableCoords[rand.Intn(len(availableCoords))]
 		homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 		homeTile.IsInhabited = true
 		world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
@@ -79,7 +79,7 @@ func Generate() (World, error) {
 				if len(contiguousAvailableCoords) == 1 {
 					activeTileCoordinates = contiguousAvailableCoords[0]
 				} else {
-					activeTileCoordinates = contiguousAvailableCoords[rand.Intn(len(contiguousAvailableCoords)-1)]
+					activeTileCoordinates = contiguousAvailableCoords[rand.Intn(len(contiguousAvailableCoords))]
 				}
 				activeTile = world.WorldMap.Tiles[activeTileCoordinates.Y][activeTileCoordinates.X]
 				activeTile.IsInhabited = true
@@ -105,7 +105,7 @@ func Generate() (World, error) {
 				if len(contiguousAvailableCoords) == 1 {
 					homeTileCoordinates = contiguousAvailableCoords[0]
 				} else {
-					homeTileCoordinates = contiguousAvailableCoords[rand.Intn(len(contiguousAvailableCoords)-1)]
+					homeTileCoordinates = contiguousAvailableCoords[rand.Intn(len(contiguousAvailableCoords))]
 				}
 				homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 				homeTile.IsInhabited = true
@@ -129,7 +129,7 @@ func Generate() (World, error) {
 						if len(contiguousAvailableRegionCoords) == 1 {
 							activeTileCoordinates = contiguousAvailableRegionCoords[0]
 						} else {
-							activeTileCoordinates = contiguousAvailableRegionCoords[rand.Intn(len(contiguousAvailableRegionCoords)-1)]
+							activeTileCoordinates = contiguousAvailableRegionCoords[rand.Intn(len(contiguousAvailableRegionCoords))]
 						}
 						activeTile = world.WorldMap.Tiles[activeTileCoordinates.Y][activeTileCoordinates.X]
 						activeTile.IsInhabited = true

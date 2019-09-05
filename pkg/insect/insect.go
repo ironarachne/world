@@ -78,7 +78,7 @@ func RandomSubset(amount int, from []Insect) []Insect {
 	}
 
 	for i := 0; i < amount; i++ {
-		insect = from[rand.Intn(len(from)-1)]
+		insect = from[rand.Intn(len(from))]
 		if !insect.InSlice(insects) {
 			insects = append(insects, insect)
 		}

@@ -34,5 +34,5 @@ func getAllSizeClasses() []SizeClass {
 func getRandomSizeClass() SizeClass {
 	classes := getAllSizeClasses()
 
-	return classes[rand.Intn(len(classes)-1)]
+	return classes[rand.Intn(len(classes))]
 }

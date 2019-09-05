@@ -53,7 +53,7 @@ func randomMutation() Mutation {
 		},
 	}
 
-	return rules[rand.Intn(len(rules)-1)]
+	return rules[rand.Intn(len(rules))]
 }
 
 func randomSyllable(category Category, role string) (string, error) {

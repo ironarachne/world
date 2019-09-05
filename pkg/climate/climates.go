@@ -118,7 +118,7 @@ func getClimateByName(name string) Climate {
 func getRandomClimate() Climate {
 	climates := getAllClimates()
 
-	return climates[rand.Intn(len(climates)-1)]
+	return climates[rand.Intn(len(climates))]
 }
 
 func getRandomBeachDescription() (string, error) {

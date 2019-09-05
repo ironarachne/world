@@ -42,7 +42,7 @@ func Random(amount int, from []Soil) []Soil {
 	}
 
 	for i := 0; i < amount; i++ {
-		soil = from[rand.Intn(len(from)-1)]
+		soil = from[rand.Intn(len(from))]
 		if !InSlice(soil, soils) {
 			soils = append(soils, soil)
 		}

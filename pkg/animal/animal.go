@@ -98,7 +98,7 @@ func Random(amount int, from []Animal) []Animal {
 	}
 
 	for i := 0; i < amount; i++ {
-		animal = from[rand.Intn(len(from)-1)]
+		animal = from[rand.Intn(len(from))]
 		if !animal.InSlice(animals) {
 			animals = append(animals, animal)
 		}

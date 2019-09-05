@@ -79,7 +79,7 @@ func GenerateInstruments(originClimate climate.Climate) ([]Instrument, error) {
 	numberOfInstruments := rand.Intn(3) + 1
 
 	for i := 0; i < numberOfInstruments; i++ {
-		instrument = availableInstruments[rand.Intn(len(availableInstruments)-1)]
+		instrument = availableInstruments[rand.Intn(len(availableInstruments))]
 		availableBaseMaterials = []string{}
 		availableSupportMaterials = []string{}
 

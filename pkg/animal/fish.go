@@ -61,7 +61,7 @@ func RandomFish(amount int, from []Fish) []Fish {
 	randomFish := []Fish{}
 
 	for i := 0; i < amount; i++ {
-		fish = from[rand.Intn(len(from)-1)]
+		fish = from[rand.Intn(len(from))]
 		if !fish.InSlice(randomFish) {
 			randomFish = append(randomFish, fish)
 		} else {

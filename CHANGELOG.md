@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.4.14 (2019-09-05)
+
+Fix bad random logic.
+
+### Change List
+
+- Fix bad random slice item logic throughout the code
+
 ## 0.4.13 (2019-09-05)
 
 Add real error handling.

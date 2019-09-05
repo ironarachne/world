@@ -138,7 +138,7 @@ func (character Character) getRandomHobby() Hobby {
 	hobbies := getHobbiesForAgeCategory(character.AgeCategory)
 
 	if len(hobbies) > 0 {
-		return hobbies[rand.Intn(len(hobbies)-1)]
+		return hobbies[rand.Intn(len(hobbies))]
 	}
 
 	return Hobby{}

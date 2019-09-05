@@ -40,7 +40,7 @@ func getRandomAppearanceFromDomains(domains []Domain) string {
 		possibleAppearances = append(possibleAppearances, d.AppearanceTraits...)
 	}
 
-	return possibleAppearances[rand.Intn(len(possibleAppearances)-1)]
+	return possibleAppearances[rand.Intn(len(possibleAppearances))]
 }
 
 func getRandomPersonalityFromDomains(domains []Domain) string {
@@ -50,11 +50,11 @@ func getRandomPersonalityFromDomains(domains []Domain) string {
 		possiblePersonalities = append(possiblePersonalities, d.PersonalityTraits...)
 	}
 
-	return possiblePersonalities[rand.Intn(len(possiblePersonalities)-1)]
+	return possiblePersonalities[rand.Intn(len(possiblePersonalities))]
 }
 
 func getRandomDomain(domains []Domain) Domain {
-	return domains[rand.Intn(len(domains)-1)]
+	return domains[rand.Intn(len(domains))]
 }
 
 func isDomainInSlice(domain Domain, domains []Domain) bool {
