@@ -1,10 +1,12 @@
 package buildings
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 )
 
-func getRandomDoorMaterial() string {
+func getRandomDoorMaterial() (string, error) {
 	materials := []string{
 		"light wood",
 		"thick wood",
@@ -12,16 +14,32 @@ func getRandomDoorMaterial() string {
 		"heavy wood",
 	}
 
-	return random.String(materials)
+	material, err := random.String(materials)
+	if err != nil {
+		err = fmt.Errorf("Could not find door material: %w", err)
+		return "", err
+	}
+
+	return material, nil
 }
 
-func getRandomDoorStyle() string {
-	style := "made of " + getRandomDoorMaterial() + " and " + getRandomDoorShape()
+func getRandomDoorStyle() (string, error) {
+	material, err := getRandomDoorMaterial()
+	if err != nil {
+		err = fmt.Errorf("Could not generate door style: %w", err)
+		return "", err
+	}
+	shape, err := getRandomDoorShape()
+	if err != nil {
+		err = fmt.Errorf("Could not generate door style: %w", err)
+		return "", err
+	}
+	style := "made of " + material + " and " + shape
 
-	return style
+	return style, nil
 }
 
-func getRandomDoorShape() string {
+func getRandomDoorShape() (string, error) {
 	shapes := []string{
 		"braced with metal",
 		"broad",
@@ -36,5 +54,11 @@ func getRandomDoorShape() string {
 		"tall",
 	}
 
-	return random.String(shapes)
+	shape, err := random.String(shapes)
+	if err != nil {
+		err = fmt.Errorf("Could not get door shape: %w", err)
+		return "", err
+	}
+
+	return shape, nil
 }

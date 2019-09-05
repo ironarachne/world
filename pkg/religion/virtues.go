@@ -1,6 +1,7 @@
 package religion
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -40,15 +41,18 @@ func getAllVirtues() []string {
 	return all
 }
 
-func getRandomVirtues() []string {
-	var virtue string
+func getRandomVirtues() ([]string, error) {
 	all := getAllVirtues()
 	virtues := []string{}
 
 	numberOfVirtues := rand.Intn(4) + 2
 
 	for i := 0; i < numberOfVirtues; i++ {
-		virtue = random.String(all)
+		virtue, err := random.String(all)
+		if err != nil {
+			err = fmt.Errorf("Could not generate random virtues: %w", err)
+			return []string{}, err
+		}
 		if !slices.StringIn(virtue, virtues) {
 			virtues = append(virtues, virtue)
 		} else {
@@ -56,5 +60,5 @@ func getRandomVirtues() []string {
 		}
 	}
 
-	return virtues
+	return virtues, nil
 }

@@ -1,6 +1,10 @@
 package town
 
-import "github.com/ironarachne/world/pkg/character"
+import (
+	"fmt"
+
+	"github.com/ironarachne/world/pkg/character"
+)
 
 // SimplifiedTown is a simpler version of a town
 type SimplifiedTown struct {
@@ -16,14 +20,29 @@ type SimplifiedTown struct {
 }
 
 // RandomSimplified generates a random simplified town
-func RandomSimplified() SimplifiedTown {
-	town := Random()
+func RandomSimplified() (SimplifiedTown, error) {
+	town, err := Random()
+	if err != nil {
+		err = fmt.Errorf("Could not simplify town: %w", err)
+		return SimplifiedTown{}, err
+	}
 
-	return town.Simplify()
+	st, err := town.Simplify()
+	if err != nil {
+		err = fmt.Errorf("Could not simplify town: %w", err)
+		return SimplifiedTown{}, err
+	}
+
+	return st, nil
 }
 
 // Simplify returns the simplified version of a town
-func (town Town) Simplify() SimplifiedTown {
+func (town Town) Simplify() (SimplifiedTown, error) {
+	mayor, err := town.Mayor.Simplify()
+	if err != nil {
+		err = fmt.Errorf("Could not simplify town: %w", err)
+		return SimplifiedTown{}, err
+	}
 	simplified := SimplifiedTown{
 		Name:            town.Name,
 		Population:      town.Population,
@@ -31,7 +50,7 @@ func (town Town) Simplify() SimplifiedTown {
 		Climate:         town.Climate.Description,
 		DominantCulture: town.Culture.Name,
 		Category:        town.Category.Name,
-		Mayor:           town.Mayor.Simplify(),
+		Mayor:           mayor,
 	}
 
 	for _, e := range town.Exports {
@@ -42,5 +61,5 @@ func (town Town) Simplify() SimplifiedTown {
 		simplified.Imports = append(simplified.Imports, i.Name)
 	}
 
-	return simplified
+	return simplified, nil
 }

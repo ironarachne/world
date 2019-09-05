@@ -1,6 +1,7 @@
 package country
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/culture"
@@ -21,21 +22,38 @@ type Country struct {
 }
 
 // Generate procedurally generates a country
-func Generate() Country {
+func Generate() (Country, error) {
 	regions := []region.Region{}
 	country := Country{}
 
-	country.DominantCulture = culture.Random()
-	country.Government = country.getNewMonarchy()
+	dominantCulture, err := culture.Random()
+	if err != nil {
+		err = fmt.Errorf("Could not generate country: %w", err)
+		return Country{}, err
+	}
+	country.DominantCulture = dominantCulture
+	government, err := country.getNewMonarchy()
+	if err != nil {
+		err = fmt.Errorf("Could not generate country: %w", err)
+		return Country{}, err
+	}
+	country.Government = government
 	country.Heraldry = heraldry.GenerateHeraldry()
-	country.Name = country.DominantCulture.Language.RandomName()
+	name, err := country.DominantCulture.Language.RandomName()
+	if err != nil {
+		err = fmt.Errorf("Could not generate country: %w", err)
+		return Country{}, err
+	}
+	country.Name = name
 
 	size := rand.Intn(10) + 4
 
-	r := region.Region{}
-
 	for i := 0; i < size; i++ {
-		r = region.Generate(country.DominantCulture.HomeClimate.Name, country.DominantCulture)
+		r, err := region.Generate(country.DominantCulture.HomeClimate.Name, country.DominantCulture)
+		if err != nil {
+			err = fmt.Errorf("Could not generate country: %w", err)
+			return Country{}, err
+		}
 		regions = append(regions, r)
 	}
 
@@ -55,7 +73,7 @@ func Generate() Country {
 
 	country.Regions = regions
 
-	return country
+	return country, nil
 }
 
 // GetAllTiles returns a slice of all tiles in the country

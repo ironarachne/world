@@ -1,6 +1,7 @@
 package food
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
@@ -22,7 +23,7 @@ type Style struct {
 }
 
 // GenerateStyle procedurally generates a style of food
-func GenerateStyle(originClimate climate.Climate) Style {
+func GenerateStyle(originClimate climate.Climate) (Style, error) {
 	chanceForGoldFlakes := 0
 	style := Style{}
 
@@ -72,18 +73,53 @@ func GenerateStyle(originClimate climate.Climate) Style {
 		style.CommonSpices = append(style.CommonSpices, "salt")
 	}
 
-	style.CookingTechniques = randomTechniques(3)
+	techniques, err := randomTechniques(3)
+	if err != nil {
+		err = fmt.Errorf("Could not generate food style: %w", err)
+		return Style{}, err
+	}
+	style.CookingTechniques = techniques
 
-	style.CommonDesserts = style.randomDesserts()
-	style.CommonMainDishes = style.randomMainDishes()
-	style.Breads = randomBreads(originClimate)
-	style.EatingTraits = randomEatingTraits()
+	desserts, err := style.randomDesserts()
+	if err != nil {
+		err = fmt.Errorf("Could not generate food style: %w", err)
+		return Style{}, err
+	}
+	style.CommonDesserts = desserts
+	mainDishes, err := style.randomMainDishes()
+	if err != nil {
+		err = fmt.Errorf("Could not generate food style: %w", err)
+		return Style{}, err
+	}
+	style.CommonMainDishes = mainDishes
+	breads, err := randomBreads(originClimate)
+	if err != nil {
+		err = fmt.Errorf("Could not generate food style: %w", err)
+		return Style{}, err
+	}
+	style.Breads = breads
+	traits, err := randomEatingTraits()
+	if err != nil {
+		err = fmt.Errorf("Could not generate food style: %w", err)
+		return Style{}, err
+	}
+	style.EatingTraits = traits
 
-	return style
+	return style, nil
 }
 
 // Random generates a completely random style of food
-func Random() Style {
-	originClimate := climate.Generate()
-	return GenerateStyle(originClimate)
+func Random() (Style, error) {
+	originClimate, err := climate.Generate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random food style: %w", err)
+		return Style{}, err
+	}
+	style, err := GenerateStyle(originClimate)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random food style: %w", err)
+		return Style{}, err
+	}
+
+	return style, nil
 }

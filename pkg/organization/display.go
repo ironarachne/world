@@ -1,6 +1,7 @@
 package organization
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -18,19 +19,29 @@ type SimplifiedOrganization struct {
 }
 
 // Simplify returns a simplified version of the organization
-func (org Organization) Simplify() SimplifiedOrganization {
+func (org Organization) Simplify() (SimplifiedOrganization, error) {
+	sl, err := org.Leader.Simplify()
+	if err != nil {
+		err = fmt.Errorf("Could not simplify organization: %w", err)
+		return SimplifiedOrganization{}, err
+	}
 	simplified := SimplifiedOrganization{
 		Name:        org.Name,
 		Type:        org.SizeClass.Name + " " + org.Type.Name,
 		Description: org.Describe(),
-		Leader:      org.Leader.Simplify(),
+		Leader:      sl,
 	}
 
 	for _, n := range org.NotableMembers {
-		simplified.NotableMembers = append(simplified.NotableMembers, n.Simplify())
+		sn, err := n.Simplify()
+		if err != nil {
+			err = fmt.Errorf("Could not simplify organization: %w", err)
+			return SimplifiedOrganization{}, err
+		}
+		simplified.NotableMembers = append(simplified.NotableMembers, sn)
 	}
 
-	return simplified
+	return simplified, nil
 }
 
 // Describe constructs a string description of the organization
@@ -43,8 +54,18 @@ func (org Organization) Describe() string {
 }
 
 // RandomSimplified returns a random simplified version of the organization
-func RandomSimplified() SimplifiedOrganization {
-	org := Random()
+func RandomSimplified() (SimplifiedOrganization, error) {
+	org, err := Random()
+	if err != nil {
+		err = fmt.Errorf("Could not simplify random organization: %w", err)
+		return SimplifiedOrganization{}, err
+	}
 
-	return org.Simplify()
+	os, err := org.Simplify()
+	if err != nil {
+		err = fmt.Errorf("Could not simplify organization: %w", err)
+		return SimplifiedOrganization{}, err
+	}
+
+	return os, nil
 }

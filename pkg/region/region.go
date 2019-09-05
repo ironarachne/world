@@ -1,6 +1,7 @@
 package region
 
 import (
+	"fmt"
 	"math/rand"
 	"strings"
 
@@ -36,14 +37,22 @@ func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
 }
 
 // Generate generates a region
-func Generate(regionType string, originCulture culture.Culture) Region {
+func Generate(regionType string, originCulture culture.Culture) (Region, error) {
+	var biome climate.Climate
 	region := Region{}
-	biome := climate.Climate{}
+
+	biome, err := climate.GetClimate(regionType)
+	if err != nil {
+		err = fmt.Errorf("Could not generate region: %w", err)
+		return Region{}, err
+	}
 
 	if regionType == "random" {
-		biome = climate.Generate()
-	} else {
-		biome = climate.GetClimate(regionType)
+		biome, err = climate.Generate()
+		if err != nil {
+			err = fmt.Errorf("Could not generate region: %w", err)
+			return Region{}, err
+		}
 	}
 
 	regionType = biome.Name
@@ -54,45 +63,78 @@ func Generate(regionType string, originCulture culture.Culture) Region {
 
 	region.Class = getRandomWeightedClass()
 
-	newTown := town.Generate("city", regionType, region.Culture)
+	newTown, err := town.Generate("city", regionType, region.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate region: %w", err)
+		return Region{}, err
+	}
 	region.Towns = append(region.Towns, newTown)
 
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown = town.Generate("random", regionType, region.Culture)
+		newTown, err = town.Generate("random", regionType, region.Culture)
+		if err != nil {
+			err = fmt.Errorf("Could not generate region: %w", err)
+			return Region{}, err
+		}
 		region.Towns = append(region.Towns, newTown)
 	}
 
-	region.Organizations = region.getOrganizations()
+	organizations, err := region.getOrganizations()
+	if err != nil {
+		err = fmt.Errorf("Could not generate region: %w", err)
+		return Region{}, err
+	}
+	region.Organizations = organizations
 
-	region.Ruler = region.generateRuler()
+	ruler, err := region.generateRuler()
+	if err != nil {
+		err = fmt.Errorf("Could not generate region: %w", err)
+		return Region{}, err
+	}
+	region.Ruler = ruler
 
-	regionName := region.Culture.Language.RandomName()
+	regionName, err := region.Culture.Language.RandomName()
+	if err != nil {
+		err = fmt.Errorf("Could not generate region: %w", err)
+		return Region{}, err
+	}
 	region.Name = strings.Title(regionName)
 
-	return region
+	return region, nil
 }
 
-func (region Region) getOrganizations() []organization.Organization {
-	var org organization.Organization
+func (region Region) getOrganizations() ([]organization.Organization, error) {
 	organizations := []organization.Organization{}
 
 	numberOfOrgs := rand.Intn(3) + 1
 
 	for i := 0; i < numberOfOrgs; i++ {
-		org = organization.Generate(region.Culture)
+		org, err := organization.Generate(region.Culture)
+		if err != nil {
+			err = fmt.Errorf("Could not generate region organizations: %w", err)
+			return []organization.Organization{}, err
+		}
 		organizations = append(organizations, org)
 	}
 
-	return organizations
+	return organizations, nil
 }
 
 // Random generates a completely random region
-func Random() Region {
-	randomCulture := culture.Random()
+func Random() (Region, error) {
+	randomCulture, err := culture.Random()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random region: %w", err)
+		return Region{}, err
+	}
 
-	region := Generate("random", randomCulture)
+	region, err := Generate("random", randomCulture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random region: %w", err)
+		return Region{}, err
+	}
 
-	return region
+	return region, nil
 }

@@ -1,6 +1,7 @@
 package language
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -45,7 +46,7 @@ func randomStrokeType() string {
 	return words.CombinePhrases(strokes)
 }
 
-func randomWritingSystem() WritingSystem {
+func randomWritingSystem() (WritingSystem, error) {
 	var writingSystem WritingSystem
 
 	classifications := []string{
@@ -58,8 +59,13 @@ func randomWritingSystem() WritingSystem {
 		"syllabary",
 	}
 
-	writingSystem.Classification = random.String(classifications)
+	classification, err := random.String(classifications)
+	if err != nil {
+		err = fmt.Errorf("Could not generate writing system: %w", err)
+		return WritingSystem{}, err
+	}
+	writingSystem.Classification = classification
 	writingSystem.StrokeType = randomStrokeType()
 
-	return writingSystem
+	return writingSystem, nil
 }

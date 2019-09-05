@@ -1,6 +1,7 @@
 package mineral
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -38,7 +39,7 @@ func Random(amount int, from []Mineral) []Mineral {
 }
 
 // RandomWeighted returns a random mineral from a slice, considering weights
-func RandomWeighted(from []Mineral) Mineral {
+func RandomWeighted(from []Mineral) (Mineral, error) {
 	names := make(map[string]int)
 
 	for _, m := range from {
@@ -49,20 +50,25 @@ func RandomWeighted(from []Mineral) Mineral {
 
 	for _, m := range from {
 		if m.Name == name {
-			return m
+			return m, nil
 		}
 	}
 
-	panic("Couldn't find named mineral")
+	err := fmt.Errorf("Couldn't find named mineral")
+
+	return Mineral{}, err
 }
 
 // RandomWeightedSet returns a set of random weighted minerals
-func RandomWeightedSet(amount int, from []Mineral) []Mineral {
+func RandomWeightedSet(amount int, from []Mineral) ([]Mineral, error) {
 	var minerals []Mineral
-	var mineral Mineral
 
 	for i := 0; i < amount; i++ {
-		mineral = RandomWeighted(from)
+		mineral, err := RandomWeighted(from)
+		if err != nil {
+			err = fmt.Errorf("Could not generate minerals: %w", err)
+			return []Mineral{}, err
+		}
 		if !InSlice(mineral, minerals) {
 			minerals = append(minerals, mineral)
 		} else {
@@ -70,7 +76,7 @@ func RandomWeightedSet(amount int, from []Mineral) []Mineral {
 		}
 	}
 
-	return minerals
+	return minerals, nil
 }
 
 // InSlice checks to see if a mineral is in a slice

@@ -2,6 +2,7 @@ package character
 
 import (
 	"bytes"
+	"fmt"
 	"strings"
 	"text/template"
 
@@ -17,32 +18,52 @@ type SimplifiedCharacter struct {
 }
 
 // Simplify returns a simplified version of a character
-func (character Character) Simplify() SimplifiedCharacter {
+func (character Character) Simplify() (SimplifiedCharacter, error) {
+	description, err := character.Describe()
+	if err != nil {
+		err = fmt.Errorf("Could not generate face shape: %w", err)
+		return SimplifiedCharacter{}, err
+	}
+
 	simplified := SimplifiedCharacter{
 		Name:        character.FirstName + " " + character.LastName,
 		Blazon:      character.Heraldry.Blazon,
 		Device:      character.Heraldry.Device,
-		Description: character.Describe(),
+		Description: description,
 	}
 
 	if character.Title != "" {
 		simplified.Name = strings.Title(character.Title) + " " + simplified.Name
 	}
 
-	return simplified
+	return simplified, nil
 }
 
 // RandomSimplified returns a random simplified character
-func RandomSimplified() SimplifiedCharacter {
-	character := Random()
+func RandomSimplified() (SimplifiedCharacter, error) {
+	character, err := Random()
+	if err != nil {
+		err = fmt.Errorf("Could not generate simplified character: %w", err)
+		return SimplifiedCharacter{}, err
+	}
 
-	return character.Simplify()
+	simplified, err := character.Simplify()
+	if err != nil {
+		err = fmt.Errorf("Could not generate simplified character: %w", err)
+		return SimplifiedCharacter{}, err
+	}
+
+	return simplified, nil
 }
 
 // Describe returns a prose description of a character based on his or her traits and attributes
-func (character Character) Describe() string {
+func (character Character) Describe() (string, error) {
 	descriptionObject := character.compileDescription()
-	descriptionTemplate := randomDescriptionTemplate()
+	descriptionTemplate, err := randomDescriptionTemplate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate character description: %w", err)
+		return "", err
+	}
 
 	var tplOutput bytes.Buffer
 
@@ -64,5 +85,5 @@ func (character Character) Describe() string {
 	}
 	description := tplOutput.String()
 
-	return description
+	return description, nil
 }

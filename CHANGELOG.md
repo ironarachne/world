@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.4.13 (2019-09-05)
+
+Add real error handling.
+
+### Change List
+
+- Add error handling to most areas
+- Improve the word list for cultures
+
 ## 0.4.12 (2019-09-03)
 
 Improve stone and religion just a bit.

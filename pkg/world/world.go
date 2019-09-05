@@ -1,6 +1,7 @@
 package world
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/country"
@@ -18,15 +19,13 @@ type World struct {
 }
 
 // Generate procedurally generates a world
-func Generate() World {
+func Generate() (World, error) {
 	var boundary worldmap.Boundary
 	var boundaries []worldmap.Boundary
 	var activeTile worldmap.Tile
 	var activeTileCoordinates grid.Coordinate
 	var homeTile worldmap.Tile
 	var homeTileCoordinates grid.Coordinate
-	var newCountry country.Country
-	var newRegion region.Region
 	var newRegions []region.Region
 	var numRegions int
 	var regionCoordinates []grid.Coordinate
@@ -47,7 +46,11 @@ func Generate() World {
 	availableCoords := world.WorldMap.AllLandCoordinates()
 
 	for i := 0; i < numCountries; i++ {
-		newCountry = country.Generate()
+		newCountry, err := country.Generate()
+		if err != nil {
+			err = fmt.Errorf("Could not generate world: %w", err)
+			return World{}, err
+		}
 		numRegions = rand.Intn(12) + baseRegions
 		newRegions = []region.Region{}
 		regionCoordinates = []grid.Coordinate{}
@@ -56,7 +59,11 @@ func Generate() World {
 		homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 		homeTile.IsInhabited = true
 		world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-		newRegion = region.Generate(homeTile.TileType, newCountry.DominantCulture)
+		newRegion, err := region.Generate(homeTile.TileType, newCountry.DominantCulture)
+		if err != nil {
+			err = fmt.Errorf("Could not generate world: %w", err)
+			return World{}, err
+		}
 		newCountry.DominantCulture = newRegion.Culture
 		regionCoordinates = append(regionCoordinates, homeTileCoordinates)
 		activeTile = homeTile
@@ -103,7 +110,11 @@ func Generate() World {
 				homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 				homeTile.IsInhabited = true
 				world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-				newRegion = region.Generate(homeTile.TileType, newCountry.DominantCulture)
+				newRegion, err = region.Generate(homeTile.TileType, newCountry.DominantCulture)
+				if err != nil {
+					err = fmt.Errorf("Could not generate world: %w", err)
+					return World{}, err
+				}
 				regionCoordinates = append(regionCoordinates, homeTileCoordinates)
 				activeTile = homeTile
 				for j := 1; j < newRegion.Class.NumberOfTiles; j++ {
@@ -150,5 +161,5 @@ func Generate() World {
 	world.WorldMap.Boundaries = boundaries
 	world.WorldMap.SVG = world.WorldMap.RenderAsSVG()
 
-	return world
+	return world, nil
 }

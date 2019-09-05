@@ -1,6 +1,9 @@
 package clothing
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func getWaistTemplates() []ItemTemplate {
 	return []ItemTemplate{
@@ -36,10 +39,16 @@ func getWaistTemplates() []ItemTemplate {
 	}
 }
 
-func getRandomWaist() Item {
+func getRandomWaist() (Item, error) {
 	potentialTemplates := getWaistTemplates()
 
 	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
 
-	return getItemFromTemplate(template)
+	item, err := getItemFromTemplate(template)
+	if err != nil {
+		err = fmt.Errorf("Could not get random waist: %w", err)
+		return Item{}, err
+	}
+
+	return item, nil
 }

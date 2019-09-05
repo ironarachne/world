@@ -1,15 +1,16 @@
 package food
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
-func randomEatingTraits() []string {
+func randomEatingTraits() ([]string, error) {
 	var traits []string
 	var trait string
 	var typesOfTraits []string
-	var t string
 
 	utensils := []string{
 		"chopsticks",
@@ -26,7 +27,7 @@ func randomEatingTraits() []string {
 		"minimal",
 	}
 
-	heat := []string{
+	heatLevels := []string{
 		"hot",
 		"warm",
 		"cold",
@@ -48,21 +49,45 @@ func randomEatingTraits() []string {
 	}
 
 	for i := 0; i < 2; i++ {
-		t = random.String(potentialTraits)
+		t, err := random.String(potentialTraits)
+		if err != nil {
+			err = fmt.Errorf("Could not generate food traits: %w", err)
+			return []string{}, err
+		}
 		if !slices.StringIn(t, typesOfTraits) {
 			typesOfTraits = append(typesOfTraits, t)
 			if t == "utensils" {
-				trait = "eat with " + random.String(utensils)
+				utensil, err := random.String(utensils)
+				if err != nil {
+					err = fmt.Errorf("Could not generate food traits: %w", err)
+					return []string{}, err
+				}
+				trait = "eat with " + utensil
 			} else if t == "spices" {
-				trait = "use " + random.String(spices) + " spice"
+				spice, err := random.String(spices)
+				if err != nil {
+					err = fmt.Errorf("Could not generate food traits: %w", err)
+					return []string{}, err
+				}
+				trait = "use " + spice + " spice"
 			} else if t == "heat" {
-				trait = "serve food " + random.String(heat)
+				heat, err := random.String(heatLevels)
+				if err != nil {
+					err = fmt.Errorf("Could not generate food traits: %w", err)
+					return []string{}, err
+				}
+				trait = "serve food " + heat
 			} else if t == "customs" {
-				trait = random.String(customs)
+				custom, err := random.String(customs)
+				if err != nil {
+					err = fmt.Errorf("Could not generate food traits: %w", err)
+					return []string{}, err
+				}
+				trait = custom
 			}
 			traits = append(traits, trait)
 		}
 	}
 
-	return traits
+	return traits, nil
 }

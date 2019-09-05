@@ -1,6 +1,8 @@
 package buildings
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 )
 
@@ -16,18 +18,43 @@ type BuildingStyle struct {
 }
 
 // GenerateStyle generates a random building style
-func GenerateStyle() BuildingStyle {
+func GenerateStyle() (BuildingStyle, error) {
+	decorations, err := getRandomDecorations()
+	if err != nil {
+		err = fmt.Errorf("Could not generate building style: %w", err)
+		return BuildingStyle{}, err
+	}
+	doorStyle, err := getRandomDoorStyle()
+	if err != nil {
+		err = fmt.Errorf("Could not generate building style: %w", err)
+		return BuildingStyle{}, err
+	}
+	streetStyle, err := getRandomStreetStyle()
+	if err != nil {
+		err = fmt.Errorf("Could not generate building style: %w", err)
+		return BuildingStyle{}, err
+	}
+	wallStyle, err := getRandomWallStyle()
+	if err != nil {
+		err = fmt.Errorf("Could not generate building style: %w", err)
+		return BuildingStyle{}, err
+	}
+	windowStyle, err := getRandomWindowStyle()
+	if err != nil {
+		err = fmt.Errorf("Could not generate building style: %w", err)
+		return BuildingStyle{}, err
+	}
 	style := BuildingStyle{
-		Decorations: getRandomDecorations(),
-		DoorStyle:   getRandomDoorStyle(),
+		Decorations: decorations,
+		DoorStyle:   doorStyle,
 		MaxStories:  getRandomMaxStories(),
 		RoofStyle:   getRandomRoofStyle(),
-		StreetStyle: getRandomStreetStyle(),
-		WallStyle:   getRandomWallStyle(),
-		WindowStyle: getRandomWindowStyle(),
+		StreetStyle: streetStyle,
+		WallStyle:   wallStyle,
+		WindowStyle: windowStyle,
 	}
 
-	return style
+	return style, nil
 }
 
 func getRandomMaxStories() int {
@@ -37,5 +64,7 @@ func getRandomMaxStories() int {
 		3: 1,
 	}
 
-	return random.IntFromThresholdMap(stories)
+	storyCount := random.IntFromThresholdMap(stories)
+
+	return storyCount
 }

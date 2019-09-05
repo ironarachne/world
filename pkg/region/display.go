@@ -1,6 +1,8 @@
 package region
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/town"
@@ -17,28 +19,53 @@ type SimplifiedRegion struct {
 }
 
 // Simplify returns a simplified version of a region
-func (region Region) Simplify() SimplifiedRegion {
+func (region Region) Simplify() (SimplifiedRegion, error) {
+	sr, err := region.Ruler.Simplify()
+	if err != nil {
+		err = fmt.Errorf("Could not generate simplified region: %w", err)
+		return SimplifiedRegion{}, err
+	}
 	simplified := SimplifiedRegion{
 		Name:    "The " + region.Class.Name + " of " + region.Name,
 		Climate: region.Climate.Description,
 		Capital: region.Capital,
-		Ruler:   region.Ruler.Simplify(),
+		Ruler:   sr,
 	}
 
 	for _, t := range region.Towns {
-		simplified.Towns = append(simplified.Towns, t.Simplify())
+		st, err := t.Simplify()
+		if err != nil {
+			err = fmt.Errorf("Could not generate simplified region: %w", err)
+			return SimplifiedRegion{}, err
+		}
+		simplified.Towns = append(simplified.Towns, st)
 	}
 
 	for _, o := range region.Organizations {
-		simplified.Organizations = append(simplified.Organizations, o.Simplify())
+		so, err := o.Simplify()
+		if err != nil {
+			err = fmt.Errorf("Could not generate simplified region: %w", err)
+			return SimplifiedRegion{}, err
+		}
+		simplified.Organizations = append(simplified.Organizations, so)
 	}
 
-	return simplified
+	return simplified, nil
 }
 
 // RandomSimplified generates a completely random region
-func RandomSimplified() SimplifiedRegion {
-	region := Random()
+func RandomSimplified() (SimplifiedRegion, error) {
+	region, err := Random()
+	if err != nil {
+		err = fmt.Errorf("Could not generate simplified region: %w", err)
+		return SimplifiedRegion{}, err
+	}
 
-	return region.Simplify()
+	rs, err := region.Simplify()
+	if err != nil {
+		err = fmt.Errorf("Could not generate simplified region: %w", err)
+		return SimplifiedRegion{}, err
+	}
+
+	return rs, nil
 }

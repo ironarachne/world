@@ -1,15 +1,21 @@
 package region
 
 import (
-	"github.com/ironarachne/world/pkg/profession"
+	"fmt"
 	"math/rand"
+
+	"github.com/ironarachne/world/pkg/profession"
 
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/heraldry"
 )
 
-func (region Region) generateRuler() character.Character {
-	ruler := character.Generate(region.Culture)
+func (region Region) generateRuler() (character.Character, error) {
+	ruler, err := character.Generate(region.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate region: %w", err)
+		return character.Character{}, err
+	}
 	ruler.Profession = profession.ByName("noble")
 	ruler = ruler.ChangeAge(rand.Intn(40) + 25)
 
@@ -20,5 +26,5 @@ func (region Region) generateRuler() character.Character {
 
 	ruler.Heraldry = heraldry.GenerateHeraldry()
 
-	return ruler
+	return ruler, nil
 }

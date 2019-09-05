@@ -1,6 +1,7 @@
 package race
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -19,12 +20,17 @@ type Race struct {
 }
 
 // GenerateSubrace generates a random subrace based on a parent race
-func GenerateSubrace(parent Race) Race {
+func GenerateSubrace(parent Race) (Race, error) {
 	race := parent
 
-	race.Appearance = parent.generateRandomSubraceAppearance()
+	appearance, err := parent.generateRandomSubraceAppearance()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace: %w", err)
+		return Race{}, err
+	}
+	race.Appearance = appearance
 
-	return race
+	return race, nil
 }
 
 // Get returns a specific race

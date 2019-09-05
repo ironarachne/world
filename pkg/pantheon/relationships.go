@@ -1,6 +1,7 @@
 package pantheon
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -20,10 +21,8 @@ type RelationshipType struct {
 }
 
 // GenerateRelationships generates relationships between deities
-func (pantheon Pantheon) GenerateRelationships() map[string]Deity {
-	var descriptor string
+func (pantheon Pantheon) GenerateRelationships() (map[string]Deity, error) {
 	var relationship Relationship
-	var inverse Relationship
 	var inverseDeity Deity
 	var relationshipType RelationshipType
 	var target string
@@ -36,7 +35,11 @@ func (pantheon Pantheon) GenerateRelationships() map[string]Deity {
 		for i := 0; i < 3; i++ {
 			target = randomDeityNameFromMap(pantheon.Deities)
 			relationshipType = relationshipTypes[rand.Intn(len(relationshipTypes))]
-			descriptor = random.String(relationshipType.Descriptors)
+			descriptor, err := random.String(relationshipType.Descriptors)
+			if err != nil {
+				err = fmt.Errorf("Could not generate deity relationships: %w", err)
+				return modifiedDeities, err
+			}
 
 			if deity.Name != target {
 				if relationshipType.Name == "parent" {
@@ -64,7 +67,11 @@ func (pantheon Pantheon) GenerateRelationships() map[string]Deity {
 
 	for _, deity := range modifiedDeities {
 		for _, r := range deity.Relationships {
-			inverse = deity.getInverseRelationship(r)
+			inverse, err := deity.getInverseRelationship(r)
+			if err != nil {
+				err = fmt.Errorf("Could not generate deity relationships: %w", err)
+				return modifiedDeities, err
+			}
 			if !isRelationshipADuplicate(inverse, modifiedDeities[r.Target].Relationships) {
 				inverseDeity = modifiedDeities[r.Target]
 				inverseDeity.Relationships = append(inverseDeity.Relationships, inverse)
@@ -73,7 +80,7 @@ func (pantheon Pantheon) GenerateRelationships() map[string]Deity {
 		}
 	}
 
-	return modifiedDeities
+	return modifiedDeities, nil
 }
 
 func getAllRelationshipTypes() []RelationshipType {
@@ -148,7 +155,7 @@ func getRelationshipType(name string) RelationshipType {
 	return RelationshipType{}
 }
 
-func (deity Deity) getInverseRelationship(relationship Relationship) Relationship {
+func (deity Deity) getInverseRelationship(relationship Relationship) (Relationship, error) {
 	inverseType := relationship.Type
 
 	if relationship.Type == "parent" {
@@ -158,9 +165,13 @@ func (deity Deity) getInverseRelationship(relationship Relationship) Relationshi
 	}
 
 	inverse := getRelationshipType(inverseType)
-	inverseDescriptor := random.String(inverse.Descriptors)
+	inverseDescriptor, err := random.String(inverse.Descriptors)
+	if err != nil {
+		err = fmt.Errorf("Could not get inverse deity relationship: %w", err)
+		return Relationship{}, err
+	}
 
-	return Relationship{Target: deity.Name, Descriptor: inverseDescriptor, Type: inverseType}
+	return Relationship{Target: deity.Name, Descriptor: inverseDescriptor, Type: inverseType}, nil
 }
 
 func isRelationshipADuplicate(relationship Relationship, relationships []Relationship) bool {

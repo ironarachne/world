@@ -1,6 +1,8 @@
 package pantheon
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -44,18 +46,21 @@ func getGeneralAppearances() []string {
 	return appearances
 }
 
-func getRandomGeneralAppearances(max int) []string {
+func getRandomGeneralAppearances(max int) ([]string, error) {
 	var appearances []string
-	var appearance string
 
 	possibleAppearances := getGeneralAppearances()
 
 	for i := 0; i < max; i++ {
-		appearance = random.String(possibleAppearances)
+		appearance, err := random.String(possibleAppearances)
+		if err != nil {
+			err = fmt.Errorf("Could not generate random deity appearance: %w", err)
+			return []string{}, err
+		}
 		if !slices.StringIn(appearance, appearances) {
 			appearances = append(appearances, appearance)
 		}
 	}
 
-	return appearances
+	return appearances, nil
 }

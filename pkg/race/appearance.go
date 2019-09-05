@@ -1,6 +1,7 @@
 package race
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
 	"strconv"
@@ -33,21 +34,81 @@ type Appearance struct {
 	UniqueTraits      []string
 }
 
-func (race Race) generateRandomSubraceAppearance() Appearance {
+func (race Race) generateRandomSubraceAppearance() (Appearance, error) {
 	appearance := Appearance{}
 
-	appearance.SkinColors = random.StringSubset(race.Appearance.SkinColors, 2)
-	appearance.HairColors = random.StringSubset(race.Appearance.HairColors, 2)
-	appearance.EyeColors = random.StringSubset(race.Appearance.EyeColors, 2)
-	appearance.HairConsistencies = random.StringSubset(race.Appearance.HairConsistencies, 1)
-	appearance.FemaleHairStyles = random.StringSubset(race.Appearance.FemaleHairStyles, 2)
-	appearance.MaleHairStyles = random.StringSubset(race.Appearance.MaleHairStyles, 2)
-	appearance.FacialHairStyles = random.StringSubset(race.Appearance.FacialHairStyles, 3)
-	appearance.EarShapes = random.StringSubset(race.Appearance.EarShapes, 1)
-	appearance.EyeShapes = random.StringSubset(race.Appearance.EyeShapes, 1)
-	appearance.FaceShapes = random.StringSubset(race.Appearance.FaceShapes, 1)
-	appearance.MouthShapes = random.StringSubset(race.Appearance.MouthShapes, 1)
-	appearance.NoseShapes = random.StringSubset(race.Appearance.NoseShapes, 1)
+	skinColors, err := random.StringSubset(race.Appearance.SkinColors, 2)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.SkinColors = skinColors
+	hairColors, err := random.StringSubset(race.Appearance.HairColors, 2)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.HairColors = hairColors
+	eyeColors, err := random.StringSubset(race.Appearance.EyeColors, 2)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.EyeColors = eyeColors
+	hairConsistencies, err := random.StringSubset(race.Appearance.HairConsistencies, 1)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.HairConsistencies = hairConsistencies
+	femaleHairStyles, err := random.StringSubset(race.Appearance.FemaleHairStyles, 2)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.FemaleHairStyles = femaleHairStyles
+	maleHairStyles, err := random.StringSubset(race.Appearance.MaleHairStyles, 2)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.MaleHairStyles = maleHairStyles
+	facialHairStyles, err := random.StringSubset(race.Appearance.FacialHairStyles, 3)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.FacialHairStyles = facialHairStyles
+	earShapes, err := random.StringSubset(race.Appearance.EarShapes, 1)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.EarShapes = earShapes
+	eyeShapes, err := random.StringSubset(race.Appearance.EyeShapes, 1)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.EyeShapes = eyeShapes
+	faceShapes, err := random.StringSubset(race.Appearance.FaceShapes, 1)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.FaceShapes = faceShapes
+	mouthShapes, err := random.StringSubset(race.Appearance.MouthShapes, 1)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.MouthShapes = mouthShapes
+	noseShapes, err := random.StringSubset(race.Appearance.NoseShapes, 1)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+		return Appearance{}, err
+	}
+	appearance.NoseShapes = noseShapes
 
 	appearance.MinFemaleHeight = rand.Intn(24) + 52
 	appearance.MaxFemaleHeight = appearance.MinFemaleHeight + rand.Intn(12) + 1
@@ -59,10 +120,15 @@ func (race Race) generateRandomSubraceAppearance() Appearance {
 	appearance.MaxMaleWeight = appearance.MinMaleWeight + rand.Intn(100) + 1
 
 	if len(race.Appearance.UniqueTraits) > 0 {
-		appearance.UniqueTraits = random.StringSubset(race.Appearance.UniqueTraits, 1)
+		uniqueTraits, err := random.StringSubset(race.Appearance.UniqueTraits, 1)
+		if err != nil {
+			err = fmt.Errorf("Could not generate random subrace appearance: %w", err)
+			return Appearance{}, err
+		}
+		appearance.UniqueTraits = uniqueTraits
 	}
 
-	return appearance
+	return appearance, nil
 }
 
 func heightToString(heightInInches int) string {

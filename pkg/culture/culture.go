@@ -1,6 +1,7 @@
 package culture
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/buildings"
@@ -43,44 +44,81 @@ type Culture struct {
 }
 
 // Generate generates a culture
-func Generate(homeClimate climate.Climate) Culture {
+func Generate(homeClimate climate.Climate) (Culture, error) {
 	culture := Culture{}
 	culture.HomeClimate = homeClimate
 
-	culture.Language = language.Generate()
-
-	for _, a := range homeClimate.Animals {
-		if !language.IsInWordList(a.Name, culture.Language.WordList) {
-			culture.Language.WordList = culture.Language.AddNounToWordList(a.Name)
-		}
+	cultureLanguage, err := language.Generate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
 	}
-
-	for _, p := range homeClimate.Plants {
-		if !language.IsInWordList(p.Name, culture.Language.WordList) {
-			culture.Language.WordList = culture.Language.AddNounToWordList(p.Name)
-		}
+	culture.Language = cultureLanguage
+	wordList, err := culture.createWordList()
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
 	}
+	culture.Language.WordList = wordList
 
-	for _, f := range homeClimate.Fish {
-		if !language.IsInWordList(f.Name, culture.Language.WordList) {
-			culture.Language.WordList = culture.Language.AddNounToWordList(f.Name)
-		}
+	maleNames, err := culture.Language.GenerateNameList("male")
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
 	}
-
-	culture.CommonMaleNames = culture.Language.GenerateNameList("male")
-	culture.CommonFemaleNames = culture.Language.GenerateNameList("female")
-	culture.CommonFamilyNames = culture.Language.GenerateNameList("family")
+	culture.CommonMaleNames = maleNames
+	femaleNames, err := culture.Language.GenerateNameList("female")
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.CommonFemaleNames = femaleNames
+	familyNames, err := culture.Language.GenerateNameList("family")
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.CommonFamilyNames = familyNames
 
 	culture.Name = culture.Language.Name
 	culture.Adjective = culture.Language.Adjective
 
-	instruments := music.GenerateInstruments(culture.HomeClimate)
-	culture.MusicStyle = music.GenerateStyle(instruments)
+	instruments, err := music.GenerateInstruments(culture.HomeClimate)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	musicStyle, err := music.GenerateStyle(instruments)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.MusicStyle = musicStyle
 
-	culture.BuildingStyle = buildings.GenerateStyle()
-	culture.ClothingStyle = clothing.GenerateStyle(culture.HomeClimate)
-	culture.FoodStyle = food.GenerateStyle(culture.HomeClimate)
-	culture.AlcoholicDrinks = drink.RandomSet(3, culture.HomeClimate.Resources)
+	buildingStyle, err := buildings.GenerateStyle()
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.BuildingStyle = buildingStyle
+	clothingStyle, err := clothing.GenerateStyle(culture.HomeClimate)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.ClothingStyle = clothingStyle
+	foodStyle, err := food.GenerateStyle(culture.HomeClimate)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.FoodStyle = foodStyle
+	drinks, err := drink.RandomSet(3, culture.HomeClimate.Resources)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.AlcoholicDrinks = drinks
 
 	culture.AttributeMax = 100
 	culture.Attributes.Aggression = rand.Intn(culture.AttributeMax) + 1
@@ -91,17 +129,163 @@ func Generate(homeClimate climate.Climate) Culture {
 	culture.Attributes.Superstition = rand.Intn(culture.AttributeMax) + 1
 
 	parentRace := race.GetRandom()
-	culture.PrimaryRace = race.GenerateSubrace(parentRace)
+	primaryRace, err := race.GenerateSubrace(parentRace)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.PrimaryRace = primaryRace
 
-	culture.Religion = religion.Generate(culture.Language)
+	cultureReligion, err := religion.Generate(culture.Language)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.Religion = cultureReligion
 
 	culture.Views = culture.getViews()
 
-	return culture
+	return culture, nil
 }
 
 // Random returns a completely random culture
-func Random() Culture {
-	homeClimate := climate.Generate()
-	return Generate(homeClimate)
+func Random() (Culture, error) {
+	homeClimate, err := climate.Generate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture, err := Generate(homeClimate)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	return culture, nil
+}
+
+func (culture Culture) createWordList() (map[string]string, error) {
+	list := culture.Language.WordList
+
+	for _, i := range culture.HomeClimate.Animals {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Fish {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Gems {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Insects {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Metals {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.OtherMinerals {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Plants {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Seasons {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Stones {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Fish {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	for _, i := range culture.HomeClimate.Trees {
+		if !language.IsInWordList(i.Name, list) {
+			modifiedList, err := culture.Language.AddNounToWordList(i.Name)
+			if err != nil {
+				err = fmt.Errorf("Could not generate culture: %w", err)
+				return list, err
+			}
+			list = modifiedList
+		}
+	}
+
+	return list, nil
 }

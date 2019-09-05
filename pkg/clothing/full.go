@@ -1,6 +1,8 @@
 package clothing
 
-func getRandomDress() Item {
+import "fmt"
+
+func getRandomDress() (Item, error) {
 	template := ItemTemplate{
 		Name:         "dress",
 		Type:         "full",
@@ -27,12 +29,16 @@ func getRandomDress() Item {
 		},
 	}
 
-	dress := getItemFromTemplate(template)
+	dress, err := getItemFromTemplate(template)
+	if err != nil {
+		err = fmt.Errorf("Could not get random dress: %w", err)
+		return Item{}, err
+	}
 
-	return dress
+	return dress, nil
 }
 
-func getRandomRobe() Item {
+func getRandomRobe() (Item, error) {
 	template := ItemTemplate{
 		Name:         "robe",
 		Type:         "full",
@@ -55,7 +61,11 @@ func getRandomRobe() Item {
 		},
 	}
 
-	robe := getItemFromTemplate(template)
+	robe, err := getItemFromTemplate(template)
+	if err != nil {
+		err = fmt.Errorf("Could not get random robe: %w", err)
+		return Item{}, err
+	}
 
-	return robe
+	return robe, nil
 }

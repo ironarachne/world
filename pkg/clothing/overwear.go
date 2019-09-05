@@ -1,6 +1,9 @@
 package clothing
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func getOverwearTemplates() []ItemTemplate {
 	return []ItemTemplate{
@@ -42,10 +45,16 @@ func getOverwearTemplates() []ItemTemplate {
 	}
 }
 
-func getRandomOverwear() Item {
+func getRandomOverwear() (Item, error) {
 	potentialTemplates := getOverwearTemplates()
 
 	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
 
-	return getItemFromTemplate(template)
+	item, err := getItemFromTemplate(template)
+	if err != nil {
+		err = fmt.Errorf("Could not get random overwear: %w", err)
+		return Item{}, err
+	}
+
+	return item, nil
 }

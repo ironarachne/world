@@ -1,6 +1,7 @@
 package pantheon
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/language"
@@ -17,8 +18,7 @@ type SimplifiedPantheon struct {
 }
 
 // Generate creates a random pantheon of deities
-func Generate(minSize int, maxSize int, lang language.Language) Pantheon {
-	var deity Deity
+func Generate(minSize int, maxSize int, lang language.Language) (Pantheon, error) {
 	var pantheon Pantheon
 	numberOfDeities := minSize
 
@@ -29,19 +29,28 @@ func Generate(minSize int, maxSize int, lang language.Language) Pantheon {
 	}
 
 	if numberOfDeities < 1 {
-		return pantheon
+		return pantheon, nil
 	}
 
 	for i := 0; i < numberOfDeities; i++ {
-		deity = pantheon.GenerateDeity(lang)
+		deity, err := pantheon.GenerateDeity(lang)
+		if err != nil {
+			err = fmt.Errorf("Could not generate pantheon: %w", err)
+			return Pantheon{}, err
+		}
 		pantheon.Deities[deity.Name] = deity
 	}
 
 	if len(pantheon.Deities) > 1 {
-		pantheon.Deities = pantheon.GenerateRelationships()
+		deities, err := pantheon.GenerateRelationships()
+		if err != nil {
+			err = fmt.Errorf("Could not generate pantheon: %w", err)
+			return Pantheon{}, err
+		}
+		pantheon.Deities = deities
 	}
 
-	return pantheon
+	return pantheon, nil
 }
 
 // Simplify returns a simplified pantheon for display

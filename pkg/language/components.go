@@ -1,6 +1,7 @@
 package language
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -55,27 +56,41 @@ func randomMutation() Mutation {
 	return rules[rand.Intn(len(rules)-1)]
 }
 
-func randomSyllable(category Category, role string) string {
-	syllable := random.String(category.Initiators) + getRandomWeightedVowel()
+func randomSyllable(category Category, role string) (string, error) {
+	syllable, err := random.String(category.Initiators)
+	if err != nil {
+		err = fmt.Errorf("Could not generate syllable: %w", err)
+		return "", err
+	}
+	syllable += getRandomWeightedVowel()
 	expand := rand.Intn(10) + 1
 	if expand > 2 {
 		if role == "connector" {
-			syllable += random.String(category.Connectors)
+			connector, err := random.String(category.Connectors)
+			if err != nil {
+				err = fmt.Errorf("Could not generate syllable: %w", err)
+				return "", err
+			}
+			syllable += connector
 		} else {
-			syllable += random.String(category.Finishers)
+			finisher, err := random.String(category.Finishers)
+			if err != nil {
+				err = fmt.Errorf("Could not generate syllable: %w", err)
+				return "", err
+			}
+			syllable += finisher
 		}
 	}
 
-	return syllable
+	return syllable, nil
 }
 
-func (language Language) randomWord(maxSyllables int) string {
+func (language Language) randomWord(maxSyllables int) (string, error) {
 	var word string
 	var syllables []string
 	numSyllables := 1
 
 	role := "connector"
-	syllable := ""
 	shouldIUseAnApostrophe := 0
 
 	if maxSyllables > 1 {
@@ -86,7 +101,11 @@ func (language Language) randomWord(maxSyllables int) string {
 		if numSyllables-i == 1 {
 			role = "finisher"
 		}
-		syllable = randomSyllable(language.Category, role)
+		syllable, err := randomSyllable(language.Category, role)
+		if err != nil {
+			err = fmt.Errorf("Could not generate word: %w", err)
+			return "", err
+		}
 
 		if language.Category.UsesApostrophes {
 			shouldIUseAnApostrophe = rand.Intn(10)
@@ -102,5 +121,5 @@ func (language Language) randomWord(maxSyllables int) string {
 		word += syllable
 	}
 
-	return word
+	return word, nil
 }

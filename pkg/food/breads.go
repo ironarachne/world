@@ -1,6 +1,7 @@
 package food
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
@@ -9,8 +10,8 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
-func generateBread(originClimate climate.Climate) string {
-	bread := ""
+func generateBread(originClimate climate.Climate) (string, error) {
+	var grain resource.Resource
 	breadTypes := []string{
 		"brick-like",
 		"flat",
@@ -30,29 +31,52 @@ func generateBread(originClimate climate.Climate) string {
 	}
 	grains := resource.ByTag("flour", originClimate.Resources)
 
-	if len(grains) > 0 {
-		grain := grains[rand.Intn(len(grains))]
-
-		bread = random.String(flavors) + " " + random.String(breadTypes) + " " + grain.Name + " bread"
+	if len(grains) == 0 {
+		err := fmt.Errorf("Could not generate bread: no grains available")
+		return "", err
 	}
 
-	return bread
+	if len(grains) == 1 {
+		grain = grains[0]
+	} else {
+		grain = grains[rand.Intn(len(grains))]
+	}
+
+	flavor, err := random.String(flavors)
+	if err != nil {
+		err = fmt.Errorf("Could not generate bread: %w", err)
+		return "", err
+	}
+	breadType, err := random.String(breadTypes)
+	if err != nil {
+		err = fmt.Errorf("Could not generate bread: %w", err)
+		return "", err
+	}
+
+	bread := flavor + " " + breadType + " " + grain.Name + " bread"
+
+	return bread, nil
 }
 
-func randomBreads(originClimate climate.Climate) []string {
+func randomBreads(originClimate climate.Climate) ([]string, error) {
 	var bread string
 	var breads []string
+	var err error
 
 	grains := resource.ByTag("flour", originClimate.Resources)
 	if len(grains) > 0 {
 		numberOfBreads := rand.Intn(3) + 1
 		for i := 0; i < numberOfBreads; i++ {
-			bread = generateBread(originClimate)
+			bread, err = generateBread(originClimate)
+			if err != nil {
+				err = fmt.Errorf("Could not generate breads: %w", err)
+				return []string{}, err
+			}
 			if !slices.StringIn(bread, breads) {
 				breads = append(breads, bread)
 			}
 		}
 	}
 
-	return breads
+	return breads, nil
 }

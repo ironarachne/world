@@ -1,6 +1,8 @@
 package pantheon
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -40,14 +42,17 @@ func getAllTraits() []string {
 	return traits
 }
 
-func (deity Deity) getRandomTraits() []string {
+func (deity Deity) getRandomTraits() ([]string, error) {
 	var possibleTraits []string
-	var trait string
 
 	allTraits := getAllTraits()
 
 	for i := 0; i < 4; i++ {
-		trait = random.String(allTraits)
+		trait, err := random.String(allTraits)
+		if err != nil {
+			err = fmt.Errorf("Could not generate deity traits: %w", err)
+			return []string{}, err
+		}
 		if !slices.StringIn(trait, possibleTraits) {
 			possibleTraits = append(possibleTraits, trait)
 		}
@@ -58,11 +63,15 @@ func (deity Deity) getRandomTraits() []string {
 
 	for i := 0; i < 2; i++ {
 		// Only add a trait if it isn't already in the PersonalityTraits slice
-		trait := random.String(possibleTraits)
+		trait, err := random.String(possibleTraits)
+		if err != nil {
+			err = fmt.Errorf("Could not generate deity traits: %w", err)
+			return []string{}, err
+		}
 		if !slices.StringIn(trait, traits) {
 			traits = append(traits, trait)
 		}
 	}
 
-	return traits
+	return traits, nil
 }

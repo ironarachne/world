@@ -1,10 +1,12 @@
 package character
 
 import (
-	"github.com/ironarachne/world/pkg/profession"
+	"fmt"
 	"math"
 	"math/rand"
 	"strconv"
+
+	"github.com/ironarachne/world/pkg/profession"
 
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/gender"
@@ -58,21 +60,31 @@ type Family struct {
 	Children   []Character
 }
 
-func getAppropriateName(gender string, culture culture.Culture) (string, string) {
-	firstName := culture.Language.RandomGenderedName(gender)
-	lastName := culture.Language.RandomName()
+func getAppropriateName(gender string, culture culture.Culture) (string, string, error) {
+	firstName, err := culture.Language.RandomGenderedName(gender)
+	if err != nil {
+		err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
+		return "", "", err
+	}
+	lastName, err := culture.Language.RandomName()
+	if err != nil {
+		err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
+		return "", "", err
+	}
 
-	return firstName, lastName
+	return firstName, lastName, nil
 }
 
 func randomOrientation() string {
 	orientations := map[string]int{
-		"straight": 10,
-		"gay":      1,
-		"bi":       1,
+		"straight": 100,
+		"gay":      10,
+		"bi":       15,
 	}
 
-	return random.StringFromThresholdMap(orientations)
+	orientation := random.StringFromThresholdMap(orientations)
+
+	return orientation
 }
 
 func (character Character) randomHeight() int {
@@ -115,65 +127,145 @@ func (character Character) randomWeight() int {
 	return weight
 }
 
-func (character Character) randomFacialHair() string {
+func (character Character) randomFacialHair() (string, error) {
 	if character.Gender.Name == "female" {
-		return "none"
+		return "none", nil
 	}
 
 	hairChance := rand.Intn(15)
 	if hairChance > 8 {
-		return random.String(character.Race.Appearance.FacialHairStyles)
+		facialHair, err := random.String(character.Race.Appearance.FacialHairStyles)
+		if err != nil {
+			err = fmt.Errorf("Could not get facial hair style: %w", err)
+			return "", err
+		}
+		return facialHair, nil
 	}
 
-	return "none"
+	return "none", nil
 }
 
 // Generate generates a random character
-func Generate(originCulture culture.Culture) Character {
+func Generate(originCulture culture.Culture) (Character, error) {
 	char := Character{}
 
 	char.Gender = gender.Random()
 	char.Culture = originCulture
 	char.Race = char.Culture.PrimaryRace
 
-	char.FirstName, char.LastName = getAppropriateName(char.Gender.Name, char.Culture)
+	firstName, lastName, err := getAppropriateName(char.Gender.Name, char.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate character: %w", err)
+		return Character{}, err
+	}
+	char.FirstName = firstName
+	char.LastName = lastName
 
 	char.AgeCategory = char.Race.GetWeightedAgeCategory()
 	char.Age = race.GetRandomAge(char.AgeCategory)
 
-	char.HairColor = random.String(char.Race.Appearance.HairColors)
-	if char.Gender.Name == "male" {
-		char.HairStyle = random.String(char.Race.Appearance.MaleHairStyles)
-	} else {
-		char.HairStyle = random.String(char.Race.Appearance.FemaleHairStyles)
+	hairColor, err := random.String(char.Race.Appearance.HairColors)
+	if err != nil {
+		err = fmt.Errorf("Could not generate hair color: %w", err)
+		return Character{}, err
 	}
-	char.FacialHair = char.randomFacialHair()
+	char.HairColor = hairColor
 
-	char.EyeColor = random.String(char.Race.Appearance.EyeColors)
-	char.EyeShape = random.String(char.Race.Appearance.EyeShapes)
-	char.FaceShape = random.String(char.Race.Appearance.FaceShapes)
-	char.MouthShape = random.String(char.Race.Appearance.MouthShapes)
-	char.NoseShape = random.String(char.Race.Appearance.NoseShapes)
-	char.SkinColor = random.String(char.Race.Appearance.SkinColors)
+	hairStyle, err := random.String(char.Race.Appearance.FemaleHairStyles)
+
+	if char.Gender.Name == "male" {
+		hairStyle, err = random.String(char.Race.Appearance.MaleHairStyles)
+	}
+	if err != nil {
+		err = fmt.Errorf("Could not generate hair style: %w", err)
+		return Character{}, err
+	}
+	char.HairStyle = hairStyle
+	facialHair, err := char.randomFacialHair()
+	if err != nil {
+		err = fmt.Errorf("Could not generate character: %w", err)
+		return Character{}, err
+	}
+	char.FacialHair = facialHair
+
+	eyeColor, err := random.String(char.Race.Appearance.EyeColors)
+	if err != nil {
+		err = fmt.Errorf("Could not generate eye color: %w", err)
+		return Character{}, err
+	}
+	char.EyeColor = eyeColor
+	eyeShape, err := random.String(char.Race.Appearance.EyeShapes)
+	if err != nil {
+		err = fmt.Errorf("Could not generate eye shape: %w", err)
+		return Character{}, err
+	}
+	char.EyeShape = eyeShape
+	faceShape, err := random.String(char.Race.Appearance.FaceShapes)
+	if err != nil {
+		err = fmt.Errorf("Could not generate face shape: %w", err)
+		return Character{}, err
+	}
+	char.FaceShape = faceShape
+	mouthShape, err := random.String(char.Race.Appearance.MouthShapes)
+	if err != nil {
+		err = fmt.Errorf("Could not generate mouth shape: %w", err)
+		return Character{}, err
+	}
+	char.MouthShape = mouthShape
+	noseShape, err := random.String(char.Race.Appearance.NoseShapes)
+	if err != nil {
+		err = fmt.Errorf("Could not generate nose shape: %w", err)
+		return Character{}, err
+	}
+	char.NoseShape = noseShape
+	skinColor, err := random.String(char.Race.Appearance.SkinColors)
+	if err != nil {
+		err = fmt.Errorf("Could not generate skin color: %w", err)
+		return Character{}, err
+	}
+	char.SkinColor = skinColor
 
 	char.Orientation = randomOrientation()
 	char.Profession = profession.Random()
 	char.Hobby = char.getRandomHobby()
-	char.Motivation = getRandomMotivation()
+	motivation, err := getRandomMotivation()
+	if err != nil {
+		err = fmt.Errorf("Could not generate character: %w", err)
+		return Character{}, err
+	}
+	char.Motivation = motivation
 
-	char.NegativeTraits = getRandomNegativeTraits(2)
-	char.PositiveTraits = getRandomPositiveTraits(3)
+	negativeTraits, err := getRandomNegativeTraits(2)
+	if err != nil {
+		err = fmt.Errorf("Could not generate character: %w", err)
+		return Character{}, err
+	}
+	char.NegativeTraits = negativeTraits
+	positiveTraits, err := getRandomPositiveTraits(3)
+	if err != nil {
+		err = fmt.Errorf("Could not generate character: %w", err)
+		return Character{}, err
+	}
+	char.PositiveTraits = positiveTraits
 
 	char.Height = char.randomHeight()
 	char.Weight = char.randomWeight()
 
-	return char
+	return char, nil
 }
 
 // GenerateCouple generates a couple
-func GenerateCouple() Couple {
-	char1 := Random()
-	char2 := Generate(char1.Culture)
+func GenerateCouple() (Couple, error) {
+	char1, err := Random()
+	if err != nil {
+		err = fmt.Errorf("Could not generate couple: %w", err)
+		return Couple{}, err
+	}
+	char2, err := Generate(char1.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate couple: %w", err)
+		return Couple{}, err
+	}
 	canHaveChildren := false
 
 	if char1.AgeCategory.Name == "child" {
@@ -195,11 +287,16 @@ func GenerateCouple() Couple {
 
 	if char1.Gender.Name == char2.Gender.Name && slices.StringIn("straight", orientations) {
 		char2.Gender = char1.Gender.Opposite()
-		char2.FirstName, _ = getAppropriateName(char2.Gender.Name, char2.Culture)
 	} else if char1.Gender.Name != char2.Gender.Name && slices.StringIn("gay", orientations) {
 		char2.Gender = char1.Gender
-		char2.FirstName, _ = getAppropriateName(char2.Gender.Name, char2.Culture)
 	}
+
+	partnerFirstName, _, err := getAppropriateName(char2.Gender.Name, char2.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate couple: %w", err)
+		return Couple{}, err
+	}
+	char2.FirstName = partnerFirstName
 
 	if char1.Gender != char2.Gender {
 		canHaveChildren = true
@@ -207,12 +304,16 @@ func GenerateCouple() Couple {
 
 	couple := Couple{char1, char2, canHaveChildren}
 
-	return couple
+	return couple, nil
 }
 
 // GenerateAdultDescendent generates an adult character based on a couple
-func GenerateAdultDescendent(couple Couple) Character {
-	descendent := Generate(couple.Partner1.Culture)
+func GenerateAdultDescendent(couple Couple) (Character, error) {
+	descendent, err := Generate(couple.Partner1.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate descendent: %w", err)
+		return Character{}, err
+	}
 
 	descendent.LastName = couple.Partner1.LastName
 
@@ -221,12 +322,16 @@ func GenerateAdultDescendent(couple Couple) Character {
 	descendent.Age = race.GetRandomAge(ac)
 	descendent.AgeCategory = couple.Partner1.Race.GetAgeCategoryFromAge(descendent.Age)
 
-	return descendent
+	return descendent, nil
 }
 
 // GenerateChild generates a child character for a couple
-func GenerateChild(couple Couple) Character {
-	child := Generate(couple.Partner1.Culture)
+func GenerateChild(couple Couple) (Character, error) {
+	child, err := Generate(couple.Partner1.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate child: %w", err)
+		return Character{}, err
+	}
 
 	child.LastName = couple.Partner1.LastName
 	child.Age, child.AgeCategory = getAgeFromParents(couple)
@@ -235,12 +340,16 @@ func GenerateChild(couple Couple) Character {
 		child.Profession = profession.ByName("none")
 	}
 
-	return child
+	return child, nil
 }
 
 // GenerateCompatibleMate generates a character appropriate as a mate for another
-func GenerateCompatibleMate(char Character) Character {
-	mate := Generate(char.Culture)
+func GenerateCompatibleMate(char Character) (Character, error) {
+	mate, err := Generate(char.Culture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate mate: %w", err)
+		return Character{}, err
+	}
 
 	mate.Race = char.Race
 
@@ -255,15 +364,19 @@ func GenerateCompatibleMate(char Character) Character {
 		mate.Orientation = "gay"
 	}
 
-	return mate
+	return mate, nil
 }
 
 // GenerateFamily generates a random family
-func GenerateFamily() Family {
+func GenerateFamily() (Family, error) {
 	child := Character{}
 	children := []Character{}
 
-	parents := GenerateCouple()
+	parents, err := GenerateCouple()
+	if err != nil {
+		err = fmt.Errorf("Could not generate face shape: %w", err)
+		return Family{}, err
+	}
 
 	familyName := parents.Partner1.LastName
 
@@ -271,13 +384,17 @@ func GenerateFamily() Family {
 
 	if parents.CanHaveChildren {
 		for i := 0; i < rand.Intn(6); i++ {
-			child = GenerateChild(parents)
+			child, err = GenerateChild(parents)
+			if err != nil {
+				err = fmt.Errorf("Could not generate child for family: %w", err)
+				return Family{}, err
+			}
 			child.LastName = familyName
 			children = append(children, child)
 		}
 	}
 
-	return Family{familyName, parents, children}
+	return Family{familyName, parents, children}, nil
 }
 
 // HeightSimplified returns a string in the common format for height
@@ -302,10 +419,18 @@ func MarryCouple(partner1 Character, partner2 Character) Couple {
 }
 
 // Random generates a completely random character
-func Random() Character {
-	randomCulture := culture.Random()
+func Random() (Character, error) {
+	randomCulture, err := culture.Random()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random character: %w", err)
+		return Character{}, err
+	}
 
-	character := Generate(randomCulture)
+	character, err := Generate(randomCulture)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random character: %w", err)
+		return Character{}, err
+	}
 
-	return character
+	return character, nil
 }

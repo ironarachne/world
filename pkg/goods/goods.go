@@ -1,6 +1,7 @@
 package goods
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -109,7 +110,7 @@ func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) [
 }
 
 // GenerateImportTradeGoods produces a list of trade goods based on externally-available resources
-func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) []TradeGood {
+func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) ([]TradeGood, error) {
 	var good TradeGood
 
 	goods := []TradeGood{}
@@ -118,11 +119,14 @@ func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) [
 
 	numberOfGoods := rand.Intn(max+1-min) + min
 	amount := 0
-	newItem := ""
 
 	for i := 0; i < numberOfGoods; i++ {
 		good = TradeGood{}
-		newItem = random.String(possibleGoods)
+		newItem, err := random.String(possibleGoods)
+		if err != nil {
+			err = fmt.Errorf("Could not generate import goods: %w", err)
+			return []TradeGood{}, err
+		}
 		amount = rand.Intn(3) + 1
 		good.Name = newItem
 		good.Amount = amount
@@ -132,7 +136,7 @@ func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) [
 		}
 	}
 
-	return goods
+	return goods, nil
 }
 
 // GetAllTradeGoods converts a list of resources into a list of trade goods

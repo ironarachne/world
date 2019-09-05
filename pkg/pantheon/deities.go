@@ -1,6 +1,7 @@
 package pantheon
 
 import (
+	"fmt"
 	"math/rand"
 	"strings"
 
@@ -30,7 +31,7 @@ type SimplifiedDeity struct {
 	Description string   `json:"description"`
 }
 
-func (deity Deity) getRandomHolyItem() string {
+func (deity Deity) getRandomHolyItem() (string, error) {
 	options := []string{
 		"amulet",
 		"necklace",
@@ -43,12 +44,16 @@ func (deity Deity) getRandomHolyItem() string {
 		options = append(options, d.HolyItems...)
 	}
 
-	holyItem := random.String(options)
+	holyItem, err := random.String(options)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random holy item: %w", err)
+		return "", err
+	}
 
-	return holyItem
+	return holyItem, nil
 }
 
-func (deity Deity) getRandomHolySymbol() string {
+func (deity Deity) getRandomHolySymbol() (string, error) {
 	options := []string{}
 
 	if len(deity.Domains) == 0 {
@@ -69,13 +74,17 @@ func (deity Deity) getRandomHolySymbol() string {
 		}
 	}
 
-	holySymbol := random.String(options)
+	holySymbol, err := random.String(options)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random holy symbol: %w", err)
+		return "", err
+	}
 
-	return holySymbol
+	return holySymbol, nil
 }
 
 // GenerateDeity generates a random deity
-func (pantheon Pantheon) GenerateDeity(lang language.Language) Deity {
+func (pantheon Pantheon) GenerateDeity(lang language.Language) (Deity, error) {
 	var deity Deity
 	var domain Domain
 	var allDomains []Domain
@@ -100,20 +109,49 @@ func (pantheon Pantheon) GenerateDeity(lang language.Language) Deity {
 		}
 	}
 
-	appearances := getRandomGeneralAppearances(3)
+	appearances, err := getRandomGeneralAppearances(3)
+	if err != nil {
+		err = fmt.Errorf("Could not generate deity: %w", err)
+		return Deity{}, err
+	}
 	appearances = append(appearances, getAllAppearancesForDomains(deity.Domains)...)
 
-	deity.Appearance = random.String(appearances)
+	appearance, err := random.String(appearances)
+	if err != nil {
+		err = fmt.Errorf("Could not generate deity: %w", err)
+		return Deity{}, err
+	}
+	deity.Appearance = appearance
 	deity.Gender = gender.Random()
 
-	deity.PersonalityTraits = deity.getRandomTraits()
+	traits, err := deity.getRandomTraits()
+	if err != nil {
+		err = fmt.Errorf("Could not generate deity: %w", err)
+		return Deity{}, err
+	}
+	deity.PersonalityTraits = traits
 
-	deity.HolyItem = deity.getRandomHolyItem()
-	deity.HolySymbol = deity.getRandomHolySymbol()
+	holyItem, err := deity.getRandomHolyItem()
+	if err != nil {
+		err = fmt.Errorf("Could not generate deity: %w", err)
+		return Deity{}, err
+	}
+	deity.HolyItem = holyItem
+	holySymbol, err := deity.getRandomHolySymbol()
+	if err != nil {
+		err = fmt.Errorf("Could not generate deity: %w", err)
+		return Deity{}, err
+	}
+	deity.HolySymbol = holySymbol
 
-	deity.Name = lang.RandomGenderedName(deity.Gender.Name)
+	name, err := lang.RandomGenderedName(deity.Gender.Name)
+	if err != nil {
+		err = fmt.Errorf("Could not generate deity: %w", err)
+		return Deity{}, err
+	}
+	deity.Name = name
 
-	return deity
+	return deity, nil
 }
 
 func randomDeityNameFromMap(deities map[string]Deity) string {

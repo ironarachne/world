@@ -2,6 +2,7 @@ package language
 
 import (
 	"bytes"
+	"fmt"
 	"text/template"
 )
 
@@ -61,8 +62,7 @@ func (language Language) Conjugate(root string, tense string) string {
 }
 
 // GenerateWordList creates a word list for a language
-func (language Language) GenerateWordList() map[string]string {
-	newWord := ""
+func (language Language) GenerateWordList() (map[string]string, error) {
 	wordList := make(map[string]string)
 
 	wordTypes := getAllWordTypes()
@@ -70,32 +70,47 @@ func (language Language) GenerateWordList() map[string]string {
 	for _, t := range wordTypes {
 		for _, w := range t.WordList {
 			for {
-				newWord = language.randomWord(t.MaxSyllables)
+				newWord, err := language.randomWord(t.MaxSyllables)
+				if err != nil {
+					err = fmt.Errorf("Could not generate word list: %w", err)
+					return wordList, err
+				}
 				if !IsInWordList(newWord, wordList) {
-					wordList[w] = language.randomWord(t.MaxSyllables)
+					wordList[w], err = language.randomWord(t.MaxSyllables)
+					if err != nil {
+						err = fmt.Errorf("Could not generate word list: %w", err)
+						return wordList, err
+					}
 					break
 				}
 			}
 		}
 	}
 
-	return wordList
+	return wordList, nil
 }
 
 // AddNounToWordList adds a new noun to an existing word list for a language
-func (language Language) AddNounToWordList(word string) map[string]string {
-	newWord := ""
+func (language Language) AddNounToWordList(word string) (map[string]string, error) {
 	wordList := language.WordList
 
 	for {
-		newWord = language.randomWord(3)
+		newWord, err := language.randomWord(3)
+		if err != nil {
+			err = fmt.Errorf("Could not add noun to word list: %w", err)
+			return wordList, err
+		}
 		if !IsInWordList(newWord, wordList) {
-			wordList[word] = language.randomWord(3)
+			wordList[word], err = language.randomWord(3)
+			if err != nil {
+				err = fmt.Errorf("Could not add noun to word list: %w", err)
+				return wordList, err
+			}
 			break
 		}
 	}
 
-	return wordList
+	return wordList, nil
 }
 
 // MakePractice changes a word into an "-ism" form word

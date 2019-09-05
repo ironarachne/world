@@ -1,6 +1,8 @@
 package religion
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/world/pkg/random"
@@ -17,35 +19,66 @@ type Religion struct {
 }
 
 // Generate procedurally generates a religion
-func Generate(originLanguage language.Language) Religion {
+func Generate(originLanguage language.Language) (Religion, error) {
 	religion := Religion{}
 
 	religion.Class = getWeightedClass()
-	religion.GatheringPlace = religion.randomGatheringPlace()
+	gatheringPlace, err := religion.randomGatheringPlace()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random religion: %w", err)
+		return Religion{}, err
+	}
+	religion.GatheringPlace = gatheringPlace
 
 	if religion.Class.PantheonMaxSize > 0 {
-		religion.Pantheon = pantheon.Generate(religion.Class.PantheonMinSize, religion.Class.PantheonMaxSize, originLanguage)
+		newPantheon, err := pantheon.Generate(religion.Class.PantheonMinSize, religion.Class.PantheonMaxSize, originLanguage)
+		if err != nil {
+			err = fmt.Errorf("Could not generate religion: %w", err)
+			return Religion{}, err
+		}
+		religion.Pantheon = newPantheon
 	}
 
-	name := originLanguage.RandomName()
+	name, err := originLanguage.RandomName()
+	if err != nil {
+		err = fmt.Errorf("Could not generate religion: %w", err)
+		return Religion{}, err
+	}
 	religion.CommonName = name + "ism"
 	name = originLanguage.MakePractice(name)
 	religion.Name = name
 
-	virtues := getRandomVirtues()
+	virtues, err := getRandomVirtues()
+	if err != nil {
+		err = fmt.Errorf("Could not generate religion: %w", err)
+		return Religion{}, err
+	}
 	religion.Virtues = virtues
 
-	return religion
+	return religion, nil
 }
 
-func (religion Religion) randomGatheringPlace() string {
-	return random.String(religion.Class.GatheringPlaces)
+func (religion Religion) randomGatheringPlace() (string, error) {
+	gatheringPlace, err := random.String(religion.Class.GatheringPlaces)
+	if err != nil {
+		err = fmt.Errorf("Could not get random gathering place: %w", err)
+		return "", err
+	}
+	return gatheringPlace, nil
 }
 
 // Random generates a completely random religion
-func Random() Religion {
-	originLanguage := language.Generate()
-	religion := Generate(originLanguage)
+func Random() (Religion, error) {
+	originLanguage, err := language.Generate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random religion: %w", err)
+		return Religion{}, err
+	}
+	religion, err := Generate(originLanguage)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random religion: %w", err)
+		return Religion{}, err
+	}
 
-	return religion
+	return religion, nil
 }

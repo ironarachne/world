@@ -1,6 +1,7 @@
 package language
 
 import (
+	"fmt"
 	"math/rand"
 	"strings"
 
@@ -9,9 +10,8 @@ import (
 )
 
 // GenerateNameList generates a list of names appropriate for the language
-func (language Language) GenerateNameList(nameType string) []string {
+func (language Language) GenerateNameList(nameType string) ([]string, error) {
 	var names []string
-	var name string
 	var endings []string
 
 	if nameType == "male" {
@@ -20,18 +20,33 @@ func (language Language) GenerateNameList(nameType string) []string {
 		endings = language.Category.FeminineEndings
 	} else {
 		for i := 0; i < 5; i++ {
-			endings = append(endings, randomSyllable(language.Category, "finisher"))
+			finisher, err := randomSyllable(language.Category, "finisher")
+			if err != nil {
+				err = fmt.Errorf("Could not generate name list: %w", err)
+				return []string{}, err
+			}
+			endings = append(endings, finisher)
 		}
 	}
 
 	for i := 0; i < 10; i++ {
-		name = language.RandomName() + random.String(endings)
+		ending, err := random.String(endings)
+		if err != nil {
+			err = fmt.Errorf("Could not generate name list: %w", err)
+			return []string{}, err
+		}
+		name, err := language.RandomName()
+		if err != nil {
+			err = fmt.Errorf("Could not generate name list: %w", err)
+			return []string{}, err
+		}
+		name += ending
 		if !slices.StringIn(name, names) {
 			names = append(names, name)
 		}
 	}
 
-	return names
+	return names, nil
 }
 
 func mutateName(name string) string {
@@ -42,7 +57,7 @@ func mutateName(name string) string {
 	return name
 }
 
-func randomLanguageName(category Category) string {
+func randomLanguageName(category Category) (string, error) {
 	var name string
 	var syllables []string
 	skewLonger := false
@@ -63,7 +78,12 @@ func randomLanguageName(category Category) string {
 		if randomLength-i == 1 {
 			role = "finisher"
 		}
-		syllables = append(syllables, randomSyllable(category, role))
+		syllable, err := randomSyllable(category, role)
+		if err != nil {
+			err = fmt.Errorf("Could not generate language name: %w", err)
+			return "", err
+		}
+		syllables = append(syllables, syllable)
 	}
 
 	for _, syllable := range syllables {
@@ -75,14 +95,18 @@ func randomLanguageName(category Category) string {
 		name = mutateName(name)
 	}
 
-	return name
+	return name, nil
 }
 
 // RandomGenderedName generates a random gendered first name
-func (language Language) RandomGenderedName(gender string) string {
+func (language Language) RandomGenderedName(gender string) (string, error) {
 	var endings []string
 
-	name := language.RandomName()
+	name, err := language.RandomName()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random gendered name: %w", err)
+		return "", err
+	}
 
 	if gender == "male" {
 		endings = language.Category.MasculineEndings
@@ -90,13 +114,18 @@ func (language Language) RandomGenderedName(gender string) string {
 		endings = language.Category.FeminineEndings
 	}
 
-	name = name + random.String(endings)
+	ending, err := random.String(endings)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random gendered name: %w", err)
+		return "", err
+	}
+	name = name + ending
 
-	return name
+	return name, nil
 }
 
 // RandomName generates a random name using the language
-func (language Language) RandomName() string {
+func (language Language) RandomName() (string, error) {
 	var name string
 	var syllables []string
 	skewLonger := false
@@ -112,14 +141,17 @@ func (language Language) RandomName() string {
 	}
 
 	role := "connector"
-	syllable := ""
 	shouldIUseAnApostrophe := 0
 
 	for i := 0; i < randomLength; i++ {
 		if randomLength-i == 1 {
 			role = "finisher"
 		}
-		syllable = randomSyllable(language.Category, role)
+		syllable, err := randomSyllable(language.Category, role)
+		if err != nil {
+			err = fmt.Errorf("Could not generate conjugation rules: %w", err)
+			return "", err
+		}
 
 		if language.Category.UsesApostrophes {
 			shouldIUseAnApostrophe = rand.Intn(10)
@@ -142,5 +174,5 @@ func (language Language) RandomName() string {
 
 	name = strings.Title(name)
 
-	return name
+	return name, nil
 }

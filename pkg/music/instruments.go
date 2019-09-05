@@ -2,6 +2,7 @@ package music
 
 import (
 	"bytes"
+	"fmt"
 	"math/rand"
 	"strings"
 	"text/template"
@@ -25,9 +26,8 @@ type Instrument struct {
 }
 
 // GenerateInstruments generates a set of musical instruments for a climate
-func GenerateInstruments(originClimate climate.Climate) []Instrument {
+func GenerateInstruments(originClimate climate.Climate) ([]Instrument, error) {
 	var instrument Instrument
-	var materialType string
 	var availableBaseMaterials []string
 	var availableSupportMaterials []string
 	var woodName string
@@ -95,22 +95,60 @@ func GenerateInstruments(originClimate climate.Climate) []Instrument {
 			}
 		}
 
-		materialType = random.String(availableBaseMaterials)
+		materialType, err := random.String(availableBaseMaterials)
+		if err != nil {
+			err = fmt.Errorf("Could not generate instruments: %w", err)
+			return []Instrument{}, err
+		}
 		if materialType == "hide" {
-			instrument.BaseMaterial = random.String(availableHides)
+			hide, err := random.String(availableHides)
+			if err != nil {
+				err = fmt.Errorf("Could not generate instruments: %w", err)
+				return []Instrument{}, err
+			}
+			instrument.BaseMaterial = hide
 		} else if materialType == "metal" {
-			instrument.BaseMaterial = random.String(availableMetals)
+			metal, err := random.String(availableMetals)
+			if err != nil {
+				err = fmt.Errorf("Could not generate instruments: %w", err)
+				return []Instrument{}, err
+			}
+			instrument.BaseMaterial = metal
 		} else if materialType == "wood" {
-			instrument.BaseMaterial = random.String(availableWoods)
+			wood, err := random.String(availableWoods)
+			if err != nil {
+				err = fmt.Errorf("Could not generate instruments: %w", err)
+				return []Instrument{}, err
+			}
+			instrument.BaseMaterial = wood
 		}
 
-		materialType = random.String(availableSupportMaterials)
+		materialType, err = random.String(availableSupportMaterials)
+		if err != nil {
+			err = fmt.Errorf("Could not generate instruments: %w", err)
+			return []Instrument{}, err
+		}
 		if materialType == "hide" {
-			instrument.SupportMaterial = random.String(availableHides)
+			hide, err := random.String(availableHides)
+			if err != nil {
+				err = fmt.Errorf("Could not generate instruments: %w", err)
+				return []Instrument{}, err
+			}
+			instrument.SupportMaterial = hide
 		} else if materialType == "metal" {
-			instrument.SupportMaterial = random.String(availableMetals)
+			metal, err := random.String(availableMetals)
+			if err != nil {
+				err = fmt.Errorf("Could not generate instruments: %w", err)
+				return []Instrument{}, err
+			}
+			instrument.SupportMaterial = metal
 		} else if materialType == "wood" {
-			instrument.SupportMaterial = random.String(availableWoods)
+			wood, err := random.String(availableWoods)
+			if err != nil {
+				err = fmt.Errorf("Could not generate instruments: %w", err)
+				return []Instrument{}, err
+			}
+			instrument.SupportMaterial = wood
 		}
 
 		instrument.Description = instrument.getDescription()
@@ -118,7 +156,7 @@ func GenerateInstruments(originClimate climate.Climate) []Instrument {
 		instruments = append(instruments, instrument)
 	}
 
-	return instruments
+	return instruments, nil
 }
 
 func (instrument Instrument) getDescription() string {

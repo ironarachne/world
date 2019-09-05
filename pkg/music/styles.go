@@ -1,6 +1,7 @@
 package music
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -59,8 +60,7 @@ func getAllStyleDescriptors() []string {
 	return descriptors
 }
 
-func getRandomStyleDescriptors(maxDescriptors int) []string {
-	var randomDescriptor string
+func getRandomStyleDescriptors(maxDescriptors int) ([]string, error) {
 	descriptors := []string{}
 
 	possibleDescriptors := getAllStyleDescriptors()
@@ -68,7 +68,11 @@ func getRandomStyleDescriptors(maxDescriptors int) []string {
 	numberOfDescriptors := rand.Intn(maxDescriptors) + 1
 
 	for i := 0; i < numberOfDescriptors; i++ {
-		randomDescriptor = random.String(possibleDescriptors)
+		randomDescriptor, err := random.String(possibleDescriptors)
+		if err != nil {
+			err = fmt.Errorf("Could not generate random style descriptors: %w", err)
+			return []string{}, err
+		}
 		if !slices.StringIn(randomDescriptor, descriptors) {
 			descriptors = append(descriptors, randomDescriptor)
 		} else {
@@ -76,11 +80,11 @@ func getRandomStyleDescriptors(maxDescriptors int) []string {
 		}
 	}
 
-	return descriptors
+	return descriptors, nil
 }
 
 // GenerateStyle generates a random musical style given a set of instruments
-func GenerateStyle(instruments []Instrument) Style {
+func GenerateStyle(instruments []Instrument) (Style, error) {
 	style := Style{}
 
 	style.Beat = rand.Intn(3)
@@ -88,8 +92,13 @@ func GenerateStyle(instruments []Instrument) Style {
 	style.Tonality = rand.Intn(3)
 	style.Vocals = rand.Intn(3)
 
-	style.Descriptors = getRandomStyleDescriptors(4)
+	descriptors, err := getRandomStyleDescriptors(4)
+	if err != nil {
+		err = fmt.Errorf("Could not generate instrument style: %w", err)
+		return Style{}, err
+	}
+	style.Descriptors = descriptors
 	style.Instruments = instruments
 
-	return style
+	return style, nil
 }

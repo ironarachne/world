@@ -1,6 +1,7 @@
 package food
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -41,20 +42,45 @@ func getNoodles(flour string) []string {
 	return noodles
 }
 
-func (style Style) randomMainDish() string {
+func (style Style) randomMainDish() (string, error) {
 	var base string
 	var dish string
 	var flavorProfile string
 	var spices string
 	var treatment string
 
-	flavors := getFlavors()
+	allFlavors := getFlavors()
+	flavors, err := random.StringSubset(allFlavors, 2)
+	if err != nil {
+		err = fmt.Errorf("Could not generate dish: %w", err)
+		return "", err
+	}
 
-	flavorProfile = words.CombinePhrases(random.StringSubset(flavors, 2))
-	base = random.String(style.CommonBases)
-	treatment = style.getRandomTreatment()
-	spices = words.CombinePhrases(random.StringSubset(style.CommonSpices, 3))
-	dish = flavorProfile + " " + random.String(style.CookingTechniques) + " " + base + treatment
+	flavorProfile = words.CombinePhrases(flavors)
+	base, err = random.String(style.CommonBases)
+	if err != nil {
+		err = fmt.Errorf("Could not generate dish: %w", err)
+		return "", err
+	}
+	treatment, err = style.getRandomTreatment()
+	if err != nil {
+		err = fmt.Errorf("Could not generate dish: %w", err)
+		return "", err
+	}
+
+	allSpices, err := random.StringSubset(style.CommonSpices, 3)
+	if err != nil {
+		err = fmt.Errorf("Could not generate dish: %w", err)
+		return "", err
+	}
+	spices = words.CombinePhrases(allSpices)
+
+	technique, err := random.String(style.CookingTechniques)
+	if err != nil {
+		err = fmt.Errorf("Could not generate dish: %w", err)
+		return "", err
+	}
+	dish = flavorProfile + " " + technique + " " + base + treatment
 
 	spiceChance := rand.Intn(10)
 
@@ -62,20 +88,25 @@ func (style Style) randomMainDish() string {
 		dish += " with " + spices
 	}
 
-	return dish
+	return dish, nil
 }
 
-func (style Style) randomMainDishes() []string {
+func (style Style) randomMainDishes() ([]string, error) {
 	var dish string
 	var dishes []string
+	var err error
 
 	for i := 0; i < 5; i++ {
-		dish = style.randomMainDish()
+		dish, err = style.randomMainDish()
+		if err != nil {
+			err = fmt.Errorf("Could not generate dishes: %w", err)
+			return []string{}, err
+		}
 
 		if !slices.StringIn(dish, dishes) {
 			dishes = append(dishes, dish)
 		}
 	}
 
-	return dishes
+	return dishes, nil
 }

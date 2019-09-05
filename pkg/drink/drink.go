@@ -1,6 +1,7 @@
 package drink
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -67,7 +68,7 @@ func getRandomStrength(minimum int) string {
 }
 
 // Random returns a random alcoholic drink
-func Random(resources []resource.Resource) Drink {
+func Random(resources []resource.Resource) (Drink, error) {
 	var base resource.Resource
 	var ingredient string
 	var ingredients []string
@@ -89,7 +90,11 @@ func Random(resources []resource.Resource) Drink {
 		pattern = patterns[rand.Intn(len(patterns))]
 	}
 
-	appearance := random.String(pattern.Descriptors)
+	appearance, err := random.String(pattern.Descriptors)
+	if err != nil {
+		err = fmt.Errorf("Could not generate drink: %w", err)
+		return Drink{}, err
+	}
 
 	baseOptions := resource.ByTag(pattern.RequiredBase, resources)
 
@@ -122,7 +127,11 @@ func Random(resources []resource.Resource) Drink {
 	numberOfIngredients = rand.Intn(4)
 
 	for i := 0; i < numberOfIngredients; i++ {
-		ingredient = random.String(possibleIngredients)
+		ingredient, err = random.String(possibleIngredients)
+		if err != nil {
+			err = fmt.Errorf("Could not generate drink: %w", err)
+			return Drink{}, err
+		}
 		if !slices.StringIn(ingredient, ingredients) {
 			ingredients = append(ingredients, ingredient)
 		}
@@ -138,18 +147,23 @@ func Random(resources []resource.Resource) Drink {
 
 	drink.Description = drink.describe()
 
-	return drink
+	return drink, nil
 }
 
 // RandomSet generates some alcoholic drinks
-func RandomSet(numberOfDrinks int, resources []resource.Resource) []Drink {
+func RandomSet(numberOfDrinks int, resources []resource.Resource) ([]Drink, error) {
 	var drink Drink
 	var drinks []Drink
+	var err error
 
 	for i := 0; i < numberOfDrinks; i++ {
-		drink = Random(resources)
+		drink, err = Random(resources)
+		if err != nil {
+			err = fmt.Errorf("Could not generate drinks: %w", err)
+			return []Drink{}, err
+		}
 		drinks = append(drinks, drink)
 	}
 
-	return drinks
+	return drinks, nil
 }

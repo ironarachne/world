@@ -1,6 +1,8 @@
 package food
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -21,22 +23,28 @@ func getAllTechniques() []string {
 	}
 }
 
-func randomTechniques(maxTechniques int) []string {
+func randomTechniques(maxTechniques int) ([]string, error) {
+	var err error
 	var techniques []string
 	var technique string
 
 	potentialTechniques := getAllTechniques()
 
 	if maxTechniques < 1 {
-		return []string{}
+		err = fmt.Errorf("Requested less than one food technique")
+		return []string{}, err
 	}
 
 	for i := 0; i < maxTechniques; i++ {
-		technique = random.String(potentialTechniques)
+		technique, err = random.String(potentialTechniques)
+		if err != nil {
+			err = fmt.Errorf("Could not generate food techniques: %w", err)
+			return []string{}, err
+		}
 		if !slices.StringIn(technique, techniques) {
 			techniques = append(techniques, technique)
 		}
 	}
 
-	return techniques
+	return techniques, nil
 }

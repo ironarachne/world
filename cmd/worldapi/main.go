@@ -35,6 +35,12 @@ import (
 	"github.com/ironarachne/world/pkg/world"
 )
 
+// ErrorMessage is an HTTP error message
+type ErrorMessage struct {
+	Message    string `json:"message"`
+	StatusCode int    `json:"status_code"`
+}
+
 func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
@@ -42,7 +48,12 @@ func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = buildings.GenerateStyle().Simplify()
+	buildingStyle, err := buildings.GenerateStyle()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = buildingStyle.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -52,7 +63,12 @@ func getBuildingStyleRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = buildings.GenerateStyle().Simplify()
+	buildingStyle, err := buildings.GenerateStyle()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = buildingStyle.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -64,7 +80,11 @@ func getCharacter(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = character.RandomSimplified()
+	o, err := character.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -74,7 +94,11 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = character.RandomSimplified()
+	o, err := character.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -86,7 +110,12 @@ func getClimate(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = climate.Generate().Simplify()
+	randomClimate, err := climate.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = randomClimate.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -96,7 +125,12 @@ func getClimateRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = climate.Generate().Simplify()
+	randomClimate, err := climate.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = randomClimate.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -108,7 +142,11 @@ func getClothingStyle(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = clothing.Random()
+	o, err := clothing.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -118,7 +156,11 @@ func getClothingStyleRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = clothing.Random()
+	o, err := clothing.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -130,7 +172,11 @@ func getCountry(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = country.Generate()
+	o, err := country.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -140,7 +186,11 @@ func getCountryRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = country.Generate()
+	o, err := country.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -152,7 +202,12 @@ func getCulture(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = culture.Random().Simplify()
+	randomCulture, err := culture.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = randomCulture.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -162,7 +217,12 @@ func getCultureRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = culture.Random().Simplify()
+	randomCulture, err := culture.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = randomCulture.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -174,7 +234,11 @@ func getFoodStyle(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = food.Random()
+	o, err := food.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -184,7 +248,11 @@ func getFoodStyleRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = food.Random()
+	o, err := food.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -240,7 +308,12 @@ func getLanguage(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = language.Generate().Simplify()
+	randomLanguage, err := language.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = randomLanguage.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -250,7 +323,12 @@ func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = language.Generate().Simplify()
+	randomLanguage, err := language.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = randomLanguage.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -262,7 +340,11 @@ func getMerchant(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = merchant.RandomSimplified()
+	o, err := merchant.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -272,7 +354,11 @@ func getMerchantRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = merchant.RandomSimplified()
+	o, err := merchant.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -306,7 +392,11 @@ func getOrganization(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = organization.RandomSimplified()
+	o, err := organization.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -316,7 +406,11 @@ func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = organization.RandomSimplified()
+	o, err := organization.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -329,8 +423,17 @@ func getPantheon(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	l = language.Generate()
-	o = pantheon.Generate(6, 15, l).Simplify()
+	l, err := language.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	p, err := pantheon.Generate(6, 15, l)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = p.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -341,8 +444,17 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	l = language.Generate()
-	o = pantheon.Generate(6, 15, l).Simplify()
+	l, err := language.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	p, err := pantheon.Generate(6, 15, l)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = p.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -376,7 +488,11 @@ func getRegion(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = region.RandomSimplified()
+	o, err := region.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -386,7 +502,11 @@ func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = region.RandomSimplified()
+	o, err := region.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -398,7 +518,12 @@ func getReligion(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = religion.Random().Simplify()
+	rel, err := religion.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = rel.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -408,7 +533,12 @@ func getReligionRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = religion.Random().Simplify()
+	rel, err := religion.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = rel.Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -426,7 +556,11 @@ func getTown(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = town.RandomSimplified()
+	o, err := town.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -436,7 +570,11 @@ func getTownRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = town.RandomSimplified()
+	o, err := town.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -448,7 +586,11 @@ func getWorld(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	o = world.Generate()
+	o, err := world.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -458,7 +600,11 @@ func getWorldRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = world.Generate()
+	o, err := world.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -470,7 +616,11 @@ func getWorldMap(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	l = world.Generate()
+	l, err := world.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(l.WorldMap)
 }
@@ -482,7 +632,11 @@ func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	l = world.Generate()
+	l, err := world.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 	o := l.WorldMap.RenderAsSVG()
 
 	w.Header().Set("Content-Type", "image/svg+xml")
@@ -496,7 +650,11 @@ func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	l = world.Generate()
+	l, err := world.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 	o := l.WorldMap.RenderAsText()
 
 	w.Header().Set("Content-Type", "image/svg+xml")
@@ -508,9 +666,18 @@ func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	l = world.Generate()
+	l, err := world.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(l.WorldMap)
+}
+
+func handleError(w http.ResponseWriter, r *http.Request, err error) {
+	sentry.CaptureException(err)
+	http.Error(w, "There was a problem processing your request.", 500)
 }
 
 func errorTracking(h http.Handler) http.Handler {

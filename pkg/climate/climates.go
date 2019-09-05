@@ -1,6 +1,7 @@
 package climate
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
 
@@ -120,23 +121,120 @@ func getRandomClimate() Climate {
 	return climates[rand.Intn(len(climates)-1)]
 }
 
-func (climate Climate) getDescription() string {
+func getRandomBeachDescription() (string, error) {
+	beaches := []string{
+		"beautiful sandy beaches",
+		"long sandy beaches",
+		"low cliffs",
+		"rocky beaches",
+		"sandy beaches",
+		"sandy beaches",
+		"sheer cliffs",
+	}
+
+	beach, err := random.String(beaches)
+	if err != nil {
+		err = fmt.Errorf("Could not generate beach description: %w", err)
+		return "", err
+	}
+
+	return beach, nil
+}
+
+func getRandomLakeDescription() (string, error) {
+	lakes := []string{
+		"a few large lakes",
+		"an enormous lake",
+		"many smaller lakes",
+	}
+
+	lake, err := random.String(lakes)
+	if err != nil {
+		err = fmt.Errorf("Could not generate lake description: %w", err)
+		return "", err
+	}
+
+	return lake, nil
+}
+
+func getRandomOceanDescription() (string, error) {
+	oceans := []string{
+		"a large ocean",
+		"a major sea",
+		"a smaller sea",
+		"an ocean",
+	}
+
+	ocean, err := random.String(oceans)
+	if err != nil {
+		err = fmt.Errorf("Could not generate ocean description: %w", err)
+		return "", err
+	}
+
+	return ocean, nil
+}
+
+func getRandomRiverDescription() (string, error) {
+	rivers := []string{
+		"a few rivers",
+		"a major river",
+		"many small rivers and streams",
+	}
+
+	river, err := random.String(rivers)
+	if err != nil {
+		err = fmt.Errorf("Could not generate river description: %w", err)
+		return "", err
+	}
+
+	return river, nil
+}
+
+func getRandomWetlandsDescription() (string, error) {
+	wetlands := []string{
+		"extensive wetlands",
+		"scattered wetlands",
+		"several bogs",
+	}
+
+	wetland, err := random.String(wetlands)
+	if err != nil {
+		err = fmt.Errorf("Could not generate wetlands description: %w", err)
+		return "", err
+	}
+
+	return wetland, nil
+}
+
+func (climate Climate) getDescription() (string, error) {
 	description := "This is "
 
 	description += words.Pronoun(climate.Name) + " " + climate.Name + " region"
 
 	waterComponents := []string{}
 	if climate.HasLakes {
-		lakes := []string{"many smaller lakes", "a few large lakes", "an enormous lake"}
-		waterComponents = append(waterComponents, random.String(lakes))
+		lakes, err := getRandomLakeDescription()
+		if err != nil {
+			err = fmt.Errorf("Could not generate climate description: %w", err)
+			return "", err
+		}
+		waterComponents = append(waterComponents, lakes)
 	}
 	if climate.HasRivers {
-		rivers := []string{"a few rivers", "a major river", "many small rivers and streams"}
-		waterComponents = append(waterComponents, random.String(rivers))
+		rivers, err := getRandomRiverDescription()
+		if err != nil {
+			err = fmt.Errorf("Could not generate climate description: %w", err)
+			return "", err
+		}
+		waterComponents = append(waterComponents, rivers)
 	}
 	if climate.HasWetlands {
-		wetlands := []string{"several bogs", "extensive wetlands", "scattered wetlands"}
-		waterComponents = append(waterComponents, random.String(wetlands))
+		wetlands, err := getRandomWetlandsDescription()
+		if err != nil {
+			err = fmt.Errorf("Could not generate climate description: %w", err)
+			return "", err
+		}
+		waterComponents = append(waterComponents, wetlands)
 	}
 	waterComponents = slices.ShuffleStringSlice(waterComponents)
 
@@ -147,11 +245,19 @@ func (climate Climate) getDescription() string {
 
 	if climate.HasOcean {
 		description += ". It lies on the coast of "
-		oceanTypes := []string{"a large ocean", "a gulf", "a major sea", "a smaller sea", "an ocean"}
-		description += random.String(oceanTypes)
+		ocean, err := getRandomOceanDescription()
+		if err != nil {
+			err = fmt.Errorf("Could not generate climate description: %w", err)
+			return "", err
+		}
+		description += ocean
 
-		beachTypes := []string{"sandy beaches", "long sandy beaches", "rocky beaches", "sheer cliffs", "low cliffs", "sandy beaches", "beautiful sandy beaches"}
-		description += " with " + random.String(beachTypes)
+		beach, err := getRandomBeachDescription()
+		if err != nil {
+			err = fmt.Errorf("Could not generate climate description: %w", err)
+			return "", err
+		}
+		description += " with " + beach
 	}
 
 	weather := ". The weather is "
@@ -192,7 +298,7 @@ func (climate Climate) getDescription() string {
 		description += " The skies are full of birds."
 	}
 
-	return description
+	return description, nil
 }
 
 func (climate Climate) getCurrentHumidity(season Season) int {
@@ -203,7 +309,7 @@ func (climate Climate) getCurrentTemperature(season Season) int {
 	return climate.Temperature + season.TemperatureChange
 }
 
-func (climate Climate) populate() Climate {
+func (climate Climate) populate() (Climate, error) {
 	resources := []resource.Resource{}
 
 	animals := climate.getFilteredAnimals()
@@ -250,7 +356,12 @@ func (climate Climate) populate() Climate {
 	climate.Animals = animal.Random(climate.MaxAnimals, animals)
 	climate.Animals = append(climate.Animals, hideAnimal...)
 	climate.Insects = insect.RandomSubset(7, insects)
-	climate.Metals = mineral.RandomWeightedSet(climate.MaxMetals, metals)
+	filteredMetals, err := mineral.RandomWeightedSet(climate.MaxMetals, metals)
+	if err != nil {
+		err = fmt.Errorf("Could not populate climate: %w", err)
+		return Climate{}, err
+	}
+	climate.Metals = filteredMetals
 	climate.Gems = mineral.Random(climate.MaxGems, gems)
 	climate.OtherMinerals = mineral.OtherMinerals()
 	climate.Plants = plant.Random(climate.MaxPlants-1, plants)
@@ -290,11 +401,16 @@ func (climate Climate) populate() Climate {
 	}
 
 	climate.Resources = resources
-	climate.Description = climate.getDescription()
+	description, err := climate.getDescription()
+	if err != nil {
+		err = fmt.Errorf("Could not populate climate: %w", err)
+		return Climate{}, err
+	}
+	climate.Description = description
 
 	climate.Habitability = climate.calculateHabitability()
 
-	return climate
+	return climate, nil
 }
 
 // GetClimateNameForConditions finds the closest matching climate for a given humidity and temperature and returns its name

@@ -1,25 +1,36 @@
 package climate
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
 // Generate generates a climate
-func Generate() Climate {
-	climate := getRandomClimate()
-	climate = climate.populate()
+func Generate() (Climate, error) {
+	rawClimate := getRandomClimate()
+	climate, err := rawClimate.populate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate climate: %w", err)
+		return Climate{}, err
+	}
 
-	return climate
+	return climate, nil
 }
 
 // GetClimate returns a specific climate
-func GetClimate(name string) Climate {
-	climate := getClimateByName(name)
-	climate = climate.populate()
+func GetClimate(name string) (Climate, error) {
+	rawClimate := getClimateByName(name)
+	climate, err := rawClimate.populate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate climate by name: %w", err)
+		return Climate{}, err
+	}
 
-	return climate
+	return climate, nil
 }
 
 // GetForeignClimate gets a random climate that's different from the given one
-func GetForeignClimate(climate Climate) Climate {
+func GetForeignClimate(climate Climate) (Climate, error) {
 	var possibleClimates []Climate
 
 	climates := getAllClimates()
@@ -30,8 +41,12 @@ func GetForeignClimate(climate Climate) Climate {
 		}
 	}
 
-	foreignClimate := possibleClimates[rand.Intn(len(possibleClimates)-1)]
-	foreignClimate = foreignClimate.populate()
+	foreignClimate := possibleClimates[rand.Intn(len(possibleClimates))]
+	newClimate, err := foreignClimate.populate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate foreign climate: %w", err)
+		return Climate{}, err
+	}
 
-	return foreignClimate
+	return newClimate, nil
 }

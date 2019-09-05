@@ -1,6 +1,8 @@
 package character
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -624,56 +626,91 @@ func getPositiveTraits() []string {
 	return traits
 }
 
-func getRandomTrait() string {
+func getRandomTrait() (string, error) {
 	traits := getAllTraits()
 
-	return random.String(traits)
+	trait, err := random.String(traits)
+	if err != nil {
+		err = fmt.Errorf("Could not generate trait: %w", err)
+		return "", err
+	}
+	return trait, nil
 }
 
-func getRandomNegativeTraits(max int) []string {
+func getRandomNegativeTraits(max int) ([]string, error) {
+	var trait string
+	var err error
 	possibleTraits := getNegativeTraits()
 
 	traits := []string{}
 
 	for i := 0; i < max; i++ {
-		trait := random.String(possibleTraits)
+		trait, err = random.String(possibleTraits)
+		if err != nil {
+			err = fmt.Errorf("Could not generate trait: %w", err)
+			return []string{}, err
+		}
 		for slices.StringIn(trait, traits) {
-			trait = random.String(possibleTraits)
+			trait, err = random.String(possibleTraits)
+			if err != nil {
+				err = fmt.Errorf("Could not generate trait: %w", err)
+				return []string{}, err
+			}
 		}
 		traits = append(traits, trait)
 	}
 
-	return traits
+	return traits, nil
 }
 
-func getRandomPositiveTraits(max int) []string {
+func getRandomPositiveTraits(max int) ([]string, error) {
+	var trait string
+	var err error
 	possibleTraits := getPositiveTraits()
 
 	traits := []string{}
 
 	for i := 0; i < max; i++ {
-		trait := random.String(possibleTraits)
+		trait, err = random.String(possibleTraits)
+		if err != nil {
+			err = fmt.Errorf("Could not generate trait: %w", err)
+			return []string{}, err
+		}
 		for slices.StringIn(trait, traits) {
-			trait = random.String(possibleTraits)
+			trait, err = random.String(possibleTraits)
+			if err != nil {
+				err = fmt.Errorf("Could not generate trait: %w", err)
+				return []string{}, err
+			}
 		}
 		traits = append(traits, trait)
 	}
 
-	return traits
+	return traits, nil
 }
 
-func getRandomTraits() []string {
+func getRandomTraits() ([]string, error) {
+	var trait string
+	var err error
 	possibleTraits := getAllTraits()
 
 	traits := []string{}
 
 	for i := 0; i < 2; i++ {
-		trait := random.String(possibleTraits)
+		trait, err = random.String(possibleTraits)
+		if err != nil {
+			err = fmt.Errorf("Could not generate trait: %w", err)
+			return []string{}, err
+		}
 		for slices.StringIn(trait, traits) {
-			trait = random.String(possibleTraits)
+			trait, err = random.String(possibleTraits)
+			if err != nil {
+				err = fmt.Errorf("Could not generate trait: %w", err)
+				return []string{}, err
+			}
 		}
 		traits = append(traits, trait)
 	}
 
-	return traits
+	return traits, nil
 }

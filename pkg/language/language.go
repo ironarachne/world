@@ -1,6 +1,7 @@
 package language
 
 import (
+	"fmt"
 	"math/rand"
 	"strings"
 
@@ -35,7 +36,7 @@ var (
 	velars     = []string{"k", "g", "ng", "w"}
 )
 
-func deriveLanguageAdjective(name string) string {
+func deriveLanguageAdjective(name string) (string, error) {
 	var suffix string
 
 	adjective := name
@@ -47,15 +48,19 @@ func deriveLanguageAdjective(name string) string {
 		potentialSuffixes = []string{"ish", "ian", "an", "i", "ese"}
 	}
 
-	suffix = random.String(potentialSuffixes)
+	suffix, err := random.String(potentialSuffixes)
+	if err != nil {
+		err = fmt.Errorf("Could not generate language adjective: %w", err)
+		return "", err
+	}
 
 	adjective += suffix
 
-	return adjective
+	return adjective, nil
 }
 
 // Generate creates a random language
-func Generate() Language {
+func Generate() (Language, error) {
 	var language Language
 
 	combinedChance := rand.Intn(100)
@@ -65,9 +70,19 @@ func Generate() Language {
 		language.Category = randomCategory()
 	}
 
-	language.Name = strings.Title(randomLanguageName(language.Category))
+	name, err := randomLanguageName(language.Category)
+	if err != nil {
+		err = fmt.Errorf("Could not generate language: %w", err)
+		return Language{}, err
+	}
+	language.Name = strings.Title(name)
 	language.Descriptors = append(language.Descriptors, language.Category.Descriptors...)
-	language.Adjective = deriveLanguageAdjective(language.Name)
+	adjective, err := deriveLanguageAdjective(language.Name)
+	if err != nil {
+		err = fmt.Errorf("Could not generate language: %w", err)
+		return Language{}, err
+	}
+	language.Adjective = adjective
 
 	tonalChance := rand.Intn(10) + 1
 	if tonalChance > 7 {
@@ -79,18 +94,46 @@ func Generate() Language {
 		language.Descriptors = append(language.Descriptors, "tonal")
 	}
 
-	language.WritingSystem = randomWritingSystem()
+	writingSystem, err := randomWritingSystem()
+	if err != nil {
+		err = fmt.Errorf("Could not generate language: %w", err)
+		return Language{}, err
+	}
+	language.WritingSystem = writingSystem
 	language.WritingSystem.Name = language.Adjective
-	language.WordList = language.GenerateWordList()
-	language.VerbConjugationRules = language.deriveConjugationRules()
-	language.PracticeSuffix = randomSyllable(language.Category, "finisher")
+	wordList, err := language.GenerateWordList()
+	if err != nil {
+		err = fmt.Errorf("Could not generate language: %w", err)
+		return Language{}, err
+	}
+	language.WordList = wordList
+	verbConjugationRules, err := language.deriveConjugationRules()
+	if err != nil {
+		err = fmt.Errorf("Could not generate language: %w", err)
+		return Language{}, err
+	}
+	language.VerbConjugationRules = verbConjugationRules
+	suffix, err := randomSyllable(language.Category, "finisher")
+	if err != nil {
+		err = fmt.Errorf("Could not generate language: %w", err)
+		return Language{}, err
+	}
+	language.PracticeSuffix = suffix
 
-	return language
+	return language, nil
 }
 
-func (language Language) deriveConjugationRules() ConjugationRules {
-	continuousSuffix := randomSyllable(language.Category, "finisher")
-	pastSuffix := randomSyllable(language.Category, "finisher")
+func (language Language) deriveConjugationRules() (ConjugationRules, error) {
+	continuousSuffix, err := randomSyllable(language.Category, "finisher")
+	if err != nil {
+		err = fmt.Errorf("Could not generate conjugation rules: %w", err)
+		return ConjugationRules{}, err
+	}
+	pastSuffix, err := randomSyllable(language.Category, "finisher")
+	if err != nil {
+		err = fmt.Errorf("Could not generate conjugation rules: %w", err)
+		return ConjugationRules{}, err
+	}
 
 	rules := ConjugationRules{
 		SimplePresent:            "{{.Root}}",
@@ -107,5 +150,5 @@ func (language Language) deriveConjugationRules() ConjugationRules {
 		FuturePerfectContinuous:  "{{.Root}}" + continuousSuffix,
 	}
 
-	return rules
+	return rules, nil
 }

@@ -3,6 +3,7 @@ package random
 import (
 	"crypto/md5"
 	"encoding/binary"
+	"fmt"
 	"io"
 	"math/rand"
 
@@ -10,23 +11,27 @@ import (
 )
 
 // String returns a random string from a slice of strings
-func String(items []string) string {
+func String(items []string) (string, error) {
 	if len(items) == 0 {
-		panic("Tried to get a random value from an empty slice of strings")
+		err := fmt.Errorf("Tried to get a random value from an empty slice of strings")
+		return "", err
 	}
 	if len(items) == 1 {
-		return items[0]
+		return items[0], nil
 	}
-	return items[rand.Intn(len(items))]
+	item := items[rand.Intn(len(items))]
+
+	return item, nil
 }
 
 // StringSubset returns a random slice of strings from a slice of strings
-func StringSubset(items []string, maxItems int) []string {
+func StringSubset(items []string, maxItems int) ([]string, error) {
 	result := []string{}
 	newItem := ""
 
 	if len(items) == 0 {
-		panic("Tried to get a random value from an empty slice of strings")
+		err := fmt.Errorf("Tried to get a random value from an empty slice of strings")
+		return []string{}, err
 	}
 
 	if maxItems > len(items) {
@@ -40,7 +45,7 @@ func StringSubset(items []string, maxItems int) []string {
 		}
 	}
 
-	return result
+	return result, nil
 }
 
 // StringFromThresholdMap returns a random weighted string

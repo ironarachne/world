@@ -1,6 +1,7 @@
 package clothing
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/climate"
@@ -8,9 +9,13 @@ import (
 	"github.com/ironarachne/world/pkg/resource"
 )
 
-func generateJewelry(originClimate climate.Climate) []string {
-	var jewelryItem string
+func generateJewelry(originClimate climate.Climate) ([]string, error) {
+	var descriptor string
+	var err error
+	var foundation string
 	var gemProbability int
+	var jewelryItem string
+	var setting string
 
 	jewelry := []string{}
 
@@ -45,16 +50,31 @@ func generateJewelry(originClimate climate.Climate) []string {
 	primaryGem := resource.Random(gems)
 
 	for i := 0; i < numberOfJewelryPieces; i++ {
-		jewelryItem = random.String(descriptors) + " " + primaryMaterial.Name + " " + random.String(foundations)
+		descriptor, err = random.String(descriptors)
+		if err != nil {
+			err = fmt.Errorf("Could not generate jewelry: %w", err)
+			return []string{}, err
+		}
+		foundation, err = random.String(foundations)
+		if err != nil {
+			err = fmt.Errorf("Could not generate jewelry: %w", err)
+			return []string{}, err
+		}
+		setting, err = random.String(settings)
+		if err != nil {
+			err = fmt.Errorf("Could not generate jewelry: %w", err)
+			return []string{}, err
+		}
+		jewelryItem = descriptor + " " + primaryMaterial.Name + " " + foundation
 		if len(gems) > 0 {
 			gemProbability = rand.Intn(10) + 1
 			if gemProbability > 5 {
-				jewelryItem += " " + random.String(settings) + " " + primaryGem.Name
+				jewelryItem += " " + setting + " " + primaryGem.Name
 			}
 		}
 
 		jewelry = append(jewelry, jewelryItem)
 	}
 
-	return jewelry
+	return jewelry, nil
 }
