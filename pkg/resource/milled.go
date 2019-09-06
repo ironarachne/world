@@ -7,8 +7,9 @@ func getMilled() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "flour",
-			Description: "flour",
+			Name:         "flour",
+			NameTemplate: "bag of {{.MainMaterial}} flour",
+			Description:  "flour",
 			Tags: []string{
 				"flour",
 			},
@@ -17,7 +18,7 @@ func getMilled() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "grain",
-					DescriptionTemplate: "bag of {{.Resource.Origin}} flour",
+					DescriptionTemplate: "bag of {{.Resource.MainMaterial}} flour",
 				},
 			},
 			Value: 1,

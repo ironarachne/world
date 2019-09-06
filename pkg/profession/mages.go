@@ -11,10 +11,11 @@ func mages() []Profession {
 			},
 		},
 		{
-			Name:        "apothecary",
-			Description: "Apothecaries make healing salves and ointments.",
+			Name:        "necromancer",
+			Description: "Necromancers use magic to speak with and sometimes raise the dead.",
 			Tags: []string{
-				"crafter",
+				"death",
+				"mage",
 			},
 		},
 		{
@@ -22,11 +23,19 @@ func mages() []Profession {
 			Description: "Scrollmakers enscribe sorcerous incantations onto paper for later use by skilled practitioners.",
 			Tags: []string{
 				"crafter",
+				"mage",
 			},
 		},
 		{
 			Name:        "sorcerer",
 			Description: "Sorcerers wield intuitive magic.",
+			Tags: []string{
+				"mage",
+			},
+		},
+		{
+			Name:        "warlock",
+			Description: "Warlocks wield magic borne of strange and terrible origins.",
 			Tags: []string{
 				"mage",
 			},

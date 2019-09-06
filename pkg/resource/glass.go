@@ -7,8 +7,9 @@ func getGlass() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "glass bottle",
-			Description: "glass bottle",
+			Name:         "glass bottle",
+			NameTemplate: "{{.MainMaterial}} glass bottle",
+			Description:  "glass bottle",
 			Tags: []string{
 				"drinking vessel",
 			},
@@ -17,14 +18,15 @@ func getGlass() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "sand",
-					DescriptionTemplate: "{{.Resource.Origin}} glass bottle",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} glass bottle",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "glass",
-			Description: "glass",
+			Name:         "glass",
+			NameTemplate: "{{.MainMaterial}} glass",
+			Description:  "glass",
 			Tags: []string{
 				"glass",
 			},
@@ -33,7 +35,7 @@ func getGlass() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "sand",
-					DescriptionTemplate: "{{.Resource.Origin}} glass",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} glass",
 				},
 			},
 			Value: 1,

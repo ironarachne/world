@@ -13,8 +13,9 @@ func getSquash() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "acorn squash",
-					Origin: "acorn squash",
+					Name:         "acorn squash",
+					Origin:       "acorn squash",
+					MainMaterial: "acorn squash",
 					Tags: []string{
 						"squash",
 					},
@@ -32,8 +33,9 @@ func getSquash() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "buttercup squash",
-					Origin: "buttercup squash",
+					Name:         "buttercup squash",
+					Origin:       "buttercup squash",
+					MainMaterial: "buttercup squash",
 					Tags: []string{
 						"squash",
 					},
@@ -51,8 +53,9 @@ func getSquash() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "butternut squash",
-					Origin: "butternut squash",
+					Name:         "butternut squash",
+					Origin:       "butternut squash",
+					MainMaterial: "butternut squash",
 					Tags: []string{
 						"squash",
 					},
@@ -70,8 +73,9 @@ func getSquash() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "pumpkin",
-					Origin: "pumpkin",
+					Name:         "pumpkin",
+					Origin:       "pumpkin",
+					MainMaterial: "pumpkin",
 					Tags: []string{
 						"squash",
 					},
@@ -79,10 +83,11 @@ func getSquash() []Plant {
 					Value:       1,
 				},
 				{
-					Name:        "pumpkin seed oil",
-					Origin:      "pumpkin",
-					Commonality: 2,
-					Value:       1,
+					Name:         "pumpkin seed oil",
+					Origin:       "pumpkin",
+					MainMaterial: "pumpkin",
+					Commonality:  2,
+					Value:        1,
 				},
 			},
 		},
@@ -95,8 +100,9 @@ func getSquash() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "spaghetti squash",
-					Origin: "spaghetti squash",
+					Name:         "spaghetti squash",
+					Origin:       "spaghetti squash",
+					MainMaterial: "spaghetti squash",
 					Tags: []string{
 						"squash",
 					},
@@ -114,8 +120,9 @@ func getSquash() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "zucchini",
-					Origin: "zucchini",
+					Name:         "zucchini",
+					Origin:       "zucchini",
+					MainMaterial: "zucchini",
 					Tags: []string{
 						"squash",
 					},

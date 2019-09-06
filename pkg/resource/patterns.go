@@ -2,21 +2,27 @@ package resource
 
 import (
 	"bytes"
+	"fmt"
+	"math/rand"
 	"text/template"
 
 	"github.com/ironarachne/world/pkg/profession"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Pattern is a pattern for a resource
 type Pattern struct {
-	Name           string
-	Description    string
-	Tags           []string
-	Commonality    int
-	Profession     profession.Profession
-	Slots          []Slot
-	OriginOverride string
-	Value          int
+	Name                 string
+	Description          string
+	Tags                 []string
+	Commonality          int
+	Profession           profession.Profession
+	Slots                []Slot
+	NameTemplate         string
+	MainMaterial         string
+	MainMaterialOverride string
+	OriginOverride       string
+	Value                int
 }
 
 // Slot is a slot for a resource requirement
@@ -25,6 +31,7 @@ type Slot struct {
 	RequiredTag         string
 	Resource            Resource
 	DescriptionTemplate string
+	PossibleQuirks      []string
 }
 
 // AllPatterns returns all patterns
@@ -51,6 +58,7 @@ func AllPatterns() []Pattern {
 	smithing := getSmithing()
 	stone := getStone()
 	tannery := getTannery()
+	vehicles := getVehicles()
 	weapons := getWeapons()
 	weaving := getWeaving()
 	wine := getWine()
@@ -76,6 +84,7 @@ func AllPatterns() []Pattern {
 	patterns = append(patterns, smithing...)
 	patterns = append(patterns, stone...)
 	patterns = append(patterns, tannery...)
+	patterns = append(patterns, vehicles...)
 	patterns = append(patterns, weapons...)
 	patterns = append(patterns, weaving...)
 	patterns = append(patterns, wine...)
@@ -141,24 +150,66 @@ func (pattern Pattern) CanMake(resources []Resource) bool {
 	return possible
 }
 
+// RenderName renders the name of a completed pattern
+func (pattern Pattern) RenderName() (string, error) {
+	var tplOutput bytes.Buffer
+
+	tmpl, err := template.New(pattern.Name).Parse(pattern.NameTemplate)
+	if err != nil {
+		err = fmt.Errorf("Failed to render resource name for pattern: %w", err)
+		return "", err
+	}
+	err = tmpl.Execute(&tplOutput, pattern)
+	if err != nil {
+		err = fmt.Errorf("Failed to render resource name for pattern: %w", err)
+		return "", err
+	}
+	name := tplOutput.String()
+
+	return name, nil
+}
+
 // Render turns a completed pattern into a string description
-func (pattern Pattern) Render() string {
-	var slotDescription string
+func (pattern Pattern) RenderDescription() (string, error) {
 	description := ""
 
 	for _, s := range pattern.Slots {
-		slotDescription = s.describe()
+		slotDescription, err := s.describe()
+		if err != nil {
+			err = fmt.Errorf("Failed to render pattern: %w", err)
+			return "", err
+		}
 		description += slotDescription
 	}
 
-	return description
+	return description, nil
 }
 
 // ToResource transforms a completed pattern into a resource
-func (pattern Pattern) ToResource() Resource {
+func (pattern Pattern) ToResource() (Resource, error) {
 	var resource Resource
 
-	resource.Name = pattern.Render()
+	description, err := pattern.RenderDescription()
+	if err != nil {
+		err = fmt.Errorf("Failed to transform pattern into resource: %w", err)
+		return Resource{}, err
+	}
+
+	mainMaterial := pattern.Slots[0].Resource.MainMaterial
+	if pattern.MainMaterialOverride != "" {
+		mainMaterial = pattern.MainMaterialOverride
+	}
+	pattern.MainMaterial = mainMaterial
+
+	name, err := pattern.RenderName()
+	if err != nil {
+		err = fmt.Errorf("Failed to transform pattern into resource: %w", err)
+		return Resource{}, err
+	}
+
+	resource.Name = name
+	resource.Description = description
+	resource.MainMaterial = mainMaterial
 	resource.Origin = pattern.Slots[0].Resource.Origin
 	if pattern.OriginOverride != "" {
 		resource.Origin = pattern.OriginOverride
@@ -174,21 +225,35 @@ func (pattern Pattern) ToResource() Resource {
 	value += pattern.Value
 	resource.Value = value
 
-	return resource
+	return resource, nil
 }
 
-func (slot Slot) describe() string {
+func (slot Slot) describe() (string, error) {
 	var tplOutput bytes.Buffer
 
 	tmpl, err := template.New(slot.Name).Parse(slot.DescriptionTemplate)
 	if err != nil {
-		panic(err)
+		err = fmt.Errorf("Failed to describe slot: %w", err)
+		return "", err
 	}
 	err = tmpl.Execute(&tplOutput, slot)
 	if err != nil {
-		panic(err)
+		err = fmt.Errorf("Failed to describe slot: %w", err)
+		return "", err
 	}
 	name := tplOutput.String()
 
-	return name
+	if len(slot.PossibleQuirks) > 0 {
+		quirkChance := rand.Intn(100)
+		if quirkChance > 80 {
+			quirk, err := random.String(slot.PossibleQuirks)
+			if err != nil {
+				err = fmt.Errorf("Failed to describe slot: %w", err)
+				return "", err
+			}
+			name += " " + quirk
+		}
+	}
+
+	return name, nil
 }

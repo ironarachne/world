@@ -23,8 +23,9 @@ func getMammals() []Animal {
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
 				{
-					Name:   "beaver hide",
-					Origin: "beaver",
+					Name:         "beaver hide",
+					Origin:       "beaver",
+					MainMaterial: "beaver",
 					Tags: []string{
 						"hide",
 					},
@@ -32,8 +33,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "beaver teeth",
-					Origin: "beaver",
+					Name:         "beaver teeth",
+					Origin:       "beaver",
+					MainMaterial: "beaver",
 					Tags: []string{
 						"teeth",
 					},
@@ -41,8 +43,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "beaver meat",
-					Origin: "beaver",
+					Name:         "beaver meat",
+					Origin:       "beaver",
+					MainMaterial: "beaver",
 					Tags: []string{
 						"meat",
 					},
@@ -74,8 +77,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "deer hide",
-					Origin: "deer",
+					Name:         "deer hide",
+					Origin:       "deer",
+					MainMaterial: "deer",
 					Tags: []string{
 						"hide",
 					},
@@ -83,8 +87,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "deer teeth",
-					Origin: "deer",
+					Name:         "deer teeth",
+					Origin:       "deer",
+					MainMaterial: "deer",
 					Tags: []string{
 						"teeth",
 					},
@@ -92,8 +97,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "venison",
-					Origin: "deer",
+					Name:         "venison",
+					Origin:       "deer",
+					MainMaterial: "deer",
 					Tags: []string{
 						"meat",
 					},
@@ -101,8 +107,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "deer antler",
-					Origin: "deer",
+					Name:         "deer antler",
+					Origin:       "deer",
+					MainMaterial: "deer",
 					Tags: []string{
 						"antler",
 						"bone",
@@ -111,8 +118,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "deer sinew",
-					Origin: "deer",
+					Name:         "deer sinew",
+					Origin:       "deer",
+					MainMaterial: "deer",
 					Tags: []string{
 						"sinew",
 					},
@@ -144,8 +152,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "squirrel hide",
-					Origin: "squirrel",
+					Name:         "squirrel hide",
+					Origin:       "squirrel",
+					MainMaterial: "squirrel",
 					Tags: []string{
 						"hide",
 					},
@@ -153,8 +162,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "squirrel",
-					Origin: "squirrel",
+					Name:         "squirrel",
+					Origin:       "squirrel",
+					MainMaterial: "squirrel",
 					Tags: []string{
 						"meat",
 					},
@@ -185,8 +195,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "camel hide",
-					Origin: "camel",
+					Name:         "camel hide",
+					Origin:       "camel",
+					MainMaterial: "camel",
 					Tags: []string{
 						"hide",
 					},
@@ -194,8 +205,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "camel teeth",
-					Origin: "camel",
+					Name:         "camel teeth",
+					Origin:       "camel",
+					MainMaterial: "camel",
 					Tags: []string{
 						"teeth",
 					},
@@ -203,8 +215,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "camel",
-					Origin: "camel",
+					Name:         "camel",
+					Origin:       "camel",
+					MainMaterial: "camel",
 					Tags: []string{
 						"meat",
 					},
@@ -212,8 +225,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "camel milk",
-					Origin: "camel",
+					Name:         "camel milk",
+					Origin:       "camel",
+					MainMaterial: "camel",
 					Tags: []string{
 						"milk",
 					},
@@ -221,8 +235,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "camel sinew",
-					Origin: "camel",
+					Name:         "camel sinew",
+					Origin:       "camel",
+					MainMaterial: "camel",
 					Tags: []string{
 						"sinew",
 					},
@@ -254,8 +269,9 @@ func getMammals() []Animal {
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
 				{
-					Name:   "bison hide",
-					Origin: "bison",
+					Name:         "bison hide",
+					Origin:       "bison",
+					MainMaterial: "bison",
 					Tags: []string{
 						"hide",
 					},
@@ -263,8 +279,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "bison teeth",
-					Origin: "bison",
+					Name:         "bison teeth",
+					Origin:       "bison",
+					MainMaterial: "bison",
 					Tags: []string{
 						"teeth",
 					},
@@ -272,8 +289,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "bison",
-					Origin: "bison",
+					Name:         "bison",
+					Origin:       "bison",
+					MainMaterial: "bison",
 					Tags: []string{
 						"meat",
 					},
@@ -281,8 +299,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "bison bone",
-					Origin: "bison",
+					Name:         "bison bone",
+					Origin:       "bison",
+					MainMaterial: "bison",
 					Tags: []string{
 						"bone",
 					},
@@ -290,8 +309,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "bison sinew",
-					Origin: "bison",
+					Name:         "bison sinew",
+					Origin:       "bison",
+					MainMaterial: "bison",
 					Tags: []string{
 						"sinew",
 					},
@@ -323,8 +343,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "calf brains",
-					Origin: "cow",
+					Name:         "calf brains",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"brains",
 						"meat",
@@ -333,8 +354,9 @@ func getMammals() []Animal {
 					Value:       5,
 				},
 				{
-					Name:   "cow hide",
-					Origin: "cow",
+					Name:         "cow hide",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"hide",
 					},
@@ -342,8 +364,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "cow teeth",
-					Origin: "cow",
+					Name:         "cow teeth",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"teeth",
 					},
@@ -351,8 +374,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "beef",
-					Origin: "cow",
+					Name:         "beef",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"meat",
 					},
@@ -360,8 +384,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "beef loin",
-					Origin: "cow",
+					Name:         "beef loin",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"meat",
 					},
@@ -369,8 +394,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "beef ribs",
-					Origin: "cow",
+					Name:         "beef ribs",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"meat",
 					},
@@ -378,8 +404,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "cow bone",
-					Origin: "cow",
+					Name:         "cow bone",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"bone",
 					},
@@ -387,8 +414,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "cow sinew",
-					Origin: "cow",
+					Name:         "cow sinew",
+					Origin:       "cow",
+					MainMaterial: "cow",
 					Tags: []string{
 						"sinew",
 					},
@@ -420,8 +448,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "elephant hide",
-					Origin: "elephant",
+					Name:         "elephant hide",
+					Origin:       "elephant",
+					MainMaterial: "elephant",
 					Tags: []string{
 						"hide",
 					},
@@ -429,8 +458,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "elephant milk",
-					Origin: "elephant",
+					Name:         "elephant milk",
+					Origin:       "elephant",
+					MainMaterial: "elephant",
 					Tags: []string{
 						"milk",
 					},
@@ -438,8 +468,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "elephant",
-					Origin: "elephant",
+					Name:         "elephant",
+					Origin:       "elephant",
+					MainMaterial: "elephant",
 					Tags: []string{
 						"meat",
 					},
@@ -447,8 +478,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "ivory",
-					Origin: "elephant",
+					Name:         "ivory",
+					Origin:       "elephant",
+					MainMaterial: "elephant",
 					Tags: []string{
 						"bone",
 					},
@@ -456,8 +488,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "elephant sinew",
-					Origin: "elephant",
+					Name:         "elephant sinew",
+					Origin:       "elephant",
+					MainMaterial: "elephant",
 					Tags: []string{
 						"sinew",
 					},
@@ -489,8 +522,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "goat hide",
-					Origin: "goat",
+					Name:         "goat hide",
+					Origin:       "goat",
+					MainMaterial: "goat",
 					Tags: []string{
 						"hide",
 					},
@@ -498,8 +532,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "goat's milk",
-					Origin: "goat",
+					Name:         "goat's milk",
+					Origin:       "goat",
+					MainMaterial: "goat",
 					Tags: []string{
 						"milk",
 					},
@@ -507,8 +542,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "goat",
-					Origin: "goat",
+					Name:         "goat",
+					Origin:       "goat",
+					MainMaterial: "goat",
 					Tags: []string{
 						"meat",
 					},
@@ -516,8 +552,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "goat sinew",
-					Origin: "goat",
+					Name:         "goat sinew",
+					Origin:       "goat",
+					MainMaterial: "goat",
 					Tags: []string{
 						"sinew",
 					},
@@ -549,8 +586,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "wool",
-					Origin: "sheep",
+					Name:         "wool",
+					Origin:       "sheep",
+					MainMaterial: "sheep",
 					Tags: []string{
 						"hide",
 					},
@@ -558,8 +596,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "sheep's milk",
-					Origin: "sheep",
+					Name:         "sheep's milk",
+					Origin:       "sheep",
+					MainMaterial: "sheep",
 					Tags: []string{
 						"milk",
 					},
@@ -567,8 +606,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "lamb",
-					Origin: "sheep",
+					Name:         "lamb",
+					Origin:       "sheep",
+					MainMaterial: "sheep",
 					Tags: []string{
 						"meat",
 					},
@@ -576,8 +616,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "sheep sinew",
-					Origin: "sheep",
+					Name:         "sheep sinew",
+					Origin:       "sheep",
+					MainMaterial: "sheep",
 					Tags: []string{
 						"sinew",
 					},
@@ -609,8 +650,9 @@ func getMammals() []Animal {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "alpaca wool",
-					Origin: "alpaca",
+					Name:         "alpaca wool",
+					Origin:       "alpaca",
+					MainMaterial: "alpaca",
 					Tags: []string{
 						"hide",
 						"wool",
@@ -619,8 +661,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "alpaca milk",
-					Origin: "alpaca",
+					Name:         "alpaca milk",
+					Origin:       "alpaca",
+					MainMaterial: "alpaca",
 					Tags: []string{
 						"milk",
 					},
@@ -628,8 +671,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "alpaca",
-					Origin: "alpaca",
+					Name:         "alpaca",
+					Origin:       "alpaca",
+					MainMaterial: "alpaca",
 					Tags: []string{
 						"meat",
 					},
@@ -637,8 +681,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "alpaca sinew",
-					Origin: "alpaca",
+					Name:         "alpaca sinew",
+					Origin:       "alpaca",
+					MainMaterial: "alpaca",
 					Tags: []string{
 						"sinew",
 					},
@@ -670,8 +715,9 @@ func getMammals() []Animal {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "llama wool",
-					Origin: "llama",
+					Name:         "llama wool",
+					Origin:       "llama",
+					MainMaterial: "llama",
 					Tags: []string{
 						"hide",
 						"wool",
@@ -680,8 +726,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "llama",
-					Origin: "llama",
+					Name:         "llama",
+					Origin:       "llama",
+					MainMaterial: "llama",
 					Tags: []string{
 						"meat",
 					},
@@ -689,8 +736,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "llama milk",
-					Origin: "llama",
+					Name:         "llama milk",
+					Origin:       "llama",
+					MainMaterial: "llama",
 					Tags: []string{
 						"milk",
 					},
@@ -698,8 +746,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "llama sinew",
-					Origin: "llama",
+					Name:         "llama sinew",
+					Origin:       "llama",
+					MainMaterial: "llama",
 					Tags: []string{
 						"sinew",
 					},
@@ -731,8 +780,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "hippopotamus hide",
-					Origin: "hippopotamus",
+					Name:         "hippopotamus hide",
+					Origin:       "hippopotamus",
+					MainMaterial: "hippopotamus",
 					Tags: []string{
 						"hide",
 					},
@@ -740,8 +790,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "hippopotamus",
-					Origin: "hippopotamus",
+					Name:         "hippopotamus",
+					Origin:       "hippopotamus",
+					MainMaterial: "hippopotamus",
 					Tags: []string{
 						"meat",
 					},
@@ -749,8 +800,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "hippopotamus milk",
-					Origin: "hippopotamus",
+					Name:         "hippopotamus milk",
+					Origin:       "hippopotamus",
+					MainMaterial: "hippopotamus",
 					Tags: []string{
 						"milk",
 					},
@@ -782,8 +834,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "antelope hide",
-					Origin: "antelope",
+					Name:         "antelope hide",
+					Origin:       "antelope",
+					MainMaterial: "antelope",
 					Tags: []string{
 						"hide",
 					},
@@ -791,8 +844,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "antelope",
-					Origin: "antelope",
+					Name:         "antelope",
+					Origin:       "antelope",
+					MainMaterial: "antelope",
 					Tags: []string{
 						"meat",
 					},
@@ -800,8 +854,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "antelope milk",
-					Origin: "antelope",
+					Name:         "antelope milk",
+					Origin:       "antelope",
+					MainMaterial: "antelope",
 					Tags: []string{
 						"milk",
 					},
@@ -809,8 +864,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "antelope sinew",
-					Origin: "antelope",
+					Name:         "antelope sinew",
+					Origin:       "antelope",
+					MainMaterial: "antelope",
 					Tags: []string{
 						"sinew",
 					},
@@ -842,8 +898,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "gazelle hide",
-					Origin: "gazelle",
+					Name:         "gazelle hide",
+					Origin:       "gazelle",
+					MainMaterial: "gazelle",
 					Tags: []string{
 						"hide",
 					},
@@ -851,8 +908,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "gazelle",
-					Origin: "gazelle",
+					Name:         "gazelle",
+					Origin:       "gazelle",
+					MainMaterial: "gazelle",
 					Tags: []string{
 						"meat",
 					},
@@ -860,8 +918,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "gazelle milk",
-					Origin: "gazelle",
+					Name:         "gazelle milk",
+					Origin:       "gazelle",
+					MainMaterial: "gazelle",
 					Tags: []string{
 						"milk",
 					},
@@ -869,8 +928,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "gazelle sinew",
-					Origin: "gazelle",
+					Name:         "gazelle sinew",
+					Origin:       "gazelle",
+					MainMaterial: "gazelle",
 					Tags: []string{
 						"sinew",
 					},
@@ -902,8 +962,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "rabbit hide",
-					Origin: "rabbit",
+					Name:         "rabbit hide",
+					Origin:       "rabbit",
+					MainMaterial: "rabbit",
 					Tags: []string{
 						"hide",
 					},
@@ -911,8 +972,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "rabbit",
-					Origin: "rabbit",
+					Name:         "rabbit",
+					Origin:       "rabbit",
+					MainMaterial: "rabbit",
 					Tags: []string{
 						"meat",
 					},
@@ -943,8 +1005,9 @@ func getMammals() []Animal {
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
 				{
-					Name:   "ermine fur",
-					Origin: "ermine",
+					Name:         "ermine fur",
+					Origin:       "ermine",
+					MainMaterial: "ermine",
 					Tags: []string{
 						"fur",
 					},
@@ -952,8 +1015,9 @@ func getMammals() []Animal {
 					Value:       10,
 				},
 				{
-					Name:   "ermine",
-					Origin: "ermine",
+					Name:         "ermine",
+					Origin:       "ermine",
+					MainMaterial: "ermine",
 					Tags: []string{
 						"meat",
 					},
@@ -984,8 +1048,9 @@ func getMammals() []Animal {
 			MaxTemperature: 6,
 			Resources: []resource.Resource{
 				{
-					Name:   "mink fur",
-					Origin: "mink",
+					Name:         "mink fur",
+					Origin:       "mink",
+					MainMaterial: "mink",
 					Tags: []string{
 						"fur",
 					},
@@ -993,8 +1058,9 @@ func getMammals() []Animal {
 					Value:       10,
 				},
 				{
-					Name:   "mink",
-					Origin: "mink",
+					Name:         "mink",
+					Origin:       "mink",
+					MainMaterial: "mink",
 					Tags: []string{
 						"meat",
 					},
@@ -1025,8 +1091,9 @@ func getMammals() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "pig hide",
-					Origin: "pig",
+					Name:         "pig hide",
+					Origin:       "pig",
+					MainMaterial: "pig",
 					Tags: []string{
 						"hide",
 					},
@@ -1034,8 +1101,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "pork",
-					Origin: "pig",
+					Name:         "pork",
+					Origin:       "pig",
+					MainMaterial: "pig",
 					Tags: []string{
 						"meat",
 					},
@@ -1043,8 +1111,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "pork loin",
-					Origin: "pig",
+					Name:         "pork loin",
+					Origin:       "pig",
+					MainMaterial: "pig",
 					Tags: []string{
 						"meat",
 					},
@@ -1052,8 +1121,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "pork intestine",
-					Origin: "pig",
+					Name:         "pork intestine",
+					Origin:       "pig",
+					MainMaterial: "pig",
 					Tags: []string{
 						"meat",
 					},
@@ -1061,8 +1131,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "pork ribs",
-					Origin: "pig",
+					Name:         "pork ribs",
+					Origin:       "pig",
+					MainMaterial: "pig",
 					Tags: []string{
 						"meat",
 					},
@@ -1070,8 +1141,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "bacon",
-					Origin: "pig",
+					Name:         "bacon",
+					Origin:       "pig",
+					MainMaterial: "pig",
 					Tags: []string{
 						"meat",
 					},
@@ -1079,8 +1151,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "pig sinew",
-					Origin: "pig",
+					Name:         "pig sinew",
+					Origin:       "pig",
+					MainMaterial: "pig",
 					Tags: []string{
 						"sinew",
 					},
@@ -1112,8 +1185,9 @@ func getMammals() []Animal {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "raccoon hide",
-					Origin: "raccoon",
+					Name:         "raccoon hide",
+					Origin:       "raccoon",
+					MainMaterial: "raccoon",
 					Tags: []string{
 						"hide",
 					},
@@ -1121,8 +1195,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "raccoon",
-					Origin: "raccoon",
+					Name:         "raccoon",
+					Origin:       "raccoon",
+					MainMaterial: "raccoon",
 					Tags: []string{
 						"meat",
 					},
@@ -1153,8 +1228,9 @@ func getMammals() []Animal {
 			MaxTemperature: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "reindeer hide",
-					Origin: "reindeer",
+					Name:         "reindeer hide",
+					Origin:       "reindeer",
+					MainMaterial: "reindeer",
 					Tags: []string{
 						"hide",
 					},
@@ -1162,8 +1238,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "reindeer",
-					Origin: "reindeer",
+					Name:         "reindeer",
+					Origin:       "reindeer",
+					MainMaterial: "reindeer",
 					Tags: []string{
 						"meat",
 					},
@@ -1171,8 +1248,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "reindeer milk",
-					Origin: "reindeer",
+					Name:         "reindeer milk",
+					Origin:       "reindeer",
+					MainMaterial: "reindeer",
 					Tags: []string{
 						"milk",
 					},
@@ -1180,8 +1258,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "reindeer bone",
-					Origin: "reindeer",
+					Name:         "reindeer bone",
+					Origin:       "reindeer",
+					MainMaterial: "reindeer",
 					Tags: []string{
 						"bone",
 					},
@@ -1189,8 +1268,9 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "reindeer sinew",
-					Origin: "reindeer",
+					Name:         "reindeer sinew",
+					Origin:       "reindeer",
+					MainMaterial: "reindeer",
 					Tags: []string{
 						"sinew",
 					},

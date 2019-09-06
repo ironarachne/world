@@ -25,8 +25,9 @@ func getInsects() []Insect {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "cricket",
-					Origin: "cricket",
+					Name:         "cricket",
+					Origin:       "cricket",
+					MainMaterial: "cricket",
 					Tags: []string{
 						"meat",
 					},
@@ -60,8 +61,9 @@ func getInsects() []Insect {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "beeswax",
-					Origin: "dwarf honey bee",
+					Name:         "beeswax",
+					Origin:       "dwarf honey bee",
+					MainMaterial: "beeswax",
 					Tags: []string{
 						"wax",
 					},
@@ -69,8 +71,9 @@ func getInsects() []Insect {
 					Value:       1,
 				},
 				{
-					Name:   "honey",
-					Origin: "dwarf honey bee",
+					Name:         "honey",
+					Origin:       "dwarf honey bee",
+					MainMaterial: "honey",
 					Tags: []string{
 						"food",
 						"sweetener",
@@ -79,8 +82,9 @@ func getInsects() []Insect {
 					Value:       1,
 				},
 				{
-					Name:   "honeycomb",
-					Origin: "dwarf honey bee",
+					Name:         "honeycomb",
+					Origin:       "dwarf honey bee",
+					MainMaterial: "honeycomb",
 					Tags: []string{
 						"food",
 					},
@@ -115,8 +119,9 @@ func getInsects() []Insect {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "beeswax",
-					Origin: "giant honey bee",
+					Name:         "beeswax",
+					Origin:       "giant honey bee",
+					MainMaterial: "beeswax",
 					Tags: []string{
 						"wax",
 					},
@@ -124,8 +129,9 @@ func getInsects() []Insect {
 					Value:       1,
 				},
 				{
-					Name:   "honey",
-					Origin: "giant honey bee",
+					Name:         "honey",
+					Origin:       "giant honey bee",
+					MainMaterial: "honey",
 					Tags: []string{
 						"food",
 						"sweetener",
@@ -134,8 +140,9 @@ func getInsects() []Insect {
 					Value:       1,
 				},
 				{
-					Name:   "honeycomb",
-					Origin: "giant honey bee",
+					Name:         "honeycomb",
+					Origin:       "giant honey bee",
+					MainMaterial: "honeycomb",
 					Tags: []string{
 						"food",
 					},
@@ -170,8 +177,9 @@ func getInsects() []Insect {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "beeswax",
-					Origin: "honey bee",
+					Name:         "beeswax",
+					Origin:       "honey bee",
+					MainMaterial: "beeswax",
 					Tags: []string{
 						"wax",
 					},
@@ -179,8 +187,9 @@ func getInsects() []Insect {
 					Value:       1,
 				},
 				{
-					Name:   "honey",
-					Origin: "honey bee",
+					Name:         "honey",
+					Origin:       "honey bee",
+					MainMaterial: "honey",
 					Tags: []string{
 						"food",
 						"sweetener",
@@ -189,8 +198,9 @@ func getInsects() []Insect {
 					Value:       1,
 				},
 				{
-					Name:   "honeycomb",
-					Origin: "honey bee",
+					Name:         "honeycomb",
+					Origin:       "honey bee",
+					MainMaterial: "honeycomb",
 					Tags: []string{
 						"food",
 					},
@@ -225,8 +235,9 @@ func getInsects() []Insect {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "silk",
-					Origin: "silk",
+					Name:         "silk",
+					Origin:       "silkworm",
+					MainMaterial: "silk",
 					Tags: []string{
 						"fabric fiber",
 					},

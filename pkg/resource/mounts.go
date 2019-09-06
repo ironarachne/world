@@ -7,8 +7,9 @@ func getMounts() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "mount",
-			Description: "a riding mount",
+			Name:         "mount",
+			NameTemplate: "riding {{.MainMaterial}}",
+			Description:  "a riding mount",
 			Tags: []string{
 				"trained mount",
 			},
@@ -17,14 +18,15 @@ func getMounts() []Pattern {
 				{
 					Name:                "animal",
 					RequiredTag:         "mount",
-					DescriptionTemplate: "riding {{.Resource.Origin}}",
+					DescriptionTemplate: "riding {{.Resource.MainMaterial}}",
 				},
 			},
 			Value: 10,
 		},
 		{
-			Name:        "pack animal",
-			Description: "a beast of burden",
+			Name:         "pack animal",
+			NameTemplate: "pack {{.MainMaterial}}",
+			Description:  "a beast of burden",
 			Tags: []string{
 				"trained pack animal",
 			},
@@ -33,14 +35,15 @@ func getMounts() []Pattern {
 				{
 					Name:                "animal",
 					RequiredTag:         "pack animal",
-					DescriptionTemplate: "pack {{.Resource.Origin}}",
+					DescriptionTemplate: "pack {{.Resource.MainMaterial}}",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "war mount",
-			Description: "a riding mount specifically trained for battle",
+			Name:         "war mount",
+			NameTemplate: "war {{.MainMaterial}}",
+			Description:  "a riding mount specifically trained for battle",
 			Tags: []string{
 				"trained mount",
 			},
@@ -49,7 +52,7 @@ func getMounts() []Pattern {
 				{
 					Name:                "animal",
 					RequiredTag:         "mount",
-					DescriptionTemplate: "war {{.Resource.Origin}}",
+					DescriptionTemplate: "war {{.Resource.MainMaterial}}",
 				},
 			},
 			Value: 100,

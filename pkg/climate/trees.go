@@ -14,12 +14,14 @@ func (climate Climate) getFilteredTrees() []tree.Tree {
 }
 
 func filterTreesForType(climate Climate, trees []tree.Tree) []tree.Tree {
-	var filteredTrees []tree.Tree
+	filteredTrees := trees
 
-	for _, a := range trees {
-		if (climate.HasDeciduousTrees && a.IsDeciduous) || (climate.HasConiferousTrees && a.IsConiferous) {
-			filteredTrees = append(filteredTrees, a)
-		}
+	if !climate.HasDeciduousTrees {
+		filteredTrees = tree.ExcludeTag("deciduous", filteredTrees)
+	}
+
+	if !climate.HasConiferousTrees {
+		filteredTrees = tree.ExcludeTag("coniferous", filteredTrees)
 	}
 
 	return filteredTrees

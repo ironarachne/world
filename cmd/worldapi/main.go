@@ -110,7 +110,7 @@ func getClimate(w http.ResponseWriter, r *http.Request) {
 
 	random.SeedFromString(id)
 
-	randomClimate, err := climate.Generate()
+	randomClimate, err := climate.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -125,7 +125,7 @@ func getClimateRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	randomClimate, err := climate.Generate()
+	randomClimate, err := climate.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return

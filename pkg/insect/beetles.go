@@ -13,8 +13,9 @@ func getBeetles() []Insect {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "rhino beetle carapace",
-					Origin: "rhino beetle",
+					Name:         "rhino beetle carapace",
+					Origin:       "rhino beetle",
+					MainMaterial: "rhino beetle",
 					Tags: []string{
 						"carapace",
 					},

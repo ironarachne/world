@@ -12,8 +12,9 @@ func OtherMinerals() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "coal",
-					Origin: "coal",
+					Name:         "coal",
+					Origin:       "coal",
+					MainMaterial: "coal",
 					Tags: []string{
 						"fuel",
 						"ore",
@@ -30,8 +31,9 @@ func OtherMinerals() []Mineral {
 			Malleability: 1,
 			Resources: []resource.Resource{
 				{
-					Name:   "salt",
-					Origin: "salt",
+					Name:         "salt",
+					Origin:       "salt",
+					MainMaterial: "salt",
 					Tags: []string{
 						"spice",
 					},

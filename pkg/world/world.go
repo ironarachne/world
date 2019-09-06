@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 
+	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/region"
@@ -59,7 +60,9 @@ func Generate() (World, error) {
 		homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 		homeTile.IsInhabited = true
 		world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-		newRegion, err := region.Generate(homeTile.TileType, newCountry.DominantCulture)
+		homeClimate, err := climate.Generate(homeTile.TileType)
+
+		newRegion, err := region.Generate(homeClimate, newCountry.DominantCulture)
 		if err != nil {
 			err = fmt.Errorf("Could not generate world: %w", err)
 			return World{}, err
@@ -110,7 +113,9 @@ func Generate() (World, error) {
 				homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 				homeTile.IsInhabited = true
 				world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-				newRegion, err = region.Generate(homeTile.TileType, newCountry.DominantCulture)
+				homeClimate, err := climate.Generate(homeTile.TileType)
+
+				newRegion, err := region.Generate(homeClimate, newCountry.DominantCulture)
 				if err != nil {
 					err = fmt.Errorf("Could not generate world: %w", err)
 					return World{}, err

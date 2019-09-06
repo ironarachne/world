@@ -6,11 +6,13 @@ import (
 
 // Resource is a useful resource
 type Resource struct {
-	Name        string
-	Origin      string
-	Tags        []string
-	Commonality int
-	Value       int
+	Name         string
+	Description  string
+	MainMaterial string
+	Origin       string
+	Tags         []string
+	Commonality  int
+	Value        int
 }
 
 // ByTag returns a slice of resources that have the given tag

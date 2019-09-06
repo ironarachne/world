@@ -183,7 +183,7 @@ func randomSaturation() (string, error) {
 
 // Random generates a completely random clothing style
 func Random() (Style, error) {
-	originClimate, err := climate.Generate()
+	originClimate, err := climate.Random()
 	if err != nil {
 		err = fmt.Errorf("Could not generate clothing style: %w", err)
 		return Style{}, err

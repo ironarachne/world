@@ -37,33 +37,16 @@ func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
 }
 
 // Generate generates a region
-func Generate(regionType string, originCulture culture.Culture) (Region, error) {
-	var biome climate.Climate
+func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Region, error) {
 	region := Region{}
 
-	biome, err := climate.GetClimate(regionType)
-	if err != nil {
-		err = fmt.Errorf("Could not generate region: %w", err)
-		return Region{}, err
-	}
-
-	if regionType == "random" {
-		biome, err = climate.Generate()
-		if err != nil {
-			err = fmt.Errorf("Could not generate region: %w", err)
-			return Region{}, err
-		}
-	}
-
-	regionType = biome.Name
-
-	region.Biome = biome.Name
-	region.Climate = biome
+	region.Biome = regionClimate.Name
+	region.Climate = regionClimate
 	region.Culture = originCulture
 
 	region.Class = getRandomWeightedClass()
 
-	newTown, err := town.Generate("city", regionType, region.Culture)
+	newTown, err := town.Generate("city", regionClimate, region.Culture)
 	if err != nil {
 		err = fmt.Errorf("Could not generate region: %w", err)
 		return Region{}, err
@@ -73,7 +56,7 @@ func Generate(regionType string, originCulture culture.Culture) (Region, error) 
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown, err = town.Generate("random", regionType, region.Culture)
+		newTown, err = town.Generate("random", regionClimate, region.Culture)
 		if err != nil {
 			err = fmt.Errorf("Could not generate region: %w", err)
 			return Region{}, err
@@ -130,7 +113,7 @@ func Random() (Region, error) {
 		return Region{}, err
 	}
 
-	region, err := Generate("random", randomCulture)
+	region, err := Generate(randomCulture.HomeClimate, randomCulture)
 	if err != nil {
 		err = fmt.Errorf("Could not generate random region: %w", err)
 		return Region{}, err

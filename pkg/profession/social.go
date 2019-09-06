@@ -35,6 +35,13 @@ func social() []Profession {
 			},
 		},
 		{
+			Name:        "philosopher",
+			Description: "Philosophers reason about the nature of the universe and teach others.",
+			Tags: []string{
+				"social",
+			},
+		},
+		{
 			Name:        "priest",
 			Description: "Priests interpret the will of the gods.",
 			Tags: []string{

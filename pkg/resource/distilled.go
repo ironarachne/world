@@ -7,8 +7,9 @@ func getDistilled() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "bourbon",
-			Description: "a bourbon",
+			Name:         "bourbon",
+			NameTemplate: "bottle of bourbon",
+			Description:  "a bourbon",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -24,8 +25,9 @@ func getDistilled() []Pattern {
 			Value: 1,
 		},
 		{
-			Name:        "brandy",
-			Description: "a brandy",
+			Name:         "brandy",
+			NameTemplate: "bottle of brandy",
+			Description:  "a brandy",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -41,8 +43,9 @@ func getDistilled() []Pattern {
 			Value: 1,
 		},
 		{
-			Name:        "gin",
-			Description: "a gin",
+			Name:         "gin",
+			NameTemplate: "bottle of gin",
+			Description:  "a gin",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -58,8 +61,9 @@ func getDistilled() []Pattern {
 			Value: 1,
 		},
 		{
-			Name:        "whiskey",
-			Description: "a whiskey",
+			Name:         "whiskey",
+			NameTemplate: "bottle of {{.MainMaterial}} whiskey",
+			Description:  "a whiskey",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -69,7 +73,7 @@ func getDistilled() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "rye",
-					DescriptionTemplate: "bottle of {{.Resource.Origin}} whiskey",
+					DescriptionTemplate: "bottle of {{.Resource.MainMaterial}} whiskey",
 				},
 			},
 			Value: 1,

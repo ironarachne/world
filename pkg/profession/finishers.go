@@ -3,6 +3,13 @@ package profession
 func finishers() []Profession {
 	professions := []Profession{
 		{
+			Name:        "apothecary",
+			Description: "Apothecaries make healing salves and ointments.",
+			Tags: []string{
+				"crafter",
+			},
+		},
+		{
 			Name:        "bowyer",
 			Description: "Bowyers craft bows for use in hunting and combat.",
 			Tags: []string{
@@ -12,6 +19,13 @@ func finishers() []Profession {
 		{
 			Name:        "carpenter",
 			Description: "Carpenters produce furniture and other works from finished lumber.",
+			Tags: []string{
+				"crafter",
+			},
+		},
+		{
+			Name:        "cartwright",
+			Description: "Cartwrights build carts, wagons, and other land vehicles.",
 			Tags: []string{
 				"crafter",
 			},

@@ -7,8 +7,9 @@ func getJewelry() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "gemstone",
-			Description: "a gemstone",
+			Name:         "gemstone",
+			NameTemplate: "{{.MainMaterial}}",
+			Description:  "a gemstone",
 			Tags: []string{
 				"gem",
 			},
@@ -17,14 +18,15 @@ func getJewelry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "refined gem ore",
-					DescriptionTemplate: "{{.Resource.Origin}}",
+					DescriptionTemplate: "{{.Resource.MainMaterial}}",
 				},
 			},
 			Value: 10,
 		},
 		{
-			Name:        "necklace",
-			Description: "a necklace",
+			Name:         "necklace",
+			NameTemplate: "{{.MainMaterial}} necklace",
+			Description:  "a necklace",
 			Tags: []string{
 				"necklace",
 			},
@@ -33,14 +35,15 @@ func getJewelry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: "{{.Resource.Origin}} necklace",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} necklace",
 				},
 			},
 			Value: 10,
 		},
 		{
-			Name:        "pendant",
-			Description: "a pendant",
+			Name:         "pendant",
+			NameTemplate: "{{.MainMaterial}} pendant",
+			Description:  "a pendant",
 			Tags: []string{
 				"pendant",
 			},
@@ -49,19 +52,20 @@ func getJewelry() []Pattern {
 				{
 					Name:                "gem",
 					RequiredTag:         "gem",
-					DescriptionTemplate: "{{.Resource.Origin}} pendant",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} pendant",
 				},
 				{
 					Name:                "thong",
 					RequiredTag:         "leather",
-					DescriptionTemplate: " on a {{.Resource.Origin}} leather thong",
+					DescriptionTemplate: " on a {{.Resource.MainMaterial}} leather thong",
 				},
 			},
 			Value: 10,
 		},
 		{
-			Name:        "ring",
-			Description: "a ring",
+			Name:         "ring",
+			NameTemplate: "{{.MainMaterial}} ring",
+			Description:  "a ring",
 			Tags: []string{
 				"ring",
 			},
@@ -70,19 +74,20 @@ func getJewelry() []Pattern {
 				{
 					Name:                "band",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: "{{.Resource.Origin}} ring",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} ring",
 				},
 				{
 					Name:                "gem",
 					RequiredTag:         "gem",
-					DescriptionTemplate: " set with {{.Resource.Origin}}",
+					DescriptionTemplate: " set with {{.Resource.MainMaterial}}",
 				},
 			},
 			Value: 10,
 		},
 		{
-			Name:        "ring",
-			Description: "a ring",
+			Name:         "ring",
+			NameTemplate: "{{.MainMaterial}} ring",
+			Description:  "a ring",
 			Tags: []string{
 				"ring",
 			},
@@ -91,7 +96,7 @@ func getJewelry() []Pattern {
 				{
 					Name:                "band",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: "{{.Resource.Origin}} ring",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} ring",
 				},
 			},
 			Value: 10,

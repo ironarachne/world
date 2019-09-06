@@ -7,8 +7,9 @@ func getSmithing() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "fork",
-			Description: "a fork",
+			Name:         "fork",
+			NameTemplate: "{{.MainMaterial}} fork",
+			Description:  "a fork",
 			Tags: []string{
 				"eating utensil",
 			},
@@ -17,14 +18,15 @@ func getSmithing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} fork",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} fork",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "hammer",
-			Description: "a hammer",
+			Name:         "hammer",
+			NameTemplate: "{{.MainMaterial}} hammer",
+			Description:  "a hammer",
 			Tags: []string{
 				"tool",
 			},
@@ -33,14 +35,15 @@ func getSmithing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} hammer",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} hammer",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "knife",
-			Description: "a knife",
+			Name:         "knife",
+			NameTemplate: "{{.MainMaterial}} knife",
+			Description:  "a knife",
 			Tags: []string{
 				"eating utensil",
 			},
@@ -49,14 +52,15 @@ func getSmithing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} knife",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} knife",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "hand saw",
-			Description: "a hand saw",
+			Name:         "hand saw",
+			NameTemplate: "{{.MainMaterial}} hand saw",
+			Description:  "a hand saw",
 			Tags: []string{
 				"tool",
 			},
@@ -65,14 +69,15 @@ func getSmithing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} hand saw",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} hand saw",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "spoon",
-			Description: "a spoon",
+			Name:         "spoon",
+			NameTemplate: "{{.MainMaterial}} spoon",
+			Description:  "a spoon",
 			Tags: []string{
 				"eating utensil",
 			},
@@ -81,7 +86,7 @@ func getSmithing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} spoon",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} spoon",
 				},
 			},
 			Value: 1,
@@ -92,8 +97,9 @@ func getSmithing() []Pattern {
 
 	farrierPatterns := []Pattern{
 		{
-			Name:        "horseshoe",
-			Description: "a horseshoe",
+			Name:         "horseshoe",
+			NameTemplate: "{{.MainMaterial}} horseshoe",
+			Description:  "a horseshoe",
 			Tags: []string{
 				"horseshoe",
 			},
@@ -102,7 +108,7 @@ func getSmithing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} horseshoe",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} horseshoe",
 				},
 			},
 			Value: 1,

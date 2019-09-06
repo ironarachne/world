@@ -7,8 +7,9 @@ func getSmelting() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "metal bar",
-			Description: "a metal bar",
+			Name:         "metal bar",
+			NameTemplate: "{{.MainMaterial}} metal bar",
+			Description:  "a metal bar",
 			Tags: []string{
 				"metal bar",
 			},
@@ -17,14 +18,15 @@ func getSmelting() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "refined hard metal ore",
-					DescriptionTemplate: "{{.Resource.Origin}} metal bar",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} metal bar",
 				},
 			},
 			Value: 2,
 		},
 		{
-			Name:        "metal bar",
-			Description: "a metal bar",
+			Name:         "metal bar",
+			NameTemplate: "brass metal bar",
+			Description:  "a metal bar",
 			Tags: []string{
 				"metal bar",
 			},
@@ -41,12 +43,14 @@ func getSmelting() []Pattern {
 					DescriptionTemplate: "",
 				},
 			},
-			OriginOverride: "brass",
-			Value:          5,
+			OriginOverride:       "brass",
+			MainMaterialOverride: "brass",
+			Value:                5,
 		},
 		{
-			Name:        "metal bar",
-			Description: "a metal bar",
+			Name:         "metal bar",
+			NameTemplate: "bronze metal bar",
+			Description:  "a metal bar",
 			Tags: []string{
 				"metal bar",
 			},
@@ -63,12 +67,14 @@ func getSmelting() []Pattern {
 					DescriptionTemplate: "",
 				},
 			},
-			OriginOverride: "bronze",
-			Value:          5,
+			OriginOverride:       "bronze",
+			MainMaterialOverride: "bronze",
+			Value:                5,
 		},
 		{
-			Name:        "metal ingot",
-			Description: "a metal ingot",
+			Name:         "metal ingot",
+			NameTemplate: "{{.MainMaterial}} metal ingot",
+			Description:  "a metal ingot",
 			Tags: []string{
 				"metal ingot",
 			},
@@ -77,14 +83,15 @@ func getSmelting() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "refined soft metal ore",
-					DescriptionTemplate: "{{.Resource.Origin}} metal ingot",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} metal ingot",
 				},
 			},
 			Value: 2,
 		},
 		{
-			Name:        "metal ingot",
-			Description: "a metal ingot",
+			Name:         "metal ingot",
+			NameTemplate: "electrum metal ingot",
+			Description:  "a metal ingot",
 			Tags: []string{
 				"metal ingot",
 			},
@@ -101,8 +108,9 @@ func getSmelting() []Pattern {
 					DescriptionTemplate: "",
 				},
 			},
-			OriginOverride: "electrum",
-			Value:          5,
+			OriginOverride:       "electrum",
+			MainMaterialOverride: "electrum",
+			Value:                5,
 		},
 	}
 

@@ -13,8 +13,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "potato",
-					Origin: "potato",
+					Name:         "potato",
+					Origin:       "potato",
+					MainMaterial: "potato",
 					Tags: []string{
 						"root vegetable",
 						"vegetable",
@@ -33,8 +34,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "onion",
-					Origin: "onion",
+					Name:         "onion",
+					Origin:       "onion",
+					MainMaterial: "onion",
 					Tags: []string{
 						"root vegetable",
 						"vegetable",
@@ -53,8 +55,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "beet",
-					Origin: "beet",
+					Name:         "beet",
+					Origin:       "beet",
+					MainMaterial: "beet",
 					Tags: []string{
 						"root vegetable",
 						"vegetable",
@@ -73,8 +76,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "radish",
-					Origin: "radish",
+					Name:         "radish",
+					Origin:       "radish",
+					MainMaterial: "radish",
 					Tags: []string{
 						"root vegetable",
 						"vegetable",
@@ -93,8 +97,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "yam",
-					Origin: "yam",
+					Name:         "yam",
+					Origin:       "yam",
+					MainMaterial: "yam",
 					Tags: []string{
 						"root vegetable",
 						"vegetable",
@@ -113,8 +118,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "carrot",
-					Origin: "carrot",
+					Name:         "carrot",
+					Origin:       "carrot",
+					MainMaterial: "carrot",
 					Tags: []string{
 						"root vegetable",
 						"vegetable",
@@ -133,8 +139,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "eggplant",
-					Origin: "eggplant",
+					Name:         "eggplant",
+					Origin:       "eggplant",
+					MainMaterial: "eggplant",
 					Tags: []string{
 						"vegetable",
 					},
@@ -152,8 +159,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "kohlrabi",
-					Origin: "kohlrabi",
+					Name:         "kohlrabi",
+					Origin:       "kohlrabi",
+					MainMaterial: "kohlrabi",
 					Tags: []string{
 						"root vegetable",
 						"vegetable",
@@ -172,8 +180,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "cabbage",
-					Origin: "cabbage",
+					Name:         "cabbage",
+					Origin:       "cabbage",
+					MainMaterial: "cabbage",
 					Tags: []string{
 						"vegetable",
 					},
@@ -191,8 +200,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "lettuce",
-					Origin: "lettuce",
+					Name:         "lettuce",
+					Origin:       "lettuce",
+					MainMaterial: "lettuce",
 					Tags: []string{
 						"vegetable",
 					},
@@ -210,8 +220,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "fiddlehead",
-					Origin: "fiddlehead",
+					Name:         "fiddlehead",
+					Origin:       "fiddlehead",
+					MainMaterial: "fiddlehead",
 					Tags: []string{
 						"vegetable",
 					},
@@ -229,8 +240,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "broccoli",
-					Origin: "broccoli",
+					Name:         "broccoli",
+					Origin:       "broccoli",
+					MainMaterial: "broccoli",
 					Tags: []string{
 						"vegetable",
 					},
@@ -248,8 +260,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "cauliflower",
-					Origin: "cauliflower",
+					Name:         "cauliflower",
+					Origin:       "cauliflower",
+					MainMaterial: "cauliflower",
 					Tags: []string{
 						"vegetable",
 					},
@@ -267,8 +280,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "tomato",
-					Origin: "tomato",
+					Name:         "tomato",
+					Origin:       "tomato",
+					MainMaterial: "tomato",
 					Tags: []string{
 						"vegetable",
 					},
@@ -286,8 +300,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "bell pepper",
-					Origin: "bell pepper",
+					Name:         "bell pepper",
+					Origin:       "bell pepper",
+					MainMaterial: "bell pepper",
 					Tags: []string{
 						"vegetable",
 					},
@@ -305,8 +320,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "bok choy",
-					Origin: "bok choy",
+					Name:         "bok choy",
+					Origin:       "bok choy",
+					MainMaterial: "bok choy",
 					Tags: []string{
 						"vegetable",
 					},
@@ -324,8 +340,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "leek",
-					Origin: "leek",
+					Name:         "leek",
+					Origin:       "leek",
+					MainMaterial: "leek",
 					Tags: []string{
 						"vegetable",
 					},
@@ -343,8 +360,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "brussel sprouts",
-					Origin: "brussel sprout",
+					Name:         "brussel sprouts",
+					Origin:       "brussel sprout",
+					MainMaterial: "brussel sprout",
 					Tags: []string{
 						"vegetable",
 					},
@@ -362,8 +380,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "green beans",
-					Origin: "green bean",
+					Name:         "green beans",
+					Origin:       "green bean",
+					MainMaterial: "green bean",
 					Tags: []string{
 						"vegetable",
 					},
@@ -381,8 +400,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "black beans",
-					Origin: "black bean",
+					Name:         "black beans",
+					Origin:       "black bean",
+					MainMaterial: "black bean",
 					Tags: []string{
 						"legume",
 						"vegetable",
@@ -401,8 +421,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "pinto beans",
-					Origin: "pinto bean",
+					Name:         "pinto beans",
+					Origin:       "pinto bean",
+					MainMaterial: "pinto bean",
 					Tags: []string{
 						"legume",
 						"vegetable",
@@ -421,8 +442,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "lima beans",
-					Origin: "lima bean",
+					Name:         "lima beans",
+					Origin:       "lima bean",
+					MainMaterial: "lima bean",
 					Tags: []string{
 						"legume",
 						"vegetable",
@@ -441,8 +463,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "kidney beans",
-					Origin: "kidney bean",
+					Name:         "kidney beans",
+					Origin:       "kidney bean",
+					MainMaterial: "kidney bean",
 					Tags: []string{
 						"legume",
 						"vegetable",
@@ -461,8 +484,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "corn",
-					Origin: "corn",
+					Name:         "corn",
+					Origin:       "corn",
+					MainMaterial: "corn",
 					Tags: []string{
 						"vegetable",
 					},
@@ -480,8 +504,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "jalapeno",
-					Origin: "jalapeno",
+					Name:         "jalapeno",
+					Origin:       "jalapeno",
+					MainMaterial: "jalapeno",
 					Tags: []string{
 						"hot pepper",
 						"vegetable",
@@ -500,8 +525,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "habanero",
-					Origin: "habanero",
+					Name:         "habanero",
+					Origin:       "habanero",
+					MainMaterial: "habanero",
 					Tags: []string{
 						"hot pepper",
 						"vegetable",
@@ -520,8 +546,9 @@ func getVegetables() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "serrano",
-					Origin: "serrano",
+					Name:         "serrano",
+					Origin:       "serrano",
+					MainMaterial: "serrano",
 					Tags: []string{
 						"hot pepper",
 						"vegetable",

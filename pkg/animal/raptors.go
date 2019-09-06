@@ -22,8 +22,9 @@ func getRaptors() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "eagle feathers",
-					Origin: "eagle",
+					Name:         "eagle feathers",
+					Origin:       "eagle",
+					MainMaterial: "eagle",
 					Tags: []string{
 						"feather",
 					},
@@ -54,8 +55,9 @@ func getRaptors() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "falcon feathers",
-					Origin: "falcon",
+					Name:         "falcon feathers",
+					Origin:       "falcon",
+					MainMaterial: "falcon",
 					Tags: []string{
 						"feather",
 					},
@@ -86,8 +88,9 @@ func getRaptors() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "hawk feathers",
-					Origin: "hawk",
+					Name:         "hawk feathers",
+					Origin:       "hawk",
+					MainMaterial: "hawk",
 					Tags: []string{
 						"feather",
 					},

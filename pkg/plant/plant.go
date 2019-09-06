@@ -1,6 +1,7 @@
 package plant
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/resource"
@@ -73,14 +74,14 @@ func Random(amount int, from []Plant) []Plant {
 	return plants
 }
 
-// RandomPlantOfType returns a random plant with a resource of the specified type
-func RandomPlantOfType(plantType string) Plant {
+// RandomPlantWithResource returns a random plant with a resource of the specified type
+func RandomPlantWithResource(resourceTag string) (Plant, error) {
 	plants := All()
 	filtered := []Plant{}
 
 	for _, p := range plants {
 		for _, r := range p.Resources {
-			if r.HasTag(plantType) {
+			if r.HasTag(resourceTag) {
 				if !p.InSlice(filtered) {
 					filtered = append(filtered, p)
 				}
@@ -88,7 +89,16 @@ func RandomPlantOfType(plantType string) Plant {
 		}
 	}
 
+	if len(filtered) == 0 {
+		err := fmt.Errorf("No plant matching tag " + resourceTag + " was found")
+		return Plant{}, err
+	}
+
+	if len(filtered) == 1 {
+		return filtered[0], nil
+	}
+
 	plant := filtered[rand.Intn(len(filtered))]
 
-	return plant
+	return plant, nil
 }

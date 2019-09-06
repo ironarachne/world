@@ -23,8 +23,9 @@ func getReptiles() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "alligator hide",
-					Origin: "alligator",
+					Name:         "alligator hide",
+					Origin:       "alligator",
+					MainMaterial: "alligator",
 					Tags: []string{
 						"hide",
 					},
@@ -32,8 +33,9 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "alligator fangs",
-					Origin: "alligator",
+					Name:         "alligator fangs",
+					Origin:       "alligator",
+					MainMaterial: "alligator",
 					Tags: []string{
 						"fangs",
 						"teeth",
@@ -42,8 +44,9 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "alligator",
-					Origin: "alligator",
+					Name:         "alligator",
+					Origin:       "alligator",
+					MainMaterial: "alligator",
 					Tags: []string{
 						"meat",
 					},
@@ -74,8 +77,9 @@ func getReptiles() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "crocodile hide",
-					Origin: "crocodile",
+					Name:         "crocodile hide",
+					Origin:       "crocodile",
+					MainMaterial: "crocodile",
 					Tags: []string{
 						"hide",
 					},
@@ -83,8 +87,9 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "crocodile fangs",
-					Origin: "crocodile",
+					Name:         "crocodile fangs",
+					Origin:       "crocodile",
+					MainMaterial: "crocodile",
 					Tags: []string{
 						"fangs",
 						"teeth",
@@ -93,8 +98,9 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "crocodile",
-					Origin: "crocodile",
+					Name:         "crocodile",
+					Origin:       "crocodile",
+					MainMaterial: "crocodile",
 					Tags: []string{
 						"meat",
 					},
@@ -125,8 +131,9 @@ func getReptiles() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "monitor lizard hide",
-					Origin: "monitor lizard",
+					Name:         "monitor lizard hide",
+					Origin:       "monitor lizard",
+					MainMaterial: "monitor lizard",
 					Tags: []string{
 						"hide",
 					},
@@ -134,8 +141,9 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "monitor lizard fangs",
-					Origin: "monitor lizard",
+					Name:         "monitor lizard fangs",
+					Origin:       "monitor lizard",
+					MainMaterial: "monitor lizard",
 					Tags: []string{
 						"fangs",
 						"teeth",
@@ -144,8 +152,9 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "monitor lizard",
-					Origin: "monitor lizard",
+					Name:         "monitor lizard",
+					Origin:       "monitor lizard",
+					MainMaterial: "monitor lizard",
 					Tags: []string{
 						"meat",
 					},
@@ -153,8 +162,9 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "monitor lizard venom",
-					Origin: "monitor lizard",
+					Name:         "monitor lizard venom",
+					Origin:       "monitor lizard",
+					MainMaterial: "monitor lizard",
 					Tags: []string{
 						"venom",
 					},

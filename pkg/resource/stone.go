@@ -7,8 +7,9 @@ func getStone() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "milling wheel",
-			Description: "a milling wheel",
+			Name:         "milling wheel",
+			NameTemplate: "{{.MainMaterial}} milling wheel",
+			Description:  "a milling wheel",
 			Tags: []string{
 				"construction component",
 			},
@@ -17,14 +18,15 @@ func getStone() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "building stone",
-					DescriptionTemplate: "{{.Resource.Origin}} milling wheel",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} milling wheel",
 				},
 			},
 			Value: 15,
 		},
 		{
-			Name:        "stone block",
-			Description: "a block of stone",
+			Name:         "stone block",
+			NameTemplate: "{{.MainMaterial}} block",
+			Description:  "a block of stone",
 			Tags: []string{
 				"building block",
 			},
@@ -33,14 +35,15 @@ func getStone() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "building stone",
-					DescriptionTemplate: "{{.Resource.Origin}} block",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} block",
 				},
 			},
 			Value: 3,
 		},
 		{
-			Name:        "stone slab",
-			Description: "a slab of stone",
+			Name:         "stone slab",
+			NameTemplate: "{{.MainMaterial}} slab",
+			Description:  "a slab of stone",
 			Tags: []string{
 				"building block",
 			},
@@ -49,7 +52,7 @@ func getStone() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "building stone",
-					DescriptionTemplate: "{{.Resource.Origin}} slab",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} slab",
 				},
 			},
 			Value: 1,

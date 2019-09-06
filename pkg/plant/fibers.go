@@ -15,8 +15,9 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "cotton",
-					Origin: "cotton",
+					Name:         "cotton",
+					Origin:       "cotton",
+					MainMaterial: "cotton",
 					Tags: []string{
 						"fabric fiber",
 					},
@@ -34,8 +35,9 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "linen",
-					Origin: "flax",
+					Name:         "linen",
+					Origin:       "flax",
+					MainMaterial: "linen",
 					Tags: []string{
 						"fabric fiber",
 					},
@@ -53,8 +55,9 @@ func getFibers() []Plant {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:   "hemp",
-					Origin: "hemp",
+					Name:         "hemp",
+					Origin:       "hemp",
+					MainMaterial: "hemp",
 					Tags: []string{
 						"fabric fiber",
 					},
@@ -72,8 +75,9 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "coir seed",
-					Origin: "coir",
+					Name:         "coir seed",
+					Origin:       "coir",
+					MainMaterial: "coir",
 					Tags: []string{
 						"seed",
 					},
@@ -91,8 +95,9 @@ func getFibers() []Plant {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:   "papyrus",
-					Origin: "papyrus",
+					Name:         "papyrus",
+					Origin:       "papyrus",
+					MainMaterial: "papyrus",
 					Tags: []string{
 						"paper",
 					},
@@ -110,8 +115,9 @@ func getFibers() []Plant {
 			MaxTemperature: 9,
 			Resources: []resource.Resource{
 				{
-					Name:   "jute",
-					Origin: "jute",
+					Name:         "jute",
+					Origin:       "jute",
+					MainMaterial: "jute",
 					Tags: []string{
 						"fabric fiber",
 					},
@@ -129,8 +135,9 @@ func getFibers() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "ramie",
-					Origin: "ramie",
+					Name:         "ramie",
+					Origin:       "ramie",
+					MainMaterial: "ramie",
 					Tags: []string{
 						"fabric fiber",
 					},

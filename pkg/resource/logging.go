@@ -9,8 +9,9 @@ func getLogging() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "wood log",
-			Description: "a trimmed wood log",
+			Name:         "wood log",
+			NameTemplate: "bundle of {{.MainMaterial}} logs",
+			Description:  "a trimmed wood log",
 			Tags: []string{
 				"wood log",
 			},
@@ -19,14 +20,15 @@ func getLogging() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood",
-					DescriptionTemplate: "a bundle of {{.Resource.Origin}} logs",
+					DescriptionTemplate: "a bundle of {{.Resource.MainMaterial}} logs",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "wood plank",
-			Description: "a rectangular length of wood",
+			Name:         "wood plank",
+			NameTemplate: "bundle of {{.MainMaterial}} planks",
+			Description:  "a rectangular length of wood",
 			Tags: []string{
 				"wood plank",
 			},
@@ -35,7 +37,7 @@ func getLogging() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood",
-					DescriptionTemplate: "a bundle of {{.Resource.Origin}} planks",
+					DescriptionTemplate: "a bundle of {{.Resource.MainMaterial}} planks",
 				},
 			},
 			Value: 1,

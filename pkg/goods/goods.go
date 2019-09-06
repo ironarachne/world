@@ -11,11 +11,12 @@ import (
 
 // TradeGood is a trade good entry
 type TradeGood struct {
-	Name       string `json:"name"`
-	Quality    string `json:"quality"`
-	Amount     int    `json:"amount"`
-	PriceEach  int    `json:"price_each"`
-	PriceTotal int    `json:"price_total"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Quality     string `json:"quality"`
+	Amount      int    `json:"amount"`
+	PriceEach   int    `json:"price_each"`
+	PriceTotal  int    `json:"price_total"`
 }
 
 // InSlice checks to see if a good is in a list of goods
@@ -41,19 +42,18 @@ func GenerateMerchantGoods(min int, max int, resources []resource.Resource) []Tr
 	amount := 0
 
 	for _, r := range resources {
-		if len(r.Tags) > 0 {
-			amount = rand.Intn(3) + 1
-			skillLevel = rand.Intn(5)
-			quality = qualityFromSkillLevel(skillLevel)
-			good = TradeGood{
-				Name:      r.Name,
-				Quality:   quality,
-				Amount:    amount,
-				PriceEach: price(skillLevel, r),
-			}
-			good.PriceTotal = good.PriceEach * good.Amount
-			possibleGoods = append(possibleGoods, good)
+		amount = rand.Intn(3) + 1
+		skillLevel = rand.Intn(5)
+		quality = qualityFromSkillLevel(skillLevel)
+		good = TradeGood{
+			Name:        r.Name,
+			Description: r.Description,
+			Quality:     quality,
+			Amount:      amount,
+			PriceEach:   price(skillLevel, r),
 		}
+		good.PriceTotal = good.PriceEach * good.Amount
+		possibleGoods = append(possibleGoods, good)
 	}
 
 	numberOfGoods := rand.Intn(max+1-min) + min
@@ -81,19 +81,18 @@ func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) [
 	amount := 0
 
 	for _, r := range resources {
-		if len(r.Tags) > 0 {
-			amount = rand.Intn(3) + 1
-			skillLevel = rand.Intn(5)
-			quality = qualityFromSkillLevel(skillLevel)
-			good = TradeGood{
-				Name:      r.Tags[0],
-				Quality:   quality,
-				Amount:    amount,
-				PriceEach: price(skillLevel, r),
-			}
-			good.PriceTotal = good.PriceEach * good.Amount
-			possibleGoods = append(possibleGoods, good)
+		amount = rand.Intn(3) + 1
+		skillLevel = rand.Intn(5)
+		quality = qualityFromSkillLevel(skillLevel)
+		good = TradeGood{
+			Name:        r.Name,
+			Description: r.Description,
+			Quality:     quality,
+			Amount:      amount,
+			PriceEach:   price(skillLevel, r),
 		}
+		good.PriceTotal = good.PriceEach * good.Amount
+		possibleGoods = append(possibleGoods, good)
 	}
 
 	numberOfGoods := rand.Intn(max+1-min) + min
@@ -129,6 +128,7 @@ func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) (
 		}
 		amount = rand.Intn(3) + 1
 		good.Name = newItem
+		good.Description = newItem
 		good.Amount = amount
 		good.Quality = randomQuality()
 		if !good.InSlice(goods) {
@@ -144,9 +144,7 @@ func GetAllTradeGoods(resources []resource.Resource) []string {
 	goods := []string{}
 
 	for _, r := range resources {
-		if len(r.Tags) > 0 && !slices.StringIn(r.Tags[0], goods) {
-			goods = append(goods, r.Tags[0])
-		}
+		goods = append(goods, r.Name)
 	}
 
 	return goods
@@ -161,5 +159,7 @@ func randomQuality() string {
 		"pathetic":     1,
 	}
 
-	return random.StringFromThresholdMap(qualities)
+	quality := random.StringFromThresholdMap(qualities)
+
+	return quality
 }

@@ -7,8 +7,9 @@ func getBeekeeping() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "braggot",
-			Description: "bottle of braggot",
+			Name:         "braggot",
+			NameTemplate: "bottle of braggot",
+			Description:  "bottle of braggot",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -24,8 +25,9 @@ func getBeekeeping() []Pattern {
 			Value: 1,
 		},
 		{
-			Name:        "hippocras",
-			Description: "bottle of hippocras",
+			Name:         "hippocras",
+			NameTemplate: "bottle of hippocras",
+			Description:  "bottle of hippocras",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -41,8 +43,9 @@ func getBeekeeping() []Pattern {
 			Value: 1,
 		},
 		{
-			Name:        "mead",
-			Description: "bottle of mead",
+			Name:         "mead",
+			NameTemplate: "bottle of mead",
+			Description:  "bottle of mead",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -58,8 +61,9 @@ func getBeekeeping() []Pattern {
 			Value: 1,
 		},
 		{
-			Name:        "metheglin",
-			Description: "bottle of metheglin",
+			Name:         "metheglin",
+			NameTemplate: "bottle of metheglin",
+			Description:  "bottle of metheglin",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -75,8 +79,9 @@ func getBeekeeping() []Pattern {
 			Value: 1,
 		},
 		{
-			Name:        "sealing wax",
-			Description: "stick of sealing wax",
+			Name:         "sealing wax",
+			NameTemplate: "stick of sealing wax",
+			Description:  "stick of sealing wax",
 			Tags: []string{
 				"writing materials",
 			},

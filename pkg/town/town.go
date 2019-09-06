@@ -84,7 +84,7 @@ func (town Town) generateTownName() (string, error) {
 }
 
 // Generate generates a random town
-func Generate(category string, biome string, originCulture culture.Culture) (Town, error) {
+func Generate(category string, originClimate climate.Climate, originCulture culture.Culture) (Town, error) {
 	var newProducers []profession.Profession
 	var producers []profession.Profession
 	var newResources []resource.Resource
@@ -96,23 +96,10 @@ func Generate(category string, biome string, originCulture culture.Culture) (Tow
 	} else {
 		town.Category = getCategoryByName(category)
 	}
-	if biome == "random" {
-		townClimate, err := climate.Generate()
-		if err != nil {
-			err = fmt.Errorf("Could not generate town: %w", err)
-			return Town{}, err
-		}
-		town.Climate = townClimate
-	} else {
-		townClimate, err := climate.GetClimate(biome)
-		if err != nil {
-			err = fmt.Errorf("Could not generate town: %w", err)
-			return Town{}, err
-		}
-		town.Climate = townClimate
-	}
 
+	town.Climate = originClimate
 	town.Culture = originCulture
+
 	name, err := town.Culture.Language.RandomName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate town: %w", err)
@@ -147,7 +134,11 @@ func Generate(category string, biome string, originCulture culture.Culture) (Tow
 
 	for i := 0; i < town.Category.ProductionIterations; i++ {
 		newProducers = getProducers(town.Population, resources)
-		newResources = goods.Produce(newProducers, resources)
+		newResources, err = goods.Produce(newProducers, resources)
+		if err != nil {
+			err = fmt.Errorf("Could not generate town: %w", err)
+			return Town{}, err
+		}
 		resources = append(resources, newResources...)
 		producers = append(producers, newProducers...)
 	}
@@ -174,7 +165,7 @@ func Random() (Town, error) {
 		return Town{}, err
 	}
 
-	town, err := Generate("random", "random", randomCulture)
+	town, err := Generate("random", randomCulture.HomeClimate, randomCulture)
 	if err != nil {
 		err = fmt.Errorf("Could not generate random town: %w", err)
 		return Town{}, err

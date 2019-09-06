@@ -13,8 +13,9 @@ func getMelons() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "cantaloupe",
-					Origin: "cantaloupe",
+					Name:         "cantaloupe",
+					Origin:       "cantaloupe",
+					MainMaterial: "cantaloupe",
 					Tags: []string{
 						"fruit",
 					},
@@ -32,8 +33,9 @@ func getMelons() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "honeydew",
-					Origin: "honeydew",
+					Name:         "honeydew",
+					Origin:       "honeydew",
+					MainMaterial: "honeydew",
 					Tags: []string{
 						"fruit",
 						"melon",
@@ -52,8 +54,9 @@ func getMelons() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "watermelon",
-					Origin: "watermelon",
+					Name:         "watermelon",
+					Origin:       "watermelon",
+					MainMaterial: "watermelon",
 					Tags: []string{
 						"fruit",
 						"melon",

@@ -1,39 +1,39 @@
 package climate
 
 import (
-	"github.com/ironarachne/world/pkg/animal"
+	"github.com/ironarachne/world/pkg/fish"
 )
 
-func (climate Climate) getFish() []animal.Fish {
-	fish := []animal.Fish{}
-	allFish := animal.AllFish()
-	potentialFish := []animal.Fish{}
+func (climate Climate) getFish() []fish.Fish {
+	var result []fish.Fish
+	allFish := fish.All()
+	potentialFish := []fish.Fish{}
 
 	if !climate.HasLakes {
 		for _, f := range allFish {
-			if f.LivesInLakes && !f.InSlice(potentialFish) {
+			if f.LivesInLakes && !fish.InSlice(f, potentialFish) {
 				potentialFish = append(potentialFish, f)
 			}
 		}
 	}
 	if !climate.HasOcean {
 		for _, f := range allFish {
-			if f.LivesInOceans && !f.InSlice(potentialFish) {
+			if f.LivesInOceans && !fish.InSlice(f, potentialFish) {
 				potentialFish = append(potentialFish, f)
 			}
 		}
 	}
 	if !climate.HasRivers {
 		for _, f := range allFish {
-			if f.LivesInRivers && !f.InSlice(potentialFish) {
+			if f.LivesInRivers && !fish.InSlice(f, potentialFish) {
 				potentialFish = append(potentialFish, f)
 			}
 		}
 	}
 
 	if len(potentialFish) > 1 {
-		fish = animal.RandomFish(climate.MaxFish, potentialFish)
+		result = fish.Random(climate.MaxFish, potentialFish)
 	}
 
-	return fish
+	return result
 }

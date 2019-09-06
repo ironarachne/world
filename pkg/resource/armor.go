@@ -20,8 +20,9 @@ func getBodyArmor() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "breastplate",
-			Description: "a solid armor covering for the front of the torso",
+			Name:         "breastplate",
+			NameTemplate: "{{.MainMaterial}} breastplate",
+			Description:  "a solid armor covering for the front of the torso",
 			Tags: []string{
 				"armor",
 				"body armor",
@@ -31,19 +32,20 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} breastplate",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} breastplate",
 				},
 				{
 					Name:                "straps",
 					RequiredTag:         "leather",
-					DescriptionTemplate: " with {{.Resource.Origin}} leather straps",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} leather straps",
 				},
 			},
 			Value: 10,
 		},
 		{
-			Name:        "brigandine",
-			Description: "a leather garment lined with small oblong metal plates sewn into the fabric",
+			Name:         "brigandine",
+			NameTemplate: "{{.MainMaterial}} leather brigandine",
+			Description:  "a leather garment lined with small oblong metal plates sewn into the fabric",
 			Tags: []string{
 				"armor",
 				"body armor",
@@ -53,19 +55,20 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} leather brigandine",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} leather brigandine",
 				},
 				{
 					Name:                "plates",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: " with {{.Resource.Origin}} plates",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} plates",
 				},
 			},
 			Value: 6,
 		},
 		{
-			Name:        "chain hauberk",
-			Description: "a garment made of chain maille that covers the arms and torso down to the knees",
+			Name:         "chain hauberk",
+			NameTemplate: "{{.MainMaterial}} chain hauberk",
+			Description:  "a garment made of chain maille that covers the arms and torso down to the knees",
 			Tags: []string{
 				"armor",
 				"body armor",
@@ -75,14 +78,15 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "links",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} chain hauberk",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} chain hauberk",
 				},
 			},
 			Value: 8,
 		},
 		{
-			Name:        "chain shirt",
-			Description: "a shirt made of chain maille that covers the arms and torso down to the waist",
+			Name:         "chain shirt",
+			NameTemplate: "{{.MainMaterial}} chain shirt",
+			Description:  "a shirt made of chain maille that covers the arms and torso down to the waist",
 			Tags: []string{
 				"armor",
 				"body armor",
@@ -92,14 +96,15 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "links",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} chain shirt",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} chain shirt",
 				},
 			},
 			Value: 6,
 		},
 		{
-			Name:        "gauntlet",
-			Description: "a glove made of metal plates that protects the hand, wrist, and part of the arm",
+			Name:         "gauntlet",
+			NameTemplate: "{{.MainMaterial}} gauntlet",
+			Description:  "a glove made of metal plates that protects the hand, wrist, and part of the arm",
 			Tags: []string{
 				"armor",
 				"hand armor",
@@ -109,14 +114,15 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} gauntlet",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} gauntlet",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "gorget",
-			Description: "a metal collar to protect the neck, clavicles, and sternum",
+			Name:         "gorget",
+			NameTemplate: "{{.MainMaterial}} gorget",
+			Description:  "a metal collar to protect the neck, clavicles, and sternum",
 			Tags: []string{
 				"armor",
 				"neck armor",
@@ -126,19 +132,20 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} gorget",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} gorget",
 				},
 				{
 					Name:                "straps",
 					RequiredTag:         "leather",
-					DescriptionTemplate: " with {{.Resource.Origin}} leather straps",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} leather straps",
 				},
 			},
 			Value: 4,
 		},
 		{
-			Name:        "greave",
-			Description: "a pair of shaped metal plates that protects the lower leg",
+			Name:         "greave",
+			NameTemplate: "{{.MainMaterial}} greaves",
+			Description:  "a pair of shaped metal plates that protects the lower leg",
 			Tags: []string{
 				"armor",
 				"leg armor",
@@ -148,14 +155,15 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} greave",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} greaves",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "pauldron",
-			Description: "a shoulder armor that covers the shoulder, armpit, and part of the back and chest",
+			Name:         "pauldron",
+			NameTemplate: "{{.MainMaterial}} pauldrons",
+			Description:  "a shoulder armor that covers the shoulder, armpit, and part of the back and chest",
 			Tags: []string{
 				"armor",
 				"shoulder armor",
@@ -165,24 +173,25 @@ func getBodyArmor() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} pauldron",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} pauldrons",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "spaulder",
-			Description: "a metal shoulder protector that doesn't cover the armpit",
+			Name:         "spaulder",
+			NameTemplate: "{{.MainMaterial}} spaulder",
+			Description:  "a metal shoulder protector that doesn't cover the armpit",
 			Tags: []string{
 				"armor",
-				"spaulder",
+				"shoulder armor",
 			},
 			Profession: producer,
 			Slots: []Slot{
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} spaulder",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} spaulder",
 				},
 			},
 			Value: 5,
@@ -197,8 +206,9 @@ func getHelmets() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "close helm",
-			Description: "a helmet that fully covers the head, with a hinged face plate",
+			Name:         "close helm",
+			NameTemplate: "{{.MainMaterial}} close helm",
+			Description:  "a helmet that fully covers the head, with a hinged face plate",
 			Tags: []string{
 				"armor",
 				"helmet",
@@ -208,24 +218,25 @@ func getHelmets() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} close helm",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} close helm",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 				{
 					Name:                "padding",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: " and {{.Resource.Origin}} padding inside",
+					DescriptionTemplate: " and {{.Resource.MainMaterial}} padding inside",
 				},
 			},
 			Value: 6,
 		},
 		{
-			Name:        "nasal helm",
-			Description: "a conical helmet with a plate of metal over the nose",
+			Name:         "nasal helm",
+			NameTemplate: "{{.MainMaterial}} nasal helmet",
+			Description:  "a conical helmet with a plate of metal over the nose",
 			Tags: []string{
 				"armor",
 				"helmet",
@@ -235,24 +246,25 @@ func getHelmets() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} nasal helmet",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} nasal helmet",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 				{
 					Name:                "padding",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: " and {{.Resource.Origin}} padding",
+					DescriptionTemplate: " and {{.Resource.MainMaterial}} padding",
 				},
 			},
 			Value: 6,
 		},
 		{
-			Name:        "pot helm",
-			Description: "a helmet shaped like a cylinder with a rectangular eye slit",
+			Name:         "pot helm",
+			NameTemplate: "{{.MainMaterial}} pot helm",
+			Description:  "a helmet shaped like a cylinder with a rectangular eye slit",
 			Tags: []string{
 				"armor",
 				"helmet",
@@ -262,24 +274,25 @@ func getHelmets() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} pot helm",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} pot helm",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 				{
 					Name:                "padding",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: " and {{.Resource.Origin}} padding",
+					DescriptionTemplate: " and {{.Resource.MainMaterial}} padding",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "spangenhelm",
-			Description: "a helmet that covers the top of the head and has plates over the ears",
+			Name:         "spangenhelm",
+			NameTemplate: "{{.MainMaterial}} spangenhelm",
+			Description:  "a helmet that covers the top of the head and has plates over the ears",
 			Tags: []string{
 				"armor",
 				"helmet",
@@ -289,17 +302,17 @@ func getHelmets() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "{{.Resource.Origin}} spangenhelm",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} spangenhelm",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 				{
 					Name:                "padding",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: " and {{.Resource.Origin}} padding",
+					DescriptionTemplate: " and {{.Resource.MainMaterial}} padding",
 				},
 			},
 			Value: 5,
@@ -314,8 +327,9 @@ func getShields() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "buckler",
-			Description: "a small round shield strapped to one arm",
+			Name:         "buckler",
+			NameTemplate: "{{.MainMaterial}} buckler",
+			Description:  "a small round shield strapped to one arm",
 			Tags: []string{
 				"armor",
 				"shield",
@@ -325,19 +339,20 @@ func getShields() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} buckler",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} buckler",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "heater shield",
-			Description: "a shield with a pointed bottom and flat top",
+			Name:         "heater shield",
+			NameTemplate: "{{.MainMaterial}} heater shield",
+			Description:  "a shield with a pointed bottom and flat top",
 			Tags: []string{
 				"armor",
 				"shield",
@@ -347,19 +362,20 @@ func getShields() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} heater shield",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} heater shield",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "kite shield",
-			Description: "a shield shaped like a kite",
+			Name:         "kite shield",
+			NameTemplate: "{{.MainMaterial}} kite shield",
+			Description:  "a shield shaped like a kite",
 			Tags: []string{
 				"armor",
 				"shield",
@@ -369,19 +385,20 @@ func getShields() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} kite shield",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} kite shield",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "tower shield",
-			Description: "a large, heavy shield that covers the entire body",
+			Name:         "tower shield",
+			NameTemplate: "{{.MainMaterial}} tower shield",
+			Description:  "a large, heavy shield that covers the entire body",
 			Tags: []string{
 				"armor",
 				"shield",
@@ -391,12 +408,12 @@ func getShields() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} tower shield",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} tower shield",
 				},
 				{
 					Name:                "trim",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: " with {{.Resource.Origin}} trim",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} trim",
 				},
 			},
 			Value: 10,

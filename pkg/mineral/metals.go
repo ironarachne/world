@@ -13,8 +13,9 @@ func Metals() []Mineral {
 			Commonality:  1,
 			Resources: []resource.Resource{
 				{
-					Name:   "adamantine",
-					Origin: "adamantine",
+					Name:         "adamantine",
+					Origin:       "adamantine",
+					MainMaterial: "adamantine",
 					Tags: []string{
 						"metal ore",
 						"hard metal ore",
@@ -33,8 +34,9 @@ func Metals() []Mineral {
 			Commonality:  2,
 			Resources: []resource.Resource{
 				{
-					Name:   "cold iron",
-					Origin: "cold iron",
+					Name:         "cold iron",
+					Origin:       "cold iron",
+					MainMaterial: "cold iron",
 					Tags: []string{
 						"metal ore",
 						"hard metal ore",
@@ -53,8 +55,9 @@ func Metals() []Mineral {
 			Commonality:  8,
 			Resources: []resource.Resource{
 				{
-					Name:   "copper",
-					Origin: "copper",
+					Name:         "copper",
+					Origin:       "copper",
+					MainMaterial: "copper",
 					Tags: []string{
 						"metal ore",
 						"hard metal ore",
@@ -73,8 +76,9 @@ func Metals() []Mineral {
 			Commonality:  5,
 			Resources: []resource.Resource{
 				{
-					Name:   "gold",
-					Origin: "gold",
+					Name:         "gold",
+					Origin:       "gold",
+					MainMaterial: "gold",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",
@@ -93,8 +97,9 @@ func Metals() []Mineral {
 			Commonality:  20,
 			Resources: []resource.Resource{
 				{
-					Name:   "iron",
-					Origin: "iron",
+					Name:         "iron",
+					Origin:       "iron",
+					MainMaterial: "iron",
 					Tags: []string{
 						"metal ore",
 						"hard metal ore",
@@ -113,8 +118,9 @@ func Metals() []Mineral {
 			Commonality:  6,
 			Resources: []resource.Resource{
 				{
-					Name:   "lead",
-					Origin: "lead",
+					Name:         "lead",
+					Origin:       "lead",
+					MainMaterial: "lead",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",
@@ -133,8 +139,9 @@ func Metals() []Mineral {
 			Commonality:  2,
 			Resources: []resource.Resource{
 				{
-					Name:   "mithril",
-					Origin: "mithril",
+					Name:         "mithril",
+					Origin:       "mithril",
+					MainMaterial: "mithril",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",
@@ -153,8 +160,9 @@ func Metals() []Mineral {
 			Commonality:  3,
 			Resources: []resource.Resource{
 				{
-					Name:   "nickel",
-					Origin: "nickel",
+					Name:         "nickel",
+					Origin:       "nickel",
+					MainMaterial: "nickel",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",
@@ -173,8 +181,9 @@ func Metals() []Mineral {
 			Commonality:  2,
 			Resources: []resource.Resource{
 				{
-					Name:   "orichalcum",
-					Origin: "orichalcum",
+					Name:         "orichalcum",
+					Origin:       "orichalcum",
+					MainMaterial: "orichalcum",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",
@@ -193,8 +202,9 @@ func Metals() []Mineral {
 			Commonality:  5,
 			Resources: []resource.Resource{
 				{
-					Name:   "silver",
-					Origin: "silver",
+					Name:         "silver",
+					Origin:       "silver",
+					MainMaterial: "silver",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",
@@ -213,8 +223,9 @@ func Metals() []Mineral {
 			Commonality:  6,
 			Resources: []resource.Resource{
 				{
-					Name:   "tin",
-					Origin: "tin",
+					Name:         "tin",
+					Origin:       "tin",
+					MainMaterial: "tin",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",
@@ -233,8 +244,9 @@ func Metals() []Mineral {
 			Commonality:  5,
 			Resources: []resource.Resource{
 				{
-					Name:   "zinc",
-					Origin: "zinc",
+					Name:         "zinc",
+					Origin:       "zinc",
+					MainMaterial: "zinc",
 					Tags: []string{
 						"metal ore",
 						"soft metal ore",

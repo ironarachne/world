@@ -33,8 +33,9 @@ func getEquines() []Animal {
 		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
 			{
-				Name:   a.Name + " hide",
-				Origin: a.Name,
+				Name:         a.Name + " hide",
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"hide",
 				},
@@ -42,8 +43,9 @@ func getEquines() []Animal {
 				Value:       1,
 			},
 			{
-				Name:   a.Name + " milk",
-				Origin: a.Name,
+				Name:         a.Name + " milk",
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"milk",
 				},
@@ -51,8 +53,9 @@ func getEquines() []Animal {
 				Value:       1,
 			},
 			{
-				Name:   a.Name,
-				Origin: a.Name,
+				Name:         a.Name,
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"meat",
 				},
@@ -60,8 +63,9 @@ func getEquines() []Animal {
 				Value:       1,
 			},
 			{
-				Name:   a.Name,
-				Origin: a.Name,
+				Name:         a.Name,
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"mount",
 				},
@@ -69,8 +73,9 @@ func getEquines() []Animal {
 				Value:       50,
 			},
 			{
-				Name:   a.Name,
-				Origin: a.Name,
+				Name:         a.Name,
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"pack animal",
 				},

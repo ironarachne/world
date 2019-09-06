@@ -12,8 +12,9 @@ func Gems() []Mineral {
 			Malleability: 1,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw diamond ore",
-					Origin: "diamond",
+					Name:         "raw diamond ore",
+					Origin:       "diamond",
+					MainMaterial: "diamond",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -30,8 +31,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw garnet ore",
-					Origin: "garnet",
+					Name:         "raw garnet ore",
+					Origin:       "garnet",
+					MainMaterial: "garnet",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -48,8 +50,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw ruby ore",
-					Origin: "ruby",
+					Name:         "raw ruby ore",
+					Origin:       "ruby",
+					MainMaterial: "ruby",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -66,8 +69,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw sapphire ore",
-					Origin: "sapphire",
+					Name:         "raw sapphire ore",
+					Origin:       "sapphire",
+					MainMaterial: "sapphire",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -84,8 +88,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw amethyst ore",
-					Origin: "amethyst",
+					Name:         "raw amethyst ore",
+					Origin:       "amethyst",
+					MainMaterial: "amethyst",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -102,8 +107,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw agate ore",
-					Origin: "agate",
+					Name:         "raw agate ore",
+					Origin:       "agate",
+					MainMaterial: "agate",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -120,8 +126,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw jade ore",
-					Origin: "jade",
+					Name:         "raw jade ore",
+					Origin:       "jade",
+					MainMaterial: "jade",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -138,8 +145,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw jasper ore",
-					Origin: "jasper",
+					Name:         "raw jasper ore",
+					Origin:       "jasper",
+					MainMaterial: "jasper",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -156,8 +164,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw moonstone ore",
-					Origin: "moonstone",
+					Name:         "raw moonstone ore",
+					Origin:       "moonstone",
+					MainMaterial: "moonstone",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -174,8 +183,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw opal ore",
-					Origin: "opal",
+					Name:         "raw opal ore",
+					Origin:       "opal",
+					MainMaterial: "opal",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -192,8 +202,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw peridot ore",
-					Origin: "peridot",
+					Name:         "raw peridot ore",
+					Origin:       "peridot",
+					MainMaterial: "peridot",
 					Tags: []string{
 						"gem ore",
 						"ore",
@@ -210,8 +221,9 @@ func Gems() []Mineral {
 			Malleability: 3,
 			Resources: []resource.Resource{
 				{
-					Name:   "raw topaz ore",
-					Origin: "topaz",
+					Name:         "raw topaz ore",
+					Origin:       "topaz",
+					MainMaterial: "topaz",
 					Tags: []string{
 						"gem ore",
 						"ore",

@@ -150,7 +150,7 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 
 // Random returns a completely random culture
 func Random() (Culture, error) {
-	homeClimate, err := climate.Generate()
+	homeClimate, err := climate.Random()
 	if err != nil {
 		err = fmt.Errorf("Could not generate culture: %w", err)
 		return Culture{}, err

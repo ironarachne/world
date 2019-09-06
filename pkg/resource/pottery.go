@@ -7,8 +7,9 @@ func getPottery() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "bowl",
-			Description: "a clay bowl",
+			Name:         "bowl",
+			NameTemplate: "{{.MainMaterial}} bowl",
+			Description:  "a clay bowl",
 			Tags: []string{
 				"food vessel",
 			},
@@ -17,14 +18,15 @@ func getPottery() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "clay",
-					DescriptionTemplate: "{{.Resource.Origin}} bowl",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} bowl",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "mug",
-			Description: "a clay mug",
+			Name:         "mug",
+			NameTemplate: "{{.MainMaterial}} mug",
+			Description:  "a clay mug",
 			Tags: []string{
 				"drinking vessel",
 			},
@@ -33,14 +35,15 @@ func getPottery() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "clay",
-					DescriptionTemplate: "{{.Resource.Origin}} mug",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} mug",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "pitcher",
-			Description: "a clay pitcher",
+			Name:         "pitcher",
+			NameTemplate: "{{.MainMaterial}} pitcher",
+			Description:  "a clay pitcher",
 			Tags: []string{
 				"liquid vessel",
 			},
@@ -49,14 +52,15 @@ func getPottery() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "clay",
-					DescriptionTemplate: "{{.Resource.Origin}} pitcher",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} pitcher",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "vase",
-			Description: "a clay vase",
+			Name:         "vase",
+			NameTemplate: "{{.MainMaterial}} vase",
+			Description:  "a clay vase",
 			Tags: []string{
 				"vase",
 			},
@@ -65,7 +69,7 @@ func getPottery() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "clay",
-					DescriptionTemplate: "{{.Resource.Origin}} vase",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} vase",
 				},
 			},
 			Value: 1,

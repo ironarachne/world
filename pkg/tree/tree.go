@@ -4,19 +4,45 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // Tree is a tree
 type Tree struct {
 	Name           string
 	PluralName     string
-	IsDeciduous    bool
-	IsConiferous   bool
 	MinHumidity    int
 	MaxHumidity    int
 	MinTemperature int
 	MaxTemperature int
 	Resources      []resource.Resource
+	Tags           []string
+}
+
+// ByTag returns all trees that match the tag given
+func ByTag(tag string, trees []Tree) []Tree {
+	var result []Tree
+
+	for _, t := range trees {
+		if slices.StringIn(tag, t.Tags) {
+			result = append(result, t)
+		}
+	}
+
+	return result
+}
+
+// ExcludeTag removes all trees that match the tag from the given slice
+func ExcludeTag(tag string, trees []Tree) []Tree {
+	var result []Tree
+
+	for _, t := range trees {
+		if !slices.StringIn(tag, t.Tags) {
+			result = append(result, t)
+		}
+	}
+
+	return result
 }
 
 // InSlice checks if a tree is in the given slice

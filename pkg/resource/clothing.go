@@ -7,8 +7,9 @@ func getClothing() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "backpack",
-			Description: "a backpack",
+			Name:         "backpack",
+			NameTemplate: "{{.MainMaterial}} leather backpack",
+			Description:  "a backpack",
 			Tags: []string{
 				"belt",
 				"clothing",
@@ -18,14 +19,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} leather backpack",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} leather backpack",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "small bag",
-			Description: "a small bag",
+			Name:         "small bag",
+			NameTemplate: "small {{.MainMaterial}} bag",
+			Description:  "a small bag",
 			Tags: []string{
 				"belt",
 				"clothing",
@@ -35,14 +37,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "small {{.Resource.Origin}} bag",
+					DescriptionTemplate: "small {{.Resource.MainMaterial}} bag",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "medium bag",
-			Description: "a medium bag",
+			Name:         "medium bag",
+			NameTemplate: "medium {{.MainMaterial}} bag",
+			Description:  "a medium bag",
 			Tags: []string{
 				"belt",
 				"clothing",
@@ -52,14 +55,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "medium {{.Resource.Origin}} bag",
+					DescriptionTemplate: "medium {{.Resource.MainMaterial}} bag",
 				},
 			},
 			Value: 2,
 		},
 		{
-			Name:        "large bag",
-			Description: "a large bag",
+			Name:         "large bag",
+			NameTemplate: "large {{.MainMaterial}} bag",
+			Description:  "a large bag",
 			Tags: []string{
 				"belt",
 				"clothing",
@@ -69,14 +73,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "large {{.Resource.Origin}} bag",
+					DescriptionTemplate: "large {{.Resource.MainMaterial}} bag",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "belt",
-			Description: "belt",
+			Name:         "belt",
+			NameTemplate: "{{.MainMaterial}} leather belt",
+			Description:  "belt",
 			Tags: []string{
 				"belt",
 				"clothing",
@@ -86,19 +91,20 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} leather belt",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} leather belt",
 				},
 				{
 					Name:                "buckle",
 					RequiredTag:         "metal ingot",
-					DescriptionTemplate: " with a {{.Resource.Origin}} buckle",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} buckle",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "blouse",
-			Description: "a blouse with long sleeves",
+			Name:         "blouse",
+			NameTemplate: "{{.MainMaterial}} blouse",
+			Description:  "a blouse with long sleeves",
 			Tags: []string{
 				"clothing",
 				"shirt",
@@ -108,14 +114,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} blouse",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} blouse",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "breeches",
-			Description: "breeches",
+			Name:         "breeches",
+			NameTemplate: "{{.MainMaterial}} breeches",
+			Description:  "breeches",
 			Tags: []string{
 				"clothing",
 				"pants",
@@ -125,14 +132,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} breeches",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} breeches",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "dress",
-			Description: "a dress with long sleeves",
+			Name:         "dress",
+			NameTemplate: "{{.MainMaterial}} dress",
+			Description:  "a dress with long sleeves",
 			Tags: []string{
 				"clothing",
 				"dress",
@@ -142,14 +150,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} dress",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} dress",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "pants",
-			Description: "pants",
+			Name:         "pants",
+			NameTemplate: "{{.MainMaterial}} pants",
+			Description:  "pants",
 			Tags: []string{
 				"clothing",
 				"pants",
@@ -159,14 +168,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} pants",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} pants",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "shirt",
-			Description: "a shirt with long sleeves",
+			Name:         "shirt",
+			NameTemplate: "{{.MainMaterial}} shirt",
+			Description:  "a shirt with long sleeves",
 			Tags: []string{
 				"clothing",
 				"shirt",
@@ -176,14 +186,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} shirt",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} shirt",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "tunic",
-			Description: "a tunic with long sleeves that reaches down to the knees",
+			Name:         "tunic",
+			NameTemplate: "{{.MainMaterial}} tunic",
+			Description:  "a tunic with long sleeves that reaches down to the knees",
 			Tags: []string{
 				"clothing",
 				"shirt",
@@ -193,14 +204,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} tunic",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} tunic",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "short tunic",
-			Description: "a tunic with long sleeves that reaches down to the waist",
+			Name:         "short tunic",
+			NameTemplate: "short {{.MainMaterial}} tunic",
+			Description:  "a tunic with long sleeves that reaches down to the waist",
 			Tags: []string{
 				"clothing",
 				"shirt",
@@ -210,14 +222,15 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "short {{.Resource.Origin}} tunic",
+					DescriptionTemplate: "short {{.Resource.MainMaterial}} tunic",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "long tunic",
-			Description: "a tunic with long sleeves that reaches down to the knees",
+			Name:         "long tunic",
+			NameTemplate: "long {{.MainMaterial}} tunic",
+			Description:  "a tunic with long sleeves that reaches down to the knees",
 			Tags: []string{
 				"clothing",
 				"shirt",
@@ -227,7 +240,7 @@ func getClothing() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "long {{.Resource.Origin}} tunic",
+					DescriptionTemplate: "long {{.Resource.MainMaterial}} tunic",
 				},
 			},
 			Value: 1,

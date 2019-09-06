@@ -12,8 +12,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "black sand",
-					Origin: "black sand",
+					Name:         "black sand",
+					Origin:       "black sand",
+					MainMaterial: "black sand",
 					Tags: []string{
 						"sand",
 					},
@@ -29,8 +30,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "continental sand",
-					Origin: "continental sand",
+					Name:         "continental sand",
+					Origin:       "continental sand",
+					MainMaterial: "continental sand",
 					Tags: []string{
 						"sand",
 					},
@@ -46,8 +48,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "coral sand",
-					Origin: "coral sand",
+					Name:         "coral sand",
+					Origin:       "coral sand",
+					MainMaterial: "coral sand",
 					Tags: []string{
 						"sand",
 					},
@@ -63,8 +66,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "dune sand",
-					Origin: "dune sand",
+					Name:         "dune sand",
+					Origin:       "dune sand",
+					MainMaterial: "dune sand",
 					Tags: []string{
 						"sand",
 					},
@@ -80,8 +84,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "green sand",
-					Origin: "green sand",
+					Name:         "green sand",
+					Origin:       "green sand",
+					MainMaterial: "green sand",
 					Tags: []string{
 						"sand",
 					},
@@ -97,8 +102,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "red sand",
-					Origin: "red sand",
+					Name:         "red sand",
+					Origin:       "red sand",
+					MainMaterial: "red sand",
 					Tags: []string{
 						"sand",
 					},
@@ -114,8 +120,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "volcanic sand",
-					Origin: "volcanic sand",
+					Name:         "volcanic sand",
+					Origin:       "volcanic sand",
+					MainMaterial: "volcanic sand",
 					Tags: []string{
 						"sand",
 					},
@@ -131,8 +138,9 @@ func Sands() []Soil {
 			UsedForAgriculture: false,
 			Resources: []resource.Resource{
 				{
-					Name:   "white sand",
-					Origin: "white sand",
+					Name:         "white sand",
+					Origin:       "white sand",
+					MainMaterial: "white sand",
 					Tags: []string{
 						"sand",
 					},

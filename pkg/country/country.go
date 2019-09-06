@@ -49,7 +49,7 @@ func Generate() (Country, error) {
 	size := rand.Intn(10) + 4
 
 	for i := 0; i < size; i++ {
-		r, err := region.Generate(country.DominantCulture.HomeClimate.Name, country.DominantCulture)
+		r, err := region.Generate(country.DominantCulture.HomeClimate, country.DominantCulture)
 		if err != nil {
 			err = fmt.Errorf("Could not generate country: %w", err)
 			return Country{}, err

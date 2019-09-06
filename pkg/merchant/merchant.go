@@ -42,7 +42,8 @@ func Random() (Merchant, error) {
 		err = fmt.Errorf("Could not generate random merchant: %w", err)
 		return Merchant{}, err
 	}
-	originTown, err := town.Generate("metropolis", "random", originCulture)
+	originClimate := originCulture.HomeClimate
+	originTown, err := town.Generate("metropolis", originClimate, originCulture)
 	if err != nil {
 		err = fmt.Errorf("Could not generate random merchant: %w", err)
 		return Merchant{}, err

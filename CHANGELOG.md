@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.5.0 (2019-09-06)
+
+### Change List
+
+- Add tags to trees
+- Change deciduous/coniferous logic to use tags
+- Add cartwrights and land vehicles
+- Add warlock, necromancer, and philosopher professions
+- Change how resources and trade goods are named and described
+- Clean up climate plant generation
+- Clean up climate animal generation
+- Change how climates are generated
+- Fix obscure bug in climates for regions and towns
+- Move fish to their own package
+- Add tags to fish
+
 ## 0.4.14 (2019-09-05)
 
 Fix bad random logic.

@@ -7,8 +7,9 @@ func getWeaving() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "large blanket",
-			Description: "a large blanket",
+			Name:         "large blanket",
+			NameTemplate: "large {{.MainMaterial}} blanket",
+			Description:  "a large blanket",
 			Tags: []string{
 				"blanket",
 			},
@@ -17,14 +18,15 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "large {{.Resource.Origin}} blanket",
+					DescriptionTemplate: "large {{.Resource.MainMaterial}} blanket",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "small blanket",
-			Description: "a small blanket",
+			Name:         "small blanket",
+			NameTemplate: "small {{.MainMaterial}} blanket",
+			Description:  "a small blanket",
 			Tags: []string{
 				"blanket",
 			},
@@ -33,14 +35,15 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "small {{.Resource.Origin}} blanket",
+					DescriptionTemplate: "small {{.Resource.MainMaterial}} blanket",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "fabric",
-			Description: "a bolt of fabric",
+			Name:         "fabric",
+			NameTemplate: "bolt of {{.MainMaterial}} fabric",
+			Description:  "a bolt of fabric",
 			Tags: []string{
 				"fabric",
 			},
@@ -49,14 +52,15 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric fiber",
-					DescriptionTemplate: "bolt of {{.Resource.Origin}} fabric",
+					DescriptionTemplate: "bolt of {{.Resource.MainMaterial}} fabric",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "fabric",
-			Description: "a bolt of fabric",
+			Name:         "fabric",
+			NameTemplate: "bolt of velveteen fabric",
+			Description:  "a bolt of fabric",
 			Tags: []string{
 				"fabric",
 			},
@@ -72,8 +76,9 @@ func getWeaving() []Pattern {
 			OriginOverride: "velveteen",
 		},
 		{
-			Name:        "thread",
-			Description: "a spool of thread",
+			Name:         "thread",
+			NameTemplate: "spool of {{.MainMaterial}} thread",
+			Description:  "a spool of thread",
 			Tags: []string{
 				"thread",
 			},
@@ -82,14 +87,15 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric fiber",
-					DescriptionTemplate: "spool of {{.Resource.Origin}} thread",
+					DescriptionTemplate: "spool of {{.Resource.MainMaterial}} thread",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "quilt",
-			Description: "a quilt",
+			Name:         "quilt",
+			NameTemplate: "{{.MainMaterial}} quilt",
+			Description:  "a quilt",
 			Tags: []string{
 				"blanket",
 			},
@@ -98,7 +104,7 @@ func getWeaving() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} quilt",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} quilt",
 				},
 			},
 			Value: 1,

@@ -7,8 +7,9 @@ func getCobbler() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "boots",
-			Description: "boots",
+			Name:         "boots",
+			NameTemplate: "{{.MainMaterial}} leather boots",
+			Description:  "boots",
 			Tags: []string{
 				"clothing",
 				"footwear",
@@ -18,14 +19,15 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} leather boots",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} leather boots",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "boots",
-			Description: "boots",
+			Name:         "boots",
+			NameTemplate: "{{.MainMaterial}} hide boots",
+			Description:  "boots",
 			Tags: []string{
 				"clothing",
 				"footwear",
@@ -35,14 +37,15 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} hide boots",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} hide boots",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "sandals",
-			Description: "sandals",
+			Name:         "sandals",
+			NameTemplate: "{{.MainMaterial}} hide sandals",
+			Description:  "sandals",
 			Tags: []string{
 				"clothing",
 				"footwear",
@@ -52,14 +55,15 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} hide sandals",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} hide sandals",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "shoes",
-			Description: "shoes",
+			Name:         "shoes",
+			NameTemplate: "{{.MainMaterial}} hide shoes",
+			Description:  "shoes",
 			Tags: []string{
 				"clothing",
 				"footwear",
@@ -69,14 +73,15 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} hide shoes",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} hide shoes",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "slippers",
-			Description: "slippers",
+			Name:         "slippers",
+			NameTemplate: "{{.MainMaterial}} slippers",
+			Description:  "slippers",
 			Tags: []string{
 				"clothing",
 				"footwear",
@@ -86,14 +91,15 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fabric",
-					DescriptionTemplate: "{{.Resource.Origin}} slippers",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} slippers",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "turnshoes",
-			Description: "turnshoes",
+			Name:         "turnshoes",
+			NameTemplate: "{{.MainMaterial}} hide turnshoes",
+			Description:  "turnshoes",
 			Tags: []string{
 				"clothing",
 				"footwear",
@@ -103,7 +109,7 @@ func getCobbler() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "leather",
-					DescriptionTemplate: "{{.Resource.Origin}} hide turnshoes",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} hide turnshoes",
 				},
 			},
 			Value: 1,

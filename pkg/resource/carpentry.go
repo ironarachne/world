@@ -7,8 +7,9 @@ func getCarpentry() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "barrel",
-			Description: "a barrel",
+			Name:         "barrel",
+			NameTemplate: "{{.MainMaterial}} wood barrel",
+			Description:  "a barrel",
 			Tags: []string{
 				"furniture",
 			},
@@ -17,14 +18,15 @@ func getCarpentry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} wood barrel",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} wood barrel",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "bench",
-			Description: "a bench",
+			Name:         "bench",
+			NameTemplate: "{{.MainMaterial}} wood bench",
+			Description:  "a bench",
 			Tags: []string{
 				"furniture",
 			},
@@ -33,14 +35,15 @@ func getCarpentry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} wood bench",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} wood bench",
 				},
 			},
 			Value: 3,
 		},
 		{
-			Name:        "bowl",
-			Description: "a bowl",
+			Name:         "bowl",
+			NameTemplate: "{{.MainMaterial}} wood bowl",
+			Description:  "a bowl",
 			Tags: []string{
 				"food vessel",
 			},
@@ -49,14 +52,15 @@ func getCarpentry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood",
-					DescriptionTemplate: "{{.Resource.Origin}} wood bowl",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} wood bowl",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "cask",
-			Description: "a cask",
+			Name:         "cask",
+			NameTemplate: "{{.MainMaterial}} wood cask",
+			Description:  "a cask",
 			Tags: []string{
 				"furniture",
 			},
@@ -65,14 +69,15 @@ func getCarpentry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} wood cask",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} wood cask",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "chair",
-			Description: "a chair",
+			Name:         "chair",
+			NameTemplate: "{{.MainMaterial}} wood chair",
+			Description:  "a chair",
 			Tags: []string{
 				"furniture",
 			},
@@ -81,14 +86,15 @@ func getCarpentry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} wood chair",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} wood chair",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "table",
-			Description: "a table",
+			Name:         "table",
+			NameTemplate: "{{.MainMaterial}} wood table",
+			Description:  "a table",
 			Tags: []string{
 				"furniture",
 			},
@@ -97,14 +103,15 @@ func getCarpentry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} wood table",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} wood table",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "tankard",
-			Description: "a tankard",
+			Name:         "tankard",
+			NameTemplate: "{{.MainMaterial}} wood tankard",
+			Description:  "a tankard",
 			Tags: []string{
 				"drinking vessel",
 			},
@@ -113,7 +120,7 @@ func getCarpentry() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} wood tankard",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} wood tankard",
 				},
 			},
 			Value: 1,

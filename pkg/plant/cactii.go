@@ -13,8 +13,9 @@ func getCactii() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "agave fiber",
-					Origin: "agave",
+					Name:         "agave fiber",
+					Origin:       "agave",
+					MainMaterial: "agave",
 					Tags: []string{
 						"fiber",
 					},
@@ -22,8 +23,9 @@ func getCactii() []Plant {
 					Value:       1,
 				},
 				{
-					Name:   "agave needle",
-					Origin: "agave",
+					Name:         "agave needle",
+					Origin:       "agave",
+					MainMaterial: "agave",
 					Tags: []string{
 						"needle",
 					},
@@ -31,8 +33,9 @@ func getCactii() []Plant {
 					Value:       1,
 				},
 				{
-					Name:   "agave sap",
-					Origin: "agave",
+					Name:         "agave sap",
+					Origin:       "agave",
+					MainMaterial: "agave",
 					Tags: []string{
 						"sap",
 					},
@@ -50,8 +53,9 @@ func getCactii() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "dragonfruit",
-					Origin: "dragonfruit",
+					Name:         "dragonfruit",
+					Origin:       "pitahaya",
+					MainMaterial: "dragonfruit",
 					Tags: []string{
 						"fruit",
 					},
@@ -69,8 +73,9 @@ func getCactii() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "saguaro fiber",
-					Origin: "saguaro",
+					Name:         "saguaro fiber",
+					Origin:       "saguaro",
+					MainMaterial: "saguaro",
 					Tags: []string{
 						"fiber",
 					},
@@ -78,8 +83,9 @@ func getCactii() []Plant {
 					Value:       1,
 				},
 				{
-					Name:   "saguaro",
-					Origin: "saguaro",
+					Name:         "saguaro",
+					Origin:       "saguaro",
+					MainMaterial: "saguaro",
 					Tags: []string{
 						"fruit",
 					},
@@ -87,8 +93,9 @@ func getCactii() []Plant {
 					Value:       1,
 				},
 				{
-					Name:   "saguaro needle",
-					Origin: "saguaro",
+					Name:         "saguaro needle",
+					Origin:       "saguaro",
+					MainMaterial: "saguaro",
 					Tags: []string{
 						"needle",
 					},
@@ -96,8 +103,9 @@ func getCactii() []Plant {
 					Value:       1,
 				},
 				{
-					Name:   "saguaro sap",
-					Origin: "saguaro",
+					Name:         "saguaro sap",
+					Origin:       "saguaro",
+					MainMaterial: "saguaro",
 					Tags: []string{
 						"sap",
 					},

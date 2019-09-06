@@ -13,8 +13,9 @@ func getArachnids() []Insect {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "black widow venom",
-					Origin: "black widow",
+					Name:         "black widow venom",
+					Origin:       "black widow",
+					MainMaterial: "black widow",
 					Tags: []string{
 						"venom",
 					},
@@ -37,8 +38,9 @@ func getArachnids() []Insect {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "brown recluse venom",
-					Origin: "brown recluse",
+					Name:         "brown recluse venom",
+					Origin:       "brown recluse",
+					MainMaterial: "brown recluse",
 					Tags: []string{
 						"venom",
 					},
@@ -61,8 +63,9 @@ func getArachnids() []Insect {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "emperor scorpion venom",
-					Origin: "emperor scorpion",
+					Name:         "emperor scorpion venom",
+					Origin:       "emperor scorpion",
+					MainMaterial: "emperor scorpion",
 					Tags: []string{
 						"venom",
 					},
@@ -98,8 +101,9 @@ func getArachnids() []Insect {
 			MaxTemperature: 7,
 			Resources: []resource.Resource{
 				{
-					Name:   "scorpion venom",
-					Origin: "scorpion",
+					Name:         "scorpion venom",
+					Origin:       "scorpion",
+					MainMaterial: "scorpion",
 					Tags: []string{
 						"venom",
 					},

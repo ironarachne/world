@@ -22,8 +22,9 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "goose eggs",
-					Origin: "goose",
+					Name:         "goose eggs",
+					Origin:       "goose",
+					MainMaterial: "goose",
 					Tags: []string{
 						"egg",
 					},
@@ -31,8 +32,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "goose feathers",
-					Origin: "goose",
+					Name:         "goose feathers",
+					Origin:       "goose",
+					MainMaterial: "goose",
 					Tags: []string{
 						"feather",
 					},
@@ -40,8 +42,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "goose",
-					Origin: "goose",
+					Name:         "goose",
+					Origin:       "goose",
+					MainMaterial: "goose",
 					Tags: []string{
 						"meat",
 					},
@@ -49,8 +52,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "goose liver",
-					Origin: "goose",
+					Name:         "goose liver",
+					Origin:       "goose",
+					MainMaterial: "goose",
 					Tags: []string{
 						"meat",
 					},
@@ -81,8 +85,9 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "chicken eggs",
-					Origin: "chicken",
+					Name:         "chicken eggs",
+					Origin:       "chicken",
+					MainMaterial: "chicken",
 					Tags: []string{
 						"egg",
 					},
@@ -90,8 +95,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "chicken feathers",
-					Origin: "chicken",
+					Name:         "chicken feathers",
+					Origin:       "chicken",
+					MainMaterial: "chicken",
 					Tags: []string{
 						"feather",
 					},
@@ -99,8 +105,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "chicken",
-					Origin: "chicken",
+					Name:         "chicken",
+					Origin:       "chicken",
+					MainMaterial: "chicken",
 					Tags: []string{
 						"meat",
 					},
@@ -108,8 +115,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "chicken liver",
-					Origin: "chicken",
+					Name:         "chicken liver",
+					Origin:       "chicken",
+					MainMaterial: "chicken",
 					Tags: []string{
 						"meat",
 					},
@@ -140,8 +148,9 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "mudhen eggs",
-					Origin: "mudhen",
+					Name:         "mudhen eggs",
+					Origin:       "mudhen",
+					MainMaterial: "mudhen",
 					Tags: []string{
 						"egg",
 					},
@@ -149,8 +158,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "mudhen feathers",
-					Origin: "mudhen",
+					Name:         "mudhen feathers",
+					Origin:       "mudhen",
+					MainMaterial: "mudhen",
 					Tags: []string{
 						"feather",
 					},
@@ -158,8 +168,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "mudhen",
-					Origin: "mudhen",
+					Name:         "mudhen",
+					Origin:       "mudhen",
+					MainMaterial: "mudhen",
 					Tags: []string{
 						"meat",
 					},
@@ -190,8 +201,9 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "quail eggs",
-					Origin: "quail",
+					Name:         "quail eggs",
+					Origin:       "quail",
+					MainMaterial: "quail",
 					Tags: []string{
 						"egg",
 					},
@@ -199,8 +211,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "quail feathers",
-					Origin: "quail",
+					Name:         "quail feathers",
+					Origin:       "quail",
+					MainMaterial: "quail",
 					Tags: []string{
 						"feather",
 					},
@@ -208,8 +221,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "quail",
-					Origin: "quail",
+					Name:         "quail",
+					Origin:       "quail",
+					MainMaterial: "quail",
 					Tags: []string{
 						"meat",
 					},
@@ -240,8 +254,9 @@ func getGameBirds() []Animal {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "duck eggs",
-					Origin: "duck",
+					Name:         "duck eggs",
+					Origin:       "duck",
+					MainMaterial: "duck",
 					Tags: []string{
 						"egg",
 					},
@@ -249,8 +264,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "duck feathers",
-					Origin: "duck",
+					Name:         "duck feathers",
+					Origin:       "duck",
+					MainMaterial: "duck",
 					Tags: []string{
 						"feather",
 					},
@@ -258,8 +274,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "duck",
-					Origin: "duck",
+					Name:         "duck",
+					Origin:       "duck",
+					MainMaterial: "duck",
 					Tags: []string{
 						"meat",
 					},
@@ -267,8 +284,9 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 				{
-					Name:   "duck liver",
-					Origin: "duck",
+					Name:         "duck liver",
+					Origin:       "duck",
+					MainMaterial: "duck",
 					Tags: []string{
 						"meat",
 					},

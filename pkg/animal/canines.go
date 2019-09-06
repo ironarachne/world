@@ -35,8 +35,9 @@ func getCanines() []Animal {
 		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
 			{
-				Name:   a.Name + " hide",
-				Origin: a.Name,
+				Name:         a.Name + " hide",
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"hide",
 				},
@@ -44,8 +45,9 @@ func getCanines() []Animal {
 				Value:       4,
 			},
 			{
-				Name:   a.Name + " fangs",
-				Origin: a.Name,
+				Name:         a.Name + " fangs",
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"fangs",
 					"teeth",
@@ -54,8 +56,9 @@ func getCanines() []Animal {
 				Value:       1,
 			},
 			{
-				Name:   a.Name,
-				Origin: a.Name,
+				Name:         a.Name,
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"meat",
 				},
@@ -63,8 +66,9 @@ func getCanines() []Animal {
 				Value:       1,
 			},
 			{
-				Name:   a.Name,
-				Origin: a.Name,
+				Name:         a.Name,
+				Origin:       a.Name,
+				MainMaterial: a.Name,
 				Tags: []string{
 					"sinew",
 				},

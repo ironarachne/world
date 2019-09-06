@@ -13,8 +13,9 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "rye",
-					Origin: "rye",
+					Name:         "rye",
+					Origin:       "rye",
+					MainMaterial: "rye",
 					Tags: []string{
 						"grain",
 					},
@@ -32,8 +33,9 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "oat",
-					Origin: "oat",
+					Name:         "oat",
+					Origin:       "oat",
+					MainMaterial: "oat",
 					Tags: []string{
 						"grain",
 					},
@@ -51,8 +53,9 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "millet",
-					Origin: "millet",
+					Name:         "millet",
+					Origin:       "millet",
+					MainMaterial: "millet",
 					Tags: []string{
 						"grain",
 					},
@@ -70,8 +73,9 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "barley",
-					Origin: "barley",
+					Name:         "barley",
+					Origin:       "barley",
+					MainMaterial: "barley",
 					Tags: []string{
 						"grain",
 					},
@@ -89,8 +93,9 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "wheat",
-					Origin: "wheat",
+					Name:         "wheat",
+					Origin:       "wheat",
+					MainMaterial: "wheat",
 					Tags: []string{
 						"grain",
 					},
@@ -108,8 +113,9 @@ func getGrains() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "rice",
-					Origin: "rice",
+					Name:         "rice",
+					Origin:       "rice",
+					MainMaterial: "rice",
 					Tags: []string{
 						"grain",
 					},

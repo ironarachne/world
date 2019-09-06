@@ -7,8 +7,9 @@ func getTannery() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "leather",
-			Description: "leather",
+			Name:         "leather",
+			NameTemplate: "{{.MainMaterial}} leather",
+			Description:  "leather",
 			Tags: []string{
 				"leather",
 			},
@@ -17,7 +18,7 @@ func getTannery() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "hide",
-					DescriptionTemplate: "{{.Resource.Origin}} leather",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} leather",
 				},
 			},
 			Value: 1,

@@ -13,8 +13,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "parsley",
-					Origin: "parsley",
+					Name:         "parsley",
+					Origin:       "parsley",
+					MainMaterial: "parsley",
 					Tags: []string{
 						"herb",
 					},
@@ -32,8 +33,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "brahmi",
-					Origin: "brahmi",
+					Name:         "brahmi",
+					Origin:       "brahmi",
+					MainMaterial: "brahmi",
 					Tags: []string{
 						"herb",
 					},
@@ -51,8 +53,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "basil",
-					Origin: "basil",
+					Name:         "basil",
+					Origin:       "basil",
+					MainMaterial: "basil",
 					Tags: []string{
 						"herb",
 					},
@@ -70,8 +73,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "cilantro",
-					Origin: "cilantro",
+					Name:         "cilantro",
+					Origin:       "cilantro",
+					MainMaterial: "cilantro",
 					Tags: []string{
 						"herb",
 					},
@@ -89,8 +93,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "saffron",
-					Origin: "saffron",
+					Name:         "saffron",
+					Origin:       "saffron",
+					MainMaterial: "saffron",
 					Tags: []string{
 						"herb",
 					},
@@ -108,8 +113,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "rosemary",
-					Origin: "rosemary",
+					Name:         "rosemary",
+					Origin:       "rosemary",
+					MainMaterial: "rosemary",
 					Tags: []string{
 						"herb",
 					},
@@ -127,8 +133,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "thyme",
-					Origin: "thyme",
+					Name:         "thyme",
+					Origin:       "thyme",
+					MainMaterial: "thyme",
 					Tags: []string{
 						"herb",
 					},
@@ -146,8 +153,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "black pepper",
-					Origin: "black pepper",
+					Name:         "black pepper",
+					Origin:       "black pepper",
+					MainMaterial: "black pepper",
 					Tags: []string{
 						"spice",
 					},
@@ -165,8 +173,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "oregano",
-					Origin: "oregano",
+					Name:         "oregano",
+					Origin:       "oregano",
+					MainMaterial: "oregano",
 					Tags: []string{
 						"herb",
 					},
@@ -184,8 +193,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "mint",
-					Origin: "mint",
+					Name:         "mint",
+					Origin:       "mint",
+					MainMaterial: "mint",
 					Tags: []string{
 						"herb",
 					},
@@ -203,8 +213,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "lemongrass",
-					Origin: "lemongrass",
+					Name:         "lemongrass",
+					Origin:       "lemongrass",
+					MainMaterial: "lemongrass",
 					Tags: []string{
 						"herb",
 					},
@@ -222,8 +233,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "coriander",
-					Origin: "coriander",
+					Name:         "coriander",
+					Origin:       "coriander",
+					MainMaterial: "coriander",
 					Tags: []string{
 						"spice",
 					},
@@ -241,8 +253,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "clove",
-					Origin: "clove",
+					Name:         "clove",
+					Origin:       "clove",
+					MainMaterial: "clove",
 					Tags: []string{
 						"spice",
 					},
@@ -260,8 +273,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "sage",
-					Origin: "sage",
+					Name:         "sage",
+					Origin:       "sage",
+					MainMaterial: "sage",
 					Tags: []string{
 						"herb",
 					},
@@ -279,8 +293,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "turmeric",
-					Origin: "turmeric",
+					Name:         "turmeric",
+					Origin:       "turmeric",
+					MainMaterial: "turmeric",
 					Tags: []string{
 						"spice",
 					},
@@ -298,8 +313,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "vanilla",
-					Origin: "vanilla",
+					Name:         "vanilla",
+					Origin:       "vanilla",
+					MainMaterial: "vanilla",
 					Tags: []string{
 						"herb",
 					},
@@ -317,8 +333,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "galangal",
-					Origin: "galangal",
+					Name:         "galangal",
+					Origin:       "galangal",
+					MainMaterial: "galangal",
 					Tags: []string{
 						"spice",
 					},
@@ -336,8 +353,9 @@ func getHerbs() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "ginger",
-					Origin: "ginger",
+					Name:         "ginger",
+					Origin:       "ginger",
+					MainMaterial: "ginger",
 					Tags: []string{
 						"spice",
 					},

@@ -7,8 +7,9 @@ func getPotions() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "healing potion",
-			Description: "a healing potion",
+			Name:         "healing potion",
+			NameTemplate: "healing potion",
+			Description:  "a healing potion",
 			Tags: []string{
 				"potion",
 			},

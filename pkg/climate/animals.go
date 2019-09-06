@@ -4,6 +4,18 @@ import (
 	"github.com/ironarachne/world/pkg/animal"
 )
 
+func (climate Climate) getAnimals() ([]animal.Animal, error) {
+	animals := climate.getFilteredAnimals()
+
+	hideAnimals := animal.ByTag("hide", animals)
+	hideAnimal := animal.Random(1, hideAnimals)
+
+	animals = animal.Random(climate.MaxAnimals, animals)
+	animals = append(animals, hideAnimal...)
+
+	return animals, nil
+}
+
 func (climate Climate) getFilteredAnimals() []animal.Animal {
 	animals := animal.All()
 	animals = filterAnimalsForHumidity(climate.Humidity, animals)

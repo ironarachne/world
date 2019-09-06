@@ -13,8 +13,9 @@ func getBushes() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "blackberry",
-					Origin: "blackberry",
+					Name:         "blackberry",
+					Origin:       "blackberry bush",
+					MainMaterial: "blackberry",
 					Tags: []string{
 						"berry",
 						"fruit",
@@ -33,8 +34,9 @@ func getBushes() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "blueberry",
-					Origin: "blueberry",
+					Name:         "blueberry",
+					Origin:       "blueberry bush",
+					MainMaterial: "blueberry",
 					Tags: []string{
 						"berry",
 						"fruit",
@@ -53,8 +55,9 @@ func getBushes() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "raspberry",
-					Origin: "raspberry",
+					Name:         "raspberry",
+					Origin:       "raspberry bush",
+					MainMaterial: "raspberry",
 					Tags: []string{
 						"berry",
 						"fruit",
@@ -73,8 +76,9 @@ func getBushes() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "strawberry",
-					Origin: "strawberry",
+					Name:         "strawberry",
+					Origin:       "strawberry bush",
+					MainMaterial: "strawberry",
 					Tags: []string{
 						"berry",
 						"fruit",
@@ -93,8 +97,9 @@ func getBushes() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "boysenberry",
-					Origin: "boysenberry",
+					Name:         "boysenberry",
+					Origin:       "boysenberry bush",
+					MainMaterial: "boysenberry",
 					Tags: []string{
 						"berry",
 						"fruit",
@@ -113,8 +118,9 @@ func getBushes() []Plant {
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
-					Name:   "gooseberry",
-					Origin: "gooseberry",
+					Name:         "gooseberry",
+					Origin:       "gooseberry bush",
+					MainMaterial: "gooseberry",
 					Tags: []string{
 						"berry",
 						"fruit",

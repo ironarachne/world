@@ -12,8 +12,9 @@ func Stones() []Mineral {
 			Malleability: 5,
 			Resources: []resource.Resource{
 				{
-					Name:   "basalt",
-					Origin: "basalt",
+					Name:         "basalt",
+					Origin:       "basalt",
+					MainMaterial: "basalt",
 					Tags: []string{
 						"stone",
 						"building stone",
@@ -30,8 +31,9 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "chalk",
-					Origin: "chalk",
+					Name:         "chalk",
+					Origin:       "chalk",
+					MainMaterial: "chalk",
 					Tags: []string{
 						"stone",
 					},
@@ -47,8 +49,9 @@ func Stones() []Mineral {
 			Malleability: 2,
 			Resources: []resource.Resource{
 				{
-					Name:   "granite",
-					Origin: "granite",
+					Name:         "granite",
+					Origin:       "granite",
+					MainMaterial: "granite",
 					Tags: []string{
 						"stone",
 						"building stone",
@@ -65,8 +68,9 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "limestone",
-					Origin: "limestone",
+					Name:         "limestone",
+					Origin:       "limestone",
+					MainMaterial: "limestone",
 					Tags: []string{
 						"stone",
 						"building stone",
@@ -83,8 +87,9 @@ func Stones() []Mineral {
 			Malleability: 2,
 			Resources: []resource.Resource{
 				{
-					Name:   "marble",
-					Origin: "marble",
+					Name:         "marble",
+					Origin:       "marble",
+					MainMaterial: "marble",
 					Tags: []string{
 						"stone",
 						"building stone",
@@ -102,8 +107,9 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "sandstone",
-					Origin: "sandstone",
+					Name:         "sandstone",
+					Origin:       "sandstone",
+					MainMaterial: "sandstone",
 					Tags: []string{
 						"stone",
 						"building stone",
@@ -121,8 +127,9 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "shale",
-					Origin: "shale",
+					Name:         "shale",
+					Origin:       "shale",
+					MainMaterial: "shale",
 					Tags: []string{
 						"stone",
 					},
@@ -138,8 +145,9 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "slate",
-					Origin: "slate",
+					Name:         "slate",
+					Origin:       "slate",
+					MainMaterial: "slate",
 					Tags: []string{
 						"stone",
 					},
@@ -155,8 +163,9 @@ func Stones() []Mineral {
 			Malleability: 4,
 			Resources: []resource.Resource{
 				{
-					Name:   "soapstone",
-					Origin: "soapstone",
+					Name:         "soapstone",
+					Origin:       "soapstone",
+					MainMaterial: "soapstone",
 					Tags: []string{
 						"stone",
 					},

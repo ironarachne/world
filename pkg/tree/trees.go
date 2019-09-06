@@ -10,16 +10,18 @@ func All() []Tree {
 		{
 			Name:           "acacia",
 			PluralName:     "acacias",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "acacia",
-					Origin: "acacia",
+					Name:         "acacia",
+					Origin:       "acacia",
+					MainMaterial: "acacia",
 					Tags: []string{
 						"wood",
 					},
@@ -31,16 +33,18 @@ func All() []Tree {
 		{
 			Name:           "alder",
 			PluralName:     "alders",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "alder",
-					Origin: "alder",
+					Name:         "alder",
+					Origin:       "alder",
+					MainMaterial: "alder",
 					Tags: []string{
 						"wood",
 					},
@@ -52,16 +56,18 @@ func All() []Tree {
 		{
 			Name:           "apple",
 			PluralName:     "apples",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "apple",
-					Origin: "apple",
+					Name:         "apple",
+					Origin:       "apple",
+					MainMaterial: "apple",
 					Tags: []string{
 						"wood",
 					},
@@ -69,8 +75,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "apple",
-					Origin: "apple",
+					Name:         "apple",
+					Origin:       "apple",
+					MainMaterial: "apple",
 					Tags: []string{
 						"fruit",
 					},
@@ -82,16 +89,18 @@ func All() []Tree {
 		{
 			Name:           "ash",
 			PluralName:     "ashes",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "ash",
-					Origin: "ash",
+					Name:         "ash",
+					Origin:       "ash",
+					MainMaterial: "ash",
 					Tags: []string{
 						"wood",
 					},
@@ -103,16 +112,18 @@ func All() []Tree {
 		{
 			Name:           "aspen",
 			PluralName:     "aspens",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "aspen",
-					Origin: "aspen",
+					Name:         "aspen",
+					Origin:       "aspen",
+					MainMaterial: "aspen",
 					Tags: []string{
 						"wood",
 					},
@@ -124,16 +135,18 @@ func All() []Tree {
 		{
 			Name:           "avocado",
 			PluralName:     "avocados",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    6,
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "avocado",
-					Origin: "avocado",
+					Name:         "avocado",
+					Origin:       "avocado",
+					MainMaterial: "avocado",
 					Tags: []string{
 						"fruit",
 					},
@@ -141,8 +154,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "avocado",
-					Origin: "avocado",
+					Name:         "avocado",
+					Origin:       "avocado",
+					MainMaterial: "avocado",
 					Tags: []string{
 						"wood",
 					},
@@ -154,16 +168,18 @@ func All() []Tree {
 		{
 			Name:           "balsa",
 			PluralName:     "balsas",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "balsa",
-					Origin: "balsa",
+					Name:         "balsa",
+					Origin:       "balsa",
+					MainMaterial: "balsa",
 					Tags: []string{
 						"wood",
 					},
@@ -175,16 +191,18 @@ func All() []Tree {
 		{
 			Name:           "banana",
 			PluralName:     "bananas",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    4,
 			MaxHumidity:    10,
 			MinTemperature: 7,
 			MaxTemperature: 10,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "banana",
-					Origin: "banana",
+					Name:         "banana",
+					Origin:       "banana",
+					MainMaterial: "banana",
 					Tags: []string{
 						"wood",
 					},
@@ -192,8 +210,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "banana",
-					Origin: "banana",
+					Name:         "banana",
+					Origin:       "banana",
+					MainMaterial: "banana",
 					Tags: []string{
 						"fruit",
 					},
@@ -205,16 +224,18 @@ func All() []Tree {
 		{
 			Name:           "birch",
 			PluralName:     "birches",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "birch",
-					Origin: "birch",
+					Name:         "birch",
+					Origin:       "birch",
+					MainMaterial: "birch",
 					Tags: []string{
 						"wood",
 					},
@@ -226,16 +247,18 @@ func All() []Tree {
 		{
 			Name:           "black pine",
 			PluralName:     "black pines",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "black pine",
-					Origin: "black pine",
+					Name:         "black pine",
+					Origin:       "black pine",
+					MainMaterial: "black pine",
 					Tags: []string{
 						"wood",
 					},
@@ -247,16 +270,18 @@ func All() []Tree {
 		{
 			Name:           "blackwood",
 			PluralName:     "blackwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "blackwood",
-					Origin: "blackwood",
+					Name:         "blackwood",
+					Origin:       "blackwood",
+					MainMaterial: "blackwood",
 					Tags: []string{
 						"wood",
 					},
@@ -268,16 +293,18 @@ func All() []Tree {
 		{
 			Name:           "boxwood",
 			PluralName:     "boxwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "boxwood",
-					Origin: "boxwood",
+					Name:         "boxwood",
+					Origin:       "boxwood",
+					MainMaterial: "boxwood",
 					Tags: []string{
 						"wood",
 					},
@@ -289,16 +316,18 @@ func All() []Tree {
 		{
 			Name:           "cedar",
 			PluralName:     "cedars",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "cedar",
-					Origin: "cedar",
+					Name:         "cedar",
+					Origin:       "cedar",
+					MainMaterial: "cedar",
 					Tags: []string{
 						"wood",
 					},
@@ -310,16 +339,18 @@ func All() []Tree {
 		{
 			Name:           "cherry",
 			PluralName:     "cherries",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "cherry",
-					Origin: "cherry",
+					Name:         "cherry",
+					Origin:       "cherry",
+					MainMaterial: "cherry",
 					Tags: []string{
 						"wood",
 					},
@@ -327,8 +358,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "cherry",
-					Origin: "cherry",
+					Name:         "cherry",
+					Origin:       "cherry",
+					MainMaterial: "cherry",
 					Tags: []string{
 						"fruit",
 					},
@@ -340,16 +372,18 @@ func All() []Tree {
 		{
 			Name:           "cinnamon",
 			PluralName:     "cinnamons",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    8,
 			MinTemperature: 0,
 			MaxTemperature: 8,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "cinnamon",
-					Origin: "cinnamon",
+					Name:         "cinnamon",
+					Origin:       "cinnamon",
+					MainMaterial: "cinnamon",
 					Tags: []string{
 						"wood",
 					},
@@ -357,8 +391,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "cinnamon",
-					Origin: "cinnamon",
+					Name:         "cinnamon",
+					Origin:       "cinnamon",
+					MainMaterial: "cinnamon",
 					Tags: []string{
 						"spice",
 					},
@@ -370,16 +405,18 @@ func All() []Tree {
 		{
 			Name:           "coachwood",
 			PluralName:     "coachwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "coachwood",
-					Origin: "coachwood",
+					Name:         "coachwood",
+					Origin:       "coachwood",
+					MainMaterial: "coachwood",
 					Tags: []string{
 						"wood",
 					},
@@ -391,16 +428,18 @@ func All() []Tree {
 		{
 			Name:           "coconut",
 			PluralName:     "coconuts",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "coconut",
-					Origin: "coconut",
+					Name:         "coconut",
+					Origin:       "coconut",
+					MainMaterial: "coconut",
 					Tags: []string{
 						"wood",
 					},
@@ -408,8 +447,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "coconut",
-					Origin: "coconut",
+					Name:         "coconut",
+					Origin:       "coconut",
+					MainMaterial: "coconut",
 					Tags: []string{
 						"fruit",
 					},
@@ -421,16 +461,18 @@ func All() []Tree {
 		{
 			Name:           "corkwood",
 			PluralName:     "corkwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "corkwood",
-					Origin: "corkwood",
+					Name:         "corkwood",
+					Origin:       "corkwood",
+					MainMaterial: "corkwood",
 					Tags: []string{
 						"wood",
 					},
@@ -442,16 +484,18 @@ func All() []Tree {
 		{
 			Name:           "cottonwood",
 			PluralName:     "cottonwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "cottonwood",
-					Origin: "cottonwood",
+					Name:         "cottonwood",
+					Origin:       "cottonwood",
+					MainMaterial: "cottonwood",
 					Tags: []string{
 						"wood",
 					},
@@ -463,16 +507,18 @@ func All() []Tree {
 		{
 			Name:           "crabapple",
 			PluralName:     "crabapples",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "crabapple",
-					Origin: "crabapple",
+					Name:         "crabapple",
+					Origin:       "crabapple",
+					MainMaterial: "crabapple",
 					Tags: []string{
 						"wood",
 					},
@@ -480,8 +526,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "crabapple",
-					Origin: "crabapple",
+					Name:         "crabapple",
+					Origin:       "crabapple",
+					MainMaterial: "crabapple",
 					Tags: []string{
 						"fruit",
 					},
@@ -493,16 +540,18 @@ func All() []Tree {
 		{
 			Name:           "cypress",
 			PluralName:     "cypress",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "cypress",
-					Origin: "cypress",
+					Name:         "cypress",
+					Origin:       "cypress",
+					MainMaterial: "cypress",
 					Tags: []string{
 						"wood",
 					},
@@ -514,16 +563,18 @@ func All() []Tree {
 		{
 			Name:           "dogwood",
 			PluralName:     "dogwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "dogwood",
-					Origin: "dogwood",
+					Name:         "dogwood",
+					Origin:       "dogwood",
+					MainMaterial: "dogwood",
 					Tags: []string{
 						"wood",
 					},
@@ -535,16 +586,18 @@ func All() []Tree {
 		{
 			Name:           "elm",
 			PluralName:     "elms",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 5,
 			MaxTemperature: 7,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "elm",
-					Origin: "elm",
+					Name:         "elm",
+					Origin:       "elm",
+					MainMaterial: "elm",
 					Tags: []string{
 						"wood",
 					},
@@ -556,16 +609,18 @@ func All() []Tree {
 		{
 			Name:           "eucalyptus",
 			PluralName:     "eucalyptuses",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "eucalyptus",
-					Origin: "eucalyptus",
+					Name:         "eucalyptus",
+					Origin:       "eucalyptus",
+					MainMaterial: "eucalyptus",
 					Tags: []string{
 						"wood",
 					},
@@ -577,16 +632,18 @@ func All() []Tree {
 		{
 			Name:           "fir",
 			PluralName:     "firs",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "fir",
-					Origin: "fir",
+					Name:         "fir",
+					Origin:       "fir",
+					MainMaterial: "fir",
 					Tags: []string{
 						"wood",
 					},
@@ -598,16 +655,18 @@ func All() []Tree {
 		{
 			Name:           "hemlock",
 			PluralName:     "hemlocks",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "hemlock",
-					Origin: "hemlock",
+					Name:         "hemlock",
+					Origin:       "hemlock",
+					MainMaterial: "hemlock",
 					Tags: []string{
 						"wood",
 					},
@@ -619,16 +678,18 @@ func All() []Tree {
 		{
 			Name:           "ironwood",
 			PluralName:     "ironwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "ironwood",
-					Origin: "ironwood",
+					Name:         "ironwood",
+					Origin:       "ironwood",
+					MainMaterial: "ironwood",
 					Tags: []string{
 						"wood",
 					},
@@ -640,16 +701,18 @@ func All() []Tree {
 		{
 			Name:           "juniper",
 			PluralName:     "junipers",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "juniper",
-					Origin: "juniper",
+					Name:         "juniper",
+					Origin:       "juniper",
+					MainMaterial: "juniper",
 					Tags: []string{
 						"berry",
 						"fruit",
@@ -658,8 +721,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "juniper",
-					Origin: "juniper",
+					Name:         "juniper",
+					Origin:       "juniper",
+					MainMaterial: "juniper",
 					Tags: []string{
 						"wood",
 					},
@@ -671,16 +735,18 @@ func All() []Tree {
 		{
 			Name:           "kingwood",
 			PluralName:     "kingwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "kingwood",
-					Origin: "kingwood",
+					Name:         "kingwood",
+					Origin:       "kingwood",
+					MainMaterial: "kingwood",
 					Tags: []string{
 						"wood",
 					},
@@ -692,16 +758,18 @@ func All() []Tree {
 		{
 			Name:           "lacewood",
 			PluralName:     "lacewoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "lacewood",
-					Origin: "lacewood",
+					Name:         "lacewood",
+					Origin:       "lacewood",
+					MainMaterial: "lacewood",
 					Tags: []string{
 						"wood",
 					},
@@ -713,16 +781,18 @@ func All() []Tree {
 		{
 			Name:           "larch",
 			PluralName:     "larches",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "larch",
-					Origin: "larch",
+					Name:         "larch",
+					Origin:       "larch",
+					MainMaterial: "larch",
 					Tags: []string{
 						"wood",
 					},
@@ -734,16 +804,18 @@ func All() []Tree {
 		{
 			Name:           "lemon",
 			PluralName:     "lemons",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    9,
 			MinTemperature: 0,
 			MaxTemperature: 9,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "lemon",
-					Origin: "lemon",
+					Name:         "lemon",
+					Origin:       "lemon",
+					MainMaterial: "lemon",
 					Tags: []string{
 						"wood",
 					},
@@ -751,8 +823,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "lemon",
-					Origin: "lemon",
+					Name:         "lemon",
+					Origin:       "lemon",
+					MainMaterial: "lemon",
 					Tags: []string{
 						"fruit",
 					},
@@ -764,16 +837,18 @@ func All() []Tree {
 		{
 			Name:           "lime",
 			PluralName:     "limes",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    9,
 			MinTemperature: 0,
 			MaxTemperature: 9,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "lime",
-					Origin: "lime",
+					Name:         "lime",
+					Origin:       "lime",
+					MainMaterial: "lime",
 					Tags: []string{
 						"wood",
 					},
@@ -781,8 +856,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "lime",
-					Origin: "lime",
+					Name:         "lime",
+					Origin:       "lime",
+					MainMaterial: "lime",
 					Tags: []string{
 						"fruit",
 					},
@@ -794,16 +870,18 @@ func All() []Tree {
 		{
 			Name:           "mahogany",
 			PluralName:     "mahoganies",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "mahogany",
-					Origin: "mahogany",
+					Name:         "mahogany",
+					Origin:       "mahogany",
+					MainMaterial: "mahogany",
 					Tags: []string{
 						"wood",
 					},
@@ -815,16 +893,18 @@ func All() []Tree {
 		{
 			Name:           "mango",
 			PluralName:     "mangoes",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    4,
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "mango",
-					Origin: "mango",
+					Name:         "mango",
+					Origin:       "mango",
+					MainMaterial: "mango",
 					Tags: []string{
 						"wood",
 					},
@@ -832,8 +912,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "mango",
-					Origin: "mango",
+					Name:         "mango",
+					Origin:       "mango",
+					MainMaterial: "mango",
 					Tags: []string{
 						"fruit",
 					},
@@ -845,16 +926,18 @@ func All() []Tree {
 		{
 			Name:           "maple",
 			PluralName:     "maples",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 5,
 			MaxTemperature: 7,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "maple",
-					Origin: "maple",
+					Name:         "maple",
+					Origin:       "maple",
+					MainMaterial: "maple",
 					Tags: []string{
 						"wood",
 					},
@@ -866,16 +949,18 @@ func All() []Tree {
 		{
 			Name:           "oak",
 			PluralName:     "oaks",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 5,
 			MaxTemperature: 7,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "oak",
-					Origin: "oak",
+					Name:         "oak",
+					Origin:       "oak",
+					MainMaterial: "oak",
 					Tags: []string{
 						"wood",
 					},
@@ -887,16 +972,18 @@ func All() []Tree {
 		{
 			Name:           "olive",
 			PluralName:     "olives",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "olive",
-					Origin: "olive",
+					Name:         "olive",
+					Origin:       "olive",
+					MainMaterial: "olive",
 					Tags: []string{
 						"wood",
 					},
@@ -904,8 +991,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "olives",
-					Origin: "olive",
+					Name:         "olives",
+					Origin:       "olive",
+					MainMaterial: "olive",
 					Tags: []string{
 						"fruit",
 					},
@@ -917,16 +1005,18 @@ func All() []Tree {
 		{
 			Name:           "papaya",
 			PluralName:     "papayas",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    4,
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "papaya",
-					Origin: "papaya",
+					Name:         "papaya",
+					Origin:       "papaya",
+					MainMaterial: "papaya",
 					Tags: []string{
 						"wood",
 					},
@@ -934,8 +1024,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "papaya",
-					Origin: "papaya",
+					Name:         "papaya",
+					Origin:       "papaya",
+					MainMaterial: "papaya",
 					Tags: []string{
 						"fruit",
 					},
@@ -947,16 +1038,18 @@ func All() []Tree {
 		{
 			Name:           "pine",
 			PluralName:     "pine",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "pine",
-					Origin: "pine",
+					Name:         "pine",
+					Origin:       "pine",
+					MainMaterial: "pine",
 					Tags: []string{
 						"wood",
 					},
@@ -968,16 +1061,18 @@ func All() []Tree {
 		{
 			Name:           "pineapple",
 			PluralName:     "pineapples",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    9,
 			MinTemperature: 6,
 			MaxTemperature: 9,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "pineapple",
-					Origin: "pineapple",
+					Name:         "pineapple",
+					Origin:       "pineapple",
+					MainMaterial: "pineapple",
 					Tags: []string{
 						"wood",
 					},
@@ -985,8 +1080,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "pineapple",
-					Origin: "pineapple",
+					Name:         "pineapple",
+					Origin:       "pineapple",
+					MainMaterial: "pineapple",
 					Tags: []string{
 						"fruit",
 					},
@@ -998,16 +1094,18 @@ func All() []Tree {
 		{
 			Name:           "palm",
 			PluralName:     "palms",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "palm",
-					Origin: "palm",
+					Name:         "palm",
+					Origin:       "palm",
+					MainMaterial: "palm",
 					Tags: []string{
 						"wood",
 					},
@@ -1019,16 +1117,18 @@ func All() []Tree {
 		{
 			Name:           "pear",
 			PluralName:     "pears",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "pear",
-					Origin: "pear",
+					Name:         "pear",
+					Origin:       "pear",
+					MainMaterial: "pear",
 					Tags: []string{
 						"wood",
 					},
@@ -1036,8 +1136,9 @@ func All() []Tree {
 					Value:       1,
 				},
 				{
-					Name:   "pear",
-					Origin: "pear",
+					Name:         "pear",
+					Origin:       "pear",
+					MainMaterial: "pear",
 					Tags: []string{
 						"fruit",
 					},
@@ -1049,16 +1150,18 @@ func All() []Tree {
 		{
 			Name:           "poplar",
 			PluralName:     "poplars",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "poplar",
-					Origin: "poplar",
+					Name:         "poplar",
+					Origin:       "poplar",
+					MainMaterial: "poplar",
 					Tags: []string{
 						"wood",
 					},
@@ -1070,16 +1173,18 @@ func All() []Tree {
 		{
 			Name:           "red oak",
 			PluralName:     "red oaks",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "red oak",
-					Origin: "red oak",
+					Name:         "red oak",
+					Origin:       "red oak",
+					MainMaterial: "red oak",
 					Tags: []string{
 						"wood",
 					},
@@ -1091,16 +1196,18 @@ func All() []Tree {
 		{
 			Name:           "red pine",
 			PluralName:     "red pines",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "red pine",
-					Origin: "red pine",
+					Name:         "red pine",
+					Origin:       "red pine",
+					MainMaterial: "red pine",
 					Tags: []string{
 						"wood",
 					},
@@ -1112,16 +1219,18 @@ func All() []Tree {
 		{
 			Name:           "rosewood",
 			PluralName:     "rosewoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "rosewood",
-					Origin: "rosewood",
+					Name:         "rosewood",
+					Origin:       "rosewood",
+					MainMaterial: "rosewood",
 					Tags: []string{
 						"wood",
 					},
@@ -1133,16 +1242,18 @@ func All() []Tree {
 		{
 			Name:           "sandalwood",
 			PluralName:     "sandalwoods",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "sandalwood",
-					Origin: "sandalwood",
+					Name:         "sandalwood",
+					Origin:       "sandalwood",
+					MainMaterial: "sandalwood",
 					Tags: []string{
 						"wood",
 					},
@@ -1154,16 +1265,18 @@ func All() []Tree {
 		{
 			Name:           "spruce",
 			PluralName:     "spruces",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "spruce",
-					Origin: "spruce",
+					Name:         "spruce",
+					Origin:       "spruce",
+					MainMaterial: "spruce",
 					Tags: []string{
 						"wood",
 					},
@@ -1175,16 +1288,18 @@ func All() []Tree {
 		{
 			Name:           "teak",
 			PluralName:     "teaks",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "teak",
-					Origin: "teak",
+					Name:         "teak",
+					Origin:       "teak",
+					MainMaterial: "teak",
 					Tags: []string{
 						"wood",
 					},
@@ -1196,16 +1311,18 @@ func All() []Tree {
 		{
 			Name:           "walnut",
 			PluralName:     "walnuts",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "walnut",
-					Origin: "walnut",
+					Name:         "walnut",
+					Origin:       "walnut",
+					MainMaterial: "walnut",
 					Tags: []string{
 						"wood",
 					},
@@ -1217,16 +1334,18 @@ func All() []Tree {
 		{
 			Name:           "white oak",
 			PluralName:     "white oaks",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "white oak",
-					Origin: "white oak",
+					Name:         "white oak",
+					Origin:       "white oak",
+					MainMaterial: "white oak",
 					Tags: []string{
 						"wood",
 					},
@@ -1238,16 +1357,18 @@ func All() []Tree {
 		{
 			Name:           "white pine",
 			PluralName:     "white pines",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "white pine",
-					Origin: "white pine",
+					Name:         "white pine",
+					Origin:       "white pine",
+					MainMaterial: "white pine",
 					Tags: []string{
 						"wood",
 					},
@@ -1259,16 +1380,18 @@ func All() []Tree {
 		{
 			Name:           "willow",
 			PluralName:     "willows",
-			IsDeciduous:    true,
-			IsConiferous:   false,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"deciduous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "willow",
-					Origin: "willow",
+					Name:         "willow",
+					Origin:       "willow",
+					MainMaterial: "willow",
 					Tags: []string{
 						"wood",
 					},
@@ -1280,16 +1403,18 @@ func All() []Tree {
 		{
 			Name:           "yew",
 			PluralName:     "yews",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "yew",
-					Origin: "yew",
+					Name:         "yew",
+					Origin:       "yew",
+					MainMaterial: "yew",
 					Tags: []string{
 						"wood",
 					},
@@ -1301,16 +1426,18 @@ func All() []Tree {
 		{
 			Name:           "yellow pine",
 			PluralName:     "yellow pines",
-			IsDeciduous:    false,
-			IsConiferous:   true,
 			MinHumidity:    2,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
+			Tags: []string{
+				"coniferous",
+			},
 			Resources: []resource.Resource{
 				{
-					Name:   "yellow pine",
-					Origin: "yellow pine",
+					Name:         "yellow pine",
+					Origin:       "yellow pine",
+					MainMaterial: "yellow pine",
 					Tags: []string{
 						"wood",
 					},

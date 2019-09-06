@@ -7,8 +7,9 @@ func getBreads() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "bread",
-			Description: "a loaf of simple bread",
+			Name:         "bread",
+			NameTemplate: "{{.MainMaterial}} bread",
+			Description:  "a loaf of simple bread",
 			Tags: []string{
 				"bread",
 			},
@@ -17,14 +18,15 @@ func getBreads() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "flour",
-					DescriptionTemplate: "{{.Resource.Origin}} bread",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} bread",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "roll",
-			Description: "a small hand-sized roll",
+			Name:         "roll",
+			NameTemplate: "{{.MainMaterial}} roll",
+			Description:  "a small hand-sized roll",
 			Tags: []string{
 				"bread",
 			},
@@ -33,7 +35,7 @@ func getBreads() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "flour",
-					DescriptionTemplate: "{{.Resource.Origin}} roll",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} roll",
 				},
 			},
 			Value: 1,

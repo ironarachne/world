@@ -7,8 +7,9 @@ func getBowery() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "arrow",
-			Description: "a quiver of arrows",
+			Name:         "arrow",
+			NameTemplate: "a quiver of arrows",
+			Description:  "a quiver of arrows",
 			Tags: []string{
 				"ammunition",
 			},
@@ -17,24 +18,25 @@ func getBowery() []Pattern {
 				{
 					Name:                "head",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "quiver of arrows with {{.Resource.Origin}} heads",
+					DescriptionTemplate: "quiver of arrows with {{.Resource.MainMaterial}} heads",
 				},
 				{
 					Name:                "shaft",
 					RequiredTag:         "wood",
-					DescriptionTemplate: ", {{.Resource.Origin}} shafts",
+					DescriptionTemplate: ", {{.Resource.MainMaterial}} shafts",
 				},
 				{
 					Name:                "fletching",
 					RequiredTag:         "feather",
-					DescriptionTemplate: ", and {{.Resource.Origin}}-feather fletching",
+					DescriptionTemplate: ", and {{.Resource.MainMaterial}}-feather fletching",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "long bow",
-			Description: "a long bow",
+			Name:         "long bow",
+			NameTemplate: "{{.MainMaterial}} long bow",
+			Description:  "a long bow",
 			Tags: []string{
 				"bow",
 				"ranged weapon",
@@ -44,24 +46,25 @@ func getBowery() []Pattern {
 				{
 					Name:                "limbs",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} long bow",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} long bow",
 				},
 				{
 					Name:                "string",
 					RequiredTag:         "sinew",
-					DescriptionTemplate: " strung with {{.Resource.Origin}} sinew",
+					DescriptionTemplate: " strung with {{.Resource.MainMaterial}} sinew",
 				},
 				{
 					Name:                "grip",
 					RequiredTag:         "leather",
-					DescriptionTemplate: " with a {{.Resource.Origin}} wrapped grip",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} wrapped grip",
 				},
 			},
 			Value: 7,
 		},
 		{
-			Name:        "short bow",
-			Description: "a short bow",
+			Name:         "short bow",
+			NameTemplate: "{{.MainMaterial}} short bow",
+			Description:  "a short bow",
 			Tags: []string{
 				"bow",
 				"ranged weapon",
@@ -71,24 +74,25 @@ func getBowery() []Pattern {
 				{
 					Name:                "limbs",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} short bow",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} short bow",
 				},
 				{
 					Name:                "string",
 					RequiredTag:         "sinew",
-					DescriptionTemplate: " strung with {{.Resource.Origin}} sinew",
+					DescriptionTemplate: " strung with {{.Resource.MainMaterial}} sinew",
 				},
 				{
 					Name:                "grip",
 					RequiredTag:         "leather",
-					DescriptionTemplate: " with a {{.Resource.Origin}} wrapped grip",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} wrapped grip",
 				},
 			},
 			Value: 5,
 		},
 		{
-			Name:        "crossbow",
-			Description: "a crossbow",
+			Name:         "crossbow",
+			NameTemplate: "{{.MainMaterial}} crossbow",
+			Description:  "a crossbow",
 			Tags: []string{
 				"crossbow",
 				"ranged weapon",
@@ -98,12 +102,12 @@ func getBowery() []Pattern {
 				{
 					Name:                "limbs",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: "{{.Resource.Origin}} crossbow",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} crossbow",
 				},
 				{
 					Name:                "bar",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: " with a {{.Resource.Origin}} bar",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} bar",
 				},
 			},
 			Value: 8,

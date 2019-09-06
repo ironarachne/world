@@ -7,8 +7,9 @@ func getWine() []Pattern {
 
 	patterns := []Pattern{
 		{
-			Name:        "barley wine",
-			Description: "barley wine",
+			Name:         "barley wine",
+			NameTemplate: "bottle of {{.MainMaterial}} barley wine",
+			Description:  "barley wine",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -18,14 +19,15 @@ func getWine() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "barley",
-					DescriptionTemplate: "bottle of {{.Resource.Origin}} barley wine",
+					DescriptionTemplate: "bottle of {{.Resource.MainMaterial}} barley wine",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "rice wine",
-			Description: "rice wine",
+			Name:         "rice wine",
+			NameTemplate: "bottle of rice wine",
+			Description:  "rice wine",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -35,14 +37,15 @@ func getWine() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "rice",
-					DescriptionTemplate: "bottle of {{.Resource.Origin}} rice wine",
+					DescriptionTemplate: "bottle of rice wine",
 				},
 			},
 			Value: 1,
 		},
 		{
-			Name:        "wine",
-			Description: "wine",
+			Name:         "wine",
+			NameTemplate: "bottle of {{.MainMaterial}} wine",
+			Description:  "wine",
 			Tags: []string{
 				"alcohol",
 				"beverage",
@@ -52,7 +55,7 @@ func getWine() []Pattern {
 				{
 					Name:                "body",
 					RequiredTag:         "fruit",
-					DescriptionTemplate: "bottle of {{.Resource.Origin}} wine",
+					DescriptionTemplate: "bottle of {{.Resource.MainMaterial}} wine",
 				},
 			},
 			Value: 1,

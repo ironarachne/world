@@ -1,8 +1,40 @@
 package climate
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/plant"
 )
+
+func (climate Climate) getPlants() ([]plant.Plant, error) {
+	plants := climate.getFilteredPlants()
+
+	plants = plant.Random(climate.MaxPlants-1, plants)
+
+	randomFabricFiber, err := plant.RandomPlantWithResource("fabric fiber")
+	if err != nil {
+		err = fmt.Errorf("Could not populate climate: %w", err)
+		return []plant.Plant{}, err
+	}
+
+	randomGrain, err := plant.RandomPlantWithResource("grain")
+	if err != nil {
+		err = fmt.Errorf("Could not populate climate: %w", err)
+		return []plant.Plant{}, err
+	}
+
+	randomFruit, err := plant.RandomPlantWithResource("fruit")
+	if err != nil {
+		err = fmt.Errorf("Could not populate climate: %w", err)
+		return []plant.Plant{}, err
+	}
+
+	plants = append(plants, randomFabricFiber)
+	plants = append(plants, randomGrain)
+	plants = append(plants, randomFruit)
+
+	return plants, nil
+}
 
 func (climate Climate) getFilteredPlants() []plant.Plant {
 	plants := plant.All()
