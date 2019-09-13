@@ -15,6 +15,7 @@ jobs:
           docker_layer_caching: true
       - run: |
           cd cmd/worldapi
+          cp -r ../../images .
           VERSION_TAG=`cat ../../VERSION`
           GIT_TAG=`git log -1 --pretty=%h`
           docker build -t ironarachne/worldapi:$VERSION_TAG -t ironarachne/worldapi:$GIT_TAG -t ironarachne/worldapi:latest .
