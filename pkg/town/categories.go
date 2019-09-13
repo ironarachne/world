@@ -1,6 +1,9 @@
 package town
 
-import "github.com/ironarachne/world/pkg/random"
+import (
+	"fmt"
+	"github.com/ironarachne/world/pkg/random"
+)
 
 // Category is a type of town
 type Category struct {
@@ -78,7 +81,7 @@ func getCategoryByName(name string) Category {
 	return Category{}
 }
 
-func getRandomWeightedCategory() Category {
+func getRandomWeightedCategory() (Category, error) {
 	categories := getAllCategories()
 
 	weights := map[string]int{}
@@ -87,13 +90,18 @@ func getRandomWeightedCategory() Category {
 		weights[c.Name] = c.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted town category: %w", err)
+		return Category{}, err
+	}
 
 	for _, c := range categories {
 		if c.Name == name {
-			return c
+			return c, nil
 		}
 	}
 
-	return Category{}
+	err = fmt.Errorf("Failed to get random weighted town category!")
+	return Category{}, err
 }

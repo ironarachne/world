@@ -44,7 +44,12 @@ func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Reg
 	region.Climate = regionClimate
 	region.Culture = originCulture
 
-	region.Class = getRandomWeightedClass()
+	class, err := getRandomWeightedClass()
+	if err != nil {
+		err = fmt.Errorf("Could not generate region: %w", err)
+		return Region{}, err
+	}
+	region.Class = class
 
 	newTown, err := town.Generate("city", regionClimate, region.Culture)
 	if err != nil {

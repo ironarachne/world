@@ -21,7 +21,7 @@ type Character struct {
 	FirstName      string
 	LastName       string
 	Title          string
-	Heraldry       heraldry.Heraldry
+	Heraldry       heraldry.Device
 	Gender         gender.Gender
 	Age            int
 	AgeCategory    race.AgeCategory
@@ -75,16 +75,20 @@ func getAppropriateName(gender string, culture culture.Culture) (string, string,
 	return firstName, lastName, nil
 }
 
-func randomOrientation() string {
+func randomOrientation() (string, error) {
 	orientations := map[string]int{
 		"straight": 100,
 		"gay":      10,
 		"bi":       15,
 	}
 
-	orientation := random.StringFromThresholdMap(orientations)
+	orientation, err := random.StringFromThresholdMap(orientations)
+	if err != nil {
+		err = fmt.Errorf("Could not generate random sexual orientation: %w", err)
+		return "", err
+	}
 
-	return orientation
+	return orientation, nil
 }
 
 func (character Character) randomHeight() int {
@@ -161,7 +165,12 @@ func Generate(originCulture culture.Culture) (Character, error) {
 	char.FirstName = firstName
 	char.LastName = lastName
 
-	char.AgeCategory = char.Race.GetWeightedAgeCategory()
+	ageCategory, err := char.Race.GetWeightedAgeCategory()
+	if err != nil {
+		err = fmt.Errorf("Could not generate character: %w", err)
+		return Character{}, err
+	}
+	char.AgeCategory = ageCategory
 	char.Age = race.GetRandomAge(char.AgeCategory)
 
 	hairColor, err := random.String(char.Race.Appearance.HairColors)
@@ -225,7 +234,12 @@ func Generate(originCulture culture.Culture) (Character, error) {
 	}
 	char.SkinColor = skinColor
 
-	char.Orientation = randomOrientation()
+	orientation, err := randomOrientation()
+	if err != nil {
+		err = fmt.Errorf("Could not generate character: %w", err)
+		return Character{}, err
+	}
+	char.Orientation = orientation
 	char.Profession = profession.Random()
 	char.Hobby = char.getRandomHobby()
 	motivation, err := getRandomMotivation()

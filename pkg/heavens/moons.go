@@ -1,6 +1,7 @@
 package heavens
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -14,7 +15,7 @@ type Moon struct {
 	Size  int
 }
 
-func getRandomMoonColor() string {
+func getRandomMoonColor() (string, error) {
 	colors := map[string]int{
 		"white": 10,
 		"grey":  5,
@@ -22,33 +23,55 @@ func getRandomMoonColor() string {
 		"red":   1,
 	}
 
-	return random.StringFromThresholdMap(colors)
+	color, err := random.StringFromThresholdMap(colors)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random moon color: %w", err)
+		return "", err
+	}
+
+	return color, nil
 }
 
-func getRandomMoonShape() string {
+func getRandomMoonShape() (string, error) {
 	shapes := map[string]int{
 		"round":  10,
 		"oblong": 2,
 	}
 
-	return random.StringFromThresholdMap(shapes)
+	shape, err := random.StringFromThresholdMap(shapes)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random moon shape: %w", err)
+		return "", err
+	}
+
+	return shape, nil
 }
 
 func getRandomMoonSize() int {
 	return rand.Intn(5) + rand.Intn(3)
 }
 
-func getRandomMoon() Moon {
+func getRandomMoon() (Moon, error) {
 	moon := Moon{}
 	moon.Name = "moon"
-	moon.Color = getRandomMoonColor()
-	moon.Shape = getRandomMoonShape()
+	color, err := getRandomMoonColor()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random moon: %w", err)
+		return Moon{}, err
+	}
+	moon.Color = color
+	shape, err := getRandomMoonShape()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random moon: %w", err)
+		return Moon{}, err
+	}
+	moon.Shape = shape
 	moon.Size = getRandomMoonSize()
 
-	return moon
+	return moon, nil
 }
 
-func getRandomMoons() []Moon {
+func getRandomMoons() ([]Moon, error) {
 	moons := []Moon{}
 	numberOfMoons := 1
 	shallWeHaveMoreThanOneMoon := rand.Intn(10) + 1
@@ -57,8 +80,13 @@ func getRandomMoons() []Moon {
 	}
 
 	for i := 0; i < numberOfMoons; i++ {
-		moons = append(moons, getRandomMoon())
+		moon, err := getRandomMoon()
+		if err != nil {
+			err = fmt.Errorf("Failed to generate random moon: %w", err)
+			return []Moon{}, err
+		}
+		moons = append(moons, moon)
 	}
 
-	return moons
+	return moons, nil
 }

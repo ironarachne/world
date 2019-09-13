@@ -13,7 +13,7 @@ type Mutation struct {
 	To   string
 }
 
-func getRandomWeightedVowel() string {
+func getRandomWeightedVowel() (string, error) {
 	vowels := map[string]int{
 		"a": 18,
 		"e": 20,
@@ -22,7 +22,12 @@ func getRandomWeightedVowel() string {
 		"u": 2,
 	}
 
-	return random.StringFromThresholdMap(vowels)
+	vowel, err := random.StringFromThresholdMap(vowels)
+	if err != nil {
+		err = fmt.Errorf("Could not get random vowel: %w", err)
+		return "", err
+	}
+	return vowel, nil
 }
 
 func randomMutation() Mutation {
@@ -62,7 +67,12 @@ func randomSyllable(category Category, role string) (string, error) {
 		err = fmt.Errorf("Could not generate syllable: %w", err)
 		return "", err
 	}
-	syllable += getRandomWeightedVowel()
+	vowel, err := getRandomWeightedVowel()
+	if err != nil {
+		err = fmt.Errorf("Could not generate syllable: %w", err)
+		return "", err
+	}
+	syllable += vowel
 	expand := rand.Intn(10) + 1
 	if expand > 2 {
 		if role == "connector" {

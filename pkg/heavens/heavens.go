@@ -1,5 +1,7 @@
 package heavens
 
+import "fmt"
+
 // Heavens is the composition of the sky
 type Heavens struct {
 	Suns  []Sun
@@ -8,12 +10,27 @@ type Heavens struct {
 }
 
 // Generate procedurally generates a Heavens
-func Generate() Heavens {
+func Generate() (Heavens, error) {
 	heavens := Heavens{}
 
-	heavens.Suns = getRandomSuns()
-	heavens.Moons = getRandomMoons()
-	heavens.Stars = getRandomStars()
+	suns, err := getRandomSuns()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random heavens: %w", err)
+		return Heavens{}, err
+	}
+	heavens.Suns = suns
+	moons, err := getRandomMoons()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random heavens: %w", err)
+		return Heavens{}, err
+	}
+	heavens.Moons = moons
+	stars, err := getRandomStars()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random heavens: %w", err)
+		return Heavens{}, err
+	}
+	heavens.Stars = stars
 
-	return heavens
+	return heavens, nil
 }

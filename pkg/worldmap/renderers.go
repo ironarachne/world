@@ -2,8 +2,6 @@ package worldmap
 
 import (
 	"bytes"
-	"github.com/ironarachne/world/pkg/heraldry/tincture"
-
 	svg "github.com/ajstarks/svgo"
 	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/slices"
@@ -31,7 +29,6 @@ func (worldMap WorldMap) RenderAsSVG() string {
 	canvas.Def()
 	for _, b := range worldMap.Boundaries {
 		if b.Pattern != "" && !slices.StringIn(b.Pattern, existingPatterns) {
-			tincture.InsertErmine(canvas, b.Pattern)
 			existingPatterns = append(existingPatterns, b.Pattern)
 		}
 	}

@@ -28,8 +28,8 @@ func (character Character) Simplify() (SimplifiedCharacter, error) {
 	simplified := SimplifiedCharacter{
 		Name:        character.FirstName + " " + character.LastName,
 		Blazon:      character.Heraldry.Blazon,
-		Device:      character.Heraldry.Device,
 		Description: description,
+		Device:      character.Heraldry.ImageURL,
 	}
 
 	if character.Title != "" {

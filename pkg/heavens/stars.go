@@ -1,6 +1,7 @@
 package heavens
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -19,7 +20,7 @@ func getRandomStarBrightness() int {
 	return brightness
 }
 
-func getRandomStarColor() string {
+func getRandomStarColor() (string, error) {
 	colors := map[string]int{
 		"blue":   1,
 		"green":  1,
@@ -29,27 +30,41 @@ func getRandomStarColor() string {
 		"yellow": 3,
 	}
 
-	color := random.StringFromThresholdMap(colors)
+	color, err := random.StringFromThresholdMap(colors)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random star color: %w", err)
+		return "", err
+	}
 
-	return color
+	return color, nil
 }
 
-func getRandomStar() Star {
+func getRandomStar() (Star, error) {
 	star := Star{}
 	star.Name = "star"
-	star.Color = getRandomStarColor()
+	color, err := getRandomStarColor()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random star: %w", err)
+		return Star{}, err
+	}
+	star.Color = color
 	star.Brightness = getRandomStarBrightness()
 
-	return star
+	return star, nil
 }
 
-func getRandomStars() []Star {
+func getRandomStars() ([]Star, error) {
 	stars := []Star{}
 	numberOfStars := rand.Intn(16)
 
 	for i := 0; i < numberOfStars; i++ {
-		stars = append(stars, getRandomStar())
+		star, err := getRandomStar()
+		if err != nil {
+			err = fmt.Errorf("Failed to generate random stars: %w", err)
+			return []Star{}, err
+		}
+		stars = append(stars, star)
 	}
 
-	return stars
+	return stars, nil
 }

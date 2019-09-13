@@ -1,6 +1,7 @@
 package heavens
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -18,7 +19,7 @@ func getRandomSunBrightness() int {
 	return rand.Intn(5) + rand.Intn(5)
 }
 
-func getRandomSunColor() string {
+func getRandomSunColor() (string, error) {
 	colors := map[string]int{
 		"white":  1,
 		"yellow": 35,
@@ -28,24 +29,35 @@ func getRandomSunColor() string {
 		"green":  1,
 	}
 
-	return random.StringFromThresholdMap(colors)
+	color, err := random.StringFromThresholdMap(colors)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random sun color: %w", err)
+		return "", err
+	}
+
+	return color, nil
 }
 
 func getRandomSunSize() int {
 	return rand.Intn(5) + rand.Intn(5)
 }
 
-func getRandomSun() Sun {
+func getRandomSun() (Sun, error) {
 	sun := Sun{}
 	sun.Name = "sun"
-	sun.Color = getRandomSunColor()
+	color, err := getRandomSunColor()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random sun: %w", err)
+		return Sun{}, err
+	}
+	sun.Color = color
 	sun.Brightness = getRandomSunBrightness()
 	sun.Size = getRandomSunSize()
 
-	return sun
+	return sun, nil
 }
 
-func getRandomSuns() []Sun {
+func getRandomSuns() ([]Sun, error) {
 	suns := []Sun{}
 	numberOfSuns := 1
 	shallWeHaveMoreThanOneSun := rand.Intn(10) + 1
@@ -54,8 +66,13 @@ func getRandomSuns() []Sun {
 	}
 
 	for i := 0; i < numberOfSuns; i++ {
-		suns = append(suns, getRandomSun())
+		sun, err := getRandomSun()
+		if err != nil {
+			err = fmt.Errorf("Failed to generate random suns: %w", err)
+			return []Sun{}, err
+		}
+		suns = append(suns, sun)
 	}
 
-	return suns
+	return suns, nil
 }

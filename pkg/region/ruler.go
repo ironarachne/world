@@ -13,7 +13,7 @@ import (
 func (region Region) generateRuler() (character.Character, error) {
 	ruler, err := character.Generate(region.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate region: %w", err)
+		err = fmt.Errorf("Could not generate region ruler: %w", err)
 		return character.Character{}, err
 	}
 	ruler.Profession = profession.ByName("noble")
@@ -24,7 +24,12 @@ func (region Region) generateRuler() (character.Character, error) {
 		ruler.Title = region.Class.RulerTitleMale
 	}
 
-	ruler.Heraldry = heraldry.GenerateHeraldry()
+	device, err := heraldry.Generate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate region ruler: %w", err)
+		return character.Character{}, err
+	}
+	ruler.Heraldry = device
 
 	return ruler, nil
 }

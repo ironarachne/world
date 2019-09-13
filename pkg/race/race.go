@@ -55,7 +55,7 @@ func GetRandom() Race {
 }
 
 // GetRandomWeighted returns a random race, taking commonality into account
-func GetRandomWeighted() Race {
+func GetRandomWeighted() (Race, error) {
 	races := getAllRaces()
 
 	weights := map[string]int{}
@@ -64,15 +64,20 @@ func GetRandomWeighted() Race {
 		weights[c.Name] = c.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted race: %w", err)
+		return Race{}, err
+	}
 
 	for _, c := range races {
 		if c.Name == name {
-			return c
+			return c, nil
 		}
 	}
 
-	return Race{}
+	err = fmt.Errorf("Failed to get random weighted race!")
+	return Race{}, err
 }
 
 // RandomSimplified returns a random simplified race

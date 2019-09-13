@@ -46,7 +46,11 @@ func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 
 	var o buildings.SimplifiedBuildingStyle
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	buildingStyle, err := buildings.GenerateStyle()
 	if err != nil {
@@ -78,9 +82,13 @@ func getCharacter(w http.ResponseWriter, r *http.Request) {
 
 	var o character.SimplifiedCharacter
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := character.RandomSimplified()
+	o, err = character.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -108,7 +116,11 @@ func getClimate(w http.ResponseWriter, r *http.Request) {
 
 	var o climate.SimplifiedClimate
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	randomClimate, err := climate.Random()
 	if err != nil {
@@ -140,9 +152,13 @@ func getClothingStyle(w http.ResponseWriter, r *http.Request) {
 
 	var o clothing.Style
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := clothing.Random()
+	o, err = clothing.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -170,9 +186,13 @@ func getCountry(w http.ResponseWriter, r *http.Request) {
 
 	var o country.Country
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := country.Generate()
+	o, err = country.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -200,7 +220,11 @@ func getCulture(w http.ResponseWriter, r *http.Request) {
 
 	var o culture.SimplifiedCulture
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	randomCulture, err := culture.Random()
 	if err != nil {
@@ -232,9 +256,13 @@ func getFoodStyle(w http.ResponseWriter, r *http.Request) {
 
 	var o food.Style
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := food.Random()
+	o, err = food.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -262,9 +290,17 @@ func getHeavens(w http.ResponseWriter, r *http.Request) {
 
 	var o heavens.Heavens
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o = heavens.Generate()
+	o, err = heavens.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -274,31 +310,78 @@ func getHeavensRandom(w http.ResponseWriter, r *http.Request) {
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = heavens.Generate()
+	o, err := heavens.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getHeraldry(w http.ResponseWriter, r *http.Request) {
+	var fieldType string
 	id := chi.URLParam(r, "id")
 
-	var o heraldry.Heraldry
+	fieldTypes, ok := r.URL.Query()["shape"]
 
-	random.SeedFromString(id)
+	if !ok || len(fieldTypes[0]) < 1 {
+		fieldType = ""
+	} else {
+		fieldType = fieldTypes[0]
+	}
 
-	o = heraldry.GenerateHeraldry()
+	var o heraldry.Device
 
-	json.NewEncoder(w).Encode(o)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	if fieldType == "" {
+		o, err = heraldry.Generate()
+	} else {
+		o, err = heraldry.GenerateByFieldName(fieldType)
+	}
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	sd := o.Simplify()
+
+	json.NewEncoder(w).Encode(sd)
 }
 
 func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
-	var o heraldry.Heraldry
+	var fieldType string
+	fieldTypes, ok := r.URL.Query()["shape"]
+
+	if !ok || len(fieldTypes[0]) < 1 {
+		fieldType = ""
+	} else {
+		fieldType = fieldTypes[0]
+	}
+
+	var o heraldry.Device
+	var err error
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = heraldry.GenerateHeraldry()
+	if fieldType == "" {
+		o, err = heraldry.Generate()
+	} else {
+		o, err = heraldry.GenerateByFieldName(fieldType)
+	}
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	json.NewEncoder(w).Encode(o)
+	sd := o.Simplify()
+
+	json.NewEncoder(w).Encode(sd)
 }
 
 func getLanguage(w http.ResponseWriter, r *http.Request) {
@@ -306,7 +389,11 @@ func getLanguage(w http.ResponseWriter, r *http.Request) {
 
 	var o language.SimplifiedLanguage
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	randomLanguage, err := language.Generate()
 	if err != nil {
@@ -338,9 +425,13 @@ func getMerchant(w http.ResponseWriter, r *http.Request) {
 
 	var o merchant.SimplifiedMerchant
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := merchant.RandomSimplified()
+	o, err = merchant.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -368,7 +459,11 @@ func getMonster(w http.ResponseWriter, r *http.Request) {
 
 	var o monster.SimplifiedMonster
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	o = monster.Random().Simplify()
 
@@ -390,9 +485,13 @@ func getOrganization(w http.ResponseWriter, r *http.Request) {
 
 	var o organization.SimplifiedOrganization
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := organization.RandomSimplified()
+	o, err = organization.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -421,9 +520,13 @@ func getPantheon(w http.ResponseWriter, r *http.Request) {
 	var o pantheon.SimplifiedPantheon
 	var l language.Language
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	l, err := language.Generate()
+	l, err = language.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -464,7 +567,11 @@ func getRace(w http.ResponseWriter, r *http.Request) {
 
 	var o race.SimplifiedRace
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	o = race.RandomSimplified()
 
@@ -486,9 +593,13 @@ func getRegion(w http.ResponseWriter, r *http.Request) {
 
 	var o region.SimplifiedRegion
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := region.RandomSimplified()
+	o, err = region.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -516,7 +627,11 @@ func getReligion(w http.ResponseWriter, r *http.Request) {
 
 	var o religion.SimplifiedReligion
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	rel, err := religion.Random()
 	if err != nil {
@@ -554,9 +669,13 @@ func getTown(w http.ResponseWriter, r *http.Request) {
 
 	var o town.SimplifiedTown
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := town.RandomSimplified()
+	o, err = town.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -584,9 +703,13 @@ func getWorld(w http.ResponseWriter, r *http.Request) {
 
 	var o world.World
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	o, err := world.Generate()
+	o, err = world.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -614,9 +737,13 @@ func getWorldMap(w http.ResponseWriter, r *http.Request) {
 
 	var l world.World
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	l, err := world.Generate()
+	l, err = world.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -630,9 +757,13 @@ func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
 
 	var l world.World
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	l, err := world.Generate()
+	l, err = world.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -648,9 +779,13 @@ func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
 
 	var l world.World
 
-	random.SeedFromString(id)
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	l, err := world.Generate()
+	l, err = world.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return

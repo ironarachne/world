@@ -46,7 +46,11 @@ func RandomWeighted(from []Mineral) (Mineral, error) {
 		names[m.Name] = m.Commonality
 	}
 
-	name := random.StringFromThresholdMap(names)
+	name, err := random.StringFromThresholdMap(names)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted mineral: %w", err)
+		return Mineral{}, err
+	}
 
 	for _, m := range from {
 		if m.Name == name {
@@ -54,7 +58,7 @@ func RandomWeighted(from []Mineral) (Mineral, error) {
 		}
 	}
 
-	err := fmt.Errorf("Couldn't find named mineral")
+	err = fmt.Errorf("Couldn't find named mineral")
 
 	return Mineral{}, err
 }

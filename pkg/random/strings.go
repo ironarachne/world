@@ -4,10 +4,9 @@ import (
 	"crypto/md5"
 	"encoding/binary"
 	"fmt"
+	"github.com/ironarachne/world/pkg/slices"
 	"io"
 	"math/rand"
-
-	"github.com/ironarachne/world/pkg/slices"
 )
 
 // String returns a random string from a slice of strings
@@ -49,33 +48,35 @@ func StringSubset(items []string, maxItems int) ([]string, error) {
 }
 
 // StringFromThresholdMap returns a random weighted string
-func StringFromThresholdMap(items map[string]int) string {
-	result := ""
+func StringFromThresholdMap(items map[string]int) (string, error) {
 	ceiling := 0
-	start := 0
-	var thresholds = make(map[string]int)
 
-	for item, weight := range items {
+	for _, weight := range items {
 		ceiling += weight
-		thresholds[item] = start
-		start += weight
 	}
 
 	randomValue := rand.Intn(ceiling)
 
-	for item, threshold := range thresholds {
-		if threshold <= randomValue {
-			result = item
+	for item, weight := range items {
+		randomValue -= weight
+		if randomValue <= 0 {
+			return item, nil
 		}
 	}
 
-	return result
+	err := fmt.Errorf("Could not find value for ", randomValue)
+	return "", err
 }
 
 // SeedFromString uses a string to seed the random number generator
-func SeedFromString(source string) {
+func SeedFromString(source string) error {
 	h := md5.New()
-	io.WriteString(h, source)
+	_, err := io.WriteString(h, source)
+	if err != nil {
+		err = fmt.Errorf("Failed to seed random number generator: %w", err)
+		return err
+	}
 	seed := binary.BigEndian.Uint64(h.Sum(nil))
 	rand.Seed(int64(seed))
+	return nil
 }
