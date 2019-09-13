@@ -4,9 +4,11 @@ import (
 	"crypto/md5"
 	"encoding/binary"
 	"fmt"
-	"github.com/ironarachne/world/pkg/slices"
 	"io"
 	"math/rand"
+	"strconv"
+
+	"github.com/ironarachne/world/pkg/slices"
 )
 
 // String returns a random string from a slice of strings
@@ -64,7 +66,7 @@ func StringFromThresholdMap(items map[string]int) (string, error) {
 		}
 	}
 
-	err := fmt.Errorf("Could not find value for ", randomValue)
+	err := fmt.Errorf("Could not find value for " + strconv.Itoa(randomValue))
 	return "", err
 }
 
