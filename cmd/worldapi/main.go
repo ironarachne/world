@@ -812,6 +812,7 @@ func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
 
 func handleError(w http.ResponseWriter, r *http.Request, err error) {
 	sentry.CaptureException(err)
+	log.Println(err)
 	http.Error(w, "There was a problem processing your request.", 500)
 }
 

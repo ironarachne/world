@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.1 (2019-09-13)
+
+Add debugging in the form of logging errors for the API.
+
+### Change List
+
+- Add error logging to the API
+
 ## 0.6.0 (2019-09-13)
 
 This version has a completely rewritten heraldry package. It now renders PNG images instead of SVG images and saves
