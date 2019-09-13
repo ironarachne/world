@@ -1,6 +1,7 @@
 package tincture
 
 import (
+	"fmt"
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
@@ -18,12 +19,13 @@ type Tincture struct {
 	Commonality int
 }
 
-func (tincture Tincture) Fill(dc *gg.Context) {
+func (tincture Tincture) Fill(dc *gg.Context) error {
 	if tincture.Type == "fur" {
 		filePath := "images/patterns/" + tincture.PatternFileName
 		im, err := gg.LoadPNG(filePath)
 		if err != nil {
-			panic(err)
+			err = fmt.Errorf("Failed to fill with tincture: %w", err)
+			return err
 		}
 		pattern := gg.NewSurfacePattern(im, gg.RepeatBoth)
 		dc.SetFillStyle(pattern)
@@ -31,6 +33,7 @@ func (tincture Tincture) Fill(dc *gg.Context) {
 		dc.SetColor(tincture.Color)
 	}
 	dc.Fill()
+	return nil
 }
 
 func getColorTinctures() []Tincture {
@@ -242,50 +245,64 @@ func ExcludeTag(tinctures []Tincture, tag string) []Tincture {
 }
 
 // RandomWeighted returns a random tincture based on its commonality from the specified set
-func RandomWeighted(tinctures []Tincture) Tincture {
+func RandomWeighted(tinctures []Tincture) (Tincture, error) {
 	weights := map[string]int{}
 
 	for _, t := range tinctures {
 		weights[t.Name] = t.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted tincture: %w", err)
+		return Tincture{}, err
+	}
 
 	for _, t := range tinctures {
 		if t.Name == name {
-			return t
+			return t, nil
 		}
 	}
 
-	return Tincture{}
+	err = fmt.Errorf("Failed to get random weighted tincture matching " + name)
+	return Tincture{}, err
 }
 
 // Random returns a random tincture from the specified set
-func Random(tinctures []Tincture) Tincture {
+func Random(tinctures []Tincture) (Tincture, error) {
 	if len(tinctures) == 0 {
-		panic("Tried to find random tincture from empty set")
+		err := fmt.Errorf("Tried to find random tincture from empty set")
+		return Tincture{}, err
 	} else if len(tinctures) == 1 {
-		return tinctures[0]
+		return tinctures[0], nil
 	}
 
 	t := tinctures[rand.Intn(len(tinctures))]
-	return t
+	return t, nil
 }
 
 // RandomAll returns a random tincture
-func RandomAll() Tincture {
+func RandomAll() (Tincture, error) {
 	tinctures := All()
 
-	t := RandomWeighted(tinctures)
-	return t
+	t, err := RandomWeighted(tinctures)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random tincture from all: %w", err)
+		return Tincture{}, err
+	}
+	return t, nil
 }
 
 // RandomByTag returns a random tincture that has the specified tag
-func RandomByTag(tag string) Tincture {
+func RandomByTag(tag string) (Tincture, error) {
 	all := All()
 	tinctures := ByTag(all, tag)
-	tincture := RandomWeighted(tinctures)
-	return tincture
+	tincture, err := RandomWeighted(tinctures)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random tincture by tag " + tag + ": %w", err)
+		return Tincture{}, err
+	}
+	return tincture, nil
 }
 
 // Complementary returns all tinctures that complement the given one
@@ -329,33 +346,43 @@ func Contrasting(t Tincture, includeFurs bool) []Tincture {
 }
 
 // RandomComplementary returns a random tincture that contrasts with the given one
-func RandomComplementary(t Tincture, includeFurs bool) Tincture {
+func RandomComplementary(t Tincture, includeFurs bool) (Tincture, error) {
 	complementary := Complementary(t, includeFurs)
 
 	if len(complementary) == 0 {
-		panic("No complementary tinctures!")
+		err := fmt.Errorf("No complementary tinctures!")
+		return Tincture{}, err
 	} else if len(complementary) == 1 {
-		return complementary[0]
+		return complementary[0], nil
 	}
 
-	t2 := RandomWeighted(complementary)
+	t2, err := RandomWeighted(complementary)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random complementary tincture: %w", err)
+		return Tincture{}, err
+	}
 
-	return t2
+	return t2, nil
 }
 
 // RandomContrasting returns a random tincture that contrasts with the given one
-func RandomContrasting(t Tincture, includeFurs bool) Tincture {
+func RandomContrasting(t Tincture, includeFurs bool) (Tincture, error) {
 	contrasting := Contrasting(t, includeFurs)
 
 	if len(contrasting) == 0 {
-		panic("No contrasting tinctures!")
+		err := fmt.Errorf("No contrasting tinctures!")
+		return Tincture{}, err
 	} else if len(contrasting) == 1 {
-		return contrasting[0]
+		return contrasting[0], nil
 	}
 
-	t2 := RandomWeighted(contrasting)
+	t2, err := RandomWeighted(contrasting)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random contrasting tincture: %w", err)
+		return Tincture{}, err
+	}
 
-	return t2
+	return t2, nil
 }
 
 // Remove removes the given tincture from the given set

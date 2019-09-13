@@ -22,7 +22,12 @@ type Religion struct {
 func Generate(originLanguage language.Language) (Religion, error) {
 	religion := Religion{}
 
-	religion.Class = getWeightedClass()
+	class, err := getWeightedClass()
+	if err != nil {
+		err = fmt.Errorf("Could not generate random religion: %w", err)
+		return Religion{}, err
+	}
+	religion.Class = class
 	gatheringPlace, err := religion.randomGatheringPlace()
 	if err != nil {
 		err = fmt.Errorf("Could not generate random religion: %w", err)

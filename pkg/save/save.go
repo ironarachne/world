@@ -11,17 +11,17 @@ import (
 	"github.com/minio/minio-go"
 )
 
-func ship(filePath string, reader io.Reader, contentType string) string {
+func ship(filePath string, reader io.Reader, contentType string) (string, error) {
 	accessKey := os.Getenv("SPACES_KEY")
 	secretKey := os.Getenv("SPACES_SECRET")
 	bucketName := os.Getenv("SPACES_BUCKET_NAME")
 	endpoint := "nyc3.digitaloceanspaces.com"
-	useSSL := true
 
 	// Initiate a client using DigitalOcean Spaces.
-	client, err := minio.New(endpoint, accessKey, secretKey, useSSL)
+	client, err := minio.New(endpoint, accessKey, secretKey, true)
 	if err != nil {
-		panic(err) // TODO: Adopt Go 1.12 fmt.Errorf pattern
+		err = fmt.Errorf("Failed to save to Digital Ocean Spaces: %w", err)
+		return "", err
 	}
 
 	userMetadata := make(map[string]string)
@@ -33,37 +33,46 @@ func ship(filePath string, reader io.Reader, contentType string) string {
 	}
 	n, err := client.PutObject(bucketName, filePath, reader, -1, opts)
 	if err != nil {
-		panic(err) // TODO: Adopt Go 1.12 fmt.Errorf pattern
+		err = fmt.Errorf("Failed to save to Digital Ocean Spaces: %w", err)
+		return "", err
 	}
 	fmt.Println(n)
 
 	url := "https://" + bucketName + "." + endpoint + "/" + filePath
 
-	return url
+	return url, nil
 }
 
 // PNG saves a PNG image to the given space
-func PNG(filePath string, img image.Image) string {
+func PNG(filePath string, img image.Image) (string, error) {
 	reader, writer := io.Pipe()
 
 	go func() {
 		defer writer.Close()
 		err := png.Encode(writer, img)
 		if err != nil {
-			panic(err) // TODO: Adopt Go 1.12 fmt.Errorf pattern
+			panic(err)
 		}
 	}()
 
-	url := ship(filePath, reader, "image/png")
+	url, err := ship(filePath, reader, "image/png")
+	if err != nil {
+		err = fmt.Errorf("Failed to save PNG to Digital Ocean Spaces: %w", err)
+		return "", err
+	}
 
-	return url
+	return url, nil
 }
 
 // SVG saves an SVG image to the given space
-func SVG(filePath string, contents string) string {
+func SVG(filePath string, contents string) (string, error) {
 	reader := strings.NewReader(contents)
 
-	url := ship(filePath, reader, "image/svg+xml")
+	url, err := ship(filePath, reader, "image/svg+xml")
+	if err != nil {
+		err = fmt.Errorf("Failed to save SVG to Digital Ocean Spaces: %w", err)
+		return "", err
+	}
 
-	return url
+	return url, nil
 }

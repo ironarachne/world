@@ -1,17 +1,26 @@
 package buildings
 
 import (
+	"fmt"
 	"github.com/ironarachne/world/pkg/random"
 )
 
-func getRandomRoofStyle() string {
-	material := getRandomRoofMaterial()
-	shape := getRandomRoofShape()
+func getRandomRoofStyle() (string, error) {
+	material, err := getRandomRoofMaterial()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random roof shape: %w", err)
+		return "", err
+	}
+	shape, err := getRandomRoofShape()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random roof style: %w", err)
+		return "", err
+	}
 
-	return shape + " and made of " + material
+	return shape + " and made of " + material, nil
 }
 
-func getRandomRoofShape() string {
+func getRandomRoofShape() (string, error) {
 	shapes := map[string]int{
 		"flat":            20,
 		"slanted":         6,
@@ -20,10 +29,16 @@ func getRandomRoofShape() string {
 		"onion-shaped":    1,
 	}
 
-	return random.StringFromThresholdMap(shapes)
+	shape, err := random.StringFromThresholdMap(shapes)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random roof shape: %w", err)
+		return "", err
+	}
+
+	return shape, nil
 }
 
-func getRandomRoofMaterial() string {
+func getRandomRoofMaterial() (string, error) {
 	materials := map[string]int{
 		"beaten metal":    1,
 		"ceramic tiles":   5,
@@ -33,5 +48,10 @@ func getRandomRoofMaterial() string {
 		"wooden tiles":    3,
 	}
 
-	return random.StringFromThresholdMap(materials)
+	material, err := random.StringFromThresholdMap(materials)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random roof material: %w", err)
+		return "", err
+	}
+	return material, nil
 }

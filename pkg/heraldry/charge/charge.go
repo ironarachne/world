@@ -1,6 +1,7 @@
 package charge
 
 import (
+	"fmt"
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/graphics"
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
@@ -91,7 +92,7 @@ func Random() Charge {
 }
 
 // RandomGroup returns a random group of charges
-func RandomGroup(fieldTincture tincture.Tincture) Group {
+func RandomGroup(fieldTincture tincture.Tincture) (Group, error) {
 	group := Group{}
 
 	charge := Random()
@@ -103,18 +104,32 @@ func RandomGroup(fieldTincture tincture.Tincture) Group {
 	for i:=0;i<numberOfCharges;i++ {
 		group.Charges = append(group.Charges, charge)
 	}
-	group.Tincture = tincture.RandomContrasting(fieldTincture, false)
-	group.Position = randomChargePosition()
+	t, err := tincture.RandomContrasting(fieldTincture, false)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random charge group: %w", err)
+		return Group{}, err
+	}
+	group.Tincture = t
+	p, err := randomChargePosition()
+	if err != nil {
+		err = fmt.Errorf("Failed to get random charge group: %w", err)
+		return Group{}, err
+	}
+	group.Position = p
 
-	return group
+	return group, nil
 }
 
 // SpecificGroup returns a charge group with a given tag and number of elements
-func SpecificGroup(fieldTincture tincture.Tincture, tag string, numberOfCharges int) Group {
+func SpecificGroup(fieldTincture tincture.Tincture, tag string, numberOfCharges int) (Group, error) {
 	group := Group{}
 
 	var charges []Charge
-	chargeObject := RandomMatchingTag(tag)
+	chargeObject, err := RandomMatchingTag(tag)
+	if err != nil {
+		err = fmt.Errorf("Failed to get specific charge group: %w", err)
+		return Group{}, err
+	}
 
 	if slices.StringIn("full size", chargeObject.Tags) {
 		numberOfCharges = 1
@@ -123,37 +138,53 @@ func SpecificGroup(fieldTincture tincture.Tincture, tag string, numberOfCharges 
 		charges = append(charges, chargeObject)
 	}
 	group.Charges = charges
-	group.Tincture = tincture.RandomContrasting(fieldTincture, false)
-	group.Position = randomChargePosition()
+	t, err := tincture.RandomContrasting(fieldTincture, false)
+	if err != nil {
+		err = fmt.Errorf("Failed to get specific charge group: %w", err)
+		return Group{}, err
+	}
+	group.Tincture = t
+	p, err := randomChargePosition()
+	if err != nil {
+		err = fmt.Errorf("Failed to get specific charge group: %w", err)
+		return Group{}, err
+	}
+	group.Position = p
 
-	return group
+	return group, nil
 }
 
 // RandomMatchingTag returns a random charge that matches a tag
-func RandomMatchingTag(tag string) Charge {
+func RandomMatchingTag(tag string) (Charge, error) {
 	charges := MatchingTag(tag)
 
 	if len(charges) == 0 {
-		panic("No matching charges!") // TODO: Replace with error
+		err := fmt.Errorf("Failed to find charge matching tag " + tag)
+		return Charge{}, err
 	}
 
 	if len(charges) == 1 {
-		return charges[0]
+		return charges[0], nil
 	}
 
-	return charges[rand.Intn(len(charges))]
+	charge := charges[rand.Intn(len(charges))]
+	return charge, nil
 }
 
-func randomChargePosition() string {
+func randomChargePosition() (string, error) {
 	positions := map[string]int{
 		"in fess": 30,
 		"in chief": 2,
 		"in base": 1,
 	}
 
-	position := random.StringFromThresholdMap(positions)
+	position, err := random.StringFromThresholdMap(positions)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random charge position: %w", err)
+		return "", err
+	}
 
-	return position
+	return position, nil
 }
 
 // RenderChargeFromFile renders a charge from a file using the given tincture and returns it as an Image

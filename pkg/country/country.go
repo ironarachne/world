@@ -38,7 +38,12 @@ func Generate() (Country, error) {
 		return Country{}, err
 	}
 	country.Government = government
-	country.Heraldry = heraldry.Generate()
+	device, err := heraldry.Generate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate country: %w", err)
+		return Country{}, err
+	}
+	country.Heraldry = device
 	name, err := country.DominantCulture.Language.RandomName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate country: %w", err)

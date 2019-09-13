@@ -1,6 +1,7 @@
 package heraldry
 
 import (
+	"fmt"
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/save"
 	"github.com/ironarachne/world/pkg/slices"
@@ -18,16 +19,18 @@ func (device Device) RenderToBlazon() string {
 }
 
 // RenderToPNG renders a device as PNG and returns the image
-func (device Device) RenderToPNG() string {
+func (device Device) RenderToPNG() (string, error) {
 	var cg image.Image
 
 	shield, err := gg.LoadPNG("images/fields/" + device.FieldType.MaskFileName)
 	if err != nil {
-		panic("Could not load field mask image " + device.FieldType.MaskFileName) // TODO: Return error instead of panicking
+		err = fmt.Errorf("Could not load field mask image " + device.FieldType.MaskFileName + ": %w", err)
+		return "", err
 	}
 	shieldBorder, err := gg.LoadPNG("images/fields/" + device.FieldType.Name + "-lines.png")
 	if err != nil {
-		panic("Could not load field border image " + device.FieldType.Name + "-lines.png") // TODO: Return error instead of panicking
+		err = fmt.Errorf("Could not load field border image " + device.FieldType.Name + "-lines.png: %w", err)
+		return "", err
 	}
 	width := device.FieldType.ImageWidth
 	height := device.FieldType.ImageHeight
@@ -41,7 +44,8 @@ func (device Device) RenderToPNG() string {
 	shieldMask := gg.NewContextForImage(shield)
 	err = dc.SetMask(shieldMask.AsMask())
 	if err != nil {
-		panic("Could not set shield mask") // TODO: Return error instead of panicking
+		err = fmt.Errorf("Could not set shield mask: %w", err)
+		return "", err
 	}
 	dc.DrawImage(field, 0, 0)
 
@@ -61,7 +65,11 @@ func (device Device) RenderToPNG() string {
 
 	finalImage := finalContext.Image()
 
-	imageURL := save.PNG("images/heraldry/devices/" + device.FileName, finalImage)
+	imageURL, err := save.PNG("images/heraldry/devices/" + device.FileName, finalImage)
+	if err != nil {
+		err = fmt.Errorf("Could not save heraldic device: %w", err)
+		return "", err
+	}
 
-	return imageURL
+	return imageURL, nil
 }

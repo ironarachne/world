@@ -92,7 +92,12 @@ func Generate(category string, originClimate climate.Climate, originCulture cult
 	town := Town{}
 
 	if category == "random" {
-		town.Category = getRandomWeightedCategory()
+		townCategory, err := getRandomWeightedCategory()
+		if err != nil {
+			err = fmt.Errorf("Could not generate town: %w", err)
+			return Town{}, err
+		}
+		town.Category = townCategory
 	} else {
 		town.Category = getCategoryByName(category)
 	}

@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.6.0 (2019-09-13)
+
+This version has a completely rewritten heraldry package. It now renders PNG images instead of SVG images and saves
+them to Digital Ocean Spaces.
+
+### Change List
+
+- Rewrite heraldry package from scratch
+
 ## 0.5.0 (2019-09-06)
 
 ### Change List

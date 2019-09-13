@@ -1,6 +1,7 @@
 package heraldry
 
 import (
+	"fmt"
 	"github.com/google/uuid"
 	"github.com/ironarachne/world/pkg/words"
 )
@@ -15,8 +16,12 @@ type Device struct {
 }
 
 // Generate procedurally generates a random heraldic device and returns it.
-func Generate() Device {
-	field := randomField()
+func Generate() (Device, error) {
+	field, err := randomField()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic device: %w", err)
+		return Device{}, err
+	}
 
 	d := Device{
 		Field: field,
@@ -28,12 +33,16 @@ func Generate() Device {
 	d.Blazon = d.RenderToBlazon()
 	d.Blazon = words.CapitalizeFirst(d.Blazon)
 
-	return d
+	return d, nil
 }
 
 // GenerateByFieldName generates a random heraldic device with a given field shape.
-func GenerateByFieldName(name string) Device {
-	field := fieldByName(name)
+func GenerateByFieldName(name string) (Device, error) {
+	field, err := fieldByName(name)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic device: %w", err)
+		return Device{}, err
+	}
 
 	d := Device{
 		Field: field,
@@ -45,6 +54,6 @@ func GenerateByFieldName(name string) Device {
 	d.Blazon = d.RenderToBlazon()
 	d.Blazon = words.CapitalizeFirst(d.Blazon)
 
-	return d
+	return d, nil
 }
 

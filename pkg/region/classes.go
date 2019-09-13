@@ -1,6 +1,9 @@
 package region
 
-import "github.com/ironarachne/world/pkg/random"
+import (
+	"fmt"
+	"github.com/ironarachne/world/pkg/random"
+)
 
 // Class is a class of region
 type Class struct {
@@ -65,7 +68,7 @@ func getAllClasses() []Class {
 	return classes
 }
 
-func getRandomWeightedClass() Class {
+func getRandomWeightedClass() (Class, error) {
 	classes := getAllClasses()
 
 	weights := map[string]int{}
@@ -74,13 +77,18 @@ func getRandomWeightedClass() Class {
 		weights[c.Name] = c.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted region class: %w", err)
+		return Class{}, err
+	}
 
 	for _, c := range classes {
 		if c.Name == name {
-			return c
+			return c, nil
 		}
 	}
 
-	return Class{}
+	err = fmt.Errorf("Failed to get random weighted region class!")
+	return Class{}, err
 }

@@ -1,6 +1,7 @@
 package heraldry
 
 import (
+	"fmt"
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
 	"github.com/ironarachne/world/pkg/random"
@@ -148,7 +149,7 @@ func randomVariation() Variation {
 	return all[rand.Intn(len(all))]
 }
 
-func randomWeightedVariation() Variation {
+func randomWeightedVariation() (Variation, error) {
 	all := allVariations()
 
 	weights := map[string]int{}
@@ -157,30 +158,43 @@ func randomWeightedVariation() Variation {
 		weights[c.Name] = c.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted heraldic variation: %w", err)
+		return Variation{}, err
+	}
 
 	for _, c := range all {
 		if c.Name == name {
-			return c
+			return c, nil
 		}
 	}
 
-	return Variation{}
+	err = fmt.Errorf("Failed to get random weighted heraldic variation!")
+	return Variation{}, err
 }
 
-func generateVariation(initialTincture tincture.Tincture) Variation {
+func generateVariation(initialTincture tincture.Tincture) (Variation, error) {
 	var tinc tincture.Tincture
 	var tinctureNames []string
 	var possible []tincture.Tincture
 
-	variation := randomWeightedVariation()
+	variation, err := randomWeightedVariation()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic variation: %w", err)
+		return Variation{}, err
+	}
 
 	lastTincture := initialTincture
 
 	if variation.NumberOfTinctures > 1 {
 		if initialTincture.Type == "fur" {
 			possible = tincture.Complementary(initialTincture, false)
-			initialTincture = tincture.RandomWeighted(possible)
+			initialTincture, err = tincture.RandomWeighted(possible)
+			if err != nil {
+				err = fmt.Errorf("Failed to generate heraldic variation: %w", err)
+				return Variation{}, err
+			}
 		}
 	}
 
@@ -189,7 +203,11 @@ func generateVariation(initialTincture tincture.Tincture) Variation {
 	for i := 1; i < variation.NumberOfTinctures; i++ {
 		possible = tincture.All()
 		possible = tincture.Remove(lastTincture, possible)
-		tinc = tincture.Random(possible)
+		tinc, err = tincture.Random(possible)
+		if err != nil {
+			err = fmt.Errorf("Failed to generate heraldic variation: %w", err)
+			return Variation{}, err
+		}
 		variation.Tinctures = append(variation.Tinctures, tinc)
 		lastTincture = tinc
 	}
@@ -205,5 +223,5 @@ func generateVariation(initialTincture tincture.Tincture) Variation {
 		variation.Blazon += variation.Tinctures[0].Name
 	}
 
-	return variation
+	return variation, nil
 }

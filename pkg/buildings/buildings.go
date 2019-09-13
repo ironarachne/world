@@ -44,11 +44,16 @@ func GenerateStyle() (BuildingStyle, error) {
 		err = fmt.Errorf("Could not generate building style: %w", err)
 		return BuildingStyle{}, err
 	}
+	roofStyle, err := getRandomRoofStyle()
+	if err != nil {
+		err = fmt.Errorf("Could not generate building style: %w", err)
+		return BuildingStyle{}, err
+	}
 	style := BuildingStyle{
 		Decorations: decorations,
 		DoorStyle:   doorStyle,
 		MaxStories:  getRandomMaxStories(),
-		RoofStyle:   getRandomRoofStyle(),
+		RoofStyle:   roofStyle,
 		StreetStyle: streetStyle,
 		WallStyle:   wallStyle,
 		WindowStyle: windowStyle,

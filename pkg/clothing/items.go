@@ -188,7 +188,11 @@ func getItemFromTemplate(template ItemTemplate) (Item, error) {
 		"none":   3,
 	}
 
-	modifier := random.StringFromThresholdMap(weights)
+	modifier, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Could not get item from template: %w", err)
+		return Item{}, err
+	}
 
 	if modifier == "prefix" {
 		prefix, err := random.String(template.PrefixModifiers)

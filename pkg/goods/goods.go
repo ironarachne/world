@@ -130,7 +130,12 @@ func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) (
 		good.Name = newItem
 		good.Description = newItem
 		good.Amount = amount
-		good.Quality = randomQuality()
+		quality, err := randomQuality()
+		if err != nil {
+			err = fmt.Errorf("Could not generate import goods: %w", err)
+			return []TradeGood{}, err
+		}
+		good.Quality = quality
 		if !good.InSlice(goods) {
 			goods = append(goods, good)
 		}
@@ -150,7 +155,7 @@ func GetAllTradeGoods(resources []resource.Resource) []string {
 	return goods
 }
 
-func randomQuality() string {
+func randomQuality() (string, error) {
 	qualities := map[string]int{
 		"exceptional":  1,
 		"fine":         2,
@@ -159,7 +164,11 @@ func randomQuality() string {
 		"pathetic":     1,
 	}
 
-	quality := random.StringFromThresholdMap(qualities)
+	quality, err := random.StringFromThresholdMap(qualities)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random quality: %w", err)
+		return "", err
+	}
 
-	return quality
+	return quality, nil
 }

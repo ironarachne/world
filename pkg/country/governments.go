@@ -35,7 +35,12 @@ func (country Country) getNewMonarchy() (Government, error) {
 		monarch.Profession = profession.ByName("noble")
 	}
 
-	monarch.Heraldry = heraldry.Generate()
+	device, err := heraldry.Generate()
+	if err != nil {
+		err = fmt.Errorf("Could not generate monarch: %w", err)
+		return Government{}, err
+	}
+	monarch.Heraldry = device
 
 	government.Leaders = append(government.Leaders, monarch)
 

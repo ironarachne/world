@@ -1,6 +1,7 @@
 package race
 
 import (
+	"fmt"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -48,7 +49,7 @@ func GetRandomAge(ageCategory AgeCategory) int {
 }
 
 // GetWeightedAgeCategory returns a random age category for a race
-func (race Race) GetWeightedAgeCategory() AgeCategory {
+func (race Race) GetWeightedAgeCategory() (AgeCategory, error) {
 	ageCategories := race.AgeCategories
 
 	weights := map[string]int{}
@@ -57,13 +58,18 @@ func (race Race) GetWeightedAgeCategory() AgeCategory {
 		weights[c.Name] = c.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get weighted age category: %w", err)
+		return AgeCategory{}, err
+	}
 
 	for _, c := range ageCategories {
 		if c.Name == name {
-			return c
+			return c, nil
 		}
 	}
 
-	return AgeCategory{}
+	err = fmt.Errorf("Failed to get weighted age category!")
+	return AgeCategory{}, err
 }

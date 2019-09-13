@@ -1,6 +1,7 @@
 package heraldry
 
 import (
+	"fmt"
 	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/heraldry/charge"
 	"math/rand"
@@ -79,7 +80,7 @@ func allFieldTypes() []FieldType {
 	return fieldTypes
 }
 
-func fieldByName(name string) Field {
+func fieldByName(name string) (Field, error) {
 	var fieldType FieldType
 
 	fieldTypes := allFieldTypes()
@@ -90,8 +91,16 @@ func fieldByName(name string) Field {
 		}
 	}
 
-	division := generateDivision()
-	chargeGroup := charge.RandomGroup(division.Variations[0].Tinctures[0])
+	division, err := generateDivision()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		return Field{}, err
+	}
+	chargeGroup, err := charge.RandomGroup(division.Variations[0].Tinctures[0])
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		return Field{}, err
+	}
 
 	chargeGroups := []charge.Group{
 		chargeGroup,
@@ -103,14 +112,22 @@ func fieldByName(name string) Field {
 		FieldType: fieldType,
 	}
 
-	return field
+	return field, nil
 }
 
-func randomField() Field {
+func randomField() (Field, error) {
 	fieldType := randomFieldType()
 
-	division := generateDivision()
-	chargeGroup := charge.RandomGroup(division.Variations[0].Tinctures[0])
+	division, err := generateDivision()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		return Field{}, err
+	}
+	chargeGroup, err := charge.RandomGroup(division.Variations[0].Tinctures[0])
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		return Field{}, err
+	}
 
 	chargeGroups := []charge.Group{
 		chargeGroup,
@@ -122,7 +139,7 @@ func randomField() Field {
 		FieldType: fieldType,
 	}
 
-	return field
+	return field, nil
 }
 
 func randomFieldType() FieldType {

@@ -1,6 +1,7 @@
 package heraldry
 
 import (
+	"fmt"
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
 	"github.com/ironarachne/world/pkg/random"
@@ -235,7 +236,7 @@ func randomDivision() Division {
 	return divisions[rand.Intn(len(divisions))]
 }
 
-func randomWeightedDivision() Division {
+func randomWeightedDivision() (Division, error) {
 	all := allDivisions()
 
 	weights := map[string]int{}
@@ -244,32 +245,53 @@ func randomWeightedDivision() Division {
 		weights[c.Name] = c.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted division: %w", err)
+		return Division{}, err
+	}
 
 	for _, c := range all {
 		if c.Name == name {
-			return c
+			return c, nil
 		}
 	}
 
-	return Division{}
+	err = fmt.Errorf("Failed to get random weighted division!")
+	return Division{}, err
 }
 
-func generateDivision() Division {
+func generateDivision() (Division, error) {
 	var divisionBlazons []string
 	var possible []tincture.Tincture
 	var variation Variation
 	var tinc tincture.Tincture
-	division := randomWeightedDivision()
+	division, err := randomWeightedDivision()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic division: %w", err)
+		return Division{}, err
+	}
 
-	firstTincture := tincture.RandomAll()
+	firstTincture, err := tincture.RandomAll()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic division: %w", err)
+		return Division{}, err
+	}
 	lastTincture := firstTincture
 
 	for i:=0;i<division.NumberOfSections;i++ {
 		possible = tincture.All()
 		possible = tincture.Remove(lastTincture, possible)
-		tinc = tincture.RandomWeighted(possible)
-		variation = generateVariation(tinc)
+		tinc, err = tincture.RandomWeighted(possible)
+		if err != nil {
+			err = fmt.Errorf("Failed to generate heraldic division: %w", err)
+			return Division{}, err
+		}
+		variation, err = generateVariation(tinc)
+		if err != nil {
+			err = fmt.Errorf("Failed to generate heraldic division: %w", err)
+			return Division{}, err
+		}
 		division.Variations = append(division.Variations, variation)
 		divisionBlazons = append(divisionBlazons, variation.Blazon)
 		lastTincture = tinc
@@ -277,5 +299,5 @@ func generateDivision() Division {
 
 	division.Blazon += words.CombinePhrases(divisionBlazons)
 
-	return division
+	return division, nil
 }

@@ -1,6 +1,7 @@
 package religion
 
 import (
+	"fmt"
 	"github.com/ironarachne/world/pkg/random"
 )
 
@@ -86,7 +87,7 @@ func getAllClasses() []Class {
 	}
 }
 
-func getWeightedClass() Class {
+func getWeightedClass() (Class, error) {
 	classes := getAllClasses()
 
 	weights := map[string]int{}
@@ -95,13 +96,18 @@ func getWeightedClass() Class {
 		weights[c.Name] = c.Commonality
 	}
 
-	name := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(weights)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random weighted religion class: %w", err)
+		return Class{}, err
+	}
 
 	for _, c := range classes {
 		if c.Name == name {
-			return c
+			return c, nil
 		}
 	}
 
-	return Class{}
+	err = fmt.Errorf("Failed to get random weighted religion class!")
+	return Class{}, err
 }
