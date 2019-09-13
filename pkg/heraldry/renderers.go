@@ -2,10 +2,12 @@ package heraldry
 
 import (
 	"fmt"
+	"image"
+	"os"
+
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/save"
 	"github.com/ironarachne/world/pkg/slices"
-	"image"
 )
 
 // RenderToBlazon renders a device as its blazon and returns it.
@@ -20,23 +22,25 @@ func (device Device) RenderToBlazon() string {
 
 // RenderToPNG renders a device as PNG and returns the image
 func (device Device) RenderToPNG() (string, error) {
+	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
+
 	var cg image.Image
 
-	shield, err := gg.LoadPNG("images/fields/" + device.FieldType.MaskFileName)
+	shield, err := gg.LoadPNG(dataPath + "/images/fields/" + device.FieldType.MaskFileName)
 	if err != nil {
-		err = fmt.Errorf("Could not load field mask image " + device.FieldType.MaskFileName + ": %w", err)
+		err = fmt.Errorf("Could not load field mask image "+device.FieldType.MaskFileName+": %w", err)
 		return "", err
 	}
-	shieldBorder, err := gg.LoadPNG("images/fields/" + device.FieldType.Name + "-lines.png")
+	shieldBorder, err := gg.LoadPNG(dataPath + "/images/fields/" + device.FieldType.Name + "-lines.png")
 	if err != nil {
-		err = fmt.Errorf("Could not load field border image " + device.FieldType.Name + "-lines.png: %w", err)
+		err = fmt.Errorf("Could not load field border image "+device.FieldType.Name+"-lines.png: %w", err)
 		return "", err
 	}
 	width := device.FieldType.ImageWidth
 	height := device.FieldType.ImageHeight
 
 	dc := gg.NewContext(width, height)
-	dc.SetRGB(255,255,255)
+	dc.SetRGB(255, 255, 255)
 	dc.Fill()
 
 	field := device.Field.Division.Render(width, height, device.Field.Variations)
@@ -65,7 +69,7 @@ func (device Device) RenderToPNG() (string, error) {
 
 	finalImage := finalContext.Image()
 
-	imageURL, err := save.PNG("images/heraldry/devices/" + device.FileName, finalImage)
+	imageURL, err := save.PNG("images/heraldry/devices/"+device.FileName, finalImage)
 	if err != nil {
 		err = fmt.Errorf("Could not save heraldic device: %w", err)
 		return "", err

@@ -2,6 +2,10 @@ package charge
 
 import (
 	"fmt"
+	"image"
+	"image/color"
+	"math/rand"
+
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/graphics"
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
@@ -9,9 +13,6 @@ import (
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 	"github.com/ironarachne/world/pkg/words"
-	"image"
-	"image/color"
-	"math/rand"
 )
 
 // Charge is a charge
@@ -23,12 +24,12 @@ type Charge struct {
 	Descriptor string
 	SingleOnly bool
 	Tags       []string
-	Render func(bodyTincture tincture.Tincture) image.Image
+	Render     func(bodyTincture tincture.Tincture) image.Image
 }
 
 // Group is a group of charges with a common tincture
 type Group struct {
-	Blazon string
+	Blazon  string
 	Charges []Charge
 	tincture.Tincture
 	Position string
@@ -101,7 +102,7 @@ func RandomGroup(fieldTincture tincture.Tincture) (Group, error) {
 	if slices.StringIn("full size", charge.Tags) {
 		numberOfCharges = 1
 	}
-	for i:=0;i<numberOfCharges;i++ {
+	for i := 0; i < numberOfCharges; i++ {
 		group.Charges = append(group.Charges, charge)
 	}
 	t, err := tincture.RandomContrasting(fieldTincture, false)
@@ -134,7 +135,7 @@ func SpecificGroup(fieldTincture tincture.Tincture, tag string, numberOfCharges 
 	if slices.StringIn("full size", chargeObject.Tags) {
 		numberOfCharges = 1
 	}
-	for i:=0;i<numberOfCharges;i++ {
+	for i := 0; i < numberOfCharges; i++ {
 		charges = append(charges, chargeObject)
 	}
 	group.Charges = charges
@@ -173,9 +174,9 @@ func RandomMatchingTag(tag string) (Charge, error) {
 
 func randomChargePosition() (string, error) {
 	positions := map[string]int{
-		"in fess": 30,
+		"in fess":  30,
 		"in chief": 2,
-		"in base": 1,
+		"in base":  1,
 	}
 
 	position, err := random.StringFromThresholdMap(positions)
@@ -190,9 +191,9 @@ func randomChargePosition() (string, error) {
 // RenderChargeFromFile renders a charge from a file using the given tincture and returns it as an Image
 func RenderChargeFromFile(name string, t tincture.Tincture) image.Image {
 	pattern := graphics.Pattern{
-		Color: t.Color,
+		Color:           t.Color,
 		PatternFileName: t.PatternFileName,
-		Type: "solid",
+		Type:            "solid",
 	}
 
 	linesPattern := graphics.Pattern{
@@ -202,7 +203,7 @@ func RenderChargeFromFile(name string, t tincture.Tincture) image.Image {
 	}
 
 	if t.Name == "sable" {
-		linesPattern.Color = color.RGBA{R:255, G:255, B: 255, A: 255}
+		linesPattern.Color = color.RGBA{R: 255, G: 255, B: 255, A: 255}
 	}
 
 	if t.Type == "fur" {
@@ -216,7 +217,7 @@ func RenderChargeFromFile(name string, t tincture.Tincture) image.Image {
 	lines := graphics.RenderFilledImage(linesPath, linesPattern)
 
 	dc := gg.NewContextForImage(body)
-	dc.DrawImage(lines, 0,0)
+	dc.DrawImage(lines, 0, 0)
 
 	img := dc.Image()
 
@@ -260,19 +261,19 @@ func (group Group) RenderPNG(width int, height int) image.Image {
 			alignment := rand.Intn(100)
 			if alignment > 80 {
 				dc.DrawImageAnchored(c, scaleWidth/4, scaleHeight/2, 0.5, 0.5)
-				dc.DrawImageAnchored(c, (scaleWidth*3/4), scaleHeight/2, 0.5, 0.5)
+				dc.DrawImageAnchored(c, (scaleWidth * 3 / 4), scaleHeight/2, 0.5, 0.5)
 			} else {
-				dc.DrawImageAnchored(c, scaleWidth/2, (scaleHeight*9/32), 0.5, 0.5)
-				dc.DrawImageAnchored(c, scaleWidth/2, (scaleHeight*7/10), 0.5, 0.5)
+				dc.DrawImageAnchored(c, scaleWidth/2, (scaleHeight * 9 / 32), 0.5, 0.5)
+				dc.DrawImageAnchored(c, scaleWidth/2, (scaleHeight * 7 / 10), 0.5, 0.5)
 			}
 		} else if numberOfCharges == 3 {
 			scaleFactor = float64((fieldDimension * 0.45) / chargeMax)
 			scaleHeight = int(float64(height) / scaleFactor)
 			scaleWidth = int(float64(width) / scaleFactor)
 			dc.Scale(scaleFactor, scaleFactor)
-			dc.DrawImageAnchored(c, scaleWidth/4, (scaleHeight*9/32), 0.5, 0.5)
-			dc.DrawImageAnchored(c, (scaleWidth*3/4), (scaleHeight*9/32), 0.5, 0.5)
-			dc.DrawImageAnchored(c, scaleWidth/2, (scaleHeight*7/10), 0.5, 0.5)
+			dc.DrawImageAnchored(c, scaleWidth/4, (scaleHeight * 9 / 32), 0.5, 0.5)
+			dc.DrawImageAnchored(c, (scaleWidth * 3 / 4), (scaleHeight * 9 / 32), 0.5, 0.5)
+			dc.DrawImageAnchored(c, scaleWidth/2, (scaleHeight * 7 / 10), 0.5, 0.5)
 		}
 	}
 

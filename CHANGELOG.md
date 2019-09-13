@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.2 (2019-09-13)
+
+Make the data path configurable.
+
+### Change List
+
+- Make data path configurable via `WORLDAPI_DATA_PATH` environment variable
+
 ## 0.6.1 (2019-09-13)
 
 Add debugging in the form of logging errors for the API.
