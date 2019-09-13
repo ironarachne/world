@@ -8,6 +8,7 @@ them to Digital Ocean Spaces.
 ### Change List
 
 - Rewrite heraldry package from scratch
+- Update error handling
 
 ## 0.5.0 (2019-09-06)
 

@@ -349,13 +349,6 @@ func getHeraldry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	url, err := o.RenderToPNG()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-	o.ImageURL = url
-
 	sd := o.Simplify()
 
 	json.NewEncoder(w).Encode(sd)
@@ -385,13 +378,6 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 		handleError(w, r, err)
 		return
 	}
-
-	url, err := o.RenderToPNG()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-	o.ImageURL = url
 
 	sd := o.Simplify()
 
