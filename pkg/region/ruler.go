@@ -24,7 +24,7 @@ func (region Region) generateRuler() (character.Character, error) {
 		ruler.Title = region.Class.RulerTitleMale
 	}
 
-	ruler.Heraldry = heraldry.GenerateHeraldry()
+	ruler.Heraldry = heraldry.Generate()
 
 	return ruler, nil
 }

@@ -280,25 +280,61 @@ func getHeavensRandom(w http.ResponseWriter, r *http.Request) {
 }
 
 func getHeraldry(w http.ResponseWriter, r *http.Request) {
+	var fieldType string
 	id := chi.URLParam(r, "id")
 
-	var o heraldry.Heraldry
+	fieldTypes, ok := r.URL.Query()["shape"]
+
+	if !ok || len(fieldTypes[0]) < 1 {
+		fieldType = ""
+	} else {
+		fieldType = fieldTypes[0]
+	}
+
+	var o heraldry.Device
 
 	random.SeedFromString(id)
 
-	o = heraldry.GenerateHeraldry()
+	if fieldType == "" {
+		o = heraldry.Generate()
+	} else {
+		o = heraldry.GenerateByFieldName(fieldType)
+	}
 
-	json.NewEncoder(w).Encode(o)
+	url := o.RenderToPNG()
+	o.ImageURL = url
+
+	sd := o.Simplify()
+
+	json.NewEncoder(w).Encode(sd)
 }
 
 func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
-	var o heraldry.Heraldry
+	var fieldType string
+	fieldTypes, ok := r.URL.Query()["shape"]
+
+	if !ok || len(fieldTypes[0]) < 1 {
+		fieldType = ""
+	} else {
+		fieldType = fieldTypes[0]
+	}
+
+	var o heraldry.Device
 
 	rand.Seed(time.Now().UnixNano())
 
-	o = heraldry.GenerateHeraldry()
+	if fieldType == "" {
+		o = heraldry.Generate()
+	} else {
+		o = heraldry.GenerateByFieldName(fieldType)
+	}
 
-	json.NewEncoder(w).Encode(o)
+	url := o.RenderToPNG()
+	o.ImageURL = url
+
+	sd := o.Simplify()
+
+	json.NewEncoder(w).Encode(sd)
 }
 
 func getLanguage(w http.ResponseWriter, r *http.Request) {

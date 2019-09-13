@@ -18,7 +18,7 @@ type Country struct {
 	Government      Government
 	Regions         []region.Region
 	Capital         string
-	Heraldry        heraldry.Heraldry
+	Heraldry        heraldry.Device
 }
 
 // Generate procedurally generates a country
@@ -38,7 +38,7 @@ func Generate() (Country, error) {
 		return Country{}, err
 	}
 	country.Government = government
-	country.Heraldry = heraldry.GenerateHeraldry()
+	country.Heraldry = heraldry.Generate()
 	name, err := country.DominantCulture.Language.RandomName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate country: %w", err)

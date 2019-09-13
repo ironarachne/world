@@ -35,7 +35,7 @@ func (country Country) getNewMonarchy() (Government, error) {
 		monarch.Profession = profession.ByName("noble")
 	}
 
-	monarch.Heraldry = heraldry.GenerateHeraldry()
+	monarch.Heraldry = heraldry.Generate()
 
 	government.Leaders = append(government.Leaders, monarch)
 

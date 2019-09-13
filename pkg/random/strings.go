@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"math/rand"
+	"strconv"
 
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -50,32 +51,28 @@ func StringSubset(items []string, maxItems int) ([]string, error) {
 
 // StringFromThresholdMap returns a random weighted string
 func StringFromThresholdMap(items map[string]int) string {
-	result := ""
 	ceiling := 0
-	start := 0
-	var thresholds = make(map[string]int)
 
-	for item, weight := range items {
+	for _, weight := range items {
 		ceiling += weight
-		thresholds[item] = start
-		start += weight
 	}
 
 	randomValue := rand.Intn(ceiling)
 
-	for item, threshold := range thresholds {
-		if threshold <= randomValue {
-			result = item
+	for item, weight := range items {
+		randomValue -= weight
+		if randomValue <= 0 {
+			return item
 		}
 	}
 
-	return result
+	panic("Found no matching value for " + strconv.Itoa(randomValue))
 }
 
 // SeedFromString uses a string to seed the random number generator
 func SeedFromString(source string) {
 	h := md5.New()
-	io.WriteString(h, source)
+	io.WriteString(h, source) // TODO: handle error
 	seed := binary.BigEndian.Uint64(h.Sum(nil))
 	rand.Seed(int64(seed))
 }

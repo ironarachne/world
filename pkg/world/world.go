@@ -154,10 +154,7 @@ func Generate() (World, error) {
 
 	for _, c := range world.Countries {
 		pattern = ""
-		style = "fill:" + c.Heraldry.Tinctures[0] + ";fill-opacity:0.5;stroke:#000000;stroke-width:2"
-		if len(c.Heraldry.Patterns) > 0 {
-			pattern = c.Heraldry.Patterns[0]
-		}
+
 		boundary = worldmap.CreateBoundary(c.Name, style, pattern, c.GetAllTiles(world.WorldMap))
 		boundary.Edges = world.WorldMap.CalculateBoundaryEdges(boundary)
 		boundary.Vertices = world.WorldMap.CalculateBoundaryVertices(boundary)

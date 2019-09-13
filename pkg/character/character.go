@@ -21,7 +21,7 @@ type Character struct {
 	FirstName      string
 	LastName       string
 	Title          string
-	Heraldry       heraldry.Heraldry
+	Heraldry       heraldry.Device
 	Gender         gender.Gender
 	Age            int
 	AgeCategory    race.AgeCategory
