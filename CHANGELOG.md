@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.3 (2019-09-13)
+
+Change the base image used for building the Docker image.
+
+### Change List
+
+- Change the base image from `scratch` to `ubuntu:18.04` for the Docker image
+
 ## 0.6.2 (2019-09-13)
 
 Make the data path configurable.
