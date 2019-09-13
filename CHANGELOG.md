@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.4 (2019-09-13)
+
+Install ca-certificates in the Docker image
+
+### Change List
+
+- Install ca-certificates in the Docker image
+
 ## 0.6.3 (2019-09-13)
 
 Change the base image used for building the Docker image.
