@@ -10,6 +10,6 @@ FROM ubuntu:18.04
 COPY --from=build-env /go/bin/worldapi /go/bin/worldapi
 COPY --from=build-env /go/src/app/images /go/bin/images
 RUN apt update && apt upgrade -y
-RUN apt install ca-certificates
+RUN apt install ca-certificates -y
 EXPOSE 7531
 CMD ["/go/bin/worldapi"]
