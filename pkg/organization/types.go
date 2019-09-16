@@ -1,10 +1,20 @@
 package organization
 
 import (
-	"github.com/ironarachne/world/pkg/profession"
+	"fmt"
 	"math/rand"
 	"strings"
+
+	"github.com/ironarachne/world/pkg/profession"
 )
+
+// Rank is a rank held within an organization
+type Rank struct {
+	Title       string
+	Precedence  int
+	MaxNumber   int
+	MemberNames []string
+}
 
 // Type is a type of organization
 type Type struct {
@@ -20,9 +30,10 @@ type Type struct {
 	NameFirstParts    []string
 	NameSecondParts   []string
 	NameTemplate      string
+	Ranks             []Rank
 }
 
-func getAllTypes() []Type {
+func getAllTypes() ([]Type, error) {
 	var adventurers []profession.Profession
 
 	divine := profession.ByTag("divine")
@@ -81,6 +92,18 @@ func getAllTypes() []Type {
 				"Wyverns",
 			},
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
+			Ranks: []Rank{
+				{
+					Title:      "Captain",
+					Precedence: 0,
+					MaxNumber:  1,
+				},
+				{
+					Title:      "Adventurer",
+					Precedence: 1,
+					MaxNumber:  0,
+				},
+			},
 		},
 		{
 			Name: "church",
@@ -126,6 +149,23 @@ func getAllTypes() []Type {
 				"Truth",
 			},
 			NameTemplate: "{{.FirstPart}} Church of the {{.SecondPart}}",
+			Ranks: []Rank{
+				{
+					Title:      "High Priest",
+					Precedence: 0,
+					MaxNumber:  1,
+				},
+				{
+					Title:      "Priest",
+					Precedence: 1,
+					MaxNumber:  0,
+				},
+				{
+					Title:      "Acolyte",
+					Precedence: 2,
+					MaxNumber:  0,
+				},
+			},
 		},
 		{
 			Name: "mercenary company",
@@ -171,17 +211,39 @@ func getAllTypes() []Type {
 				"Wyverns",
 			},
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
+			Ranks: []Rank{
+				{
+					Title:      "Captain",
+					Precedence: 0,
+					MaxNumber:  1,
+				},
+				{
+					Title:      "Mercenary",
+					Precedence: 1,
+					MaxNumber:  0,
+				},
+			},
 		},
 	}
 
-	guild := getCraftingGuild()
+	guild, err := getCraftingGuild()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate organization types: %w", err)
+		return []Type{}, err
+	}
+	school, err := getWizardSchool()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate organization types: %w", err)
+		return []Type{}, err
+	}
 
 	types = append(types, guild)
+	types = append(types, school)
 
-	return types
+	return types, nil
 }
 
-func getCraftingGuild() Type {
+func getCraftingGuild() (Type, error) {
 	guild := Type{
 		Name: "guild",
 		PossibleTraits: []string{
@@ -213,37 +275,156 @@ func getCraftingGuild() Type {
 			"West Wind",
 		},
 		NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
+		Ranks: []Rank{
+			{
+				Title:      "Guild Leader",
+				Precedence: 0,
+				MaxNumber:  1,
+			},
+			{
+				Title:      "Artisan",
+				Precedence: 1,
+				MaxNumber:  0,
+			},
+		},
 	}
 
 	crafters := profession.ByTag("crafter")
-	memberProfessions := profession.RandomSet(1, crafters)
+	memberProfessions, err := profession.RandomSet(1, crafters)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate guild: %w", err)
+		return Type{}, err
+	}
 	guild.MemberProfessions = memberProfessions
 	guild.NameSecondParts = []string{
 		strings.Title(memberProfessions[0].Name),
 	}
 
-	return guild
+	return guild, nil
+}
+
+func getWizardSchool() (Type, error) {
+	org := Type{
+		Name: "school of wizardry",
+		PossibleTraits: []string{
+			"aloof",
+			"ambitious",
+			"august",
+			"closeted",
+			"eldritch",
+			"esoteric",
+			"guarded",
+			"knowledgeable",
+			"powerful",
+			"reckless",
+			"regimented",
+			"wise",
+		},
+		CanBeLedByGroup: true,
+		LeaderMaxAge:    100,
+		LeaderMinAge:    50,
+		LeaderTitle:     "headmaster",
+		MemberMaxAge:    120,
+		MemberMinAge:    10,
+		NameFirstParts: []string{
+			"Academy",
+			"Institute",
+			"School",
+		},
+		NameSecondParts: []string{
+			"Arcane Arts",
+			"Arcane Endeavors",
+			"Arcane Studies",
+			"Eldritch Investigations",
+			"Magic Studies",
+			"Mysteries of the Arcane",
+			"Mystical Arts",
+			"Mystical Studies",
+			"Sorcerous Endeavors",
+			"Wizarding Arts",
+			"Wizardry and Magic",
+		},
+		NameTemplate: "{{.FirstPart}} of {{.SecondPart}}",
+		Ranks: []Rank{
+			{
+				Title:      "Headmaster",
+				Precedence: 0,
+				MaxNumber:  1,
+			},
+			{
+				Title:      "Instructor",
+				Precedence: 1,
+				MaxNumber:  0,
+			},
+			{
+				Title:      "Student",
+				Precedence: 2,
+				MaxNumber:  0,
+			},
+		},
+	}
+
+	wizards := profession.ByTag("wizard")
+	memberProfessions, err := profession.RandomSet(3, wizards)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate wizard school: %w", err)
+		return Type{}, err
+	}
+	org.MemberProfessions = memberProfessions
+
+	return org, nil
+}
+
+// GetRandomMemberRank returns a random appropriate rank that is NOT a leader
+func (t Type) GetRandomMemberRank() Rank {
+	var possibleRanks []Rank
+
+	for _, r := range t.Ranks {
+		if r.Precedence != 0 {
+			possibleRanks = append(possibleRanks, r)
+		}
+	}
+
+	if len(possibleRanks) == 1 {
+		return possibleRanks[0]
+	}
+
+	rank := possibleRanks[rand.Intn(len(possibleRanks))]
+
+	return rank
 }
 
 // GetRandomMemberProfession returns a random profession from those available to the organization
-func (t Type) GetRandomMemberProfession() profession.Profession {
-	prof := profession.RandomSet(1, t.MemberProfessions)
+func (t Type) GetRandomMemberProfession() (profession.Profession, error) {
+	prof, err := profession.RandomSet(1, t.MemberProfessions)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate organization type: %w", err)
+		return profession.Profession{}, err
+	}
 
-	return prof[0]
+	return prof[0], nil
 }
 
 // GetRandomLeaderAge returns an appropriate age for a leader of this group
 func (t Type) GetRandomLeaderAge() int {
-	return rand.Intn(t.LeaderMaxAge-t.LeaderMinAge) + t.LeaderMinAge
+	age := rand.Intn(t.LeaderMaxAge-t.LeaderMinAge) + t.LeaderMinAge
+	return age
 }
 
 // GetRandomMemberAge returns an appropriate age for a member of this group
 func (t Type) GetRandomMemberAge() int {
-	return rand.Intn(t.MemberMaxAge-t.MemberMinAge) + t.MemberMinAge
+	age := rand.Intn(t.MemberMaxAge-t.MemberMinAge) + t.MemberMinAge
+	return age
 }
 
-func getRandomType() Type {
-	orgTypes := getAllTypes()
+func getRandomType() (Type, error) {
+	orgTypes, err := getAllTypes()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate organization type: %w", err)
+		return Type{}, err
+	}
 
-	return orgTypes[rand.Intn(len(orgTypes))]
+	randomOrgType := orgTypes[rand.Intn(len(orgTypes))]
+
+	return randomOrgType, nil
 }

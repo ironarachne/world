@@ -138,7 +138,11 @@ func Generate(category string, originClimate climate.Climate, originCulture cult
 	resources := town.Climate.Resources
 
 	for i := 0; i < town.Category.ProductionIterations; i++ {
-		newProducers = getProducers(town.Population, resources)
+		newProducers, err = getProducers(town.Population, resources)
+		if err != nil {
+			err = fmt.Errorf("Could not generate town: %w", err)
+			return Town{}, err
+		}
 		newResources, err = goods.Produce(newProducers, resources)
 		if err != nil {
 			err = fmt.Errorf("Could not generate town: %w", err)

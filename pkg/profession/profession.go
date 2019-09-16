@@ -1,6 +1,7 @@
 package profession
 
 import (
+	"fmt"
 	"math/rand"
 )
 
@@ -14,6 +15,7 @@ type Profession struct {
 // All returns all professions
 func All() []Profession {
 	var professions []Profession
+	var result []Profession
 
 	blacksmiths := blacksmiths()
 	professions = append(professions, blacksmiths...)
@@ -33,7 +35,12 @@ func All() []Profession {
 	}
 	professions = append(professions, none)
 
-	return professions
+	for _, p := range professions {
+		p.Tags = append(p.Tags, p.Name)
+		result = append(result, p)
+	}
+
+	return result
 }
 
 // ByName returns a profession by name
@@ -84,18 +91,27 @@ func Random() Profession {
 }
 
 // RandomSet returns a random number of professions from a given set of professions
-func RandomSet(max int, possible []Profession) []Profession {
-	producers := []Profession{}
-	producer := Profession{}
+func RandomSet(max int, possible []Profession) ([]Profession, error) {
+	professions := []Profession{}
+	profession := Profession{}
+
+	if len(possible) == 0 {
+		err := fmt.Errorf("No possible professions given")
+		return []Profession{}, err
+	}
+
+	if max > len(possible) {
+		max = len(possible)
+	}
 
 	for i := 0; i < max; i++ {
-		producer = possible[rand.Intn(len(possible))]
-		if !producer.InSlice(producers) {
-			producers = append(producers, producer)
+		profession = possible[rand.Intn(len(possible))]
+		if !profession.InSlice(professions) {
+			professions = append(professions, profession)
 		}
 	}
 
-	return producers
+	return professions, nil
 }
 
 // InSlice returns true if the given profession is in the slice

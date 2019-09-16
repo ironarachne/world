@@ -17,13 +17,19 @@ type NameData struct {
 	SecondPart string
 }
 
+// Member is a member of an organization
+type Member struct {
+	CharacterData character.Character
+	Rank          Rank
+}
+
 // Organization is an organization
 type Organization struct {
 	Name           string
 	Type           Type
-	Leader         character.Character
+	Leader         Member
 	LeaderType     string
-	NotableMembers []character.Character
+	NotableMembers []Member
 	SizeClass      SizeClass
 	Size           int
 	PrimaryTrait   string
@@ -80,21 +86,34 @@ func (org Organization) setTrait() (string, error) {
 	return trait, nil
 }
 
-func (org Organization) getLeader(originCulture culture.Culture) (character.Character, error) {
-	leader, err := character.Generate(originCulture)
+func (org Organization) getLeader(originCulture culture.Culture) (Member, error) {
+	leaderData, err := character.Generate(originCulture)
 	if err != nil {
 		err = fmt.Errorf("Could not set organization leader: %w", err)
-		return character.Character{}, err
+		return Member{}, err
 	}
-	leader = leader.ChangeAge(org.Type.GetRandomLeaderAge())
-	leader.Profession = org.Type.GetRandomMemberProfession()
-	leader.Title = org.Type.LeaderTitle
+	leaderData = leaderData.ChangeAge(org.Type.GetRandomLeaderAge())
+	prof, err := org.Type.GetRandomMemberProfession()
+	if err != nil {
+		err = fmt.Errorf("Failed to get notable organization members: %w", err)
+		return Member{}, err
+	}
+	leaderData.Profession = prof
+	leaderData.Title = org.Type.LeaderTitle
+	leaderRank := org.Type.Ranks[0]
+
+	leader := Member{
+		CharacterData: leaderData,
+		Rank:          leaderRank,
+	}
 
 	return leader, nil
 }
 
-func (org Organization) getNotableMembers(originCulture culture.Culture) ([]character.Character, error) {
-	members := []character.Character{}
+func (org Organization) getNotableMembers(originCulture culture.Culture) ([]Member, error) {
+	var memberData Member
+	var memberRank Rank
+	members := []Member{}
 
 	maxMemberCount := org.Size - 1
 	if maxMemberCount > 10 {
@@ -104,12 +123,22 @@ func (org Organization) getNotableMembers(originCulture culture.Culture) ([]char
 	for i := 0; i < maxMemberCount; i++ {
 		member, err := character.Generate(originCulture)
 		if err != nil {
-			err = fmt.Errorf("Could not set organization name: %w", err)
-			return []character.Character{}, err
+			err = fmt.Errorf("Failed to get notable organization members: %w", err)
+			return []Member{}, err
 		}
 		member = member.ChangeAge(org.Type.GetRandomMemberAge())
-		member.Profession = org.Type.GetRandomMemberProfession()
-		members = append(members, member)
+		prof, err := org.Type.GetRandomMemberProfession()
+		if err != nil {
+			err = fmt.Errorf("Failed to get notable organization members: %w", err)
+			return []Member{}, err
+		}
+		member.Profession = prof
+		memberRank = org.Type.GetRandomMemberRank()
+		memberData = Member{
+			CharacterData: member,
+			Rank:          memberRank,
+		}
+		members = append(members, memberData)
 	}
 
 	return members, nil
@@ -119,31 +148,36 @@ func (org Organization) getNotableMembers(originCulture culture.Culture) ([]char
 func Generate(originCulture culture.Culture) (Organization, error) {
 	org := Organization{}
 
-	org.Type = getRandomType()
+	orgType, err := getRandomType()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate organization: %w", err)
+		return Organization{}, err
+	}
+	org.Type = orgType
 	org.SizeClass = getRandomSizeClass()
 	org.Size = rand.Intn(org.SizeClass.MaxSize-org.SizeClass.MinSize) + org.SizeClass.MinSize
 	name, err := org.setName()
 	if err != nil {
-		err = fmt.Errorf("Could not generate organization: %w", err)
+		err = fmt.Errorf("Failed to generate organization: %w", err)
 		return Organization{}, err
 	}
 	org.Name = name
 	org.LeaderType = org.setLeaderType()
 	leader, err := org.getLeader(originCulture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate organization: %w", err)
+		err = fmt.Errorf("Failed to generate organization: %w", err)
 		return Organization{}, err
 	}
 	org.Leader = leader
 	trait, err := org.setTrait()
 	if err != nil {
-		err = fmt.Errorf("Could not generate organization: %w", err)
+		err = fmt.Errorf("Failed to generate organization: %w", err)
 		return Organization{}, err
 	}
 	org.PrimaryTrait = trait
 	notableMembers, err := org.getNotableMembers(originCulture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate organization: %w", err)
+		err = fmt.Errorf("Failed to generate organization: %w", err)
 		return Organization{}, err
 	}
 	org.NotableMembers = notableMembers
@@ -155,13 +189,13 @@ func Generate(originCulture culture.Culture) (Organization, error) {
 func Random() (Organization, error) {
 	originCulture, err := culture.Random()
 	if err != nil {
-		err = fmt.Errorf("Could not generate random organization: %w", err)
+		err = fmt.Errorf("Failed to generate random organization: %w", err)
 		return Organization{}, err
 	}
 
 	org, err := Generate(originCulture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random organization: %w", err)
+		err = fmt.Errorf("Failed to generate random organization: %w", err)
 		return Organization{}, err
 	}
 

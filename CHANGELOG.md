@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.7.1 (2019-09-16)
+
+Improve how organizations are generated.
+
+### Change List
+
+- Add wizardry schools to organizations
+- Add ranks to organizations
+- Make the number of organizations in a region dependent on its size
+- Add profession name to its list of tags
+
 ## 0.7.0 (2019-09-16)
 
 Improve the pantheon package and relationships.

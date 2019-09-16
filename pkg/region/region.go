@@ -96,7 +96,7 @@ func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Reg
 func (region Region) getOrganizations() ([]organization.Organization, error) {
 	organizations := []organization.Organization{}
 
-	numberOfOrgs := rand.Intn(3) + 1
+	numberOfOrgs := rand.Intn(region.Class.MinNumberOfOrganizations+region.Class.MaxNumberOfOrganizations) + region.Class.MinNumberOfOrganizations
 
 	for i := 0; i < numberOfOrgs; i++ {
 		org, err := organization.Generate(region.Culture)

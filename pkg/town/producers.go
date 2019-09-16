@@ -1,12 +1,13 @@
 package town
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/resource"
 )
 
-func getProducers(size int, resources []resource.Resource) []profession.Profession {
-	var producer []profession.Profession
+func getProducers(size int, resources []resource.Resource) ([]profession.Profession, error) {
 	var producers []profession.Profession
 
 	possibleProducers := resource.GetPossibleProfessions(resources)
@@ -32,9 +33,13 @@ func getProducers(size int, resources []resource.Resource) []profession.Professi
 	}
 
 	for i := 0; i < numberOfProducers; i++ {
-		producer = profession.RandomSet(1, possibleProducers)
+		producer, err := profession.RandomSet(1, possibleProducers)
+		if err != nil {
+			err = fmt.Errorf("Failed to get producers: %w", err)
+			return []profession.Profession{}, err
+		}
 		producers = append(producers, producer[0])
 	}
 
-	return producers
+	return producers, nil
 }
