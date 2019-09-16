@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.7.0 (2019-09-16)
+
+Improve the pantheon package and relationships.
+
+### Change List
+
+- Split domains and deities into their own packages
+- Split relationships into their own package
+- Added more logic to determining relationship validity
+- Added more descriptors to relationships
+
 ## 0.6.5 (2019-09-16)
 
 Fix bug in tinctures

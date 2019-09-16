@@ -1,4 +1,4 @@
-package pantheon
+package deity
 
 import (
 	"fmt"

@@ -839,10 +839,6 @@ func errorTracking(h http.Handler) http.Handler {
 func main() {
 	sentryDSN := os.Getenv("SENTRY_DSN")
 
-	if sentryDSN == "" {
-		panic("Sentry not set up!")
-	}
-
 	sentry.Init(sentry.ClientOptions{
 		Dsn: sentryDSN,
 	})

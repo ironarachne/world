@@ -1,8 +1,9 @@
-package pantheon
+package deity
 
 import (
 	"fmt"
 
+	"github.com/ironarachne/world/pkg/pantheon/domain"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -58,7 +59,8 @@ func (deity Deity) getRandomTraits() ([]string, error) {
 		}
 	}
 
-	possibleTraits = append(possibleTraits, getAllPersonalitiesForDomains(deity.Domains)...)
+	domainTraits := domain.AllPersonalitiesForDomains(deity.Domains)
+	possibleTraits = append(possibleTraits, domainTraits...)
 	traits := []string{}
 
 	for i := 0; i < 2; i++ {
