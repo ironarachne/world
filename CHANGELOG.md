@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.5 (2019-09-16)
+
+Fix bug in tinctures
+
+### Change List
+
+- Fix a bug that prevented tinctures from loading
+
 ## 0.6.4 (2019-09-13)
 
 Install ca-certificates in the Docker image

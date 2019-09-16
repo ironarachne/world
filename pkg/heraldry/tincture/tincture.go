@@ -2,11 +2,13 @@ package tincture
 
 import (
 	"fmt"
+	"image/color"
+	"math/rand"
+	"os"
+
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
-	"image/color"
-	"math/rand"
 )
 
 // Tincture is a tincture
@@ -15,13 +17,16 @@ type Tincture struct {
 	Name            string
 	Color           color.RGBA
 	PatternFileName string
-	Tags []string
-	Commonality int
+	Tags            []string
+	Commonality     int
 }
 
+// Fill passes a tincture to gg's Fill context operation
 func (tincture Tincture) Fill(dc *gg.Context) error {
+	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
+
 	if tincture.Type == "fur" {
-		filePath := "images/patterns/" + tincture.PatternFileName
+		filePath := dataPath + "/images/patterns/" + tincture.PatternFileName
 		im, err := gg.LoadPNG(filePath)
 		if err != nil {
 			err = fmt.Errorf("Failed to fill with tincture: %w", err)
@@ -39,45 +44,45 @@ func (tincture Tincture) Fill(dc *gg.Context) error {
 func getColorTinctures() []Tincture {
 	colors := []Tincture{
 		{
-			Name:  "azure",
-			Type:  "color",
-			Color: color.RGBA{0, 12, 177, 255},
+			Name:        "azure",
+			Type:        "color",
+			Color:       color.RGBA{0, 12, 177, 255},
 			Commonality: 1000,
 			Tags: []string{
 				"color",
 			},
 		},
 		{
-			Name:  "gules",
-			Type:  "color",
-			Color: color.RGBA{206, 31, 0, 255},
+			Name:        "gules",
+			Type:        "color",
+			Color:       color.RGBA{206, 31, 0, 255},
 			Commonality: 1000,
 			Tags: []string{
 				"color",
 			},
 		},
 		{
-			Name:  "purpure",
-			Type:  "color",
-			Color: color.RGBA{72, 0, 169, 255},
+			Name:        "purpure",
+			Type:        "color",
+			Color:       color.RGBA{72, 0, 169, 255},
 			Commonality: 1000,
 			Tags: []string{
 				"color",
 			},
 		},
 		{
-			Name:  "sable",
-			Type:  "color",
-			Color: color.RGBA{0, 0, 0, 255},
+			Name:        "sable",
+			Type:        "color",
+			Color:       color.RGBA{0, 0, 0, 255},
 			Commonality: 1000,
 			Tags: []string{
 				"color",
 			},
 		},
 		{
-			Name:  "vert",
-			Type:  "color",
-			Color: color.RGBA{12, 108, 0, 255},
+			Name:        "vert",
+			Type:        "color",
+			Color:       color.RGBA{12, 108, 0, 255},
 			Commonality: 1000,
 			Tags: []string{
 				"color",
@@ -91,10 +96,10 @@ func getColorTinctures() []Tincture {
 func getFurTinctures() []Tincture {
 	furs := []Tincture{
 		{
-			Name:  "erminois",
-			Type:  "fur",
-			Color: color.RGBA{255, 241, 0, 255},
-			Commonality: 2,
+			Name:            "erminois",
+			Type:            "fur",
+			Color:           color.RGBA{255, 241, 0, 255},
+			Commonality:     2,
 			PatternFileName: "erminois.png",
 			Tags: []string{
 				"fur",
@@ -102,10 +107,10 @@ func getFurTinctures() []Tincture {
 			},
 		},
 		{
-			Name:  "ermine",
-			Type:  "fur",
-			Color: color.RGBA{255, 255, 255, 255},
-			Commonality: 2,
+			Name:            "ermine",
+			Type:            "fur",
+			Color:           color.RGBA{255, 255, 255, 255},
+			Commonality:     2,
 			PatternFileName: "ermine.png",
 			Tags: []string{
 				"fur",
@@ -113,10 +118,10 @@ func getFurTinctures() []Tincture {
 			},
 		},
 		{
-			Name:  "ermines",
-			Type:  "fur",
-			Color: color.RGBA{0, 0, 0, 255},
-			Commonality: 2,
+			Name:            "ermines",
+			Type:            "fur",
+			Color:           color.RGBA{0, 0, 0, 255},
+			Commonality:     2,
 			PatternFileName: "ermines.png",
 			Tags: []string{
 				"fur",
@@ -124,10 +129,10 @@ func getFurTinctures() []Tincture {
 			},
 		},
 		{
-			Name:  "pean",
-			Type:  "fur",
-			Color: color.RGBA{0, 0, 0, 255},
-			Commonality: 2,
+			Name:            "pean",
+			Type:            "fur",
+			Color:           color.RGBA{0, 0, 0, 255},
+			Commonality:     2,
 			PatternFileName: "pean.png",
 			Tags: []string{
 				"fur",
@@ -142,18 +147,18 @@ func getFurTinctures() []Tincture {
 func getMetalTinctures() []Tincture {
 	metals := []Tincture{
 		{
-			Name:  "argent",
-			Type:  "metal",
-			Color: color.RGBA{255, 255, 255, 255},
+			Name:        "argent",
+			Type:        "metal",
+			Color:       color.RGBA{255, 255, 255, 255},
 			Commonality: 950,
 			Tags: []string{
 				"metal",
 			},
 		},
 		{
-			Name:  "Or",
-			Type:  "metal",
-			Color: color.RGBA{255, 241, 0, 255},
+			Name:        "Or",
+			Type:        "metal",
+			Color:       color.RGBA{255, 241, 0, 255},
 			Commonality: 950,
 			Tags: []string{
 				"metal",
@@ -167,9 +172,9 @@ func getMetalTinctures() []Tincture {
 func getStainTinctures() []Tincture {
 	stains := []Tincture{
 		{
-			Name:  "murrey",
-			Type:  "stain",
-			Color: color.RGBA{108, 0, 73, 255},
+			Name:        "murrey",
+			Type:        "stain",
+			Color:       color.RGBA{108, 0, 73, 255},
 			Commonality: 5,
 			Tags: []string{
 				"color",
@@ -177,9 +182,9 @@ func getStainTinctures() []Tincture {
 			},
 		},
 		{
-			Name:  "sanguine",
-			Type:  "stain",
-			Color: color.RGBA{135, 17, 0, 255},
+			Name:        "sanguine",
+			Type:        "stain",
+			Color:       color.RGBA{135, 17, 0, 255},
 			Commonality: 5,
 			Tags: []string{
 				"color",
@@ -187,9 +192,9 @@ func getStainTinctures() []Tincture {
 			},
 		},
 		{
-			Name:  "tenné",
-			Type:  "stain",
-			Color: color.RGBA{108, 81, 0, 255},
+			Name:        "tenné",
+			Type:        "stain",
+			Color:       color.RGBA{108, 81, 0, 255},
 			Commonality: 5,
 			Tags: []string{
 				"color",
@@ -299,7 +304,7 @@ func RandomByTag(tag string) (Tincture, error) {
 	tinctures := ByTag(all, tag)
 	tincture, err := RandomWeighted(tinctures)
 	if err != nil {
-		err = fmt.Errorf("Failed to get random tincture by tag " + tag + ": %w", err)
+		err = fmt.Errorf("Failed to get random tincture by tag "+tag+": %w", err)
 		return Tincture{}, err
 	}
 	return tincture, nil
