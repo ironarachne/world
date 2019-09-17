@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.7.2 (2019-09-17)
+
+Improve organizations.
+
+### Change List
+
+- Add wizard societies
+- Add age calculation for organization members based on rank
+- Add size limit variation to organizations
+
 ## 0.7.1 (2019-09-16)
 
 Improve how organizations are generated.

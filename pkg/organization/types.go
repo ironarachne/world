@@ -14,6 +14,8 @@ type Rank struct {
 	Precedence  int
 	MaxNumber   int
 	MemberNames []string
+	AgeModifier float64
+	AgeCategory string
 }
 
 // Type is a type of organization
@@ -21,16 +23,14 @@ type Type struct {
 	Name              string
 	PossibleTraits    []string
 	CanBeLedByGroup   bool
-	LeaderMaxAge      int
-	LeaderMinAge      int
 	LeaderTitle       string
-	MemberMaxAge      int
-	MemberMinAge      int
 	MemberProfessions []profession.Profession
 	NameFirstParts    []string
 	NameSecondParts   []string
 	NameTemplate      string
 	Ranks             []Rank
+	MaxSize           int
+	MinSize           int
 }
 
 func getAllTypes() ([]Type, error) {
@@ -46,7 +46,9 @@ func getAllTypes() ([]Type, error) {
 
 	types := []Type{
 		{
-			Name: "adventuring company",
+			Name:    "adventuring company",
+			MaxSize: 50,
+			MinSize: 2,
 			PossibleTraits: []string{
 				"aggressive",
 				"avaricious",
@@ -60,11 +62,7 @@ func getAllTypes() ([]Type, error) {
 				"selfless",
 			},
 			CanBeLedByGroup:   false,
-			LeaderMaxAge:      50,
-			LeaderMinAge:      25,
 			LeaderTitle:       "captain",
-			MemberMaxAge:      50,
-			MemberMinAge:      15,
 			MemberProfessions: adventurers,
 			NameFirstParts: []string{
 				"Black",
@@ -94,19 +92,25 @@ func getAllTypes() ([]Type, error) {
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
 			Ranks: []Rank{
 				{
-					Title:      "Captain",
-					Precedence: 0,
-					MaxNumber:  1,
+					Title:       "Captain",
+					Precedence:  0,
+					MaxNumber:   1,
+					AgeModifier: 1.25,
+					AgeCategory: "young adult",
 				},
 				{
-					Title:      "Adventurer",
-					Precedence: 1,
-					MaxNumber:  0,
+					Title:       "Adventurer",
+					Precedence:  1,
+					MaxNumber:   0,
+					AgeModifier: 1.0,
+					AgeCategory: "young adult",
 				},
 			},
 		},
 		{
-			Name: "church",
+			Name:    "church",
+			MaxSize: 1000,
+			MinSize: 10,
 			PossibleTraits: []string{
 				"penitent",
 				"helpful",
@@ -118,11 +122,7 @@ func getAllTypes() ([]Type, error) {
 				"proselytizing",
 			},
 			CanBeLedByGroup:   true,
-			LeaderMaxAge:      80,
-			LeaderMinAge:      35,
 			LeaderTitle:       "high priest",
-			MemberMaxAge:      90,
-			MemberMinAge:      15,
 			MemberProfessions: divine,
 			NameFirstParts: []string{
 				"Holy",
@@ -151,24 +151,32 @@ func getAllTypes() ([]Type, error) {
 			NameTemplate: "{{.FirstPart}} Church of the {{.SecondPart}}",
 			Ranks: []Rank{
 				{
-					Title:      "High Priest",
-					Precedence: 0,
-					MaxNumber:  1,
+					Title:       "High Priest",
+					Precedence:  0,
+					MaxNumber:   1,
+					AgeModifier: 1.5,
+					AgeCategory: "adult",
 				},
 				{
-					Title:      "Priest",
-					Precedence: 1,
-					MaxNumber:  0,
+					Title:       "Priest",
+					Precedence:  1,
+					MaxNumber:   0,
+					AgeModifier: 1.25,
+					AgeCategory: "adult",
 				},
 				{
-					Title:      "Acolyte",
-					Precedence: 2,
-					MaxNumber:  0,
+					Title:       "Acolyte",
+					Precedence:  2,
+					MaxNumber:   0,
+					AgeModifier: 0.9,
+					AgeCategory: "young adult",
 				},
 			},
 		},
 		{
-			Name: "mercenary company",
+			Name:    "mercenary company",
+			MaxSize: 500,
+			MinSize: 20,
 			PossibleTraits: []string{
 				"aggressive",
 				"belligerent",
@@ -179,11 +187,7 @@ func getAllTypes() ([]Type, error) {
 				"trustworthy",
 			},
 			CanBeLedByGroup:   true,
-			LeaderMaxAge:      50,
-			LeaderMinAge:      25,
 			LeaderTitle:       "captain",
-			MemberMaxAge:      50,
-			MemberMinAge:      15,
 			MemberProfessions: fighters,
 			NameFirstParts: []string{
 				"Black",
@@ -213,14 +217,18 @@ func getAllTypes() ([]Type, error) {
 			NameTemplate: "{{.FirstPart}} {{.SecondPart}}",
 			Ranks: []Rank{
 				{
-					Title:      "Captain",
-					Precedence: 0,
-					MaxNumber:  1,
+					Title:       "Captain",
+					Precedence:  0,
+					MaxNumber:   1,
+					AgeModifier: 1.0,
+					AgeCategory: "adult",
 				},
 				{
-					Title:      "Mercenary",
-					Precedence: 1,
-					MaxNumber:  0,
+					Title:       "Mercenary",
+					Precedence:  1,
+					MaxNumber:   0,
+					AgeModifier: 1.0,
+					AgeCategory: "young adult",
 				},
 			},
 		},
@@ -236,16 +244,24 @@ func getAllTypes() ([]Type, error) {
 		err = fmt.Errorf("Failed to generate organization types: %w", err)
 		return []Type{}, err
 	}
+	wizardSociety, err := getWizardSociety()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate organization types: %w", err)
+		return []Type{}, err
+	}
 
 	types = append(types, guild)
 	types = append(types, school)
+	types = append(types, wizardSociety)
 
 	return types, nil
 }
 
 func getCraftingGuild() (Type, error) {
 	guild := Type{
-		Name: "guild",
+		Name:    "guild",
+		MaxSize: 150,
+		MinSize: 10,
 		PossibleTraits: []string{
 			"ambitious",
 			"avaricious",
@@ -258,11 +274,7 @@ func getCraftingGuild() (Type, error) {
 			"productive",
 		},
 		CanBeLedByGroup: true,
-		LeaderMaxAge:    70,
-		LeaderMinAge:    30,
 		LeaderTitle:     "guild leader",
-		MemberMaxAge:    90,
-		MemberMinAge:    20,
 		NameFirstParts: []string{
 			"August",
 			"East Wind",
@@ -277,14 +289,25 @@ func getCraftingGuild() (Type, error) {
 		NameTemplate: "{{.FirstPart}} {{.SecondPart}}'s Guild",
 		Ranks: []Rank{
 			{
-				Title:      "Guild Leader",
-				Precedence: 0,
-				MaxNumber:  1,
+				Title:       "Guild Leader",
+				Precedence:  0,
+				MaxNumber:   1,
+				AgeModifier: 1.5,
+				AgeCategory: "adult",
 			},
 			{
-				Title:      "Artisan",
-				Precedence: 1,
-				MaxNumber:  0,
+				Title:       "Artisan",
+				Precedence:  1,
+				MaxNumber:   0,
+				AgeModifier: 1.1,
+				AgeCategory: "adult",
+			},
+			{
+				Title:       "Apprentice Artisan",
+				Precedence:  2,
+				MaxNumber:   0,
+				AgeModifier: 0.7,
+				AgeCategory: "young adult",
 			},
 		},
 	}
@@ -303,9 +326,100 @@ func getCraftingGuild() (Type, error) {
 	return guild, nil
 }
 
+func getWizardSociety() (Type, error) {
+	org := Type{
+		Name:    "wizard society",
+		MaxSize: 100,
+		MinSize: 10,
+		PossibleTraits: []string{
+			"aggressive",
+			"aloof",
+			"ambitious",
+			"closeted",
+			"dangerous",
+			"eldritch",
+			"guarded",
+			"knowledgeable",
+			"mysterious",
+			"powerful",
+			"reckless",
+			"secretive",
+		},
+		CanBeLedByGroup: true,
+		LeaderTitle:     "archmage",
+		NameFirstParts: []string{
+			"Order",
+			"Brotherhood",
+			"Society",
+		},
+		NameSecondParts: []string{
+			"Arcane Arts",
+			"Arcane Endeavors",
+			"Eldritch Arts",
+			"Mysteries of the Arcane",
+			"Mysteries",
+			"Mystical Arts",
+			"Sorcerous Endeavors",
+			"the Arcane Circle",
+			"the Eldritch Mysteries",
+			"the Mystical",
+		},
+		NameTemplate: "{{.FirstPart}} of {{.SecondPart}}",
+		Ranks: []Rank{
+			{
+				Title:       "Archmage",
+				Precedence:  0,
+				MaxNumber:   1,
+				AgeModifier: 4.0,
+				AgeCategory: "elderly",
+			},
+			{
+				Title:       "Adept",
+				Precedence:  1,
+				MaxNumber:   0,
+				AgeModifier: 2.5,
+				AgeCategory: "adult",
+			},
+			{
+				Title:       "Master",
+				Precedence:  2,
+				MaxNumber:   0,
+				AgeModifier: 2.0,
+				AgeCategory: "adult",
+			},
+			{
+				Title:       "Journeyman",
+				Precedence:  3,
+				MaxNumber:   0,
+				AgeModifier: 1.25,
+				AgeCategory: "young adult",
+			},
+			{
+				Title:       "Apprentice",
+				Precedence:  4,
+				MaxNumber:   0,
+				AgeModifier: 1.0,
+				AgeCategory: "teenager",
+			},
+		},
+	}
+
+	wizards := profession.ByTag("wizard")
+	memberProfessions, err := profession.RandomSet(3, wizards)
+	if err != nil {
+		err = fmt.Errorf("Failed to generate wizard society: %w", err)
+		return Type{}, err
+	}
+	org.MemberProfessions = memberProfessions
+
+	return org, nil
+}
+
 func getWizardSchool() (Type, error) {
 	org := Type{
-		Name: "school of wizardry",
+		Name:    "school of wizardry",
+		MaxSize: 500,
+		MinSize: 50,
 		PossibleTraits: []string{
 			"aloof",
 			"ambitious",
@@ -321,11 +435,7 @@ func getWizardSchool() (Type, error) {
 			"wise",
 		},
 		CanBeLedByGroup: true,
-		LeaderMaxAge:    100,
-		LeaderMinAge:    50,
 		LeaderTitle:     "headmaster",
-		MemberMaxAge:    120,
-		MemberMinAge:    10,
 		NameFirstParts: []string{
 			"Academy",
 			"Institute",
@@ -347,19 +457,25 @@ func getWizardSchool() (Type, error) {
 		NameTemplate: "{{.FirstPart}} of {{.SecondPart}}",
 		Ranks: []Rank{
 			{
-				Title:      "Headmaster",
-				Precedence: 0,
-				MaxNumber:  1,
+				Title:       "Headmaster",
+				Precedence:  0,
+				MaxNumber:   1,
+				AgeModifier: 3.0,
+				AgeCategory: "elderly",
 			},
 			{
-				Title:      "Instructor",
-				Precedence: 1,
-				MaxNumber:  0,
+				Title:       "Instructor",
+				Precedence:  1,
+				MaxNumber:   0,
+				AgeModifier: 2.0,
+				AgeCategory: "adult",
 			},
 			{
-				Title:      "Student",
-				Precedence: 2,
-				MaxNumber:  0,
+				Title:       "Student",
+				Precedence:  2,
+				MaxNumber:   0,
+				AgeModifier: 1.0,
+				AgeCategory: "teenager",
 			},
 		},
 	}
@@ -403,18 +519,6 @@ func (t Type) GetRandomMemberProfession() (profession.Profession, error) {
 	}
 
 	return prof[0], nil
-}
-
-// GetRandomLeaderAge returns an appropriate age for a leader of this group
-func (t Type) GetRandomLeaderAge() int {
-	age := rand.Intn(t.LeaderMaxAge-t.LeaderMinAge) + t.LeaderMinAge
-	return age
-}
-
-// GetRandomMemberAge returns an appropriate age for a member of this group
-func (t Type) GetRandomMemberAge() int {
-	age := rand.Intn(t.MemberMaxAge-t.MemberMinAge) + t.MemberMinAge
-	return age
 }
 
 func getRandomType() (Type, error) {

@@ -8,6 +8,7 @@ import (
 
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/random"
 )
 
@@ -92,7 +93,8 @@ func (org Organization) getLeader(originCulture culture.Culture) (Member, error)
 		err = fmt.Errorf("Could not set organization leader: %w", err)
 		return Member{}, err
 	}
-	leaderData = leaderData.ChangeAge(org.Type.GetRandomLeaderAge())
+	leaderRank := org.Type.Ranks[0]
+	leaderData = leaderData.ChangeAge(GetModifiedMemberAge(leaderRank, leaderData.Race))
 	prof, err := org.Type.GetRandomMemberProfession()
 	if err != nil {
 		err = fmt.Errorf("Failed to get notable organization members: %w", err)
@@ -100,7 +102,6 @@ func (org Organization) getLeader(originCulture culture.Culture) (Member, error)
 	}
 	leaderData.Profession = prof
 	leaderData.Title = org.Type.LeaderTitle
-	leaderRank := org.Type.Ranks[0]
 
 	leader := Member{
 		CharacterData: leaderData,
@@ -126,7 +127,8 @@ func (org Organization) getNotableMembers(originCulture culture.Culture) ([]Memb
 			err = fmt.Errorf("Failed to get notable organization members: %w", err)
 			return []Member{}, err
 		}
-		member = member.ChangeAge(org.Type.GetRandomMemberAge())
+		memberRank = org.Type.GetRandomMemberRank()
+		member = member.ChangeAge(GetModifiedMemberAge(memberRank, member.Race))
 		prof, err := org.Type.GetRandomMemberProfession()
 		if err != nil {
 			err = fmt.Errorf("Failed to get notable organization members: %w", err)
@@ -154,7 +156,7 @@ func Generate(originCulture culture.Culture) (Organization, error) {
 		return Organization{}, err
 	}
 	org.Type = orgType
-	org.SizeClass = getRandomSizeClass()
+	org.SizeClass = getRandomSizeClass(org.Type.MinSize, org.Type.MaxSize)
 	org.Size = rand.Intn(org.SizeClass.MaxSize-org.SizeClass.MinSize) + org.SizeClass.MinSize
 	name, err := org.setName()
 	if err != nil {
@@ -200,4 +202,13 @@ func Random() (Organization, error) {
 	}
 
 	return org, nil
+}
+
+// GetModifiedMemberAge returns an age appropriate for the given rank and race
+func GetModifiedMemberAge(rank Rank, memberRace race.Race) int {
+	adult := memberRace.GetAgeCategoryByName(rank.AgeCategory)
+	age := race.GetRandomAge(adult)
+	modifiedAge := rank.AgeModifier * float64(age)
+
+	return int(modifiedAge)
 }
