@@ -1,173 +1,220 @@
 package race
 
-import "github.com/ironarachne/world/pkg/size"
+import (
+	"github.com/ironarachne/world/pkg/age"
+	"github.com/ironarachne/world/pkg/dice"
+	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
+	"github.com/ironarachne/world/pkg/trait"
+)
 
-func getHumans() []Race {
-	heightBase := 60
-	weightBase := 100
-	sizeCategory := size.GetCategoryByName("medium")
+func getHumans() []species.Species {
+	common := getHumanCommonTraitTemplates()
+	possible := getHumanPossibleTraitTemplates()
+	ageCategories := getHumanAgeCategories()
 
-	femaleHeightModifier := 0
-	femaleWeightModifier := 0
-	heightRange := 12
-	maleHeightModifier := 6
-	maleWeightModifier := 50
-	weightRange := 100
-
-	races := []Race{
+	races := []species.Species{
 		{
-			Name:       "human",
-			PluralName: "humans",
-			Adjective:  "human",
-			AgeCategories: []AgeCategory{
-				{
-					Name:        "adult",
-					MinAge:      26,
-					MaxAge:      69,
-					Commonality: 12,
-				},
-				{
-					Name:        "elderly",
-					MinAge:      70,
-					MaxAge:      110,
-					Commonality: 1,
-				},
-				{
-					Name:        "young adult",
-					MinAge:      20,
-					MaxAge:      25,
-					Commonality: 2,
-				},
-				{
-					Name:        "teenager",
-					MinAge:      13,
-					MaxAge:      19,
-					Commonality: 1,
-				},
-				{
-					Name:        "child",
-					MinAge:      2,
-					MaxAge:      12,
-					Commonality: 1,
-				},
-				{
-					Name:        "infant",
-					MinAge:      0,
-					MaxAge:      1,
-					Commonality: 1,
-				},
+			Name:           "human",
+			PluralName:     "humans",
+			Adjective:      "human",
+			CommonTraits:   common,
+			PossibleTraits: possible,
+			AgeCategories:  ageCategories,
+			Commonality:    10,
+			MinHumidity:    0,
+			MaxHumidity:    10,
+			MinTemperature: 0,
+			MaxTemperature: 10,
+			Tags: []string{
+				"human",
 			},
-			Appearance: Appearance{
-				MaxFemaleHeight: heightBase + femaleHeightModifier + heightRange,
-				MinFemaleHeight: heightBase + femaleHeightModifier,
-				MaxMaleHeight:   heightBase + maleHeightModifier + heightRange,
-				MinMaleHeight:   heightBase + maleHeightModifier,
-				MaxFemaleWeight: weightBase + femaleWeightModifier + weightRange,
-				MinFemaleWeight: weightBase + femaleWeightModifier,
-				MaxMaleWeight:   weightBase + maleWeightModifier + weightRange,
-				MinMaleWeight:   weightBase + maleWeightModifier,
-				FaceShapes: []string{
-					"broad",
-					"chiseled",
-					"oval",
-					"round",
-					"square",
-				},
-				EarShapes: []string{
-					"rounded",
-					"slightly pointed",
-				},
-				EyeShapes: []string{
-					"almond",
-					"narrow",
-					"oval",
-					"round",
-					"slanted",
-				},
-				NoseShapes: []string{
-					"acquiline",
-					"long",
-					"narrow",
-					"pointed",
-					"thin",
-					"wide",
-				},
-				MouthShapes: []string{
-					"full",
-					"narrow",
-					"thin",
-					"wide",
-				},
-				FacialHairStyles: []string{
-					"full beard",
-					"short goatee",
-					"long goatee",
-					"handlebar mustache",
-					"long beard",
-					"short beard",
-					"mutton chops",
-					"clean shaven",
-					"trim mustache",
-					"narrow mustache",
-				},
-				HairColors: []string{
-					"black",
-					"auburn",
-					"red",
-					"grey",
-					"brown",
-					"dark brown",
-					"light brown",
-				},
-				HairConsistencies: []string{
-					"thick",
-					"thin",
-				},
-				FemaleHairStyles: []string{
-					"shoulder-length",
-					"short-cropped",
-					"bald",
-					"bowl-cut",
-					"ponytail",
-					"topknot",
-					"braided",
-					"back-length",
-					"mohawk",
-				},
-				MaleHairStyles: []string{
-					"shoulder-length",
-					"short-cropped",
-					"bald",
-					"bowl-cut",
-					"ponytail",
-					"topknot",
-					"braided",
-					"back-length",
-					"mohawk",
-				},
-				SkinColors: []string{
-					"light",
-					"tan",
-					"olive",
-					"bronze",
-					"brown",
-					"dark",
-				},
-				EyeColors: []string{
-					"amber",
-					"blue",
-					"brown",
-					"gold",
-					"green",
-					"hazel",
-					"grey",
-				},
-				UniqueTraits: []string{},
-			},
-			Commonality:  10,
-			SizeCategory: sizeCategory,
 		},
 	}
 
 	return races
+}
+
+func getHumanAgeCategories() []age.Category {
+	heightDice := dice.Dice{Number: 1, Sides: 4}
+	weightDice := dice.Dice{Number: 1, Sides: 4}
+	adultSizeCategory := size.GetCategoryByName("medium")
+	childSizeCategory := size.GetCategoryByName("small")
+	infantSizeCategory := size.GetCategoryByName("tiny")
+
+	categories := []age.Category{
+		{
+			Name:                 "adult",
+			MinAge:               26,
+			MaxAge:               69,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          12,
+		},
+		{
+			Name:                 "elderly",
+			MinAge:               70,
+			MaxAge:               110,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          1,
+		},
+		{
+			Name:                 "young adult",
+			MinAge:               20,
+			MaxAge:               25,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          2,
+		},
+		{
+			Name:                 "teenager",
+			MinAge:               13,
+			MaxAge:               19,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          1,
+		},
+		{
+			Name:                 "child",
+			MinAge:               2,
+			MaxAge:               12,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         childSizeCategory,
+			Commonality:          1,
+		},
+		{
+			Name:                 "infant",
+			MinAge:               0,
+			MaxAge:               1,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         infantSizeCategory,
+			Commonality:          1,
+		},
+	}
+
+	return categories
+}
+
+func getHumanCommonTraitTemplates() []trait.Template {
+	templates := []trait.Template{
+		{
+			Name: "eye color",
+			PossibleValues: []string{
+				"amber",
+				"blue",
+				"brown",
+				"gold",
+				"green",
+				"hazel",
+				"grey",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} eyes",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"eyes",
+			},
+		},
+		{
+			Name: "hair color",
+			PossibleValues: []string{
+				"black",
+				"auburn",
+				"red",
+				"grey",
+				"brown",
+				"dark brown",
+				"light brown",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} hair",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"hair",
+			},
+		},
+		{
+			Name: "skin color",
+			PossibleValues: []string{
+				"light",
+				"tan",
+				"olive",
+				"bronze",
+				"brown",
+				"dark",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} skin",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"skin",
+			},
+		},
+	}
+
+	return templates
+}
+
+func getHumanPossibleTraitTemplates() []trait.Template {
+	templates := []trait.Template{
+		{
+			Name: "nose shape",
+			PossibleValues: []string{
+				"aquiline",
+				"broad",
+				"flat",
+				"long",
+				"narrow",
+				"pointed",
+				"upturned",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} nose",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"nose",
+			},
+		},
+	}
+
+	return templates
 }

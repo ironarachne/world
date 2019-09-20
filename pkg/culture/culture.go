@@ -13,6 +13,7 @@ import (
 	"github.com/ironarachne/world/pkg/music"
 	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/religion"
+	"github.com/ironarachne/world/pkg/species"
 )
 
 // Culture is a fantasy culture
@@ -38,7 +39,7 @@ type Culture struct {
 	Language          language.Language
 	MusicStyle        music.Style
 	Name              string
-	PrimaryRace       race.Race
+	PrimaryRace       species.Species
 	Religion          religion.Religion
 	Views             []string
 }
@@ -128,8 +129,7 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 	culture.Attributes.Rigidity = rand.Intn(culture.AttributeMax) + 1
 	culture.Attributes.Superstition = rand.Intn(culture.AttributeMax) + 1
 
-	parentRace := race.GetRandom()
-	primaryRace, err := race.GenerateSubrace(parentRace)
+	primaryRace, err := race.RandomWeighted()
 	if err != nil {
 		err = fmt.Errorf("Could not generate culture: %w", err)
 		return Culture{}, err

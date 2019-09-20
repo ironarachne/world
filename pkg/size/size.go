@@ -2,8 +2,10 @@ package size
 
 // Category is a general size category for creatures
 type Category struct {
-	Name  string
-	Level int
+	Name       string
+	Level      int
+	BaseHeight int // Base height in inches
+	BaseWeight int // Base weight in pounds
 }
 
 // Larger returns a category larger than the current one, or the current one if it's the biggest
@@ -35,28 +37,58 @@ func (category Category) Smaller() Category {
 func getAllSizeCategories() []Category {
 	return []Category{
 		{
-			Name:  "tiny",
-			Level: 1,
+			Name:       "fine",
+			Level:      1,
+			BaseHeight: 3,
+			BaseWeight: 1,
 		},
 		{
-			Name:  "small",
-			Level: 2,
+			Name:       "diminutive",
+			Level:      1,
+			BaseHeight: 9,
+			BaseWeight: 1,
 		},
 		{
-			Name:  "medium",
-			Level: 3,
+			Name:       "tiny",
+			Level:      1,
+			BaseHeight: 20,
+			BaseWeight: 6,
 		},
 		{
-			Name:  "large",
-			Level: 4,
+			Name:       "small",
+			Level:      2,
+			BaseHeight: 36,
+			BaseWeight: 30,
 		},
 		{
-			Name:  "huge",
-			Level: 5,
+			Name:       "medium",
+			Level:      3,
+			BaseHeight: 72,
+			BaseWeight: 200,
 		},
 		{
-			Name:  "gargantuan",
-			Level: 6,
+			Name:       "large",
+			Level:      4,
+			BaseHeight: 144,
+			BaseWeight: 1000,
+		},
+		{
+			Name:       "huge",
+			Level:      5,
+			BaseHeight: 288,
+			BaseWeight: 14000,
+		},
+		{
+			Name:       "gargantuan",
+			Level:      6,
+			BaseHeight: 576,
+			BaseWeight: 142000,
+		},
+		{
+			Name:       "colossal",
+			Level:      6,
+			BaseHeight: 768,
+			BaseWeight: 250000,
 		},
 	}
 }

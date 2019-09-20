@@ -1,149 +1,234 @@
 package race
 
-import "github.com/ironarachne/world/pkg/size"
+import (
+	"github.com/ironarachne/world/pkg/age"
+	"github.com/ironarachne/world/pkg/dice"
+	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
+	"github.com/ironarachne/world/pkg/trait"
+)
 
-func getElves() []Race {
-	heightBase := 60
-	weightBase := 100
-	sizeCategory := size.GetCategoryByName("medium")
+func getElves() []species.Species {
+	common := getElfCommonTraitTemplates()
+	possible := getElfPossibleTraitTemplates()
+	ageCategories := getElfAgeCategories()
 
-	femaleHeightModifier := -6
-	femaleWeightModifier := -50
-	heightRange := 6
-	maleHeightModifier := 0
-	maleWeightModifier := 0
-	weightRange := 50
-
-	return []Race{
+	return []species.Species{
 		{
-			Name:       "elf",
-			PluralName: "elves",
-			Adjective:  "elven",
-			AgeCategories: []AgeCategory{
-				{
-					Name:        "adult",
-					MinAge:      76,
-					MaxAge:      269,
-					Commonality: 12,
-				},
-				{
-					Name:        "elderly",
-					MinAge:      270,
-					MaxAge:      500,
-					Commonality: 1,
-				},
-				{
-					Name:        "young adult",
-					MinAge:      40,
-					MaxAge:      75,
-					Commonality: 2,
-				},
-				{
-					Name:        "teenager",
-					MinAge:      23,
-					MaxAge:      39,
-					Commonality: 1,
-				},
-				{
-					Name:        "child",
-					MinAge:      2,
-					MaxAge:      22,
-					Commonality: 1,
-				},
-				{
-					Name:        "infant",
-					MinAge:      0,
-					MaxAge:      1,
-					Commonality: 1,
-				},
+			Name:           "high elf",
+			PluralName:     "high elves",
+			Adjective:      "high elven",
+			CommonTraits:   common,
+			PossibleTraits: possible,
+			AgeCategories:  ageCategories,
+			Commonality:    2,
+			MinHumidity:    0,
+			MaxHumidity:    10,
+			MinTemperature: 0,
+			MaxTemperature: 10,
+			Tags: []string{
+				"elf",
+				"high elf",
 			},
-			Appearance: Appearance{
-				MaxFemaleHeight: heightBase + femaleHeightModifier + heightRange,
-				MinFemaleHeight: heightBase + femaleHeightModifier,
-				MaxMaleHeight:   heightBase + maleHeightModifier + heightRange,
-				MinMaleHeight:   heightBase + maleHeightModifier,
-				MaxFemaleWeight: weightBase + femaleWeightModifier + weightRange,
-				MinFemaleWeight: weightBase + femaleWeightModifier,
-				MaxMaleWeight:   weightBase + maleWeightModifier + weightRange,
-				MinMaleWeight:   weightBase + maleWeightModifier,
-				FaceShapes: []string{
-					"chiseled",
-					"oval",
-					"triangular",
-				},
-				EarShapes: []string{
-					"slightly pointed",
-					"steeply pointed",
-					"long and pointed",
-				},
-				EyeShapes: []string{
-					"almond",
-					"narrow",
-					"slanted",
-				},
-				NoseShapes: []string{
-					"long",
-					"pointed",
-					"thin",
-					"slender",
-				},
-				MouthShapes: []string{
-					"narrow",
-					"thin",
-				},
-				FacialHairStyles: []string{
-					"short goatee",
-					"long goatee",
-					"clean shaven",
-				},
-				HairColors: []string{
-					"auburn",
-					"grey",
-					"white",
-					"silver",
-					"light blonde",
-				},
-				HairConsistencies: []string{
-					"thick",
-					"thin",
-				},
-				FemaleHairStyles: []string{
-					"shoulder-length",
-					"ponytail",
-					"topknot",
-					"braided",
-					"back-length",
-				},
-				MaleHairStyles: []string{
-					"shoulder-length",
-					"short-cropped",
-					"ponytail",
-					"topknot",
-					"braided",
-					"back-length",
-				},
-				SkinColors: []string{
-					"light",
-					"tan",
-					"pale",
-				},
-				EyeColors: []string{
-					"amber",
-					"blue",
-					"brown",
-					"gold",
-					"green",
-					"hazel",
-					"grey",
-					"purple",
-					"silver",
-				},
-				UniqueTraits: []string{
-					"are thin, almost ethereal",
-				},
+		},
+		{
+			Name:           "wood elf",
+			PluralName:     "wood elves",
+			Adjective:      "wood elven",
+			CommonTraits:   common,
+			PossibleTraits: possible,
+			AgeCategories:  ageCategories,
+			Commonality:    2,
+			MinHumidity:    0,
+			MaxHumidity:    10,
+			MinTemperature: 0,
+			MaxTemperature: 10,
+			Tags: []string{
+				"elf",
+				"wood elf",
 			},
-			Commonality:  2,
-			SizeCategory: sizeCategory,
 		},
 	}
+}
+
+func getElfAgeCategories() []age.Category {
+	heightDice := dice.Dice{Number: 1, Sides: 4}
+	weightDice := dice.Dice{Number: 1, Sides: 4}
+	adultSizeCategory := size.GetCategoryByName("medium")
+	childSizeCategory := size.GetCategoryByName("small")
+	infantSizeCategory := size.GetCategoryByName("tiny")
+
+	categories := []age.Category{
+		{
+			Name:                 "adult",
+			MinAge:               76,
+			MaxAge:               269,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          12,
+		},
+		{
+			Name:                 "elderly",
+			MinAge:               270,
+			MaxAge:               500,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          1,
+		},
+		{
+			Name:                 "young adult",
+			MinAge:               40,
+			MaxAge:               75,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          2,
+		},
+		{
+			Name:                 "teenager",
+			MinAge:               23,
+			MaxAge:               39,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         adultSizeCategory,
+			Commonality:          1,
+		},
+		{
+			Name:                 "child",
+			MinAge:               2,
+			MaxAge:               22,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         childSizeCategory,
+			Commonality:          1,
+		},
+		{
+			Name:                 "infant",
+			MinAge:               0,
+			MaxAge:               1,
+			MaleHeightModifier:   1,
+			FemaleHeightModifier: 1,
+			HeightRangeDice:      heightDice,
+			MaleWeightModifier:   1,
+			FemaleWeightModifier: 1,
+			WeightRangeDice:      weightDice,
+			SizeCategory:         infantSizeCategory,
+			Commonality:          1,
+		},
+	}
+
+	return categories
+}
+
+func getElfCommonTraitTemplates() []trait.Template {
+	templates := []trait.Template{
+		{
+			Name: "eye color",
+			PossibleValues: []string{
+				"amber",
+				"blue",
+				"brown",
+				"gold",
+				"green",
+				"grey",
+				"hazel",
+				"purple",
+				"silver",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} eyes",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"eyes",
+			},
+		},
+		{
+			Name: "hair color",
+			PossibleValues: []string{
+				"auburn",
+				"black",
+				"brown",
+				"dark brown",
+				"grey",
+				"light brown",
+				"red",
+				"silver",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} hair",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"hair",
+			},
+		},
+		{
+			Name: "skin color",
+			PossibleValues: []string{
+				"light",
+				"tan",
+				"olive",
+				"bronze",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} skin",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"skin",
+			},
+		},
+	}
+
+	return templates
+}
+
+func getElfPossibleTraitTemplates() []trait.Template {
+	templates := []trait.Template{
+		{
+			Name: "nose shape",
+			PossibleValues: []string{
+				"aquiline",
+				"long",
+				"narrow",
+				"thin",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} nose",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"nose",
+			},
+		},
+	}
+
+	return templates
 }

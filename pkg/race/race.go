@@ -5,38 +5,24 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
-	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-// Race is a race. It can have variations within.
-type Race struct {
-	Name          string
-	PluralName    string
-	Adjective     string
-	AgeCategories []AgeCategory
-	Appearance    Appearance
-	Commonality   int
-	SizeCategory  size.Category
+// All returns all races
+func All() []species.Species {
+	races := []species.Species{}
+
+	races = append(races, getDwarves()...)
+	races = append(races, getElves()...)
+	races = append(races, getHalflings()...)
+	races = append(races, getHumans()...)
+
+	return races
 }
 
-// GenerateSubrace generates a random subrace based on a parent race
-func GenerateSubrace(parent Race) (Race, error) {
-	race := parent
-
-	appearance, err := parent.generateRandomSubraceAppearance()
-	if err != nil {
-		err = fmt.Errorf("Could not generate random subrace: %w", err)
-		return Race{}, err
-	}
-	race.Appearance = appearance
-
-	return race, nil
-}
-
-// Get returns a specific race
-func Get(name string) Race {
-	race := Race{}
-	races := getAllRaces()
+// ByName returns a specific race by name
+func ByName(name string) species.Species {
+	races := All()
 
 	for _, r := range races {
 		if r.Name == name {
@@ -44,19 +30,43 @@ func Get(name string) Race {
 		}
 	}
 
-	return race
+	return species.Species{}
 }
 
-// GetRandom returns a random race from the list
-func GetRandom() Race {
-	races := getAllRaces()
+// Random returns a random race from the list
+func Random() (species.Species, error) {
+	races := All()
 
-	return races[rand.Intn(len(races))]
+	if len(races) == 0 {
+		err := fmt.Errorf("tried to get random race from slice of zero races")
+		return species.Species{}, err
+	}
+
+	if len(races) == 1 {
+		return races[0], nil
+	}
+
+	race := races[rand.Intn(len(races))]
+
+	return race, nil
 }
 
-// GetRandomWeighted returns a random race, taking commonality into account
-func GetRandomWeighted() (Race, error) {
-	races := getAllRaces()
+// RandomSimplified returns a random simplified race
+func RandomSimplified() (species.Simplified, error) {
+	race, err := Random()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate random simplified race: %w", err)
+		return species.Simplified{}, err
+	}
+
+	sr := race.Simplify()
+
+	return sr, nil
+}
+
+// RandomWeighted returns a random race, taking commonality into account
+func RandomWeighted() (species.Species, error) {
+	races := All()
 
 	weights := map[string]int{}
 
@@ -67,7 +77,7 @@ func GetRandomWeighted() (Race, error) {
 	name, err := random.StringFromThresholdMap(weights)
 	if err != nil {
 		err = fmt.Errorf("Failed to get random weighted race: %w", err)
-		return Race{}, err
+		return species.Species{}, err
 	}
 
 	for _, c := range races {
@@ -76,13 +86,6 @@ func GetRandomWeighted() (Race, error) {
 		}
 	}
 
-	err = fmt.Errorf("Failed to get random weighted race!")
-	return Race{}, err
-}
-
-// RandomSimplified returns a random simplified race
-func RandomSimplified() SimplifiedRace {
-	races := getAllRaces()
-
-	return races[rand.Intn(len(races))].Simplify()
+	err = fmt.Errorf("failed to get random weighted race")
+	return species.Species{}, err
 }

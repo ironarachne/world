@@ -565,25 +565,29 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 func getRace(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o race.SimplifiedRace
-
 	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
 
-	o = race.RandomSimplified()
+	o, err := race.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }
 
 func getRaceRandom(w http.ResponseWriter, r *http.Request) {
-	var o race.SimplifiedRace
-
 	rand.Seed(time.Now().UnixNano())
 
-	o = race.RandomSimplified()
+	o, err := race.RandomSimplified()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	json.NewEncoder(w).Encode(o)
 }

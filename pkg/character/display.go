@@ -58,7 +58,11 @@ func RandomSimplified() (SimplifiedCharacter, error) {
 
 // Describe returns a prose description of a character based on his or her traits and attributes
 func (character Character) Describe() (string, error) {
-	descriptionObject := character.compileDescription()
+	descriptionObject, err := character.compileDescription()
+	if err != nil {
+		err = fmt.Errorf("Could not generate character description: %w", err)
+		return "", err
+	}
 	descriptionTemplate, err := randomDescriptionTemplate()
 	if err != nil {
 		err = fmt.Errorf("Could not generate character description: %w", err)

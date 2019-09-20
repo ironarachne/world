@@ -7,8 +7,8 @@ import (
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/music"
-	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/religion"
+	"github.com/ironarachne/world/pkg/species"
 )
 
 // SimplifiedCulture is a simplified version of culture for display
@@ -25,7 +25,7 @@ type SimplifiedCulture struct {
 	Language          language.SimplifiedLanguage       `json:"language"`
 	MusicStyle        music.SimplifiedStyle             `json:"music_style"`
 	Name              string                            `json:"name"`
-	PrimaryRace       race.SimplifiedRace               `json:"primary_race"`
+	PrimaryRace       species.Simplified                `json:"primary_race"`
 	Religion          religion.SimplifiedReligion       `json:"religion"`
 	Views             []string                          `json:"views"`
 }

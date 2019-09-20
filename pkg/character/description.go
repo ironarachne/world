@@ -13,44 +13,39 @@ import (
 type Description struct {
 	Age               string
 	Culture           string
-	Eyes              string
-	FacialHair        string
 	FirstName         string
 	FullName          string
 	GenderNoun        string
-	Hair              string
 	Height            string
 	Heraldry          string
 	Hobby             string
 	LastName          string
 	Motivation        string
-	Mouth             string
 	NegativeTraits    string
-	Nose              string
 	PositiveTraits    string
 	PossessivePronoun string
 	Profession        string
 	Race              string
-	Skin              string
 	SubjectPronoun    string
+	Traits            string
 	Weight            string
 }
 
 func allDescriptionTemplates() []string {
 	templates := []string{
 		`{{.FullName}} is a {{.Age}}-year-old {{.Culture}} {{.Race}} {{.GenderNoun}} with {{.Hair}} hair and {{.Skin}} skin.
-		{{caseStart .SubjectPronoun}} has {{.Eyes}} eyes, a {{.Nose}} nose, and a {{.Mouth}} mouth. {{if .FacialHair}}{{caseStart .SubjectPronoun}} has {{pronoun .FacialHair}}.{{end}}
-		{{.FirstName}} is {{.Height}} tall and weighs {{.Weight}} lbs. {{caseStart .SubjectPronoun}} is motivated by {{.Motivation}}.
+		{{caseStart .SubjectPronoun}} has {{.Traits}}.
+		{{.FirstName}} is {{.Height}} tall and weighs {{.Weight}} {{caseStart .SubjectPronoun}} is motivated by {{.Motivation}}.
 		While {{.SubjectPronoun}} is {{.PositiveTraits}}, {{.SubjectPronoun}} has also been described as {{.NegativeTraits}}.
 		{{.FirstName}}'s hobby is {{.Hobby}} and {{.SubjectPronoun}} is {{pronoun .Profession}}.
 		{{if .Heraldry}}{{.PossessivePronoun}} coat of arms is described "{{.Heraldry}}."{{end}}
 		`,
-		`{{.FullName}} is {{pronoun .Race}} {{.GenderNoun}} of {{.Age}} years. {{caseStart .SubjectPronoun}} is {{.Height}} and weighs {{.Weight}} lbs., with
-		{{.Hair}} hair, {{.Eyes}} eyes, and {{.Skin}} skin. Motivated by {{.Motivation}}, {{.FirstName}} is {{.PositiveTraits}}, as well as {{.NegativeTraits}}.
+		`{{.FullName}} is {{pronoun .Race}} {{.GenderNoun}} of {{.Age}} years. {{caseStart .SubjectPronoun}} is {{.Height}} and weighs {{.Weight}}, with
+		{{.Traits}}. Motivated by {{.Motivation}}, {{.FirstName}} is {{.PositiveTraits}}, as well as {{.NegativeTraits}}.
 		{{caseStart .SubjectPronoun}} is {{pronoun .Profession}}{{if .Heraldry}} and has a coat of arms of "{{.Heraldry}}." {{else}}.{{end}}`,
 		`The {{.PositiveTraits}} {{.FullName}} is {{.Age}} years old and {{pronoun .Race}} {{.GenderNoun}}. {{caseStart .SubjectPronoun}} is {{pronoun .Profession}},
-		and seeks {{.Motivation}}. {{caseStart .SubjectPronoun}} is {{.Height}} tall and weighs {{.Weight}} pounds. Despite a generally positive perception, some
-		describe {{.FirstName}} as {{.NegativeTraits}}. {{caseStart .SubjectPronoun}} has a {{.Nose}} nose, a {{.Mouth}} mouth, and {{.Skin}} skin.
+		and seeks {{.Motivation}}. {{caseStart .SubjectPronoun}} is {{.Height}} tall and weighs {{.Weight}} Despite a generally positive perception, some
+		describe {{.FirstName}} as {{.NegativeTraits}}. {{caseStart .SubjectPronoun}} has {{.Traits}}.
 		{{caseStart .PossessivePronoun}} eyes are {{.Eyes}}.{{if .FacialHair}} {{caseStart .SubjectPronoun}} has {{pronoun .FacialHair}}.{{end}}`,
 	}
 
@@ -68,34 +63,34 @@ func randomDescriptionTemplate() (string, error) {
 	return template, nil
 }
 
-func (character Character) compileDescription() Description {
+func (character Character) compileDescription() (Description, error) {
 	description := Description{}
 
 	description.Age = character.describeAge()
 	description.Culture = character.describeCulture()
-	description.Eyes = character.describeEyes()
-	description.FacialHair = character.describeFacialHair()
 	description.FirstName = character.FirstName
 	description.FullName = character.describeFullName()
 	description.GenderNoun = character.describeGenderNoun()
-	description.Hair = character.describeHair()
 	description.Height = character.describeHeight()
 	description.Heraldry = character.describeHeraldry()
 	description.Hobby = character.describeHobby()
 	description.LastName = character.LastName
 	description.Motivation = character.describeMotivation()
-	description.Mouth = character.describeMouth()
 	description.NegativeTraits = character.describeNegativeTraits()
-	description.Nose = character.describeNose()
 	description.PositiveTraits = character.describePositiveTraits()
 	description.PossessivePronoun = character.Gender.PossessivePronoun
 	description.Profession = character.describeProfession()
 	description.Race = character.describeRace()
-	description.Skin = character.describeSkin()
 	description.SubjectPronoun = character.Gender.SubjectPronoun
+	traits, err := character.describeTraits()
+	if err != nil {
+		err = fmt.Errorf("Could not generate description template: %w", err)
+		return Description{}, err
+	}
+	description.Traits = traits
 	description.Weight = character.describeWeight()
 
-	return description
+	return description, nil
 }
 
 func (character Character) describeAge() string {
@@ -106,22 +101,6 @@ func (character Character) describeAge() string {
 
 func (character Character) describeCulture() string {
 	description := character.Culture.Adjective
-
-	return description
-}
-
-func (character Character) describeEyes() string {
-	eyes := character.EyeColor + " and " + character.EyeShape
-
-	return eyes
-}
-
-func (character Character) describeFacialHair() string {
-	description := ""
-
-	if character.FacialHair != "none" {
-		description = character.FacialHair
-	}
 
 	return description
 }
@@ -150,14 +129,8 @@ func (character Character) describeGenderNoun() string {
 	return description
 }
 
-func (character Character) describeHair() string {
-	description := character.HairColor + " " + character.HairStyle
-
-	return description
-}
-
 func (character Character) describeHeight() string {
-	description := character.HeightSimplified()
+	description := character.Height
 
 	return description
 }
@@ -180,20 +153,8 @@ func (character Character) describeMotivation() string {
 	return description
 }
 
-func (character Character) describeMouth() string {
-	description := character.MouthShape
-
-	return description
-}
-
 func (character Character) describeNegativeTraits() string {
 	description := words.CombinePhrases(character.NegativeTraits)
-
-	return description
-}
-
-func (character Character) describeNose() string {
-	description := character.NoseShape
 
 	return description
 }
@@ -216,14 +177,25 @@ func (character Character) describeRace() string {
 	return description
 }
 
-func (character Character) describeSkin() string {
-	description := character.SkinColor
+func (character Character) describeTraits() (string, error) {
+	traits := []string{}
 
-	return description
+	for _, i := range character.PhysicalTraits {
+		t, err := i.ToString()
+		if err != nil {
+			err = fmt.Errorf("Failed to describe traits: %w", err)
+			return "", err
+		}
+		traits = append(traits, t)
+	}
+
+	description := words.CombinePhrases(traits)
+
+	return description, nil
 }
 
 func (character Character) describeWeight() string {
-	description := strconv.Itoa(character.Weight)
+	description := character.Weight
 
 	return description
 }
