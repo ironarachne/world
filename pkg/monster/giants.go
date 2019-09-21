@@ -1,7 +1,7 @@
 package monster
 
 import (
-	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/dice"
 	"github.com/ironarachne/world/pkg/size"
 )
 
@@ -26,7 +26,8 @@ func getAllGiants() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 2)
+				d := dice.Dice{Number: 1, Sides: 2}
+				num := dice.Roll(d)
 				return num
 			},
 		},

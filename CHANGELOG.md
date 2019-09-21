@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.8.0 (2019-09-21)
+
+Refactor races as species.
+
+### Change List
+
+- Add "species" package
+- Replace race object with species
+- Refactor height and weight to be dependent on age category
+- Include age categories in species definition
+- Add wood elves, high elves, mountain dwarves, hill dwarves, and gnomes
+- Add trait system
+- Tweak weighting for races
+- Replace old character appearance system with new trait system
+- Give dwarves beards and halflings hairy feet
+
 ## 0.7.2 (2019-09-17)
 
 Improve organizations.

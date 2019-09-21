@@ -1,153 +1,262 @@
 package race
 
-import "github.com/ironarachne/world/pkg/size"
+import (
+	"github.com/ironarachne/world/pkg/age"
+	"github.com/ironarachne/world/pkg/dice"
+	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
+	"github.com/ironarachne/world/pkg/trait"
+)
 
-func getDwarves() []Race {
-	heightBase := 48
-	weightBase := 50
-	sizeCategory := size.GetCategoryByName("medium")
+func getDwarves() []species.Species {
 
-	femaleHeightModifier := 3
-	femaleWeightModifier := 50
-	heightRange := 6
-	maleHeightModifier := 6
-	maleWeightModifier := 150
-	weightRange := 100
+	common := getDwarfCommonTraitTemplates()
+	possible := getDwarfPossibleTraitTemplates()
+	ageCategories := getDwarfAgeCategories()
 
-	return []Race{
+	races := []species.Species{
 		{
-			Name:       "dwarf",
-			PluralName: "dwarves",
-			Adjective:  "dwarven",
-			AgeCategories: []AgeCategory{
-				{
-					Name:        "adult",
-					MinAge:      76,
-					MaxAge:      269,
-					Commonality: 12,
-				},
-				{
-					Name:        "elderly",
-					MinAge:      270,
-					MaxAge:      500,
-					Commonality: 1,
-				},
-				{
-					Name:        "young adult",
-					MinAge:      40,
-					MaxAge:      75,
-					Commonality: 2,
-				},
-				{
-					Name:        "teenager",
-					MinAge:      23,
-					MaxAge:      39,
-					Commonality: 1,
-				},
-				{
-					Name:        "child",
-					MinAge:      2,
-					MaxAge:      22,
-					Commonality: 1,
-				},
-				{
-					Name:        "infant",
-					MinAge:      0,
-					MaxAge:      1,
-					Commonality: 1,
-				},
+			Name:           "hill dwarf",
+			PluralName:     "hill dwarves",
+			Adjective:      "hill dwarven",
+			CommonTraits:   common,
+			PossibleTraits: possible,
+			AgeCategories:  ageCategories,
+			Commonality:    20,
+			MinHumidity:    0,
+			MaxHumidity:    10,
+			MinTemperature: 0,
+			MaxTemperature: 10,
+			Tags: []string{
+				"dwarf",
+				"hill dwarf",
 			},
-			Appearance: Appearance{
-				MaxFemaleHeight: heightBase + femaleHeightModifier + heightRange,
-				MinFemaleHeight: heightBase + femaleHeightModifier,
-				MaxMaleHeight:   heightBase + maleHeightModifier + heightRange,
-				MinMaleHeight:   heightBase + maleHeightModifier,
-				MaxFemaleWeight: weightBase + femaleWeightModifier + weightRange,
-				MinFemaleWeight: weightBase + femaleWeightModifier,
-				MaxMaleWeight:   weightBase + maleWeightModifier + weightRange,
-				MinMaleWeight:   weightBase + maleWeightModifier,
-				FaceShapes: []string{
-					"chiseled",
-					"square",
-					"rectangular",
-				},
-				EarShapes: []string{
-					"slightly pointed",
-					"rounded",
-					"slightly tapered",
-				},
-				EyeShapes: []string{
-					"broad",
-					"oval",
-					"narrow",
-				},
-				NoseShapes: []string{
-					"wide",
-					"large",
-					"hooked",
-					"strong",
-				},
-				MouthShapes: []string{
-					"wide",
-					"thin",
-				},
-				FacialHairStyles: []string{
-					"braided beard",
-					"bristly beard",
-					"enormous beard",
-					"long beard",
-					"robust beard",
-					"wide beard",
-				},
-				HairColors: []string{
-					"auburn",
-					"black",
-					"dark brown",
-					"dusty brown",
-					"grey",
-					"orange",
-					"red",
-					"white",
-				},
-				HairConsistencies: []string{
-					"thick",
-				},
-				FemaleHairStyles: []string{
-					"shoulder-length",
-					"ponytail",
-					"topknot",
-					"braided",
-					"back-length",
-				},
-				MaleHairStyles: []string{
-					"shoulder-length",
-					"short-cropped",
-					"ponytail",
-					"topknot",
-					"braided",
-					"back-length",
-				},
-				SkinColors: []string{
-					"bronzed",
-					"tan",
-					"ruddy",
-				},
-				EyeColors: []string{
-					"amber",
-					"blue",
-					"brown",
-					"gold",
-					"green",
-					"hazel",
-					"grey",
-				},
-				UniqueTraits: []string{
-					"usually have beards",
-					"are stocky but well-muscled",
-				},
+		},
+		{
+			Name:           "mountain dwarf",
+			PluralName:     "mountain dwarves",
+			Adjective:      "mountain dwarven",
+			CommonTraits:   common,
+			PossibleTraits: possible,
+			AgeCategories:  ageCategories,
+			Commonality:    25,
+			MinHumidity:    0,
+			MaxHumidity:    10,
+			MinTemperature: 0,
+			MaxTemperature: 10,
+			Tags: []string{
+				"dwarf",
+				"mountain dwarf",
 			},
-			Commonality:  2,
-			SizeCategory: sizeCategory,
 		},
 	}
+
+	return races
+}
+
+func getDwarfAgeCategories() []age.Category {
+	heightDice := dice.Dice{Number: 2, Sides: 4}
+	weightDice := dice.Dice{Number: 2, Sides: 4}
+	adultSizeCategory := size.GetCategoryByName("medium")
+	childSizeCategory := size.GetCategoryByName("small")
+	infantSizeCategory := size.GetCategoryByName("tiny")
+
+	categories := []age.Category{
+		{
+			Name:             "adult",
+			MinAge:           76,
+			MaxAge:           269,
+			MaleHeightBase:   44,
+			FemaleHeightBase: 42,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   130,
+			FemaleWeightBase: 100,
+			WeightModifier:   7,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      150,
+		},
+		{
+			Name:             "elderly",
+			MinAge:           270,
+			MaxAge:           500,
+			MaleHeightBase:   44,
+			FemaleHeightBase: 42,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   130,
+			FemaleWeightBase: 100,
+			WeightModifier:   7,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      5,
+		},
+		{
+			Name:             "young adult",
+			MinAge:           40,
+			MaxAge:           75,
+			MaleHeightBase:   44,
+			FemaleHeightBase: 42,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   130,
+			FemaleWeightBase: 100,
+			WeightModifier:   7,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      100,
+		},
+		{
+			Name:             "teenager",
+			MinAge:           23,
+			MaxAge:           39,
+			MaleHeightBase:   43,
+			FemaleHeightBase: 41,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   92,
+			FemaleWeightBase: 89,
+			WeightModifier:   7,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      50,
+		},
+		{
+			Name:             "child",
+			MinAge:           2,
+			MaxAge:           22,
+			MaleHeightBase:   30,
+			FemaleHeightBase: 30,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   30,
+			FemaleWeightBase: 30,
+			WeightModifier:   7,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     childSizeCategory,
+			Commonality:      20,
+		},
+		{
+			Name:             "infant",
+			MinAge:           0,
+			MaxAge:           1,
+			MaleHeightBase:   18,
+			FemaleHeightBase: 18,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   5,
+			FemaleWeightBase: 5,
+			WeightModifier:   1,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     infantSizeCategory,
+			Commonality:      1,
+		},
+	}
+
+	return categories
+}
+
+func getDwarfCommonTraitTemplates() []trait.Template {
+	templates := []trait.Template{
+		{
+			Name: "eye color",
+			PossibleValues: []string{
+				"amber",
+				"blue",
+				"brown",
+				"gold",
+				"green",
+				"hazel",
+				"grey",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} eyes",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"eyes",
+			},
+		},
+		{
+			Name: "hair color",
+			PossibleValues: []string{
+				"black",
+				"auburn",
+				"red",
+				"grey",
+				"brown",
+				"dark brown",
+				"light brown",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} hair",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"hair",
+			},
+		},
+		{
+			Name: "skin color",
+			PossibleValues: []string{
+				"light",
+				"tan",
+				"olive",
+				"bronze",
+				"brown",
+				"dark",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} skin",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"skin",
+			},
+		},
+		{
+			Name: "beard",
+			PossibleValues: []string{
+				"full",
+				"scraggly",
+				"long",
+				"wild",
+				"smooth",
+				"bristly",
+			},
+			PossibleDescriptors: []string{
+				"a {{.Value}} beard",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"beard",
+			},
+		},
+	}
+
+	return templates
+}
+
+func getDwarfPossibleTraitTemplates() []trait.Template {
+	templates := []trait.Template{
+		{
+			Name: "nose shape",
+			PossibleValues: []string{
+				"broad",
+				"bulbous",
+				"crooked",
+				"flat",
+				"wide",
+			},
+			PossibleDescriptors: []string{
+				"a {{.Value}} nose",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"nose",
+			},
+		},
+	}
+
+	return templates
 }

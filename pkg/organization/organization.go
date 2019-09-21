@@ -6,10 +6,11 @@ import (
 	"html/template"
 	"math/rand"
 
+	"github.com/ironarachne/world/pkg/age"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/species"
 )
 
 // NameData is name data
@@ -205,9 +206,9 @@ func Random() (Organization, error) {
 }
 
 // GetModifiedMemberAge returns an age appropriate for the given rank and race
-func GetModifiedMemberAge(rank Rank, memberRace race.Race) int {
-	adult := memberRace.GetAgeCategoryByName(rank.AgeCategory)
-	age := race.GetRandomAge(adult)
+func GetModifiedMemberAge(rank Rank, memberRace species.Species) int {
+	adult := age.GetCategoryByName(rank.AgeCategory, memberRace.AgeCategories)
+	age := age.GetRandomAge(adult)
 	modifiedAge := rank.AgeModifier * float64(age)
 
 	return int(modifiedAge)

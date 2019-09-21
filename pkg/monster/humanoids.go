@@ -1,7 +1,7 @@
 package monster
 
 import (
-	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/pkg/dice"
 	"github.com/ironarachne/world/pkg/size"
 )
 
@@ -15,7 +15,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 4)
+				d := dice.Dice{Number: 1, Sides: 4}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -27,7 +28,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 4)
+				d := dice.Dice{Number: 1, Sides: 4}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -39,7 +41,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(2, 4)
+				d := dice.Dice{Number: 2, Sides: 4}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -51,7 +54,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 3)
+				d := dice.Dice{Number: 1, Sides: 3}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -63,7 +67,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 4)
+				d := dice.Dice{Number: 1, Sides: 4}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -75,7 +80,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 6)
+				d := dice.Dice{Number: 1, Sides: 6}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -87,7 +93,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 6)
+				d := dice.Dice{Number: 1, Sides: 6}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -99,7 +106,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 6)
+				d := dice.Dice{Number: 1, Sides: 6}
+				num := dice.Roll(d)
 				return num
 			},
 		},
@@ -111,7 +119,8 @@ func getAllHumanoids() []Monster {
 			IdealTemperature:     5,
 			TemperatureTolerance: 5,
 			NumAppearing: func() int {
-				num := random.DiceTotal(1, 4)
+				d := dice.Dice{Number: 1, Sides: 4}
+				num := dice.Roll(d)
 				return num
 			},
 		},

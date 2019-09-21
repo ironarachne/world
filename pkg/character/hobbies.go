@@ -3,7 +3,7 @@ package character
 import (
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/race"
+	"github.com/ironarachne/world/pkg/age"
 )
 
 // Hobby is a pasttime
@@ -111,7 +111,7 @@ func getAllHobbies() []Hobby {
 	return hobbies
 }
 
-func getHobbiesForAgeCategory(category race.AgeCategory) []Hobby {
+func getHobbiesForAgeCategory(category age.Category) []Hobby {
 	potentialHobbies := getAllHobbies()
 	hobbies := []Hobby{}
 
