@@ -16,6 +16,7 @@ func All() []species.Species {
 	races = append(races, getElves()...)
 	races = append(races, getHalflings()...)
 	races = append(races, getHumans()...)
+	races = append(races, getGnomes()...)
 
 	return races
 }

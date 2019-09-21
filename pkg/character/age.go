@@ -21,8 +21,8 @@ func (character Character) ChangeAge(newAge int) Character {
 	c := age.GetCategoryFromAge(newAge, character.Race.AgeCategories)
 	character.Age = newAge
 	character.AgeCategory = c
-	character.Height = character.randomHeight()
-	character.Weight = character.randomWeight()
+	character.Height = age.GetRandomHeight(character.Gender.Name, character.AgeCategory)
+	character.Weight = age.GetRandomWeight(character.Gender.Name, character.AgeCategory)
 
 	return character
 }

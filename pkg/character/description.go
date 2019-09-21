@@ -2,6 +2,7 @@ package character
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/measurement"
 	"strconv"
 	"strings"
 
@@ -33,20 +34,19 @@ type Description struct {
 
 func allDescriptionTemplates() []string {
 	templates := []string{
-		`{{.FullName}} is a {{.Age}}-year-old {{.Culture}} {{.Race}} {{.GenderNoun}} with {{.Hair}} hair and {{.Skin}} skin.
+		`{{.FullName}} is a {{.Age}}-year-old {{.Culture}} {{.Race}} {{.GenderNoun}}.
 		{{caseStart .SubjectPronoun}} has {{.Traits}}.
-		{{.FirstName}} is {{.Height}} tall and weighs {{.Weight}} {{caseStart .SubjectPronoun}} is motivated by {{.Motivation}}.
+		{{.FirstName}} is {{.Height}} tall and weighs {{.Weight}} lbs. {{caseStart .SubjectPronoun}} is motivated by {{.Motivation}}.
 		While {{.SubjectPronoun}} is {{.PositiveTraits}}, {{.SubjectPronoun}} has also been described as {{.NegativeTraits}}.
 		{{.FirstName}}'s hobby is {{.Hobby}} and {{.SubjectPronoun}} is {{pronoun .Profession}}.
 		{{if .Heraldry}}{{.PossessivePronoun}} coat of arms is described "{{.Heraldry}}."{{end}}
 		`,
-		`{{.FullName}} is {{pronoun .Race}} {{.GenderNoun}} of {{.Age}} years. {{caseStart .SubjectPronoun}} is {{.Height}} and weighs {{.Weight}}, with
+		`{{.FullName}} is {{pronoun .Race}} {{.GenderNoun}} of {{.Age}} years. {{caseStart .SubjectPronoun}} is {{.Height}} and weighs {{.Weight}} pounds, with
 		{{.Traits}}. Motivated by {{.Motivation}}, {{.FirstName}} is {{.PositiveTraits}}, as well as {{.NegativeTraits}}.
 		{{caseStart .SubjectPronoun}} is {{pronoun .Profession}}{{if .Heraldry}} and has a coat of arms of "{{.Heraldry}}." {{else}}.{{end}}`,
 		`The {{.PositiveTraits}} {{.FullName}} is {{.Age}} years old and {{pronoun .Race}} {{.GenderNoun}}. {{caseStart .SubjectPronoun}} is {{pronoun .Profession}},
-		and seeks {{.Motivation}}. {{caseStart .SubjectPronoun}} is {{.Height}} tall and weighs {{.Weight}} Despite a generally positive perception, some
-		describe {{.FirstName}} as {{.NegativeTraits}}. {{caseStart .SubjectPronoun}} has {{.Traits}}.
-		{{caseStart .PossessivePronoun}} eyes are {{.Eyes}}.{{if .FacialHair}} {{caseStart .SubjectPronoun}} has {{pronoun .FacialHair}}.{{end}}`,
+		and seeks {{.Motivation}}. {{caseStart .SubjectPronoun}} is {{.Height}} tall and weighs {{.Weight}} lbs. Despite a generally positive perception, some
+		describe {{.FirstName}} as {{.NegativeTraits}}. {{caseStart .SubjectPronoun}} has {{.Traits}}.`,
 	}
 
 	return templates
@@ -130,7 +130,7 @@ func (character Character) describeGenderNoun() string {
 }
 
 func (character Character) describeHeight() string {
-	description := character.Height
+	description := measurement.ToString(character.Height)
 
 	return description
 }
@@ -195,7 +195,7 @@ func (character Character) describeTraits() (string, error) {
 }
 
 func (character Character) describeWeight() string {
-	description := character.Weight
+	description := strconv.Itoa(character.Weight)
 
 	return description
 }

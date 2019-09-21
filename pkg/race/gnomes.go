@@ -8,26 +8,26 @@ import (
 	"github.com/ironarachne/world/pkg/trait"
 )
 
-func getHumans() []species.Species {
-	common := getHumanCommonTraitTemplates()
-	possible := getHumanPossibleTraitTemplates()
-	ageCategories := getHumanAgeCategories()
+func getGnomes() []species.Species {
+	common := getGnomeCommonTraitTemplates()
+	possible := getGnomePossibleTraitTemplates()
+	ageCategories := getGnomeAgeCategories()
 
 	races := []species.Species{
 		{
-			Name:           "human",
-			PluralName:     "humans",
-			Adjective:      "human",
+			Name:           "gnome",
+			PluralName:     "gnomes",
+			Adjective:      "gnome",
 			CommonTraits:   common,
 			PossibleTraits: possible,
 			AgeCategories:  ageCategories,
-			Commonality:    100,
+			Commonality:    10,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Tags: []string{
-				"human",
+				"gnome",
 			},
 		},
 	}
@@ -35,52 +35,52 @@ func getHumans() []species.Species {
 	return races
 }
 
-func getHumanAgeCategories() []age.Category {
-	heightDice := dice.Dice{Number: 2, Sides: 8}
-	weightDice := dice.Dice{Number: 2, Sides: 10}
-	adultSizeCategory := size.GetCategoryByName("medium")
+func getGnomeAgeCategories() []age.Category {
+	heightDice := dice.Dice{Number: 2, Sides: 4}
+	weightDice := dice.Dice{Number: 2, Sides: 4}
+	adultSizeCategory := size.GetCategoryByName("small")
 	childSizeCategory := size.GetCategoryByName("small")
 	infantSizeCategory := size.GetCategoryByName("tiny")
 
 	categories := []age.Category{
 		{
 			Name:             "adult",
-			MinAge:           26,
-			MaxAge:           69,
-			MaleHeightBase:   62,
-			FemaleHeightBase: 57,
+			MinAge:           36,
+			MaxAge:           99,
+			MaleHeightBase:   36,
+			FemaleHeightBase: 34,
 			HeightRangeDice:  heightDice,
-			MaleWeightBase:   140,
-			FemaleWeightBase: 105,
-			WeightModifier:   5,
+			MaleWeightBase:   35,
+			FemaleWeightBase: 30,
+			WeightModifier:   1,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
 			Commonality:      150,
 		},
 		{
 			Name:             "elderly",
-			MinAge:           70,
-			MaxAge:           110,
-			MaleHeightBase:   62,
-			FemaleHeightBase: 57,
+			MinAge:           100,
+			MaxAge:           200,
+			MaleHeightBase:   36,
+			FemaleHeightBase: 34,
 			HeightRangeDice:  heightDice,
-			MaleWeightBase:   140,
-			FemaleWeightBase: 105,
-			WeightModifier:   5,
+			MaleWeightBase:   30,
+			FemaleWeightBase: 25,
+			WeightModifier:   1,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
-			Commonality:      30,
+			Commonality:      50,
 		},
 		{
 			Name:             "young adult",
 			MinAge:           20,
-			MaxAge:           25,
-			MaleHeightBase:   62,
-			FemaleHeightBase: 57,
+			MaxAge:           35,
+			MaleHeightBase:   36,
+			FemaleHeightBase: 34,
 			HeightRangeDice:  heightDice,
-			MaleWeightBase:   140,
-			FemaleWeightBase: 105,
-			WeightModifier:   5,
+			MaleWeightBase:   35,
+			FemaleWeightBase: 30,
+			WeightModifier:   1,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
 			Commonality:      100,
@@ -89,25 +89,25 @@ func getHumanAgeCategories() []age.Category {
 			Name:             "teenager",
 			MinAge:           13,
 			MaxAge:           19,
-			MaleHeightBase:   61,
-			FemaleHeightBase: 59,
+			MaleHeightBase:   30,
+			FemaleHeightBase: 28,
 			HeightRangeDice:  heightDice,
-			MaleWeightBase:   92,
-			FemaleWeightBase: 89,
-			WeightModifier:   5,
+			MaleWeightBase:   30,
+			FemaleWeightBase: 25,
+			WeightModifier:   1,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
-			Commonality:      30,
+			Commonality:      60,
 		},
 		{
 			Name:             "child",
 			MinAge:           2,
 			MaxAge:           12,
-			MaleHeightBase:   42,
-			FemaleHeightBase: 42,
+			MaleHeightBase:   22,
+			FemaleHeightBase: 20,
 			HeightRangeDice:  heightDice,
-			MaleWeightBase:   36,
-			FemaleWeightBase: 36,
+			MaleWeightBase:   20,
+			FemaleWeightBase: 15,
 			WeightModifier:   1,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     childSizeCategory,
@@ -117,8 +117,8 @@ func getHumanAgeCategories() []age.Category {
 			Name:             "infant",
 			MinAge:           0,
 			MaxAge:           1,
-			MaleHeightBase:   18,
-			FemaleHeightBase: 18,
+			MaleHeightBase:   15,
+			FemaleHeightBase: 15,
 			HeightRangeDice:  heightDice,
 			MaleWeightBase:   5,
 			FemaleWeightBase: 5,
@@ -132,7 +132,7 @@ func getHumanAgeCategories() []age.Category {
 	return categories
 }
 
-func getHumanCommonTraitTemplates() []trait.Template {
+func getGnomeCommonTraitTemplates() []trait.Template {
 	templates := []trait.Template{
 		{
 			Name: "eye color",
@@ -198,12 +198,11 @@ func getHumanCommonTraitTemplates() []trait.Template {
 	return templates
 }
 
-func getHumanPossibleTraitTemplates() []trait.Template {
+func getGnomePossibleTraitTemplates() []trait.Template {
 	templates := []trait.Template{
 		{
 			Name: "nose shape",
 			PossibleValues: []string{
-				"aquiline",
 				"broad",
 				"flat",
 				"long",
@@ -224,3 +223,4 @@ func getHumanPossibleTraitTemplates() []trait.Template {
 
 	return templates
 }
+

@@ -2,6 +2,7 @@ package character
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/race"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/age"
@@ -26,8 +27,8 @@ type Character struct {
 	Age            int
 	AgeCategory    age.Category
 	Orientation    string
-	Height         string
-	Weight         string
+	Height         int
+	Weight         int
 	Profession     profession.Profession
 	Hobby          Hobby
 	NegativeTraits []string
@@ -81,18 +82,6 @@ func randomOrientation() (string, error) {
 	}
 
 	return orientation, nil
-}
-
-func (character Character) randomHeight() string {
-	height := species.RandomHeight(character.Gender.Name, character.AgeCategory, character.AgeCategory.SizeCategory)
-
-	return height
-}
-
-func (character Character) randomWeight() string {
-	weight := species.RandomWeight(character.Gender.Name, character.AgeCategory, character.AgeCategory.SizeCategory)
-
-	return weight
 }
 
 // Generate generates a random character
@@ -159,7 +148,9 @@ func Generate(originCulture culture.Culture) (Character, error) {
 		raceTraits = append(raceTraits, t)
 	}
 
-	uniqueTraitTemplate, err := trait.RandomTemplate(char.Race.PossibleTraits)
+	possibleTraits := char.Race.PossibleTraits
+	possibleTraits = append(possibleTraits, race.GetCommonPossibleTraits()...)
+	uniqueTraitTemplate, err := trait.RandomTemplate(possibleTraits)
 	if err != nil {
 		err = fmt.Errorf("Could not generate character: %w", err)
 		return Character{}, err
@@ -172,8 +163,8 @@ func Generate(originCulture culture.Culture) (Character, error) {
 	raceTraits = append(raceTraits, uniqueTrait)
 	char.PhysicalTraits = raceTraits
 
-	char.Height = char.randomHeight()
-	char.Weight = char.randomWeight()
+	char.Height = age.GetRandomHeight(char.Gender.Name, char.AgeCategory)
+	char.Weight = age.GetRandomWeight(char.Gender.Name, char.AgeCategory)
 
 	return char, nil
 }

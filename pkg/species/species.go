@@ -1,13 +1,8 @@
 package species
 
 import (
-	"strconv"
-
 	"github.com/ironarachne/world/pkg/age"
-	"github.com/ironarachne/world/pkg/dice"
-	"github.com/ironarachne/world/pkg/measurement"
 	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/size"
 	"github.com/ironarachne/world/pkg/trait"
 )
 
@@ -26,46 +21,4 @@ type Species struct {
 	MaxTemperature int
 	Resources      []resource.Resource // These are resources that can be derived from this species
 	Tags           []string
-}
-
-// RandomHeight returns a random height appropriate for the given gender, age category, and size category
-func RandomHeight(gender string, ageCategory age.Category, sizeCategory size.Category) string {
-	var genderModifier int
-
-	baseHeight := sizeCategory.BaseHeight
-
-	if gender == "male" {
-		genderModifier = ageCategory.MaleHeightModifier
-	} else {
-		genderModifier = ageCategory.FemaleHeightModifier
-	}
-
-	diceRoll := dice.Roll(ageCategory.HeightRangeDice)
-
-	heightInInches := baseHeight + genderModifier + diceRoll
-
-	height := measurement.ToString(heightInInches)
-
-	return height
-}
-
-// RandomWeight returns a random weight appropriate for the given gender, age category, and size category
-func RandomWeight(gender string, ageCategory age.Category, sizeCategory size.Category) string {
-	var genderModifier int
-
-	baseWeight := sizeCategory.BaseWeight
-
-	if gender == "male" {
-		genderModifier = ageCategory.MaleWeightModifier
-	} else {
-		genderModifier = ageCategory.FemaleWeightModifier
-	}
-
-	diceRoll := dice.Roll(ageCategory.WeightRangeDice)
-
-	weightInPounds := baseWeight + genderModifier + diceRoll
-
-	weight := strconv.Itoa(weightInPounds) + " lbs."
-
-	return weight
 }

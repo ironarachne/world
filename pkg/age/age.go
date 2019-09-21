@@ -11,17 +11,18 @@ import (
 
 // Category is metadata about a general age
 type Category struct {
-	Name                 string
-	MinAge               int
-	MaxAge               int
-	MaleHeightModifier   int
-	FemaleHeightModifier int
-	HeightRangeDice      dice.Dice
-	MaleWeightModifier   int
-	FemaleWeightModifier int
-	WeightRangeDice      dice.Dice
-	SizeCategory         size.Category
-	Commonality          int
+	Name             string
+	MinAge           int
+	MaxAge           int
+	MaleHeightBase   int
+	FemaleHeightBase int
+	HeightRangeDice  dice.Dice
+	MaleWeightBase   int
+	FemaleWeightBase int
+	WeightModifier int
+	WeightRangeDice  dice.Dice
+	SizeCategory     size.Category
+	Commonality      int
 }
 
 // GetCategoryByName returns the age category given a name
@@ -51,6 +52,36 @@ func GetCategoryFromAge(years int, categories []Category) Category {
 // GetRandomAge returns a random age in years within the age category range
 func GetRandomAge(ageCategory Category) int {
 	return rand.Intn(ageCategory.MaxAge-ageCategory.MinAge) + ageCategory.MinAge
+}
+
+// GetRandomHeight returns a random weight given the age category and gender
+func GetRandomHeight(gender string, ageCategory Category) int {
+	var base int
+	if gender == "male" {
+		base = ageCategory.MaleHeightBase
+	} else {
+		base = ageCategory.FemaleHeightBase
+	}
+
+	result := dice.Roll(ageCategory.HeightRangeDice)
+	height := base + result
+
+	return height
+}
+
+// GetRandomWeight returns a random weight given the age category and gender
+func GetRandomWeight(gender string, ageCategory Category) int {
+	var base int
+	if gender == "male" {
+		base = ageCategory.MaleWeightBase
+	} else {
+		base = ageCategory.FemaleWeightBase
+	}
+
+	result := dice.Roll(ageCategory.WeightRangeDice)
+	weight := base + (ageCategory.WeightModifier * result)
+
+	return weight
 }
 
 // GetWeightedAgeCategory returns a random age category for a race
