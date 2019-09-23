@@ -42,20 +42,6 @@ func getHalflingAgeCategories() []age.Category {
 
 	categories := []age.Category{
 		{
-			Name:             "adult",
-			MinAge:           36,
-			MaxAge:           99,
-			MaleHeightBase:   32,
-			FemaleHeightBase: 30,
-			HeightRangeDice:  heightDice,
-			MaleWeightBase:   30,
-			FemaleWeightBase: 25,
-			WeightModifier:   1,
-			WeightRangeDice:  weightDice,
-			SizeCategory:     adultSizeCategory,
-			Commonality:      150,
-		},
-		{
 			Name:             "elderly",
 			MinAge:           100,
 			MaxAge:           200,
@@ -68,6 +54,20 @@ func getHalflingAgeCategories() []age.Category {
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
 			Commonality:      50,
+		},
+		{
+			Name:             "adult",
+			MinAge:           36,
+			MaxAge:           99,
+			MaleHeightBase:   32,
+			FemaleHeightBase: 30,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   30,
+			FemaleWeightBase: 25,
+			WeightModifier:   1,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      150,
 		},
 		{
 			Name:             "young adult",

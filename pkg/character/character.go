@@ -2,8 +2,9 @@ package character
 
 import (
 	"fmt"
-	"github.com/ironarachne/world/pkg/race"
 	"math/rand"
+
+	"github.com/ironarachne/world/pkg/race"
 
 	"github.com/ironarachne/world/pkg/age"
 	"github.com/ironarachne/world/pkg/profession"
@@ -21,7 +22,8 @@ import (
 type Character struct {
 	FirstName      string
 	LastName       string
-	Title          string
+	Title          string   // Title is the character's primary title
+	Titles         []string // Titles is a list of all of the character's titles
 	Heraldry       heraldry.Device
 	Gender         gender.Gender
 	Age            int
@@ -289,7 +291,7 @@ func GenerateFamily() (Family, error) {
 
 	parents, err := GenerateCouple()
 	if err != nil {
-		err = fmt.Errorf("Could not generate face shape: %w", err)
+		err = fmt.Errorf("Could not generate family: %w", err)
 		return Family{}, err
 	}
 
@@ -301,7 +303,7 @@ func GenerateFamily() (Family, error) {
 		for i := 0; i < rand.Intn(6); i++ {
 			child, err = GenerateChild(parents)
 			if err != nil {
-				err = fmt.Errorf("Could not generate child for family: %w", err)
+				err = fmt.Errorf("Could not generate family: %w", err)
 				return Family{}, err
 			}
 			child.LastName = familyName

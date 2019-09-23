@@ -1,6 +1,8 @@
 package organization
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 // SizeClass is a size range
 type SizeClass struct {
@@ -47,16 +49,15 @@ func getAllSizeClasses() []SizeClass {
 }
 
 func getRandomSizeClass(min int, max int) SizeClass {
-	var possibleClasses []SizeClass
 	classes := getAllSizeClasses()
 
+	size := rand.Intn(max-min) + min
+
 	for _, c := range classes {
-		if c.MaxSize <= max && c.MinSize >= min {
-			possibleClasses = append(possibleClasses, c)
+		if size <= c.MaxSize && size >= c.MinSize {
+			return c
 		}
 	}
 
-	class := possibleClasses[rand.Intn(len(possibleClasses))]
-
-	return class
+	return classes[0]
 }

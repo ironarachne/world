@@ -9,6 +9,7 @@ import (
 	"github.com/ironarachne/world/pkg/age"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/species"
 )
@@ -29,6 +30,8 @@ type Member struct {
 type Organization struct {
 	Name           string
 	Type           Type
+	Superior       string // Superior is the name of an organization that this organization owes allegiance to
+	Heraldry       heraldry.Device
 	Leader         Member
 	LeaderType     string
 	NotableMembers []Member
@@ -128,7 +131,7 @@ func (org Organization) getNotableMembers(originCulture culture.Culture) ([]Memb
 			err = fmt.Errorf("Failed to get notable organization members: %w", err)
 			return []Member{}, err
 		}
-		memberRank = org.Type.GetRandomMemberRank()
+		memberRank = org.Type.GetRandomMemberRank(members)
 		member = member.ChangeAge(GetModifiedMemberAge(memberRank, member.Race))
 		prof, err := org.Type.GetRandomMemberProfession()
 		if err != nil {
@@ -136,7 +139,7 @@ func (org Organization) getNotableMembers(originCulture culture.Culture) ([]Memb
 			return []Member{}, err
 		}
 		member.Profession = prof
-		memberRank = org.Type.GetRandomMemberRank()
+		memberRank = org.Type.GetRandomMemberRank(members)
 		memberData = Member{
 			CharacterData: member,
 			Rank:          memberRank,
@@ -207,8 +210,8 @@ func Random() (Organization, error) {
 
 // GetModifiedMemberAge returns an age appropriate for the given rank and race
 func GetModifiedMemberAge(rank Rank, memberRace species.Species) int {
-	adult := age.GetCategoryByName(rank.AgeCategory, memberRace.AgeCategories)
-	age := age.GetRandomAge(adult)
+	ageCategory := age.GetCategoryByName(rank.AgeCategory, memberRace.AgeCategories)
+	age := age.GetRandomAge(ageCategory)
 	modifiedAge := rank.AgeModifier * float64(age)
 
 	return int(modifiedAge)

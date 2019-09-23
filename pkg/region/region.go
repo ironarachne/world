@@ -5,7 +5,6 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/grid"
@@ -16,15 +15,15 @@ import (
 // Region is a map region
 type Region struct {
 	Biome         string
-	Culture       culture.Culture
-	Climate       climate.Climate
 	Capital       string
 	Class         Class
+	Climate       climate.Climate
+	Culture       culture.Culture
 	Name          string
-	Ruler         character.Character
-	Towns         []town.Town
 	Organizations []organization.Organization
+	RulingBody    organization.Organization
 	TilesOccupied []grid.Coordinate
+	Towns         []town.Town
 }
 
 // AssignTiles gives a set of coordinates for tiles to a region
@@ -38,6 +37,7 @@ func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
 
 // Generate generates a region
 func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Region, error) {
+	var nobleMembers []organization.Member
 	region := Region{}
 
 	region.Biome = regionClimate.Name
@@ -76,12 +76,12 @@ func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Reg
 	}
 	region.Organizations = organizations
 
-	ruler, err := region.generateRuler()
+	rulingBody, err := region.generateRulingBody()
 	if err != nil {
 		err = fmt.Errorf("Could not generate region: %w", err)
 		return Region{}, err
 	}
-	region.Ruler = ruler
+	region.RulingBody = rulingBody
 
 	regionName, err := region.Culture.Language.RandomName()
 	if err != nil {
@@ -89,6 +89,21 @@ func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Reg
 		return Region{}, err
 	}
 	region.Name = strings.Title(regionName)
+
+	rulerTitle := region.RulingBody.Leader.CharacterData.Title + " of " + region.Name
+	region.RulingBody.Leader.CharacterData.Titles = append(region.RulingBody.Leader.CharacterData.Titles, rulerTitle)
+
+	for _, m := range region.RulingBody.NotableMembers {
+		if m.Rank.Title == "Heir" {
+			m.CharacterData.Titles = append(m.CharacterData.Titles, "Heir of "+region.Name)
+		} else if m.Rank.Title == region.Class.RulerTitleFemale || m.Rank.Title == region.Class.RulerTitleMale {
+			m.CharacterData.Titles = append(m.CharacterData.Titles, m.CharacterData.Title+" of "+region.Name)
+		}
+
+		nobleMembers = append(nobleMembers, m)
+	}
+
+	region.RulingBody.NotableMembers = nobleMembers
 
 	return region, nil
 }

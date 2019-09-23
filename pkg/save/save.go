@@ -28,15 +28,14 @@ func ship(filePath string, reader io.Reader, contentType string) (string, error)
 	userMetadata["x-amz-acl"] = "public-read"
 
 	opts := minio.PutObjectOptions{
-		ContentType: contentType,
+		ContentType:  contentType,
 		UserMetadata: userMetadata,
 	}
-	n, err := client.PutObject(bucketName, filePath, reader, -1, opts)
+	_, err = client.PutObject(bucketName, filePath, reader, -1, opts)
 	if err != nil {
 		err = fmt.Errorf("Failed to save to Digital Ocean Spaces: %w", err)
 		return "", err
 	}
-	fmt.Println(n)
 
 	url := "https://" + bucketName + "." + endpoint + "/" + filePath
 

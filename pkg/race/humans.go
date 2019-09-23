@@ -44,20 +44,6 @@ func getHumanAgeCategories() []age.Category {
 
 	categories := []age.Category{
 		{
-			Name:             "adult",
-			MinAge:           26,
-			MaxAge:           69,
-			MaleHeightBase:   62,
-			FemaleHeightBase: 57,
-			HeightRangeDice:  heightDice,
-			MaleWeightBase:   140,
-			FemaleWeightBase: 105,
-			WeightModifier:   5,
-			WeightRangeDice:  weightDice,
-			SizeCategory:     adultSizeCategory,
-			Commonality:      150,
-		},
-		{
 			Name:             "elderly",
 			MinAge:           70,
 			MaxAge:           110,
@@ -70,6 +56,20 @@ func getHumanAgeCategories() []age.Category {
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
 			Commonality:      30,
+		},
+		{
+			Name:             "adult",
+			MinAge:           26,
+			MaxAge:           69,
+			MaleHeightBase:   62,
+			FemaleHeightBase: 57,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   140,
+			FemaleWeightBase: 105,
+			WeightModifier:   5,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      150,
 		},
 		{
 			Name:             "young adult",

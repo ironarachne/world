@@ -12,6 +12,7 @@ import (
 // SimplifiedCharacter is a simplified version of a character
 type SimplifiedCharacter struct {
 	Name        string `json:"name"`
+	Titles      string `json:"titles"`
 	Blazon      string `json:"blazon"`
 	Device      string `json:"device"`
 	Description string `json:"description"`
@@ -25,8 +26,11 @@ func (character Character) Simplify() (SimplifiedCharacter, error) {
 		return SimplifiedCharacter{}, err
 	}
 
+	titles := words.CombinePhrases(character.Titles)
+
 	simplified := SimplifiedCharacter{
 		Name:        character.FirstName + " " + character.LastName,
+		Titles:      titles,
 		Blazon:      character.Heraldry.Blazon,
 		Description: description,
 		Device:      character.Heraldry.ImageURL,

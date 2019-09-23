@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.8.1 (2019-09-23)
+
+Make region rulers noble families instead of individuals.
+
+### Change List
+
+- Make region rulers organizations
+- Make region rulers noble families
+- Add noble families
+- Fix a bug in organization size calculation
+- Remove a debugging line from cloud save
+- Fix a bug in age calculation
+- Add heraldry to organizations as an option
+
 ## 0.8.0 (2019-09-21)
 
 Refactor races as species.

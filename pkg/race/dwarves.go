@@ -63,20 +63,6 @@ func getDwarfAgeCategories() []age.Category {
 
 	categories := []age.Category{
 		{
-			Name:             "adult",
-			MinAge:           76,
-			MaxAge:           269,
-			MaleHeightBase:   44,
-			FemaleHeightBase: 42,
-			HeightRangeDice:  heightDice,
-			MaleWeightBase:   130,
-			FemaleWeightBase: 100,
-			WeightModifier:   7,
-			WeightRangeDice:  weightDice,
-			SizeCategory:     adultSizeCategory,
-			Commonality:      150,
-		},
-		{
 			Name:             "elderly",
 			MinAge:           270,
 			MaxAge:           500,
@@ -89,6 +75,20 @@ func getDwarfAgeCategories() []age.Category {
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
 			Commonality:      5,
+		},
+		{
+			Name:             "adult",
+			MinAge:           76,
+			MaxAge:           269,
+			MaleHeightBase:   44,
+			FemaleHeightBase: 42,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   130,
+			FemaleWeightBase: 100,
+			WeightModifier:   7,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      150,
 		},
 		{
 			Name:             "young adult",

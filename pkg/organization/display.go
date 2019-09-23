@@ -19,6 +19,8 @@ type SimplifiedMember struct {
 type SimplifiedOrganization struct {
 	Name           string             `json:"name"`
 	Type           string             `json:"type"`
+	Blazon         string             `json:"blazon"`
+	Device         string             `json:"device"`
 	Description    string             `json:"description"`
 	Leader         SimplifiedMember   `json:"leader"`
 	NotableMembers []SimplifiedMember `json:"notable_members"`
@@ -49,6 +51,8 @@ func (org Organization) Simplify() (SimplifiedOrganization, error) {
 	simplified := SimplifiedOrganization{
 		Name:        org.Name,
 		Type:        org.SizeClass.Name + " " + org.Type.Name,
+		Blazon:      org.Heraldry.Blazon,
+		Device:      org.Heraldry.ImageURL,
 		Description: org.Describe(),
 		Leader:      sl,
 	}

@@ -2,34 +2,46 @@ package region
 
 import (
 	"fmt"
-	"math/rand"
 
-	"github.com/ironarachne/world/pkg/profession"
-
-	"github.com/ironarachne/world/pkg/character"
-	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/organization"
 )
 
-func (region Region) generateRuler() (character.Character, error) {
-	ruler, err := character.Generate(region.Culture)
+func (region Region) generateRulingBody() (organization.Organization, error) {
+	var members []organization.Member
+
+	rulingBody, err := organization.GenerateNobleHouse(region.Culture)
 	if err != nil {
 		err = fmt.Errorf("Could not generate region ruler: %w", err)
-		return character.Character{}, err
-	}
-	ruler.Profession = profession.ByName("noble")
-	ruler = ruler.ChangeAge(rand.Intn(40) + 25)
-
-	ruler.Title = region.Class.RulerTitleFemale
-	if ruler.Gender.Name == "male" {
-		ruler.Title = region.Class.RulerTitleMale
+		return organization.Organization{}, err
 	}
 
-	device, err := heraldry.Generate()
-	if err != nil {
-		err = fmt.Errorf("Could not generate region ruler: %w", err)
-		return character.Character{}, err
-	}
-	ruler.Heraldry = device
+	ruler := rulingBody.Leader
 
-	return ruler, nil
+	rulerTitle := region.Class.RulerTitleFemale
+	if ruler.CharacterData.Gender.Name == "male" {
+		rulerTitle = region.Class.RulerTitleMale
+	}
+	ruler.CharacterData.Title = rulerTitle
+	ruler.Rank.Title = rulerTitle
+	ranks := rulingBody.Type.Ranks
+	ranks[0].Title = rulerTitle
+	rulingBody.Type.Ranks = ranks
+	rulingBody.Leader = ruler
+
+	for _, m := range rulingBody.NotableMembers {
+		if m.Rank.Title == "Spouse" {
+			if m.CharacterData.Gender.Name == "male" {
+				m.Rank.Title = region.Class.RulerTitleMale
+				m.CharacterData.Title = region.Class.RulerTitleMale
+			} else {
+				m.Rank.Title = region.Class.RulerTitleFemale
+				m.CharacterData.Title = region.Class.RulerTitleFemale
+			}
+		}
+		members = append(members, m)
+	}
+
+	rulingBody.NotableMembers = members
+
+	return rulingBody, nil
 }

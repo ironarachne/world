@@ -2,9 +2,10 @@ package character
 
 import (
 	"fmt"
-	"github.com/ironarachne/world/pkg/measurement"
 	"strconv"
 	"strings"
+
+	"github.com/ironarachne/world/pkg/measurement"
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/words"
@@ -39,7 +40,7 @@ func allDescriptionTemplates() []string {
 		{{.FirstName}} is {{.Height}} tall and weighs {{.Weight}} lbs. {{caseStart .SubjectPronoun}} is motivated by {{.Motivation}}.
 		While {{.SubjectPronoun}} is {{.PositiveTraits}}, {{.SubjectPronoun}} has also been described as {{.NegativeTraits}}.
 		{{.FirstName}}'s hobby is {{.Hobby}} and {{.SubjectPronoun}} is {{pronoun .Profession}}.
-		{{if .Heraldry}}{{.PossessivePronoun}} coat of arms is described "{{.Heraldry}}."{{end}}
+		{{if .Heraldry}}{{caseStart .PossessivePronoun}} coat of arms is described "{{.Heraldry}}."{{end}}
 		`,
 		`{{.FullName}} is {{pronoun .Race}} {{.GenderNoun}} of {{.Age}} years. {{caseStart .SubjectPronoun}} is {{.Height}} and weighs {{.Weight}} pounds, with
 		{{.Traits}}. Motivated by {{.Motivation}}, {{.FirstName}} is {{.PositiveTraits}}, as well as {{.NegativeTraits}}.

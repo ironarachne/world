@@ -492,11 +492,17 @@ func getWizardSchool() (Type, error) {
 }
 
 // GetRandomMemberRank returns a random appropriate rank that is NOT a leader
-func (t Type) GetRandomMemberRank() Rank {
+func (t Type) GetRandomMemberRank(members []Member) Rank {
 	var possibleRanks []Rank
 
+	counts := make(map[string]int)
+
+	for _, e := range members {
+		counts[e.Rank.Title]++
+	}
+
 	for _, r := range t.Ranks {
-		if r.Precedence != 0 {
+		if r.Precedence != 0 && (r.MaxNumber == 0 || counts[r.Title] < r.MaxNumber) {
 			possibleRanks = append(possibleRanks, r)
 		}
 	}

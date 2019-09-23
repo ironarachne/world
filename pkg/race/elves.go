@@ -60,20 +60,6 @@ func getElfAgeCategories() []age.Category {
 
 	categories := []age.Category{
 		{
-			Name:             "adult",
-			MinAge:           76,
-			MaxAge:           269,
-			MaleHeightBase:   58,
-			FemaleHeightBase: 53,
-			HeightRangeDice:  heightDice,
-			MaleWeightBase:   90,
-			FemaleWeightBase: 70,
-			WeightModifier:   3,
-			WeightRangeDice:  weightDice,
-			SizeCategory:     adultSizeCategory,
-			Commonality:      150,
-		},
-		{
 			Name:             "elderly",
 			MinAge:           270,
 			MaxAge:           500,
@@ -86,6 +72,20 @@ func getElfAgeCategories() []age.Category {
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
 			Commonality:      80,
+		},
+		{
+			Name:             "adult",
+			MinAge:           76,
+			MaxAge:           269,
+			MaleHeightBase:   58,
+			FemaleHeightBase: 53,
+			HeightRangeDice:  heightDice,
+			MaleWeightBase:   90,
+			FemaleWeightBase: 70,
+			WeightModifier:   3,
+			WeightRangeDice:  weightDice,
+			SizeCategory:     adultSizeCategory,
+			Commonality:      150,
 		},
 		{
 			Name:             "young adult",
