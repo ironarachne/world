@@ -15,6 +15,7 @@ func ship(filePath string, reader io.Reader, contentType string) (string, error)
 	accessKey := os.Getenv("SPACES_KEY")
 	secretKey := os.Getenv("SPACES_SECRET")
 	bucketName := os.Getenv("SPACES_BUCKET_NAME")
+	domainName := os.Getenv("STATIC_DOMAIN_NAME")
 	endpoint := "nyc3.digitaloceanspaces.com"
 
 	// Initiate a client using DigitalOcean Spaces.
@@ -37,7 +38,7 @@ func ship(filePath string, reader io.Reader, contentType string) (string, error)
 		return "", err
 	}
 
-	url := "https://" + bucketName + "." + endpoint + "/" + filePath
+	url := "https://" + domainName + "/" + filePath
 
 	return url, nil
 }

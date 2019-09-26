@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.2 (2019-09-26)
+
+Allow for configuring the domain name static assets are saved to.
+
+### Change List
+
+- Add configurable static asset domain via `STATIC_DOMAIN_NAME` environment variable
+
 ## 0.8.1 (2019-09-23)
 
 Make region rulers noble families instead of individuals.
