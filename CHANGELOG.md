@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.3 (2019-09-27)
+
+Fix a bug in deity holy symbol generation.
+
+### Change List
+
+- Add a check for no domain holy symbols in deity holy symbol generation
+
 ## 0.8.2 (2019-09-26)
 
 Allow for configuring the domain name static assets are saved to.

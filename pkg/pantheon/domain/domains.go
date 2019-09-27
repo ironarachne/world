@@ -16,6 +16,7 @@ func All() []Domain {
 			},
 			HolySymbols: []string{
 				"cloud",
+				"circle with three squiggly lines in parallel",
 			},
 			PersonalityTraits: []string{
 				"mercurial",
@@ -568,7 +569,9 @@ func All() []Domain {
 				"pretty",
 				"unabashedly naked",
 			},
-			HolyItems: []string{},
+			HolyItems: []string{
+				"red string",
+			},
 			HolySymbols: []string{
 				"heart",
 			},
@@ -753,7 +756,9 @@ func All() []Domain {
 				"bald",
 				"reed-thin",
 			},
-			HolyItems: []string{},
+			HolyItems: []string{
+				"broken dagger",
+			},
 			HolySymbols: []string{
 				"evil eye",
 				"broken circle",
@@ -770,7 +775,10 @@ func All() []Domain {
 			AppearanceTraits: []string{
 				"sitting on a cloud",
 			},
-			HolyItems: []string{},
+			HolyItems: []string{
+				"flute",
+				"kite",
+			},
 			HolySymbols: []string{
 				"cloud",
 			},

@@ -45,24 +45,34 @@ func (deity Deity) getRandomHolyItem() (string, error) {
 	return holyItem, nil
 }
 
+func getGenericHolySymbols() []string {
+	options := []string{
+		"circle divided in three",
+		"closed eye",
+		"open eye",
+		"pair of circles",
+		"pair of triangles",
+		"square",
+		"triangle mirrored",
+		"triangle",
+		"trio of slanted lines",
+	}
+
+	return options
+}
+
 func (deity Deity) getRandomHolySymbol() (string, error) {
 	options := []string{}
+	genericOptions := getGenericHolySymbols()
 
 	if len(deity.Domains) == 0 {
-		options = []string{
-			"circle divided in three",
-			"closed eye",
-			"open eye",
-			"pair of circles",
-			"pair of triangles",
-			"square",
-			"triangle mirrored",
-			"triangle",
-			"trio of slanted lines",
-		}
+		options = genericOptions
 	} else {
 		for _, d := range deity.Domains {
 			options = append(options, d.HolySymbols...)
+		}
+		if len(options) == 0 {
+			options = genericOptions
 		}
 	}
 
