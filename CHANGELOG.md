@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.4 (2019-09-27)
+
+Fix a bug in clothing style generation.
+
+### Change List
+
+- Add prefix and suffix options to kilts
+- Add trews
+
 ## 0.8.3 (2019-09-27)
 
 Fix a bug in deity holy symbol generation.

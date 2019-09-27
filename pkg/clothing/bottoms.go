@@ -74,11 +74,33 @@ func getBottomTemplates() []ItemTemplate {
 			},
 		},
 		{
-			Name:            "kilt",
-			Type:            "bottom",
-			MaterialType:    "fabric",
-			PrefixModifiers: []string{},
-			SuffixModifiers: []string{},
+			Name:         "trews",
+			Type:         "bottom",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"tight",
+				"ribbed",
+			},
+			SuffixModifiers: []string{
+				"with trim down the sides",
+				"with reinforced stitching",
+			},
+		},
+		{
+			Name:         "kilt",
+			Type:         "bottom",
+			MaterialType: "fabric",
+			PrefixModifiers: []string{
+				"belted",
+				"calf-length",
+				"knee-length",
+				"pleated",
+			},
+			SuffixModifiers: []string{
+				"belted around the waist",
+				"down to the calves",
+				"down to the knees",
+			},
 		},
 	}
 }
