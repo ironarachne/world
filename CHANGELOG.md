@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.5 (2019-10-01)
+
+Make HTML index page with links to generators
+
+### Change List
+
+- Make HTML index page with links to generators
+
 ## 0.8.4 (2019-09-27)
 
 Fix a bug in clothing style generation.

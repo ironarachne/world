@@ -7,6 +7,7 @@ import (
 	"math/rand"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/getsentry/sentry-go"
@@ -663,9 +664,38 @@ func getReligionRandom(w http.ResponseWriter, r *http.Request) {
 }
 
 func getRoot(w http.ResponseWriter, r *http.Request) {
-	o := "This is the World Generation API."
+	paths := []string{
+		"buildingstyle",
+		"character",
+		"climate",
+		"clothingstyle",
+		"country",
+		"culture",
+		"foodstyle",
+		"heavens",
+		"heraldry",
+		"language",
+		"merchant",
+		"monster",
+		"organization",
+		"pantheon",
+		"race",
+		"region",
+		"religion",
+		"town",
+		"world",
+		"worldmap",
+	}
+	var str strings.Builder
+	str.WriteString("<p>This is the World Generation API.</p>")
+	str.WriteString("<ul>")
+	for _, path := range paths {
+		str.WriteString(fmt.Sprintf("<li><a href=\"/%s\">/%s</a></li>", path, path))
+	}
+	str.WriteString("</ul>")
 
-	json.NewEncoder(w).Encode(o)
+	w.Header().Set("Content-Type", "text/html")
+	w.Write([]byte(str.String()))
 }
 
 func getTown(w http.ResponseWriter, r *http.Request) {
@@ -927,6 +957,7 @@ func main() {
 
 	r.Get("/", sentryHandler.HandleFunc(getRoot))
 
-	fmt.Println("World Generator API is online.")
-	log.Fatal(http.ListenAndServe(":7531", r))
+	port := 7531
+	fmt.Printf("World Generator API is running on http://localhost:%d.\n", port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), r))
 }
