@@ -29,6 +29,11 @@ func GenerateStyle() (BuildingStyle, error) {
 		err = fmt.Errorf("Could not generate building style: %w", err)
 		return BuildingStyle{}, err
 	}
+	maxStories, err := getRandomMaxStories()
+	if err != nil {
+		err = fmt.Errorf("Could not generate building style: %w", err)
+		return BuildingStyle{}, err
+	}
 	streetStyle, err := getRandomStreetStyle()
 	if err != nil {
 		err = fmt.Errorf("Could not generate building style: %w", err)
@@ -52,7 +57,7 @@ func GenerateStyle() (BuildingStyle, error) {
 	style := BuildingStyle{
 		Decorations: decorations,
 		DoorStyle:   doorStyle,
-		MaxStories:  getRandomMaxStories(),
+		MaxStories:  maxStories,
 		RoofStyle:   roofStyle,
 		StreetStyle: streetStyle,
 		WallStyle:   wallStyle,
@@ -62,14 +67,18 @@ func GenerateStyle() (BuildingStyle, error) {
 	return style, nil
 }
 
-func getRandomMaxStories() int {
+func getRandomMaxStories() (int, error) {
 	stories := map[int]int{
 		1: 20,
 		2: 5,
 		3: 1,
 	}
 
-	storyCount := random.IntFromThresholdMap(stories)
+	storyCount, err := random.IntFromThresholdMap(stories)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random max stories: %w", err)
+		return 0, err
+	}
 
-	return storyCount
+	return storyCount, nil
 }

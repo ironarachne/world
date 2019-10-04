@@ -58,16 +58,20 @@ func all() []Charge {
 	return charges
 }
 
-func randomNumberOfCharges() int {
+func randomNumberOfCharges() (int, error) {
 	possibleValues := map[int]int{
 		1: 10,
 		2: 5,
 		3: 3,
 	}
 
-	value := random.IntFromThresholdMap(possibleValues)
+	value, err := random.IntFromThresholdMap(possibleValues)
+	if err != nil {
+		err = fmt.Errorf("Failed to get random number of charges: %w", err)
+		return 0, err
+	}
 
-	return value
+	return value, nil
 }
 
 // MatchingTag returns all charges that match a tag
@@ -98,7 +102,11 @@ func RandomGroup(fieldTincture tincture.Tincture) (Group, error) {
 
 	charge := Random()
 
-	numberOfCharges := randomNumberOfCharges()
+	numberOfCharges, err := randomNumberOfCharges()
+	if err != nil {
+		err = fmt.Errorf("Failed to get random charge group: %w", err)
+		return Group{}, err
+	}
 	if slices.StringIn("full size", charge.Tags) {
 		numberOfCharges = 1
 	}

@@ -43,6 +43,8 @@ func StringSubset(items []string, maxItems int) ([]string, error) {
 		newItem = items[rand.Intn(len(items))]
 		if !slices.StringIn(newItem, result) {
 			result = append(result, newItem)
+		} else {
+			i--
 		}
 	}
 
