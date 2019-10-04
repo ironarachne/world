@@ -66,8 +66,6 @@ func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 func getBuildingStyleRandom(w http.ResponseWriter, r *http.Request) {
 	var o buildings.SimplifiedBuildingStyle
 
-	rand.Seed(time.Now().UnixNano())
-
 	buildingStyle, err := buildings.GenerateStyle()
 	if err != nil {
 		handleError(w, r, err)
@@ -100,8 +98,6 @@ func getCharacter(w http.ResponseWriter, r *http.Request) {
 
 func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 	var o character.SimplifiedCharacter
-
-	rand.Seed(time.Now().UnixNano())
 
 	o, err := character.RandomSimplified()
 	if err != nil {
@@ -136,8 +132,6 @@ func getClimate(w http.ResponseWriter, r *http.Request) {
 func getClimateRandom(w http.ResponseWriter, r *http.Request) {
 	var o climate.SimplifiedClimate
 
-	rand.Seed(time.Now().UnixNano())
-
 	randomClimate, err := climate.Random()
 	if err != nil {
 		handleError(w, r, err)
@@ -171,8 +165,6 @@ func getClothingStyle(w http.ResponseWriter, r *http.Request) {
 func getClothingStyleRandom(w http.ResponseWriter, r *http.Request) {
 	var o clothing.Style
 
-	rand.Seed(time.Now().UnixNano())
-
 	o, err := clothing.Random()
 	if err != nil {
 		handleError(w, r, err)
@@ -204,8 +196,6 @@ func getCountry(w http.ResponseWriter, r *http.Request) {
 
 func getCountryRandom(w http.ResponseWriter, r *http.Request) {
 	var o country.Country
-
-	rand.Seed(time.Now().UnixNano())
 
 	o, err := country.Generate()
 	if err != nil {
@@ -240,8 +230,6 @@ func getCulture(w http.ResponseWriter, r *http.Request) {
 func getCultureRandom(w http.ResponseWriter, r *http.Request) {
 	var o culture.SimplifiedCulture
 
-	rand.Seed(time.Now().UnixNano())
-
 	randomCulture, err := culture.Random()
 	if err != nil {
 		handleError(w, r, err)
@@ -275,8 +263,6 @@ func getFoodStyle(w http.ResponseWriter, r *http.Request) {
 func getFoodStyleRandom(w http.ResponseWriter, r *http.Request) {
 	var o food.Style
 
-	rand.Seed(time.Now().UnixNano())
-
 	o, err := food.Random()
 	if err != nil {
 		handleError(w, r, err)
@@ -308,8 +294,6 @@ func getHeavens(w http.ResponseWriter, r *http.Request) {
 
 func getHeavensRandom(w http.ResponseWriter, r *http.Request) {
 	var o heavens.Heavens
-
-	rand.Seed(time.Now().UnixNano())
 
 	o, err := heavens.Generate()
 	if err != nil {
@@ -368,8 +352,6 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 	var o heraldry.Device
 	var err error
 
-	rand.Seed(time.Now().UnixNano())
-
 	if fieldType == "" {
 		o, err = heraldry.Generate()
 	} else {
@@ -409,8 +391,6 @@ func getLanguage(w http.ResponseWriter, r *http.Request) {
 func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
 	var o language.SimplifiedLanguage
 
-	rand.Seed(time.Now().UnixNano())
-
 	randomLanguage, err := language.Generate()
 	if err != nil {
 		handleError(w, r, err)
@@ -444,8 +424,6 @@ func getMerchant(w http.ResponseWriter, r *http.Request) {
 func getMerchantRandom(w http.ResponseWriter, r *http.Request) {
 	var o merchant.SimplifiedMerchant
 
-	rand.Seed(time.Now().UnixNano())
-
 	o, err := merchant.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
@@ -474,8 +452,6 @@ func getMonster(w http.ResponseWriter, r *http.Request) {
 func getMonsterRandom(w http.ResponseWriter, r *http.Request) {
 	var o monster.SimplifiedMonster
 
-	rand.Seed(time.Now().UnixNano())
-
 	o = monster.Random().Simplify()
 
 	json.NewEncoder(w).Encode(o)
@@ -503,8 +479,6 @@ func getOrganization(w http.ResponseWriter, r *http.Request) {
 
 func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
 	var o organization.SimplifiedOrganization
-
-	rand.Seed(time.Now().UnixNano())
 
 	o, err := organization.RandomSimplified()
 	if err != nil {
@@ -546,8 +520,6 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 	var o pantheon.SimplifiedPantheon
 	var l language.Language
 
-	rand.Seed(time.Now().UnixNano())
-
 	l, err := language.Generate()
 	if err != nil {
 		handleError(w, r, err)
@@ -582,7 +554,6 @@ func getRace(w http.ResponseWriter, r *http.Request) {
 }
 
 func getRaceRandom(w http.ResponseWriter, r *http.Request) {
-	rand.Seed(time.Now().UnixNano())
 
 	o, err := race.RandomSimplified()
 	if err != nil {
@@ -616,8 +587,6 @@ func getRegion(w http.ResponseWriter, r *http.Request) {
 func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 	var o region.SimplifiedRegion
 
-	rand.Seed(time.Now().UnixNano())
-
 	o, err := region.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
@@ -650,8 +619,6 @@ func getReligion(w http.ResponseWriter, r *http.Request) {
 
 func getReligionRandom(w http.ResponseWriter, r *http.Request) {
 	var o religion.SimplifiedReligion
-
-	rand.Seed(time.Now().UnixNano())
 
 	rel, err := religion.Random()
 	if err != nil {
@@ -721,8 +688,6 @@ func getTown(w http.ResponseWriter, r *http.Request) {
 func getTownRandom(w http.ResponseWriter, r *http.Request) {
 	var o town.SimplifiedTown
 
-	rand.Seed(time.Now().UnixNano())
-
 	o, err := town.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
@@ -754,8 +719,6 @@ func getWorld(w http.ResponseWriter, r *http.Request) {
 
 func getWorldRandom(w http.ResponseWriter, r *http.Request) {
 	var o world.World
-
-	rand.Seed(time.Now().UnixNano())
 
 	o, err := world.Generate()
 	if err != nil {
@@ -833,8 +796,6 @@ func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
 func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
 	var l world.World
 
-	rand.Seed(time.Now().UnixNano())
-
 	l, err := world.Generate()
 	if err != nil {
 		handleError(w, r, err)
@@ -880,6 +841,8 @@ func main() {
 	sentryHandler := sentryhttp.New(sentryhttp.Options{
 		Repanic: true,
 	})
+
+	rand.Seed(time.Now().UnixNano())
 
 	r := chi.NewRouter()
 
