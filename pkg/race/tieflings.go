@@ -8,7 +8,7 @@ import (
 	"github.com/ironarachne/world/pkg/trait"
 )
 
-func getTiefling() []species.Species {
+func getTieflings() []species.Species {
 	common := getTieflingCommonTraitTemplates()
 	possible := getTieflingPossibleTraitTemplates()
 	ageCategories := getTieflingAgeCategories()
