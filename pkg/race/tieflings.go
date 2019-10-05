@@ -54,7 +54,7 @@ func getTieflingAgeCategories() []age.Category {
 			WeightModifier:   5,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
-			Commonality:      30,
+			Commonality:      10,
 		},
 		{
 			Name:             "adult",
@@ -68,7 +68,7 @@ func getTieflingAgeCategories() []age.Category {
 			WeightModifier:   5,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
-			Commonality:      150,
+			Commonality:      30,
 		},
 		{
 			Name:             "young adult",
@@ -82,7 +82,7 @@ func getTieflingAgeCategories() []age.Category {
 			WeightModifier:   5,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
-			Commonality:      100,
+			Commonality:      150,
 		},
 		{
 			Name:             "teenager",
@@ -96,7 +96,7 @@ func getTieflingAgeCategories() []age.Category {
 			WeightModifier:   5,
 			WeightRangeDice:  weightDice,
 			SizeCategory:     adultSizeCategory,
-			Commonality:      30,
+			Commonality:      100,
 		},
 		{
 			Name:             "child",
