@@ -154,7 +154,7 @@ func getTieflingCommonTraitTemplates() []trait.Template {
 		{
 			Name: "hair color",
 			PossibleValues: []string{
-				"red",
+				"dark red",
 				"brown",
 				"dark brown",
 				"black",
