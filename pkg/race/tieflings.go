@@ -21,13 +21,13 @@ func getTiefling() []species.Species {
 			CommonTraits:   common,
 			PossibleTraits: possible,
 			AgeCategories:  ageCategories,
-			Commonality:    100,
+			Commonality:    10,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
 			MaxTemperature: 10,
 			Tags: []string{
-				"human",
+				"tiefling",
 			},
 		},
 	}
@@ -136,13 +136,11 @@ func getTieflingCommonTraitTemplates() []trait.Template {
 		{
 			Name: "eye color",
 			PossibleValues: []string{
-				"amber",
-				"blue",
-				"brown",
+				"black",
 				"gold",
-				"green",
-				"hazel",
-				"grey",
+				"red",
+				"silver",
+				"white",
 			},
 			PossibleDescriptors: []string{
 				"{{.Value}} eyes",
@@ -156,13 +154,12 @@ func getTieflingCommonTraitTemplates() []trait.Template {
 		{
 			Name: "hair color",
 			PossibleValues: []string{
-				"black",
-				"auburn",
 				"red",
-				"grey",
 				"brown",
 				"dark brown",
-				"light brown",
+				"black",
+				"dark blue",
+				"purple",
 			},
 			PossibleDescriptors: []string{
 				"{{.Value}} hair",
@@ -182,6 +179,8 @@ func getTieflingCommonTraitTemplates() []trait.Template {
 				"bronze",
 				"brown",
 				"dark",
+				"maroon",
+				"red",
 			},
 			PossibleDescriptors: []string{
 				"{{.Value}} skin",
@@ -190,6 +189,24 @@ func getTieflingCommonTraitTemplates() []trait.Template {
 				"appearance",
 				"physical",
 				"skin",
+			},
+		},
+		{
+			Name: "horns",
+			PossibleValues: []string{
+				"curling",
+				"spiral upward",
+				"spiral downard",
+				"long straight",
+				"short straight",
+			},
+			PossibleDescriptors: []string{
+				"{{.Value}} horns",
+			},
+			Tags: []string{
+				"appearance",
+				"physical",
+				"horns",
 			},
 		},
 	}
