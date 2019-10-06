@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.6 (2019-10-05)
+
+- Add tiefling to the race package
+
 ## 0.8.5 (2019-10-01)
 
 Make HTML index page with links to generators
