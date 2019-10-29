@@ -37,7 +37,7 @@ type Climate struct {
 	MaxSoils           int
 	MaxStones          int
 	MaxTrees           int
-	Animals            []animal.Animal
+	Animals            []animal.Species
 	Fish               []fish.Fish
 	Gems               []mineral.Mineral
 	Insects            []insect.Insect

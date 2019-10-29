@@ -4,7 +4,7 @@ import (
 	"github.com/ironarachne/world/pkg/animal"
 )
 
-func (climate Climate) getAnimals() ([]animal.Animal, error) {
+func (climate Climate) getAnimals() ([]animal.Species, error) {
 	animals := climate.getFilteredAnimals()
 
 	hideAnimals := animal.ByTag("hide", animals)
@@ -16,7 +16,7 @@ func (climate Climate) getAnimals() ([]animal.Animal, error) {
 	return animals, nil
 }
 
-func (climate Climate) getFilteredAnimals() []animal.Animal {
+func (climate Climate) getFilteredAnimals() []animal.Species {
 	animals := animal.All()
 	animals = filterAnimalsForHumidity(climate.Humidity, animals)
 	animals = filterAnimalsForTemperature(climate.Temperature, animals)
@@ -25,8 +25,8 @@ func (climate Climate) getFilteredAnimals() []animal.Animal {
 	return animals
 }
 
-func filterAnimalsForHumidity(humidity int, animals []animal.Animal) []animal.Animal {
-	var filteredAnimals []animal.Animal
+func filterAnimalsForHumidity(humidity int, animals []animal.Species) []animal.Species {
+	var filteredAnimals []animal.Species
 
 	for _, a := range animals {
 		if a.MinHumidity <= humidity && a.MaxHumidity >= humidity {
@@ -37,8 +37,8 @@ func filterAnimalsForHumidity(humidity int, animals []animal.Animal) []animal.An
 	return filteredAnimals
 }
 
-func filterAnimalsForTemperature(temperature int, animals []animal.Animal) []animal.Animal {
-	var filteredAnimals []animal.Animal
+func filterAnimalsForTemperature(temperature int, animals []animal.Species) []animal.Species {
+	var filteredAnimals []animal.Species
 
 	for _, a := range animals {
 		if a.MinTemperature <= temperature && a.MaxTemperature >= temperature {
@@ -49,8 +49,8 @@ func filterAnimalsForTemperature(temperature int, animals []animal.Animal) []ani
 	return filteredAnimals
 }
 
-func (climate Climate) filterAnimalsForWater(animals []animal.Animal) []animal.Animal {
-	var filteredAnimals []animal.Animal
+func (climate Climate) filterAnimalsForWater(animals []animal.Species) []animal.Species {
+	var filteredAnimals []animal.Species
 
 	for _, a := range animals {
 		if a.IsAquatic && (climate.HasLakes || climate.HasOcean || climate.HasRivers || climate.HasWetlands) {

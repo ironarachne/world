@@ -5,17 +5,11 @@ import (
 	"github.com/ironarachne/world/pkg/size"
 )
 
-func getBirds() []Animal {
-	birds := []Animal{
+func getBirds() []Species {
+	birds := []Species{
 		{
 			Name:           "flamingo",
 			PluralName:     "flamingos",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    5,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -41,12 +35,6 @@ func getBirds() []Animal {
 		{
 			Name:           "peacock",
 			PluralName:     "peacocks",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    5,
 			MaxHumidity:    10,
 			MinTemperature: 5,

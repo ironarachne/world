@@ -5,8 +5,8 @@ import (
 	"github.com/ironarachne/world/pkg/size"
 )
 
-func getUrsines() []Animal {
-	animals := []Animal{
+func getUrsines() []Species {
+	animals := []Species{
 		{
 			Name:       "black bear",
 			PluralName: "black bears",
@@ -18,12 +18,6 @@ func getUrsines() []Animal {
 	}
 
 	for _, a := range animals {
-		a.AnimalType = "bear"
-		a.EatsAnimals = true
-		a.EatsPlants = true
-		a.IsMount = false
-		a.IsPackAnimal = false
-		a.IsScavenger = false
 		a.MinHumidity = 0
 		a.MaxHumidity = 10
 		a.MinTemperature = 6

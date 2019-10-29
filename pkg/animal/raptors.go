@@ -5,17 +5,11 @@ import (
 	"github.com/ironarachne/world/pkg/size"
 )
 
-func getRaptors() []Animal {
-	birds := []Animal{
+func getRaptors() []Species {
+	birds := []Species{
 		{
 			Name:           "eagle",
 			PluralName:     "eagles",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    true,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -42,13 +36,6 @@ func getRaptors() []Animal {
 		},
 		{
 			Name:           "falcon",
-			PluralName:     "falcons",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    true,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -76,12 +63,6 @@ func getRaptors() []Animal {
 		{
 			Name:           "hawk",
 			PluralName:     "hawks",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    true,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,

@@ -5,18 +5,11 @@ import (
 	"github.com/ironarachne/world/pkg/size"
 )
 
-func getReptiles() []Animal {
-	reptiles := []Animal{
+func getReptiles() []Species {
+	reptiles := []Species{
 		{
 			Name:           "alligator",
 			PluralName:     "alligators",
-			AnimalType:     "reptile",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -64,13 +57,6 @@ func getReptiles() []Animal {
 		{
 			Name:           "crocodile",
 			PluralName:     "crocodiles",
-			AnimalType:     "reptile",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -118,13 +104,6 @@ func getReptiles() []Animal {
 		{
 			Name:           "monitor lizard",
 			PluralName:     "monitor lizards",
-			AnimalType:     "reptile",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 5,
