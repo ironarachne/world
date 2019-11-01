@@ -2,6 +2,7 @@ package town
 
 import (
 	"fmt"
+
 	"github.com/ironarachne/world/pkg/random"
 )
 
@@ -22,19 +23,30 @@ func getAllCategories() []Category {
 	categories := []Category{
 		{
 			Name:                 "metropolis",
-			MinSize:              100000,
-			MaxSize:              1000000,
+			MinSize:              1000000,
+			MaxSize:              3000000,
 			MinExports:           50,
 			MaxExports:           500,
 			MinImports:           50,
 			MaxImports:           100,
-			ProductionIterations: 8,
+			ProductionIterations: 12,
 			Commonality:          1,
 		},
 		{
 			Name:                 "city",
+			MinSize:              100000,
+			MaxSize:              999999,
+			MinExports:           20,
+			MaxExports:           100,
+			MinImports:           3,
+			MaxImports:           6,
+			ProductionIterations: 7,
+			Commonality:          3,
+		},
+		{
+			Name:                 "borough",
 			MinSize:              10000,
-			MaxSize:              100000,
+			MaxSize:              99999,
 			MinExports:           20,
 			MaxExports:           100,
 			MinImports:           3,
@@ -45,24 +57,35 @@ func getAllCategories() []Category {
 		{
 			Name:                 "town",
 			MinSize:              1000,
-			MaxSize:              10000,
+			MaxSize:              9999,
 			MinExports:           10,
 			MaxExports:           30,
 			MinImports:           1,
 			MaxImports:           3,
-			ProductionIterations: 3,
+			ProductionIterations: 4,
 			Commonality:          15,
 		},
 		{
 			Name:                 "village",
+			MinSize:              100,
+			MaxSize:              999,
+			MinExports:           1,
+			MaxExports:           4,
+			MinImports:           1,
+			MaxImports:           3,
+			ProductionIterations: 3,
+			Commonality:          20,
+		},
+		{
+			Name:                 "hamlet",
 			MinSize:              10,
-			MaxSize:              100,
+			MaxSize:              99,
 			MinExports:           1,
 			MaxExports:           3,
 			MinImports:           1,
 			MaxImports:           2,
 			ProductionIterations: 1,
-			Commonality:          20,
+			Commonality:          10,
 		},
 	}
 
@@ -92,7 +115,7 @@ func getRandomWeightedCategory() (Category, error) {
 
 	name, err := random.StringFromThresholdMap(weights)
 	if err != nil {
-		err = fmt.Errorf("Failed to get random weighted town category: %w", err)
+		err = fmt.Errorf("failed to get random weighted town category: %w", err)
 		return Category{}, err
 	}
 
@@ -102,6 +125,6 @@ func getRandomWeightedCategory() (Category, error) {
 		}
 	}
 
-	err = fmt.Errorf("Failed to get random weighted town category!")
+	err = fmt.Errorf("failed to get random weighted town category")
 	return Category{}, err
 }
