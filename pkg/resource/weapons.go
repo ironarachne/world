@@ -292,19 +292,14 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "blade",
-					RequiredTag:         "metal bar",
-					DescriptionTemplate: "club with a {{.Resource.MainMaterial}} head,",
-				},
-				{
-					Name:                "haft",
+					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} club",
 				},
 				{
 					Name:                "handle",
 					RequiredTag:         "leather",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} leather wrapped handle",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} leather wrapped handle",
 				},
 			},
 			Value: 1,
@@ -461,18 +456,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "limb",
-					RequiredTag:         "bow limb",
-					DescriptionTemplate: "great bow with {{.Resource.MainMaterial}} limbs,",
-				},
-				{
-					Name:                "string",
-					RequiredTag:         "string",
-					DescriptionTemplate: "simple {{.Resource.MainMaterial}} string,",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.MainMaterial }} great bow",
 				},
 				{
 					Name:                "grip",
-					RequiredTag:         "grip",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} grip",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} hide grip",
+				},
+				{
+					Name:                "string",
+					RequiredTag:         "sinew",
+					DescriptionTemplate: " and strung with {{.Resource.MainMaterial}} sinew",
 				},
 			},
 			Value: 100,
@@ -488,19 +483,14 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "blade",
-					RequiredTag:         "metal bar",
-					DescriptionTemplate: "greatclub with a {{.Resource.MainMaterial}} head,",
-				},
-				{
-					Name:                "haft",
+					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} greatclub",
 				},
 				{
 					Name:                "handle",
 					RequiredTag:         "leather",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} leather wrapped handle",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} leather wrapped handle",
 				},
 			},
 			Value: 2,
@@ -600,19 +590,19 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "limb",
-					RequiredTag:         "bow limb",
-					DescriptionTemplate: "hand crossbow with {{.Resource.MainMaterial}} limbs,",
+					Name:                "body",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.MainMaterial }} hand crossbow",
+				},
+				{
+					Name:                "limbs",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} limbs",
 				},
 				{
 					Name:                "string",
-					RequiredTag:         "string",
-					DescriptionTemplate: "simple {{.Resource.MainMaterial}} string,",
-				},
-				{
-					Name:                "grip",
-					RequiredTag:         "grip",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} grip",
+					RequiredTag:         "sinew",
+					DescriptionTemplate: " and strung with {{.Resource.MainMaterial}} sinew",
 				},
 			},
 			Value: 75,
@@ -628,19 +618,19 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "limb",
-					RequiredTag:         "bow limb",
-					DescriptionTemplate: "heavy crossbow with {{.Resource.MainMaterial}} limbs,",
+					Name:                "body",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.MainMaterial }} heavy crossbow",
+				},
+				{
+					Name:                "limbs",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} limbs",
 				},
 				{
 					Name:                "string",
-					RequiredTag:         "string",
-					DescriptionTemplate: "simple {{.Resource.MainMaterial}} string,",
-				},
-				{
-					Name:                "grip",
-					RequiredTag:         "grip",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} grip",
+					RequiredTag:         "sinew",
+					DescriptionTemplate: " and strung with {{.Resource.MainMaterial}} sinew",
 				},
 			},
 			Value: 50,
@@ -656,9 +646,9 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "blade",
+					Name:                "tip",
 					RequiredTag:         "metal bar",
-					DescriptionTemplate: "javelin with a {{.Resource.MainMaterial}} blade,",
+					DescriptionTemplate: "javelin with a {{.Resource.MainMaterial}} tip,",
 				},
 				{
 					Name:                "haft",
@@ -684,19 +674,14 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "blade",
-					RequiredTag:         "metal bar",
-					DescriptionTemplate: "lance with a {{.Resource.MainMaterial}} blade,",
-				},
-				{
-					Name:                "haft",
+					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} lance",
 				},
 				{
-					Name:                "handle",
-					RequiredTag:         "leather",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} leather wrapped handle",
+					Name:                "tip",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} tip",
 				},
 			},
 			Value: 10,
@@ -712,19 +697,19 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "limb",
-					RequiredTag:         "bow limb",
-					DescriptionTemplate: "light crossbow with {{.Resource.MainMaterial}} limbs,",
+					Name:                "body",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.MainMaterial }} light crossbow",
+				},
+				{
+					Name:                "limbs",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: " with {{.Resource.MainMaterial}} limbs",
 				},
 				{
 					Name:                "string",
-					RequiredTag:         "string",
-					DescriptionTemplate: "simple {{.Resource.MainMaterial}} string,",
-				},
-				{
-					Name:                "grip",
-					RequiredTag:         "grip",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} grip",
+					RequiredTag:         "sinew",
+					DescriptionTemplate: " and strung with {{.Resource.MainMaterial}} sinew",
 				},
 			},
 			Value: 25,
@@ -769,18 +754,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "limb",
-					RequiredTag:         "bow limb",
-					DescriptionTemplate: "longbow with {{.Resource.MainMaterial}} limbs,",
-				},
-				{
-					Name:                "string",
-					RequiredTag:         "string",
-					DescriptionTemplate: "simple {{.Resource.MainMaterial}} string,",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.MainMaterial }} longbow",
 				},
 				{
 					Name:                "grip",
-					RequiredTag:         "grip",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} grip",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} hide grip",
+				},
+				{
+					Name:                "string",
+					RequiredTag:         "sinew",
+					DescriptionTemplate: " and strung with {{.Resource.MainMaterial}} sinew",
 				},
 			},
 			Value: 50,
@@ -909,18 +894,18 @@ func getWeapons() []Pattern {
 			Slots: []Slot{
 				{
 					Name:                "limb",
-					RequiredTag:         "bow limb",
-					DescriptionTemplate: "shortbow with {{.Resource.MainMaterial}} limbs,",
-				},
-				{
-					Name:                "string",
-					RequiredTag:         "string",
-					DescriptionTemplate: "simple {{.Resource.MainMaterial}} string,",
+					RequiredTag:         "wood plank",
+					DescriptionTemplate: "{{.Resource.MainMaterial }} shortbow",
 				},
 				{
 					Name:                "grip",
-					RequiredTag:         "grip",
-					DescriptionTemplate: " and {{.Resource.MainMaterial}} grip",
+					RequiredTag:         "leather",
+					DescriptionTemplate: " with a {{.Resource.MainMaterial}} grip",
+				},
+				{
+					Name:                "string",
+					RequiredTag:         "sinew",
+					DescriptionTemplate: " and strung with {{.Resource.MainMaterial}} sinew",
 				},
 			},
 			Value: 25,
@@ -1103,9 +1088,9 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "haft",
-					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					Name:                "body",
+					RequiredTag:         "metal bar",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} dart",
 				},
 			},
 			Value: 1,
@@ -1120,9 +1105,9 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "haft",
-					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					Name:                "body",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} sling",
 				},
 			},
 			Value: 1,
@@ -1137,9 +1122,9 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "haft",
-					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					Name:                "body",
+					RequiredTag:         "leather",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} whip",
 				},
 			},
 			Value: 2,
@@ -1154,9 +1139,9 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "haft",
+					Name:                "body",
 					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} blowgun",
 				},
 			},
 			Value: 10,
@@ -1171,9 +1156,9 @@ func getWeapons() []Pattern {
 			Profession: producer,
 			Slots: []Slot{
 				{
-					Name:                "haft",
-					RequiredTag:         "wood plank",
-					DescriptionTemplate: " {{.Resource.MainMaterial}} haft,",
+					Name:                "body",
+					RequiredTag:         "fiber",
+					DescriptionTemplate: "{{.Resource.MainMaterial}} woven net",
 				},
 			},
 			Value: 1,

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.7 (2019-11-03)
+
+- Add several new weapon patterns
+- Add hamlets and boroughs to town generation
+- Add several utility functions to species
+
 ## 0.8.6 (2019-10-05)
 
 - Add tiefling to the race package
