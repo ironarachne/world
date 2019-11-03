@@ -37,6 +37,19 @@ func (town Town) generateMayor() (character.Character, error) {
 	}
 	mayor = mayor.ChangeAge(rand.Intn(30) + 30)
 
+	firstName, err := town.Culture.Language.RandomGenderedName(mayor.Gender.Name)
+	if err != nil {
+		err = fmt.Errorf("Could not generate mayor: %w", err)
+		return character.Character{}, err
+	}
+	mayor.FirstName = firstName
+	lastName, err := town.Culture.Language.RandomName()
+	if err != nil {
+		err = fmt.Errorf("Could not generate mayor: %w", err)
+		return character.Character{}, err
+	}
+	mayor.LastName = lastName
+
 	return mayor, nil
 }
 
@@ -74,24 +87,15 @@ func generateRandomPopulation(category Category) int {
 	return population
 }
 
-func (town Town) generateTownName() (string, error) {
-	name, err := town.Culture.Language.RandomName()
-	if err != nil {
-		err = fmt.Errorf("Could not generate town name: %w", err)
-		return "", err
-	}
-	return name, nil
-}
-
 // Generate generates a random town
-func Generate(category string, originClimate climate.Climate, originCulture culture.Culture) (Town, error) {
+func Generate(categoryName string, originClimate climate.Climate, originCulture culture.Culture) (Town, error) {
 	var newProducers []profession.Profession
 	var producers []profession.Profession
 	var newResources []resource.Resource
 
 	town := Town{}
 
-	if category == "random" {
+	if categoryName == "random" {
 		townCategory, err := getRandomWeightedCategory()
 		if err != nil {
 			err = fmt.Errorf("Could not generate town: %w", err)
@@ -99,7 +103,7 @@ func Generate(category string, originClimate climate.Climate, originCulture cult
 		}
 		town.Category = townCategory
 	} else {
-		town.Category = getCategoryByName(category)
+		town.Category = getCategoryByName(categoryName)
 	}
 
 	town.Climate = originClimate
@@ -121,18 +125,6 @@ func Generate(category string, originClimate climate.Climate, originCulture cult
 		err = fmt.Errorf("Could not generate town: %w", err)
 		return Town{}, err
 	}
-	firstName, err := town.Culture.Language.RandomGenderedName(mayor.Gender.Name)
-	if err != nil {
-		err = fmt.Errorf("Could not generate town: %w", err)
-		return Town{}, err
-	}
-	mayor.FirstName = firstName
-	lastName, err := town.Culture.Language.RandomName()
-	if err != nil {
-		err = fmt.Errorf("Could not generate town: %w", err)
-		return Town{}, err
-	}
-	mayor.LastName = lastName
 	town.Mayor = mayor
 
 	resources := town.Climate.Resources
