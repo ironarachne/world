@@ -37,13 +37,22 @@ func (town Town) generateMayor() (character.Character, error) {
 	}
 	mayor = mayor.ChangeAge(rand.Intn(30) + 30)
 
-	firstName, err := town.Culture.Language.RandomGenderedName(mayor.Gender.Name)
+	firstName, err := town.Culture.Language.RandomMaleFirstName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate mayor: %w", err)
 		return character.Character{}, err
 	}
+
+	if mayor.Gender.Name == "female" {
+		firstName, err = town.Culture.Language.RandomFemaleFirstName()
+		if err != nil {
+			err = fmt.Errorf("Could not generate mayor: %w", err)
+			return character.Character{}, err
+		}
+	}
+
 	mayor.FirstName = firstName
-	lastName, err := town.Culture.Language.RandomName()
+	lastName, err := town.Culture.Language.RandomFamilyName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate mayor: %w", err)
 		return character.Character{}, err
@@ -109,7 +118,7 @@ func Generate(categoryName string, originClimate climate.Climate, originCulture 
 	town.Climate = originClimate
 	town.Culture = originCulture
 
-	name, err := town.Culture.Language.RandomName()
+	name, err := town.Culture.Language.RandomTownName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate town: %w", err)
 		return Town{}, err

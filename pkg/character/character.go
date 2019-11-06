@@ -56,12 +56,21 @@ type Family struct {
 }
 
 func getAppropriateName(gender string, culture culture.Culture) (string, string, error) {
-	firstName, err := culture.Language.RandomGenderedName(gender)
+	firstName, err := culture.Language.RandomMaleFirstName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
 		return "", "", err
 	}
-	lastName, err := culture.Language.RandomName()
+
+	if gender == "female" {
+		firstName, err = culture.Language.RandomFemaleFirstName()
+		if err != nil {
+			err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
+			return "", "", err
+		}
+	}
+
+	lastName, err := culture.Language.RandomFamilyName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
 		return "", "", err

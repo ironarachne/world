@@ -1,4 +1,4 @@
-package language
+package writing
 
 import (
 	"fmt"
@@ -9,8 +9,8 @@ import (
 	"github.com/ironarachne/world/pkg/words"
 )
 
-// WritingSystem is a system of writing
-type WritingSystem struct {
+// System is a system of writing
+type System struct {
 	Name           string
 	Classification string
 	StrokeType     string
@@ -46,8 +46,9 @@ func randomStrokeType() string {
 	return words.CombinePhrases(strokes)
 }
 
-func randomWritingSystem() (WritingSystem, error) {
-	var writingSystem WritingSystem
+// Generate randomly generates a writing system
+func Generate() (System, error) {
+	var writingSystem System
 
 	classifications := []string{
 		"abjad",
@@ -62,7 +63,7 @@ func randomWritingSystem() (WritingSystem, error) {
 	classification, err := random.String(classifications)
 	if err != nil {
 		err = fmt.Errorf("Could not generate writing system: %w", err)
-		return WritingSystem{}, err
+		return System{}, err
 	}
 	writingSystem.Classification = classification
 	writingSystem.StrokeType = randomStrokeType()

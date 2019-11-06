@@ -42,6 +42,11 @@ github.com/iris-contrib/blackfriday v2.0.0+incompatible/go.mod h1:UzZ2bDEoaSGPbk
 github.com/iris-contrib/formBinder v5.0.0+incompatible/go.mod h1:i8kTYUOEstd/S8TG0ChTXQdf4ermA/e8vJX0+QruD9w=
 github.com/iris-contrib/go.uuid v2.0.0+incompatible/go.mod h1:iz2lgM/1UnEf1kP0L/+fafWORmlnuysV2EMP8MW+qe0=
 github.com/iris-contrib/httpexpect v0.0.0-20180314041918-ebe99fcebbce/go.mod h1:VER17o2JZqquOx41avolD/wMGQSFEFBKWmhag9/RQRY=
+github.com/ironarachne/namegen v0.0.0-20191007134507-85f1aa339f42 h1:06w1Xx04hlmsJK8H6X5BfrNAn9YSOgtcz8NXPn2ZK8E=
+github.com/ironarachne/namegen v0.0.0-20191007134507-85f1aa339f42/go.mod h1:P1KOD+iq+/Q4XctpWgEJwsHWp02jYbOFOzA5sfOwucI=
+github.com/ironarachne/random v0.0.0-20190325170425-9caaa0b3405a h1:Wf3LfJ3RJ9m7WFveQs/S6I/NkNiviSfew9afED9BPS0=
+github.com/ironarachne/random v0.0.0-20190325170425-9caaa0b3405a/go.mod h1:YUzpzLiGzz2YTOhXMk61UBGze9jiaKfpFXF6YF2nd2Q=
+github.com/ironarachne/utility v0.0.0-20181021125830-32a6c250e33b/go.mod h1:1pbHvjC5wh3M6kSUB46xHYUnWZ1iMqr8h/07w0n2Gak=
 github.com/json-iterator/go v1.1.6/go.mod h1:+SdeFBvtyEkXs7REEP0seUULqWtbJapLOCVDaaPEHmU=
 github.com/jtolds/gls v4.20.0+incompatible/go.mod h1:QJZ7F/aHp+rZTRtaJ1ow/lLfFfVYBRgL+9YlvaHOwJU=
 github.com/juju/errors v0.0.0-20181118221551-089d3ea4e4d5/go.mod h1:W54LbzXuIE0boCoNJfwqpmkKJ1O4TCTZMetAt6jGk7Q=

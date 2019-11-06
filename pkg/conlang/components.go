@@ -1,4 +1,4 @@
-package language
+package conlang
 
 import (
 	"fmt"
@@ -95,7 +95,7 @@ func randomSyllable(category Category, role string) (string, error) {
 	return syllable, nil
 }
 
-func (language Language) randomWord(maxSyllables int) (string, error) {
+func randomWord(langCategory Category, maxSyllables int) (string, error) {
 	var word string
 	var syllables []string
 	numSyllables := 1
@@ -111,13 +111,13 @@ func (language Language) randomWord(maxSyllables int) (string, error) {
 		if numSyllables-i == 1 {
 			role = "finisher"
 		}
-		syllable, err := randomSyllable(language.Category, role)
+		syllable, err := randomSyllable(langCategory, role)
 		if err != nil {
 			err = fmt.Errorf("Could not generate word: %w", err)
 			return "", err
 		}
 
-		if language.Category.UsesApostrophes {
+		if langCategory.UsesApostrophes {
 			shouldIUseAnApostrophe = rand.Intn(10)
 			if shouldIUseAnApostrophe > 8 {
 				syllable += "'"

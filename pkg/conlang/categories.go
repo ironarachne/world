@@ -1,8 +1,8 @@
-package language
+package conlang
 
 import "math/rand"
 
-// Category is a style of language
+// Category is a style of constructed language
 type Category struct {
 	Descriptors      []string
 	WordLength       int

@@ -65,6 +65,8 @@ func (language Language) TranslatePhrase(phrase string) string {
 		}
 	}
 
+	// TODO: Remove trailing space
+
 	return translation
 }
 

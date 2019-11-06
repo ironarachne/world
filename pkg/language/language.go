@@ -2,153 +2,131 @@ package language
 
 import (
 	"fmt"
-	"math/rand"
-	"strings"
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
+	"github.com/ironarachne/world/pkg/writing"
 )
 
-// Language is a fantasy language
+// Language is a spoken language
 type Language struct {
 	Name                 string
 	Adjective            string
 	Descriptors          []string
-	Category             Category
-	IsTonal              bool
-	WritingSystem        WritingSystem
+	Description          string
+	WritingSystem        writing.System
 	WordList             map[string]string
+	FemaleFirstNames     []string
+	MaleFirstNames       []string
+	FamilyNames          []string
+	TownNames            []string
 	VerbConjugationRules ConjugationRules
-	PracticeSuffix       string
+	IsTonal              bool
 }
 
-var (
-	consonants = []string{"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"}
-	breaths    = []string{"h", "th", "f", "ch", "sh"}
-	fricatives = []string{"f", "v", "th", "ð", "s", "z", "ch", "zh"}
-	glides     = []string{"j", "w"}
-	glottals   = []string{"g", "k", "ch"}
-	growls     = []string{"br", "tr", "gr", "dr", "kr"}
-	liquids    = []string{"l", "r"}
-	nasals     = []string{"m", "n", "ng"}
-	sibilants  = []string{"s", "f"}
-	stops      = []string{"p", "b", "t", "d", "k", "g"}
-	velars     = []string{"k", "g", "ng", "w"}
-)
-
-func deriveLanguageAdjective(name string) (string, error) {
-	var suffix string
-
-	adjective := name
-	lastCharacter := adjective[len(adjective)-1:]
-
-	potentialSuffixes := []string{"n", "lese", "ish"}
-
-	if slices.StringIn(lastCharacter, consonants) {
-		potentialSuffixes = []string{"ish", "ian", "an", "i", "ese"}
-	}
-
-	suffix, err := random.String(potentialSuffixes)
+// RandomFemaleFirstName returns a random female first name
+func (language Language) RandomFemaleFirstName() (string, error) {
+	firstName, err := random.String(language.FemaleFirstNames)
 	if err != nil {
-		err = fmt.Errorf("Could not generate language adjective: %w", err)
+		err = fmt.Errorf("could not select random female first name: %w", err)
 		return "", err
 	}
 
-	adjective += suffix
-
-	return adjective, nil
+	return firstName, nil
 }
 
-// Generate creates a random language
-func Generate() (Language, error) {
-	var language Language
-
-	combinedChance := rand.Intn(100)
-	if combinedChance > 70 {
-		language.Category = randomCombinedCategory()
-	} else {
-		language.Category = randomCategory()
+// RandomMaleFirstName returns a random male first name
+func (language Language) RandomMaleFirstName() (string, error) {
+	firstName, err := random.String(language.MaleFirstNames)
+	if err != nil {
+		err = fmt.Errorf("could not select random male first name: %w", err)
+		return "", err
 	}
 
-	name, err := randomLanguageName(language.Category)
-	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
-		return Language{}, err
-	}
-	language.Name = strings.Title(name)
-	language.Descriptors = append(language.Descriptors, language.Category.Descriptors...)
-	adjective, err := deriveLanguageAdjective(language.Name)
-	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
-		return Language{}, err
-	}
-	language.Adjective = adjective
-
-	tonalChance := rand.Intn(10) + 1
-	if tonalChance > 7 {
-		language.IsTonal = true
-	} else {
-		language.IsTonal = false
-	}
-	if language.IsTonal {
-		language.Descriptors = append(language.Descriptors, "tonal")
-	}
-
-	writingSystem, err := randomWritingSystem()
-	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
-		return Language{}, err
-	}
-	language.WritingSystem = writingSystem
-	language.WritingSystem.Name = language.Adjective
-	wordList, err := language.GenerateWordList()
-	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
-		return Language{}, err
-	}
-	language.WordList = wordList
-	verbConjugationRules, err := language.deriveConjugationRules()
-	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
-		return Language{}, err
-	}
-	language.VerbConjugationRules = verbConjugationRules
-	suffix, err := randomSyllable(language.Category, "finisher")
-	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
-		return Language{}, err
-	}
-	language.PracticeSuffix = suffix
-
-	return language, nil
+	return firstName, nil
 }
 
-func (language Language) deriveConjugationRules() (ConjugationRules, error) {
-	continuousSuffix, err := randomSyllable(language.Category, "finisher")
+// RandomFamilyName returns a random male first name
+func (language Language) RandomFamilyName() (string, error) {
+	familyName, err := random.String(language.FamilyNames)
 	if err != nil {
-		err = fmt.Errorf("Could not generate conjugation rules: %w", err)
-		return ConjugationRules{}, err
-	}
-	pastSuffix, err := randomSyllable(language.Category, "finisher")
-	if err != nil {
-		err = fmt.Errorf("Could not generate conjugation rules: %w", err)
-		return ConjugationRules{}, err
+		err = fmt.Errorf("could not select random family name: %w", err)
+		return "", err
 	}
 
-	rules := ConjugationRules{
-		SimplePresent:            "{{.Root}}",
-		SimplePast:               "{{.Root}}" + pastSuffix,
-		SimpleFuture:             "{{.Root}}",
-		PresentContinuous:        "{{.Root}}" + continuousSuffix,
-		PastContinuous:           "{{.Root}}" + continuousSuffix,
-		FutureContinuous:         "{{.Root}}" + continuousSuffix,
-		PresentPerfect:           "{{.Root}}" + pastSuffix,
-		PastPerfect:              "{{.Root}}" + pastSuffix,
-		FuturePerfect:            "{{.Root}}" + pastSuffix,
-		PresentPerfectContinuous: "{{.Root}}" + continuousSuffix,
-		PastPerfectContinuous:    "{{.Root}}" + continuousSuffix,
-		FuturePerfectContinuous:  "{{.Root}}" + continuousSuffix,
+	return familyName, nil
+}
+
+// RandomTownName returns a random male first name
+func (language Language) RandomTownName() (string, error) {
+	townName, err := random.String(language.TownNames)
+	if err != nil {
+		err = fmt.Errorf("could not select random town name: %w", err)
+		return "", err
 	}
 
-	return rules, nil
+	return townName, nil
+}
+
+// RandomNameList returns a list of N unique names of the given type
+func (language Language) RandomNameList(numberOfNames int, nameType string) ([]string, error) {
+	var name string
+	var names []string
+	var err error
+
+	if nameType == "female" {
+		for i := 0; i < numberOfNames; i++ {
+			name, err = language.RandomFemaleFirstName()
+			if err != nil {
+				err = fmt.Errorf("could not generate name list: %w", err)
+				return []string{}, err
+			}
+			if !slices.StringIn(name, names) {
+				names = append(names, name)
+			} else {
+				i--
+			}
+		}
+	} else if nameType == "male" {
+		for i := 0; i < numberOfNames; i++ {
+			name, err = language.RandomMaleFirstName()
+			if err != nil {
+				err = fmt.Errorf("could not generate name list: %w", err)
+				return []string{}, err
+			}
+			if !slices.StringIn(name, names) {
+				names = append(names, name)
+			} else {
+				i--
+			}
+		}
+	} else if nameType == "family" {
+		for i := 0; i < numberOfNames; i++ {
+			name, err = language.RandomFamilyName()
+			if err != nil {
+				err = fmt.Errorf("could not generate name list: %w", err)
+				return []string{}, err
+			}
+			if !slices.StringIn(name, names) {
+				names = append(names, name)
+			} else {
+				i--
+			}
+		}
+	} else if nameType == "town" {
+		for i := 0; i < numberOfNames; i++ {
+			name, err = language.RandomTownName()
+			if err != nil {
+				err = fmt.Errorf("could not generate name list: %w", err)
+				return []string{}, err
+			}
+			if !slices.StringIn(name, names) {
+				names = append(names, name)
+			} else {
+				i--
+			}
+		}
+	}
+
+	return names, nil
 }

@@ -18,6 +18,7 @@ import (
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/clothing"
+	"github.com/ironarachne/world/pkg/conlang"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/food"
@@ -378,7 +379,7 @@ func getLanguage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	randomLanguage, err := language.Generate()
+	randomLanguage, _, err := conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -391,7 +392,7 @@ func getLanguage(w http.ResponseWriter, r *http.Request) {
 func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
 	var o language.SimplifiedLanguage
 
-	randomLanguage, err := language.Generate()
+	randomLanguage, _, err := conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -501,7 +502,7 @@ func getPantheon(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	l, err = language.Generate()
+	l, _, err = conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -520,7 +521,7 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 	var o pantheon.SimplifiedPantheon
 	var l language.Language
 
-	l, err := language.Generate()
+	l, _, err := conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return

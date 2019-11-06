@@ -83,7 +83,7 @@ func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Reg
 	}
 	region.RulingBody = rulingBody
 
-	regionName, err := region.Culture.Language.RandomName()
+	regionName, err := region.Culture.Language.RandomFamilyName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate region: %w", err)
 		return Region{}, err

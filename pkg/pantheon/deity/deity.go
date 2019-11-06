@@ -116,6 +116,7 @@ func Generate(lang language.Language, possibleDomains []domain.Domain) (Deity, e
 	var deity Deity
 	var d domain.Domain
 	var err error
+	var name string
 
 	numberOfDomains := rand.Intn(3) + 1
 
@@ -163,11 +164,26 @@ func Generate(lang language.Language, possibleDomains []domain.Domain) (Deity, e
 	}
 	deity.HolySymbol = holySymbol
 
-	name, err := lang.RandomGenderedName(deity.Gender.Name)
-	if err != nil {
-		err = fmt.Errorf("Could not generate deity: %w", err)
-		return Deity{}, err
+	if deity.Gender.Name == "female" {
+		name, err = lang.RandomFemaleFirstName()
+		if err != nil {
+			err = fmt.Errorf("Could not generate deity: %w", err)
+			return Deity{}, err
+		}
+	} else if deity.Gender.Name == "male" {
+		name, err = lang.RandomMaleFirstName()
+		if err != nil {
+			err = fmt.Errorf("Could not generate deity: %w", err)
+			return Deity{}, err
+		}
+	} else {
+		name, err = lang.RandomFemaleFirstName()
+		if err != nil {
+			err = fmt.Errorf("Could not generate deity: %w", err)
+			return Deity{}, err
+		}
 	}
+
 	deity.Name = name
 
 	return deity, nil

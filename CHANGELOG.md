@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.8 (2019-11-06)
+
+- Split language package into conlang, language, and writing packages
+- Add support for premade languages
+- Add the Common premade language
+- Remove "practice suffix"
+- Add basic religion name generation
+
 ## 0.8.7 (2019-11-03)
 
 - Add several new weapon patterns

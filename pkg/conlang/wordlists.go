@@ -1,4 +1,4 @@
-package language
+package conlang
 
 // WordType is a type of word. This is used as rules to construct words.
 type WordType struct {
@@ -12,6 +12,7 @@ type WordType struct {
 func getAllWordTypes() []WordType {
 	words := []WordType{}
 	words = append(words, getAdjectives())
+	words = append(words, getArticles())
 	words = append(words, getInterjections())
 	words = append(words, getNouns())
 	words = append(words, getNumbers())
@@ -101,6 +102,20 @@ func getAdjectives() WordType {
 	}
 }
 
+func getArticles() WordType {
+	return WordType{
+		Name:         "article",
+		MaxSyllables: 1,
+		Prefix:       "",
+		Suffix:       "",
+		WordList: []string{
+			"a",
+			"an",
+			"the",
+		},
+	}
+}
+
 func getInterjections() WordType {
 	return WordType{
 		Name:         "interjection",
@@ -121,7 +136,6 @@ func getPrepositions() WordType {
 		Prefix:       "",
 		Suffix:       "",
 		WordList: []string{
-			"a",
 			"and",
 			"as",
 			"from",
@@ -301,6 +315,7 @@ func getNouns() WordType {
 			"noodle",
 			"nose",
 			"ocean",
+			"path",
 			"pepper",
 			"person",
 			"pie",
@@ -333,9 +348,11 @@ func getNouns() WordType {
 			"tongue",
 			"tooth",
 			"tree",
+			"truth",
 			"valley",
 			"war",
 			"water",
+			"way",
 			"wine",
 			"woman",
 		},

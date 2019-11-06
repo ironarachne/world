@@ -3,6 +3,7 @@ package religion
 import (
 	"fmt"
 
+	"github.com/ironarachne/world/pkg/conlang"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/world/pkg/random"
@@ -44,13 +45,13 @@ func Generate(originLanguage language.Language) (Religion, error) {
 		religion.Pantheon = newPantheon
 	}
 
-	name, err := originLanguage.RandomName()
+	religionName, err := randomReligionName()
 	if err != nil {
 		err = fmt.Errorf("Could not generate religion: %w", err)
 		return Religion{}, err
 	}
-	religion.CommonName = name + "ism"
-	name = originLanguage.MakePractice(name)
+	name := originLanguage.TranslatePhrase(religionName)
+	religion.CommonName = religionName
 	religion.Name = name
 
 	virtues, err := getRandomVirtues()
@@ -74,7 +75,7 @@ func (religion Religion) randomGatheringPlace() (string, error) {
 
 // Random generates a completely random religion
 func Random() (Religion, error) {
-	originLanguage, err := language.Generate()
+	originLanguage, _, err := conlang.Generate()
 	if err != nil {
 		err = fmt.Errorf("Could not generate random religion: %w", err)
 		return Religion{}, err

@@ -1,4 +1,4 @@
-package language
+package conlang
 
 import (
 	"fmt"
@@ -10,17 +10,17 @@ import (
 )
 
 // GenerateNameList generates a list of names appropriate for the language
-func (language Language) GenerateNameList(nameType string) ([]string, error) {
+func GenerateNameList(numberOfNames int, langCategory Category, nameType string) ([]string, error) {
 	var names []string
 	var endings []string
 
 	if nameType == "male" {
-		endings = language.Category.MasculineEndings
+		endings = langCategory.MasculineEndings
 	} else if nameType == "female" {
-		endings = language.Category.FeminineEndings
+		endings = langCategory.FeminineEndings
 	} else {
 		for i := 0; i < 5; i++ {
-			finisher, err := randomSyllable(language.Category, "finisher")
+			finisher, err := randomSyllable(langCategory, "finisher")
 			if err != nil {
 				err = fmt.Errorf("Could not generate name list: %w", err)
 				return []string{}, err
@@ -29,13 +29,13 @@ func (language Language) GenerateNameList(nameType string) ([]string, error) {
 		}
 	}
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < numberOfNames; i++ {
 		ending, err := random.String(endings)
 		if err != nil {
 			err = fmt.Errorf("Could not generate name list: %w", err)
 			return []string{}, err
 		}
-		name, err := language.RandomName()
+		name, err := RandomName(langCategory)
 		if err != nil {
 			err = fmt.Errorf("Could not generate name list: %w", err)
 			return []string{}, err
@@ -99,19 +99,19 @@ func randomLanguageName(category Category) (string, error) {
 }
 
 // RandomGenderedName generates a random gendered first name
-func (language Language) RandomGenderedName(gender string) (string, error) {
+func RandomGenderedName(langCategory Category, gender string) (string, error) {
 	var endings []string
 
-	name, err := language.RandomName()
+	name, err := RandomName(langCategory)
 	if err != nil {
 		err = fmt.Errorf("Could not generate random gendered name: %w", err)
 		return "", err
 	}
 
 	if gender == "male" {
-		endings = language.Category.MasculineEndings
+		endings = langCategory.MasculineEndings
 	} else {
-		endings = language.Category.FeminineEndings
+		endings = langCategory.FeminineEndings
 	}
 
 	ending, err := random.String(endings)
@@ -125,7 +125,7 @@ func (language Language) RandomGenderedName(gender string) (string, error) {
 }
 
 // RandomName generates a random name using the language
-func (language Language) RandomName() (string, error) {
+func RandomName(langCategory Category) (string, error) {
 	var name string
 	var syllables []string
 	skewLonger := false
@@ -134,7 +134,7 @@ func (language Language) RandomName() (string, error) {
 		skewLonger = true
 	}
 
-	randomLength := rand.Intn(language.Category.WordLength) + 1
+	randomLength := rand.Intn(langCategory.WordLength) + 1
 
 	if skewLonger {
 		randomLength++
@@ -147,13 +147,13 @@ func (language Language) RandomName() (string, error) {
 		if randomLength-i == 1 {
 			role = "finisher"
 		}
-		syllable, err := randomSyllable(language.Category, role)
+		syllable, err := randomSyllable(langCategory, role)
 		if err != nil {
 			err = fmt.Errorf("Could not generate conjugation rules: %w", err)
 			return "", err
 		}
 
-		if language.Category.UsesApostrophes {
+		if langCategory.UsesApostrophes {
 			shouldIUseAnApostrophe = rand.Intn(10)
 			if shouldIUseAnApostrophe > 8 {
 				syllable += "'"
