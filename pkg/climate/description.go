@@ -167,10 +167,10 @@ func (climate Climate) getDescription() (string, error) {
 	birdCount := 0
 
 	for _, a := range climate.Animals {
-		if a.EatsAnimals {
+		if a.HasTag("carnivore") {
 			predatorCount++
 		}
-		if a.AnimalType == "bird" {
+		if a.HasTag("bird") {
 			birdCount++
 		}
 	}

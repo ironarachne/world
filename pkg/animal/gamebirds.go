@@ -2,20 +2,14 @@ package animal
 
 import (
 	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func getGameBirds() []Animal {
-	birds := []Animal{
+func getGameBirds() []species.Species {
+	birds := []species.Species{
 		{
 			Name:           "goose",
 			PluralName:     "geese",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -62,7 +56,6 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",
@@ -73,12 +66,6 @@ func getGameBirds() []Animal {
 		{
 			Name:           "chicken",
 			PluralName:     "chickens",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -125,7 +112,6 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",
@@ -136,12 +122,6 @@ func getGameBirds() []Animal {
 		{
 			Name:           "mudhen",
 			PluralName:     "mudhens",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -178,7 +158,6 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",
@@ -189,12 +168,6 @@ func getGameBirds() []Animal {
 		{
 			Name:           "quail",
 			PluralName:     "quails",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -231,7 +204,6 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",
@@ -242,12 +214,6 @@ func getGameBirds() []Animal {
 		{
 			Name:           "duck",
 			PluralName:     "ducks",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -294,7 +260,6 @@ func getGameBirds() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",

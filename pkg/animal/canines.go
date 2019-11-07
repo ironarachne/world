@@ -2,11 +2,11 @@ package animal
 
 import (
 	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func getCanines() []Animal {
-	animals := []Animal{
+func getCanines() []species.Species {
+	animals := []species.Species{
 		{
 			Name:       "coyote",
 			PluralName: "coyotes",
@@ -22,17 +22,10 @@ func getCanines() []Animal {
 	}
 
 	for _, a := range animals {
-		a.AnimalType = "mammal"
-		a.EatsAnimals = true
-		a.EatsPlants = false
-		a.IsMount = false
-		a.IsPackAnimal = false
-		a.IsScavenger = false
 		a.MinHumidity = 0
 		a.MaxHumidity = 10
 		a.MinTemperature = 0
 		a.MaxTemperature = 10
-		a.Size = size.GetCategoryByName("medium")
 		a.Resources = []resource.Resource{
 			{
 				Name:         a.Name + " hide",

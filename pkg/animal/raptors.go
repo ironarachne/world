@@ -2,20 +2,14 @@ package animal
 
 import (
 	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func getRaptors() []Animal {
-	birds := []Animal{
+func getRaptors() []species.Species {
+	birds := []species.Species{
 		{
 			Name:           "eagle",
 			PluralName:     "eagles",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    true,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -32,7 +26,6 @@ func getRaptors() []Animal {
 					Value:       10,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",
@@ -43,12 +36,6 @@ func getRaptors() []Animal {
 		{
 			Name:           "falcon",
 			PluralName:     "falcons",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    true,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -65,7 +52,6 @@ func getRaptors() []Animal {
 					Value:       5,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",
@@ -76,12 +62,6 @@ func getRaptors() []Animal {
 		{
 			Name:           "hawk",
 			PluralName:     "hawks",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    true,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -98,7 +78,6 @@ func getRaptors() []Animal {
 					Value:       5,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",

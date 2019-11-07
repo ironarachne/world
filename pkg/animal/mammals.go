@@ -2,21 +2,14 @@ package animal
 
 import (
 	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func getMammals() []Animal {
-	animals := []Animal{
+func getMammals() []species.Species {
+	animals := []species.Species{
 		{
 			Name:           "beaver",
 			PluralName:     "beavers",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -53,7 +46,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("small"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -64,13 +56,6 @@ func getMammals() []Animal {
 		{
 			Name:           "deer",
 			PluralName:     "deer",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -128,7 +113,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -139,13 +123,6 @@ func getMammals() []Animal {
 		{
 			Name:           "squirrel",
 			PluralName:     "squirrels",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -172,7 +149,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -182,13 +158,6 @@ func getMammals() []Animal {
 		{
 			Name:           "camel",
 			PluralName:     "camels",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        true,
-			IsPackAnimal:   true,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 5,
@@ -225,6 +194,16 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 				{
+					Name:         "camel",
+					Origin:       "camel",
+					MainMaterial: "camel",
+					Tags: []string{
+						"mount",
+					},
+					Commonality: 5,
+					Value:       1,
+				},
+				{
 					Name:         "camel milk",
 					Origin:       "camel",
 					MainMaterial: "camel",
@@ -245,7 +224,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -256,13 +234,6 @@ func getMammals() []Animal {
 		{
 			Name:           "bison",
 			PluralName:     "bison",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -319,7 +290,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -330,13 +300,6 @@ func getMammals() []Animal {
 		{
 			Name:           "cow",
 			PluralName:     "cows",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -424,7 +387,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -435,13 +397,6 @@ func getMammals() []Animal {
 		{
 			Name:           "elephant",
 			PluralName:     "elephants",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        true,
-			IsPackAnimal:   true,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -498,7 +453,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("large"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -509,13 +463,6 @@ func getMammals() []Animal {
 		{
 			Name:           "goat",
 			PluralName:     "goats",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -562,7 +509,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -573,13 +519,6 @@ func getMammals() []Animal {
 		{
 			Name:           "sheep",
 			PluralName:     "sheep",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -626,7 +565,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -637,13 +575,6 @@ func getMammals() []Animal {
 		{
 			Name:           "alpaca",
 			PluralName:     "alpacas",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   true,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 4,
@@ -654,7 +585,6 @@ func getMammals() []Animal {
 					Origin:       "alpaca",
 					MainMaterial: "alpaca",
 					Tags: []string{
-						"hide",
 						"wool",
 					},
 					Commonality: 5,
@@ -691,7 +621,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -702,13 +631,6 @@ func getMammals() []Animal {
 		{
 			Name:           "llama",
 			PluralName:     "llamas",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   true,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -719,7 +641,6 @@ func getMammals() []Animal {
 					Origin:       "llama",
 					MainMaterial: "llama",
 					Tags: []string{
-						"hide",
 						"wool",
 					},
 					Commonality: 5,
@@ -756,7 +677,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -767,13 +687,6 @@ func getMammals() []Animal {
 		{
 			Name:           "hippopotamus",
 			PluralName:     "hippopotamuses",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 6,
@@ -810,7 +723,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("large"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -821,13 +733,6 @@ func getMammals() []Animal {
 		{
 			Name:           "antelope",
 			PluralName:     "antelopes",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 6,
@@ -874,7 +779,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -885,13 +789,6 @@ func getMammals() []Animal {
 		{
 			Name:           "gazelle",
 			PluralName:     "gazelles",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 6,
@@ -938,7 +835,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -949,13 +845,6 @@ func getMammals() []Animal {
 		{
 			Name:           "rabbit",
 			PluralName:     "rabbits",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -982,7 +871,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -992,13 +880,6 @@ func getMammals() []Animal {
 		{
 			Name:           "ermine",
 			PluralName:     "ermines",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -1025,7 +906,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("small"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -1035,13 +915,6 @@ func getMammals() []Animal {
 		{
 			Name:           "mink",
 			PluralName:     "minks",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -1068,7 +941,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("small"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -1078,13 +950,6 @@ func getMammals() []Animal {
 		{
 			Name:           "pig",
 			PluralName:     "pigs",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -1161,7 +1026,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -1172,13 +1036,6 @@ func getMammals() []Animal {
 		{
 			Name:           "raccoon",
 			PluralName:     "raccoons",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    true,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -1205,7 +1062,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("small"),
 			Tags: []string{
 				"animal",
 				"mammal",
@@ -1215,13 +1071,6 @@ func getMammals() []Animal {
 		{
 			Name:           "reindeer",
 			PluralName:     "reindeer",
-			AnimalType:     "mammal",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   true,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 0,
@@ -1278,7 +1127,6 @@ func getMammals() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"mammal",

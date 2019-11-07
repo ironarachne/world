@@ -2,20 +2,14 @@ package animal
 
 import (
 	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func getBirds() []Animal {
-	birds := []Animal{
+func getBirds() []species.Species {
+	birds := []species.Species{
 		{
 			Name:           "flamingo",
 			PluralName:     "flamingos",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    5,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -32,7 +26,6 @@ func getBirds() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",
@@ -41,12 +34,6 @@ func getBirds() []Animal {
 		{
 			Name:           "peacock",
 			PluralName:     "peacocks",
-			EatsAnimals:    false,
-			EatsPlants:     true,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    5,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -63,7 +50,6 @@ func getBirds() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("tiny"),
 			Tags: []string{
 				"animal",
 				"bird",

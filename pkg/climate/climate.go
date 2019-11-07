@@ -5,13 +5,13 @@ import (
 	"math"
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/animal"
 	"github.com/ironarachne/world/pkg/fish"
 	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/mineral"
 	"github.com/ironarachne/world/pkg/plant"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/soil"
+	"github.com/ironarachne/world/pkg/species"
 	"github.com/ironarachne/world/pkg/tree"
 )
 
@@ -37,7 +37,7 @@ type Climate struct {
 	MaxSoils           int
 	MaxStones          int
 	MaxTrees           int
-	Animals            []animal.Animal
+	Animals            []species.Species
 	Fish               []fish.Fish
 	Gems               []mineral.Mineral
 	Insects            []insect.Insect

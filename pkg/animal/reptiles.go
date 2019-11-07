@@ -2,21 +2,14 @@ package animal
 
 import (
 	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/size"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func getReptiles() []Animal {
-	reptiles := []Animal{
+func getReptiles() []species.Species {
+	reptiles := []species.Species{
 		{
 			Name:           "alligator",
 			PluralName:     "alligators",
-			AnimalType:     "reptile",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -54,7 +47,6 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"reptile",
@@ -64,13 +56,6 @@ func getReptiles() []Animal {
 		{
 			Name:           "crocodile",
 			PluralName:     "crocodiles",
-			AnimalType:     "reptile",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      true,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -108,7 +93,6 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("medium"),
 			Tags: []string{
 				"animal",
 				"reptile",
@@ -118,13 +102,6 @@ func getReptiles() []Animal {
 		{
 			Name:           "monitor lizard",
 			PluralName:     "monitor lizards",
-			AnimalType:     "reptile",
-			EatsAnimals:    true,
-			EatsPlants:     false,
-			IsAquatic:      false,
-			IsMount:        false,
-			IsPackAnimal:   false,
-			IsScavenger:    false,
 			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 5,
@@ -172,7 +149,6 @@ func getReptiles() []Animal {
 					Value:       1,
 				},
 			},
-			Size: size.GetCategoryByName("small"),
 			Tags: []string{
 				"animal",
 				"reptile",
