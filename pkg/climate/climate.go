@@ -39,7 +39,7 @@ type Climate struct {
 	Animals            []species.Species
 	Fish               []species.Species
 	Gems               []mineral.Mineral
-	Insects            []insect.Insect
+	Insects            []species.Species
 	Metals             []mineral.Mineral
 	OtherMinerals      []mineral.Mineral
 	Plants             []plant.Plant

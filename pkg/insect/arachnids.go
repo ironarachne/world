@@ -1,9 +1,12 @@
 package insect
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getArachnids() []Insect {
-	insects := []Insect{
+func getArachnids() []species.Species {
+	insects := []species.Species{
 		{
 			Name:           "black widow",
 			PluralName:     "black widows",

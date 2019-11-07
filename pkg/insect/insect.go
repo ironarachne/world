@@ -3,23 +3,11 @@ package insect
 import (
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-// Insect is a freaking bug
-type Insect struct {
-	Name           string
-	PluralName     string
-	MinHumidity    int
-	MaxHumidity    int
-	MinTemperature int
-	MaxTemperature int
-	Tags           []string
-	Resources      []resource.Resource
-}
-
 // All returns all insects
-func All() []Insect {
+func All() []species.Species {
 	arachnids := getArachnids()
 	beetles := getBeetles()
 
@@ -31,47 +19,11 @@ func All() []Insect {
 	return insects
 }
 
-// ByTag returns a slice of insects that have the given tag
-func ByTag(tag string, from []Insect) []Insect {
-	var insects []Insect
-
-	for _, p := range from {
-		if p.HasTag(tag) {
-			insects = append(insects, p)
-		}
-	}
-
-	return insects
-}
-
-// HasTag returns true if the insect has a given tag
-func (insect Insect) HasTag(tag string) bool {
-	for _, t := range insect.Tags {
-		if t == tag {
-			return true
-		}
-	}
-
-	return false
-}
-
-// InSlice checks whether a given insect is in a slice of insects
-func (insect Insect) InSlice(insects []Insect) bool {
-	isIt := false
-	for _, a := range insects {
-		if a.Name == insect.Name {
-			isIt = true
-		}
-	}
-
-	return isIt
-}
-
 // RandomSubset returns a set number of randomly chosen insects from a slice
-func RandomSubset(amount int, from []Insect) []Insect {
-	var insect Insect
+func RandomSubset(amount int, from []species.Species) []species.Species {
+	var insect species.Species
 
-	insects := []Insect{}
+	insects := []species.Species{}
 
 	if amount > len(from) {
 		amount = len(from)

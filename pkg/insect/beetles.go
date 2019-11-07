@@ -1,9 +1,12 @@
 package insect
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getBeetles() []Insect {
-	insects := []Insect{
+func getBeetles() []species.Species {
+	insects := []species.Species{
 		{
 			Name:           "rhino beetle",
 			PluralName:     "rhino beetles",

@@ -1,9 +1,12 @@
 package insect
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getInsects() []Insect {
-	insects := []Insect{
+func getInsects() []species.Species {
+	insects := []species.Species{
 		{
 			Name:           "biting fly",
 			PluralName:     "biting flies",
