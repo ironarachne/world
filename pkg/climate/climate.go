@@ -5,7 +5,6 @@ import (
 	"math"
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/fish"
 	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/mineral"
 	"github.com/ironarachne/world/pkg/plant"
@@ -38,7 +37,7 @@ type Climate struct {
 	MaxStones          int
 	MaxTrees           int
 	Animals            []species.Species
-	Fish               []fish.Fish
+	Fish               []species.Species
 	Gems               []mineral.Mineral
 	Insects            []insect.Insect
 	Metals             []mineral.Mineral
@@ -247,7 +246,7 @@ func (climate Climate) populate() (Climate, error) {
 	if climate.HasLakes || climate.HasRivers || climate.HasOcean {
 		climate.Fish = climate.getFish()
 	} else {
-		climate.Fish = []fish.Fish{}
+		climate.Fish = []species.Species{}
 	}
 
 	climate.Insects = insect.RandomSubset(7, insects)
