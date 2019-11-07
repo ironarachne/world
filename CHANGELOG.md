@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.10 (2019-11-07)
+
+- Convert fish to Species struct
+- Convert insects to Species struct
+- Convert monsters to Species struct
+- Convert plants to Species struct
+- Convert trees to Species struct
+
 ## 0.8.9 (2019-11-07)
 
 - Convert animals to Species struct
