@@ -1,10 +1,12 @@
 package species
 
 import (
+	"fmt"
+	"math/rand"
+
 	"github.com/ironarachne/world/pkg/age"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/trait"
-	"math/rand"
 )
 
 // Species is a species of living thing
@@ -89,7 +91,7 @@ func FilterTemperature(temperature int, from []Species) []Species {
 	return filtered
 }
 
-// HasResource returns true if the animal has a given resource
+// HasResource returns true if the species has a given resource
 func (s Species) HasResource(resource string) bool {
 	for _, r := range s.Resources {
 		if r.Name == resource {
@@ -100,7 +102,18 @@ func (s Species) HasResource(resource string) bool {
 	return false
 }
 
-// HasTag returns true if the animal has a given tag
+// HasResourceWithTag returns true if the species has a resource with a given tag
+func (s Species) HasResourceWithTag(resourceTag string) bool {
+	for _, r := range s.Resources {
+		if r.HasTag(resourceTag) {
+			return true
+		}
+	}
+
+	return false
+}
+
+// HasTag returns true if the species has a given tag
 func (s Species) HasTag(tag string) bool {
 	for _, t := range s.Tags {
 		if t == tag {
@@ -111,7 +124,7 @@ func (s Species) HasTag(tag string) bool {
 	return false
 }
 
-// InSlice checks whether a given animal is in a slice of animals
+// InSlice checks whether a given species is in a slice of speciess
 func (s Species) InSlice(from []Species) bool {
 	isIt := false
 	for _, a := range from {
@@ -123,7 +136,7 @@ func (s Species) InSlice(from []Species) bool {
 	return isIt
 }
 
-// Random returns a set number of randomly chosen animals from a slice
+// Random returns a set number of randomly chosen speciess from a slice
 func Random(amount int, from []Species) []Species {
 	var s Species
 	var result []Species
@@ -140,4 +153,30 @@ func Random(amount int, from []Species) []Species {
 	}
 
 	return result
+}
+
+// RandomWithResourceTag returns a random species that has a resource with the given tag
+func RandomWithResourceTag(resourceTag string, from []Species) (Species, error) {
+	filtered := []Species{}
+
+	for _, s := range from {
+		if s.HasResourceWithTag(resourceTag) {
+			if !s.InSlice(filtered) {
+				filtered = append(filtered, s)
+			}
+		}
+	}
+
+	if len(filtered) == 0 {
+		err := fmt.Errorf("no species matching tag " + resourceTag + " was found")
+		return Species{}, err
+	}
+
+	if len(filtered) == 1 {
+		return filtered[0], nil
+	}
+
+	species := filtered[rand.Intn(len(filtered))]
+
+	return species, nil
 }

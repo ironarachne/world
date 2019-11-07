@@ -1,9 +1,12 @@
 package plant
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getMelons() []Plant {
-	plants := []Plant{
+func getMelons() []species.Species {
+	plants := []species.Species{
 		{
 			Name:           "cantaloupe",
 			PluralName:     "cantaloupes",

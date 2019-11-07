@@ -1,9 +1,12 @@
 package plant
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getHerbs() []Plant {
-	herbs := []Plant{
+func getHerbs() []species.Species {
+	herbs := []species.Species{
 		{
 			Name:           "parsley",
 			PluralName:     "parsleys",

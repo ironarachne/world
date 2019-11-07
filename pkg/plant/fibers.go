@@ -2,10 +2,11 @@ package plant
 
 import (
 	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func getFibers() []Plant {
-	fibers := []Plant{
+func getFibers() []species.Species {
+	fibers := []species.Species{
 		{
 			Name:           "cotton",
 			PluralName:     "cotton",

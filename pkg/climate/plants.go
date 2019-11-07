@@ -4,29 +4,31 @@ import (
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/plant"
+	"github.com/ironarachne/world/pkg/species"
 )
 
-func (climate Climate) getPlants() ([]plant.Plant, error) {
+func (climate Climate) getPlants() ([]species.Species, error) {
+	allPlants := plant.All()
 	plants := climate.getFilteredPlants()
 
-	plants = plant.Random(climate.MaxPlants-1, plants)
+	plants = species.Random(climate.MaxPlants-1, plants)
 
-	randomFabricFiber, err := plant.RandomPlantWithResource("fabric fiber")
+	randomFabricFiber, err := species.RandomWithResourceTag("fabric fiber", allPlants)
 	if err != nil {
 		err = fmt.Errorf("Could not populate climate: %w", err)
-		return []plant.Plant{}, err
+		return []species.Species{}, err
 	}
 
-	randomGrain, err := plant.RandomPlantWithResource("grain")
+	randomGrain, err := species.RandomWithResourceTag("grain", allPlants)
 	if err != nil {
 		err = fmt.Errorf("Could not populate climate: %w", err)
-		return []plant.Plant{}, err
+		return []species.Species{}, err
 	}
 
-	randomFruit, err := plant.RandomPlantWithResource("fruit")
+	randomFruit, err := species.RandomWithResourceTag("fruit", allPlants)
 	if err != nil {
 		err = fmt.Errorf("Could not populate climate: %w", err)
-		return []plant.Plant{}, err
+		return []species.Species{}, err
 	}
 
 	plants = append(plants, randomFabricFiber)
@@ -36,38 +38,14 @@ func (climate Climate) getPlants() ([]plant.Plant, error) {
 	return plants, nil
 }
 
-func (climate Climate) getFilteredPlants() []plant.Plant {
+func (climate Climate) getFilteredPlants() []species.Species {
 	plants := plant.All()
-	plants = filterPlantsForHumidity(climate.Humidity, plants)
-	plants = filterPlantsForTemperature(climate.Temperature, plants)
+	plants = species.FilterHumidity(climate.Humidity, plants)
+	plants = species.FilterTemperature(climate.Temperature, plants)
 
 	if len(plants) < 1 {
 		panic("Found no plants for climate " + climate.Name)
 	}
 
 	return plants
-}
-
-func filterPlantsForHumidity(humidity int, plants []plant.Plant) []plant.Plant {
-	var filteredPlants []plant.Plant
-
-	for _, a := range plants {
-		if a.MinHumidity <= humidity && a.MaxHumidity >= humidity {
-			filteredPlants = append(filteredPlants, a)
-		}
-	}
-
-	return filteredPlants
-}
-
-func filterPlantsForTemperature(temperature int, plants []plant.Plant) []plant.Plant {
-	var filteredPlants []plant.Plant
-
-	for _, a := range plants {
-		if a.MinTemperature <= temperature && a.MaxTemperature >= temperature {
-			filteredPlants = append(filteredPlants, a)
-		}
-	}
-
-	return filteredPlants
 }

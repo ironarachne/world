@@ -7,7 +7,6 @@ import (
 
 	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/mineral"
-	"github.com/ironarachne/world/pkg/plant"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/soil"
 	"github.com/ironarachne/world/pkg/species"
@@ -42,7 +41,7 @@ type Climate struct {
 	Insects            []species.Species
 	Metals             []mineral.Mineral
 	OtherMinerals      []mineral.Mineral
-	Plants             []plant.Plant
+	Plants             []species.Species
 	Resources          []resource.Resource
 	Seasons            []Season
 	Soils              []soil.Soil

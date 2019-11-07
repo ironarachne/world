@@ -1,9 +1,12 @@
 package plant
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getGrains() []Plant {
-	grains := []Plant{
+func getGrains() []species.Species {
+	grains := []species.Species{
 		{
 			Name:           "rye",
 			PluralName:     "ryes",

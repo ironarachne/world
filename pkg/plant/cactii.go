@@ -1,9 +1,12 @@
 package plant
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getCactii() []Plant {
-	plants := []Plant{
+func getCactii() []species.Species {
+	plants := []species.Species{
 		{
 			Name:           "agave",
 			PluralName:     "agave",

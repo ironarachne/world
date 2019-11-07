@@ -1,9 +1,12 @@
 package plant
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getSquash() []Plant {
-	plants := []Plant{
+func getSquash() []species.Species {
+	plants := []species.Species{
 		{
 			Name:           "acorn squash",
 			PluralName:     "acorn squashes",

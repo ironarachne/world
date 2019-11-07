@@ -1,9 +1,12 @@
 package plant
 
-import "github.com/ironarachne/world/pkg/resource"
+import (
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/species"
+)
 
-func getBushes() []Plant {
-	plants := []Plant{
+func getBushes() []species.Species {
+	plants := []species.Species{
 		{
 			Name:           "blackberry bush",
 			PluralName:     "blackberry bushes",
