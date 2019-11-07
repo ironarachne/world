@@ -2,50 +2,111 @@ package climate
 
 import (
 	"fmt"
-	"math"
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/mineral"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/soil"
 	"github.com/ironarachne/world/pkg/species"
 )
 
-// Climate is a climate
+// Generator is a terrestrial climate generator
+type Generator struct {
+	NameRoot        string
+	NameVariants    []string
+	Adjective       string
+	TemperatureMin  int
+	TemperatureMax  int
+	HumidityMin     int
+	HumidityMax     int
+	ElevationMin    int
+	ElevationMax    int
+	AnimalMin       int
+	AnimalMax       int
+	PlantMin        int
+	PlantMax        int
+	TreeMin         int
+	TreeMax         int
+	RiverPrevalence int
+	LakePrevalence  int
+	SoilTags        []string
+	AnimalTags      []string
+	PlantTags       []string
+	TreeTags        []string
+}
+
+// Climate is a terrestrial climate
 type Climate struct {
-	Name               string
-	Adjective          string
-	Description        string
-	Habitability       int
-	Temperature        int
-	Humidity           int
-	HasDeciduousTrees  bool
-	HasConiferousTrees bool
-	HasWetlands        bool
-	HasRivers          bool
-	HasLakes           bool
-	HasOcean           bool
-	MaxAnimals         int
-	MaxFish            int
-	MaxGems            int
-	MaxMetals          int
-	MaxPlants          int
-	MaxSoils           int
-	MaxStones          int
-	MaxTrees           int
-	Animals            []species.Species
-	Fish               []species.Species
-	Gems               []mineral.Mineral
-	Insects            []species.Species
-	Metals             []mineral.Mineral
-	OtherMinerals      []mineral.Mineral
-	Plants             []species.Species
-	Resources          []resource.Resource
-	Seasons            []Season
-	Soils              []soil.Soil
-	Stones             []mineral.Mineral
-	Trees              []species.Species
+	Name         string
+	Adjective    string
+	Description  string
+	Habitability int
+	Temperature  int
+	Humidity     int
+	Elevation    int
+	Animals      []species.Species
+	Plants       []species.Species
+	Minerals     []mineral.Mineral
+	Soils        []soil.Soil
+	Trees        []species.Species
+	Resources    []resource.Resource
+	Seasons      []Season
+}
+
+// Generate procedurally generates a random climate
+func Generate() (Climate, error) {
+	generators := AllGenerators()
+	gen := generators[rand.Intn(len(generators))]
+
+	humidity := rand.Intn(gen.HumidityMax-gen.HumidityMin) + gen.HumidityMin
+	temperature := rand.Intn(gen.TemperatureMax-gen.TemperatureMin) + gen.TemperatureMin
+	elevation := rand.Intn(gen.ElevationMax-gen.ElevationMin) + gen.ElevationMin
+
+	animals, err := gen.getAnimals(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	plants, err := gen.getPlants(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	soils := gen.getSoils()
+	trees := gen.getTrees(humidity, temperature)
+	minerals, err := gen.getMinerals()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	nameVariant := gen.NameVariants[rand.Intn(len(gen.NameVariants))]
+
+	name := nameVariant + " " + gen.NameRoot
+
+	climate := Climate{
+		Name:        name,
+		Adjective:   gen.Adjective,
+		Temperature: temperature,
+		Humidity:    humidity,
+		Elevation:   elevation,
+		Animals:     animals,
+		Plants:      plants,
+		Minerals:    minerals,
+		Soils:       soils,
+		Trees:       trees,
+	}
+
+	climate.Seasons = climate.getSeasons()
+	climate.Resources = getResources(climate)
+	climate.Habitability = climate.calculateHabitability()
+	climate.Description, err = climate.getDescription()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	return climate, nil
 }
 
 func (climate Climate) calculateHabitability() int {
@@ -82,112 +143,16 @@ func (climate Climate) calculateHabitability() int {
 
 	habitability += len(climate.Seasons) * 2
 
-	if climate.HasLakes {
-		habitability += 5
-	}
-	if climate.HasRivers {
-		habitability += 5
-	}
-	if climate.HasOcean {
-		habitability += 5
-	}
-	if climate.HasWetlands {
-		habitability -= 10
-	}
-
 	return habitability
 }
 
-// ByName returns a climate by name
-func ByName(name string) (Climate, error) {
-	climates := getAllClimates()
-
-	for _, c := range climates {
-		if c.Name == name {
-			return c, nil
-		}
-	}
-
-	err := fmt.Errorf("Failed to find climate with name " + name)
-	return Climate{}, err
-}
-
-// Random returns a completely random climate
-func Random() (Climate, error) {
-	climates := getAllClimates()
-
-	climate := climates[rand.Intn(len(climates))]
-
-	populatedClimate, err := climate.populate()
-	if err != nil {
-		err = fmt.Errorf("Could not generate random climate: %w", err)
-		return Climate{}, err
-	}
-
-	return populatedClimate, nil
-}
-
-// Generate generates a climate with a given name
-func Generate(name string) (Climate, error) {
-	rawClimate, err := ByName(name)
-	if err != nil {
-		err = fmt.Errorf("Could not generate climate by name: %w", err)
-		return Climate{}, err
-	}
-	climate, err := rawClimate.populate()
-	if err != nil {
-		err = fmt.Errorf("Could not generate climate by name: %w", err)
-		return Climate{}, err
-	}
-
-	return climate, nil
-}
-
-// GetForeignClimate gets a random climate that's different from the given one
-func GetForeignClimate(climate Climate) (Climate, error) {
-	var possibleClimates []Climate
-
-	climates := getAllClimates()
-
-	for _, c := range climates {
-		if c.Name != climate.Name {
-			possibleClimates = append(possibleClimates, c)
-		}
-	}
-
-	foreignClimate := possibleClimates[rand.Intn(len(possibleClimates))]
-
-	newClimate, err := foreignClimate.populate()
-	if err != nil {
-		err = fmt.Errorf("Could not generate foreign climate: %w", err)
-		return Climate{}, err
-	}
-
-	return newClimate, nil
-}
-
-func (climate Climate) getResources() []resource.Resource {
+func getResources(climate Climate) []resource.Resource {
 	resources := []resource.Resource{}
 
-	for _, i := range climate.Fish {
-		resources = append(resources, i.Resources...)
-	}
 	for _, i := range climate.Animals {
 		resources = append(resources, i.Resources...)
 	}
-	for _, i := range climate.Metals {
-		resources = append(resources, i.Resources...)
-	}
-	for _, i := range climate.Gems {
-		resources = append(resources, i.Resources...)
-	}
-	for _, i := range climate.Insects {
-		resources = append(resources, i.Resources...)
-	}
-	for _, i := range climate.Stones {
-		resources = append(resources, i.Resources...)
-	}
-	for _, i := range climate.OtherMinerals {
+	for _, i := range climate.Minerals {
 		resources = append(resources, i.Resources...)
 	}
 	for _, i := range climate.Plants {
@@ -209,104 +174,4 @@ func (climate Climate) getCurrentHumidity(season Season) int {
 
 func (climate Climate) getCurrentTemperature(season Season) int {
 	return climate.Temperature + season.TemperatureChange
-}
-
-func (climate Climate) populate() (Climate, error) {
-	gems := mineral.Gems()
-	insects := climate.getFilteredInsects()
-	metals := mineral.Metals()
-
-	stones := mineral.Stones()
-	trees := climate.getFilteredTrees()
-
-	climate.Seasons = climate.getSeasons()
-
-	lakeChance := rand.Intn(100)
-	riverChance := rand.Intn(100)
-	oceanChance := rand.Intn(100)
-	wetlandsChance := rand.Intn(100)
-
-	if lakeChance > 30 {
-		climate.HasLakes = true
-	}
-	if riverChance > 20 {
-		climate.HasRivers = true
-	}
-	if oceanChance > 80 {
-		climate.HasOcean = true
-	}
-	if wetlandsChance > 80 {
-		climate.HasWetlands = true
-	}
-
-	soils := climate.getFilteredSoils()
-
-	if climate.HasLakes || climate.HasRivers || climate.HasOcean {
-		climate.Fish = climate.getFish()
-	} else {
-		climate.Fish = []species.Species{}
-	}
-
-	climate.Insects = insect.RandomSubset(7, insects)
-	filteredMetals, err := mineral.RandomWeightedSet(climate.MaxMetals, metals)
-	if err != nil {
-		err = fmt.Errorf("Could not populate climate: %w", err)
-		return Climate{}, err
-	}
-	climate.Metals = filteredMetals
-	climate.Gems = mineral.Random(climate.MaxGems, gems)
-	climate.OtherMinerals = mineral.OtherMinerals()
-
-	climate.Animals, err = climate.getAnimals()
-	if err != nil {
-		err = fmt.Errorf("Could not populate climate: %w", err)
-		return Climate{}, err
-	}
-
-	climate.Plants, err = climate.getPlants()
-	if err != nil {
-		err = fmt.Errorf("Could not populate climate: %w", err)
-		return Climate{}, err
-	}
-
-	climate.Soils = soil.Random(climate.MaxSoils, soils)
-	climate.Stones = mineral.Random(climate.MaxStones, stones)
-	climate.Trees = species.Random(climate.MaxTrees, trees)
-
-	resources := climate.getResources()
-	climate.Resources = resources
-
-	description, err := climate.getDescription()
-	if err != nil {
-		err = fmt.Errorf("Could not populate climate: %w", err)
-		return Climate{}, err
-	}
-	climate.Description = description
-
-	climate.Habitability = climate.calculateHabitability()
-
-	return climate, nil
-}
-
-// GetClimateNameForConditions finds the closest matching climate for a given humidity and temperature and returns its name
-func GetClimateNameForConditions(humidity int, temperature int) string {
-	var name string
-
-	scores := make(map[string]int)
-
-	lowestScore := 20
-	climates := getAllClimates()
-
-	for _, c := range climates {
-		scores[c.Name] = int(math.Abs(float64(c.Temperature-temperature)) + math.Abs(float64(c.Humidity-humidity)))
-	}
-
-	for n, s := range scores {
-		if s < lowestScore {
-			name = n
-			lowestScore = s
-		}
-	}
-
-	return name
 }

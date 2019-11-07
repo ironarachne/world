@@ -89,6 +89,7 @@ func getBigCats() []species.Species {
 			"animal",
 			"big cat",
 			"carnivore",
+			"mammal",
 		}
 	}
 

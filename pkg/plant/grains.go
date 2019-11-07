@@ -26,6 +26,9 @@ func getGrains() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"grain",
+			},
 		},
 		{
 			Name:           "oat",
@@ -45,6 +48,9 @@ func getGrains() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"grain",
 			},
 		},
 		{
@@ -66,6 +72,9 @@ func getGrains() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"grain",
+			},
 		},
 		{
 			Name:           "barley",
@@ -85,6 +94,9 @@ func getGrains() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"grain",
 			},
 		},
 		{
@@ -106,6 +118,9 @@ func getGrains() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"grain",
+			},
 		},
 		{
 			Name:           "rice",
@@ -125,6 +140,9 @@ func getGrains() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"grain",
 			},
 		},
 	}

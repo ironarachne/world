@@ -52,6 +52,21 @@ func ByTag(tag string, from []Species) []Species {
 	return filtered
 }
 
+// ByTagIn returns a slice of species that have at least one of the given tags
+func ByTagIn(tags []string, from []Species) []Species {
+	var filtered []Species
+
+	for _, s := range from {
+		for _, t := range tags {
+			if s.HasTag(t) && !s.InSlice(filtered) {
+				filtered = append(filtered, s)
+			}
+		}
+	}
+
+	return filtered
+}
+
 // ExcludeTag returns a slice without a given tag
 func ExcludeTag(tag string, from []Species) []Species {
 	var filtered []Species

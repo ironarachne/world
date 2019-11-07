@@ -26,6 +26,9 @@ func getMelons() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"melon",
+			},
 		},
 		{
 			Name:           "honeydew",
@@ -47,6 +50,9 @@ func getMelons() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"melon",
+			},
 		},
 		{
 			Name:           "watermelon",
@@ -67,6 +73,9 @@ func getMelons() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"melon",
 			},
 		},
 	}

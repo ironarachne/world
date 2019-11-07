@@ -2,16 +2,19 @@ package climate
 
 import (
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/plant"
 	"github.com/ironarachne/world/pkg/species"
 )
 
-func (climate Climate) getPlants() ([]species.Species, error) {
+func (gen Generator) getPlants(humidity int, temperature int) ([]species.Species, error) {
 	allPlants := plant.All()
-	plants := climate.getFilteredPlants()
+	plants := getFilteredPlants(humidity, temperature)
 
-	plants = species.Random(climate.MaxPlants-1, plants)
+	numberOfPlants := rand.Intn(gen.AnimalMax-gen.AnimalMin) + gen.AnimalMin
+
+	plants = species.Random(numberOfPlants, plants)
 
 	randomFabricFiber, err := species.RandomWithResourceTag("fabric fiber", allPlants)
 	if err != nil {
@@ -38,14 +41,10 @@ func (climate Climate) getPlants() ([]species.Species, error) {
 	return plants, nil
 }
 
-func (climate Climate) getFilteredPlants() []species.Species {
+func getFilteredPlants(humidity int, temperature int) []species.Species {
 	plants := plant.All()
-	plants = species.FilterHumidity(climate.Humidity, plants)
-	plants = species.FilterTemperature(climate.Temperature, plants)
-
-	if len(plants) < 1 {
-		panic("Found no plants for climate " + climate.Name)
-	}
+	plants = species.FilterHumidity(humidity, plants)
+	plants = species.FilterTemperature(temperature, plants)
 
 	return plants
 }

@@ -22,6 +22,9 @@ func Clays() []Soil {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"clay",
+			},
 		},
 		{
 			Name:               "porcelain",
@@ -39,6 +42,9 @@ func Clays() []Soil {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"clay",
 			},
 		},
 		{
@@ -58,6 +64,9 @@ func Clays() []Soil {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"clay",
+			},
 		},
 		{
 			Name:               "terra cotta",
@@ -75,6 +84,9 @@ func Clays() []Soil {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"clay",
 			},
 		},
 	}

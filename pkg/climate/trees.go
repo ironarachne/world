@@ -5,25 +5,11 @@ import (
 	"github.com/ironarachne/world/pkg/tree"
 )
 
-func (climate Climate) getFilteredTrees() []species.Species {
+func (gen Generator) getTrees(humidity int, temperature int) []species.Species {
 	trees := tree.All()
-	trees = species.FilterHumidity(climate.Humidity, trees)
-	trees = species.FilterTemperature(climate.Temperature, trees)
-	trees = filterTreesForType(climate, trees)
+	trees = species.FilterHumidity(humidity, trees)
+	trees = species.FilterTemperature(temperature, trees)
+	trees = species.ByTagIn(gen.TreeTags, trees)
 
 	return trees
-}
-
-func filterTreesForType(climate Climate, trees []species.Species) []species.Species {
-	filteredTrees := trees
-
-	if !climate.HasDeciduousTrees {
-		filteredTrees = species.ExcludeTag("deciduous", filteredTrees)
-	}
-
-	if !climate.HasConiferousTrees {
-		filteredTrees = species.ExcludeTag("coniferous", filteredTrees)
-	}
-
-	return filteredTrees
 }

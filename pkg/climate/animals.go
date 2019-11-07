@@ -1,41 +1,32 @@
 package climate
 
 import (
+	"math/rand"
+
 	"github.com/ironarachne/world/pkg/animal"
 	"github.com/ironarachne/world/pkg/species"
 )
 
-func (climate Climate) getAnimals() ([]species.Species, error) {
-	animals := climate.getFilteredAnimals()
+func (gen Generator) getAnimals(humidity int, temperature int) ([]species.Species, error) {
+	animals := getFilteredAnimals(humidity, temperature)
 
 	hideAnimals := species.ByTag("hide", animals)
 	hideAnimal := species.Random(1, hideAnimals)
 
-	animals = species.Random(climate.MaxAnimals, animals)
+	animals = species.ByTagIn(gen.AnimalTags, animals)
+
+	numberOfAnimals := rand.Intn(gen.AnimalMax-gen.AnimalMin) + gen.AnimalMin - 1
+
+	animals = species.Random(numberOfAnimals, animals)
 	animals = append(animals, hideAnimal...)
 
 	return animals, nil
 }
 
-func (climate Climate) getFilteredAnimals() []species.Species {
+func getFilteredAnimals(humidity int, temperature int) []species.Species {
 	animals := animal.All()
-	animals = species.FilterHumidity(climate.Humidity, animals)
-	animals = species.FilterTemperature(climate.Temperature, animals)
-	animals = climate.filterAnimalsForWater(animals)
+	animals = species.FilterHumidity(humidity, animals)
+	animals = species.FilterTemperature(temperature, animals)
 
 	return animals
-}
-
-func (climate Climate) filterAnimalsForWater(animals []species.Species) []species.Species {
-	var filteredAnimals []species.Species
-
-	for _, a := range animals {
-		if a.HasTag("aquatic") && (climate.HasLakes || climate.HasOcean || climate.HasRivers || climate.HasWetlands) {
-			filteredAnimals = append(filteredAnimals, a)
-		} else if !a.HasTag("aquatic") {
-			filteredAnimals = append(filteredAnimals, a)
-		}
-	}
-
-	return filteredAnimals
 }

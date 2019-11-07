@@ -74,6 +74,7 @@ func getCanines() []species.Species {
 			"canine",
 			"carnivore",
 			"hide",
+			"mammal",
 		}
 	}
 

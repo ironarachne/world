@@ -16,6 +16,63 @@ type Mineral struct {
 	Malleability int
 	Commonality  int
 	Resources    []resource.Resource
+	Tags         []string
+}
+
+// All returns all minerals
+func All() []Mineral {
+	var all []Mineral
+
+	gems := Gems()
+	metals := Metals()
+	other := OtherMinerals()
+	stones := Stones()
+
+	all = append(all, gems...)
+	all = append(all, metals...)
+	all = append(all, other...)
+	all = append(all, stones...)
+
+	return all
+}
+
+// ByTag returns a slice of minerals that have the given tag
+func ByTag(tag string, from []Mineral) []Mineral {
+	var filtered []Mineral
+
+	for _, s := range from {
+		if s.HasTag(tag) {
+			filtered = append(filtered, s)
+		}
+	}
+
+	return filtered
+}
+
+// ByTagIn returns a slice of minerals that have at least one of the given tags
+func ByTagIn(tags []string, from []Mineral) []Mineral {
+	var filtered []Mineral
+
+	for _, s := range from {
+		for _, t := range tags {
+			if s.HasTag(t) && !InSlice(s, filtered) {
+				filtered = append(filtered, s)
+			}
+		}
+	}
+
+	return filtered
+}
+
+// HasTag returns true if the mineral has a given tag
+func (m Mineral) HasTag(tag string) bool {
+	for _, t := range m.Tags {
+		if t == tag {
+			return true
+		}
+	}
+
+	return false
 }
 
 // Random returns a subset of random minerals from a slice
@@ -93,21 +150,4 @@ func InSlice(mineral Mineral, minerals []Mineral) bool {
 	}
 
 	return isIt
-}
-
-// All returns all minerals
-func All() []Mineral {
-	var minerals []Mineral
-
-	gems := Gems()
-	metal := Metals()
-	other := OtherMinerals()
-	stone := Stones()
-
-	minerals = append(minerals, gems...)
-	minerals = append(minerals, metal...)
-	minerals = append(minerals, other...)
-	minerals = append(minerals, stone...)
-
-	return minerals
 }

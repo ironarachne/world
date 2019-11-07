@@ -22,6 +22,9 @@ func Sands() []Soil {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"sand",
+			},
 		},
 		{
 			Name:               "continental sand",
@@ -39,6 +42,9 @@ func Sands() []Soil {
 					Commonality: 4,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"sand",
 			},
 		},
 		{
@@ -58,6 +64,9 @@ func Sands() []Soil {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"sand",
+			},
 		},
 		{
 			Name:               "dune sand",
@@ -75,6 +84,9 @@ func Sands() []Soil {
 					Commonality: 4,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"sand",
 			},
 		},
 		{
@@ -94,6 +106,9 @@ func Sands() []Soil {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"sand",
+			},
 		},
 		{
 			Name:               "red sand",
@@ -111,6 +126,9 @@ func Sands() []Soil {
 					Commonality: 2,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"sand",
 			},
 		},
 		{
@@ -130,6 +148,9 @@ func Sands() []Soil {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"sand",
+			},
 		},
 		{
 			Name:               "white sand",
@@ -147,6 +168,9 @@ func Sands() []Soil {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"sand",
 			},
 		},
 	}

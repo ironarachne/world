@@ -46,6 +46,9 @@ func getCactii() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"cactus",
+			},
 		},
 		{
 			Name:           "pitahaya",
@@ -65,6 +68,9 @@ func getCactii() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"cactus",
 			},
 		},
 		{
@@ -115,6 +121,9 @@ func getCactii() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"cactus",
 			},
 		},
 	}

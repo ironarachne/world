@@ -27,6 +27,9 @@ func getBushes() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"bush",
+			},
 		},
 		{
 			Name:           "blueberry bush",
@@ -47,6 +50,9 @@ func getBushes() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"bush",
 			},
 		},
 		{
@@ -69,6 +75,9 @@ func getBushes() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"bush",
+			},
 		},
 		{
 			Name:           "strawberry bush",
@@ -89,6 +98,9 @@ func getBushes() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"bush",
 			},
 		},
 		{
@@ -111,6 +123,9 @@ func getBushes() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"bush",
+			},
 		},
 		{
 			Name:           "gooseberry bush",
@@ -131,6 +146,9 @@ func getBushes() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"bush",
 			},
 		},
 	}

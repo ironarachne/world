@@ -23,6 +23,9 @@ func Stones() []Mineral {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"stone",
+			},
 		},
 		{
 			Name:         "chalk",
@@ -40,6 +43,9 @@ func Stones() []Mineral {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"stone",
 			},
 		},
 		{
@@ -60,6 +66,9 @@ func Stones() []Mineral {
 					Value:       3,
 				},
 			},
+			Tags: []string{
+				"stone",
+			},
 		},
 		{
 			Name:         "limestone",
@@ -78,6 +87,9 @@ func Stones() []Mineral {
 					Commonality: 10,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"stone",
 			},
 		},
 		{
@@ -99,6 +111,9 @@ func Stones() []Mineral {
 					Value:       10,
 				},
 			},
+			Tags: []string{
+				"stone",
+			},
 		},
 		{
 			Name:         "sandstone",
@@ -119,6 +134,9 @@ func Stones() []Mineral {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"stone",
+			},
 		},
 		{
 			Name:         "shale",
@@ -136,6 +154,9 @@ func Stones() []Mineral {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"stone",
 			},
 		},
 		{
@@ -155,6 +176,9 @@ func Stones() []Mineral {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"stone",
+			},
 		},
 		{
 			Name:         "soapstone",
@@ -172,6 +196,9 @@ func Stones() []Mineral {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"stone",
 			},
 		},
 	}

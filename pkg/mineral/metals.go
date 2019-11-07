@@ -25,6 +25,9 @@ func Metals() []Mineral {
 					Value:       150,
 				},
 			},
+			Tags: []string{
+				"metal",
+			},
 		},
 		{
 			Name:         "cold iron",
@@ -45,6 +48,9 @@ func Metals() []Mineral {
 					Commonality: 3,
 					Value:       20,
 				},
+			},
+			Tags: []string{
+				"metal",
 			},
 		},
 		{
@@ -67,6 +73,9 @@ func Metals() []Mineral {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"metal",
+			},
 		},
 		{
 			Name:         "gold",
@@ -87,6 +96,9 @@ func Metals() []Mineral {
 					Commonality: 1,
 					Value:       50,
 				},
+			},
+			Tags: []string{
+				"metal",
 			},
 		},
 		{
@@ -109,6 +121,9 @@ func Metals() []Mineral {
 					Value:       2,
 				},
 			},
+			Tags: []string{
+				"metal",
+			},
 		},
 		{
 			Name:         "lead",
@@ -129,6 +144,9 @@ func Metals() []Mineral {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"metal",
 			},
 		},
 		{
@@ -151,6 +169,9 @@ func Metals() []Mineral {
 					Value:       120,
 				},
 			},
+			Tags: []string{
+				"metal",
+			},
 		},
 		{
 			Name:         "nickel",
@@ -171,6 +192,9 @@ func Metals() []Mineral {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"metal",
 			},
 		},
 		{
@@ -193,6 +217,9 @@ func Metals() []Mineral {
 					Value:       80,
 				},
 			},
+			Tags: []string{
+				"metal",
+			},
 		},
 		{
 			Name:         "silver",
@@ -213,6 +240,9 @@ func Metals() []Mineral {
 					Commonality: 3,
 					Value:       30,
 				},
+			},
+			Tags: []string{
+				"metal",
 			},
 		},
 		{
@@ -235,6 +265,9 @@ func Metals() []Mineral {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"metal",
+			},
 		},
 		{
 			Name:         "zinc",
@@ -255,6 +288,9 @@ func Metals() []Mineral {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"metal",
 			},
 		},
 	}

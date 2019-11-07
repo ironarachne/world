@@ -26,6 +26,9 @@ func getSquash() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"squash",
+			},
 		},
 		{
 			Name:           "buttercup squash",
@@ -46,6 +49,9 @@ func getSquash() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"squash",
+			},
 		},
 		{
 			Name:           "butternut squash",
@@ -65,6 +71,9 @@ func getSquash() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"squash",
 			},
 		},
 		{
@@ -93,6 +102,9 @@ func getSquash() []species.Species {
 					Value:        1,
 				},
 			},
+			Tags: []string{
+				"squash",
+			},
 		},
 		{
 			Name:           "spaghetti squash",
@@ -113,6 +125,9 @@ func getSquash() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"squash",
+			},
 		},
 		{
 			Name:           "zucchini",
@@ -132,6 +147,9 @@ func getSquash() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"squash",
 			},
 		},
 	}
