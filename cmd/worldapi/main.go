@@ -26,7 +26,6 @@ import (
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/merchant"
-	"github.com/ironarachne/world/pkg/monster"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
 	"github.com/ironarachne/world/pkg/race"
@@ -430,30 +429,6 @@ func getMerchantRandom(w http.ResponseWriter, r *http.Request) {
 		handleError(w, r, err)
 		return
 	}
-
-	json.NewEncoder(w).Encode(o)
-}
-
-func getMonster(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-
-	var o monster.SimplifiedMonster
-
-	err := random.SeedFromString(id)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	o = monster.Random().Simplify()
-
-	json.NewEncoder(w).Encode(o)
-}
-
-func getMonsterRandom(w http.ResponseWriter, r *http.Request) {
-	var o monster.SimplifiedMonster
-
-	o = monster.Random().Simplify()
 
 	json.NewEncoder(w).Encode(o)
 }
@@ -888,9 +863,6 @@ func main() {
 
 	r.Get("/merchant", sentryHandler.HandleFunc(getMerchantRandom))
 	r.Get("/merchant/{id}", sentryHandler.HandleFunc(getMerchant))
-
-	r.Get("/monster", sentryHandler.HandleFunc(getMonsterRandom))
-	r.Get("/monster/{id}", sentryHandler.HandleFunc(getMonster))
 
 	r.Get("/organization", sentryHandler.HandleFunc(getOrganizationRandom))
 	r.Get("/organization/{id}", sentryHandler.HandleFunc(getOrganization))

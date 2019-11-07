@@ -1,56 +1,51 @@
 package monster
 
-import (
-	"github.com/ironarachne/world/pkg/dice"
-	"github.com/ironarachne/world/pkg/size"
-)
+import "github.com/ironarachne/world/pkg/species"
 
-func getAllGiants() []Monster {
-	return []Monster{
+func getAllGiants() []species.Species {
+	return []species.Species{
 		{
-			Name:                 "cyclops",
-			PluralName:           "cyclopses",
-			SizeCategory:         size.GetCategoryByName("huge"),
-			Type:                 "giant",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				return 1
+			Name:           "cyclops",
+			PluralName:     "cyclopses",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"giant",
 			},
 		},
 		{
-			Name:                 "ettin",
-			PluralName:           "ettins",
-			SizeCategory:         size.GetCategoryByName("large"),
-			Type:                 "giant",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 2}
-				num := dice.Roll(d)
-				return num
+			Name:           "ettin",
+			PluralName:     "ettins",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"giant",
 			},
 		},
 		{
-			Name:                 "giant",
-			PluralName:           "giants",
-			SizeCategory:         size.GetCategoryByName("huge"),
-			Type:                 "giant",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				return 1
+			Name:           "giant",
+			PluralName:     "giants",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"giant",
 			},
 		},
 		{
-			Name:                 "ogre",
-			PluralName:           "ogres",
-			SizeCategory:         size.GetCategoryByName("large"),
-			Type:                 "giant",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				return 1
+			Name:           "ogre",
+			PluralName:     "ogres",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"giant",
 			},
 		},
 	}

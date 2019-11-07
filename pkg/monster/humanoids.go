@@ -1,127 +1,106 @@
 package monster
 
-import (
-	"github.com/ironarachne/world/pkg/dice"
-	"github.com/ironarachne/world/pkg/size"
-)
+import "github.com/ironarachne/world/pkg/species"
 
-func getAllHumanoids() []Monster {
-	return []Monster{
+func getAllHumanoids() []species.Species {
+	return []species.Species{
 		{
-			Name:                 "bugbear",
-			PluralName:           "bugbears",
-			SizeCategory:         size.GetCategoryByName("medium"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 4}
-				num := dice.Roll(d)
-				return num
+			Name:           "bugbear",
+			PluralName:     "bugbears",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "bullywug",
-			PluralName:           "bullywugs",
-			SizeCategory:         size.GetCategoryByName("medium"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 4}
-				num := dice.Roll(d)
-				return num
+			Name:           "bullywug",
+			PluralName:     "bullywugs",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "goblin",
-			PluralName:           "goblins",
-			SizeCategory:         size.GetCategoryByName("small"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 2, Sides: 4}
-				num := dice.Roll(d)
-				return num
+			Name:           "goblin",
+			PluralName:     "goblins",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "gorgon",
-			PluralName:           "gorgons",
-			SizeCategory:         size.GetCategoryByName("medium"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 3}
-				num := dice.Roll(d)
-				return num
+			Name:           "gorgon",
+			PluralName:     "gorgons",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "hobgoblin",
-			PluralName:           "hobgoblins",
-			SizeCategory:         size.GetCategoryByName("medium"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 4}
-				num := dice.Roll(d)
-				return num
+			Name:           "hobgoblin",
+			PluralName:     "hobgoblins",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "kobold",
-			PluralName:           "kobolds",
-			SizeCategory:         size.GetCategoryByName("small"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 6}
-				num := dice.Roll(d)
-				return num
+			Name:           "kobold",
+			PluralName:     "kobolds",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "orc",
-			PluralName:           "orcs",
-			SizeCategory:         size.GetCategoryByName("medium"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 6}
-				num := dice.Roll(d)
-				return num
+			Name:           "orc",
+			PluralName:     "orcs",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "troglodyte",
-			PluralName:           "troglodytes",
-			SizeCategory:         size.GetCategoryByName("medium"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 6}
-				num := dice.Roll(d)
-				return num
+			Name:           "troglodyte",
+			PluralName:     "troglodytes",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 		{
-			Name:                 "troll",
-			PluralName:           "trolls",
-			SizeCategory:         size.GetCategoryByName("medium"),
-			Type:                 "humanoid",
-			IdealTemperature:     5,
-			TemperatureTolerance: 5,
-			NumAppearing: func() int {
-				d := dice.Dice{Number: 1, Sides: 4}
-				num := dice.Roll(d)
-				return num
+			Name:           "troll",
+			PluralName:     "trolls",
+			MinTemperature: 1,
+			MaxTemperature: 10,
+			MinHumidity:    1,
+			MaxHumidity:    10,
+			Tags: []string{
+				"humanoid",
 			},
 		},
 	}

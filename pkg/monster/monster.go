@@ -1,25 +1,9 @@
 package monster
 
-import (
-	"math/rand"
+import "github.com/ironarachne/world/pkg/species"
 
-	"github.com/ironarachne/world/pkg/size"
-)
-
-// Monster is a monstrous creature or other intelligent threat
-type Monster struct {
-	Name                 string
-	PluralName           string
-	Description          string
-	SizeCategory         size.Category
-	Type                 string
-	IdealTemperature     int
-	TemperatureTolerance int
-	NumAppearing         func() int
-}
-
-func getAllMonsters() []Monster {
-	monsters := []Monster{}
+func getAllMonsters() []species.Species {
+	monsters := []species.Species{}
 
 	draconids := getAllDraconids()
 	giants := getAllGiants()
@@ -30,13 +14,4 @@ func getAllMonsters() []Monster {
 	monsters = append(monsters, humanoids...)
 
 	return monsters
-}
-
-// Random returns a random monster
-func Random() Monster {
-	monsters := getAllMonsters()
-
-	monster := monsters[rand.Intn(len(monsters))]
-
-	return monster
 }
