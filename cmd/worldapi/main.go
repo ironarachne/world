@@ -119,7 +119,7 @@ func getClimate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	randomClimate, err := climate.Random()
+	randomClimate, err := climate.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -132,7 +132,7 @@ func getClimate(w http.ResponseWriter, r *http.Request) {
 func getClimateRandom(w http.ResponseWriter, r *http.Request) {
 	var o climate.SimplifiedClimate
 
-	randomClimate, err := climate.Random()
+	randomClimate, err := climate.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return

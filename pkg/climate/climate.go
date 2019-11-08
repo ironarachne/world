@@ -2,6 +2,7 @@ package climate
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/mineral"
@@ -56,6 +57,200 @@ type Climate struct {
 // Generate procedurally generates a random climate
 func Generate() (Climate, error) {
 	generators := AllGenerators()
+	gen := generators[rand.Intn(len(generators))]
+
+	humidity := rand.Intn(gen.HumidityMax-gen.HumidityMin) + gen.HumidityMin
+	temperature := rand.Intn(gen.TemperatureMax-gen.TemperatureMin) + gen.TemperatureMin
+	elevation := rand.Intn(gen.ElevationMax-gen.ElevationMin) + gen.ElevationMin
+
+	animals, err := gen.getAnimals(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	plants, err := gen.getPlants(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	soils := gen.getSoils()
+	trees := gen.getTrees(humidity, temperature)
+	minerals, err := gen.getMinerals()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	nameVariant := gen.NameVariants[rand.Intn(len(gen.NameVariants))]
+
+	name := nameVariant + " " + gen.NameRoot
+
+	climate := Climate{
+		Name:        name,
+		Adjective:   gen.Adjective,
+		Temperature: temperature,
+		Humidity:    humidity,
+		Elevation:   elevation,
+		Animals:     animals,
+		Plants:      plants,
+		Minerals:    minerals,
+		Soils:       soils,
+		Trees:       trees,
+	}
+
+	climate.Seasons = climate.getSeasons()
+	climate.Resources = getResources(climate)
+	climate.Habitability = climate.calculateHabitability()
+	climate.Description, err = climate.getDescription()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	return climate, nil
+}
+
+// GenerateByName procedurally generates a random climate given a previously produced climate generator name
+func GenerateByName(name string) (Climate, error) {
+	gen := Generator{}
+	generators := AllGenerators()
+
+	for _, g := range generators {
+		for _, v := range g.NameVariants {
+			if name == v+" "+g.NameRoot {
+				gen = g
+			}
+		}
+	}
+
+	humidity := rand.Intn(gen.HumidityMax-gen.HumidityMin) + gen.HumidityMin
+	temperature := rand.Intn(gen.TemperatureMax-gen.TemperatureMin) + gen.TemperatureMin
+	elevation := rand.Intn(gen.ElevationMax-gen.ElevationMin) + gen.ElevationMin
+
+	animals, err := gen.getAnimals(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	plants, err := gen.getPlants(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	soils := gen.getSoils()
+	trees := gen.getTrees(humidity, temperature)
+	minerals, err := gen.getMinerals()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	nameVariant := gen.NameVariants[rand.Intn(len(gen.NameVariants))]
+
+	climateName := nameVariant + " " + gen.NameRoot
+
+	climate := Climate{
+		Name:        climateName,
+		Adjective:   gen.Adjective,
+		Temperature: temperature,
+		Humidity:    humidity,
+		Elevation:   elevation,
+		Animals:     animals,
+		Plants:      plants,
+		Minerals:    minerals,
+		Soils:       soils,
+		Trees:       trees,
+	}
+
+	climate.Seasons = climate.getSeasons()
+	climate.Resources = getResources(climate)
+	climate.Habitability = climate.calculateHabitability()
+	climate.Description, err = climate.getDescription()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	return climate, nil
+}
+
+// GenerateForCharacteristics procedurally generates a random climate given three characteristics
+func GenerateForCharacteristics(humidity int, temperature int, elevation int) (Climate, error) {
+	var gen Generator
+	var score int
+	generators := AllGenerators()
+
+	bestScore := 30
+
+	for _, g := range generators {
+		score = g.CharacteristicScore(humidity, temperature, elevation)
+		if score < bestScore {
+			bestScore = score
+			gen = g
+		}
+	}
+
+	animals, err := gen.getAnimals(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	plants, err := gen.getPlants(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+	soils := gen.getSoils()
+	trees := gen.getTrees(humidity, temperature)
+	minerals, err := gen.getMinerals()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	nameVariant := gen.NameVariants[rand.Intn(len(gen.NameVariants))]
+
+	name := nameVariant + " " + gen.NameRoot
+
+	climate := Climate{
+		Name:        name,
+		Adjective:   gen.Adjective,
+		Temperature: temperature,
+		Humidity:    humidity,
+		Elevation:   elevation,
+		Animals:     animals,
+		Plants:      plants,
+		Minerals:    minerals,
+		Soils:       soils,
+		Trees:       trees,
+	}
+
+	climate.Seasons = climate.getSeasons()
+	climate.Resources = getResources(climate)
+	climate.Habitability = climate.calculateHabitability()
+	climate.Description, err = climate.getDescription()
+	if err != nil {
+		err = fmt.Errorf("could not generate climate: %w", err)
+		return Climate{}, err
+	}
+
+	return climate, nil
+}
+
+// GenerateForeign procedurally generates a random climate different from the given one
+func GenerateForeign(currentClimate Climate) (Climate, error) {
+	var generators []Generator
+	var score int
+
+	allGenerators := AllGenerators()
+
+	for _, g := range allGenerators {
+		score = g.CharacteristicScore(currentClimate.Humidity, currentClimate.Temperature, currentClimate.Elevation)
+		if score > 5 {
+			generators = append(generators, g)
+		}
+	}
+
 	gen := generators[rand.Intn(len(generators))]
 
 	humidity := rand.Intn(gen.HumidityMax-gen.HumidityMin) + gen.HumidityMin
@@ -174,4 +369,20 @@ func (climate Climate) getCurrentHumidity(season Season) int {
 
 func (climate Climate) getCurrentTemperature(season Season) int {
 	return climate.Temperature + season.TemperatureChange
+}
+
+// CharacteristicScore grades a set of characteristics according to its match to a given climate generator.
+// Lower is better. A perfect score (complete match) is 0.
+func (gen Generator) CharacteristicScore(humidity int, temperature int, elevation int) int {
+	score := 0
+
+	middleHumidity := gen.HumidityMin + int((gen.HumidityMax-gen.HumidityMin)/2)
+	middleTemperature := gen.TemperatureMin + int((gen.TemperatureMax-gen.TemperatureMin)/2)
+	middleElevation := gen.ElevationMin + int((gen.ElevationMax-gen.ElevationMin)/2)
+
+	score += int(math.Abs(float64(humidity - middleHumidity)))
+	score += int(math.Abs(float64(temperature - middleTemperature)))
+	score += int(math.Abs(float64(elevation - middleElevation)))
+
+	return score
 }

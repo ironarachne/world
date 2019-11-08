@@ -73,7 +73,7 @@ func (town Town) generateRandomExports() []goods.TradeGood {
 func (town Town) generateRandomImports() ([]goods.TradeGood, error) {
 	var imports []goods.TradeGood
 
-	foreignClimate, err := climate.GetForeignClimate(town.Climate)
+	foreignClimate, err := climate.GenerateForeign(town.Climate)
 	if err != nil {
 		err = fmt.Errorf("Could not generate imports: %w", err)
 		return []goods.TradeGood{}, err
