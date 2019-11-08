@@ -27,6 +27,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"root",
+			},
 		},
 		{
 			Name:           "onion",
@@ -47,6 +50,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"root",
 			},
 		},
 		{
@@ -69,6 +75,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"root",
+			},
 		},
 		{
 			Name:           "radish",
@@ -89,6 +98,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"root",
 			},
 		},
 		{
@@ -111,6 +123,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"root",
+			},
 		},
 		{
 			Name:           "carrot",
@@ -132,13 +147,16 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"root",
+			},
 		},
 		{
 			Name:           "eggplant",
 			PluralName:     "eggplants",
 			MinHumidity:    3,
 			MaxHumidity:    10,
-			MinTemperature: 2,
+			MinTemperature: 7,
 			MaxTemperature: 10,
 			Resources: []resource.Resource{
 				{
@@ -151,6 +169,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"berry",
 			},
 		},
 		{
@@ -173,6 +194,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"root",
+			},
 		},
 		{
 			Name:           "cabbage",
@@ -192,6 +216,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -213,6 +240,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "fiddlehead",
@@ -232,6 +262,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -253,6 +286,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "cauliflower",
@@ -272,6 +308,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -293,6 +332,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "bell pepper",
@@ -312,6 +354,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -333,6 +378,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "leek",
@@ -352,6 +400,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -373,6 +424,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "green bean",
@@ -392,6 +446,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -414,6 +471,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "pinto bean",
@@ -434,6 +494,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -456,6 +519,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "kidney bean",
@@ -477,6 +543,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "corn",
@@ -496,6 +565,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 		{
@@ -518,6 +590,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "habanero",
@@ -539,6 +614,9 @@ func getVegetables() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"vegetable",
+			},
 		},
 		{
 			Name:           "serrano",
@@ -559,6 +637,9 @@ func getVegetables() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"vegetable",
 			},
 		},
 	}

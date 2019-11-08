@@ -16,6 +16,7 @@ func All() []species.Species {
 			MinTemperature: 0,
 			MaxTemperature: 5,
 			Tags: []string{
+				"arid",
 				"deciduous",
 			},
 			Resources: []resource.Resource{
@@ -684,6 +685,7 @@ func All() []species.Species {
 			MinTemperature: 0,
 			MaxTemperature: 5,
 			Tags: []string{
+				"arid",
 				"deciduous",
 			},
 			Resources: []resource.Resource{

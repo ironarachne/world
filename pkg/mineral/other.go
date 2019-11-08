@@ -23,6 +23,9 @@ func OtherMinerals() []Mineral {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"coal",
+			},
 		},
 		{
 			Name:         "salt",
@@ -40,6 +43,9 @@ func OtherMinerals() []Mineral {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"salt",
 			},
 		},
 	}

@@ -153,7 +153,7 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 
 // Random returns a completely random culture
 func Random() (Culture, error) {
-	homeClimate, err := climate.Random()
+	homeClimate, err := climate.Generate()
 	if err != nil {
 		err = fmt.Errorf("Could not generate culture: %w", err)
 		return Culture{}, err
@@ -180,51 +180,7 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 		}
 	}
 
-	for _, i := range culture.HomeClimate.Fish {
-		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
-			if err != nil {
-				err = fmt.Errorf("Could not generate culture: %w", err)
-				return list, err
-			}
-			list = modifiedList
-		}
-	}
-
-	for _, i := range culture.HomeClimate.Gems {
-		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
-			if err != nil {
-				err = fmt.Errorf("Could not generate culture: %w", err)
-				return list, err
-			}
-			list = modifiedList
-		}
-	}
-
-	for _, i := range culture.HomeClimate.Insects {
-		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
-			if err != nil {
-				err = fmt.Errorf("Could not generate culture: %w", err)
-				return list, err
-			}
-			list = modifiedList
-		}
-	}
-
-	for _, i := range culture.HomeClimate.Metals {
-		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
-			if err != nil {
-				err = fmt.Errorf("Could not generate culture: %w", err)
-				return list, err
-			}
-			list = modifiedList
-		}
-	}
-
-	for _, i := range culture.HomeClimate.OtherMinerals {
+	for _, i := range culture.HomeClimate.Minerals {
 		if !conlang.IsInWordList(i.Name, list) {
 			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
 			if err != nil {
@@ -247,28 +203,6 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 	}
 
 	for _, i := range culture.HomeClimate.Seasons {
-		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
-			if err != nil {
-				err = fmt.Errorf("Could not generate culture: %w", err)
-				return list, err
-			}
-			list = modifiedList
-		}
-	}
-
-	for _, i := range culture.HomeClimate.Stones {
-		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
-			if err != nil {
-				err = fmt.Errorf("Could not generate culture: %w", err)
-				return list, err
-			}
-			list = modifiedList
-		}
-	}
-
-	for _, i := range culture.HomeClimate.Fish {
 		if !conlang.IsInWordList(i.Name, list) {
 			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
 			if err != nil {

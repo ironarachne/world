@@ -26,6 +26,9 @@ func getFibers() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"fiber",
+			},
 		},
 		{
 			Name:           "flax",
@@ -45,6 +48,9 @@ func getFibers() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"fiber",
 			},
 		},
 		{
@@ -66,6 +72,9 @@ func getFibers() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"fiber",
+			},
 		},
 		{
 			Name:           "coir",
@@ -85,6 +94,9 @@ func getFibers() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"fiber",
 			},
 		},
 		{
@@ -106,6 +118,9 @@ func getFibers() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"fiber",
+			},
 		},
 		{
 			Name:           "jute",
@@ -126,6 +141,9 @@ func getFibers() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"fiber",
+			},
 		},
 		{
 			Name:           "ramie",
@@ -145,6 +163,9 @@ func getFibers() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"fiber",
 			},
 		},
 	}

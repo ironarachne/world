@@ -110,7 +110,7 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 
 // Random generates a completely random style of food
 func Random() (Style, error) {
-	originClimate, err := climate.Random()
+	originClimate, err := climate.Generate()
 	if err != nil {
 		err = fmt.Errorf("Could not generate random food style: %w", err)
 		return Style{}, err

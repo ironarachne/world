@@ -23,6 +23,9 @@ func Gems() []Mineral {
 					Value:       100,
 				},
 			},
+			Tags: []string{
+				"gem",
+			},
 		},
 		{
 			Name:         "garnet",
@@ -41,6 +44,9 @@ func Gems() []Mineral {
 					Commonality: 5,
 					Value:       10,
 				},
+			},
+			Tags: []string{
+				"gem",
 			},
 		},
 		{
@@ -61,6 +67,9 @@ func Gems() []Mineral {
 					Value:       50,
 				},
 			},
+			Tags: []string{
+				"gem",
+			},
 		},
 		{
 			Name:         "sapphire",
@@ -79,6 +88,9 @@ func Gems() []Mineral {
 					Commonality: 4,
 					Value:       40,
 				},
+			},
+			Tags: []string{
+				"gem",
 			},
 		},
 		{
@@ -99,6 +111,9 @@ func Gems() []Mineral {
 					Value:       10,
 				},
 			},
+			Tags: []string{
+				"gem",
+			},
 		},
 		{
 			Name:         "agate",
@@ -117,6 +132,9 @@ func Gems() []Mineral {
 					Commonality: 5,
 					Value:       5,
 				},
+			},
+			Tags: []string{
+				"gem",
 			},
 		},
 		{
@@ -137,6 +155,9 @@ func Gems() []Mineral {
 					Value:       15,
 				},
 			},
+			Tags: []string{
+				"gem",
+			},
 		},
 		{
 			Name:         "jasper",
@@ -155,6 +176,9 @@ func Gems() []Mineral {
 					Commonality: 5,
 					Value:       5,
 				},
+			},
+			Tags: []string{
+				"gem",
 			},
 		},
 		{
@@ -175,6 +199,9 @@ func Gems() []Mineral {
 					Value:       5,
 				},
 			},
+			Tags: []string{
+				"gem",
+			},
 		},
 		{
 			Name:         "opal",
@@ -193,6 +220,9 @@ func Gems() []Mineral {
 					Commonality: 5,
 					Value:       5,
 				},
+			},
+			Tags: []string{
+				"gem",
 			},
 		},
 		{
@@ -213,6 +243,9 @@ func Gems() []Mineral {
 					Value:       5,
 				},
 			},
+			Tags: []string{
+				"gem",
+			},
 		},
 		{
 			Name:         "topaz",
@@ -231,6 +264,9 @@ func Gems() []Mineral {
 					Commonality: 5,
 					Value:       5,
 				},
+			},
+			Tags: []string{
+				"gem",
 			},
 		},
 	}

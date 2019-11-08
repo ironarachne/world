@@ -22,6 +22,9 @@ func Agricultural() []Soil {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"soil",
+			},
 		},
 		{
 			Name:               "silt",
@@ -39,6 +42,9 @@ func Agricultural() []Soil {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"soil",
 			},
 		},
 	}

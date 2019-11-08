@@ -26,6 +26,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "brahmi",
@@ -45,6 +48,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -66,6 +72,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "cilantro",
@@ -85,6 +94,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -106,6 +118,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "rosemary",
@@ -125,6 +140,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -146,6 +164,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "black pepper",
@@ -165,6 +186,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -186,6 +210,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "mint",
@@ -205,6 +232,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -226,6 +256,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "coriander",
@@ -245,6 +278,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -266,6 +302,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "sage",
@@ -285,6 +324,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -306,6 +348,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "vanilla",
@@ -325,6 +370,9 @@ func getHerbs() []species.Species {
 					Commonality: 3,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 		{
@@ -346,6 +394,9 @@ func getHerbs() []species.Species {
 					Value:       1,
 				},
 			},
+			Tags: []string{
+				"herb",
+			},
 		},
 		{
 			Name:           "ginger",
@@ -365,6 +416,9 @@ func getHerbs() []species.Species {
 					Commonality: 5,
 					Value:       1,
 				},
+			},
+			Tags: []string{
+				"herb",
 			},
 		},
 	}

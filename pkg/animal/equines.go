@@ -83,6 +83,7 @@ func getEquines() []species.Species {
 			"equine",
 			"herbivore",
 			"hide",
+			"mammal",
 		}
 	}
 

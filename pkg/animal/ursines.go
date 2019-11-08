@@ -67,6 +67,7 @@ func getUrsines() []species.Species {
 		a.Tags = []string{
 			"animal",
 			"bear",
+			"mammal",
 			"omnivore",
 		}
 	}

@@ -60,7 +60,7 @@ func Generate() (World, error) {
 		homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 		homeTile.IsInhabited = true
 		world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-		homeClimate, err := climate.Generate(homeTile.TileType)
+		homeClimate, err := climate.GenerateByName(homeTile.TileType)
 
 		newRegion, err := region.Generate(homeClimate, newCountry.DominantCulture)
 		if err != nil {
@@ -113,7 +113,7 @@ func Generate() (World, error) {
 				homeTile = world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X]
 				homeTile.IsInhabited = true
 				world.WorldMap.Tiles[homeTileCoordinates.Y][homeTileCoordinates.X] = homeTile
-				homeClimate, err := climate.Generate(homeTile.TileType)
+				homeClimate, err := climate.GenerateByName(homeTile.TileType)
 
 				newRegion, err := region.Generate(homeClimate, newCountry.DominantCulture)
 				if err != nil {

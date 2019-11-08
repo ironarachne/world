@@ -14,6 +14,7 @@ type Tile struct {
 	Edges       []grid.Edge
 	Temperature int
 	Humidity    int
+	Elevation   int
 	IsInhabited bool
 	IsOcean     bool
 	TileType    string
@@ -106,6 +107,7 @@ func (worldMap WorldMap) initializeTiles() [][]Tile {
 				Coordinate:  c,
 				Temperature: 5,
 				Humidity:    5,
+				Elevation:   0,
 				IsOcean:     true,
 				IsInhabited: false,
 				TileType:    "ocean",
@@ -465,6 +467,8 @@ func (worldMap WorldMap) setTileHumidities() [][]Tile {
 }
 
 func (worldMap WorldMap) setTileTypes() [][]Tile {
+	var tileClimate climate.Climate
+	var err error
 	tiles := [][]Tile{}
 	newRow := []Tile{}
 
@@ -472,7 +476,11 @@ func (worldMap WorldMap) setTileTypes() [][]Tile {
 		newRow = []Tile{}
 		for _, tile := range row {
 			if !tile.IsOcean {
-				tile.TileType = climate.GetClimateNameForConditions(tile.Humidity, tile.Temperature)
+				tileClimate, err = climate.GenerateForCharacteristics(tile.Humidity, tile.Temperature, tile.Elevation)
+				if err != nil {
+					panic(err) // TODO: Properly handle this error
+				}
+				tile.TileType = tileClimate.Name
 			}
 			newRow = append(newRow, tile)
 		}

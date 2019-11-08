@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.11 (2019-11-08)
+
+- Refactor climate generation
+
 ## 0.8.10 (2019-11-07)
 
 - Convert fish to Species struct

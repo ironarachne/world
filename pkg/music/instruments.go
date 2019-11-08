@@ -8,6 +8,7 @@ import (
 	"text/template"
 
 	"github.com/ironarachne/world/pkg/climate"
+	"github.com/ironarachne/world/pkg/mineral"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
@@ -41,7 +42,9 @@ func GenerateInstruments(originClimate climate.Climate) ([]Instrument, error) {
 	availableInstruments := []Instrument{}
 	instruments := []Instrument{}
 
-	for _, i := range originClimate.Metals {
+	metals := mineral.ByTag("metal", originClimate.Minerals)
+
+	for _, i := range metals {
 		availableMetals = append(availableMetals, i.Name)
 	}
 

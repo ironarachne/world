@@ -13,6 +13,7 @@ type Soil struct {
 	IsSand             bool
 	UsedForAgriculture bool
 	Resources          []resource.Resource
+	Tags               []string
 }
 
 // All returns all soils
@@ -25,6 +26,47 @@ func All() []Soil {
 	soils = append(soils, agSoils...)
 
 	return soils
+}
+
+// ByTag returns a set of soils that match a tag
+func ByTag(tag string) []Soil {
+	var filtered []Soil
+
+	soils := All()
+
+	for _, s := range soils {
+		if s.HasTag(tag) {
+			filtered = append(filtered, s)
+		}
+	}
+
+	return filtered
+}
+
+// ByTagIn returns a slice of soils that have at least one of the given tags
+func ByTagIn(tags []string, from []Soil) []Soil {
+	var filtered []Soil
+
+	for _, s := range from {
+		for _, t := range tags {
+			if s.HasTag(t) && !InSlice(s, filtered) {
+				filtered = append(filtered, s)
+			}
+		}
+	}
+
+	return filtered
+}
+
+// HasTag returns true if the soil has a tag
+func (s Soil) HasTag(tag string) bool {
+	for _, t := range s.Tags {
+		if t == tag {
+			return true
+		}
+	}
+
+	return false
 }
 
 // Random returns a random subset of soils
