@@ -98,35 +98,45 @@ func getNobleType() Type {
 				Precedence:  0,
 				MaxNumber:   1,
 				AgeModifier: 1.25,
-				AgeCategory: "adult",
+				AgeCategories: []string{
+					"adult",
+				},
 			},
 			{
 				Title:       "Spouse",
 				Precedence:  0,
 				MaxNumber:   1,
 				AgeModifier: 1.15,
-				AgeCategory: "adult",
+				AgeCategories: []string{
+					"adult",
+				},
 			},
 			{
 				Title:       "Heir",
 				Precedence:  1,
 				MaxNumber:   1,
 				AgeModifier: 1.25,
-				AgeCategory: "teenager",
+				AgeCategories: []string{
+					"young adult",
+				},
 			},
 			{
 				Title:       "Lord",
 				Precedence:  2,
 				MaxNumber:   0,
 				AgeModifier: 1.0,
-				AgeCategory: "teenager",
+				AgeCategories: []string{
+					"teenager",
+				},
 			},
 			{
 				Title:       "Lord",
 				Precedence:  3,
 				MaxNumber:   0,
 				AgeModifier: 1.0,
-				AgeCategory: "child",
+				AgeCategories: []string{
+					"child",
+				},
 			},
 		},
 	}
@@ -159,7 +169,9 @@ func (org Organization) getNobleMembers(originCulture culture.Culture, master ch
 			Precedence:  0,
 			MaxNumber:   1,
 			AgeModifier: 1.0,
-			AgeCategory: "adult",
+			AgeCategories: []string{
+				"adult",
+			},
 		},
 	}
 

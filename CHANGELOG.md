@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.8.12 (2019-11-20)
+
+- Expand organization member ranks to have multiple possible age categories
+- Refactor character hobbies to use multiple potential age categories instead of adult/child booleans
+- Fix a bug in hobby generation when there was only one potential hobby
+- Fix a minor wording problem in character descriptions regarding motivation
+
 ## 0.8.11 (2019-11-08)
 
 - Refactor climate generation

@@ -10,12 +10,12 @@ import (
 
 // Rank is a rank held within an organization
 type Rank struct {
-	Title       string
-	Precedence  int
-	MaxNumber   int
-	MemberNames []string
-	AgeModifier float64
-	AgeCategory string
+	Title         string
+	Precedence    int
+	MaxNumber     int
+	MemberNames   []string
+	AgeModifier   float64
+	AgeCategories []string
 }
 
 // Type is a type of organization
@@ -96,14 +96,20 @@ func getAllTypes() ([]Type, error) {
 					Precedence:  0,
 					MaxNumber:   1,
 					AgeModifier: 1.25,
-					AgeCategory: "young adult",
+					AgeCategories: []string{
+						"young adult",
+						"adult",
+					},
 				},
 				{
 					Title:       "Adventurer",
 					Precedence:  1,
 					MaxNumber:   0,
 					AgeModifier: 1.0,
-					AgeCategory: "young adult",
+					AgeCategories: []string{
+						"young adult",
+						"adult",
+					},
 				},
 			},
 		},
@@ -155,21 +161,28 @@ func getAllTypes() ([]Type, error) {
 					Precedence:  0,
 					MaxNumber:   1,
 					AgeModifier: 1.5,
-					AgeCategory: "adult",
+					AgeCategories: []string{
+						"adult",
+						"elderly",
+					},
 				},
 				{
 					Title:       "Priest",
 					Precedence:  1,
 					MaxNumber:   0,
 					AgeModifier: 1.25,
-					AgeCategory: "adult",
+					AgeCategories: []string{
+						"adult",
+					},
 				},
 				{
 					Title:       "Acolyte",
 					Precedence:  2,
 					MaxNumber:   0,
 					AgeModifier: 0.9,
-					AgeCategory: "young adult",
+					AgeCategories: []string{
+						"young adult",
+					},
 				},
 			},
 		},
@@ -221,14 +234,18 @@ func getAllTypes() ([]Type, error) {
 					Precedence:  0,
 					MaxNumber:   1,
 					AgeModifier: 1.0,
-					AgeCategory: "adult",
+					AgeCategories: []string{
+						"adult",
+					},
 				},
 				{
 					Title:       "Mercenary",
 					Precedence:  1,
 					MaxNumber:   0,
 					AgeModifier: 1.0,
-					AgeCategory: "young adult",
+					AgeCategories: []string{
+						"young adult",
+					},
 				},
 			},
 		},
@@ -293,21 +310,28 @@ func getCraftingGuild() (Type, error) {
 				Precedence:  0,
 				MaxNumber:   1,
 				AgeModifier: 1.5,
-				AgeCategory: "adult",
+				AgeCategories: []string{
+					"adult",
+					"elderly",
+				},
 			},
 			{
 				Title:       "Artisan",
 				Precedence:  1,
 				MaxNumber:   0,
 				AgeModifier: 1.1,
-				AgeCategory: "adult",
+				AgeCategories: []string{
+					"adult",
+				},
 			},
 			{
 				Title:       "Apprentice Artisan",
 				Precedence:  2,
 				MaxNumber:   0,
 				AgeModifier: 0.7,
-				AgeCategory: "young adult",
+				AgeCategories: []string{
+					"young adult",
+				},
 			},
 		},
 	}
@@ -371,35 +395,50 @@ func getWizardSociety() (Type, error) {
 				Precedence:  0,
 				MaxNumber:   1,
 				AgeModifier: 4.0,
-				AgeCategory: "elderly",
+				AgeCategories: []string{
+					"adult",
+					"elderly",
+				},
 			},
 			{
 				Title:       "Adept",
 				Precedence:  1,
 				MaxNumber:   0,
 				AgeModifier: 2.5,
-				AgeCategory: "adult",
+				AgeCategories: []string{
+					"adult",
+					"elderly",
+				},
 			},
 			{
 				Title:       "Master",
 				Precedence:  2,
 				MaxNumber:   0,
 				AgeModifier: 2.0,
-				AgeCategory: "adult",
+				AgeCategories: []string{
+					"adult",
+					"young adult",
+				},
 			},
 			{
 				Title:       "Journeyman",
 				Precedence:  3,
 				MaxNumber:   0,
 				AgeModifier: 1.25,
-				AgeCategory: "young adult",
+				AgeCategories: []string{
+					"young adult",
+					"teenager",
+				},
 			},
 			{
 				Title:       "Apprentice",
 				Precedence:  4,
 				MaxNumber:   0,
 				AgeModifier: 1.0,
-				AgeCategory: "teenager",
+				AgeCategories: []string{
+					"teenager",
+					"child",
+				},
 			},
 		},
 	}
@@ -461,21 +500,29 @@ func getWizardSchool() (Type, error) {
 				Precedence:  0,
 				MaxNumber:   1,
 				AgeModifier: 3.0,
-				AgeCategory: "elderly",
+				AgeCategories: []string{
+					"elderly",
+				},
 			},
 			{
 				Title:       "Instructor",
 				Precedence:  1,
 				MaxNumber:   0,
 				AgeModifier: 2.0,
-				AgeCategory: "adult",
+				AgeCategories: []string{
+					"adult",
+					"elderly",
+				},
 			},
 			{
 				Title:       "Student",
 				Precedence:  2,
 				MaxNumber:   0,
 				AgeModifier: 1.0,
-				AgeCategory: "teenager",
+				AgeCategories: []string{
+					"teenager",
+					"child",
+				},
 			},
 		},
 	}

@@ -210,7 +210,15 @@ func Random() (Organization, error) {
 
 // GetModifiedMemberAge returns an age appropriate for the given rank and race
 func GetModifiedMemberAge(rank Rank, memberRace species.Species) int {
-	ageCategory := age.GetCategoryByName(rank.AgeCategory, memberRace.AgeCategories)
+	var randomAgeCategory string
+
+	if len(rank.AgeCategories) == 1 {
+		randomAgeCategory = rank.AgeCategories[0]
+	} else {
+		randomAgeCategory = rank.AgeCategories[rand.Intn(len(rank.AgeCategories))]
+	}
+
+	ageCategory := age.GetCategoryByName(randomAgeCategory, memberRace.AgeCategories)
 	age := age.GetRandomAge(ageCategory)
 	modifiedAge := rank.AgeModifier * float64(age)
 
