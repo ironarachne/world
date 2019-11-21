@@ -1,3 +1,6 @@
+/*
+Package country provides structures and tools for generating fantasy countries.
+*/
 package country
 
 import (

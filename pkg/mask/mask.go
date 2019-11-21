@@ -1,3 +1,6 @@
+/*
+Package mask implements methods for masking images.
+*/
 package mask
 
 import (

@@ -1,3 +1,7 @@
+/*
+Package gender provides structures, tools, and methods for dealing with
+gender, including description and pronoun generation.
+*/
 package gender
 
 import "math/rand"

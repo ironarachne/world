@@ -1,3 +1,6 @@
+/*
+Package graphics provides tools for generating images.
+*/
 package graphics
 
 import (
@@ -42,7 +45,8 @@ func CenteredRectangle(centerPoint image.Point, width int, height int) image.Rec
 	return centeredRectangle
 }
 
-// LoadPNG loads a PNG image and returns it as an Image
+// LoadPNG loads a PNG image and returns it as an Image. It relies on the WORLDAPI_DATA_PATH
+// environment variable to determine where to load the file from.
 func LoadPNG(path string) image.Image {
 	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
 

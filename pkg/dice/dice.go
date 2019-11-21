@@ -1,3 +1,6 @@
+/*
+Package dice provides methods for simulating the rolling of polyhedral dice.
+*/
 package dice
 
 import "math/rand"

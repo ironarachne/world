@@ -1,3 +1,8 @@
+/*
+Package conlang provides methods and tools for procedurally generating
+constructed languages. It makes use of the language package for underlying
+structure.
+*/
 package conlang
 
 import (

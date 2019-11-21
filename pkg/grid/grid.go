@@ -1,3 +1,7 @@
+/*
+Package grid provides a grid coordinate system and attendant functions for
+dealing with grids.
+*/
 package grid
 
 // Grid is a grid

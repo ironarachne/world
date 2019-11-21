@@ -1,3 +1,7 @@
+/*
+Package heavens provides structures and tools for procedurally generating
+suns, moons, and stars.
+*/
 package heavens
 
 import "fmt"

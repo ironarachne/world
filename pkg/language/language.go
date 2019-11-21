@@ -1,3 +1,7 @@
+/*
+Package language provides structures and methods for dealing with languages, whether
+fictional or otherwise, in fantasy worlds.
+*/
 package language
 
 import (

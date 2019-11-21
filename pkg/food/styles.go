@@ -1,3 +1,7 @@
+/*
+Package food provides methods and tools for generating fantasy
+food styles.
+*/
 package food
 
 import (

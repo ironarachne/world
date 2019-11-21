@@ -1,3 +1,6 @@
+/*
+Package culture provides methods and tools for generating fantasy cultures.
+*/
 package culture
 
 import (

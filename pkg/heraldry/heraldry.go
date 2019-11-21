@@ -1,3 +1,7 @@
+/*
+Package heraldry implements methods for randomly generating heraldic coats of arms
+and their associated blazons.
+*/
 package heraldry
 
 import (

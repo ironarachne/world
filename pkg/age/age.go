@@ -1,3 +1,6 @@
+/*
+Package age implements structures and routines for age calculation and reasoning.
+*/
 package age
 
 import (
@@ -19,7 +22,7 @@ type Category struct {
 	HeightRangeDice  dice.Dice
 	MaleWeightBase   int
 	FemaleWeightBase int
-	WeightModifier int
+	WeightModifier   int
 	WeightRangeDice  dice.Dice
 	SizeCategory     size.Category
 	Commonality      int

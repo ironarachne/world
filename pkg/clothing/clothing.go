@@ -1,3 +1,7 @@
+/*
+Package clothing provides methods and tools for generating
+fantasy clothing styles.
+*/
 package clothing
 
 import (

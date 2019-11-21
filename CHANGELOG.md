@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.8.13 (2019-11-21)
+
+- Make file save target configurable
+- Add ability to save PNG files to disk instead of Digital Ocean Spaces
+- Add `run.sh` script to make running the API easier for local development
+- Add package description comments to about half of the packages in this project
+
 ## 0.8.12 (2019-11-20)
 
 - Expand organization member ranks to have multiple possible age categories

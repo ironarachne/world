@@ -1,3 +1,7 @@
+/*
+Package drink provides methods and tools for generating
+fantasy drink styles.
+*/
 package drink
 
 import (

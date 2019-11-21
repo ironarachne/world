@@ -1,3 +1,6 @@
+/*
+Package climate provides tools for procedural generation of climates.
+*/
 package climate
 
 import (

@@ -1,3 +1,6 @@
+/*
+Package character provides fictional character generation tools.
+*/
 package character
 
 import (

@@ -1,3 +1,7 @@
+/*
+Package measurement implements methods for converting between and displaying
+different types of measurement.
+*/
 package measurement
 
 import (

@@ -1,3 +1,6 @@
+/*
+Package goods provides structures, methods, and tools for dealing with trade goods.
+*/
 package goods
 
 import (

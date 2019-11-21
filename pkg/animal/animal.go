@@ -1,3 +1,8 @@
+/*
+Package animal provides animal data sets and logic. It makes use of
+the species package to provide an underlying structure and common
+elements.
+*/
 package animal
 
 import "github.com/ironarachne/world/pkg/species"

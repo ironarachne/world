@@ -1,3 +1,6 @@
+/*
+Package math provides utility functions for mathematical operations.
+*/
 package math
 
 // Max returns the larger of two integers

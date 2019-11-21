@@ -1,3 +1,7 @@
+/*
+Package buildings provides structures and algorithms for producing
+random architectural styles and individual building appearances.
+*/
 package buildings
 
 import (
