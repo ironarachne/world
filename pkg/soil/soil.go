@@ -1,3 +1,6 @@
+/*
+Package soil implements soil types
+*/
 package soil
 
 import (

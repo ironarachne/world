@@ -1,3 +1,6 @@
+/*
+Package tree implements trees
+*/
 package tree
 
 import (

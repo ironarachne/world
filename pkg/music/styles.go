@@ -1,3 +1,6 @@
+/*
+Package music provides music styles and musical instruments and tools for them
+*/
 package music
 
 import (

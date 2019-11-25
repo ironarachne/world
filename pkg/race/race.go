@@ -1,3 +1,6 @@
+/*
+Package race provides fantasy races as an implementation of species.Species
+*/
 package race
 
 import (

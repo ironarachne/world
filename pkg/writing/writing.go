@@ -1,3 +1,6 @@
+/*
+Package writing implements generation of fantasy writing systems
+*/
 package writing
 
 import (

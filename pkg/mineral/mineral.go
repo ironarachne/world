@@ -1,3 +1,6 @@
+/*
+Package mineral provides minerals and tools for their usage
+*/
 package mineral
 
 import (

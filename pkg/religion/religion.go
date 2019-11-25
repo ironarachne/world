@@ -1,3 +1,6 @@
+/*
+Package religion implements fantasy religions
+*/
 package religion
 
 import (

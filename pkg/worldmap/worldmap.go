@@ -1,3 +1,6 @@
+/*
+Package worldmap implements the generation and rendering of world maps
+*/
 package worldmap
 
 // WorldMap is a world map. It contains tiles.

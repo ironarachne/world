@@ -1,3 +1,6 @@
+/*
+Package organization implements social organizations and tools for dealing with them
+*/
 package organization
 
 import (

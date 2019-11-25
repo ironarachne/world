@@ -1,3 +1,6 @@
+/*
+Package monster provides monster implementations of the species.Species struct
+*/
 package monster
 
 import "github.com/ironarachne/world/pkg/species"

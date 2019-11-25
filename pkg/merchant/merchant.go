@@ -1,3 +1,6 @@
+/*
+Package merchant allows for creation of travelling merchants and their wares
+*/
 package merchant
 
 import (

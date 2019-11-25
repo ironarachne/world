@@ -1,3 +1,6 @@
+/*
+Package pantheon implements fantasy pantheons
+*/
 package pantheon
 
 import (

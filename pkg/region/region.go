@@ -1,3 +1,6 @@
+/*
+Package region provides tools and structures for fantasy regions of a world
+*/
 package region
 
 import (

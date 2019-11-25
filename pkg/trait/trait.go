@@ -1,3 +1,6 @@
+/*
+Package trait provides tools for dealing with descriptive traits of creatures or objects
+*/
 package trait
 
 import (

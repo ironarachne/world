@@ -1,3 +1,6 @@
+/*
+Package world provides tools for building fantasy worlds at the highest level
+*/
 package world
 
 import (

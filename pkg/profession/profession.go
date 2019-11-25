@@ -1,3 +1,6 @@
+/*
+Package profession provides fantasy professions and metadata for them
+*/
 package profession
 
 import (

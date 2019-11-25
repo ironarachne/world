@@ -1,3 +1,6 @@
+/*
+Package words provides convenience methods for dealing with words and phrases
+*/
 package words
 
 import (

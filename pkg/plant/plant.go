@@ -1,3 +1,6 @@
+/*
+Package plant provides plant implementation of species.Species
+*/
 package plant
 
 import (

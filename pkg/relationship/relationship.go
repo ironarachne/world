@@ -1,3 +1,6 @@
+/*
+Package relationship provides tools for dealing with relationships between various entities
+*/
 package relationship
 
 import (

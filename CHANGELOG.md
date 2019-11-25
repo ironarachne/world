@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.14 (2019-11-25)
+
+- Add remaining package description comments
+
 ## 0.8.13 (2019-11-21)
 
 - Make file save target configurable

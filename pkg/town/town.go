@@ -1,3 +1,6 @@
+/*
+Package town implements towns in fantasy worlds
+*/
 package town
 
 import (

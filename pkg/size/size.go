@@ -1,3 +1,6 @@
+/*
+Package size implements a system for size categories of creatures
+*/
 package size
 
 // Category is a general size category for creatures

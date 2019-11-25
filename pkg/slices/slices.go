@@ -1,3 +1,6 @@
+/*
+Package slices provides convenience methods for dealing with slices
+*/
 package slices
 
 import (

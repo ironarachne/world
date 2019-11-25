@@ -1,3 +1,6 @@
+/*
+Package species implements the backbone of all living entities in a world
+*/
 package species
 
 import (

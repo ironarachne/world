@@ -92,7 +92,7 @@ func getRandomWeightedClass() (Class, error) {
 
 	name, err := random.StringFromThresholdMap(weights)
 	if err != nil {
-		err = fmt.Errorf("Failed to get random weighted region class: %w", err)
+		err = fmt.Errorf("failed to get random weighted region class: %w", err)
 		return Class{}, err
 	}
 
@@ -102,6 +102,6 @@ func getRandomWeightedClass() (Class, error) {
 		}
 	}
 
-	err = fmt.Errorf("Failed to get random weighted region class!")
+	err = fmt.Errorf("failed to get random weighted region class")
 	return Class{}, err
 }

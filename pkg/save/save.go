@@ -1,3 +1,6 @@
+/*
+Package save implements a system for saving files to various targets
+*/
 package save
 
 import (

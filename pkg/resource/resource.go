@@ -1,3 +1,6 @@
+/*
+Package resource provides natural and manmade resources. It implements a system for dealing with such.
+*/
 package resource
 
 import (
