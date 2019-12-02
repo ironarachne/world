@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.16 (2019-12-02)
+
+- Add ability to generate cultures from a climate passed in via POST
+
 ## 0.8.15 (2019-12-02)
 
 - Fix bug in tree generation that prevented trees being generated for climates with low humidity

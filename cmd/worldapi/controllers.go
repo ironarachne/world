@@ -208,6 +208,26 @@ func getCulture(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(o)
 }
 
+func getCultureFromClimate(w http.ResponseWriter, r *http.Request) {
+	var clm climate.Climate
+
+	err := json.NewDecoder(r.Body).Decode(&clm)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	cul, err := culture.Generate(clm)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	simplifiedCulture := cul.Simplify()
+
+	json.NewEncoder(w).Encode(simplifiedCulture)
+}
+
 func getCultureRandom(w http.ResponseWriter, r *http.Request) {
 	var o culture.SimplifiedCulture
 

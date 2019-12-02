@@ -91,6 +91,7 @@ func main() {
 
 	r.Get("/culture", sentryHandler.HandleFunc(getCultureRandom))
 	r.Get("/culture/{id}", sentryHandler.HandleFunc(getCulture))
+	r.Post("/culture", sentryHandler.HandleFunc(getCultureFromClimate))
 
 	r.Get("/foodstyle", sentryHandler.HandleFunc(getFoodStyleRandom))
 	r.Get("/foodstyle/{id}", sentryHandler.HandleFunc(getFoodStyle))
