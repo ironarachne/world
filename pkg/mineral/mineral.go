@@ -13,13 +13,13 @@ import (
 
 // Mineral is a mineral
 type Mineral struct {
-	Name         string
-	PluralName   string
-	Hardness     int
-	Malleability int
-	Commonality  int
-	Resources    []resource.Resource
-	Tags         []string
+	Name         string              `json:"name"`
+	PluralName   string              `json:"plural_name"`
+	Hardness     int                 `json:"hardness"`
+	Malleability int                 `json:"malleability"`
+	Commonality  int                 `json:"commonality"`
+	Resources    []resource.Resource `json:"resources"`
+	Tags         []string            `json:"tags"`
 }
 
 // All returns all minerals

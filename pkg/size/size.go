@@ -5,10 +5,10 @@ package size
 
 // Category is a general size category for creatures
 type Category struct {
-	Name       string
-	Level      int
-	BaseHeight int // Base height in inches
-	BaseWeight int // Base weight in pounds
+	Name       string `json:"name"`
+	Level      int    `json:"level"`
+	BaseHeight int    `json:"base_height"` // Base height in inches
+	BaseWeight int    `json:"base_weight"` // Base weight in pounds
 }
 
 // Larger returns a category larger than the current one, or the current one if it's the biggest

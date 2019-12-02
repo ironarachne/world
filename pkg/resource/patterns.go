@@ -12,26 +12,26 @@ import (
 
 // Pattern is a pattern for a resource
 type Pattern struct {
-	Name                 string
-	Description          string
-	Tags                 []string
-	Commonality          int
-	Profession           profession.Profession
-	Slots                []Slot
-	NameTemplate         string
-	MainMaterial         string
-	MainMaterialOverride string
-	OriginOverride       string
-	Value                int
+	Name                 string                `json:"name"`
+	Description          string                `json:"description"`
+	Tags                 []string              `json:"tags"`
+	Commonality          int                   `json:"commonality"`
+	Profession           profession.Profession `json:"profession"`
+	Slots                []Slot                `json:"slots"`
+	NameTemplate         string                `json:"name_template"`
+	MainMaterial         string                `json:"main_material"`
+	MainMaterialOverride string                `json:"main_material_override"`
+	OriginOverride       string                `json:"origin_override"`
+	Value                int                   `json:"value"`
 }
 
 // Slot is a slot for a resource requirement
 type Slot struct {
-	Name                string
-	RequiredTag         string
-	Resource            Resource
-	DescriptionTemplate string
-	PossibleQuirks      []string
+	Name                string   `json:"name"`
+	RequiredTag         string   `json:"required_tag"`
+	Resource            Resource `json:"resource"`
+	DescriptionTemplate string   `json:"description_template"`
+	PossibleQuirks      []string `json:"possible_quirks"`
 }
 
 // AllPatterns returns all patterns

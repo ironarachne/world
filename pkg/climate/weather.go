@@ -8,12 +8,12 @@ import (
 
 // WeatherProfile is a summary of a type of weather
 type WeatherProfile struct {
-	Description         string
-	CloudCover          int
-	CloudFrequency      int
-	PrecipitationAmount int
-	PrecipitationTypes  []string
-	WindLevel           int
+	Description         string   `json:"description"`
+	CloudCover          int      `json:"cloud_cover"`
+	CloudFrequency      int      `json:"cloud_frequency"`
+	PrecipitationAmount int      `json:"precipitation_amount"`
+	PrecipitationTypes  []string `json:"precipitation_types"`
+	WindLevel           int      `json:"wind_level"`
 }
 
 func (climate Climate) generateWeatherProfileForSeason(season Season) WeatherProfile {

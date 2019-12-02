@@ -41,20 +41,20 @@ type Generator struct {
 
 // Climate is a terrestrial climate
 type Climate struct {
-	Name         string
-	Adjective    string
-	Description  string
-	Habitability int
-	Temperature  int
-	Humidity     int
-	Elevation    int
-	Animals      []species.Species
-	Plants       []species.Species
-	Minerals     []mineral.Mineral
-	Soils        []soil.Soil
-	Trees        []species.Species
-	Resources    []resource.Resource
-	Seasons      []Season
+	Name         string              `json:"name"`
+	Adjective    string              `json:"adjective"`
+	Description  string              `json:"description"`
+	Habitability int                 `json:"habitability"`
+	Temperature  int                 `json:"temperature"`
+	Humidity     int                 `json:"humidity"`
+	Elevation    int                 `json:"elevation"`
+	Animals      []species.Species   `json:"animals"`
+	Plants       []species.Species   `json:"plants"`
+	Minerals     []mineral.Mineral   `json:"minerals"`
+	Soils        []soil.Soil         `json:"soils"`
+	Trees        []species.Species   `json:"trees"`
+	Resources    []resource.Resource `json:"resources"`
+	Seasons      []Season            `json:"seasons"`
 }
 
 // Generate procedurally generates a random climate

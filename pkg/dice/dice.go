@@ -7,8 +7,8 @@ import "math/rand"
 
 // Dice is a representation of polyhedral dice
 type Dice struct {
-	Number int
-	Sides  int
+	Number int `json:"number"`
+	Sides  int `json:"sides"`
 }
 
 // Roll rolls "num" number of dice with "sides" sides and returns the total result

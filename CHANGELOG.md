@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.15 (2019-12-02)
+
+- Fix bug in tree generation that prevented trees being generated for climates with low humidity
+- Add json hinting to all structs required for generating climates fully
+- Make the `/climate` endpoints return a full climate instead of a simplified climate
+
 ## 0.8.14 (2019-11-25)
 
 - Add remaining package description comments

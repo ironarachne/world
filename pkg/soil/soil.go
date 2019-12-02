@@ -11,12 +11,12 @@ import (
 
 // Soil is a type of mineral
 type Soil struct {
-	Name               string
-	UsedForPottery     bool
-	IsSand             bool
-	UsedForAgriculture bool
-	Resources          []resource.Resource
-	Tags               []string
+	Name               string              `json:"name"`
+	UsedForPottery     bool                `json:"used_for_pottery"`
+	IsSand             bool                `json:"is_sand"`
+	UsedForAgriculture bool                `json:"used_for_agriculture"`
+	Resources          []resource.Resource `json:"resources"`
+	Tags               []string            `json:"tags"`
 }
 
 // All returns all soils

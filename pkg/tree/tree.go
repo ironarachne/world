@@ -14,7 +14,7 @@ func All() []species.Species {
 		{
 			Name:           "acacia",
 			PluralName:     "acacias",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -38,7 +38,7 @@ func All() []species.Species {
 		{
 			Name:           "alder",
 			PluralName:     "alders",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -61,7 +61,7 @@ func All() []species.Species {
 		{
 			Name:           "apple",
 			PluralName:     "apples",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -94,7 +94,7 @@ func All() []species.Species {
 		{
 			Name:           "ash",
 			PluralName:     "ashes",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -117,7 +117,7 @@ func All() []species.Species {
 		{
 			Name:           "aspen",
 			PluralName:     "aspens",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -173,7 +173,7 @@ func All() []species.Species {
 		{
 			Name:           "balsa",
 			PluralName:     "balsas",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -229,7 +229,7 @@ func All() []species.Species {
 		{
 			Name:           "birch",
 			PluralName:     "birches",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -252,7 +252,7 @@ func All() []species.Species {
 		{
 			Name:           "black pine",
 			PluralName:     "black pines",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -275,7 +275,7 @@ func All() []species.Species {
 		{
 			Name:           "blackwood",
 			PluralName:     "blackwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -298,7 +298,7 @@ func All() []species.Species {
 		{
 			Name:           "boxwood",
 			PluralName:     "boxwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -321,7 +321,7 @@ func All() []species.Species {
 		{
 			Name:           "cedar",
 			PluralName:     "cedars",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -344,7 +344,7 @@ func All() []species.Species {
 		{
 			Name:           "cherry",
 			PluralName:     "cherries",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -377,7 +377,7 @@ func All() []species.Species {
 		{
 			Name:           "cinnamon",
 			PluralName:     "cinnamons",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    8,
 			MinTemperature: 0,
 			MaxTemperature: 8,
@@ -410,7 +410,7 @@ func All() []species.Species {
 		{
 			Name:           "coachwood",
 			PluralName:     "coachwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -433,7 +433,7 @@ func All() []species.Species {
 		{
 			Name:           "coconut",
 			PluralName:     "coconuts",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -466,7 +466,7 @@ func All() []species.Species {
 		{
 			Name:           "corkwood",
 			PluralName:     "corkwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -489,7 +489,7 @@ func All() []species.Species {
 		{
 			Name:           "cottonwood",
 			PluralName:     "cottonwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -512,7 +512,7 @@ func All() []species.Species {
 		{
 			Name:           "crabapple",
 			PluralName:     "crabapples",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -545,7 +545,7 @@ func All() []species.Species {
 		{
 			Name:           "cypress",
 			PluralName:     "cypress",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -568,7 +568,7 @@ func All() []species.Species {
 		{
 			Name:           "dogwood",
 			PluralName:     "dogwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -591,7 +591,7 @@ func All() []species.Species {
 		{
 			Name:           "elm",
 			PluralName:     "elms",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 5,
 			MaxTemperature: 7,
@@ -614,7 +614,7 @@ func All() []species.Species {
 		{
 			Name:           "eucalyptus",
 			PluralName:     "eucalyptuses",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -637,7 +637,7 @@ func All() []species.Species {
 		{
 			Name:           "fir",
 			PluralName:     "firs",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -660,7 +660,7 @@ func All() []species.Species {
 		{
 			Name:           "hemlock",
 			PluralName:     "hemlocks",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -683,7 +683,7 @@ func All() []species.Species {
 		{
 			Name:           "ironwood",
 			PluralName:     "ironwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -707,7 +707,7 @@ func All() []species.Species {
 		{
 			Name:           "juniper",
 			PluralName:     "junipers",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -741,7 +741,7 @@ func All() []species.Species {
 		{
 			Name:           "kingwood",
 			PluralName:     "kingwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -764,7 +764,7 @@ func All() []species.Species {
 		{
 			Name:           "lacewood",
 			PluralName:     "lacewoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -787,7 +787,7 @@ func All() []species.Species {
 		{
 			Name:           "larch",
 			PluralName:     "larches",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -810,7 +810,7 @@ func All() []species.Species {
 		{
 			Name:           "lemon",
 			PluralName:     "lemons",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    9,
 			MinTemperature: 0,
 			MaxTemperature: 9,
@@ -843,7 +843,7 @@ func All() []species.Species {
 		{
 			Name:           "lime",
 			PluralName:     "limes",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    9,
 			MinTemperature: 0,
 			MaxTemperature: 9,
@@ -876,7 +876,7 @@ func All() []species.Species {
 		{
 			Name:           "mahogany",
 			PluralName:     "mahoganies",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -932,7 +932,7 @@ func All() []species.Species {
 		{
 			Name:           "maple",
 			PluralName:     "maples",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 5,
 			MaxTemperature: 7,
@@ -955,7 +955,7 @@ func All() []species.Species {
 		{
 			Name:           "oak",
 			PluralName:     "oaks",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 5,
 			MaxTemperature: 7,
@@ -978,7 +978,7 @@ func All() []species.Species {
 		{
 			Name:           "olive",
 			PluralName:     "olives",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1044,7 +1044,7 @@ func All() []species.Species {
 		{
 			Name:           "pine",
 			PluralName:     "pine",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1067,7 +1067,7 @@ func All() []species.Species {
 		{
 			Name:           "pineapple",
 			PluralName:     "pineapples",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    9,
 			MinTemperature: 6,
 			MaxTemperature: 9,
@@ -1100,7 +1100,7 @@ func All() []species.Species {
 		{
 			Name:           "palm",
 			PluralName:     "palms",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    10,
 			MinTemperature: 6,
 			MaxTemperature: 10,
@@ -1123,7 +1123,7 @@ func All() []species.Species {
 		{
 			Name:           "pear",
 			PluralName:     "pears",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1156,7 +1156,7 @@ func All() []species.Species {
 		{
 			Name:           "poplar",
 			PluralName:     "poplars",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1179,7 +1179,7 @@ func All() []species.Species {
 		{
 			Name:           "red oak",
 			PluralName:     "red oaks",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1202,7 +1202,7 @@ func All() []species.Species {
 		{
 			Name:           "red pine",
 			PluralName:     "red pines",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1225,7 +1225,7 @@ func All() []species.Species {
 		{
 			Name:           "rosewood",
 			PluralName:     "rosewoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1248,7 +1248,7 @@ func All() []species.Species {
 		{
 			Name:           "sandalwood",
 			PluralName:     "sandalwoods",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1271,7 +1271,7 @@ func All() []species.Species {
 		{
 			Name:           "spruce",
 			PluralName:     "spruces",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1294,7 +1294,7 @@ func All() []species.Species {
 		{
 			Name:           "teak",
 			PluralName:     "teaks",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1317,7 +1317,7 @@ func All() []species.Species {
 		{
 			Name:           "walnut",
 			PluralName:     "walnuts",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1340,7 +1340,7 @@ func All() []species.Species {
 		{
 			Name:           "white oak",
 			PluralName:     "white oaks",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1363,7 +1363,7 @@ func All() []species.Species {
 		{
 			Name:           "white pine",
 			PluralName:     "white pines",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1386,7 +1386,7 @@ func All() []species.Species {
 		{
 			Name:           "willow",
 			PluralName:     "willows",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1409,7 +1409,7 @@ func All() []species.Species {
 		{
 			Name:           "yew",
 			PluralName:     "yews",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,
@@ -1432,7 +1432,7 @@ func All() []species.Species {
 		{
 			Name:           "yellow pine",
 			PluralName:     "yellow pines",
-			MinHumidity:    2,
+			MinHumidity:    0,
 			MaxHumidity:    6,
 			MinTemperature: 0,
 			MaxTemperature: 5,

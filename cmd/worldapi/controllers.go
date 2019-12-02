@@ -98,8 +98,6 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 func getClimate(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o climate.SimplifiedClimate
-
 	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
@@ -111,22 +109,18 @@ func getClimate(w http.ResponseWriter, r *http.Request) {
 		handleError(w, r, err)
 		return
 	}
-	o = randomClimate.Simplify()
 
-	json.NewEncoder(w).Encode(o)
+	json.NewEncoder(w).Encode(randomClimate)
 }
 
 func getClimateRandom(w http.ResponseWriter, r *http.Request) {
-	var o climate.SimplifiedClimate
-
 	randomClimate, err := climate.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o = randomClimate.Simplify()
 
-	json.NewEncoder(w).Encode(o)
+	json.NewEncoder(w).Encode(randomClimate)
 }
 
 func getClothingStyle(w http.ResponseWriter, r *http.Request) {

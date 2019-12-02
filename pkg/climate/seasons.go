@@ -2,10 +2,10 @@ package climate
 
 // Season is a season
 type Season struct {
-	Name              string
-	TemperatureChange int
-	HumidityChange    int
-	WeatherProfile    WeatherProfile
+	Name              string         `json:"name"`
+	TemperatureChange int            `json:"temperature_change"`
+	HumidityChange    int            `json:"humidity_change"`
+	WeatherProfile    WeatherProfile `json:"weather_profile"`
 }
 
 func (climate Climate) getSeasons() []Season {

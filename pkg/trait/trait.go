@@ -13,10 +13,10 @@ import (
 
 // Trait is a trait of something that can be used for description
 type Trait struct {
-	Name       string // The name of the trait
-	Value      string // The value of the trait
-	Descriptor string // The pattern by which a trait is described
-	Tags       []string
+	Name       string   `json:"name"`       // The name of the trait
+	Value      string   `json:"value"`      // The value of the trait
+	Descriptor string   `json:"descriptor"` // The pattern by which a trait is described
+	Tags       []string `json:"tags"`
 }
 
 // ByTag returns all traits from the slice that match the tag

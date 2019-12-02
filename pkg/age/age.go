@@ -14,18 +14,18 @@ import (
 
 // Category is metadata about a general age
 type Category struct {
-	Name             string
-	MinAge           int
-	MaxAge           int
-	MaleHeightBase   int
-	FemaleHeightBase int
-	HeightRangeDice  dice.Dice
-	MaleWeightBase   int
-	FemaleWeightBase int
-	WeightModifier   int
-	WeightRangeDice  dice.Dice
-	SizeCategory     size.Category
-	Commonality      int
+	Name             string        `json:"name"`
+	MinAge           int           `json:"min_age"`
+	MaxAge           int           `json:"max_age"`
+	MaleHeightBase   int           `json:"male_height_base"`
+	FemaleHeightBase int           `json:"female_height_base"`
+	HeightRangeDice  dice.Dice     `json:"height_range_dice"`
+	MaleWeightBase   int           `json:"male_weight_base"`
+	FemaleWeightBase int           `json:"female_weight_base"`
+	WeightModifier   int           `json:"weight_modifier"`
+	WeightRangeDice  dice.Dice     `json:"weight_range_dice"`
+	SizeCategory     size.Category `json:"size_category"`
+	Commonality      int           `json:"commonality"`
 }
 
 // GetCategoryByName returns the age category given a name

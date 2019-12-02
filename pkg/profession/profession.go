@@ -10,9 +10,9 @@ import (
 
 // Profession is a person with a particular skillset that can make a resource
 type Profession struct {
-	Name        string
-	Description string
-	Tags        []string
+	Name        string   `json:"name"`
+	Description string   `json:"description"`
+	Tags        []string `json:"tags"`
 }
 
 // All returns all professions
