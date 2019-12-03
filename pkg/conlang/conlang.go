@@ -57,6 +57,8 @@ func deriveLanguageAdjective(name string) (string, error) {
 func Generate() (language.Language, Category, error) {
 	var lang language.Language
 	var langCategory Category
+	var prefix string
+	var suffix string
 
 	// Does this language combine multiple language categories?
 	combinedChance := rand.Intn(100)
@@ -117,6 +119,25 @@ func Generate() (language.Language, Category, error) {
 	}
 	lang.VerbConjugationRules = verbConjugationRules
 
+	// Affix generation for new words
+	newWordPrefixes := []string{}
+
+	for i := 0; i < 50; i++ {
+		prefix, err = randomSyllable(langCategory, "connector")
+		if !slices.StringIn(prefix, newWordPrefixes) {
+			newWordPrefixes = append(newWordPrefixes, prefix)
+		}
+	}
+
+	newWordSuffixes := []string{}
+
+	for i := 0; i < 50; i++ {
+		suffix, err = randomSyllable(langCategory, "finisher")
+		if !slices.StringIn(suffix, newWordSuffixes) {
+			newWordSuffixes = append(newWordSuffixes, suffix)
+		}
+	}
+
 	// Name generation
 	femaleNames, err := GenerateNameList(100, langCategory, "female")
 	if err != nil {
@@ -142,6 +163,8 @@ func Generate() (language.Language, Category, error) {
 	lang.MaleFirstNames = maleNames
 	lang.FamilyNames = familyNames
 	lang.TownNames = townNames
+	lang.NewWordPrefixes = newWordPrefixes
+	lang.NewWordSuffixes = newWordSuffixes
 
 	return lang, langCategory, nil
 }

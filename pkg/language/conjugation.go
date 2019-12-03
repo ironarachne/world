@@ -7,18 +7,18 @@ import (
 
 // ConjugationRules is a set of templates to be applied to a word depending on its tense
 type ConjugationRules struct {
-	SimplePresent            string
-	SimplePast               string
-	SimpleFuture             string
-	PresentContinuous        string
-	PastContinuous           string
-	FutureContinuous         string
-	PresentPerfect           string
-	PastPerfect              string
-	FuturePerfect            string
-	PresentPerfectContinuous string
-	PastPerfectContinuous    string
-	FuturePerfectContinuous  string
+	SimplePresent            string `json:"simple_present"`
+	SimplePast               string `json:"simple_past"`
+	SimpleFuture             string `json:"simple_future"`
+	PresentContinuous        string `json:"present_continuous"`
+	PastContinuous           string `json:"past_continuous"`
+	FutureContinuous         string `json:"future_continuous"`
+	PresentPerfect           string `json:"present_perfect"`
+	PastPerfect              string `json:"past_perfect"`
+	FuturePerfect            string `json:"future_perfect"`
+	PresentPerfectContinuous string `json:"present_perfect_continuous"`
+	PastPerfectContinuous    string `json:"past_perfect_continuous"`
+	FuturePerfectContinuous  string `json:"future_perfect_continuous"`
 }
 
 // Word is a simple wrapper for use in conjugations

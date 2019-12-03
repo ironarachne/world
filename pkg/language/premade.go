@@ -154,6 +154,27 @@ func PremadeCommon() (Language, error) {
 		"Zumka",
 	}
 
+	newWordPrefixes := []string{
+		"bu",
+		"ha",
+		"hi",
+		"ka",
+		"re",
+		"sa",
+		"se",
+		"tra",
+		"tre",
+	}
+
+	newWordSuffixes := []string{
+		"auch",
+		"lly",
+		"ouch",
+		"sh",
+		"shy",
+		"usch",
+	}
+
 	lang := Language{
 		Name:             "Common",
 		Adjective:        "Common",
@@ -166,6 +187,8 @@ func PremadeCommon() (Language, error) {
 		FamilyNames:      familyNames,
 		TownNames:        townNames,
 		IsTonal:          false,
+		NewWordPrefixes:  newWordPrefixes,
+		NewWordSuffixes:  newWordSuffixes,
 	}
 
 	return lang, nil

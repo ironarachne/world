@@ -371,8 +371,6 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 func getLanguage(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o language.SimplifiedLanguage
-
 	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
@@ -384,22 +382,18 @@ func getLanguage(w http.ResponseWriter, r *http.Request) {
 		handleError(w, r, err)
 		return
 	}
-	o = randomLanguage.Simplify()
 
-	json.NewEncoder(w).Encode(o)
+	json.NewEncoder(w).Encode(randomLanguage)
 }
 
 func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
-	var o language.SimplifiedLanguage
-
 	randomLanguage, _, err := conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o = randomLanguage.Simplify()
 
-	json.NewEncoder(w).Encode(o)
+	json.NewEncoder(w).Encode(randomLanguage)
 }
 
 func getMerchant(w http.ResponseWriter, r *http.Request) {

@@ -14,18 +14,20 @@ import (
 
 // Language is a spoken language
 type Language struct {
-	Name                 string
-	Adjective            string
-	Descriptors          []string
-	Description          string
-	WritingSystem        writing.System
-	WordList             map[string]string
-	FemaleFirstNames     []string
-	MaleFirstNames       []string
-	FamilyNames          []string
-	TownNames            []string
-	VerbConjugationRules ConjugationRules
-	IsTonal              bool
+	Name                 string            `json:"name"`
+	Adjective            string            `json:"adjective"`
+	Descriptors          []string          `json:"descriptors"`
+	Description          string            `json:"description"`
+	WritingSystem        writing.System    `json:"writing_system"`
+	WordList             map[string]string `json:"word_list"`
+	FemaleFirstNames     []string          `json:"female_first_names"`
+	MaleFirstNames       []string          `json:"male_first_names"`
+	FamilyNames          []string          `json:"family_names"`
+	TownNames            []string          `json:"town_names"`
+	VerbConjugationRules ConjugationRules  `json:"conjugation_rules"`
+	IsTonal              bool              `json:"is_tonal"`
+	NewWordPrefixes      []string          `json:"new_word_prefixes"`
+	NewWordSuffixes      []string          `json:"new_word_suffixes"`
 }
 
 // RandomFemaleFirstName returns a random female first name
@@ -133,4 +135,21 @@ func (language Language) RandomNameList(numberOfNames int, nameType string) ([]s
 	}
 
 	return names, nil
+}
+
+// NewWord returns a new word for the language using random components
+func (language Language) NewWord() (string, error) {
+	prefix, err := random.String(language.NewWordPrefixes)
+	if err != nil {
+		err = fmt.Errorf("could not generate new word: %w", err)
+		return "", err
+	}
+	suffix, err := random.String(language.NewWordSuffixes)
+	if err != nil {
+		err = fmt.Errorf("could not generate new word: %w", err)
+		return "", err
+	}
+	word := prefix + suffix
+
+	return word, nil
 }

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.17 (2019-12-03)
+
+- Add ability to generate new words for a given language
+- Add json hinting to all structs required for generating languages
+- Return full language data from `/language` endpoints, not a simplified version
+
 ## 0.8.16 (2019-12-02)
 
 - Add ability to generate cultures from a climate passed in via POST

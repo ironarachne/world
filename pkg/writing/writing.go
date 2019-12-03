@@ -14,9 +14,9 @@ import (
 
 // System is a system of writing
 type System struct {
-	Name           string
-	Classification string
-	StrokeType     string
+	Name           string `json:"name"`
+	Classification string `json:"classification"`
+	StrokeType     string `json:"stroke_type"`
 }
 
 func randomStrokeType() string {
