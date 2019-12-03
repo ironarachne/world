@@ -8,15 +8,15 @@ import (
 
 // Class is a class of region
 type Class struct {
-	MaxNumberOfTowns         int
-	MinNumberOfTowns         int
-	Name                     string
-	RulerTitleFemale         string
-	RulerTitleMale           string
-	Commonality              int
-	NumberOfTiles            int
-	MinNumberOfOrganizations int
-	MaxNumberOfOrganizations int
+	MaxNumberOfTowns         int    `json:"max_number_of_towns"`
+	MinNumberOfTowns         int    `json:"min_number_of_towns"`
+	Name                     string `json:name"`
+	RulerTitleFemale         string `json:"ruler_title_female"`
+	RulerTitleMale           string `json:"ruler_title_male"`
+	Commonality              int    `json:"commonality"`
+	NumberOfTiles            int    `json:"number_of_tiles"`
+	MinNumberOfOrganizations int    `json:"min_number_of_organizations"`
+	MaxNumberOfOrganizations int    `json:"max_number_of_organizations"`
 }
 
 func getAllClasses() []Class {

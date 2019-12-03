@@ -119,6 +119,7 @@ func main() {
 
 	r.Get("/region", sentryHandler.HandleFunc(getRegionRandom))
 	r.Get("/region/{id}", sentryHandler.HandleFunc(getRegion))
+	r.Post("/region", sentryHandler.HandleFunc(getRegionFromCulture))
 
 	r.Get("/religion", sentryHandler.HandleFunc(getReligionRandom))
 	r.Get("/religion/{id}", sentryHandler.HandleFunc(getReligion))

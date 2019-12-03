@@ -17,16 +17,16 @@ import (
 
 // Region is a map region
 type Region struct {
-	Biome         string
-	Capital       string
-	Class         Class
-	Climate       climate.Climate
-	Culture       culture.Culture
-	Name          string
-	Organizations []organization.Organization
-	RulingBody    organization.Organization
-	TilesOccupied []grid.Coordinate
-	Towns         []town.Town
+	Biome         string                      `json:"biome"`
+	Capital       string                      `json:"capital"`
+	Class         Class                       `json:"class"`
+	Climate       climate.Climate             `json:"climate"`
+	Culture       culture.Culture             `json:"culture"`
+	Name          string                      `json:"name"`
+	Organizations []organization.Organization `json:"organizations"`
+	RulingBody    organization.Organization   `json:"ruling_body"`
+	TilesOccupied []grid.Coordinate           `json:"tiles_occupied"`
+	Towns         []town.Town                 `json:"town"`
 }
 
 // AssignTiles gives a set of coordinates for tiles to a region

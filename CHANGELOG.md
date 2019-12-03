@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.19 (2019-12-03)
+
+- Add ability to generate regions from a culture passed in via POST
+
 ## 0.8.18 (2019-12-03)
 
 - Add drinking culture style to culture

@@ -547,6 +547,30 @@ func getRegion(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(o)
 }
 
+func getRegionFromCulture(w http.ResponseWriter, r *http.Request) {
+	var cul culture.Culture
+
+	err := json.NewDecoder(r.Body).Decode(&cul)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	reg, err := region.Generate(cul.HomeClimate, cul)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	sr, err := reg.Simplify()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	json.NewEncoder(w).Encode(sr)
+}
+
 func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 	var o region.SimplifiedRegion
 
