@@ -8,15 +8,15 @@ import (
 
 // Category is a type of town
 type Category struct {
-	Name                 string
-	MinSize              int
-	MaxSize              int
-	MinExports           int
-	MaxExports           int
-	MinImports           int
-	MaxImports           int
-	ProductionIterations int
-	Commonality          int
+	Name                 string `json:"name"`
+	MinSize              int    `json:"min_size"`
+	MaxSize              int    `json:"max_size"`
+	MinExports           int    `json:"min_exports"`
+	MaxExports           int    `json:"max_exports"`
+	MinImports           int    `json:"min_imports"`
+	MaxImports           int    `json:"max_imports"`
+	ProductionIterations int    `json:"production_iterations"`
+	Commonality          int    `json:"commonality"`
 }
 
 func getAllCategories() []Category {

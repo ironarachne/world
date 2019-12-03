@@ -23,25 +23,25 @@ import (
 
 // Character is a character
 type Character struct {
-	FirstName      string
-	LastName       string
-	Title          string   // Title is the character's primary title
-	Titles         []string // Titles is a list of all of the character's titles
-	Heraldry       heraldry.Device
-	Gender         gender.Gender
-	Age            int
-	AgeCategory    age.Category
-	Orientation    string
-	Height         int
-	Weight         int
-	Profession     profession.Profession
-	Hobby          Hobby
-	NegativeTraits []string
-	PositiveTraits []string
-	Motivation     string
-	PhysicalTraits []trait.Trait
-	Culture        culture.Culture
-	Race           species.Species
+	FirstName      string                `json:"first_name"`
+	LastName       string                `json:"last_name"`
+	Title          string                `json:"title"`  // Title is the character's primary title
+	Titles         []string              `json:"titles"` // Titles is a list of all of the character's titles
+	Heraldry       heraldry.Device       `json:"heraldry"`
+	Gender         gender.Gender         `json:"gender"`
+	Age            int                   `json:"age"`
+	AgeCategory    age.Category          `json:"age_category"`
+	Orientation    string                `json:"orientation"`
+	Height         int                   `json:"height"`
+	Weight         int                   `json:"weight"`
+	Profession     profession.Profession `json:"profession"`
+	Hobby          Hobby                 `json:"hobby"`
+	NegativeTraits []string              `json:"negative_traits"`
+	PositiveTraits []string              `json:"positive_traits"`
+	Motivation     string                `json:"motivation"`
+	PhysicalTraits []trait.Trait         `json:"physical_traits"`
+	Culture        culture.Culture       `json:"culture"`
+	Race           species.Species       `json:"race"`
 }
 
 // Couple is a pair of partners

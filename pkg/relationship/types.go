@@ -2,10 +2,10 @@ package relationship
 
 // Type is a type of relationship
 type Type struct {
-	Name        string
-	Descriptors []string
-	InverseName string
-	Disallows   []string
+	Name        string   `json:"name"`
+	Descriptors []string `json:"descriptors"`
+	InverseName string   `json:"inverse_name"`
+	Disallows   []string `json:"disallows"`
 }
 
 // AllTypes returns all relationship types

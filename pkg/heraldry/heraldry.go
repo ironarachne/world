@@ -13,11 +13,11 @@ import (
 
 // Device is the entire coat of arms
 type Device struct {
-	Blazon string
-	Field
-	ImageURL string
-	FileName string
-	GUID     string
+	Blazon   string `json:"blazon"`
+	Field    `json:"field"`
+	ImageURL string `json:"image_url"`
+	FileName string `json:"file_name"`
+	GUID     string `json:"guid"`
 }
 
 // Generate procedurally generates a random heraldic device and returns it.

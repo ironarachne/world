@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.8.18 (2019-12-03)
+
+- Add drinking culture style to culture
+- Add json hinting to a bunch more packages
+
 ## 0.8.17 (2019-12-03)
 
 - Add ability to generate new words for a given language

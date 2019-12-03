@@ -16,14 +16,14 @@ import (
 
 // Instrument is a musical instrument
 type Instrument struct {
-	Name                   string
-	Description            string
-	Type                   string
-	BaseMaterialOptions    []string
-	SupportMaterialOptions []string
-	BaseMaterial           string
-	SupportMaterial        string
-	DescriptionTemplate    string
+	Name                   string   `json:"name"`
+	Description            string   `json:"description"`
+	Type                   string   `json:"type"`
+	BaseMaterialOptions    []string `json:"base_material_options"`
+	SupportMaterialOptions []string `json:"support_material_options"`
+	BaseMaterial           string   `json:"base_material"`
+	SupportMaterial        string   `json:"support_material"`
+	DescriptionTemplate    string   `json:"description_template"`
 }
 
 // GenerateInstruments generates a set of musical instruments for a climate

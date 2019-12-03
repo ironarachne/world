@@ -13,14 +13,14 @@ import (
 
 // Deity is a fictional god or goddess
 type Deity struct {
-	Name              string
-	Domains           []domain.Domain
-	Appearance        string
-	Gender            gender.Gender
-	PersonalityTraits []string
-	Relationships     []relationship.Relationship
-	HolyItem          string
-	HolySymbol        string
+	Name              string                      `json:"name"`
+	Domains           []domain.Domain             `json:"domains"`
+	Appearance        string                      `json:"appearance"`
+	Gender            gender.Gender               `json:"gender"`
+	PersonalityTraits []string                    `json:"personality_traits"`
+	Relationships     []relationship.Relationship `json:"relationships"`
+	HolyItem          string                      `json:"holy_item"`
+	HolySymbol        string                      `json:"holy_symbol"`
 }
 
 func (deity Deity) getRandomHolyItem() (string, error) {

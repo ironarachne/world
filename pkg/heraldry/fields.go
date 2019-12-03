@@ -9,67 +9,67 @@ import (
 
 // Field is the field of a coat of arms
 type Field struct {
-	Division
-	ChargeGroups []charge.Group
-	FieldType FieldType
+	Division     `json:"division"`
+	ChargeGroups []charge.Group `json:"charge_groups"`
+	FieldType    FieldType      `json:"field_type"`
 }
 
 // FieldType is a type of field
 type FieldType struct {
-	CenterPoint grid.Coordinate
-	ImageWidth int
-	ImageHeight int
-	MaskWidth int
-	MaskHeight int
-	Name string
-	MaskFileName string
+	CenterPoint  grid.Coordinate `json:"center_point"`
+	ImageWidth   int             `json:"image_width"`
+	ImageHeight  int             `json:"image_height"`
+	MaskWidth    int             `json:"mask_width"`
+	MaskHeight   int             `json:"mask_height"`
+	Name         string          `json:"name"`
+	MaskFileName string          `json:"mask_file_name"`
 }
 
 func allFieldTypes() []FieldType {
 	fieldTypes := []FieldType{
 		{
-			Name: "banner",
+			Name:         "banner",
 			MaskFileName: "banner.png",
-			ImageWidth: 320,
-			ImageHeight: 450,
-			MaskWidth: 320,
-			MaskHeight: 450,
+			ImageWidth:   320,
+			ImageHeight:  450,
+			MaskWidth:    320,
+			MaskHeight:   450,
 			CenterPoint: grid.Coordinate{
 				X: 160,
 				Y: 225,
 			},
 		},
 		{
-			Name: "engrailed",
+			Name:         "engrailed",
 			MaskFileName: "engrailed.png",
-			ImageWidth: 374,
-			ImageHeight: 450,
-			MaskWidth: 374,
-			MaskHeight: 450,
+			ImageWidth:   374,
+			ImageHeight:  450,
+			MaskWidth:    374,
+			MaskHeight:   450,
 			CenterPoint: grid.Coordinate{
 				X: 187,
 				Y: 215,
 			},
 		},
 		{
-			Name: "heater",
+			Name:         "heater",
 			MaskFileName: "heater.png",
-			ImageWidth: 364,
-			ImageHeight: 436,
-			MaskWidth: 364,
-			MaskHeight: 436,
+			ImageWidth:   364,
+			ImageHeight:  436,
+			MaskWidth:    364,
+			MaskHeight:   436,
 			CenterPoint: grid.Coordinate{
 				X: 182,
 				Y: 200,
 			},
 		},
 		{
-			Name: "wedge",
+			Name:         "wedge",
 			MaskFileName: "wedge.png",
-			ImageWidth: 358,
-			ImageHeight: 450,
-			MaskWidth: 358,
-			MaskHeight: 450,
+			ImageWidth:   358,
+			ImageHeight:  450,
+			MaskWidth:    358,
+			MaskHeight:   450,
 			CenterPoint: grid.Coordinate{
 				X: 179,
 				Y: 215,
@@ -107,9 +107,9 @@ func fieldByName(name string) (Field, error) {
 	}
 
 	field := Field{
-		Division: division,
+		Division:     division,
 		ChargeGroups: chargeGroups,
-		FieldType: fieldType,
+		FieldType:    fieldType,
 	}
 
 	return field, nil
@@ -134,9 +134,9 @@ func randomField() (Field, error) {
 	}
 
 	field := Field{
-		Division: division,
+		Division:     division,
 		ChargeGroups: chargeGroups,
-		FieldType: fieldType,
+		FieldType:    fieldType,
 	}
 
 	return field, nil
@@ -149,4 +149,3 @@ func randomFieldType() FieldType {
 
 	return fieldType
 }
-

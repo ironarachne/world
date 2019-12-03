@@ -13,12 +13,12 @@ import (
 
 // Style is a music style
 type Style struct {
-	Structure   int
-	Vocals      int
-	Beat        int
-	Tonality    int
-	Descriptors []string
-	Instruments []Instrument
+	Structure   int          `json:"structure"`
+	Vocals      int          `json:"vocals"`
+	Beat        int          `json:"beat"`
+	Tonality    int          `json:"tonality"`
+	Descriptors []string     `json:"descriptors"`
+	Instruments []Instrument `json:"instruments"`
 }
 
 func getAllStyleDescriptors() []string {

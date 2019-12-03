@@ -190,8 +190,6 @@ func getCountryRandom(w http.ResponseWriter, r *http.Request) {
 func getCulture(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
-	var o culture.SimplifiedCulture
-
 	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
@@ -203,9 +201,8 @@ func getCulture(w http.ResponseWriter, r *http.Request) {
 		handleError(w, r, err)
 		return
 	}
-	o = randomCulture.Simplify()
 
-	json.NewEncoder(w).Encode(o)
+	json.NewEncoder(w).Encode(randomCulture)
 }
 
 func getCultureFromClimate(w http.ResponseWriter, r *http.Request) {
@@ -223,22 +220,17 @@ func getCultureFromClimate(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	simplifiedCulture := cul.Simplify()
-
-	json.NewEncoder(w).Encode(simplifiedCulture)
+	json.NewEncoder(w).Encode(cul)
 }
 
 func getCultureRandom(w http.ResponseWriter, r *http.Request) {
-	var o culture.SimplifiedCulture
-
 	randomCulture, err := culture.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o = randomCulture.Simplify()
 
-	json.NewEncoder(w).Encode(o)
+	json.NewEncoder(w).Encode(randomCulture)
 }
 
 func getFoodStyle(w http.ResponseWriter, r *http.Request) {

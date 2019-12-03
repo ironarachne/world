@@ -19,17 +19,17 @@ import (
 
 // Town is a town
 type Town struct {
-	Name             string
-	Population       int
-	BuildingStyle    buildings.BuildingStyle
-	Category         Category
-	Climate          climate.Climate
-	Culture          culture.Culture
-	Mayor            character.Character
-	NotableProducers []profession.Profession
-	Exports          []goods.TradeGood
-	Imports          []goods.TradeGood
-	Resources        []resource.Resource
+	Name             string                  `json:"name"`
+	Population       int                     `json:"population"`
+	BuildingStyle    buildings.BuildingStyle `json:"building_style"`
+	Category         Category                `json:"category"`
+	Climate          climate.Climate         `json:"climate"`
+	Culture          culture.Culture         `json:"culture"`
+	Mayor            character.Character     `json:"mayor"`
+	NotableProducers []profession.Profession `json:"notable_producers"`
+	Exports          []goods.TradeGood       `json:"exports"`
+	Imports          []goods.TradeGood       `json:"imports"`
+	Resources        []resource.Resource     `json:"resources"`
 }
 
 func (town Town) generateMayor() (character.Character, error) {

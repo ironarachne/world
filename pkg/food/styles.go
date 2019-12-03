@@ -14,16 +14,16 @@ import (
 
 // Style is a cultural food style
 type Style struct {
-	Breads             []string
-	CommonBases        []string
-	CommonDessertBases []string
-	CommonDesserts     []string
-	CommonMainDishes   []string
-	CommonSpices       []string
-	CookingTechniques  []string
-	EatingTraits       []string
-	DessertTypes       []string
-	Noodles            []string
+	Breads             []string `json:"breads"`
+	CommonBases        []string `json:"common_bases"`
+	CommonDessertBases []string `json:"common_dessert_bases"`
+	CommonDesserts     []string `json:"common_desserts"`
+	CommonMainDishes   []string `json:"common_main_dishes"`
+	CommonSpices       []string `json:"common_spices"`
+	CookingTechniques  []string `json:"cooking_techniques"`
+	EatingTraits       []string `json:"eating_traits"`
+	DessertTypes       []string `json:"dessert_types"`
+	Noodles            []string `json:"noodles"`
 }
 
 // GenerateStyle procedurally generates a style of food

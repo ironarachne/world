@@ -14,12 +14,12 @@ import (
 
 // Religion is a religion
 type Religion struct {
-	Name           string
-	CommonName     string
-	Class          Class
-	Pantheon       pantheon.Pantheon
-	GatheringPlace string
-	Virtues        []string
+	Name           string            `json:"name"`
+	CommonName     string            `json:"common_name"`
+	Class          Class             `json:"class"`
+	Pantheon       pantheon.Pantheon `json:"pantheon"`
+	GatheringPlace string            `json:"gathering_place"`
+	Virtues        []string          `json:"virtues"`
 }
 
 // Generate procedurally generates a religion

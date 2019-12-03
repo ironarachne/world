@@ -22,30 +22,31 @@ import (
 
 // Culture is a fantasy culture
 type Culture struct {
-	Adjective       string
-	AlcoholicDrinks []drink.Drink
-	AttributeMax    int
+	Adjective       string        `json:"adjective"`
+	AlcoholicDrinks []drink.Drink `json:"alcoholic_drinks"`
+	AttributeMax    int           `json:"attribute_max"`
 	Attributes      struct {
-		Aggression      int
-		Curiosity       int
-		MagicPrevalence int
-		MagicStrength   int
-		Rigidity        int
-		Superstition    int
-	}
-	BuildingStyle     buildings.BuildingStyle
-	ClothingStyle     clothing.Style
-	CommonFamilyNames []string
-	CommonFemaleNames []string
-	CommonMaleNames   []string
-	FoodStyle         food.Style
-	HomeClimate       climate.Climate
-	Language          language.Language
-	MusicStyle        music.Style
-	Name              string
-	PrimaryRace       species.Species
-	Religion          religion.Religion
-	Views             []string
+		Aggression      int `json:"aggression"`
+		Curiosity       int `json:"curiosity"`
+		MagicPrevalence int `json:"magic_prevalence"`
+		MagicStrength   int `json:"magic_strength"`
+		Rigidity        int `json:"rigidity"`
+		Superstition    int `json:"superstitition"`
+	} `json:"attributes"`
+	BuildingStyle     buildings.BuildingStyle `json:"building_style"`
+	ClothingStyle     clothing.Style          `json:"clothing_style"`
+	CommonFamilyNames []string                `json:"common_family_names"`
+	CommonFemaleNames []string                `json:"common_female_names"`
+	CommonMaleNames   []string                `json:"common_male_names"`
+	DrinkStyle        drink.Style             `json:"drink_style"`
+	FoodStyle         food.Style              `json:"food_style"`
+	HomeClimate       climate.Climate         `json:"home_climate"`
+	Language          language.Language       `json:"language"`
+	MusicStyle        music.Style             `json:"music_style"`
+	Name              string                  `json:"name"`
+	PrimaryRace       species.Species         `json:"primary_race"`
+	Religion          religion.Religion       `json:"religion"`
+	Views             []string                `json:"views"`
 }
 
 // Generate generates a culture
@@ -114,6 +115,12 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 		return Culture{}, err
 	}
 	culture.ClothingStyle = clothingStyle
+	drinkStyle, err := drink.Generate(culture.Language, culture.HomeClimate.Resources)
+	if err != nil {
+		err = fmt.Errorf("Could not generate culture: %w", err)
+		return Culture{}, err
+	}
+	culture.DrinkStyle = drinkStyle
 	foodStyle, err := food.GenerateStyle(culture.HomeClimate)
 	if err != nil {
 		err = fmt.Errorf("Could not generate culture: %w", err)

@@ -14,7 +14,7 @@ import (
 
 // Pantheon is a nonhierarchical group of deities
 type Pantheon struct {
-	Deities []deity.Deity
+	Deities []deity.Deity `json:"deities"`
 }
 
 // Generate creates a random pantheon of deities

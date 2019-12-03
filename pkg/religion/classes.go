@@ -7,13 +7,13 @@ import (
 
 // Class is a type of religion
 type Class struct {
-	Name            string
-	Commonality     int
-	FounderTitle    string
-	LeaderTitle     string
-	PantheonMinSize int
-	PantheonMaxSize int
-	GatheringPlaces []string
+	Name            string   `json:"name"`
+	Commonality     int      `json:"commonality"`
+	FounderTitle    string   `json:"founder_title"`
+	LeaderTitle     string   `json:"leader_title"`
+	PantheonMinSize int      `json:"pantheon_min_size"`
+	PantheonMaxSize int      `json:"pantheon_max_size"`
+	GatheringPlaces []string `json:"gathering_places"`
 }
 
 func getAllClasses() []Class {

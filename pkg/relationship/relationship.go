@@ -12,10 +12,10 @@ import (
 
 // Relationship is a unidirectional relationship between entities
 type Relationship struct {
-	Origin     string
-	Target     string
-	Descriptor string
-	Type       string
+	Origin     string `json:"origin"`
+	Target     string `json:"target"`
+	Descriptor string `json:"descriptor"`
+	Type       string `json:"type"`
 }
 
 // InSlice checks to see if a relationship is present in a set of relationships

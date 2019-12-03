@@ -15,11 +15,11 @@ import (
 
 // Style describes what kind of clothing the culture wears
 type Style struct {
-	FemaleOutfit    []Item
-	MaleOutfit      []Item
-	CommonJewelry   []string
-	CommonColors    []string
-	DecorativeStyle string
+	FemaleOutfit    []Item   `json:"female_outfit"`
+	MaleOutfit      []Item   `json:"male_outfit"`
+	CommonJewelry   []string `json:"common_jewelry"`
+	CommonColors    []string `json:"common_colors"`
+	DecorativeStyle string   `json:"decorative_style"`
 }
 
 // GenerateStyle generates a random clothing style based on a climate

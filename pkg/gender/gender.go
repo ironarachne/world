@@ -8,15 +8,15 @@ import "math/rand"
 
 // Gender is a gender and its accompanying descriptors
 type Gender struct {
-	Name                 string
-	Noun                 string
-	PluralNoun           string
-	AdolescentNoun       string
-	PluralAdolescentNoun string
-	ObjectPronoun        string
-	PossessivePronoun    string
-	ReflexivePronoun     string
-	SubjectPronoun       string
+	Name                 string `json:"name"`
+	Noun                 string `json:"noun"`
+	PluralNoun           string `json:"plural_noun"`
+	AdolescentNoun       string `json:"adolescent_noun"`
+	PluralAdolescentNoun string `json:"plural_adolescent_noun"`
+	ObjectPronoun        string `json:"object_pronoun"`
+	PossessivePronoun    string `json:"possessive_pronoun"`
+	ReflexivePronoun     string `json:"reflexive_pronoun"`
+	SubjectPronoun       string `json:"subject_pronoun"`
 }
 
 // All returns all genders

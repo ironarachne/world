@@ -7,11 +7,11 @@ import (
 
 // Domain is an area of control
 type Domain struct {
-	Name              string
-	AppearanceTraits  []string
-	PersonalityTraits []string
-	HolyItems         []string
-	HolySymbols       []string
+	Name              string   `json:"name"`
+	AppearanceTraits  []string `json:"appearance_traits"`
+	PersonalityTraits []string `json:"personality_traits"`
+	HolyItems         []string `json:"holy_items"`
+	HolySymbols       []string `json:"holy_symbols"`
 }
 
 // AllAppearancesForDomains returns a string slice of all the appearances from a set of domains

@@ -9,21 +9,21 @@ import (
 
 // ItemTemplate is a pattern for constructing an item
 type ItemTemplate struct {
-	Name            string
-	Type            string
-	MaterialType    string
-	PrefixModifiers []string
-	SuffixModifiers []string
+	Name            string   `json:"name"`
+	Type            string   `json:"type"`
+	MaterialType    string   `json:"material_type"`
+	PrefixModifiers []string `json:"prefix_modifiers"`
+	SuffixModifiers []string `json:"suffix_modifiers"`
 }
 
 // Item is a type of clothing item
 type Item struct {
-	Name           string
-	Type           string
-	Material       string
-	MaterialType   string
-	PrefixModifier string
-	SuffixModifier string
+	Name           string `json:"name"`
+	Type           string `json:"type"`
+	Material       string `json:"material"`
+	MaterialType   string `json:"material_type"`
+	PrefixModifier string `json:"prefix_modifier"`
+	SuffixModifier string `json:"suffix_modifier"`
 }
 
 func addMaterials(items []Item, hides []string, fabrics []string) ([]Item, error) {
