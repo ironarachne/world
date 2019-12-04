@@ -4,8 +4,10 @@
 # 
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2.1
+
 orbs:
-  codecov: codecov/codecov@1.0.2
+  codecov: codecov/codecov@1.0.5
+
 jobs:
   test:
     docker:
@@ -16,7 +18,7 @@ jobs:
       - run: go get -v -t -d ./...
       - run: go test -cover -coverprofile=c.out ./...
       - codecov/upload:
-        file: c.out
+          file: c.out
   build:
     docker:
       - image: circleci/golang:1.13
