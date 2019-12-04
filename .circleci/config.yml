@@ -17,9 +17,12 @@ jobs:
       - checkout
       - run: go get -v -t -d ./...
       - run: go get github.com/jstemmer/go-junit-report
-      - run: go test -v ./... | go-junit-report > report.xml
+      - run: mkdir -p test-results/gotest
+      - run: go test -v ./... | go-junit-report > test-results/gotest/results.xml
       - codecov/upload:
-          file: report.xml
+          file: test-results/gotest/results.xml
+      - store_test_results:
+          path: test-results
   build:
     docker:
       - image: circleci/golang:1.13
