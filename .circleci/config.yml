@@ -1,8 +1,28 @@
 # Golang CircleCI 2.0 configuration file
 #
+# World API Project
+# 
 # Check https://circleci.com/docs/2.0/language-go/ for more details
-version: 2
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.0.5
+
 jobs:
+  test:
+    docker:
+      - image: circleci/golang:1.13
+    working_directory: /go/src/github.com/ironarachne/world
+    steps:
+      - checkout
+      - run: go get -v -t -d ./...
+      - run: go get github.com/jstemmer/go-junit-report
+      - run: mkdir -p test-results/gotest
+      - run: go test -v ./... | go-junit-report > test-results/gotest/results.xml
+      - codecov/upload:
+          file: test-results/gotest/results.xml
+      - store_test_results:
+          path: test-results
   build:
     docker:
       - image: circleci/golang:1.13
@@ -10,9 +30,6 @@ jobs:
     steps:
       - checkout
       - run: go get -v -t -d ./...
-      - run: go test -v ./...
-      - setup_remote_docker:
-          docker_layer_caching: false
       - run: |
           cd cmd/worldapi
           cp -r ../../images .
@@ -26,8 +43,9 @@ jobs:
 
 workflows:
   version: 2
-  build-and-publish:
+  test-build-publish:
     jobs:
+      - test
       - build:
           filters:
             branches:
