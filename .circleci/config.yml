@@ -16,9 +16,10 @@ jobs:
     steps:
       - checkout
       - run: go get -v -t -d ./...
-      - run: go test -cover -coverprofile=c.out ./...
+      - run: go get github.com/jstemmer/go-junit-report
+      - run: go test -v ./... | go-junit-report > report.xml
       - codecov/upload:
-          file: c.out
+          file: report.xml
   build:
     docker:
       - image: circleci/golang:1.13
