@@ -1,5 +1,7 @@
 # World Generator
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/47856d43d023e779baa7/maintainability)](https://codeclimate.com/github/ironarachne/world/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/47856d43d023e779baa7/test_coverage)](https://codeclimate.com/github/ironarachne/world/test_coverage)
+
 This is a tool and library to procedurally generate fantasy worlds.
 
 The API runs on port 7531.
