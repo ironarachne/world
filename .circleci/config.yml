@@ -5,6 +5,9 @@
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2.1
 
+orbs:
+  sonarcloud: sonarsource/sonarcloud@1.0.1
+
 jobs:
   test:
     docker:
@@ -26,6 +29,7 @@ jobs:
             ./cc-test-reporter before-build
             go test -coverprofile c.out ./...
             ./cc-test-reporter after-build --exit-code $?
+      - sonarcloud/scan
   build:
     docker:
       - image: circleci/golang:1.13
@@ -48,7 +52,8 @@ workflows:
   version: 2
   test-build-publish:
     jobs:
-      - test
+      - test:
+          context: SonarCloud
       - build:
           filters:
             branches:
