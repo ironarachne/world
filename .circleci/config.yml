@@ -7,8 +7,6 @@ version: 2.1
 
 jobs:
   test:
-    environment:
-      CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
     docker:
       - image: circleci/golang:1.13
     working_directory: /go/src/github.com/ironarachne/world
