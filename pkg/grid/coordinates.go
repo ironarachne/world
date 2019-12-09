@@ -1,6 +1,8 @@
 package grid
 
-import "math"
+import (
+	"math"
+)
 
 // Coordinate is an x, y location
 type Coordinate struct {
@@ -60,15 +62,30 @@ func RemoveCoordinatesFromSlice(coordinatesToRemove []Coordinate, target []Coord
 }
 
 // SortCoordinatesByDistance sorts coordinates by distance
-func SortCoordinatesByDistance(coords []Coordinate) []Coordinate {
-	nearest := 0
+func SortCoordinatesByDistance(source []Coordinate) []Coordinate {
+	var sorted []Coordinate
+	var remaining []Coordinate
 
-	for i, c := range coords {
-		nearest = NearestCoordinateIndex(c, coords)
-		coords[i], coords[nearest] = coords[nearest], coords[i]
+	nearestIndex := 0
+
+	remaining = make([]Coordinate, len(source))
+	copy(remaining, source)
+
+	sorted = append(sorted, remaining[0])
+	remaining = remaining[1:]
+
+	last := sorted[0]
+
+	for len(remaining) > 0 {
+		nearestIndex = NearestCoordinateIndex(last, remaining)
+		last = remaining[nearestIndex]
+		sorted = append(sorted, last)
+		remaining[nearestIndex] = remaining[len(remaining)-1]
+		remaining[len(remaining)-1] = Coordinate{}
+		remaining = remaining[:len(remaining)-1]
 	}
 
-	return coords
+	return sorted
 }
 
 // NearestCoordinateIndex finds the index in a slice of coordinates of the nearest coordinate to the given one
