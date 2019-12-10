@@ -17,5 +17,8 @@ The following environment variables configure the API and are required:
 
 ## Building
 
-Just run `./build.sh`. The binary will be `build/worldapi`. After building, you can use the `./run.sh` script to
-run the API with configuration friendly to local development.
+Run `make build`. The binary will be `build/worldapi`.
+
+## Running in Development
+
+Run `make run`. It will set sane defaults and use the local filesystem for saving files.
