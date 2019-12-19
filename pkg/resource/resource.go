@@ -9,13 +9,13 @@ import (
 
 // Resource is a useful resource
 type Resource struct {
-	Name         string   `json:"name"`
-	Description  string   `json:"description"`
-	MainMaterial string   `json:"main_material"`
-	Origin       string   `json:"origin"`
-	Tags         []string `json:"tags"`
-	Commonality  int      `json:"commonality"`
-	Value        int      `json:"value"`
+	Name         string   `json:"name" db:"name"`
+	Description  string   `json:"description" db:"description"`
+	MainMaterial string   `json:"main_material" db:"main_material"`
+	Origin       string   `json:"origin" db:"origin"`
+	Tags         []string `json:"tags" db:"tags"`
+	Commonality  int      `json:"commonality" db:"commonality"`
+	Value        int      `json:"value" db:"value"`
 }
 
 // ByTag returns a slice of resources that have the given tag

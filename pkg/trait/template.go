@@ -9,10 +9,10 @@ import (
 
 // Template is a template for building a trait
 type Template struct {
-	Name                string   `json:"name"`
-	PossibleValues      []string `json:"possible_values"`
-	PossibleDescriptors []string `json:"possible_descriptors"`
-	Tags                []string `json:"tags"`
+	Name                string   `json:"name" db:"name"`
+	PossibleValues      []string `json:"possible_values" db:"possible_values"`
+	PossibleDescriptors []string `json:"possible_descriptors" db:"possible_descriptors"`
+	Tags                []string `json:"tags" db:"tags"`
 }
 
 // RandomTemplate returns a random template from a slice

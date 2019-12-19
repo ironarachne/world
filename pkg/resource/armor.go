@@ -1,6 +1,8 @@
 package resource
 
-import "github.com/ironarachne/world/pkg/profession"
+import (
+	"github.com/ironarachne/world/pkg/profession"
+)
 
 func getArmor() []Pattern {
 	var patterns []Pattern
@@ -16,8 +18,7 @@ func getArmor() []Pattern {
 }
 
 func getBodyArmor() []Pattern {
-	producer := profession.ByName("armorsmith")
-
+	producer, _ := profession.ByName("armorsmith")
 	patterns := []Pattern{
 		{
 			Name:         "breastplate",
@@ -202,7 +203,7 @@ func getBodyArmor() []Pattern {
 }
 
 func getHelmets() []Pattern {
-	producer := profession.ByName("armorsmith")
+	producer, _ := profession.ByName("armorsmith")
 
 	patterns := []Pattern{
 		{
@@ -323,7 +324,7 @@ func getHelmets() []Pattern {
 }
 
 func getShields() []Pattern {
-	producer := profession.ByName("armorsmith")
+	producer, _ := profession.ByName("armorsmith")
 
 	patterns := []Pattern{
 		{

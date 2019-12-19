@@ -3,7 +3,7 @@ package resource
 import "github.com/ironarachne/world/pkg/profession"
 
 func getCobbler() []Pattern {
-	producer := profession.ByName("cobbler")
+	producer, _ := profession.ByName("cobbler")
 
 	patterns := []Pattern{
 		{

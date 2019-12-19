@@ -3,7 +3,7 @@ package resource
 import "github.com/ironarachne/world/pkg/profession"
 
 func getDistilled() []Pattern {
-	producer := profession.ByName("brewer")
+	producer, _ := profession.ByName("brewer")
 
 	patterns := []Pattern{
 		{

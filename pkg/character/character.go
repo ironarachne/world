@@ -129,7 +129,7 @@ func Generate(originCulture culture.Culture) (Character, error) {
 		return Character{}, err
 	}
 	char.Orientation = orientation
-	char.Profession = profession.Random()
+	char.Profession, _ = profession.Random()
 	char.Hobby = char.getRandomHobby()
 	motivation, err := getRandomMotivation()
 	if err != nil {
@@ -266,7 +266,7 @@ func GenerateChild(couple Couple) (Character, error) {
 	child.Age, child.AgeCategory = getAgeFromParents(couple)
 
 	if child.AgeCategory.Name == "child" {
-		child.Profession = profession.ByName("none")
+		child.Profession, _ = profession.ByName("none")
 	}
 
 	return child, nil

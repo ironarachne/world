@@ -3,7 +3,7 @@ package resource
 import "github.com/ironarachne/world/pkg/profession"
 
 func getSmithing() []Pattern {
-	producer := profession.ByName("blacksmith")
+	producer, _ := profession.ByName("blacksmith")
 
 	patterns := []Pattern{
 		{
@@ -93,7 +93,7 @@ func getSmithing() []Pattern {
 		},
 	}
 
-	farrier := profession.ByName("farrier")
+	farrier, _ := profession.ByName("farrier")
 
 	farrierPatterns := []Pattern{
 		{

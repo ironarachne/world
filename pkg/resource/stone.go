@@ -3,7 +3,7 @@ package resource
 import "github.com/ironarachne/world/pkg/profession"
 
 func getStone() []Pattern {
-	producer := profession.ByName("mason")
+	producer, _ := profession.ByName("mason")
 
 	patterns := []Pattern{
 		{

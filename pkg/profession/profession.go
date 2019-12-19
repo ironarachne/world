@@ -6,63 +6,88 @@ package profession
 import (
 	"fmt"
 	"math/rand"
+	"os"
+
+	"github.com/jmoiron/sqlx"
+	_ "github.com/mattn/go-sqlite3" // sqlite driver
 )
 
 // Profession is a person with a particular skillset that can make a resource
 type Profession struct {
-	Name        string   `json:"name"`
-	Description string   `json:"description"`
+	ID          int      `json:"id" db:"id"`
+	Name        string   `json:"name" db:"name"`
+	Description string   `json:"description" db:"description"`
 	Tags        []string `json:"tags"`
 }
 
 // All returns all professions
-func All() []Profession {
+func All() ([]Profession, error) {
 	var professions []Profession
+	var all []Profession
 	var result []Profession
+	var tags []string
 
-	blacksmiths := blacksmiths()
-	professions = append(professions, blacksmiths...)
-	fighters := fighters()
-	professions = append(professions, fighters...)
-	finishers := finishers()
-	professions = append(professions, finishers...)
-	mages := mages()
-	professions = append(professions, mages...)
-	refiners := refiners()
-	professions = append(professions, refiners...)
-	social := social()
-	professions = append(professions, social...)
+	db, err := sqlx.Connect("sqlite3", os.Getenv("WORLDAPI_DATA_PATH")+"/data.db")
+	if err != nil {
+		err = fmt.Errorf("could not open database: %w", err)
+		return []Profession{}, nil
+	}
+
+	db.Select(&professions, "SELECT * FROM professions")
+
+	for _, prof := range professions {
+		db.Select(&tags, "SELECT tag FROM profession_tags WHERE profession_id = ?", prof.ID)
+		prof.Tags = tags
+		all = append(all, prof)
+	}
+
+	db.Close()
+
+	if len(all) == 0 {
+		err = fmt.Errorf("no professions returned from database")
+		return []Profession{}, err
+	}
+
 	none := Profession{
 		Name:        "none",
 		Description: "no profession",
 	}
-	professions = append(professions, none)
+	all = append(all, none)
 
-	for _, p := range professions {
+	for _, p := range all {
 		p.Tags = append(p.Tags, p.Name)
 		result = append(result, p)
 	}
 
-	return result
+	return result, nil
 }
 
 // ByName returns a profession by name
-func ByName(name string) Profession {
-	professions := All()
+func ByName(name string) (Profession, error) {
+	professions, err := All()
+	if err != nil {
+		err = fmt.Errorf("could not fetch professions: %w", err)
+		return Profession{}, nil
+	}
 
 	for _, p := range professions {
 		if p.Name == name {
-			return p
+			return p, nil
 		}
 	}
 
-	panic("Profession " + name + " not found!")
+	err = fmt.Errorf("could not find profession by name: %s", name)
+	return Profession{}, nil
 }
 
 // ByTag returns a slice of professions that have the given tag
-func ByTag(tag string) []Profession {
+func ByTag(tag string) ([]Profession, error) {
 	var professions []Profession
-	all := All()
+	all, err := All()
+	if err != nil {
+		err = fmt.Errorf("could not fetch professions: %w", err)
+		return []Profession{}, nil
+	}
 
 	for _, p := range all {
 		if p.HasTag(tag) {
@@ -70,7 +95,7 @@ func ByTag(tag string) []Profession {
 		}
 	}
 
-	return professions
+	return professions, nil
 }
 
 // HasTag returns true if the profession has a given tag
@@ -85,12 +110,25 @@ func (profession Profession) HasTag(tag string) bool {
 }
 
 // Random returns a random profession
-func Random() Profession {
-	professions := All()
+func Random() (Profession, error) {
+	professions, err := All()
+	if err != nil {
+		err = fmt.Errorf("could not fetch professions: %w", err)
+		return Profession{}, err
+	}
+
+	if len(professions) == 0 {
+		err = fmt.Errorf("found no professions to select from")
+		return Profession{}, err
+	}
+
+	if len(professions) == 1 {
+		return professions[0], nil
+	}
 
 	profession := professions[rand.Intn(len(professions))]
 
-	return profession
+	return profession, nil
 }
 
 // RandomSet returns a random number of professions from a given set of professions
@@ -99,7 +137,7 @@ func RandomSet(max int, possible []Profession) ([]Profession, error) {
 	profession := Profession{}
 
 	if len(possible) == 0 {
-		err := fmt.Errorf("No possible professions given")
+		err := fmt.Errorf("no possible professions given")
 		return []Profession{}, err
 	}
 

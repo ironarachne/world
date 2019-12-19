@@ -5,7 +5,7 @@ import (
 )
 
 func getLogging() []Pattern {
-	producer := profession.ByName("logger")
+	producer, _ := profession.ByName("logger")
 
 	patterns := []Pattern{
 		{

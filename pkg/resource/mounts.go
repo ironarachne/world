@@ -3,7 +3,7 @@ package resource
 import "github.com/ironarachne/world/pkg/profession"
 
 func getMounts() []Pattern {
-	producer := profession.ByName("animal trainer")
+	producer, _ := profession.ByName("animal trainer")
 
 	patterns := []Pattern{
 		{

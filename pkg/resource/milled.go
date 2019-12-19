@@ -3,7 +3,7 @@ package resource
 import "github.com/ironarachne/world/pkg/profession"
 
 func getMilled() []Pattern {
-	producer := profession.ByName("miller")
+	producer, _ := profession.ByName("miller")
 
 	patterns := []Pattern{
 		{

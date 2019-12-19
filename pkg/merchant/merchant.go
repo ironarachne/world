@@ -26,7 +26,7 @@ func Generate(originTown town.Town) (Merchant, error) {
 		err = fmt.Errorf("Could not generate merchant: %w", err)
 		return Merchant{}, err
 	}
-	character.Profession = profession.ByName("merchant")
+	character.Profession, _ = profession.ByName("merchant")
 
 	goods := goods.GenerateMerchantGoods(10, 30, originTown.Resources)
 

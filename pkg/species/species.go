@@ -14,19 +14,19 @@ import (
 
 // Species is a species of living thing
 type Species struct {
-	Name           string              `json:"name"`
-	PluralName     string              `json:"plural_name"`
-	Adjective      string              `json:"adjective"`
-	Commonality    int                 `json:"commonality"`
-	PossibleTraits []trait.Template    `json:"possible_traits"` // Traits that individuals of this species *might* have
-	CommonTraits   []trait.Template    `json:"common_traits"`   // Traits that all members of this species share
-	AgeCategories  []age.Category      `json:"age_categories"`
-	MinHumidity    int                 `json:"min_humidity"`
-	MaxHumidity    int                 `json:"max_humidity"`
-	MinTemperature int                 `json:"min_temperature"`
-	MaxTemperature int                 `json:"max_temperature"`
-	Resources      []resource.Resource `json:"resources"` // These are resources that can be derived from this species
-	Tags           []string            `json:"tags"`
+	Name           string              `json:"name" db:"name"`
+	PluralName     string              `json:"plural_name" db:"plural_name"`
+	Adjective      string              `json:"adjective" db:"adjective"`
+	Commonality    int                 `json:"commonality" db:"commonality"`
+	PossibleTraits []trait.Template    `json:"possible_traits" db:"possible_traits"` // Traits that individuals of this species *might* have
+	CommonTraits   []trait.Template    `json:"common_traits" db:"common_traits"`     // Traits that all members of this species share
+	AgeCategories  []age.Category      `json:"age_categories" db:"age_categories"`
+	MinHumidity    int                 `json:"min_humidity" db:"humidity_min"`
+	MaxHumidity    int                 `json:"max_humidity" db:"humidity_max"`
+	MinTemperature int                 `json:"min_temperature" db:"temperature_min"`
+	MaxTemperature int                 `json:"max_temperature" db:"temperature_max"`
+	Resources      []resource.Resource `json:"resources" db:"resources"` // These are resources that can be derived from this species
+	Tags           []string            `json:"tags" db:"tags"`
 }
 
 // ByResource returns a slice of species that have the given resource

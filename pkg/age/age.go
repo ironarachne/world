@@ -14,18 +14,18 @@ import (
 
 // Category is metadata about a general age
 type Category struct {
-	Name             string        `json:"name"`
-	MinAge           int           `json:"min_age"`
-	MaxAge           int           `json:"max_age"`
-	MaleHeightBase   int           `json:"male_height_base"`
-	FemaleHeightBase int           `json:"female_height_base"`
-	HeightRangeDice  dice.Dice     `json:"height_range_dice"`
-	MaleWeightBase   int           `json:"male_weight_base"`
-	FemaleWeightBase int           `json:"female_weight_base"`
-	WeightModifier   int           `json:"weight_modifier"`
-	WeightRangeDice  dice.Dice     `json:"weight_range_dice"`
-	SizeCategory     size.Category `json:"size_category"`
-	Commonality      int           `json:"commonality"`
+	Name             string        `json:"name" db:"name"`
+	MinAge           int           `json:"age_min" db:"age_min"`
+	MaxAge           int           `json:"age_max" db:"age_max"`
+	MaleHeightBase   int           `json:"male_height_base" db:"male_height_base"`
+	FemaleHeightBase int           `json:"female_height_base" db:"female_height_base"`
+	HeightRangeDice  dice.Dice     `json:"height_range_dice" db:"height_range_dice"`
+	MaleWeightBase   int           `json:"male_weight_base" db:"male_weight_base"`
+	FemaleWeightBase int           `json:"female_weight_base" db:"female_weight_base"`
+	WeightModifier   int           `json:"weight_modifier" db:"weight_modifier"`
+	WeightRangeDice  dice.Dice     `json:"weight_range_dice" db:"weight_range_dice"`
+	SizeCategory     size.Category `json:"size_category" db:"size_category"`
+	Commonality      int           `json:"commonality" db:"commonality"`
 }
 
 // GetCategoryByName returns the age category given a name
