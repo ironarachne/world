@@ -16,6 +16,8 @@ import (
 	"github.com/ironarachne/world/pkg/writing"
 )
 
+const languageError = "failed to generate language: %w"
+
 var (
 	consonants = []string{"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"}
 	breaths    = []string{"h", "th", "f", "ch", "sh"}
@@ -44,7 +46,7 @@ func deriveLanguageAdjective(name string) (string, error) {
 
 	suffix, err := random.String(potentialSuffixes)
 	if err != nil {
-		err = fmt.Errorf("Could not generate language adjective: %w", err)
+		err = fmt.Errorf("failed to generate language adjective: %w", err)
 		return "", err
 	}
 
@@ -71,14 +73,14 @@ func Generate() (language.Language, Category, error) {
 	// Language name, adjective, and descriptors
 	name, err := randomLanguageName(langCategory)
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	lang.Name = strings.Title(name)
 	lang.Descriptors = append(lang.Descriptors, langCategory.Descriptors...)
 	adjective, err := deriveLanguageAdjective(lang.Name)
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	lang.Adjective = adjective
@@ -97,7 +99,7 @@ func Generate() (language.Language, Category, error) {
 	// Writing system generation
 	writingSystem, err := writing.Generate()
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	lang.WritingSystem = writingSystem
@@ -106,7 +108,7 @@ func Generate() (language.Language, Category, error) {
 	// Word list generation
 	wordList, err := GenerateWordList(langCategory)
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	lang.WordList = wordList
@@ -114,7 +116,7 @@ func Generate() (language.Language, Category, error) {
 	// Verb conjugation rules generation
 	verbConjugationRules, err := deriveConjugationRules(langCategory)
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	lang.VerbConjugationRules = verbConjugationRules
@@ -141,22 +143,22 @@ func Generate() (language.Language, Category, error) {
 	// Name generation
 	femaleNames, err := GenerateNameList(100, langCategory, "female")
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	maleNames, err := GenerateNameList(100, langCategory, "male")
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	familyNames, err := GenerateNameList(100, langCategory, "family")
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	townNames, err := GenerateNameList(100, langCategory, "town")
 	if err != nil {
-		err = fmt.Errorf("Could not generate language: %w", err)
+		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	lang.FemaleFirstNames = femaleNames
@@ -170,6 +172,8 @@ func Generate() (language.Language, Category, error) {
 }
 
 func deriveConjugationRules(langCategory Category) (language.ConjugationRules, error) {
+	rootTemplate := "{{.Root}}"
+
 	continuousSuffix, err := randomSyllable(langCategory, "finisher")
 	if err != nil {
 		err = fmt.Errorf("Could not generate conjugation rules: %w", err)
@@ -182,18 +186,18 @@ func deriveConjugationRules(langCategory Category) (language.ConjugationRules, e
 	}
 
 	rules := language.ConjugationRules{
-		SimplePresent:            "{{.Root}}",
-		SimplePast:               "{{.Root}}" + pastSuffix,
-		SimpleFuture:             "{{.Root}}",
-		PresentContinuous:        "{{.Root}}" + continuousSuffix,
-		PastContinuous:           "{{.Root}}" + continuousSuffix,
-		FutureContinuous:         "{{.Root}}" + continuousSuffix,
-		PresentPerfect:           "{{.Root}}" + pastSuffix,
-		PastPerfect:              "{{.Root}}" + pastSuffix,
-		FuturePerfect:            "{{.Root}}" + pastSuffix,
-		PresentPerfectContinuous: "{{.Root}}" + continuousSuffix,
-		PastPerfectContinuous:    "{{.Root}}" + continuousSuffix,
-		FuturePerfectContinuous:  "{{.Root}}" + continuousSuffix,
+		SimplePresent:            rootTemplate,
+		SimplePast:               rootTemplate + pastSuffix,
+		SimpleFuture:             rootTemplate,
+		PresentContinuous:        rootTemplate + continuousSuffix,
+		PastContinuous:           rootTemplate + continuousSuffix,
+		FutureContinuous:         rootTemplate + continuousSuffix,
+		PresentPerfect:           rootTemplate + pastSuffix,
+		PastPerfect:              rootTemplate + pastSuffix,
+		FuturePerfect:            rootTemplate + pastSuffix,
+		PresentPerfectContinuous: rootTemplate + continuousSuffix,
+		PastPerfectContinuous:    rootTemplate + continuousSuffix,
+		FuturePerfectContinuous:  rootTemplate + continuousSuffix,
 	}
 
 	return rules, nil

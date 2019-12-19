@@ -8,6 +8,8 @@ import (
 	"github.com/ironarachne/world/pkg/species"
 )
 
+const plantError = "failed to populate climate with plants: %w"
+
 func (gen Generator) getPlants(humidity int, temperature int) ([]species.Species, error) {
 	allPlants := plant.All()
 	plants := getFilteredPlants(humidity, temperature)
@@ -18,19 +20,19 @@ func (gen Generator) getPlants(humidity int, temperature int) ([]species.Species
 
 	randomFabricFiber, err := species.RandomWithResourceTag("fabric fiber", allPlants)
 	if err != nil {
-		err = fmt.Errorf("Could not populate climate: %w", err)
+		err = fmt.Errorf(plantError, err)
 		return []species.Species{}, err
 	}
 
 	randomGrain, err := species.RandomWithResourceTag("grain", allPlants)
 	if err != nil {
-		err = fmt.Errorf("Could not populate climate: %w", err)
+		err = fmt.Errorf(plantError, err)
 		return []species.Species{}, err
 	}
 
 	randomFruit, err := species.RandomWithResourceTag("fruit", allPlants)
 	if err != nil {
-		err = fmt.Errorf("Could not populate climate: %w", err)
+		err = fmt.Errorf(plantError, err)
 		return []species.Species{}, err
 	}
 

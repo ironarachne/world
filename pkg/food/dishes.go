@@ -9,6 +9,8 @@ import (
 	"github.com/ironarachne/world/pkg/words"
 )
 
+const dishError = "failed to generate dish: %w"
+
 func getFlavors() []string {
 	return []string{
 		"aromatic",
@@ -52,32 +54,32 @@ func (style Style) randomMainDish() (string, error) {
 	allFlavors := getFlavors()
 	flavors, err := random.StringSubset(allFlavors, 2)
 	if err != nil {
-		err = fmt.Errorf("Could not generate dish: %w", err)
+		err = fmt.Errorf(dishError, err)
 		return "", err
 	}
 
 	flavorProfile = words.CombinePhrases(flavors)
 	base, err = random.String(style.CommonBases)
 	if err != nil {
-		err = fmt.Errorf("Could not generate dish: %w", err)
+		err = fmt.Errorf(dishError, err)
 		return "", err
 	}
 	treatment, err = style.getRandomTreatment()
 	if err != nil {
-		err = fmt.Errorf("Could not generate dish: %w", err)
+		err = fmt.Errorf(dishError, err)
 		return "", err
 	}
 
 	allSpices, err := random.StringSubset(style.CommonSpices, 3)
 	if err != nil {
-		err = fmt.Errorf("Could not generate dish: %w", err)
+		err = fmt.Errorf(dishError, err)
 		return "", err
 	}
 	spices = words.CombinePhrases(allSpices)
 
 	technique, err := random.String(style.CookingTechniques)
 	if err != nil {
-		err = fmt.Errorf("Could not generate dish: %w", err)
+		err = fmt.Errorf(dishError, err)
 		return "", err
 	}
 	dish = flavorProfile + " " + technique + " " + base + treatment

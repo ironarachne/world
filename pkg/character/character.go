@@ -21,6 +21,10 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
+const characterError = "failed to generate character: %w"
+const coupleError = "failed to generate couple: %w"
+const cultureNameError = "failed to generate appropriate name for culture: %w"
+
 // Character is a character
 type Character struct {
 	FirstName      string                `json:"first_name"`
@@ -61,21 +65,21 @@ type Family struct {
 func getAppropriateName(gender string, culture culture.Culture) (string, string, error) {
 	firstName, err := culture.Language.RandomMaleFirstName()
 	if err != nil {
-		err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
+		err = fmt.Errorf(cultureNameError, err)
 		return "", "", err
 	}
 
 	if gender == "female" {
 		firstName, err = culture.Language.RandomFemaleFirstName()
 		if err != nil {
-			err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
+			err = fmt.Errorf(cultureNameError, err)
 			return "", "", err
 		}
 	}
 
 	lastName, err := culture.Language.RandomFamilyName()
 	if err != nil {
-		err = fmt.Errorf("Could not generate appropriate name for culture: %w", err)
+		err = fmt.Errorf(cultureNameError, err)
 		return "", "", err
 	}
 
@@ -91,7 +95,7 @@ func randomOrientation() (string, error) {
 
 	orientation, err := random.StringFromThresholdMap(orientations)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random sexual orientation: %w", err)
+		err = fmt.Errorf("failed to generate random sexual orientation: %w", err)
 		return "", err
 	}
 
@@ -109,7 +113,7 @@ func Generate(originCulture culture.Culture) (Character, error) {
 
 	firstName, lastName, err := getAppropriateName(char.Gender.Name, char.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	char.FirstName = firstName
@@ -117,7 +121,7 @@ func Generate(originCulture culture.Culture) (Character, error) {
 
 	ageCategory, err := age.GetWeightedAgeCategory(char.Race.AgeCategories)
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	char.AgeCategory = ageCategory
@@ -125,7 +129,7 @@ func Generate(originCulture culture.Culture) (Character, error) {
 
 	orientation, err := randomOrientation()
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	char.Orientation = orientation
@@ -133,20 +137,20 @@ func Generate(originCulture culture.Culture) (Character, error) {
 	char.Hobby = char.getRandomHobby()
 	motivation, err := getRandomMotivation()
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	char.Motivation = motivation
 
 	negativeTraits, err := getRandomNegativeTraits(2)
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	char.NegativeTraits = negativeTraits
 	positiveTraits, err := getRandomPositiveTraits(3)
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	char.PositiveTraits = positiveTraits
@@ -156,7 +160,7 @@ func Generate(originCulture culture.Culture) (Character, error) {
 	for _, i := range char.Race.CommonTraits {
 		t, err = i.ToTrait()
 		if err != nil {
-			err = fmt.Errorf("Could not generate character: %w", err)
+			err = fmt.Errorf(characterError, err)
 			return Character{}, err
 		}
 		raceTraits = append(raceTraits, t)
@@ -166,12 +170,12 @@ func Generate(originCulture culture.Culture) (Character, error) {
 	possibleTraits = append(possibleTraits, race.GetCommonPossibleTraits()...)
 	uniqueTraitTemplate, err := trait.RandomTemplate(possibleTraits)
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	uniqueTrait, err := uniqueTraitTemplate.ToTrait()
 	if err != nil {
-		err = fmt.Errorf("Could not generate character: %w", err)
+		err = fmt.Errorf(characterError, err)
 		return Character{}, err
 	}
 	raceTraits = append(raceTraits, uniqueTrait)
@@ -187,12 +191,12 @@ func Generate(originCulture culture.Culture) (Character, error) {
 func GenerateCouple() (Couple, error) {
 	char1, err := Random()
 	if err != nil {
-		err = fmt.Errorf("Could not generate couple: %w", err)
+		err = fmt.Errorf(coupleError, err)
 		return Couple{}, err
 	}
 	char2, err := Generate(char1.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate couple: %w", err)
+		err = fmt.Errorf(coupleError, err)
 		return Couple{}, err
 	}
 	canHaveChildren := false
@@ -222,7 +226,7 @@ func GenerateCouple() (Couple, error) {
 
 	partnerFirstName, _, err := getAppropriateName(char2.Gender.Name, char2.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate couple: %w", err)
+		err = fmt.Errorf(coupleError, err)
 		return Couple{}, err
 	}
 	char2.FirstName = partnerFirstName

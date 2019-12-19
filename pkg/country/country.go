@@ -14,6 +14,8 @@ import (
 	"github.com/ironarachne/world/pkg/worldmap"
 )
 
+const countryError = "failed to generate country: %w"
+
 // Country is a geographic and political area
 type Country struct {
 	Name            string
@@ -31,25 +33,25 @@ func Generate() (Country, error) {
 
 	dominantCulture, err := culture.Random()
 	if err != nil {
-		err = fmt.Errorf("Could not generate country: %w", err)
+		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.DominantCulture = dominantCulture
 	government, err := country.getNewMonarchy()
 	if err != nil {
-		err = fmt.Errorf("Could not generate country: %w", err)
+		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.Government = government
 	device, err := heraldry.Generate()
 	if err != nil {
-		err = fmt.Errorf("Could not generate country: %w", err)
+		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.Heraldry = device
 	name, err := country.DominantCulture.Language.RandomFamilyName()
 	if err != nil {
-		err = fmt.Errorf("Could not generate country: %w", err)
+		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.Name = name
@@ -59,7 +61,7 @@ func Generate() (Country, error) {
 	for i := 0; i < size; i++ {
 		r, err := region.Generate(country.DominantCulture.HomeClimate, country.DominantCulture)
 		if err != nil {
-			err = fmt.Errorf("Could not generate country: %w", err)
+			err = fmt.Errorf(countryError, err)
 			return Country{}, err
 		}
 		regions = append(regions, r)

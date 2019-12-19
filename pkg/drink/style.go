@@ -8,6 +8,10 @@ import (
 	"github.com/ironarachne/world/pkg/resource"
 )
 
+const drinkingCultureStyleError = "failed to generate drinking culture style: %w"
+const drinkingSocialRuleError = "failed to generate random drinking social rules: %w"
+const toastingRuleError = "failed to generate random toasting rules: %w"
+
 // Style is a type of drinking culture
 type Style struct {
 	TheToast           string           `json:"the_toast"`
@@ -20,25 +24,25 @@ type Style struct {
 func Generate(lang language.Language, resources []resource.Resource) (Style, error) {
 	unique, err := generateUniqueDrinkPattern(lang, resources)
 	if err != nil {
-		err = fmt.Errorf("could not generate drinking culture style: %w", err)
+		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
 	}
 
 	socialRules, err := getSocialRules()
 	if err != nil {
-		err = fmt.Errorf("could not generate drinking culture style: %w", err)
+		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
 	}
 
 	toastingRules, err := getToastingRules()
 	if err != nil {
-		err = fmt.Errorf("could not generate drinking culture style: %w", err)
+		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
 	}
 
 	theToast, err := lang.NewWord()
 	if err != nil {
-		err = fmt.Errorf("could not generate drinking culture style: %w", err)
+		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
 	}
 
@@ -62,7 +66,7 @@ func getSocialRules() ([]string, error) {
 
 	age, err := random.String(allAges)
 	if err != nil {
-		err = fmt.Errorf("could not generate random drinking social rules: %w", err)
+		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
 	}
 
@@ -77,7 +81,7 @@ func getSocialRules() ([]string, error) {
 
 	class, err := random.String(allClasses)
 	if err != nil {
-		err = fmt.Errorf("could not generate random drinking social rules: %w", err)
+		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
 	}
 
@@ -92,7 +96,7 @@ func getSocialRules() ([]string, error) {
 
 	speed, err := random.String(allSpeeds)
 	if err != nil {
-		err = fmt.Errorf("could not generate random drinking social rules: %w", err)
+		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
 	}
 
@@ -107,7 +111,7 @@ func getSocialRules() ([]string, error) {
 
 	pour, err := random.String(allPours)
 	if err != nil {
-		err = fmt.Errorf("could not generate random drinking social rules: %w", err)
+		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
 	}
 
@@ -128,7 +132,7 @@ func getToastingRules() ([]string, error) {
 
 	lead, err := random.String(allLead)
 	if err != nil {
-		err = fmt.Errorf("could not generate random toasting rules: %w", err)
+		err = fmt.Errorf(toastingRuleError, err)
 		return []string{}, err
 	}
 
@@ -143,7 +147,7 @@ func getToastingRules() ([]string, error) {
 
 	freq, err := random.String(allFrequencies)
 	if err != nil {
-		err = fmt.Errorf("could not generate random toasting rules: %w", err)
+		err = fmt.Errorf(toastingRuleError, err)
 		return []string{}, err
 	}
 
@@ -158,7 +162,7 @@ func getToastingRules() ([]string, error) {
 
 	motion, err := random.String(allMotions)
 	if err != nil {
-		err = fmt.Errorf("could not generate random toasting rules: %w", err)
+		err = fmt.Errorf(toastingRuleError, err)
 		return []string{}, err
 	}
 

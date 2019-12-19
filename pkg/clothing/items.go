@@ -7,6 +7,9 @@ import (
 	"github.com/ironarachne/world/pkg/random"
 )
 
+const itemError = "failed to get item from template: %w"
+const outfitError = "failed to generate outfit: %w"
+
 // ItemTemplate is a pattern for constructing an item
 type ItemTemplate struct {
 	Name            string   `json:"name"`
@@ -37,7 +40,7 @@ func addMaterials(items []Item, hides []string, fabrics []string) ([]Item, error
 		if i.MaterialType == "fabric" {
 			material, err = random.String(fabrics)
 			if err != nil {
-				err = fmt.Errorf("Could not set fabric material: %w", err)
+				err = fmt.Errorf("failed to set fabric material: %w", err)
 				return []Item{}, err
 			}
 			newItem.Material = material
@@ -45,7 +48,7 @@ func addMaterials(items []Item, hides []string, fabrics []string) ([]Item, error
 		} else if i.MaterialType == "hide" {
 			material, err = random.String(hides)
 			if err != nil {
-				err = fmt.Errorf("Could not set hide material: %w", err)
+				err = fmt.Errorf("failed to set hide material: %w", err)
 				return []Item{}, err
 			}
 			newItem.Material = material
@@ -73,14 +76,14 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 			if dressChance > 30 {
 				item, err = getRandomDress()
 				if err != nil {
-					err = fmt.Errorf("Could not generate outfit: %w", err)
+					err = fmt.Errorf(outfitError, err)
 					return []Item{}, err
 				}
 				items = append(items, item)
 			} else {
 				item, err = getRandomRobe()
 				if err != nil {
-					err = fmt.Errorf("Could not generate outfit: %w", err)
+					err = fmt.Errorf(outfitError, err)
 					return []Item{}, err
 				}
 				items = append(items, item)
@@ -88,7 +91,7 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 		} else {
 			item, err = getRandomRobe()
 			if err != nil {
-				err = fmt.Errorf("Could not generate outfit: %w", err)
+				err = fmt.Errorf(outfitError, err)
 				return []Item{}, err
 			}
 			items = append(items, item)
@@ -96,13 +99,13 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 	} else {
 		item, err = getRandomTop()
 		if err != nil {
-			err = fmt.Errorf("Could not generate outfit: %w", err)
+			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
 		item, err = getRandomBottom()
 		if err != nil {
-			err = fmt.Errorf("Could not generate outfit: %w", err)
+			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
@@ -111,19 +114,19 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 	if temperature < 5 {
 		item, err = getRandomHandwear()
 		if err != nil {
-			err = fmt.Errorf("Could not generate outfit: %w", err)
+			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
 		item, err = getRandomOverwear()
 		if err != nil {
-			err = fmt.Errorf("Could not generate outfit: %w", err)
+			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
 		item, err = getRandomBoots()
 		if err != nil {
-			err = fmt.Errorf("Could not generate outfit: %w", err)
+			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
@@ -132,14 +135,14 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 		if footwearChance > 50 {
 			item, err = getRandomShoes()
 			if err != nil {
-				err = fmt.Errorf("Could not generate outfit: %w", err)
+				err = fmt.Errorf(outfitError, err)
 				return []Item{}, err
 			}
 			items = append(items, item)
 		} else {
 			item, err = getRandomBoots()
 			if err != nil {
-				err = fmt.Errorf("Could not generate outfit: %w", err)
+				err = fmt.Errorf(outfitError, err)
 				return []Item{}, err
 			}
 			items = append(items, item)
@@ -150,7 +153,7 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 	if hatChance > 60 {
 		item, err = getRandomHat()
 		if err != nil {
-			err = fmt.Errorf("Could not generate outfit: %w", err)
+			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
@@ -160,7 +163,7 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 	if waistChance > 20 {
 		item, err = getRandomWaist()
 		if err != nil {
-			err = fmt.Errorf("Could not generate outfit: %w", err)
+			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
@@ -168,7 +171,7 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 
 	finished, err := addMaterials(items, hides, fabrics)
 	if err != nil {
-		err = fmt.Errorf("Could not add materials: %w", err)
+		err = fmt.Errorf("failed to add materials: %w", err)
 		return []Item{}, err
 	}
 
@@ -190,21 +193,21 @@ func getItemFromTemplate(template ItemTemplate) (Item, error) {
 
 	modifier, err := random.StringFromThresholdMap(weights)
 	if err != nil {
-		err = fmt.Errorf("Could not get item from template: %w", err)
+		err = fmt.Errorf(itemError, err)
 		return Item{}, err
 	}
 
 	if modifier == "prefix" {
 		prefix, err := random.String(template.PrefixModifiers)
 		if err != nil {
-			err = fmt.Errorf("Could not get item from template: %w", err)
+			err = fmt.Errorf(itemError, err)
 			return Item{}, err
 		}
 		item.PrefixModifier = prefix
 	} else if modifier == "suffix" {
 		suffix, err := random.String(template.SuffixModifiers)
 		if err != nil {
-			err = fmt.Errorf("Could not get item from template: %w", err)
+			err = fmt.Errorf(itemError, err)
 			return Item{}, err
 		}
 		item.SuffixModifier = suffix

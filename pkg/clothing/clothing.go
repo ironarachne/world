@@ -13,6 +13,8 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
+const clothingError = "failed to generate clothing style: %w"
+
 // Style describes what kind of clothing the culture wears
 type Style struct {
 	FemaleOutfit    []Item   `json:"female_outfit"`
@@ -31,34 +33,34 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 
 	femaleOutfit, err := GenerateOutfit(originClimate.Temperature, hides, fabrics, "female")
 	if err != nil {
-		err = fmt.Errorf("Could not generate clothing style: %w", err)
+		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.FemaleOutfit = femaleOutfit
 	maleOutfit, err := GenerateOutfit(originClimate.Temperature, hides, fabrics, "male")
 	if err != nil {
-		err = fmt.Errorf("Could not generate clothing style: %w", err)
+		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.MaleOutfit = maleOutfit
 
 	jewelry, err := generateJewelry(originClimate)
 	if err != nil {
-		err = fmt.Errorf("Could not generate clothing style: %w", err)
+		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.CommonJewelry = jewelry
 
 	decorativeStyle, err := randomDecorativeStyle(originClimate)
 	if err != nil {
-		err = fmt.Errorf("Could not generate clothing style: %w", err)
+		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.DecorativeStyle = decorativeStyle
 
 	colors, err := randomColorSet()
 	if err != nil {
-		err = fmt.Errorf("Could not generate clothing style: %w", err)
+		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.CommonColors = colors
@@ -189,13 +191,13 @@ func randomSaturation() (string, error) {
 func Random() (Style, error) {
 	originClimate, err := climate.Generate()
 	if err != nil {
-		err = fmt.Errorf("Could not generate clothing style: %w", err)
+		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 
 	style, err := GenerateStyle(originClimate)
 	if err != nil {
-		err = fmt.Errorf("Could not generate clothing style: %w", err)
+		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 

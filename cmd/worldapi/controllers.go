@@ -29,6 +29,8 @@ import (
 	"github.com/ironarachne/world/pkg/world"
 )
 
+const contentType = "Content-Type"
+
 func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
@@ -648,7 +650,7 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	}
 	str.WriteString("</ul>")
 
-	w.Header().Set("Content-Type", "text/html")
+	w.Header().Set(contentType, "text/html")
 	w.Write([]byte(str.String()))
 }
 
@@ -754,7 +756,7 @@ func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
 	}
 	o := l.WorldMap.RenderAsSVG()
 
-	w.Header().Set("Content-Type", "image/svg+xml")
+	w.Header().Set(contentType, "image/svg+xml")
 	w.Write([]byte(o))
 }
 
@@ -776,7 +778,7 @@ func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
 	}
 	o := l.WorldMap.RenderAsText()
 
-	w.Header().Set("Content-Type", "image/svg+xml")
+	w.Header().Set(contentType, "image/svg+xml")
 	w.Write([]byte(o))
 }
 

@@ -6,6 +6,8 @@ package heavens
 
 import "fmt"
 
+const heavensError = "failed to generate random heavens: %w"
+
 // Heavens is the composition of the sky
 type Heavens struct {
 	Suns  []Sun
@@ -19,19 +21,19 @@ func Generate() (Heavens, error) {
 
 	suns, err := getRandomSuns()
 	if err != nil {
-		err = fmt.Errorf("Failed to generate random heavens: %w", err)
+		err = fmt.Errorf(heavensError, err)
 		return Heavens{}, err
 	}
 	heavens.Suns = suns
 	moons, err := getRandomMoons()
 	if err != nil {
-		err = fmt.Errorf("Failed to generate random heavens: %w", err)
+		err = fmt.Errorf(heavensError, err)
 		return Heavens{}, err
 	}
 	heavens.Moons = moons
 	stars, err := getRandomStars()
 	if err != nil {
-		err = fmt.Errorf("Failed to generate random heavens: %w", err)
+		err = fmt.Errorf(heavensError, err)
 		return Heavens{}, err
 	}
 	heavens.Stars = stars

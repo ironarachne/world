@@ -7,6 +7,8 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
+const traitError = "failed to generate trait: %w"
+
 func getAllTraits() []string {
 	traits := getNegativeTraits()
 	positiveTraits := getPositiveTraits()
@@ -631,7 +633,7 @@ func getRandomTrait() (string, error) {
 
 	trait, err := random.String(traits)
 	if err != nil {
-		err = fmt.Errorf("Could not generate trait: %w", err)
+		err = fmt.Errorf(traitError, err)
 		return "", err
 	}
 	return trait, nil
@@ -647,13 +649,13 @@ func getRandomNegativeTraits(max int) ([]string, error) {
 	for i := 0; i < max; i++ {
 		trait, err = random.String(possibleTraits)
 		if err != nil {
-			err = fmt.Errorf("Could not generate trait: %w", err)
+			err = fmt.Errorf(traitError, err)
 			return []string{}, err
 		}
 		for slices.StringIn(trait, traits) {
 			trait, err = random.String(possibleTraits)
 			if err != nil {
-				err = fmt.Errorf("Could not generate trait: %w", err)
+				err = fmt.Errorf(traitError, err)
 				return []string{}, err
 			}
 		}
@@ -673,13 +675,13 @@ func getRandomPositiveTraits(max int) ([]string, error) {
 	for i := 0; i < max; i++ {
 		trait, err = random.String(possibleTraits)
 		if err != nil {
-			err = fmt.Errorf("Could not generate trait: %w", err)
+			err = fmt.Errorf(traitError, err)
 			return []string{}, err
 		}
 		for slices.StringIn(trait, traits) {
 			trait, err = random.String(possibleTraits)
 			if err != nil {
-				err = fmt.Errorf("Could not generate trait: %w", err)
+				err = fmt.Errorf(traitError, err)
 				return []string{}, err
 			}
 		}
@@ -699,13 +701,13 @@ func getRandomTraits() ([]string, error) {
 	for i := 0; i < 2; i++ {
 		trait, err = random.String(possibleTraits)
 		if err != nil {
-			err = fmt.Errorf("Could not generate trait: %w", err)
+			err = fmt.Errorf(traitError, err)
 			return []string{}, err
 		}
 		for slices.StringIn(trait, traits) {
 			trait, err = random.String(possibleTraits)
 			if err != nil {
-				err = fmt.Errorf("Could not generate trait: %w", err)
+				err = fmt.Errorf(traitError, err)
 				return []string{}, err
 			}
 		}
