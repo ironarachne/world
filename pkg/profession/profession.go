@@ -109,26 +109,21 @@ func (profession Profession) HasTag(tag string) bool {
 	return false
 }
 
-// Random returns a random profession
+// Random returns a single random profession from all professions
 func Random() (Profession, error) {
-	professions, err := All()
+	all, err := All()
 	if err != nil {
 		err = fmt.Errorf("could not fetch professions: %w", err)
 		return Profession{}, err
 	}
 
-	if len(professions) == 0 {
-		err = fmt.Errorf("found no professions to select from")
+	professions, err := RandomSet(1, all)
+	if err != nil {
+		err = fmt.Errorf("could not get random profession: %w", err)
 		return Profession{}, err
 	}
 
-	if len(professions) == 1 {
-		return professions[0], nil
-	}
-
-	profession := professions[rand.Intn(len(professions))]
-
-	return profession, nil
+	return professions[0], nil
 }
 
 // RandomSet returns a random number of professions from a given set of professions
