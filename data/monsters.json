@@ -1,0 +1,645 @@
+{
+  "species": [{
+    "name": "black dragon",
+    "plural_name": "black dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "black dragon bone",
+      "description": "",
+      "main_material": "black dragon bone",
+      "origin": "black dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "black dragon fang",
+      "description": "",
+      "main_material": "black dragon fang",
+      "origin": "black dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "black dragon",
+      "description": "",
+      "main_material": "black dragon",
+      "origin": "black dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "black dragon scale",
+      "description": "",
+      "main_material": "black dragon scale",
+      "origin": "black dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "white dragon",
+    "plural_name": "white dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 3,
+    "resources": [{
+      "name": "white dragon bone",
+      "description": "",
+      "main_material": "white dragon bone",
+      "origin": "white dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "white dragon fang",
+      "description": "",
+      "main_material": "white dragon fang",
+      "origin": "white dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "white dragon",
+      "description": "",
+      "main_material": "white dragon",
+      "origin": "white dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "white dragon scale",
+      "description": "",
+      "main_material": "white dragon scale",
+      "origin": "white dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "red dragon",
+    "plural_name": "red dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "red dragon bone",
+      "description": "",
+      "main_material": "red dragon bone",
+      "origin": "red dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "red dragon fang",
+      "description": "",
+      "main_material": "red dragon fang",
+      "origin": "red dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "red dragon",
+      "description": "",
+      "main_material": "red dragon",
+      "origin": "red dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "red dragon scale",
+      "description": "",
+      "main_material": "red dragon scale",
+      "origin": "red dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "green dragon",
+    "plural_name": "green dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 3,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 8,
+    "resources": [{
+      "name": "green dragon bone",
+      "description": "",
+      "main_material": "green dragon bone",
+      "origin": "green dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "green dragon fang",
+      "description": "",
+      "main_material": "green dragon fang",
+      "origin": "green dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "green dragon",
+      "description": "",
+      "main_material": "green dragon",
+      "origin": "green dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "green dragon scale",
+      "description": "",
+      "main_material": "green dragon scale",
+      "origin": "green dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "blue dragon",
+    "plural_name": "blue dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "blue dragon bone",
+      "description": "",
+      "main_material": "blue dragon bone",
+      "origin": "blue dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "blue dragon fang",
+      "description": "",
+      "main_material": "blue dragon fang",
+      "origin": "blue dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "blue dragon",
+      "description": "",
+      "main_material": "blue dragon",
+      "origin": "blue dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "blue dragon scale",
+      "description": "",
+      "main_material": "blue dragon scale",
+      "origin": "blue dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "gold dragon",
+    "plural_name": "gold dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "gold dragon bone",
+      "description": "",
+      "main_material": "gold dragon bone",
+      "origin": "gold dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "gold dragon fang",
+      "description": "",
+      "main_material": "gold dragon fang",
+      "origin": "gold dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "gold dragon",
+      "description": "",
+      "main_material": "gold dragon",
+      "origin": "gold dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "gold dragon scale",
+      "description": "",
+      "main_material": "gold dragon scale",
+      "origin": "gold dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "silver dragon",
+    "plural_name": "silver dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "silver dragon bone",
+      "description": "",
+      "main_material": "silver dragon bone",
+      "origin": "silver dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "silver dragon fang",
+      "description": "",
+      "main_material": "silver dragon fang",
+      "origin": "silver dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "silver dragon",
+      "description": "",
+      "main_material": "silver dragon",
+      "origin": "silver dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "silver dragon scale",
+      "description": "",
+      "main_material": "silver dragon scale",
+      "origin": "silver dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "bronze dragon",
+    "plural_name": "bronze dragons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "bronze dragon bone",
+      "description": "",
+      "main_material": "bronze dragon bone",
+      "origin": "bronze dragon",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "bronze dragon fang",
+      "description": "",
+      "main_material": "bronze dragon fang",
+      "origin": "bronze dragon",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "bronze dragon",
+      "description": "",
+      "main_material": "bronze dragon",
+      "origin": "bronze dragon",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "bronze dragon scale",
+      "description": "",
+      "main_material": "bronze dragon scale",
+      "origin": "bronze dragon",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "drake",
+    "plural_name": "drakes",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "drake bone",
+      "description": "",
+      "main_material": "drake bone",
+      "origin": "drake",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "drake fang",
+      "description": "",
+      "main_material": "drake fang",
+      "origin": "drake",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "drake",
+      "description": "",
+      "main_material": "drake",
+      "origin": "drake",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "drake scale",
+      "description": "",
+      "main_material": "drake scale",
+      "origin": "drake",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "wyvern",
+    "plural_name": "wyverns",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 3,
+    "max_temperature": 10,
+    "resources": [{
+      "name": "wyvern bone",
+      "description": "",
+      "main_material": "wyvern bone",
+      "origin": "wyvern",
+      "tags": ["bone"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "wyvern fang",
+      "description": "",
+      "main_material": "wyvern fang",
+      "origin": "wyvern",
+      "tags": ["fang"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "wyvern",
+      "description": "",
+      "main_material": "wyvern",
+      "origin": "wyvern",
+      "tags": ["meat"],
+      "commonality": 1,
+      "value": 20
+    }, {
+      "name": "wyvern scale",
+      "description": "",
+      "main_material": "wyvern scale",
+      "origin": "wyvern",
+      "tags": ["scale"],
+      "commonality": 2,
+      "value": 20
+    }],
+    "tags": ["draconid"]
+  }, {
+    "name": "cyclops",
+    "plural_name": "cyclopses",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["giant"]
+  }, {
+    "name": "ettin",
+    "plural_name": "ettins",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["giant"]
+  }, {
+    "name": "giant",
+    "plural_name": "giants",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["giant"]
+  }, {
+    "name": "ogre",
+    "plural_name": "ogres",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["giant"]
+  }, {
+    "name": "bugbear",
+    "plural_name": "bugbears",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "bullywug",
+    "plural_name": "bullywugs",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "goblin",
+    "plural_name": "goblins",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "gorgon",
+    "plural_name": "gorgons",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "hobgoblin",
+    "plural_name": "hobgoblins",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "kobold",
+    "plural_name": "kobolds",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "orc",
+    "plural_name": "orcs",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "troglodyte",
+    "plural_name": "troglodytes",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }, {
+    "name": "troll",
+    "plural_name": "trolls",
+    "adjective": "",
+    "commonality": 0,
+    "possible_traits": null,
+    "common_traits": null,
+    "age_categories": null,
+    "min_humidity": 1,
+    "max_humidity": 10,
+    "min_temperature": 1,
+    "max_temperature": 10,
+    "resources": null,
+    "tags": ["humanoid"]
+  }]
+}

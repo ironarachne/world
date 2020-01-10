@@ -9,6 +9,8 @@ import (
 	"github.com/ironarachne/world/pkg/resource"
 )
 
+const jewelryError = "failed to generate jewelry: %w"
+
 func generateJewelry(originClimate climate.Climate) ([]string, error) {
 	var descriptor string
 	var err error
@@ -52,17 +54,17 @@ func generateJewelry(originClimate climate.Climate) ([]string, error) {
 	for i := 0; i < numberOfJewelryPieces; i++ {
 		descriptor, err = random.String(descriptors)
 		if err != nil {
-			err = fmt.Errorf("Could not generate jewelry: %w", err)
+			err = fmt.Errorf(jewelryError, err)
 			return []string{}, err
 		}
 		foundation, err = random.String(foundations)
 		if err != nil {
-			err = fmt.Errorf("Could not generate jewelry: %w", err)
+			err = fmt.Errorf(jewelryError, err)
 			return []string{}, err
 		}
 		setting, err = random.String(settings)
 		if err != nil {
-			err = fmt.Errorf("Could not generate jewelry: %w", err)
+			err = fmt.Errorf(jewelryError, err)
 			return []string{}, err
 		}
 		jewelryItem = descriptor + " " + primaryMaterial.Name + " " + foundation

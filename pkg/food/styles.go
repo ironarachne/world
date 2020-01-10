@@ -12,6 +12,8 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
+const foodStyleError = "failed to generate food style: %w"
+
 // Style is a cultural food style
 type Style struct {
 	Breads             []string `json:"breads"`
@@ -79,32 +81,32 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 
 	techniques, err := randomTechniques(3)
 	if err != nil {
-		err = fmt.Errorf("Could not generate food style: %w", err)
+		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.CookingTechniques = techniques
 
 	desserts, err := style.randomDesserts()
 	if err != nil {
-		err = fmt.Errorf("Could not generate food style: %w", err)
+		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.CommonDesserts = desserts
 	mainDishes, err := style.randomMainDishes()
 	if err != nil {
-		err = fmt.Errorf("Could not generate food style: %w", err)
+		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.CommonMainDishes = mainDishes
 	breads, err := randomBreads(originClimate)
 	if err != nil {
-		err = fmt.Errorf("Could not generate food style: %w", err)
+		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.Breads = breads
 	traits, err := randomEatingTraits()
 	if err != nil {
-		err = fmt.Errorf("Could not generate food style: %w", err)
+		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.EatingTraits = traits
@@ -116,12 +118,12 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 func Random() (Style, error) {
 	originClimate, err := climate.Generate()
 	if err != nil {
-		err = fmt.Errorf("Could not generate random food style: %w", err)
+		err = fmt.Errorf("failed to generate random food style: %w", err)
 		return Style{}, err
 	}
 	style, err := GenerateStyle(originClimate)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random food style: %w", err)
+		err = fmt.Errorf("failed to generate random food style: %w", err)
 		return Style{}, err
 	}
 

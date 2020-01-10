@@ -1,12 +1,12 @@
 # Golang CircleCI 2.0 configuration file
 #
 # World API Project
-# 
+#
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@1.0.5
+  sonarcloud: sonarsource/sonarcloud@1.0.1
 
 jobs:
   test:
@@ -15,14 +15,21 @@ jobs:
     working_directory: /go/src/github.com/ironarachne/world
     steps:
       - checkout
-      - run: go get -v -t -d ./...
-      - run: go get github.com/jstemmer/go-junit-report
-      - run: mkdir -p test-results/gotest
-      - run: go test -v ./... | go-junit-report > test-results/gotest/results.xml
-      - codecov/upload:
-          file: test-results/gotest/results.xml
-      - store_test_results:
-          path: test-results
+      - run:
+          name: Fetch dependencies
+          command: go get -v -t -d ./...
+      - run:
+          name: Set up CodeClimate test reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Run tests
+          command: |
+            ./cc-test-reporter before-build
+            go test -short -coverprofile c.out ./...
+            ./cc-test-reporter after-build --exit-code $?
+      - sonarcloud/scan
   build:
     docker:
       - image: circleci/golang:1.13
@@ -33,6 +40,7 @@ jobs:
       - run: |
           cd cmd/worldapi
           cp -r ../../images .
+          cp -r ../../data .
           VERSION_TAG=`cat ../../VERSION`
           GIT_TAG=`git log -1 --pretty=%h`
           docker build -t ironarachne/worldapi:$VERSION_TAG -t ironarachne/worldapi:$GIT_TAG -t ironarachne/worldapi:latest .
@@ -45,8 +53,9 @@ workflows:
   version: 2
   test-build-publish:
     jobs:
-      - test
+      - test:
+          context: SonarCloud
       - build:
           filters:
             branches:
-              only: master
+              only: release

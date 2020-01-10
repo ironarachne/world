@@ -28,7 +28,7 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 
 	baseResource := resource.Random(filteredResources)
 
-	producer := profession.ByName(method.Producer)
+	producer, _ := profession.ByName(method.Producer)
 
 	pattern := resource.Pattern{
 		Name:         name,

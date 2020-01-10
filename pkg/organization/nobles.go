@@ -63,7 +63,7 @@ func GenerateNobleHouse(originCulture culture.Culture) (Organization, error) {
 }
 
 func getNobleType() Type {
-	professions := profession.ByTag("noble")
+	professions, _ := profession.ByTag("noble")
 
 	house := Type{
 		Name:    "noble house",

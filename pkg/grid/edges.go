@@ -1,6 +1,6 @@
 package grid
 
-// Edge is a line
+// Edge is an undirected line
 type Edge struct {
 	A Coordinate
 	B Coordinate

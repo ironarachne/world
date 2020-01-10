@@ -29,10 +29,10 @@ func (country Country) getNewMonarchy() (Government, error) {
 
 	if monarch.Gender.Name == "male" {
 		monarch.Title = "King"
-		monarch.Profession = profession.ByName("noble")
+		monarch.Profession, _ = profession.ByName("noble")
 	} else {
 		monarch.Title = "Queen"
-		monarch.Profession = profession.ByName("noble")
+		monarch.Profession, _ = profession.ByName("noble")
 	}
 
 	device, err := heraldry.Generate()

@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/go-chi/chi"
+	"github.com/ironarachne/world/pkg/animal"
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/climate"
@@ -14,20 +15,201 @@ import (
 	"github.com/ironarachne/world/pkg/conlang"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
+	"github.com/ironarachne/world/pkg/fish"
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/merchant"
+	"github.com/ironarachne/world/pkg/mineral"
+	"github.com/ironarachne/world/pkg/monster"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
+	"github.com/ironarachne/world/pkg/pantheon/domain"
+	"github.com/ironarachne/world/pkg/plant"
+	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/religion"
+	"github.com/ironarachne/world/pkg/resource"
+	"github.com/ironarachne/world/pkg/soil"
+	"github.com/ironarachne/world/pkg/species"
 	"github.com/ironarachne/world/pkg/town"
+	"github.com/ironarachne/world/pkg/tree"
 	"github.com/ironarachne/world/pkg/world"
 )
+
+const contentType = "Content-Type"
+
+func dataAnimals(w http.ResponseWriter, r *http.Request) {
+	animals, err := animal.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := species.Data{
+		Species: animals,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataDomains(w http.ResponseWriter, r *http.Request) {
+	all, err := domain.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := domain.Data{
+		Domains: all,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataFish(w http.ResponseWriter, r *http.Request) {
+	all, err := fish.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := species.Data{
+		Species: all,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataInsects(w http.ResponseWriter, r *http.Request) {
+	all, err := insect.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := species.Data{
+		Species: all,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataMinerals(w http.ResponseWriter, r *http.Request) {
+	all, err := mineral.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := mineral.Data{
+		Minerals: all,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataMonsters(w http.ResponseWriter, r *http.Request) {
+	all, err := monster.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := species.Data{
+		Species: all,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataPatterns(w http.ResponseWriter, r *http.Request) {
+	patterns, err := resource.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := resource.Data{
+		Patterns: patterns,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataProfessions(w http.ResponseWriter, r *http.Request) {
+	professions, err := profession.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := profession.Data{
+		Professions: professions,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataPlants(w http.ResponseWriter, r *http.Request) {
+	plants, err := plant.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := species.Data{
+		Species: plants,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataRaces(w http.ResponseWriter, r *http.Request) {
+	all, err := race.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := species.Data{
+		Species: all,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataSoils(w http.ResponseWriter, r *http.Request) {
+	all, err := soil.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := soil.Data{
+		Soils: all,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataTrees(w http.ResponseWriter, r *http.Request) {
+	trees, err := tree.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := species.Data{
+		Species: trees,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
 
 func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
@@ -625,6 +807,18 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 		"clothingstyle",
 		"country",
 		"culture",
+		"data/animals",
+		"data/domains",
+		"data/fish",
+		"data/insects",
+		"data/minerals",
+		"data/monsters",
+		"data/patterns",
+		"data/plants",
+		"data/professions",
+		"data/races",
+		"data/soils",
+		"data/trees",
 		"foodstyle",
 		"heavens",
 		"heraldry",
@@ -648,7 +842,7 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	}
 	str.WriteString("</ul>")
 
-	w.Header().Set("Content-Type", "text/html")
+	w.Header().Set(contentType, "text/html")
 	w.Write([]byte(str.String()))
 }
 
@@ -754,7 +948,7 @@ func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
 	}
 	o := l.WorldMap.RenderAsSVG()
 
-	w.Header().Set("Content-Type", "image/svg+xml")
+	w.Header().Set(contentType, "image/svg+xml")
 	w.Write([]byte(o))
 }
 
@@ -776,7 +970,7 @@ func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
 	}
 	o := l.WorldMap.RenderAsText()
 
-	w.Header().Set("Content-Type", "image/svg+xml")
+	w.Header().Set(contentType, "image/svg+xml")
 	w.Write([]byte(o))
 }
 

@@ -9,6 +9,8 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
+const nameListError = "failed to generate name list: %w"
+
 // GenerateNameList generates a list of names appropriate for the language
 func GenerateNameList(numberOfNames int, langCategory Category, nameType string) ([]string, error) {
 	var names []string
@@ -22,7 +24,7 @@ func GenerateNameList(numberOfNames int, langCategory Category, nameType string)
 		for i := 0; i < 5; i++ {
 			finisher, err := randomSyllable(langCategory, "finisher")
 			if err != nil {
-				err = fmt.Errorf("Could not generate name list: %w", err)
+				err = fmt.Errorf(nameListError, err)
 				return []string{}, err
 			}
 			endings = append(endings, finisher)
@@ -32,12 +34,12 @@ func GenerateNameList(numberOfNames int, langCategory Category, nameType string)
 	for i := 0; i < numberOfNames; i++ {
 		ending, err := random.String(endings)
 		if err != nil {
-			err = fmt.Errorf("Could not generate name list: %w", err)
+			err = fmt.Errorf(nameListError, err)
 			return []string{}, err
 		}
 		name, err := RandomName(langCategory)
 		if err != nil {
-			err = fmt.Errorf("Could not generate name list: %w", err)
+			err = fmt.Errorf(nameListError, err)
 			return []string{}, err
 		}
 		name += ending
@@ -80,7 +82,7 @@ func randomLanguageName(category Category) (string, error) {
 		}
 		syllable, err := randomSyllable(category, role)
 		if err != nil {
-			err = fmt.Errorf("Could not generate language name: %w", err)
+			err = fmt.Errorf("failed to generate language name: %w", err)
 			return "", err
 		}
 		syllables = append(syllables, syllable)
@@ -104,7 +106,7 @@ func RandomGenderedName(langCategory Category, gender string) (string, error) {
 
 	name, err := RandomName(langCategory)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random gendered name: %w", err)
+		err = fmt.Errorf("failed to generate random gendered name: %w", err)
 		return "", err
 	}
 
@@ -116,7 +118,7 @@ func RandomGenderedName(langCategory Category, gender string) (string, error) {
 
 	ending, err := random.String(endings)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random gendered name: %w", err)
+		err = fmt.Errorf("failed to generate random gendered name: %w", err)
 		return "", err
 	}
 	name = name + ending
@@ -149,7 +151,7 @@ func RandomName(langCategory Category) (string, error) {
 		}
 		syllable, err := randomSyllable(langCategory, role)
 		if err != nil {
-			err = fmt.Errorf("Could not generate conjugation rules: %w", err)
+			err = fmt.Errorf("failed to generate conjugation rules: %w", err)
 			return "", err
 		}
 

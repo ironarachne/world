@@ -7,6 +7,8 @@ import (
 	"github.com/ironarachne/world/pkg/random"
 )
 
+const syllableError = "failed to generate syllable: %w"
+
 // Mutation is a word mutation
 type Mutation struct {
 	From string
@@ -24,7 +26,7 @@ func getRandomWeightedVowel() (string, error) {
 
 	vowel, err := random.StringFromThresholdMap(vowels)
 	if err != nil {
-		err = fmt.Errorf("Could not get random vowel: %w", err)
+		err = fmt.Errorf("failed to get random vowel: %w", err)
 		return "", err
 	}
 	return vowel, nil
@@ -64,12 +66,12 @@ func randomMutation() Mutation {
 func randomSyllable(category Category, role string) (string, error) {
 	syllable, err := random.String(category.Initiators)
 	if err != nil {
-		err = fmt.Errorf("Could not generate syllable: %w", err)
+		err = fmt.Errorf(syllableError, err)
 		return "", err
 	}
 	vowel, err := getRandomWeightedVowel()
 	if err != nil {
-		err = fmt.Errorf("Could not generate syllable: %w", err)
+		err = fmt.Errorf(syllableError, err)
 		return "", err
 	}
 	syllable += vowel
@@ -78,14 +80,14 @@ func randomSyllable(category Category, role string) (string, error) {
 		if role == "connector" {
 			connector, err := random.String(category.Connectors)
 			if err != nil {
-				err = fmt.Errorf("Could not generate syllable: %w", err)
+				err = fmt.Errorf(syllableError, err)
 				return "", err
 			}
 			syllable += connector
 		} else {
 			finisher, err := random.String(category.Finishers)
 			if err != nil {
-				err = fmt.Errorf("Could not generate syllable: %w", err)
+				err = fmt.Errorf(syllableError, err)
 				return "", err
 			}
 			syllable += finisher

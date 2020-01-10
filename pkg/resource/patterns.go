@@ -2,94 +2,70 @@ package resource
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"os"
 	"text/template"
 
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/random"
 )
 
+// Data is a collection of patterns
+type Data struct {
+	Patterns []Pattern `json:"patterns"`
+}
+
 // Pattern is a pattern for a resource
 type Pattern struct {
-	Name                 string                `json:"name"`
-	Description          string                `json:"description"`
-	Tags                 []string              `json:"tags"`
-	Commonality          int                   `json:"commonality"`
-	Profession           profession.Profession `json:"profession"`
-	Slots                []Slot                `json:"slots"`
-	NameTemplate         string                `json:"name_template"`
-	MainMaterial         string                `json:"main_material"`
-	MainMaterialOverride string                `json:"main_material_override"`
-	OriginOverride       string                `json:"origin_override"`
-	Value                int                   `json:"value"`
+	Name                 string                `json:"name" db:"name"`
+	Description          string                `json:"description" db:"description"`
+	Tags                 []string              `json:"tags" db:"tags"`
+	Commonality          int                   `json:"commonality" db:"commonality"`
+	Profession           profession.Profession `json:"profession" db:"profession"`
+	Slots                []Slot                `json:"slots" db:"slots"`
+	NameTemplate         string                `json:"name_template" db:"name_template"`
+	MainMaterial         string                `json:"main_material" db:"main_material"`
+	MainMaterialOverride string                `json:"main_material_override" db:"main_material_override"`
+	OriginOverride       string                `json:"origin_override" db:"origin_override"`
+	Value                int                   `json:"value" db:"value"`
 }
 
 // Slot is a slot for a resource requirement
 type Slot struct {
-	Name                string   `json:"name"`
-	RequiredTag         string   `json:"required_tag"`
-	Resource            Resource `json:"resource"`
-	DescriptionTemplate string   `json:"description_template"`
-	PossibleQuirks      []string `json:"possible_quirks"`
+	Name                string   `json:"name" db:"name"`
+	RequiredTag         string   `json:"required_tag" db:"required_tag"`
+	Resource            Resource `json:"resource" db:"resource"`
+	DescriptionTemplate string   `json:"description_template" db:"description_template"`
+	PossibleQuirks      []string `json:"possible_quirks" db:"possible_quirks"`
 }
 
-// AllPatterns returns all patterns
-func AllPatterns() []Pattern {
-	var patterns []Pattern
-	armor := getArmor()
-	beekeeping := getBeekeeping()
-	bowery := getBowery()
-	breads := getBreads()
-	brewed := getBrewed()
-	carpentry := getCarpentry()
-	clothing := getClothing()
-	cobbler := getCobbler()
-	distilled := getDistilled()
-	glass := getGlass()
-	logging := getLogging()
-	medicine := getMedicine()
-	milled := getMilled()
-	mined := getMined()
-	mounts := getMounts()
-	potions := getPotions()
-	pottery := getPottery()
-	smelting := getSmelting()
-	smithing := getSmithing()
-	stone := getStone()
-	tannery := getTannery()
-	vehicles := getVehicles()
-	weapons := getWeapons()
-	weaving := getWeaving()
-	wine := getWine()
+// All returns all predefined patterns from a JSON file on disk
+func All() ([]Pattern, error) {
+	var d Data
 
-	patterns = append(patterns, armor...)
-	patterns = append(patterns, beekeeping...)
-	patterns = append(patterns, bowery...)
-	patterns = append(patterns, breads...)
-	patterns = append(patterns, brewed...)
-	patterns = append(patterns, carpentry...)
-	patterns = append(patterns, clothing...)
-	patterns = append(patterns, cobbler...)
-	patterns = append(patterns, distilled...)
-	patterns = append(patterns, glass...)
-	patterns = append(patterns, logging...)
-	patterns = append(patterns, medicine...)
-	patterns = append(patterns, milled...)
-	patterns = append(patterns, mined...)
-	patterns = append(patterns, mounts...)
-	patterns = append(patterns, potions...)
-	patterns = append(patterns, pottery...)
-	patterns = append(patterns, smelting...)
-	patterns = append(patterns, smithing...)
-	patterns = append(patterns, stone...)
-	patterns = append(patterns, tannery...)
-	patterns = append(patterns, vehicles...)
-	patterns = append(patterns, weapons...)
-	patterns = append(patterns, weaving...)
-	patterns = append(patterns, wine...)
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/patterns.json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Pattern{}, err
+	}
 
-	return patterns
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	json.Unmarshal(byteValue, &d)
+
+	all := d.Patterns
+
+	if len(all) == 0 {
+		err = fmt.Errorf("no patterns returned from database: patterns.json")
+		return []Pattern{}, err
+	}
+
+	return all, nil
 }
 
 // FindPatternsForProfession returns all patterns from the set that a profession can make
@@ -106,14 +82,18 @@ func FindPatternsForProfession(prof profession.Profession, from []Pattern) []Pat
 }
 
 // GetPossibleProfessions gets all possible professions for a given set of resources
-func GetPossibleProfessions(resources []Resource) []profession.Profession {
+func GetPossibleProfessions(resources []Resource) ([]profession.Profession, error) {
 	var possiblePatterns []Pattern
-	possibleProducers := profession.All()
+	possibleProducers, _ := profession.All()
 
 	producers := []profession.Profession{}
 
 	patterns := []Pattern{}
-	allPatterns := AllPatterns()
+	allPatterns, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to get possible professions: %w", err)
+		return []profession.Profession{}, err
+	}
 
 	for _, p := range possibleProducers {
 		patterns = []Pattern{}
@@ -132,7 +112,7 @@ func GetPossibleProfessions(resources []Resource) []profession.Profession {
 		}
 	}
 
-	return producers
+	return producers, nil
 }
 
 // CanMake returns true if the pattern can be made with the resources given
@@ -156,12 +136,12 @@ func (pattern Pattern) RenderName() (string, error) {
 
 	tmpl, err := template.New(pattern.Name).Parse(pattern.NameTemplate)
 	if err != nil {
-		err = fmt.Errorf("Failed to render resource name for pattern: %w", err)
+		err = fmt.Errorf("failed to render resource name for pattern: %w", err)
 		return "", err
 	}
 	err = tmpl.Execute(&tplOutput, pattern)
 	if err != nil {
-		err = fmt.Errorf("Failed to render resource name for pattern: %w", err)
+		err = fmt.Errorf("failed to render resource name for pattern: %w", err)
 		return "", err
 	}
 	name := tplOutput.String()
@@ -169,7 +149,7 @@ func (pattern Pattern) RenderName() (string, error) {
 	return name, nil
 }
 
-// Render turns a completed pattern into a string description
+// RenderDescription turns a completed pattern into a string description
 func (pattern Pattern) RenderDescription() (string, error) {
 	description := ""
 

@@ -10,6 +10,8 @@ import (
 	"github.com/ironarachne/world/pkg/random"
 )
 
+const buildingError = "could not generate building style: %w"
+
 // BuildingStyle is a style of building
 type BuildingStyle struct {
 	Decorations string
@@ -25,37 +27,37 @@ type BuildingStyle struct {
 func GenerateStyle() (BuildingStyle, error) {
 	decorations, err := getRandomDecorations()
 	if err != nil {
-		err = fmt.Errorf("Could not generate building style: %w", err)
+		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
 	doorStyle, err := getRandomDoorStyle()
 	if err != nil {
-		err = fmt.Errorf("Could not generate building style: %w", err)
+		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
 	maxStories, err := getRandomMaxStories()
 	if err != nil {
-		err = fmt.Errorf("Could not generate building style: %w", err)
+		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
 	streetStyle, err := getRandomStreetStyle()
 	if err != nil {
-		err = fmt.Errorf("Could not generate building style: %w", err)
+		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
 	wallStyle, err := getRandomWallStyle()
 	if err != nil {
-		err = fmt.Errorf("Could not generate building style: %w", err)
+		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
 	windowStyle, err := getRandomWindowStyle()
 	if err != nil {
-		err = fmt.Errorf("Could not generate building style: %w", err)
+		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
 	roofStyle, err := getRandomRoofStyle()
 	if err != nil {
-		err = fmt.Errorf("Could not generate building style: %w", err)
+		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
 	style := BuildingStyle{

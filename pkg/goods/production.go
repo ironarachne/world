@@ -16,7 +16,11 @@ func Produce(professions []profession.Profession, resources []resource.Resource)
 	var resourceForSlot resource.Resource
 	var resourcesForSlot []resource.Resource
 
-	allPatterns := resource.AllPatterns()
+	allPatterns, err := resource.All()
+	if err != nil {
+		err = fmt.Errorf("Failed to produce resources: %w", err)
+		return []resource.Resource{}, err
+	}
 
 	for _, p := range professions {
 		possiblePatterns = []resource.Pattern{}

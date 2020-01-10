@@ -10,7 +10,11 @@ import (
 func getProducers(size int, resources []resource.Resource) ([]profession.Profession, error) {
 	var producers []profession.Profession
 
-	possibleProducers := resource.GetPossibleProfessions(resources)
+	possibleProducers, err := resource.GetPossibleProfessions(resources)
+	if err != nil {
+		err = fmt.Errorf("failed to get producers: %w", err)
+		return []profession.Profession{}, err
+	}
 
 	numberOfProducers := 0
 
@@ -35,7 +39,7 @@ func getProducers(size int, resources []resource.Resource) ([]profession.Profess
 	for i := 0; i < numberOfProducers; i++ {
 		producer, err := profession.RandomSet(1, possibleProducers)
 		if err != nil {
-			err = fmt.Errorf("Failed to get producers: %w", err)
+			err = fmt.Errorf("failed to get producers: %w", err)
 			return []profession.Profession{}, err
 		}
 		producers = append(producers, producer[0])

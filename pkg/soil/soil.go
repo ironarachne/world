@@ -4,10 +4,19 @@ Package soil implements soil types
 package soil
 
 import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"os"
 
 	"github.com/ironarachne/world/pkg/resource"
 )
+
+// Data is a collection of soils
+type Data struct {
+	Soils []Soil `json:"soils"`
+}
 
 // Soil is a type of mineral
 type Soil struct {
@@ -19,31 +28,43 @@ type Soil struct {
 	Tags               []string            `json:"tags"`
 }
 
-// All returns all soils
-func All() []Soil {
-	clays := Clays()
-	sands := Sands()
-	agSoils := Agricultural()
+// All returns all predefined minerals from a JSON file on disk
+func All() ([]Soil, error) {
+	var d Data
 
-	soils := append(clays, sands...)
-	soils = append(soils, agSoils...)
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/soils.json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Soil{}, err
+	}
 
-	return soils
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	json.Unmarshal(byteValue, &d)
+
+	all := d.Soils
+
+	if len(all) == 0 {
+		err = fmt.Errorf("no soils returned from database: soils.json")
+		return []Soil{}, err
+	}
+
+	return all, nil
 }
 
 // ByTag returns a set of soils that match a tag
-func ByTag(tag string) []Soil {
+func ByTag(tag string, from []Soil) ([]Soil, error) {
 	var filtered []Soil
 
-	soils := All()
-
-	for _, s := range soils {
+	for _, s := range from {
 		if s.HasTag(tag) {
 			filtered = append(filtered, s)
 		}
 	}
 
-	return filtered
+	return filtered, nil
 }
 
 // ByTagIn returns a slice of soils that have at least one of the given tags

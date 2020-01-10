@@ -7,6 +7,8 @@ import (
 	"github.com/ironarachne/world/pkg/random"
 )
 
+const moonError = "failed to generate random moon: %w"
+
 // Moon is a moon
 type Moon struct {
 	Name  string
@@ -25,7 +27,7 @@ func getRandomMoonColor() (string, error) {
 
 	color, err := random.StringFromThresholdMap(colors)
 	if err != nil {
-		err = fmt.Errorf("Failed to generate random moon color: %w", err)
+		err = fmt.Errorf("failed to generate random moon color: %w", err)
 		return "", err
 	}
 
@@ -40,7 +42,7 @@ func getRandomMoonShape() (string, error) {
 
 	shape, err := random.StringFromThresholdMap(shapes)
 	if err != nil {
-		err = fmt.Errorf("Failed to generate random moon shape: %w", err)
+		err = fmt.Errorf("failed to generate random moon shape: %w", err)
 		return "", err
 	}
 
@@ -56,13 +58,13 @@ func getRandomMoon() (Moon, error) {
 	moon.Name = "moon"
 	color, err := getRandomMoonColor()
 	if err != nil {
-		err = fmt.Errorf("Failed to generate random moon: %w", err)
+		err = fmt.Errorf(moonError, err)
 		return Moon{}, err
 	}
 	moon.Color = color
 	shape, err := getRandomMoonShape()
 	if err != nil {
-		err = fmt.Errorf("Failed to generate random moon: %w", err)
+		err = fmt.Errorf(moonError, err)
 		return Moon{}, err
 	}
 	moon.Shape = shape
@@ -82,7 +84,7 @@ func getRandomMoons() ([]Moon, error) {
 	for i := 0; i < numberOfMoons; i++ {
 		moon, err := getRandomMoon()
 		if err != nil {
-			err = fmt.Errorf("Failed to generate random moon: %w", err)
+			err = fmt.Errorf(moonError, err)
 			return []Moon{}, err
 		}
 		moons = append(moons, moon)

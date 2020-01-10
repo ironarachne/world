@@ -11,6 +11,8 @@ require (
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/google/uuid v1.1.1
 	github.com/ironarachne/namegen v0.0.0-20191007134507-85f1aa339f42
+	github.com/jmoiron/sqlx v1.2.0
+	github.com/mattn/go-sqlite3 v2.0.2+incompatible
 	github.com/minio/minio-go v6.0.14+incompatible
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	golang.org/x/image v0.0.0-20190910094157-69e4b8554b2a // indirect

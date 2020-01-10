@@ -36,9 +36,9 @@ type Type struct {
 func getAllTypes() ([]Type, error) {
 	var adventurers []profession.Profession
 
-	divine := profession.ByTag("divine")
-	fighters := profession.ByTag("fighter")
-	mages := profession.ByTag("mage")
+	divine, _ := profession.ByTag("divine")
+	fighters, _ := profession.ByTag("fighter")
+	mages, _ := profession.ByTag("mage")
 
 	adventurers = append(adventurers, fighters...)
 	adventurers = append(adventurers, mages...)
@@ -336,7 +336,7 @@ func getCraftingGuild() (Type, error) {
 		},
 	}
 
-	crafters := profession.ByTag("crafter")
+	crafters, _ := profession.ByTag("crafter")
 	memberProfessions, err := profession.RandomSet(1, crafters)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate guild: %w", err)
@@ -443,7 +443,7 @@ func getWizardSociety() (Type, error) {
 		},
 	}
 
-	wizards := profession.ByTag("wizard")
+	wizards, _ := profession.ByTag("wizard")
 	memberProfessions, err := profession.RandomSet(3, wizards)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate wizard society: %w", err)
@@ -527,7 +527,7 @@ func getWizardSchool() (Type, error) {
 		},
 	}
 
-	wizards := profession.ByTag("wizard")
+	wizards, _ := profession.ByTag("wizard")
 	memberProfessions, err := profession.RandomSet(3, wizards)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate wizard school: %w", err)

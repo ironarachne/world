@@ -14,6 +14,8 @@ import (
 	"github.com/ironarachne/world/pkg/species"
 )
 
+const climateError = "could not generate climate: %w"
+
 // Generator is a terrestrial climate generator
 type Generator struct {
 	NameRoot        string
@@ -68,19 +70,27 @@ func Generate() (Climate, error) {
 
 	animals, err := gen.getAnimals(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 	plants, err := gen.getPlants(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 
@@ -106,7 +116,7 @@ func Generate() (Climate, error) {
 	climate.Habitability = climate.calculateHabitability()
 	climate.Description, err = climate.getDescription()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 
@@ -132,19 +142,27 @@ func GenerateByName(name string) (Climate, error) {
 
 	animals, err := gen.getAnimals(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 	plants, err := gen.getPlants(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 
@@ -170,7 +188,7 @@ func GenerateByName(name string) (Climate, error) {
 	climate.Habitability = climate.calculateHabitability()
 	climate.Description, err = climate.getDescription()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 
@@ -195,19 +213,27 @@ func GenerateForCharacteristics(humidity int, temperature int, elevation int) (C
 
 	animals, err := gen.getAnimals(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 	plants, err := gen.getPlants(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 
@@ -233,7 +259,7 @@ func GenerateForCharacteristics(humidity int, temperature int, elevation int) (C
 	climate.Habitability = climate.calculateHabitability()
 	climate.Description, err = climate.getDescription()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 
@@ -262,19 +288,27 @@ func GenerateForeign(currentClimate Climate) (Climate, error) {
 
 	animals, err := gen.getAnimals(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 	plants, err := gen.getPlants(humidity, temperature)
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 
@@ -300,7 +334,7 @@ func GenerateForeign(currentClimate Climate) (Climate, error) {
 	climate.Habitability = climate.calculateHabitability()
 	climate.Description, err = climate.getDescription()
 	if err != nil {
-		err = fmt.Errorf("could not generate climate: %w", err)
+		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
 

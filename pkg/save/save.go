@@ -50,11 +50,12 @@ func ToDOSpaces(filePath string, reader io.Reader, contentType string) (string, 
 // PNG saves a PNG image to permanent storage. It relies on an environment variable WORLDAPI_SAVE_TARGET to determine behavior.
 // The default behavior is to save to the local filesystem. Set WORLDAPI_SAVE_DIRECTORY to the directory to use as the root directory
 // for saving files. Set WORLDAPI_WEB_DOMAIN to the domain name (without protocol) the API serves on.
-func PNG(filePath string, img image.Image) (string, error) {
+func PNG(directory string, fileName string, img image.Image) (string, error) {
 	var result string
 	var err error
 
 	saveTarget := os.Getenv("WORLDAPI_SAVE_TARGET")
+	filePath := directory + "/" + fileName
 
 	if saveTarget == "DO" {
 		result, err = PNGToDO(filePath, img)
@@ -66,7 +67,7 @@ func PNG(filePath string, img image.Image) (string, error) {
 	}
 
 	saveDirectory := os.Getenv("WORLDAPI_SAVE_DIRECTORY")
-	savePath := saveDirectory + "/" + filePath
+	savePath := saveDirectory + "/images/" + fileName
 	fg, err := os.Create(savePath)
 	defer fg.Close()
 	if err != nil {

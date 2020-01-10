@@ -5,28 +5,19 @@ elements.
 */
 package animal
 
-import "github.com/ironarachne/world/pkg/species"
+import (
+	"fmt"
 
-// All returns all pre-defined animals
-func All() []species.Species {
-	var animals []species.Species
+	"github.com/ironarachne/world/pkg/species"
+)
 
-	birds := getBirds()
-	animals = append(animals, birds...)
-	gameBirds := getGameBirds()
-	animals = append(animals, gameBirds...)
-	raptors := getRaptors()
-	animals = append(animals, raptors...)
-	cats := getBigCats()
-	animals = append(animals, cats...)
-	canines := getCanines()
-	animals = append(animals, canines...)
-	equines := getEquines()
-	animals = append(animals, equines...)
-	mammals := getMammals()
-	animals = append(animals, mammals...)
-	reptiles := getReptiles()
-	animals = append(animals, reptiles...)
+// All returns all predefined animals
+func All() ([]species.Species, error) {
+	animals, err := species.Load("animals")
+	if err != nil {
+		err = fmt.Errorf("failed to load animals: %w", err)
+		return []species.Species{}, err
+	}
 
-	return animals
+	return animals, nil
 }

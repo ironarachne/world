@@ -1,0 +1,213 @@
+{
+  "soils": [{
+    "name": "earthenware",
+    "used_for_pottery": true,
+    "is_sand": false,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "earthenware",
+      "description": "",
+      "main_material": "earthenware",
+      "origin": "earthenware",
+      "tags": ["clay"],
+      "commonality": 5,
+      "value": 1
+    }],
+    "tags": ["clay"]
+  }, {
+    "name": "porcelain",
+    "used_for_pottery": true,
+    "is_sand": false,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "porcelain",
+      "description": "",
+      "main_material": "porcelain",
+      "origin": "porcelain",
+      "tags": ["clay"],
+      "commonality": 5,
+      "value": 1
+    }],
+    "tags": ["clay"]
+  }, {
+    "name": "stoneware",
+    "used_for_pottery": true,
+    "is_sand": false,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "stoneware",
+      "description": "",
+      "main_material": "stoneware",
+      "origin": "stoneware",
+      "tags": ["clay"],
+      "commonality": 5,
+      "value": 1
+    }],
+    "tags": ["clay"]
+  }, {
+    "name": "terra cotta",
+    "used_for_pottery": true,
+    "is_sand": false,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "terra cotta",
+      "description": "",
+      "main_material": "terra cotta",
+      "origin": "terra cotta",
+      "tags": ["clay"],
+      "commonality": 5,
+      "value": 1
+    }],
+    "tags": ["clay"]
+  }, {
+    "name": "black sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "black sand",
+      "description": "",
+      "main_material": "black sand",
+      "origin": "black sand",
+      "tags": ["sand"],
+      "commonality": 3,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "continental sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "continental sand",
+      "description": "",
+      "main_material": "continental sand",
+      "origin": "continental sand",
+      "tags": ["sand"],
+      "commonality": 4,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "coral sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "coral sand",
+      "description": "",
+      "main_material": "coral sand",
+      "origin": "coral sand",
+      "tags": ["sand"],
+      "commonality": 1,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "dune sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "dune sand",
+      "description": "",
+      "main_material": "dune sand",
+      "origin": "dune sand",
+      "tags": ["sand"],
+      "commonality": 4,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "green sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "green sand",
+      "description": "",
+      "main_material": "green sand",
+      "origin": "green sand",
+      "tags": ["sand"],
+      "commonality": 1,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "red sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "red sand",
+      "description": "",
+      "main_material": "red sand",
+      "origin": "red sand",
+      "tags": ["sand"],
+      "commonality": 2,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "volcanic sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "volcanic sand",
+      "description": "",
+      "main_material": "volcanic sand",
+      "origin": "volcanic sand",
+      "tags": ["sand"],
+      "commonality": 3,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "white sand",
+    "used_for_pottery": false,
+    "is_sand": true,
+    "used_for_agriculture": false,
+    "resources": [{
+      "name": "white sand",
+      "description": "",
+      "main_material": "white sand",
+      "origin": "white sand",
+      "tags": ["sand"],
+      "commonality": 5,
+      "value": 1
+    }],
+    "tags": ["sand"]
+  }, {
+    "name": "loam",
+    "used_for_pottery": false,
+    "is_sand": false,
+    "used_for_agriculture": true,
+    "resources": [{
+      "name": "loam",
+      "description": "",
+      "main_material": "loam",
+      "origin": "loam",
+      "tags": ["soil"],
+      "commonality": 5,
+      "value": 1
+    }],
+    "tags": ["soil"]
+  }, {
+    "name": "silt",
+    "used_for_pottery": false,
+    "is_sand": false,
+    "used_for_agriculture": true,
+    "resources": [{
+      "name": "silt",
+      "description": "",
+      "main_material": "silt",
+      "origin": "silt",
+      "tags": ["soil"],
+      "commonality": 5,
+      "value": 1
+    }],
+    "tags": ["soil"]
+  }]
+}

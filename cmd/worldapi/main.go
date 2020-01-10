@@ -93,6 +93,19 @@ func main() {
 	r.Get("/culture/{id}", sentryHandler.HandleFunc(getCulture))
 	r.Post("/culture", sentryHandler.HandleFunc(getCultureFromClimate))
 
+	r.Get("/data/animals", sentryHandler.HandleFunc(dataAnimals))
+	r.Get("/data/domains", sentryHandler.HandleFunc(dataDomains))
+	r.Get("/data/fish", sentryHandler.HandleFunc(dataFish))
+	r.Get("/data/insects", sentryHandler.HandleFunc(dataInsects))
+	r.Get("/data/minerals", sentryHandler.HandleFunc(dataMinerals))
+	r.Get("/data/monsters", sentryHandler.HandleFunc(dataMonsters))
+	r.Get("/data/patterns", sentryHandler.HandleFunc(dataPatterns))
+	r.Get("/data/plants", sentryHandler.HandleFunc(dataPlants))
+	r.Get("/data/professions", sentryHandler.HandleFunc(dataProfessions))
+	r.Get("/data/races", sentryHandler.HandleFunc(dataRaces))
+	r.Get("/data/soils", sentryHandler.HandleFunc(dataSoils))
+	r.Get("/data/trees", sentryHandler.HandleFunc(dataTrees))
+
 	r.Get("/foodstyle", sentryHandler.HandleFunc(getFoodStyleRandom))
 	r.Get("/foodstyle/{id}", sentryHandler.HandleFunc(getFoodStyle))
 
