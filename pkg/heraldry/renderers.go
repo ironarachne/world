@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"image"
 	"os"
+	"time"
 
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/save"
@@ -69,7 +70,11 @@ func (device Device) RenderToPNG() (string, error) {
 
 	finalImage := finalContext.Image()
 
-	imageURL, err := save.PNG("images/heraldry/devices/"+device.FileName, finalImage)
+	layout := "2006/01/02"
+	now := time.Now()
+	directory := now.Format(layout)
+
+	imageURL, err := save.PNG("images/heraldry/devices/"+directory, device.FileName, finalImage)
 	if err != nil {
 		err = fmt.Errorf("Could not save heraldic device: %w", err)
 		return "", err

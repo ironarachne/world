@@ -16,7 +16,7 @@ WORKDIR = $(shell pwd)
 ## build: build the application
 build: clean
 > @echo "Building..."
-> @mkdir -p build/images/heraldry/devices
+> @mkdir -p build/images
 > @go build -o build/worldapi cmd/worldapi/*.go
 
 .PHONY: run
