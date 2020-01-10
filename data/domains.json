@@ -1,1 +1,351 @@
-{"domains":[{"name":"air","appearance_traits":["bird-headed","ethereal","wind-blown","winged"],"personality_traits":["mercurial"],"holy_items":["feather"],"holy_symbols":["cloud","circle with three squiggly lines in parallel"]},{"name":"animals","appearance_traits":["dirty","dog-headed","bird-headed"],"personality_traits":["brutish","short-tempered","skittish"],"holy_items":["talon","fang"],"holy_symbols":["dog's face","beast"]},{"name":"art","appearance_traits":["rainbow-hued"],"personality_traits":[],"holy_items":["brush","quill pen"],"holy_symbols":["paint palette","spiral"]},{"name":"autumn","appearance_traits":["leaf-haired"],"personality_traits":[],"holy_items":["leaf"],"holy_symbols":["leaf","sun setting on the horizon"]},{"name":"balance","appearance_traits":["grey-eyed"],"personality_traits":["careful","measured"],"holy_items":["scale"],"holy_symbols":["circle divided in half"]},{"name":"chaos","appearance_traits":["perpetually blurry","shifting"],"personality_traits":["unpredictable","wild"],"holy_items":["eight-pointed star"],"holy_symbols":["eight-pointed star"]},{"name":"darkness","appearance_traits":["dark as night","shadowy"],"personality_traits":[],"holy_items":["cloak"],"holy_symbols":["black circle","eclipse"]},{"name":"dawn","appearance_traits":["bright","glowing","radiant"],"personality_traits":[],"holy_items":["torch"],"holy_symbols":["radiant sun rising"]},{"name":"death","appearance_traits":["gaunt","skeletal"],"personality_traits":[],"holy_items":["funerary mask","sickle","scythe","skull"],"holy_symbols":["skull","scythe"]},{"name":"demons","appearance_traits":["black-eyed","ember-eyed","horned"],"personality_traits":[],"holy_items":["three-legged bowl","cauldron"],"holy_symbols":["upside-down five-pointed star","evil eye"]},{"name":"destruction","appearance_traits":["spined"],"personality_traits":["wrathful"],"holy_items":["sword","axe"],"holy_symbols":["skull","spiked gauntlet"]},{"name":"dusk","appearance_traits":["dark-skinned","twilight-eyed"],"personality_traits":["brooding"],"holy_items":["mask"],"holy_symbols":["sun setting on the horizon","half-circle"]},{"name":"earth","appearance_traits":["stone-skinned"],"personality_traits":["grounded","methodical","practical"],"holy_items":["pick","mallet"],"holy_symbols":["mountain"]},{"name":"evil","appearance_traits":["black-eyed","horned","spider-bodied"],"personality_traits":["brutal","cruel","vicious"],"holy_items":["spiral dagger"],"holy_symbols":["evil eye","spider"]},{"name":"fear","appearance_traits":["shadowy","nebulous","unnaturally thin"],"personality_traits":["cruel"],"holy_items":["mask"],"holy_symbols":["screaming face"]},{"name":"fertility","appearance_traits":["entrancing","hauntingly beautiful"],"personality_traits":["playful","seductive"],"holy_items":["egg"],"holy_symbols":["pregnant woman","penis","vagina"]},{"name":"fire","appearance_traits":["black skinned, with firey veins like magma","ember-eyed","wreathed in flames"],"personality_traits":["easily upsettable","firey","passionate","quick to anger"],"holy_items":["torch","brazier"],"holy_symbols":["fire"]},{"name":"foxes","appearance_traits":["fox-eared","fox-headed","fox-bodied"],"personality_traits":["playful","tricksy"],"holy_items":["fox tail","fox paw"],"holy_symbols":["fox's face"]},{"name":"good","appearance_traits":["taciturn"],"personality_traits":["jovial","tolerant"],"holy_items":["shield"],"holy_symbols":["radiant sun"]},{"name":"harvests","appearance_traits":["stocky"],"personality_traits":["festive","hard-working"],"holy_items":["scythe","sickle"],"holy_symbols":["sickle","scythe"]},{"name":"healing","appearance_traits":["green-haloed"],"personality_traits":["caring","compassionate","patient"],"holy_items":["wand"],"holy_symbols":["wreath of flowers","open hand"]},{"name":"hope","appearance_traits":["haloed"],"personality_traits":["patient"],"holy_items":["hoop"],"holy_symbols":["open hand","circle"]},{"name":"horses","appearance_traits":["horse-bodied","horse-headed"],"personality_traits":["ebullient"],"holy_items":["horse skull","horse tooth"],"holy_symbols":["horse's face","horse"]},{"name":"hunting","appearance_traits":["narrow-featured","tightly muscled"],"personality_traits":["patient","subtle"],"holy_items":["bow","arrow","spear"],"holy_symbols":["bow and arrow","beast"]},{"name":"justice","appearance_traits":["blind","blindfolded"],"personality_traits":["callous","even-tempered","fair"],"holy_items":["scale","sword"],"holy_symbols":["blind man","blind woman","scale","sword"]},{"name":"knowledge","appearance_traits":["old and wrinkled","bespectacled"],"personality_traits":["absent-minded","studious"],"holy_items":["book"],"holy_symbols":["book","open eye","pyramid"]},{"name":"language","appearance_traits":["covered in mouths","large-mouthed","always speaking"],"personality_traits":["social"],"holy_items":["book","scroll"],"holy_symbols":["speaking face","scroll","book"]},{"name":"law","appearance_traits":["grim-faced"],"personality_traits":["fair","stern"],"holy_items":["book","sword","hammer"],"holy_symbols":["hammer","hammer overlapping a book","crossed sword and hammer","sword","sword overlapping a book"]},{"name":"life","appearance_traits":["haloed","surrounded by living things"],"personality_traits":["full of life","joyful"],"holy_items":["egg","seed"],"holy_symbols":["ouroboros","circle"]},{"name":"light","appearance_traits":["glowing","white-haired"],"personality_traits":["serious"],"holy_items":["torch"],"holy_symbols":["beams of light coming from the sky","radiant sun"]},{"name":"lightning","appearance_traits":["lightning-eyed","surrounded by crackling sparks"],"personality_traits":["emotional","unpredictable","violent"],"holy_items":["rod"],"holy_symbols":["lightning bolt"]},{"name":"love","appearance_traits":["beautiful","gorgeous","pretty","unabashedly naked"],"personality_traits":["joyful","lustful","passionate"],"holy_items":["red string"],"holy_symbols":["heart"]},{"name":"luck","appearance_traits":["always playing with cards","perpetually grinning"],"personality_traits":["adventurous"],"holy_items":["rabbit's foot","dice","playing cards"],"holy_symbols":["grinning face","face split into a grinning side and a frowning side"]},{"name":"mercy","appearance_traits":["plain"],"personality_traits":["compassionate","fair"],"holy_items":["blunt sword"],"holy_symbols":["open hand","wreath of vines"]},{"name":"music","appearance_traits":["entracing","harpstrings for hair"],"personality_traits":["passionate","reflective"],"holy_items":["harp","lute","lyre","drum"],"holy_symbols":["encircled heart","harp","lute","lyre"]},{"name":"nature","appearance_traits":["barefoot","leaf-haired","bark-skinned"],"personality_traits":["down-to-earth","moody","practical"],"holy_items":["staff"],"holy_symbols":["tree","flower"]},{"name":"nobility","appearance_traits":["wearing a crown","as if carved from marble"],"personality_traits":["arrogant"],"holy_items":["crown"],"holy_symbols":["crown"]},{"name":"oceans","appearance_traits":["surrounded by seaweed","surrounded by a bubble of seawater when on land","fish-tailed"],"personality_traits":["commanding","mercurial","passionate"],"holy_items":["shell"],"holy_symbols":["wave"]},{"name":"persistence","appearance_traits":["heavily scarred","perpetually wounded"],"personality_traits":["enduring","persistent"],"holy_items":["shield"],"holy_symbols":["man standing resolute","fist"]},{"name":"plants","appearance_traits":["wreathed in vines","green-skinned","covered in leaves"],"personality_traits":["patient"],"holy_items":["hoe"],"holy_symbols":["plant","tree"]},{"name":"protection","appearance_traits":["heavily armored with no skin visible","enormous, with metallic skin"],"personality_traits":["enduring","protective","strong-willed"],"holy_items":["shield"],"holy_symbols":["shield","gauntlet"]},{"name":"revenge","appearance_traits":["bald","reed-thin"],"personality_traits":["brooding","perpetually angry","perpetually vexed","vengeful"],"holy_items":["broken dagger"],"holy_symbols":["evil eye","broken circle"]},{"name":"sky","appearance_traits":["sitting on a cloud"],"personality_traits":["wistful"],"holy_items":["flute","kite"],"holy_symbols":["cloud"]},{"name":"spring","appearance_traits":["perpetually damp","clothed in flowers","wearing a crown of flowers"],"personality_traits":["energetic","frisky"],"holy_items":["staff"],"holy_symbols":["wreath of flowers","flower"]},{"name":"strength","appearance_traits":["heavily-muscled","powerfully built"],"personality_traits":["blunt","boisterous","courageous"],"holy_items":["gauntlet"],"holy_symbols":["muscled arm","fist","tower"]},{"name":"summer","appearance_traits":["orange-haired","red-haired","perpetually sunburnt"],"personality_traits":["warm"],"holy_items":["wreath"],"holy_symbols":["radiant sun","fire"]},{"name":"thieves","appearance_traits":["clad in dark leather","cloaked","thin"],"personality_traits":["avaricious"],"holy_items":["dagger","coin purse"],"holy_symbols":["dagger","pierced circle"]},{"name":"the moon","appearance_traits":["cloaked in silver","naked","pale"],"personality_traits":["sad","thoughtful"],"holy_items":["plate"],"holy_symbols":["crescent moon"]},{"name":"the sun","appearance_traits":["glowing","ringed in a firey halo"],"personality_traits":["courageous","warm"],"holy_items":["plate"],"holy_symbols":["radiant sun"]},{"name":"thunder","appearance_traits":["barrel-chested"],"personality_traits":["booming","loud"],"holy_items":["drum","hammer"],"holy_symbols":["lightning bolt","lightning bolt over a hammer","hammer","drum"]},{"name":"time","appearance_traits":["ancient-looking","wizened","youthful"],"personality_traits":["aloof","unknowable","wise"],"holy_items":["sundial","hourglass"],"holy_symbols":["hourglass","ouroboros"]},{"name":"trade","appearance_traits":["fat","rotund","round","well-fed"],"personality_traits":["calculating","greedy","measured"],"holy_items":["scale","coin"],"holy_symbols":["coin","scale","book and scale"]},{"name":"travel","appearance_traits":["dusty"],"personality_traits":["wandering"],"holy_items":["staff"],"holy_symbols":["man walking","road disappearing into the horizon"]},{"name":"trickery","appearance_traits":["cloaked in night","shadowy"],"personality_traits":["cunning","mischievious","puzzling","tricky"],"holy_items":["two-faced mask"],"holy_symbols":["face bearing an evil half and a good half"]},{"name":"war","appearance_traits":["bloody","crowned with knives","spined"],"personality_traits":["aggressive","bellicose","belligerent"],"holy_items":["sword","spear"],"holy_symbols":["sword","crossed pair of axes"]},{"name":"water","appearance_traits":["blue-skinned","hairless","half fish"],"personality_traits":["mercurial","moody"],"holy_items":["flask"],"holy_symbols":["wave","fountain"]},{"name":"winter","appearance_traits":["completely white","covered in frost","blue-skinned","white eyes"],"personality_traits":["cold","relentless","unforgiving"],"holy_items":["cloak"],"holy_symbols":["snowflake","icicle"]},{"name":"wisdom","appearance_traits":["frail","always leaning on a staff","old and wizened"],"personality_traits":["careful","knowing","wise"],"holy_items":["book"],"holy_symbols":["book","scroll","book and scroll"]}]}
+{
+  "domains": [{
+    "name": "air",
+    "appearance_traits": ["bird-headed", "ethereal", "wind-blown", "winged"],
+    "personality_traits": ["mercurial"],
+    "holy_items": ["feather"],
+    "holy_symbols": ["cloud", "circle with three squiggly lines in parallel"]
+  }, {
+    "name": "animals",
+    "appearance_traits": ["dirty", "dog-headed", "bird-headed"],
+    "personality_traits": ["brutish", "short-tempered", "skittish"],
+    "holy_items": ["talon", "fang"],
+    "holy_symbols": ["dog's face", "beast"]
+  }, {
+    "name": "art",
+    "appearance_traits": ["rainbow-hued"],
+    "personality_traits": [],
+    "holy_items": ["brush", "quill pen"],
+    "holy_symbols": ["paint palette", "spiral"]
+  }, {
+    "name": "autumn",
+    "appearance_traits": ["leaf-haired"],
+    "personality_traits": [],
+    "holy_items": ["leaf"],
+    "holy_symbols": ["leaf", "sun setting on the horizon"]
+  }, {
+    "name": "balance",
+    "appearance_traits": ["grey-eyed"],
+    "personality_traits": ["careful", "measured"],
+    "holy_items": ["scale"],
+    "holy_symbols": ["circle divided in half"]
+  }, {
+    "name": "chaos",
+    "appearance_traits": ["perpetually blurry", "shifting"],
+    "personality_traits": ["unpredictable", "wild"],
+    "holy_items": ["eight-pointed star"],
+    "holy_symbols": ["eight-pointed star"]
+  }, {
+    "name": "darkness",
+    "appearance_traits": ["dark as night", "shadowy"],
+    "personality_traits": [],
+    "holy_items": ["cloak"],
+    "holy_symbols": ["black circle", "eclipse"]
+  }, {
+    "name": "dawn",
+    "appearance_traits": ["bright", "glowing", "radiant"],
+    "personality_traits": [],
+    "holy_items": ["torch"],
+    "holy_symbols": ["radiant sun rising"]
+  }, {
+    "name": "death",
+    "appearance_traits": ["gaunt", "skeletal"],
+    "personality_traits": [],
+    "holy_items": ["funerary mask", "sickle", "scythe", "skull"],
+    "holy_symbols": ["skull", "scythe"]
+  }, {
+    "name": "demons",
+    "appearance_traits": ["black-eyed", "ember-eyed", "horned"],
+    "personality_traits": [],
+    "holy_items": ["three-legged bowl", "cauldron"],
+    "holy_symbols": ["upside-down five-pointed star", "evil eye"]
+  }, {
+    "name": "destruction",
+    "appearance_traits": ["spined"],
+    "personality_traits": ["wrathful"],
+    "holy_items": ["sword", "axe"],
+    "holy_symbols": ["skull", "spiked gauntlet"]
+  }, {
+    "name": "dusk",
+    "appearance_traits": ["dark-skinned", "twilight-eyed"],
+    "personality_traits": ["brooding"],
+    "holy_items": ["mask"],
+    "holy_symbols": ["sun setting on the horizon", "half-circle"]
+  }, {
+    "name": "earth",
+    "appearance_traits": ["stone-skinned"],
+    "personality_traits": ["grounded", "methodical", "practical"],
+    "holy_items": ["pick", "mallet"],
+    "holy_symbols": ["mountain"]
+  }, {
+    "name": "evil",
+    "appearance_traits": ["black-eyed", "horned", "spider-bodied"],
+    "personality_traits": ["brutal", "cruel", "vicious"],
+    "holy_items": ["spiral dagger"],
+    "holy_symbols": ["evil eye", "spider"]
+  }, {
+    "name": "fear",
+    "appearance_traits": ["shadowy", "nebulous", "unnaturally thin"],
+    "personality_traits": ["cruel"],
+    "holy_items": ["mask"],
+    "holy_symbols": ["screaming face"]
+  }, {
+    "name": "fertility",
+    "appearance_traits": ["entrancing", "hauntingly beautiful"],
+    "personality_traits": ["playful", "seductive"],
+    "holy_items": ["egg"],
+    "holy_symbols": ["pregnant woman", "penis", "vagina"]
+  }, {
+    "name": "fire",
+    "appearance_traits": ["black skinned, with firey veins like magma", "ember-eyed", "wreathed in flames"],
+    "personality_traits": ["easily upsettable", "firey", "passionate", "quick to anger"],
+    "holy_items": ["torch", "brazier"],
+    "holy_symbols": ["fire"]
+  }, {
+    "name": "foxes",
+    "appearance_traits": ["fox-eared", "fox-headed", "fox-bodied"],
+    "personality_traits": ["playful", "tricksy"],
+    "holy_items": ["fox tail", "fox paw"],
+    "holy_symbols": ["fox's face"]
+  }, {
+    "name": "good",
+    "appearance_traits": ["taciturn"],
+    "personality_traits": ["jovial", "tolerant"],
+    "holy_items": ["shield"],
+    "holy_symbols": ["radiant sun"]
+  }, {
+    "name": "harvests",
+    "appearance_traits": ["stocky"],
+    "personality_traits": ["festive", "hard-working"],
+    "holy_items": ["scythe", "sickle"],
+    "holy_symbols": ["sickle", "scythe"]
+  }, {
+    "name": "healing",
+    "appearance_traits": ["green-haloed"],
+    "personality_traits": ["caring", "compassionate", "patient"],
+    "holy_items": ["wand"],
+    "holy_symbols": ["wreath of flowers", "open hand"]
+  }, {
+    "name": "hope",
+    "appearance_traits": ["haloed"],
+    "personality_traits": ["patient"],
+    "holy_items": ["hoop"],
+    "holy_symbols": ["open hand", "circle"]
+  }, {
+    "name": "horses",
+    "appearance_traits": ["horse-bodied", "horse-headed"],
+    "personality_traits": ["ebullient"],
+    "holy_items": ["horse skull", "horse tooth"],
+    "holy_symbols": ["horse's face", "horse"]
+  }, {
+    "name": "hunting",
+    "appearance_traits": ["narrow-featured", "tightly muscled"],
+    "personality_traits": ["patient", "subtle"],
+    "holy_items": ["bow", "arrow", "spear"],
+    "holy_symbols": ["bow and arrow", "beast"]
+  }, {
+    "name": "justice",
+    "appearance_traits": ["blind", "blindfolded"],
+    "personality_traits": ["callous", "even-tempered", "fair"],
+    "holy_items": ["scale", "sword"],
+    "holy_symbols": ["blind man", "blind woman", "scale", "sword"]
+  }, {
+    "name": "knowledge",
+    "appearance_traits": ["old and wrinkled", "bespectacled"],
+    "personality_traits": ["absent-minded", "studious"],
+    "holy_items": ["book"],
+    "holy_symbols": ["book", "open eye", "pyramid"]
+  }, {
+    "name": "language",
+    "appearance_traits": ["covered in mouths", "large-mouthed", "always speaking"],
+    "personality_traits": ["social"],
+    "holy_items": ["book", "scroll"],
+    "holy_symbols": ["speaking face", "scroll", "book"]
+  }, {
+    "name": "law",
+    "appearance_traits": ["grim-faced"],
+    "personality_traits": ["fair", "stern"],
+    "holy_items": ["book", "sword", "hammer"],
+    "holy_symbols": ["hammer", "hammer overlapping a book", "crossed sword and hammer", "sword", "sword overlapping a book"]
+  }, {
+    "name": "life",
+    "appearance_traits": ["haloed", "surrounded by living things"],
+    "personality_traits": ["full of life", "joyful"],
+    "holy_items": ["egg", "seed"],
+    "holy_symbols": ["ouroboros", "circle"]
+  }, {
+    "name": "light",
+    "appearance_traits": ["glowing", "white-haired"],
+    "personality_traits": ["serious"],
+    "holy_items": ["torch"],
+    "holy_symbols": ["beams of light coming from the sky", "radiant sun"]
+  }, {
+    "name": "lightning",
+    "appearance_traits": ["lightning-eyed", "surrounded by crackling sparks"],
+    "personality_traits": ["emotional", "unpredictable", "violent"],
+    "holy_items": ["rod"],
+    "holy_symbols": ["lightning bolt"]
+  }, {
+    "name": "love",
+    "appearance_traits": ["beautiful", "gorgeous", "pretty", "unabashedly naked"],
+    "personality_traits": ["joyful", "lustful", "passionate"],
+    "holy_items": ["red string"],
+    "holy_symbols": ["heart"]
+  }, {
+    "name": "luck",
+    "appearance_traits": ["always playing with cards", "perpetually grinning"],
+    "personality_traits": ["adventurous"],
+    "holy_items": ["rabbit's foot", "dice", "playing cards"],
+    "holy_symbols": ["grinning face", "face split into a grinning side and a frowning side"]
+  }, {
+    "name": "mercy",
+    "appearance_traits": ["plain"],
+    "personality_traits": ["compassionate", "fair"],
+    "holy_items": ["blunt sword"],
+    "holy_symbols": ["open hand", "wreath of vines"]
+  }, {
+    "name": "music",
+    "appearance_traits": ["entracing", "harpstrings for hair"],
+    "personality_traits": ["passionate", "reflective"],
+    "holy_items": ["harp", "lute", "lyre", "drum"],
+    "holy_symbols": ["encircled heart", "harp", "lute", "lyre"]
+  }, {
+    "name": "nature",
+    "appearance_traits": ["barefoot", "leaf-haired", "bark-skinned"],
+    "personality_traits": ["down-to-earth", "moody", "practical"],
+    "holy_items": ["staff"],
+    "holy_symbols": ["tree", "flower"]
+  }, {
+    "name": "nobility",
+    "appearance_traits": ["wearing a crown", "as if carved from marble"],
+    "personality_traits": ["arrogant"],
+    "holy_items": ["crown"],
+    "holy_symbols": ["crown"]
+  }, {
+    "name": "oceans",
+    "appearance_traits": ["surrounded by seaweed", "surrounded by a bubble of seawater when on land", "fish-tailed"],
+    "personality_traits": ["commanding", "mercurial", "passionate"],
+    "holy_items": ["shell"],
+    "holy_symbols": ["wave"]
+  }, {
+    "name": "persistence",
+    "appearance_traits": ["heavily scarred", "perpetually wounded"],
+    "personality_traits": ["enduring", "persistent"],
+    "holy_items": ["shield"],
+    "holy_symbols": ["man standing resolute", "fist"]
+  }, {
+    "name": "plants",
+    "appearance_traits": ["wreathed in vines", "green-skinned", "covered in leaves"],
+    "personality_traits": ["patient"],
+    "holy_items": ["hoe"],
+    "holy_symbols": ["plant", "tree"]
+  }, {
+    "name": "protection",
+    "appearance_traits": ["heavily armored with no skin visible", "enormous, with metallic skin"],
+    "personality_traits": ["enduring", "protective", "strong-willed"],
+    "holy_items": ["shield"],
+    "holy_symbols": ["shield", "gauntlet"]
+  }, {
+    "name": "revenge",
+    "appearance_traits": ["bald", "reed-thin"],
+    "personality_traits": ["brooding", "perpetually angry", "perpetually vexed", "vengeful"],
+    "holy_items": ["broken dagger"],
+    "holy_symbols": ["evil eye", "broken circle"]
+  }, {
+    "name": "sky",
+    "appearance_traits": ["sitting on a cloud"],
+    "personality_traits": ["wistful"],
+    "holy_items": ["flute", "kite"],
+    "holy_symbols": ["cloud"]
+  }, {
+    "name": "spring",
+    "appearance_traits": ["perpetually damp", "clothed in flowers", "wearing a crown of flowers"],
+    "personality_traits": ["energetic", "frisky"],
+    "holy_items": ["staff"],
+    "holy_symbols": ["wreath of flowers", "flower"]
+  }, {
+    "name": "strength",
+    "appearance_traits": ["heavily-muscled", "powerfully built"],
+    "personality_traits": ["blunt", "boisterous", "courageous"],
+    "holy_items": ["gauntlet"],
+    "holy_symbols": ["muscled arm", "fist", "tower"]
+  }, {
+    "name": "summer",
+    "appearance_traits": ["orange-haired", "red-haired", "perpetually sunburnt"],
+    "personality_traits": ["warm"],
+    "holy_items": ["wreath"],
+    "holy_symbols": ["radiant sun", "fire"]
+  }, {
+    "name": "thieves",
+    "appearance_traits": ["clad in dark leather", "cloaked", "thin"],
+    "personality_traits": ["avaricious"],
+    "holy_items": ["dagger", "coin purse"],
+    "holy_symbols": ["dagger", "pierced circle"]
+  }, {
+    "name": "the moon",
+    "appearance_traits": ["cloaked in silver", "naked", "pale"],
+    "personality_traits": ["sad", "thoughtful"],
+    "holy_items": ["plate"],
+    "holy_symbols": ["crescent moon"]
+  }, {
+    "name": "the sun",
+    "appearance_traits": ["glowing", "ringed in a firey halo"],
+    "personality_traits": ["courageous", "warm"],
+    "holy_items": ["plate"],
+    "holy_symbols": ["radiant sun"]
+  }, {
+    "name": "thunder",
+    "appearance_traits": ["barrel-chested"],
+    "personality_traits": ["booming", "loud"],
+    "holy_items": ["drum", "hammer"],
+    "holy_symbols": ["lightning bolt", "lightning bolt over a hammer", "hammer", "drum"]
+  }, {
+    "name": "time",
+    "appearance_traits": ["ancient-looking", "wizened", "youthful"],
+    "personality_traits": ["aloof", "unknowable", "wise"],
+    "holy_items": ["sundial", "hourglass"],
+    "holy_symbols": ["hourglass", "ouroboros"]
+  }, {
+    "name": "trade",
+    "appearance_traits": ["fat", "rotund", "round", "well-fed"],
+    "personality_traits": ["calculating", "greedy", "measured"],
+    "holy_items": ["scale", "coin"],
+    "holy_symbols": ["coin", "scale", "book and scale"]
+  }, {
+    "name": "travel",
+    "appearance_traits": ["dusty"],
+    "personality_traits": ["wandering"],
+    "holy_items": ["staff"],
+    "holy_symbols": ["man walking", "road disappearing into the horizon"]
+  }, {
+    "name": "trickery",
+    "appearance_traits": ["cloaked in night", "shadowy"],
+    "personality_traits": ["cunning", "mischievious", "puzzling", "tricky"],
+    "holy_items": ["two-faced mask"],
+    "holy_symbols": ["face bearing an evil half and a good half"]
+  }, {
+    "name": "war",
+    "appearance_traits": ["bloody", "crowned with knives", "spined"],
+    "personality_traits": ["aggressive", "bellicose", "belligerent"],
+    "holy_items": ["sword", "spear"],
+    "holy_symbols": ["sword", "crossed pair of axes"]
+  }, {
+    "name": "water",
+    "appearance_traits": ["blue-skinned", "hairless", "half fish"],
+    "personality_traits": ["mercurial", "moody"],
+    "holy_items": ["flask"],
+    "holy_symbols": ["wave", "fountain"]
+  }, {
+    "name": "winter",
+    "appearance_traits": ["completely white", "covered in frost", "blue-skinned", "white eyes"],
+    "personality_traits": ["cold", "relentless", "unforgiving"],
+    "holy_items": ["cloak"],
+    "holy_symbols": ["snowflake", "icicle"]
+  }, {
+    "name": "wisdom",
+    "appearance_traits": ["frail", "always leaning on a staff", "old and wizened"],
+    "personality_traits": ["careful", "knowing", "wise"],
+    "holy_items": ["book"],
+    "holy_symbols": ["book", "scroll", "book and scroll"]
+  }]
+}
