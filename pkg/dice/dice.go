@@ -31,7 +31,7 @@ func Roll(dice Dice) int {
 
 // ParseFromString returns a Dice struct parsed from a string
 func ParseFromString(input string) (Dice, error) {
-	n := regexp.MustCompile(`\d`)
+	n := regexp.MustCompile(`\d+`)
 	results := n.FindAllString(input, -1)
 	if len(results) != 2 {
 		err := fmt.Errorf("bad dice string: %s", input)
