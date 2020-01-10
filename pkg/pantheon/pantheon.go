@@ -12,6 +12,8 @@ import (
 	"github.com/ironarachne/world/pkg/pantheon/domain"
 )
 
+const pantheonError = "could not generate pantheon: %w"
+
 // Pantheon is a nonhierarchical group of deities
 type Pantheon struct {
 	Deities []deity.Deity `json:"deities"`
@@ -30,12 +32,16 @@ func Generate(minSize int, maxSize int, lang language.Language) (Pantheon, error
 		return pantheon, nil
 	}
 
-	possibleDomains := domain.All()
+	possibleDomains, err := domain.All()
+	if err != nil {
+		err = fmt.Errorf(pantheonError, err)
+		return Pantheon{}, err
+	}
 
 	for i := 0; i < numberOfDeities; i++ {
 		d, err := deity.Generate(lang, possibleDomains)
 		if err != nil {
-			err = fmt.Errorf("Could not generate pantheon: %w", err)
+			err = fmt.Errorf(pantheonError, err)
 			return Pantheon{}, err
 		}
 		pantheon.Deities = append(pantheon.Deities, d)
@@ -45,7 +51,7 @@ func Generate(minSize int, maxSize int, lang language.Language) (Pantheon, error
 	if len(pantheon.Deities) > 1 {
 		deities, err := pantheon.GenerateRelationships()
 		if err != nil {
-			err = fmt.Errorf("Could not generate pantheon: %w", err)
+			err = fmt.Errorf(pantheonError, err)
 			return Pantheon{}, err
 		}
 		pantheon.Deities = deities

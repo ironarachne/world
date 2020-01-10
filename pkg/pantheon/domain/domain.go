@@ -1,9 +1,17 @@
 package domain
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"os"
 )
+
+// Data is a collection of domains
+type Data struct {
+	Domains []Domain `json:"domains"`
+}
 
 // Domain is an area of control
 type Domain struct {
@@ -12,6 +20,32 @@ type Domain struct {
 	PersonalityTraits []string `json:"personality_traits"`
 	HolyItems         []string `json:"holy_items"`
 	HolySymbols       []string `json:"holy_symbols"`
+}
+
+// All returns all pre-defined domains
+func All() ([]Domain, error) {
+	var d Data
+
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/domains.json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Domain{}, err
+	}
+
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	json.Unmarshal(byteValue, &d)
+
+	all := d.Domains
+
+	if len(all) == 0 {
+		err = fmt.Errorf("no domains returned from database: domains.json")
+		return []Domain{}, err
+	}
+
+	return all, nil
 }
 
 // AllAppearancesForDomains returns a string slice of all the appearances from a set of domains
@@ -82,7 +116,11 @@ func RandomPersonalityFromDomains(domains []Domain) (string, error) {
 
 // ByName returns a specific domain by name
 func ByName(name string) (Domain, error) {
-	domains := All()
+	domains, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to find domain with name: %w", err)
+		return Domain{}, err
+	}
 
 	for _, d := range domains {
 		if d.Name == name {
@@ -90,14 +128,14 @@ func ByName(name string) (Domain, error) {
 		}
 	}
 
-	err := fmt.Errorf("Failed to find domain with name " + name)
+	err = fmt.Errorf("failed to find domain with name " + name)
 	return Domain{}, err
 }
 
 // Random returns a random domain from a slice of domains
 func Random(domains []Domain) (Domain, error) {
 	if len(domains) == 0 {
-		err := fmt.Errorf("Tried to get a random domain from an empty slice")
+		err := fmt.Errorf("tried to get a random domain from an empty slice")
 		return Domain{}, err
 	}
 

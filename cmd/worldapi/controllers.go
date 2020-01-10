@@ -26,6 +26,7 @@ import (
 	"github.com/ironarachne/world/pkg/monster"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
+	"github.com/ironarachne/world/pkg/pantheon/domain"
 	"github.com/ironarachne/world/pkg/plant"
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/race"
@@ -51,6 +52,20 @@ func dataAnimals(w http.ResponseWriter, r *http.Request) {
 
 	d := species.Data{
 		Species: animals,
+	}
+
+	json.NewEncoder(w).Encode(d)
+}
+
+func dataDomains(w http.ResponseWriter, r *http.Request) {
+	all, err := domain.All()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := domain.Data{
+		Domains: all,
 	}
 
 	json.NewEncoder(w).Encode(d)
