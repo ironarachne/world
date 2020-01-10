@@ -11,8 +11,16 @@ import (
 const plantError = "failed to populate climate with plants: %w"
 
 func (gen Generator) getPlants(humidity int, temperature int) ([]species.Species, error) {
-	allPlants := plant.All()
-	plants := getFilteredPlants(humidity, temperature)
+	allPlants, err := plant.All()
+	if err != nil {
+		err = fmt.Errorf(plantError, err)
+		return []species.Species{}, err
+	}
+	plants, err := getFilteredPlants(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(plantError, err)
+		return []species.Species{}, err
+	}
 
 	numberOfPlants := rand.Intn(gen.AnimalMax-gen.AnimalMin) + gen.AnimalMin
 
@@ -43,10 +51,14 @@ func (gen Generator) getPlants(humidity int, temperature int) ([]species.Species
 	return plants, nil
 }
 
-func getFilteredPlants(humidity int, temperature int) []species.Species {
-	plants := plant.All()
+func getFilteredPlants(humidity int, temperature int) ([]species.Species, error) {
+	plants, err := plant.All()
+	if err != nil {
+		err = fmt.Errorf(plantError, err)
+		return []species.Species{}, err
+	}
 	plants = species.FilterHumidity(humidity, plants)
 	plants = species.FilterTemperature(temperature, plants)
 
-	return plants
+	return plants, nil
 }

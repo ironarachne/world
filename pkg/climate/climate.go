@@ -78,8 +78,16 @@ func Generate() (Climate, error) {
 		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
 		err = fmt.Errorf(climateError, err)
@@ -142,8 +150,16 @@ func GenerateByName(name string) (Climate, error) {
 		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
 		err = fmt.Errorf(climateError, err)
@@ -205,8 +221,16 @@ func GenerateForCharacteristics(humidity int, temperature int, elevation int) (C
 		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
 		err = fmt.Errorf(climateError, err)
@@ -272,8 +296,16 @@ func GenerateForeign(currentClimate Climate) (Climate, error) {
 		err = fmt.Errorf(climateError, err)
 		return Climate{}, err
 	}
-	soils := gen.getSoils()
-	trees := gen.getTrees(humidity, temperature)
+	soils, err := gen.getSoils()
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
+	trees, err := gen.getTrees(humidity, temperature)
+	if err != nil {
+		err = fmt.Errorf(climateError, err)
+		return Climate{}, err
+	}
 	minerals, err := gen.getMinerals()
 	if err != nil {
 		err = fmt.Errorf(climateError, err)

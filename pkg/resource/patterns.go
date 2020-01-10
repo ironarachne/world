@@ -2,13 +2,21 @@ package resource
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"os"
 	"text/template"
 
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/random"
 )
+
+// Data is a collection of patterns
+type Data struct {
+	Patterns []Pattern `json:"patterns"`
+}
 
 // Pattern is a pattern for a resource
 type Pattern struct {
@@ -34,62 +42,30 @@ type Slot struct {
 	PossibleQuirks      []string `json:"possible_quirks" db:"possible_quirks"`
 }
 
-// AllPatterns returns all patterns
-func AllPatterns() []Pattern {
-	var patterns []Pattern
-	armor := getArmor()
-	beekeeping := getBeekeeping()
-	bowery := getBowery()
-	breads := getBreads()
-	brewed := getBrewed()
-	carpentry := getCarpentry()
-	clothing := getClothing()
-	cobbler := getCobbler()
-	distilled := getDistilled()
-	glass := getGlass()
-	logging := getLogging()
-	medicine := getMedicine()
-	milled := getMilled()
-	mined := getMined()
-	mounts := getMounts()
-	potions := getPotions()
-	pottery := getPottery()
-	smelting := getSmelting()
-	smithing := getSmithing()
-	stone := getStone()
-	tannery := getTannery()
-	vehicles := getVehicles()
-	weapons := getWeapons()
-	weaving := getWeaving()
-	wine := getWine()
+// All returns all predefined patterns from a JSON file on disk
+func All() ([]Pattern, error) {
+	var d Data
 
-	patterns = append(patterns, armor...)
-	patterns = append(patterns, beekeeping...)
-	patterns = append(patterns, bowery...)
-	patterns = append(patterns, breads...)
-	patterns = append(patterns, brewed...)
-	patterns = append(patterns, carpentry...)
-	patterns = append(patterns, clothing...)
-	patterns = append(patterns, cobbler...)
-	patterns = append(patterns, distilled...)
-	patterns = append(patterns, glass...)
-	patterns = append(patterns, logging...)
-	patterns = append(patterns, medicine...)
-	patterns = append(patterns, milled...)
-	patterns = append(patterns, mined...)
-	patterns = append(patterns, mounts...)
-	patterns = append(patterns, potions...)
-	patterns = append(patterns, pottery...)
-	patterns = append(patterns, smelting...)
-	patterns = append(patterns, smithing...)
-	patterns = append(patterns, stone...)
-	patterns = append(patterns, tannery...)
-	patterns = append(patterns, vehicles...)
-	patterns = append(patterns, weapons...)
-	patterns = append(patterns, weaving...)
-	patterns = append(patterns, wine...)
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/patterns.json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Pattern{}, err
+	}
 
-	return patterns
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	json.Unmarshal(byteValue, &d)
+
+	all := d.Patterns
+
+	if len(all) == 0 {
+		err = fmt.Errorf("no patterns returned from database: patterns.json")
+		return []Pattern{}, err
+	}
+
+	return all, nil
 }
 
 // FindPatternsForProfession returns all patterns from the set that a profession can make
@@ -106,14 +82,18 @@ func FindPatternsForProfession(prof profession.Profession, from []Pattern) []Pat
 }
 
 // GetPossibleProfessions gets all possible professions for a given set of resources
-func GetPossibleProfessions(resources []Resource) []profession.Profession {
+func GetPossibleProfessions(resources []Resource) ([]profession.Profession, error) {
 	var possiblePatterns []Pattern
 	possibleProducers, _ := profession.All()
 
 	producers := []profession.Profession{}
 
 	patterns := []Pattern{}
-	allPatterns := AllPatterns()
+	allPatterns, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to get possible professions: %w", err)
+		return []profession.Profession{}, err
+	}
 
 	for _, p := range possibleProducers {
 		patterns = []Pattern{}
@@ -132,7 +112,7 @@ func GetPossibleProfessions(resources []Resource) []profession.Profession {
 		}
 	}
 
-	return producers
+	return producers, nil
 }
 
 // CanMake returns true if the pattern can be made with the resources given

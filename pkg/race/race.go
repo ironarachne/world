@@ -11,36 +11,41 @@ import (
 	"github.com/ironarachne/world/pkg/species"
 )
 
-// All returns all races
-func All() []species.Species {
-	races := []species.Species{}
+// All returns all predefined races
+func All() ([]species.Species, error) {
+	races, err := species.Load("races")
+	if err != nil {
+		err = fmt.Errorf("failed to load races: %w", err)
+		return []species.Species{}, err
+	}
 
-	races = append(races, getDwarves()...)
-	races = append(races, getElves()...)
-	races = append(races, getHalflings()...)
-	races = append(races, getHumans()...)
-	races = append(races, getGnomes()...)
-	races = append(races, getTieflings()...)
-
-	return races
+	return races, nil
 }
 
 // ByName returns a specific race by name
-func ByName(name string) species.Species {
-	races := All()
+func ByName(name string) (species.Species, error) {
+	races, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to find race by name: %w", err)
+		return species.Species{}, err
+	}
 
 	for _, r := range races {
 		if r.Name == name {
-			return r
+			return r, nil
 		}
 	}
 
-	return species.Species{}
+	return species.Species{}, nil
 }
 
 // Random returns a random race from the list
 func Random() (species.Species, error) {
-	races := All()
+	races, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to find random race: %w", err)
+		return species.Species{}, err
+	}
 
 	if len(races) == 0 {
 		err := fmt.Errorf("tried to get random race from slice of zero races")
@@ -71,7 +76,11 @@ func RandomSimplified() (species.Simplified, error) {
 
 // RandomWeighted returns a random race, taking commonality into account
 func RandomWeighted() (species.Species, error) {
-	races := All()
+	races, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to find random weighted race: %w", err)
+		return species.Species{}, err
+	}
 
 	weights := map[string]int{}
 

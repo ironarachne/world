@@ -4,12 +4,20 @@ Package mineral provides minerals and tools for their usage
 package mineral
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"os"
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 )
+
+// Data is a collection of minerals
+type Data struct {
+	Minerals []Mineral `json:"minerals"`
+}
 
 // Mineral is a mineral
 type Mineral struct {
@@ -22,21 +30,30 @@ type Mineral struct {
 	Tags         []string            `json:"tags"`
 }
 
-// All returns all minerals
-func All() []Mineral {
-	var all []Mineral
+// All returns all predefined minerals from a JSON file on disk
+func All() ([]Mineral, error) {
+	var d Data
 
-	gems := Gems()
-	metals := Metals()
-	other := OtherMinerals()
-	stones := Stones()
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/minerals.json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Mineral{}, err
+	}
 
-	all = append(all, gems...)
-	all = append(all, metals...)
-	all = append(all, other...)
-	all = append(all, stones...)
+	defer jsonFile.Close()
 
-	return all
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	json.Unmarshal(byteValue, &d)
+
+	all := d.Minerals
+
+	if len(all) == 0 {
+		err = fmt.Errorf("no minerals returned from database: minerals.json")
+		return []Mineral{}, err
+	}
+
+	return all, nil
 }
 
 // ByTag returns a slice of minerals that have the given tag

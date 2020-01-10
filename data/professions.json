@@ -1,6 +1,5 @@
 {
-  "professions": [
-    {
+  "professions": [{
       "name": "armorsmith",
       "description": "Armorsmiths make armor from raw materials.",
       "tags": [
@@ -12,8 +11,8 @@
       "description": "Blacksmiths turn raw metal into useful materials.",
       "tags": [
         "crafter",
-				"refiner",
-				"smith"
+        "refiner",
+        "smith"
       ]
     },
     {
@@ -21,7 +20,7 @@
       "description": "Farriers make horseshoes and perform veterinarian surgery.",
       "tags": [
         "crafter",
-				"smith"
+        "smith"
       ]
     },
     {
@@ -29,7 +28,7 @@
       "description": "Weaponsmiths specialize in making weapons.",
       "tags": [
         "crafter",
-				"smith"
+        "smith"
       ]
     },
     {
@@ -37,7 +36,7 @@
       "description": "Clerics are divine messengers who carry out the will of the gods.",
       "tags": [
         "divine",
-				"fighter"
+        "fighter"
       ]
     },
     {
@@ -45,7 +44,7 @@
       "description": "Paladins are holy warriors who wield divine magic in addition to their fighing skill.",
       "tags": [
         "divine",
-				"fighter"
+        "fighter"
       ]
     },
     {
@@ -161,7 +160,7 @@
       "description": "Animal trainers tame animals and turn them into disciplined followers.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -169,7 +168,7 @@
       "description": "Bakers bake bread and other oven-derived goods from grain and related ingredients.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -177,7 +176,7 @@
       "description": "Beekeepers produce refined honey products.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -185,7 +184,7 @@
       "description": "Brewers turn grain into ale, beer, and related beverages.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -193,7 +192,7 @@
       "description": "Distillers make hard alcoholic beverages.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -209,7 +208,7 @@
       "description": "Glassmakers turn sand and other materials into glass.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -217,7 +216,7 @@
       "description": "Jewellers cut raw gem ore into sparkling gemstones.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -233,7 +232,7 @@
       "description": "Millers take raw grain and turn it into flour.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -249,7 +248,7 @@
       "description": "Potters turn raw clay into finished pots and other ceramics.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -257,7 +256,7 @@
       "description": "Spinners create thread and cloth from raw fibers.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -265,7 +264,7 @@
       "description": "Tanners turn raw animal skin into cured hides.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {
@@ -273,7 +272,7 @@
       "description": "Vintners make wine.",
       "tags": [
         "crafter",
-				"refiner"
+        "refiner"
       ]
     },
     {

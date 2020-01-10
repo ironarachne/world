@@ -6,18 +6,18 @@ elements.
 package insect
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/world/pkg/species"
 )
 
-// All returns all insects
-func All() []species.Species {
-	arachnids := getArachnids()
-	beetles := getBeetles()
+// All returns all predefined insects
+func All() ([]species.Species, error) {
+	insects, err := species.Load("insects")
+	if err != nil {
+		err = fmt.Errorf("failed to load insects: %w", err)
+		return []species.Species{}, err
+	}
 
-	insects := getInsects()
-
-	insects = append(insects, arachnids...)
-	insects = append(insects, beetles...)
-
-	return insects
+	return insects, nil
 }

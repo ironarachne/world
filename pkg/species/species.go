@@ -4,13 +4,21 @@ Package species implements the backbone of all living entities in a world
 package species
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"os"
 
 	"github.com/ironarachne/world/pkg/age"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/trait"
 )
+
+// Data is a struct containing a slice of Species
+type Data struct {
+	Species []Species `json:"species"`
+}
 
 // Species is a species of living thing
 type Species struct {
@@ -27,6 +35,32 @@ type Species struct {
 	MaxTemperature int                 `json:"max_temperature" db:"temperature_max"`
 	Resources      []resource.Resource `json:"resources" db:"resources"` // These are resources that can be derived from this species
 	Tags           []string            `json:"tags" db:"tags"`
+}
+
+// Load returns all predefined species of a given type from a JSON file on disk
+func Load(fileName string) ([]Species, error) {
+	var d Data
+
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/" + fileName + ".json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Species{}, err
+	}
+
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	json.Unmarshal(byteValue, &d)
+
+	all := d.Species
+
+	if len(all) == 0 {
+		err = fmt.Errorf("no species returned from database: " + fileName + ".json")
+		return []Species{}, err
+	}
+
+	return all, nil
 }
 
 // ByResource returns a slice of species that have the given resource

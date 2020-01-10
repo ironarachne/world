@@ -3,18 +3,19 @@ Package monster provides monster implementations of the species.Species struct
 */
 package monster
 
-import "github.com/ironarachne/world/pkg/species"
+import (
+	"fmt"
 
-func getAllMonsters() []species.Species {
-	monsters := []species.Species{}
+	"github.com/ironarachne/world/pkg/species"
+)
 
-	draconids := getAllDraconids()
-	giants := getAllGiants()
-	humanoids := getAllHumanoids()
+// All returns all predefined monsters
+func All() ([]species.Species, error) {
+	monsters, err := species.Load("monsters")
+	if err != nil {
+		err = fmt.Errorf("failed to load monsters: %w", err)
+		return []species.Species{}, err
+	}
 
-	monsters = append(monsters, draconids...)
-	monsters = append(monsters, giants...)
-	monsters = append(monsters, humanoids...)
-
-	return monsters
+	return monsters, nil
 }

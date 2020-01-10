@@ -11,14 +11,13 @@ import (
 	"os"
 )
 
-// Professions is a struct containing a slice of professions
-type Professions struct {
+// Data is a struct containing a slice of professions
+type Data struct {
 	Professions []Profession `json:"professions"`
 }
 
 // Profession is a person with a particular skillset that can make a resource
 type Profession struct {
-	ID          int      `json:"id" db:"id"`
 	Name        string   `json:"name" db:"name"`
 	Description string   `json:"description" db:"description"`
 	Tags        []string `json:"tags"`
@@ -26,7 +25,7 @@ type Profession struct {
 
 // All returns all professions
 func All() ([]Profession, error) {
-	var professions Professions
+	var professions Data
 	var result []Profession
 
 	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/professions.json")
