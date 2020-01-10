@@ -1,17 +1,3 @@
-CREATE TABLE dice (
-  id INTEGER PRIMARY KEY,
-  "number" INTEGER,
-  sides INTEGER
-);
-
-CREATE TABLE size_categories (
-  id INTEGER PRIMARY KEY,
-  name TEXT,
-  level INTEGER,
-  base_height INTEGER,
-  base_weight INTEGER
-);
-
 CREATE TABLE age_categories (
   id INTEGER PRIMARY KEY,
   name TEXT,
@@ -19,12 +5,12 @@ CREATE TABLE age_categories (
   age_max INTEGER,
   male_height_base INTEGER,
   female_height_base INTEGER,
-  height_range_dice_id INTEGER,
+  height_range_dice TEXT,
   male_weight_base INTEGER,
   female_weight_base INTEGER,
   weight_modifier INTEGER,
-  weight_range_dice_id INTEGER,
-  size_category_id INTEGER,
+  weight_range_dice TEXT,
+  size_category TEXT,
   commonality INTEGER
 );
 
