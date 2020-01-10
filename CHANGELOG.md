@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.9.0 (2020-01-10)
+
+- Switch to using JSON files for data instead of hard-coded values
+- Add insects and fish to animal data for climates
+- Fix bug in ordering coordinates by distance
+- Change where heraldry images are saved
+- Switch to using Make for development
+- Added /data endpoints to the API
+
 ## 0.8.19 (2019-12-03)
 
 - Add ability to generate regions from a culture passed in via POST
