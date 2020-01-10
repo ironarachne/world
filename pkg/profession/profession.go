@@ -4,13 +4,17 @@ Package profession provides fantasy professions and metadata for them
 package profession
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
 	"os"
-
-	"github.com/jmoiron/sqlx"
-	_ "github.com/mattn/go-sqlite3" // sqlite driver
 )
+
+// Professions is a struct containing a slice of professions
+type Professions struct {
+	Professions []Profession `json:"professions"`
+}
 
 // Profession is a person with a particular skillset that can make a resource
 type Profession struct {
@@ -22,26 +26,22 @@ type Profession struct {
 
 // All returns all professions
 func All() ([]Profession, error) {
-	var professions []Profession
-	var all []Profession
+	var professions Professions
 	var result []Profession
-	var tags []string
 
-	db, err := sqlx.Connect("sqlite3", os.Getenv("WORLDAPI_DATA_PATH")+"/data.db")
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/professions.json")
 	if err != nil {
-		err = fmt.Errorf("could not open database: %w", err)
-		return []Profession{}, nil
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Profession{}, err
 	}
 
-	db.Select(&professions, "SELECT * FROM professions")
+	defer jsonFile.Close()
 
-	for _, prof := range professions {
-		db.Select(&tags, "SELECT tag FROM profession_tags WHERE profession_id = ?", prof.ID)
-		prof.Tags = tags
-		all = append(all, prof)
-	}
+	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	db.Close()
+	json.Unmarshal(byteValue, &professions)
+
+	all := professions.Professions
 
 	if len(all) == 0 {
 		err = fmt.Errorf("no professions returned from database")

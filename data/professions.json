@@ -1,0 +1,335 @@
+{
+  "professions": [
+    {
+      "name": "armorsmith",
+      "description": "Armorsmiths make armor from raw materials.",
+      "tags": [
+        "crafter", "smith"
+      ]
+    },
+    {
+      "name": "blacksmith",
+      "description": "Blacksmiths turn raw metal into useful materials.",
+      "tags": [
+        "crafter",
+				"refiner",
+				"smith"
+      ]
+    },
+    {
+      "name": "farrier",
+      "description": "Farriers make horseshoes and perform veterinarian surgery.",
+      "tags": [
+        "crafter",
+				"smith"
+      ]
+    },
+    {
+      "name": "weaponsmith",
+      "description": "Weaponsmiths specialize in making weapons.",
+      "tags": [
+        "crafter",
+				"smith"
+      ]
+    },
+    {
+      "name": "cleric",
+      "description": "Clerics are divine messengers who carry out the will of the gods.",
+      "tags": [
+        "divine",
+				"fighter"
+      ]
+    },
+    {
+      "name": "paladin",
+      "description": "Paladins are holy warriors who wield divine magic in addition to their fighing skill.",
+      "tags": [
+        "divine",
+				"fighter"
+      ]
+    },
+    {
+      "name": "soldier",
+      "description": "Soldiers are formally trained fighters with allegiance to a fighting unit.",
+      "tags": [
+        "fighter"
+      ]
+    },
+    {
+      "name": "warrior",
+      "description": "Warriors are fighters who have no formal training, but have gained experience in battle.",
+      "tags": [
+        "fighter"
+      ]
+    },
+    {
+      "name": "apothecary",
+      "description": "Apothecaries make healing salves and ointments.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    {
+      "name": "bowyer",
+      "description": "Bowyers craft bows for use in hunting and combat.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    {
+      "name": "cartwright",
+      "description": "Cartwrights build carts, wagons, and other land vehicles.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    {
+      "name": "cobbler",
+      "description": "Cobblers make shoes from leather and other materials.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    {
+      "name": "mason",
+      "description": "Masons architect and build structures from finished stone.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    {
+      "name": "tailor",
+      "description": "Tailors take fabrics and make them into clothing.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    {
+      "name": "alchemist",
+      "description": "Alchemists take raw materials and use magic to turn them into new substances.",
+      "tags": [
+        "crafter",
+        "mage"
+      ]
+    },
+    {
+      "name": "necromancer",
+      "description": "Necromancers use magic to speak with and sometimes raise the dead.",
+      "tags": [
+        "death",
+        "mage"
+      ]
+    },
+    {
+      "name": "scrollmaker",
+      "description": "Scrollmakers enscribe sorcerous incantations onto paper for later use by skilled practitioners.",
+      "tags": [
+        "crafter",
+        "mage"
+      ]
+    },
+    {
+      "name": "sorcerer",
+      "description": "Sorcerers wield intuitive magic.",
+      "tags": [
+        "mage"
+      ]
+    },
+    {
+      "name": "warlock",
+      "description": "Warlocks wield magic borne of strange and terrible origins.",
+      "tags": [
+        "mage"
+      ]
+    },
+    {
+      "name": "wizard",
+      "description": "Wizards study magic as a science and wield it in complex and powerful ways.",
+      "tags": [
+        "mage"
+      ]
+    },
+    {
+      "name": "animal trainer",
+      "description": "Animal trainers tame animals and turn them into disciplined followers.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "baker",
+      "description": "Bakers bake bread and other oven-derived goods from grain and related ingredients.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "beekeeper",
+      "description": "Beekeepers produce refined honey products.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "brewer",
+      "description": "Brewers turn grain into ale, beer, and related beverages.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "distiller",
+      "description": "Distillers make hard alcoholic beverages.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "farmer",
+      "description": "Farmers till the earth and practice animal husbandry.",
+      "tags": [
+        "harvester",
+        "refiner"
+      ]
+    },
+    {
+      "name": "glassmaker",
+      "description": "Glassmakers turn sand and other materials into glass.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "jeweller",
+      "description": "Jewellers cut raw gem ore into sparkling gemstones.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "logger",
+      "description": "Loggers cut down trees to make lumber.",
+      "tags": [
+        "harvester",
+        "refiner"
+      ]
+    },
+    {
+      "name": "miller",
+      "description": "Millers take raw grain and turn it into flour.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "miner",
+      "description": "Miners extract raw ore from the earth.",
+      "tags": [
+        "harvester",
+        "refiner"
+      ]
+    },
+    {
+      "name": "potter",
+      "description": "Potters turn raw clay into finished pots and other ceramics.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "spinner",
+      "description": "Spinners create thread and cloth from raw fibers.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "tanner",
+      "description": "Tanners turn raw animal skin into cured hides.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "vintner",
+      "description": "Vintners make wine.",
+      "tags": [
+        "crafter",
+				"refiner"
+      ]
+    },
+    {
+      "name": "bard",
+      "description": "Bards are minstrels who travel and entertain.",
+      "tags": [
+        "musician",
+        "social"
+      ]
+    },
+    {
+      "name": "mayor",
+      "description": "Mayors coordinate a town or city.",
+      "tags": [
+        "leader",
+        "social"
+      ]
+    },
+    {
+      "name": "merchant",
+      "description": "Merchants buy, sell, and trade goods.",
+      "tags": [
+        "trader",
+        "social"
+      ]
+    },
+    {
+      "name": "noble",
+      "description": "Nobles act as military coordinators, protectors, and leaders.",
+      "tags": [
+        "leader",
+        "social"
+      ]
+    },
+    {
+      "name": "philosopher",
+      "description": "Philosophers reason about the nature of the universe and teach others.",
+      "tags": [
+        "social"
+      ]
+    },
+    {
+      "name": "priest",
+      "description": "Priests interpret the will of the gods.",
+      "tags": [
+        "divine",
+        "social"
+      ]
+    },
+    {
+      "name": "shaman",
+      "description": "Shamans speak for the spirits.",
+      "tags": [
+        "spiritual",
+        "social"
+      ]
+    }
+  ]
+}
