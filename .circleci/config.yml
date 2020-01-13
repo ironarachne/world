@@ -27,6 +27,7 @@ jobs:
       - image: cimg/go:1.13
     steps:
       - checkout
+      - setup_remote_docker
       - run: go get -v -t -d ./...
       - run: |
           cd cmd/worldapi
