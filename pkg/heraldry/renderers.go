@@ -76,7 +76,7 @@ func (device Device) RenderToPNG() (string, error) {
 
 	imageURL, err := save.PNG("images/heraldry/devices/"+directory, device.FileName, finalImage)
 	if err != nil {
-		err = fmt.Errorf("Could not save heraldic device: %w", err)
+		err = fmt.Errorf("failed to save heraldic device image: %w", err)
 		return "", err
 	}
 

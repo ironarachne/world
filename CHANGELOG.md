@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.1 (2020-01-15)
+
+- Add JSON hinting to alcoholic drinks
+- Add description to Deity
+- Improve error messages for heraldry generation
+
 ## 0.9.0 (2020-01-10)
 
 - Switch to using JSON files for data instead of hard-coded values

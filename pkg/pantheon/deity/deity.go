@@ -14,6 +14,7 @@ import (
 // Deity is a fictional god or goddess
 type Deity struct {
 	Name              string                      `json:"name"`
+	Description       string                      `json:"description"`
 	Domains           []domain.Domain             `json:"domains"`
 	Appearance        string                      `json:"appearance"`
 	Gender            gender.Gender               `json:"gender"`
@@ -185,6 +186,7 @@ func Generate(lang language.Language, possibleDomains []domain.Domain) (Deity, e
 	}
 
 	deity.Name = name
+	deity.Description = deity.Describe()
 
 	return deity, nil
 }

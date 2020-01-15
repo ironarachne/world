@@ -16,12 +16,12 @@ import (
 
 // Drink is an alcoholic drink
 type Drink struct {
-	Description string
-	Appearance  string
-	Type        string
-	Strength    string
-	Base        string
-	Ingredients []string
+	Description string   `json:"description"`
+	Appearance  string   `json:"appearance"`
+	Type        string   `json:"type"`
+	Strength    string   `json:"strength"`
+	Base        string   `json:"base"`
+	Ingredients []string `json:"ingredients"`
 }
 
 func (drink Drink) describe() string {

@@ -25,7 +25,7 @@ func ToDOSpaces(filePath string, reader io.Reader, contentType string) (string, 
 	// Initiate a client using DigitalOcean Spaces.
 	client, err := minio.New(endpoint, accessKey, secretKey, true)
 	if err != nil {
-		err = fmt.Errorf("Failed to save to Digital Ocean Spaces: %w", err)
+		err = fmt.Errorf("failed to connect to Digital Ocean Spaces: %w", err)
 		return "", err
 	}
 
@@ -38,7 +38,7 @@ func ToDOSpaces(filePath string, reader io.Reader, contentType string) (string, 
 	}
 	_, err = client.PutObject(bucketName, filePath, reader, -1, opts)
 	if err != nil {
-		err = fmt.Errorf("Failed to save to Digital Ocean Spaces: %w", err)
+		err = fmt.Errorf("failed to save to Digital Ocean Spaces: %w", err)
 		return "", err
 	}
 
