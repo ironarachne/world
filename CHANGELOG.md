@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.2 (2020-01-15)
+
+- Use simplified devices instead of devices
+- Add error handling for API endpoints
+- Add sample phrase and sample phrase translation to full language
+
 ## 0.9.1 (2020-01-15)
 
 - Add JSON hinting to alcoholic drinks

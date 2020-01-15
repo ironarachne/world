@@ -14,20 +14,22 @@ import (
 
 // Language is a spoken language
 type Language struct {
-	Name                 string            `json:"name"`
-	Adjective            string            `json:"adjective"`
-	Descriptors          []string          `json:"descriptors"`
-	Description          string            `json:"description"`
-	WritingSystem        writing.System    `json:"writing_system"`
-	WordList             map[string]string `json:"word_list"`
-	FemaleFirstNames     []string          `json:"female_first_names"`
-	MaleFirstNames       []string          `json:"male_first_names"`
-	FamilyNames          []string          `json:"family_names"`
-	TownNames            []string          `json:"town_names"`
-	VerbConjugationRules ConjugationRules  `json:"conjugation_rules"`
-	IsTonal              bool              `json:"is_tonal"`
-	NewWordPrefixes      []string          `json:"new_word_prefixes"`
-	NewWordSuffixes      []string          `json:"new_word_suffixes"`
+	Name                    string            `json:"name"`
+	Adjective               string            `json:"adjective"`
+	Descriptors             []string          `json:"descriptors"`
+	Description             string            `json:"description"`
+	SamplePhrase            string            `json:"sample_phrase"`
+	SamplePhraseTranslation string            `json:"sample_phrase_translation"`
+	WritingSystem           writing.System    `json:"writing_system"`
+	WordList                map[string]string `json:"word_list"`
+	FemaleFirstNames        []string          `json:"female_first_names"`
+	MaleFirstNames          []string          `json:"male_first_names"`
+	FamilyNames             []string          `json:"family_names"`
+	TownNames               []string          `json:"town_names"`
+	VerbConjugationRules    ConjugationRules  `json:"conjugation_rules"`
+	IsTonal                 bool              `json:"is_tonal"`
+	NewWordPrefixes         []string          `json:"new_word_prefixes"`
+	NewWordSuffixes         []string          `json:"new_word_suffixes"`
 }
 
 // RandomFemaleFirstName returns a random female first name

@@ -34,7 +34,7 @@ func GenerateNobleHouse(originCulture culture.Culture) (Organization, error) {
 		err = fmt.Errorf("Could not generate noble house: %w", err)
 		return Organization{}, err
 	}
-	leader.CharacterData.Heraldry = device
+	leader.CharacterData.Heraldry = device.Simplify()
 	houseName := "House of " + leader.CharacterData.LastName
 	if leader.CharacterData.Gender.Name == "female" {
 		leader.CharacterData.Titles = append(leader.CharacterData.Titles, "Matriarch of the "+houseName)

@@ -10,7 +10,7 @@ import (
 type Class struct {
 	MaxNumberOfTowns         int    `json:"max_number_of_towns"`
 	MinNumberOfTowns         int    `json:"min_number_of_towns"`
-	Name                     string `json:name"`
+	Name                     string `json:"name"`
 	RulerTitleFemale         string `json:"ruler_title_female"`
 	RulerTitleMale           string `json:"ruler_title_male"`
 	Commonality              int    `json:"commonality"`
