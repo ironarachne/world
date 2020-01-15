@@ -19,28 +19,28 @@ import (
 
 // NameData is name data
 type NameData struct {
-	FirstPart  string
-	SecondPart string
+	FirstPart  string `json:"first_part"`
+	SecondPart string `json:"second_part"`
 }
 
 // Member is a member of an organization
 type Member struct {
-	CharacterData character.Character
-	Rank          Rank
+	CharacterData character.Character `json:"character_data"`
+	Rank          Rank                `json:"rank"`
 }
 
 // Organization is an organization
 type Organization struct {
-	Name           string
-	Type           Type
-	Superior       string // Superior is the name of an organization that this organization owes allegiance to
-	Heraldry       heraldry.Device
-	Leader         Member
-	LeaderType     string
-	NotableMembers []Member
-	SizeClass      SizeClass
-	Size           int
-	PrimaryTrait   string
+	Name           string                    `json:"name"`
+	Type           Type                      `json:"type"`
+	Superior       string                    `json:"superior"` // Superior is the name of an organization that this organization owes allegiance to
+	Heraldry       heraldry.SimplifiedDevice `json:"heraldry"`
+	Leader         Member                    `json:"leader"`
+	LeaderType     string                    `json:"leader_type"`
+	NotableMembers []Member                  `json:"notable_members"`
+	SizeClass      SizeClass                 `json:"size_class"`
+	Size           int                       `json:"size"`
+	PrimaryTrait   string                    `json:"primary_trait"`
 }
 
 func (org Organization) setLeaderType() string {

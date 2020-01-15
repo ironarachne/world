@@ -40,7 +40,7 @@ func (country Country) getNewMonarchy() (Government, error) {
 		err = fmt.Errorf("Could not generate monarch: %w", err)
 		return Government{}, err
 	}
-	monarch.Heraldry = device
+	monarch.Heraldry = device.Simplify()
 
 	government.Leaders = append(government.Leaders, monarch)
 

@@ -167,6 +167,9 @@ func Generate() (language.Language, Category, error) {
 	lang.TownNames = townNames
 	lang.NewWordPrefixes = newWordPrefixes
 	lang.NewWordSuffixes = newWordSuffixes
+	lang.Description = lang.Describe()
+	lang.SamplePhrase = "Hello! It is good to see you, friend."
+	lang.SamplePhraseTranslation = lang.TranslatePhrase(lang.SamplePhrase)
 
 	return lang, langCategory, nil
 }

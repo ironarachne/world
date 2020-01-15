@@ -14,13 +14,14 @@ const buildingError = "could not generate building style: %w"
 
 // BuildingStyle is a style of building
 type BuildingStyle struct {
-	Decorations string
-	DoorStyle   string
-	MaxStories  int
-	RoofStyle   string
-	StreetStyle string
-	WallStyle   string
-	WindowStyle string
+	Description string `json:"description"`
+	Decorations string `json:"decorations"`
+	DoorStyle   string `json:"door_style"`
+	MaxStories  int    `json:"max_stories"`
+	RoofStyle   string `json:"roof_style"`
+	StreetStyle string `json:"street_style"`
+	WallStyle   string `json:"wall_style"`
+	WindowStyle string `json:"window_style"`
 }
 
 // GenerateStyle generates a random building style
@@ -69,6 +70,7 @@ func GenerateStyle() (BuildingStyle, error) {
 		WallStyle:   wallStyle,
 		WindowStyle: windowStyle,
 	}
+	style.Description = style.Describe()
 
 	return style, nil
 }
