@@ -96,6 +96,7 @@ func main() {
 	r.Get("/data/animals", sentryHandler.HandleFunc(dataAnimals))
 	r.Get("/data/domains", sentryHandler.HandleFunc(dataDomains))
 	r.Get("/data/fish", sentryHandler.HandleFunc(dataFish))
+	r.Get("/data/heraldry/charges", sentryHandler.HandleFunc(dataCharges))
 	r.Get("/data/insects", sentryHandler.HandleFunc(dataInsects))
 	r.Get("/data/minerals", sentryHandler.HandleFunc(dataMinerals))
 	r.Get("/data/monsters", sentryHandler.HandleFunc(dataMonsters))

@@ -19,6 +19,7 @@ import (
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/heraldry/charge"
 	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/merchant"
@@ -52,6 +53,24 @@ func dataAnimals(w http.ResponseWriter, r *http.Request) {
 
 	d := species.Data{
 		Species: animals,
+	}
+
+	err = json.NewEncoder(w).Encode(d)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+}
+
+func dataCharges(w http.ResponseWriter, r *http.Request) {
+	charges, err := charge.AllRaster()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := charge.Data{
+		Charges: charges,
 	}
 
 	err = json.NewEncoder(w).Encode(d)
@@ -1002,6 +1021,7 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 		"data/animals",
 		"data/domains",
 		"data/fish",
+		"data/heraldry/charges",
 		"data/insects",
 		"data/minerals",
 		"data/monsters",

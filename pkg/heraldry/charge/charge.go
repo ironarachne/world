@@ -22,17 +22,6 @@ type Charge interface {
 	Render(bodyTincture tincture.Tincture) image.Image
 }
 
-// Raster is a charge that is rendered from a raster file
-type Raster struct {
-	Identifier string
-	Name       string
-	Noun       string
-	NounPlural string
-	Descriptor string
-	SingleOnly bool
-	Tags       []string
-}
-
 // Group is a group of charges with a common tincture
 type Group struct {
 	Blazon  string
@@ -41,49 +30,20 @@ type Group struct {
 	Position string
 }
 
-// Blazon returns the blazon for a raster charge
-func (r Raster) Blazon(count int, tincture string) (string, error) {
-	blazon, err := blazonForCharge(count, r.Noun, r.NounPlural, r.Descriptor, tincture)
+// All returns all charges
+func All() ([]Charge, error) {
+	raster, err := AllRaster()
 	if err != nil {
-		err = fmt.Errorf("failed to generate blazon for raster charge: %w", err)
-		return "", err
+		err = fmt.Errorf("failed to load charges: %w", err)
+		return nil, err
 	}
-
-	return blazon, nil
-}
-
-func (r Raster) GetTags() []string {
-	return r.Tags
-}
-
-// Render renders a raster charge from a file
-func (rc Raster) Render(bodyTincture tincture.Tincture) image.Image {
-	img := RenderChargeFromFile(rc.Identifier, bodyTincture)
-
-	return img
-}
-
-func all() []Charge {
-	animals := getAnimalCharges()
-	heavens := getHeavensCharges()
-	objects := getObjectCharges()
 	ordinaries := getOrdinaryCharges()
-	people := getPeopleCharges()
-	plants := getPlantCharges()
 
-	length := len(animals) + len(heavens) + len(objects) + len(ordinaries) + len(people) + len(plants)
+	length := len(raster) + len(ordinaries)
 
 	charges := make([]Charge, length)
 	l := 0
-	for _, v := range animals {
-		charges[l] = Charge(v)
-		l++
-	}
-	for _, v := range heavens {
-		charges[l] = Charge(v)
-		l++
-	}
-	for _, v := range objects {
+	for _, v := range raster {
 		charges[l] = Charge(v)
 		l++
 	}
@@ -91,16 +51,8 @@ func all() []Charge {
 		charges[l] = Charge(v)
 		l++
 	}
-	for _, v := range people {
-		charges[l] = Charge(v)
-		l++
-	}
-	for _, v := range plants {
-		charges[l] = Charge(v)
-		l++
-	}
 
-	return charges
+	return charges, nil
 }
 
 func blazonForCharge(count int, singular string, plural string, descriptor string, tincture string) (string, error) {
@@ -142,10 +94,14 @@ func randomNumberOfCharges() (int, error) {
 }
 
 // MatchingTag returns all charges that match a tag
-func MatchingTag(tag string) []Charge {
+func MatchingTag(tag string) ([]Charge, error) {
 	matching := []Charge{}
 
-	charges := all()
+	charges, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to find charges matching tag: %w", err)
+		return nil, err
+	}
 
 	for _, c := range charges {
 		if slices.StringIn(tag, c.GetTags()) {
@@ -153,21 +109,31 @@ func MatchingTag(tag string) []Charge {
 		}
 	}
 
-	return matching
+	return matching, nil
 }
 
 // Random returns a random charge
-func Random() Charge {
-	charges := all()
+func Random() (Charge, error) {
+	charges, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to get random charge: %w", err)
+		return nil, err
+	}
 
-	return charges[rand.Intn(len(charges))]
+	charge := charges[rand.Intn(len(charges))]
+
+	return charge, nil
 }
 
 // RandomGroup returns a random group of charges
 func RandomGroup(fieldTincture tincture.Tincture) (Group, error) {
 	group := Group{}
 
-	charge := Random()
+	charge, err := Random()
+	if err != nil {
+		err = fmt.Errorf("failed to get random charge group: %w", err)
+		return Group{}, err
+	}
 
 	numberOfCharges, err := randomNumberOfCharges()
 	if err != nil {
@@ -232,10 +198,14 @@ func SpecificGroup(fieldTincture tincture.Tincture, tag string, numberOfCharges 
 
 // RandomMatchingTag returns a random charge that matches a tag
 func RandomMatchingTag(tag string) (Charge, error) {
-	charges := MatchingTag(tag)
+	charges, err := MatchingTag(tag)
+	if err != nil {
+		err = fmt.Errorf("failed to find random charge matching tag: %w", err)
+		return nil, err
+	}
 
 	if len(charges) == 0 {
-		err := fmt.Errorf("failed to find charge matching tag " + tag)
+		err := fmt.Errorf("failed to find random charge matching tag " + tag)
 		return nil, err
 	}
 

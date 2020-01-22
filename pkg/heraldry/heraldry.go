@@ -39,7 +39,7 @@ func Generate() (Device, error) {
 	if err != nil {
 		err = fmt.Errorf("Failed to generate heraldic device: %w", err)
 		return Device{}, err
-	}	
+	}
 	d.Blazon = words.CapitalizeFirst(blazon)
 	imageURL, err := d.RenderToPNG()
 	if err != nil {
