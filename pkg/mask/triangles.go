@@ -32,14 +32,14 @@ func (t *Triangle) Bounds() image.Rectangle {
 
 func (t *Triangle) At(x, y int) color.Color {
 	a := t.Area()
-	a1 := Triangle{P1:image.Point{X:x, Y:y}, P2:image.Point{X:t.P1.X, Y:t.P1.Y}, P3:image.Point{X:t.P2.X, Y:t.P2.Y}}.Area()
-	a2 := Triangle{P1:image.Point{X:x, Y:y}, P2:image.Point{X:t.P2.X, Y:t.P2.Y}, P3:image.Point{X:t.P3.X, Y:t.P3.Y}}.Area()
-	a3 := Triangle{P1:image.Point{X:x, Y:y}, P2:image.Point{X:t.P3.X, Y:t.P3.Y}, P3:image.Point{X:t.P1.X, Y:t.P1.Y}}.Area()
+	a1 := Triangle{P1: image.Point{X: x, Y: y}, P2: image.Point{X: t.P1.X, Y: t.P1.Y}, P3: image.Point{X: t.P2.X, Y: t.P2.Y}}.Area()
+	a2 := Triangle{P1: image.Point{X: x, Y: y}, P2: image.Point{X: t.P2.X, Y: t.P2.Y}, P3: image.Point{X: t.P3.X, Y: t.P3.Y}}.Area()
+	a3 := Triangle{P1: image.Point{X: x, Y: y}, P2: image.Point{X: t.P3.X, Y: t.P3.Y}, P3: image.Point{X: t.P1.X, Y: t.P1.Y}}.Area()
 
 	fmt.Println("Area of combined triangles: ", a1+a2+a3)
 	fmt.Println("Area of triangle: ", a)
 
-	for i:=-50;i<50;i++ {
+	for i := -50; i < 50; i++ {
 		if a+i == a1+a2+a3 {
 			return color.Alpha{255}
 		}
@@ -49,5 +49,5 @@ func (t *Triangle) At(x, y int) color.Color {
 }
 
 func (t Triangle) Area() int {
-	return (t.P1.X * (t.P2.Y - t.P3.Y) + t.P2.X * (t.P3.Y - t.P1.Y) + t.P3.X * (t.P1.Y - t.P2.Y))/2
+	return (t.P1.X*(t.P2.Y-t.P3.Y) + t.P2.X*(t.P3.Y-t.P1.Y) + t.P3.X*(t.P1.Y-t.P2.Y)) / 2
 }

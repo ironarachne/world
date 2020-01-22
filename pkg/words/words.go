@@ -4,7 +4,7 @@ Package words provides convenience methods for dealing with words and phrases
 package words
 
 import (
-  "fmt"
+	"fmt"
 	"strings"
 
 	"github.com/ironarachne/world/pkg/slices"
@@ -40,7 +40,7 @@ func CombinePhrases(phrases []string) string {
 
 // NumberToWord returns the word version of a number
 func NumberToWord(number int) (string, error) {
-  var err error
+	var err error
 	result := ""
 
 	if number < 0 {
