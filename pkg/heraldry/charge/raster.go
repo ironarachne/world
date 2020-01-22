@@ -1,13 +1,13 @@
 package charge
 
 import (
-  "encoding/json"
-  "fmt"
-  "image"
-  "io/ioutil"
-  "os"
+	"encoding/json"
+	"fmt"
+	"image"
+	"io/ioutil"
+	"os"
 
-  "github.com/ironarachne/world/pkg/heraldry/tincture"
+	"github.com/ironarachne/world/pkg/heraldry/tincture"
 )
 
 // Data is a struct containing a slice of Charges
@@ -61,26 +61,26 @@ func (rc Raster) Render(bodyTincture tincture.Tincture) image.Image {
 
 // Load returns all predefined raster charges from a JSON file on disk
 func Load() ([]Raster, error) {
-  var d Data
+	var d Data
 
-  jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/charges.json")
-  if err != nil {
-    err = fmt.Errorf("could not open data file: %w", err)
-    return []Raster{}, err
-  }
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/charges.json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Raster{}, err
+	}
 
-  defer jsonFile.Close()
+	defer jsonFile.Close()
 
-  byteValue, _ := ioutil.ReadAll(jsonFile)
+	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-  json.Unmarshal(byteValue, &d)
+	json.Unmarshal(byteValue, &d)
 
-  all := d.Charges
+	all := d.Charges
 
-  if len(all) == 0 {
-    err = fmt.Errorf("no charges returned from database: charges.json")
-    return []Raster{}, err
-  }
+	if len(all) == 0 {
+		err = fmt.Errorf("no charges returned from database: charges.json")
+		return []Raster{}, err
+	}
 
-  return all, nil
+	return all, nil
 }

@@ -5,6 +5,7 @@ import (
 	"image"
 	"image/color"
 	"math/rand"
+	"sort"
 
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/graphics"
@@ -53,6 +54,31 @@ func All() ([]Charge, error) {
 	}
 
 	return charges, nil
+}
+
+// AllTags returns all unique charge tags
+func AllTags() ([]string, error) {
+	tags := []string{}
+	ts := []string{}
+
+	charges, err := All()
+	if err != nil {
+		err = fmt.Errorf("failed to get charge tags: %w", err)
+		return []string{}, err
+	}
+
+	for _, c := range charges {
+		ts = c.GetTags()
+		for _, t := range ts {
+			if !slices.StringIn(t, tags) {
+				tags = append(tags, t)
+			}
+		}
+	}
+
+	sort.Strings(tags)
+
+	return tags, nil
 }
 
 func blazonForCharge(count int, singular string, plural string, descriptor string, tincture string) (string, error) {

@@ -32,24 +32,25 @@ func (device Device) RenderToPNG() (string, error) {
 
 	var cg image.Image
 
-	shield, err := gg.LoadPNG(dataPath + "/images/fields/" + device.FieldType.MaskFileName)
+	shield, err := gg.LoadPNG(dataPath + "/images/fields/" + device.Field.FieldType.MaskFileName)
 	if err != nil {
-		err = fmt.Errorf("failed to load field mask image "+device.FieldType.MaskFileName+": %w", err)
+		err = fmt.Errorf("failed to load field mask image "+device.Field.FieldType.MaskFileName+": %w", err)
 		return "", err
 	}
-	shieldBorder, err := gg.LoadPNG(dataPath + "/images/fields/" + device.FieldType.Name + "-lines.png")
+
+	shieldBorder, err := gg.LoadPNG(dataPath + "/images/fields/" + device.Field.FieldType.Name + "-lines.png")
 	if err != nil {
-		err = fmt.Errorf("failed to load field border image "+device.FieldType.Name+"-lines.png: %w", err)
+		err = fmt.Errorf("failed to load field border image "+device.Field.FieldType.Name+"-lines.png: %w", err)
 		return "", err
 	}
-	width := device.FieldType.ImageWidth
-	height := device.FieldType.ImageHeight
+	width := device.Field.FieldType.ImageWidth
+	height := device.Field.FieldType.ImageHeight
 
 	dc := gg.NewContext(width, height)
 	dc.SetRGB(255, 255, 255)
 	dc.Fill()
 
-	field := device.Field.Division.Render(width, height, device.Field.Variations)
+	field := device.Field.Division.Render(width, height, device.Field.Division.Variations)
 
 	shieldMask := gg.NewContextForImage(shield)
 	err = dc.SetMask(shieldMask.AsMask())
@@ -65,7 +66,7 @@ func (device Device) RenderToPNG() (string, error) {
 		if slices.StringIn("full size", g.Charges[0].GetTags()) {
 			dc.DrawImage(cg, 0, 0)
 		} else {
-			dc.DrawImageAnchored(cg, device.FieldType.CenterPoint.X, device.FieldType.CenterPoint.Y, 0.5, 0.5)
+			dc.DrawImageAnchored(cg, device.Field.FieldType.CenterPoint.X, device.Field.FieldType.CenterPoint.Y, 0.5, 0.5)
 		}
 	}
 	fieldContents := dc.Image()

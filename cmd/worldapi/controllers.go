@@ -80,6 +80,20 @@ func dataCharges(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func dataChargeTags(w http.ResponseWriter, r *http.Request) {
+	tags, err := charge.AllTags()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	err = json.NewEncoder(w).Encode(tags)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+}
+
 func dataDomains(w http.ResponseWriter, r *http.Request) {
 	all, err := domain.All()
 	if err != nil {

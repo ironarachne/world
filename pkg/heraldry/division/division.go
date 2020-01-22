@@ -1,9 +1,10 @@
-package heraldry
+package division
 
 import (
 	"fmt"
 	"github.com/fogleman/gg"
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
+	"github.com/ironarachne/world/pkg/heraldry/variation"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/words"
 	"image"
@@ -15,19 +16,20 @@ type Division struct {
 	Name             string
 	Blazon           string
 	NumberOfSections int
-	Variations       []Variation
-	Render           func(width int, height int, variations []Variation) image.Image
+	Variations       []variation.Variation
+	Render           func(width int, height int, variations []variation.Variation) image.Image
 	Commonality      int
 }
 
-func allDivisions() []Division {
+// All returns all divisions
+func All() []Division {
 	divisions := []Division{
 		{
 			Name:             "bend",
 			Blazon:           "Per bend ",
 			NumberOfSections: 2,
 			Commonality:      2,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				image2 := variations[1].Render(width, height, variations[1].Tinctures)
@@ -55,7 +57,7 @@ func allDivisions() []Division {
 			Blazon:           "Per bend sinister ",
 			NumberOfSections: 2,
 			Commonality:      2,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				image2 := variations[1].Render(width, height, variations[1].Tinctures)
@@ -83,7 +85,7 @@ func allDivisions() []Division {
 			Blazon:           "Per fess ",
 			NumberOfSections: 2,
 			Commonality:      2,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				image2 := variations[1].Render(width, height, variations[1].Tinctures)
@@ -106,7 +108,7 @@ func allDivisions() []Division {
 			Blazon:           "Per pale ",
 			NumberOfSections: 2,
 			Commonality:      2,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				image2 := variations[1].Render(width, height, variations[1].Tinctures)
@@ -129,7 +131,7 @@ func allDivisions() []Division {
 			Blazon:           "",
 			NumberOfSections: 1,
 			Commonality:      2,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
@@ -146,7 +148,7 @@ func allDivisions() []Division {
 			Blazon:           "Quarterly ",
 			NumberOfSections: 2,
 			Commonality:      1,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				image2 := variations[1].Render(width, height, variations[1].Tinctures)
@@ -173,7 +175,7 @@ func allDivisions() []Division {
 			Blazon:           "Per saltire ",
 			NumberOfSections: 2,
 			Commonality:      1,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				image2 := variations[1].Render(width, height, variations[1].Tinctures)
@@ -203,7 +205,7 @@ func allDivisions() []Division {
 			Blazon:           "Per chevron ",
 			NumberOfSections: 2,
 			Commonality:      1,
-			Render: func(width int, height int, variations []Variation) image.Image {
+			Render: func(width int, height int, variations []variation.Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				image2 := variations[1].Render(width, height, variations[1].Tinctures)
@@ -231,13 +233,15 @@ func allDivisions() []Division {
 	return divisions
 }
 
-func randomDivision() Division {
-	divisions := allDivisions()
+// Random returns a random division
+func Random() Division {
+	divisions := All()
 	return divisions[rand.Intn(len(divisions))]
 }
 
-func randomWeightedDivision() (Division, error) {
-	all := allDivisions()
+// RandomWeighted returns a random division by weight
+func RandomWeighted() (Division, error) {
+	all := All()
 
 	weights := map[string]int{}
 
@@ -261,12 +265,14 @@ func randomWeightedDivision() (Division, error) {
 	return Division{}, err
 }
 
-func generateDivision() (Division, error) {
+// Generate procedurally generates a random heraldic division
+func Generate() (Division, error) {
 	var divisionBlazons []string
 	var possible []tincture.Tincture
-	var variation Variation
+	var v variation.Variation
 	var tinc tincture.Tincture
-	division, err := randomWeightedDivision()
+
+	division, err := RandomWeighted()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate heraldic division: %w", err)
 		return Division{}, err
@@ -287,13 +293,14 @@ func generateDivision() (Division, error) {
 			err = fmt.Errorf("Failed to generate heraldic division: %w", err)
 			return Division{}, err
 		}
-		variation, err = generateVariation(tinc)
+
+		v, err = variation.Generate(tinc)
 		if err != nil {
 			err = fmt.Errorf("Failed to generate heraldic division: %w", err)
 			return Division{}, err
 		}
-		division.Variations = append(division.Variations, variation)
-		divisionBlazons = append(divisionBlazons, variation.Blazon)
+		division.Variations = append(division.Variations, v)
+		divisionBlazons = append(divisionBlazons, v.Blazon)
 		lastTincture = tinc
 	}
 
