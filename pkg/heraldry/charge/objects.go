@@ -1,12 +1,7 @@
 package charge
 
-import (
-	"github.com/ironarachne/world/pkg/heraldry/tincture"
-	"image"
-)
-
-func getObjectCharges() []Charge {
-	charges := []Charge{
+func getObjectCharges() []Raster {
+	charges := []Raster{
 		{
 			Identifier: "anchor",
 			Name:       "anchor",
@@ -21,11 +16,6 @@ func getObjectCharges() []Charge {
 				"navy",
 				"sailor",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("anchor", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "annulet",
@@ -37,11 +27,6 @@ func getObjectCharges() []Charge {
 			Tags: []string{
 				"annulet",
 				"object",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("annulet", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -57,11 +42,6 @@ func getObjectCharges() []Charge {
 				"weapon",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("axe", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "galleon",
@@ -76,11 +56,6 @@ func getObjectCharges() []Charge {
 				"water",
 				"navy",
 				"sailor",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("galleon", bodyTincture)
-
-				return img
 			},
 		},
 	}

@@ -1,12 +1,7 @@
 package charge
 
-import (
-	"github.com/ironarachne/world/pkg/heraldry/tincture"
-	"image"
-)
-
-func getAnimalCharges() []Charge {
-	charges := []Charge{
+func getAnimalCharges() []Raster {
+	charges := []Raster{
 		{
 			Identifier: "allocamelus",
 			Name:       "allocamelus",
@@ -20,11 +15,6 @@ func getAnimalCharges() []Charge {
 				"desert",
 				"standing",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("allocamelus", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "alphyn-salient",
@@ -37,11 +27,6 @@ func getAnimalCharges() []Charge {
 				"alphyn",
 				"monster",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("alphyn-salient", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -57,11 +42,6 @@ func getAnimalCharges() []Charge {
 				"hunting",
 				"passive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("antelope-passant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "antelope-rampant",
@@ -75,11 +55,6 @@ func getAnimalCharges() []Charge {
 				"antelope",
 				"hunting",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("antelope-rampant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -95,11 +70,6 @@ func getAnimalCharges() []Charge {
 				"hunting",
 				"standing",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("antelope-statant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "ape",
@@ -113,11 +83,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"passive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("ape", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "ape-gorged-and-chained",
@@ -129,11 +94,6 @@ func getAnimalCharges() []Charge {
 			Tags: []string{
 				"ape",
 				"animal",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("ape-gorged-and-chained", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -149,11 +109,6 @@ func getAnimalCharges() []Charge {
 				"passive",
 				"hunting",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bat-volant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "bear-passant",
@@ -166,11 +121,6 @@ func getAnimalCharges() []Charge {
 				"bear",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bear-passant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -185,11 +135,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bear-rampant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "bear-sejant-erect",
@@ -202,11 +147,6 @@ func getAnimalCharges() []Charge {
 				"bear",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bear-sejant-erect", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -221,11 +161,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bear-statant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "bears-head-couped",
@@ -238,11 +173,6 @@ func getAnimalCharges() []Charge {
 				"bear",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bears-head-couped", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -257,11 +187,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("boar-passant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "boar-rampant",
@@ -274,11 +199,6 @@ func getAnimalCharges() []Charge {
 				"boar",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("boar-rampant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -293,11 +213,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("boar-statant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "boars-head-erased",
@@ -310,11 +225,6 @@ func getAnimalCharges() []Charge {
 				"boar",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("boars-head-erased", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -330,11 +240,6 @@ func getAnimalCharges() []Charge {
 				"aggressive",
 				"strength",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bull-passant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "bull-rampant",
@@ -348,11 +253,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 				"strength",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("bull-rampant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -369,11 +269,6 @@ func getAnimalCharges() []Charge {
 				"navy",
 				"sailor",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("escallop", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "fox-passant",
@@ -386,11 +281,6 @@ func getAnimalCharges() []Charge {
 				"fox",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("fox-passant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -405,11 +295,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("fox-sejant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "goat-salient",
@@ -422,11 +307,6 @@ func getAnimalCharges() []Charge {
 				"goat",
 				"animal",
 				"hunting",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("goat-salient", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -442,11 +322,6 @@ func getAnimalCharges() []Charge {
 				"passive",
 				"hunting",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("hare", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "hare-salient",
@@ -460,11 +335,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"passive",
 				"hunting",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("hare-salient", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -480,11 +350,6 @@ func getAnimalCharges() []Charge {
 				"passive",
 				"hunting",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("hind-statant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "horse-passant",
@@ -497,11 +362,6 @@ func getAnimalCharges() []Charge {
 				"horse",
 				"animal",
 				"passive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("horse-passant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -516,11 +376,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("horse-rampant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "leopards-head-erased",
@@ -533,11 +388,6 @@ func getAnimalCharges() []Charge {
 				"leopard",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("leopards-head-erased", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -552,11 +402,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"passive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("otter", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "pegasus-passant",
@@ -569,11 +414,6 @@ func getAnimalCharges() []Charge {
 				"pegasus",
 				"monster",
 				"passive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("pegasus-passant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -588,11 +428,6 @@ func getAnimalCharges() []Charge {
 				"monster",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("pegasus-rampant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "ram-rampant",
@@ -605,11 +440,6 @@ func getAnimalCharges() []Charge {
 				"ram",
 				"animal",
 				"hunting",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("ram-rampant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -624,11 +454,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"hunting",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("ram-statant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "rams-head-caboshed",
@@ -641,11 +466,6 @@ func getAnimalCharges() []Charge {
 				"ram",
 				"animal",
 				"hunting",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("rams-head-caboshed", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -662,11 +482,6 @@ func getAnimalCharges() []Charge {
 				"navy",
 				"sailor",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("sea-horse", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "sheep-passant",
@@ -679,11 +494,6 @@ func getAnimalCharges() []Charge {
 				"sheep",
 				"animal",
 				"passive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("sheep-passant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -698,11 +508,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"passive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("squirrel", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "stag-at-gaze",
@@ -715,11 +520,6 @@ func getAnimalCharges() []Charge {
 				"stag",
 				"animal",
 				"hunting",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("stag-at-gaze", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -734,11 +534,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"hunting",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("stag-lodged", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "stag-springing",
@@ -751,11 +546,6 @@ func getAnimalCharges() []Charge {
 				"stag",
 				"animal",
 				"hunting",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("stag-springing", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -770,11 +560,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"hunting",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("stag-statant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "stag-trippant",
@@ -788,11 +573,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"hunting",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("stag-trippant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "stags-head-couped",
@@ -805,11 +585,6 @@ func getAnimalCharges() []Charge {
 				"stag",
 				"animal",
 				"hunting",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("stags-head-couped", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -826,11 +601,6 @@ func getAnimalCharges() []Charge {
 				"hunting",
 				"dog",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("talbot-passant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "talbot-rampant",
@@ -845,11 +615,6 @@ func getAnimalCharges() []Charge {
 				"aggressive",
 				"hunting",
 				"dog",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("talbot-rampant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -866,11 +631,6 @@ func getAnimalCharges() []Charge {
 				"hunting",
 				"dog",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("talbot-sejant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "talbot-statant",
@@ -886,11 +646,6 @@ func getAnimalCharges() []Charge {
 				"hunting",
 				"dog",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("talbot-statant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "tiger-passant",
@@ -904,11 +659,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"cat",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("tiger-passant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -924,11 +674,6 @@ func getAnimalCharges() []Charge {
 				"cat",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("tiger-rampant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "wolf-courant",
@@ -941,11 +686,6 @@ func getAnimalCharges() []Charge {
 				"wolf",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("wolf-courant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -960,11 +700,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("wolf-passant", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "wolf-rampant",
@@ -977,11 +712,6 @@ func getAnimalCharges() []Charge {
 				"wolf",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("wolf-rampant", bodyTincture)
-
-				return img
 			},
 		},
 		{
@@ -996,11 +726,6 @@ func getAnimalCharges() []Charge {
 				"animal",
 				"aggressive",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("wolf-salient", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "wolf-statant",
@@ -1013,11 +738,6 @@ func getAnimalCharges() []Charge {
 				"wolf",
 				"animal",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("wolf-statant", bodyTincture)
-
-				return img
 			},
 		},
 	}

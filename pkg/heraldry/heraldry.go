@@ -35,8 +35,12 @@ func Generate() (Device, error) {
 	guid := uuid.New()
 	d.GUID = guid.String()
 	d.FileName = d.GUID + ".png"
-	d.Blazon = d.RenderToBlazon()
-	d.Blazon = words.CapitalizeFirst(d.Blazon)
+	blazon, err := d.RenderToBlazon()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic device: %w", err)
+		return Device{}, err
+	}	
+	d.Blazon = words.CapitalizeFirst(blazon)
 	imageURL, err := d.RenderToPNG()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate heraldic device: %w", err)
@@ -62,8 +66,12 @@ func GenerateByFieldName(name string) (Device, error) {
 	guid := uuid.New()
 	d.GUID = guid.String()
 	d.FileName = d.GUID + ".png"
-	d.Blazon = d.RenderToBlazon()
-	d.Blazon = words.CapitalizeFirst(d.Blazon)
+	blazon, err := d.RenderToBlazon()
+	if err != nil {
+		err = fmt.Errorf("Failed to generate heraldic device: %w", err)
+		return Device{}, err
+	}
+	d.Blazon = words.CapitalizeFirst(blazon)
 	imageURL, err := d.RenderToPNG()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate heraldic device: %w", err)

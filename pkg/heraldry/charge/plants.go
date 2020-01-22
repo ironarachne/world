@@ -1,12 +1,7 @@
 package charge
 
-import (
-	"github.com/ironarachne/world/pkg/heraldry/tincture"
-	"image"
-)
-
-func getPlantCharges() []Charge {
-	charges := []Charge{
+func getPlantCharges() []Raster {
+	charges := []Raster{
 		{
 			Identifier: "acorn-slipped-and-leaved",
 			Name:       "acorn slipped and leaved",
@@ -19,11 +14,6 @@ func getPlantCharges() []Charge {
 				"plant",
 				"harvest",
 				"farmer",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("acorn-slipped-and-leaved", bodyTincture)
-
-				return img
 			},
 		},
 	}

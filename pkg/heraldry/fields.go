@@ -93,12 +93,12 @@ func fieldByName(name string) (Field, error) {
 
 	division, err := generateDivision()
 	if err != nil {
-		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		err = fmt.Errorf("failed to generate heraldic field by name: %w", err)
 		return Field{}, err
 	}
 	chargeGroup, err := charge.RandomGroup(division.Variations[0].Tinctures[0])
 	if err != nil {
-		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		err = fmt.Errorf("failed to generate heraldic field by name: %w", err)
 		return Field{}, err
 	}
 
@@ -120,12 +120,12 @@ func randomField() (Field, error) {
 
 	division, err := generateDivision()
 	if err != nil {
-		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		err = fmt.Errorf("failed to generate random heraldic field: %w", err)
 		return Field{}, err
 	}
 	chargeGroup, err := charge.RandomGroup(division.Variations[0].Tinctures[0])
 	if err != nil {
-		err = fmt.Errorf("Failed to generate heraldic field: %w", err)
+		err = fmt.Errorf("failed to generate random heraldic field: %w", err)
 		return Field{}, err
 	}
 

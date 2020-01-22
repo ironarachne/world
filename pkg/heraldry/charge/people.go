@@ -1,12 +1,7 @@
 package charge
 
-import (
-	"github.com/ironarachne/world/pkg/heraldry/tincture"
-	"image"
-)
-
-func getPeopleCharges() []Charge {
-	charges := []Charge{
+func getPeopleCharges() []Raster {
+	charges := []Raster{
 		{
 			Identifier: "chevalier-on-horseback",
 			Name:       "chevalier on horseback",
@@ -19,11 +14,6 @@ func getPeopleCharges() []Charge {
 				"knight",
 				"people",
 				"aggressive",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("chevalier-on-horseback", bodyTincture)
-
-				return img
 			},
 		},
 	}

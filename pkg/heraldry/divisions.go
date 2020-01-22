@@ -12,21 +12,21 @@ import (
 
 // Division is a division of the field
 type Division struct {
-	Name   string
-	Blazon string
+	Name             string
+	Blazon           string
 	NumberOfSections int
-	Variations []Variation
-	Render func(width int, height int, variations []Variation) image.Image
-	Commonality int
+	Variations       []Variation
+	Render           func(width int, height int, variations []Variation) image.Image
+	Commonality      int
 }
 
 func allDivisions() []Division {
 	divisions := []Division{
 		{
-			Name: "bend",
-			Blazon: "Per bend ",
+			Name:             "bend",
+			Blazon:           "Per bend ",
 			NumberOfSections: 2,
-			Commonality: 2,
+			Commonality:      2,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
@@ -34,15 +34,15 @@ func allDivisions() []Division {
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 				pattern2 := gg.NewSurfacePattern(image2, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
 				dc.SetLineWidth(3)
 				dc.MoveTo(0, 0)
-				dc.LineTo(float64(width),0)
+				dc.LineTo(float64(width), 0)
 				dc.LineTo(float64(width), float64(height))
-				dc.LineTo(0,0)
+				dc.LineTo(0, 0)
 				dc.ClosePath()
 				dc.SetFillStyle(pattern2)
 				dc.Fill()
@@ -51,10 +51,10 @@ func allDivisions() []Division {
 			},
 		},
 		{
-			Name: "bend sinister",
-			Blazon: "Per bend sinister ",
+			Name:             "bend sinister",
+			Blazon:           "Per bend sinister ",
 			NumberOfSections: 2,
-			Commonality: 2,
+			Commonality:      2,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
@@ -62,7 +62,7 @@ func allDivisions() []Division {
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 				pattern2 := gg.NewSurfacePattern(image2, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
@@ -79,10 +79,10 @@ func allDivisions() []Division {
 			},
 		},
 		{
-			Name: "fess",
-			Blazon: "Per fess ",
+			Name:             "fess",
+			Blazon:           "Per fess ",
 			NumberOfSections: 2,
-			Commonality: 2,
+			Commonality:      2,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
@@ -90,7 +90,7 @@ func allDivisions() []Division {
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 				pattern2 := gg.NewSurfacePattern(image2, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
@@ -102,10 +102,10 @@ func allDivisions() []Division {
 			},
 		},
 		{
-			Name: "pale",
-			Blazon: "Per pale ",
+			Name:             "pale",
+			Blazon:           "Per pale ",
 			NumberOfSections: 2,
-			Commonality: 2,
+			Commonality:      2,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
@@ -113,7 +113,7 @@ func allDivisions() []Division {
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 				pattern2 := gg.NewSurfacePattern(image2, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
@@ -125,16 +125,16 @@ func allDivisions() []Division {
 			},
 		},
 		{
-			Name: "plain",
-			Blazon: "",
+			Name:             "plain",
+			Blazon:           "",
 			NumberOfSections: 1,
-			Commonality: 2,
+			Commonality:      2,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
@@ -142,10 +142,10 @@ func allDivisions() []Division {
 			},
 		},
 		{
-			Name: "quarterly",
-			Blazon: "Quarterly ",
+			Name:             "quarterly",
+			Blazon:           "Quarterly ",
 			NumberOfSections: 2,
-			Commonality: 1,
+			Commonality:      1,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
@@ -153,7 +153,7 @@ func allDivisions() []Division {
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 				pattern2 := gg.NewSurfacePattern(image2, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
@@ -169,10 +169,10 @@ func allDivisions() []Division {
 			},
 		},
 		{
-			Name: "saltire",
-			Blazon: "Per saltire ",
+			Name:             "saltire",
+			Blazon:           "Per saltire ",
 			NumberOfSections: 2,
-			Commonality: 1,
+			Commonality:      1,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
@@ -180,18 +180,18 @@ func allDivisions() []Division {
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 				pattern2 := gg.NewSurfacePattern(image2, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
 				dc.MoveTo(0, 0)
 				dc.LineTo(float64(width/2), float64(height/2))
 				dc.LineTo(float64(width), 0)
-				dc.LineTo(0,0)
+				dc.LineTo(0, 0)
 				dc.MoveTo(0, float64(height))
 				dc.LineTo(float64(width/2), float64(height/2))
 				dc.LineTo(float64(width), float64(height))
-				dc.LineTo(0,float64(height))
+				dc.LineTo(0, float64(height))
 				dc.SetFillStyle(pattern2)
 				dc.Fill()
 
@@ -199,10 +199,10 @@ func allDivisions() []Division {
 			},
 		},
 		{
-			Name: "chevron",
-			Blazon: "Per chevron ",
+			Name:             "chevron",
+			Blazon:           "Per chevron ",
 			NumberOfSections: 2,
-			Commonality: 1,
+			Commonality:      1,
 			Render: func(width int, height int, variations []Variation) image.Image {
 				dc := gg.NewContext(width, height)
 				image1 := variations[0].Render(width, height, variations[0].Tinctures)
@@ -210,7 +210,7 @@ func allDivisions() []Division {
 				pattern1 := gg.NewSurfacePattern(image1, gg.RepeatBoth)
 				pattern2 := gg.NewSurfacePattern(image2, gg.RepeatBoth)
 
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				dc.SetFillStyle(pattern1)
 				dc.Fill()
 
@@ -218,7 +218,7 @@ func allDivisions() []Division {
 				dc.MoveTo(0, float64(height))
 				dc.LineTo(float64(width/2), float64(height*2/3))
 				dc.LineTo(float64(width), float64(height))
-				dc.LineTo(0,float64(height))
+				dc.LineTo(0, float64(height))
 				dc.ClosePath()
 				dc.SetFillStyle(pattern2)
 				dc.Fill()
@@ -247,7 +247,7 @@ func randomWeightedDivision() (Division, error) {
 
 	name, err := random.StringFromThresholdMap(weights)
 	if err != nil {
-		err = fmt.Errorf("Failed to get random weighted division: %w", err)
+		err = fmt.Errorf("failed to get random weighted division: %w", err)
 		return Division{}, err
 	}
 
@@ -257,7 +257,7 @@ func randomWeightedDivision() (Division, error) {
 		}
 	}
 
-	err = fmt.Errorf("Failed to get random weighted division!")
+	err = fmt.Errorf("failed to get random weighted division")
 	return Division{}, err
 }
 
@@ -279,7 +279,7 @@ func generateDivision() (Division, error) {
 	}
 	lastTincture := firstTincture
 
-	for i:=0;i<division.NumberOfSections;i++ {
+	for i := 0; i < division.NumberOfSections; i++ {
 		possible = tincture.All()
 		possible = tincture.Remove(lastTincture, possible)
 		tinc, err = tincture.RandomWeighted(possible)

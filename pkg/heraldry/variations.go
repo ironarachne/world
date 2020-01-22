@@ -29,9 +29,9 @@ func allVariations() []Variation {
 			Commonality:       5,
 			Render: func(width int, height int, tinctures []tincture.Tincture) image.Image {
 				dc := gg.NewContext(width, height)
-				barHeight := height/10
-				for i:=0;i<10;i++ {
-					dc.DrawRectangle(0,float64(i*barHeight), float64(width), float64((i+1)*barHeight))
+				barHeight := height / 10
+				for i := 0; i < 10; i++ {
+					dc.DrawRectangle(0, float64(i*barHeight), float64(width), float64((i+1)*barHeight))
 					if math.Mod(float64(i), 2) == 0 {
 						tinctures[0].Fill(dc)
 					} else {
@@ -47,8 +47,8 @@ func allVariations() []Variation {
 			Commonality:       5,
 			Render: func(width int, height int, tinctures []tincture.Tincture) image.Image {
 				dc := gg.NewContext(width, height)
-				barWidth := height/6
-				for i:=-10;i<20;i++ {
+				barWidth := height / 6
+				for i := -10; i < 20; i++ {
 					dc.MoveTo(float64(i*barWidth), 0)
 					dc.LineTo(float64((i+1)*barWidth), 0)
 					dc.LineTo(float64((i+6)*barWidth), float64(height))
@@ -69,8 +69,8 @@ func allVariations() []Variation {
 			Commonality:       5,
 			Render: func(width int, height int, tinctures []tincture.Tincture) image.Image {
 				dc := gg.NewContext(width, height)
-				barWidth := height/6
-				for i:=0;i<20;i++ {
+				barWidth := height / 6
+				for i := 0; i < 20; i++ {
 					dc.MoveTo(float64(i*barWidth), 0)
 					dc.LineTo(float64((i+1)*barWidth), 0)
 					dc.LineTo(float64((i-5)*barWidth), float64(height))
@@ -91,14 +91,14 @@ func allVariations() []Variation {
 			Commonality:       10,
 			Render: func(width int, height int, tinctures []tincture.Tincture) image.Image {
 				dc := gg.NewContext(width, height)
-				boxSize := width/10
+				boxSize := width / 10
 				drawType := 0
-				for y:=0;y<(height/boxSize)+1;y++ {
+				for y := 0; y < (height/boxSize)+1; y++ {
 					if math.Mod(float64(y), 2) == 0 {
 						drawType = 1
 					}
-					for x:=0;x<10;x++ {
-						dc.DrawRectangle(float64(x*boxSize),float64(y*boxSize), float64((x+1)*boxSize), float64((y+1)*boxSize))
+					for x := 0; x < 10; x++ {
+						dc.DrawRectangle(float64(x*boxSize), float64(y*boxSize), float64((x+1)*boxSize), float64((y+1)*boxSize))
 						if drawType == 0 {
 							tinctures[0].Fill(dc)
 							drawType = 1
@@ -118,11 +118,11 @@ func allVariations() []Variation {
 			Commonality:       5,
 			Render: func(width int, height int, tinctures []tincture.Tincture) image.Image {
 				dc := gg.NewContext(width, height)
-				barWidth := width/10
-				for i:=0;i<10;i+=2 {
-					dc.DrawRectangle(float64(i*barWidth),0, float64((i+1)*barWidth), float64(height))
+				barWidth := width / 10
+				for i := 0; i < 10; i += 2 {
+					dc.DrawRectangle(float64(i*barWidth), 0, float64((i+1)*barWidth), float64(height))
 					tinctures[0].Fill(dc)
-					dc.DrawRectangle(float64((i+1)*barWidth),0, float64((i+3)*barWidth), float64(height))
+					dc.DrawRectangle(float64((i+1)*barWidth), 0, float64((i+3)*barWidth), float64(height))
 					tinctures[1].Fill(dc)
 				}
 				return dc.Image()
@@ -134,7 +134,7 @@ func allVariations() []Variation {
 			Commonality:       300,
 			Render: func(width int, height int, tinctures []tincture.Tincture) image.Image {
 				dc := gg.NewContext(width, height)
-				dc.DrawRectangle(0,0, float64(width), float64(height))
+				dc.DrawRectangle(0, 0, float64(width), float64(height))
 				tinctures[0].Fill(dc)
 				return dc.Image()
 			},

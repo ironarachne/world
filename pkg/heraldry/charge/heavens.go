@@ -1,12 +1,7 @@
 package charge
 
-import (
-	"github.com/ironarachne/world/pkg/heraldry/tincture"
-	"image"
-)
-
-func getHeavensCharges() []Charge {
-	charges := []Charge{
+func getHeavensCharges() []Raster {
+	charges := []Raster{
 		{
 			Identifier: "estoille",
 			Name:       "estoille",
@@ -19,11 +14,6 @@ func getHeavensCharges() []Charge {
 				"heavens",
 				"star",
 			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("estoille", bodyTincture)
-
-				return img
-			},
 		},
 		{
 			Identifier: "sun-in-splendor",
@@ -35,11 +25,6 @@ func getHeavensCharges() []Charge {
 			Tags: []string{
 				"sun",
 				"heavens",
-			},
-			Render: func(bodyTincture tincture.Tincture) image.Image {
-				img := RenderChargeFromFile("sun-in-splendor", bodyTincture)
-
-				return img
 			},
 		},
 	}
