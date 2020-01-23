@@ -30,19 +30,9 @@ func ByName(name string) (Field, error) {
 		err = fmt.Errorf("failed to generate heraldic field by name: %w", err)
 		return Field{}, err
 	}
-	chargeGroup, err := charge.RandomGroup(d.Variations[0].Tinctures[0])
-	if err != nil {
-		err = fmt.Errorf("failed to generate heraldic field by name: %w", err)
-		return Field{}, err
-	}
-
-	chargeGroups := []charge.Group{
-		chargeGroup,
-	}
 
 	field := Field{
 		Division:     d,
-		ChargeGroups: chargeGroups,
 		FieldType:    fieldType,
 	}
 
@@ -59,19 +49,8 @@ func Random() (Field, error) {
 		return Field{}, err
 	}
 
-	chargeGroup, err := charge.RandomGroup(d.Variations[0].Tinctures[0])
-	if err != nil {
-		err = fmt.Errorf("failed to generate random heraldic field: %w", err)
-		return Field{}, err
-	}
-
-	chargeGroups := []charge.Group{
-		chargeGroup,
-	}
-
 	field := Field{
 		Division:     d,
-		ChargeGroups: chargeGroups,
 		FieldType:    t,
 	}
 
