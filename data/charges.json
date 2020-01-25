@@ -846,6 +846,1727 @@
         "harvest",
         "farmer"
       ]
+    },
+    {
+      "identifier": "arm-couped-at-the-elbow",
+      "name": "arm couped at the elbow",
+      "noun": "arm",
+      "noun_plural": "arms",
+      "descriptor": "couped at the elbow",
+      "single_only": false,
+      "tags": [
+        "arm-couped-at-the-elbow",
+        "arm",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "arm-embowed",
+      "name": "arm embowed",
+      "noun": "arm",
+      "noun_plural": "arms",
+      "descriptor": "embowed",
+      "single_only": false,
+      "tags": [
+        "arm-embowed",
+        "arm",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "arm-embowed-in-armor",
+      "name": "arm embowed in armor",
+      "noun": "arm",
+      "noun_plural": "arms",
+      "descriptor": "embowed in armor",
+      "single_only": false,
+      "tags": [
+        "arm-embowed-in-armor",
+        "arm",
+        "armor",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "arm-embowed-to-the-dexter",
+      "name": "arm embowed to the dexter",
+      "noun": "arm",
+      "noun_plural": "arms",
+      "descriptor": "embowed to the dexter",
+      "single_only": false,
+      "tags": [
+        "arm-embowed-to-the-dexter",
+        "arm",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "bee-hive",
+      "name": "bee hive",
+      "noun": "bee hive",
+      "noun_plural": "bee hives",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bee-hive",
+        "bee",
+        "insect"
+      ]
+    },
+    {
+      "identifier": "bee-volant",
+      "name": "bee volant",
+      "noun": "bee",
+      "noun_plural": "bees",
+      "descriptor": "volant",
+      "single_only": false,
+      "tags": [
+        "bee-volant",
+        "bee",
+        "insect"
+      ]
+    },
+    {
+      "identifier": "bill-head",
+      "name": "bill head",
+      "noun": "bill head",
+      "noun_plural": "bill heads",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bill-head",
+        "weapon"
+      ]
+    },
+    {
+      "identifier": "bourchiers-knot",
+      "name": "bourchier's knot",
+      "noun": "bourchier's knot",
+      "noun_plural": "bourchier's knots",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bourchiers-knot",
+        "knot"
+      ]
+    },
+    {
+      "identifier": "bow",
+      "name": "bow",
+      "noun": "bow",
+      "noun_plural": "bows",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bow",
+        "weapon"
+      ]
+    },
+    {
+      "identifier": "bowens-knot",
+      "name": "bowen's knot",
+      "noun": "bowen's knot",
+      "noun_plural": "bowen's knots",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bowens-knot",
+        "knot"
+      ]
+    },
+    {
+      "identifier": "bread-basket",
+      "name": "bread basket",
+      "noun": "bread basket",
+      "noun_plural": "bread baskets",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bread-basket",
+        "basket"
+      ]
+    },
+    {
+      "identifier": "bucket",
+      "name": "bucket",
+      "noun": "bucket",
+      "noun_plural": "buckets",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bucket"
+      ]
+    },
+    {
+      "identifier": "bugle-horn",
+      "name": "bugle horn",
+      "noun": "bugle horn",
+      "noun_plural": "bugle horns",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "bugle-horn",
+        "horn",
+        "music",
+        "hunting"
+      ]
+    },
+    {
+      "identifier": "bugle-horn-stringed",
+      "name": "bugle horn stringed",
+      "noun": "bugle horn",
+      "noun_plural": "bugle horns",
+      "descriptor": "stringed",
+      "single_only": false,
+      "tags": [
+        "bugle-horn-stringed",
+        "horn",
+        "music",
+        "hunting"
+      ]
+    },
+    {
+      "identifier": "bulls-head-caboshed",
+      "name": "bull's head caboshed",
+      "noun": "bull's head",
+      "noun_plural": "bull's heads",
+      "descriptor": "caboshed",
+      "single_only": false,
+      "tags": [
+        "bulls-head-caboshed",
+        "bull",
+        "bulls-head",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "caltrap",
+      "name": "caltrap",
+      "noun": "caltrap",
+      "noun_plural": "caltraps",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "caltrap",
+        "weapon",
+        "trap"
+      ]
+    },
+    {
+      "identifier": "cameleon",
+      "name": "cameleon",
+      "noun": "cameleon",
+      "noun_plural": "cameleons",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "cameleon",
+        "lizard",
+        "reptile",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "camelopard",
+      "name": "camelopard",
+      "noun": "camelopard",
+      "noun_plural": "camelopards",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "camelopard",
+        "animal",
+        "giraffe"
+      ]
+    },
+    {
+      "identifier": "castle",
+      "name": "castle",
+      "noun": "castle",
+      "noun_plural": "castles",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "castle",
+        "fortress",
+        "defense",
+        "warrior"
+      ]
+    },
+    {
+      "identifier": "catherine-wheel",
+      "name": "catherine wheel",
+      "noun": "catherine wheel",
+      "noun_plural": "catherine wheels",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "catherine-wheel",
+        "wheel"
+      ]
+    },
+    {
+      "identifier": "centaur",
+      "name": "centaur",
+      "noun": "centaur",
+      "noun_plural": "centaurs",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "centaur",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "chapeau",
+      "name": "chapeau",
+      "noun": "chapeau",
+      "noun_plural": "chapeaus",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "chapeau",
+        "hat"
+      ]
+    },
+    {
+      "identifier": "chess-rook",
+      "name": "chess rook",
+      "noun": "chess rook",
+      "noun_plural": "chess rooks",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "chess-rook",
+        "chess"
+      ]
+    },
+    {
+      "identifier": "churchbell",
+      "name": "churchbell",
+      "noun": "churchbell",
+      "noun_plural": "churchbells",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "churchbell",
+        "bell",
+        "church",
+        "religion"
+      ]
+    },
+    {
+      "identifier": "cinquefoil",
+      "name": "cinquefoil",
+      "noun": "cinquefoil",
+      "noun_plural": "cinquefoils",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "cinquefoil",
+        "flower"
+      ]
+    },
+    {
+      "identifier": "cock",
+      "name": "cock",
+      "noun": "cock",
+      "noun_plural": "cocks",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "cock",
+        "bird",
+        "animal",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "cockatrice",
+      "name": "cockatrice",
+      "noun": "cockatrice",
+      "noun_plural": "cockatrices",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "cockatrice",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "compass",
+      "name": "compass",
+      "noun": "compass",
+      "noun_plural": "compasses",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "compass",
+        "navy",
+        "sea",
+        "navigation",
+        "sailor"
+      ]
+    },
+    {
+      "identifier": "coronet-of-earl",
+      "name": "coronet of earl",
+      "noun": "coronet",
+      "noun_plural": "coronets",
+      "descriptor": "of earl",
+      "single_only": false,
+      "tags": [
+        "coronet-of-earl",
+        "coronet",
+        "crown",
+        "nobility",
+        "noble"
+      ]
+    },
+    {
+      "identifier": "crescent",
+      "name": "crescent",
+      "noun": "crescent",
+      "noun_plural": "crescents",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "crescent",
+        "moon"
+      ]
+    },
+    {
+      "identifier": "cross-flory",
+      "name": "cross flory",
+      "noun": "cross",
+      "noun_plural": "crosses",
+      "descriptor": "flory",
+      "single_only": false,
+      "tags": [
+        "cross-flory",
+        "cross"
+      ]
+    },
+    {
+      "identifier": "cross-moline",
+      "name": "cross moline",
+      "noun": "cross",
+      "noun_plural": "crosses",
+      "descriptor": "moline",
+      "single_only": false,
+      "tags": [
+        "cross-moline",
+        "cross"
+      ]
+    },
+    {
+      "identifier": "cross-patonce",
+      "name": "cross patonce",
+      "noun": "cross",
+      "noun_plural": "crosses",
+      "descriptor": "patonce",
+      "single_only": false,
+      "tags": [
+        "cross-patonce",
+        "cross"
+      ]
+    },
+    {
+      "identifier": "cross-potent",
+      "name": "cross potent",
+      "noun": "cross",
+      "noun_plural": "crosses",
+      "descriptor": "potent",
+      "single_only": false,
+      "tags": [
+        "cross-potent",
+        "cross"
+      ]
+    },
+    {
+      "identifier": "crown-ducal",
+      "name": "crown ducal",
+      "noun": "crown",
+      "noun_plural": "crowns",
+      "descriptor": "ducal",
+      "single_only": false,
+      "tags": [
+        "crown-ducal",
+        "crown",
+        "nobility",
+        "noble",
+        "duke"
+      ]
+    },
+    {
+      "identifier": "crown-earl",
+      "name": "crown earl",
+      "noun": "crown",
+      "noun_plural": "crowns",
+      "descriptor": "earl",
+      "single_only": false,
+      "tags": [
+        "crown-earl",
+        "crown",
+        "nobility",
+        "noble",
+        "earl"
+      ]
+    },
+    {
+      "identifier": "crown-marquis",
+      "name": "crown marquis",
+      "noun": "crown",
+      "noun_plural": "crowns",
+      "descriptor": "marquis",
+      "single_only": false,
+      "tags": [
+        "crown-marquis",
+        "crown",
+        "nobility",
+        "noble",
+        "marquis"
+      ]
+    },
+    {
+      "identifier": "crown-royal",
+      "name": "crown royal",
+      "noun": "crown",
+      "noun_plural": "crowns",
+      "descriptor": "royal",
+      "single_only": false,
+      "tags": [
+        "crown-royal",
+        "crown",
+        "royal",
+        "royalty",
+        "king",
+        "queen"
+      ]
+    },
+    {
+      "identifier": "dexter-hand",
+      "name": "dexter hand",
+      "noun": "dexter hand",
+      "noun_plural": "dexter hands",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "dexter-hand",
+        "hand"
+      ]
+    },
+    {
+      "identifier": "dolphin-hauriant",
+      "name": "dolphin hauriant",
+      "noun": "dolphin",
+      "noun_plural": "dolphins",
+      "descriptor": "hauriant",
+      "single_only": false,
+      "tags": [
+        "dolphin-hauriant",
+        "dolphin",
+        "sea",
+        "sailor"
+      ]
+    },
+    {
+      "identifier": "double-headed-eagle-displayed",
+      "name": "double-headed eagle displayed",
+      "noun": "double-headed eagle",
+      "noun_plural": "double-headed eagles",
+      "descriptor": "displayed",
+      "single_only": false,
+      "tags": [
+        "double-headed-eagle-displayed",
+        "eagle",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "dragon-passant",
+      "name": "dragon passant",
+      "noun": "dragon",
+      "noun_plural": "dragons",
+      "descriptor": "passant",
+      "single_only": false,
+      "tags": [
+        "dragon-passant",
+        "dragon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "dragon-rampant",
+      "name": "dragon rampant",
+      "noun": "dragon",
+      "noun_plural": "dragons",
+      "descriptor": "rampant",
+      "single_only": false,
+      "tags": [
+        "dragon-rampant",
+        "dragon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "dragon-statant",
+      "name": "dragon statant",
+      "noun": "dragon",
+      "noun_plural": "dragons",
+      "descriptor": "statant",
+      "single_only": false,
+      "tags": [
+        "dragon-statant",
+        "dragon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "eagle-close",
+      "name": "eagle close",
+      "noun": "eagle",
+      "noun_plural": "eagles",
+      "descriptor": "close",
+      "single_only": false,
+      "tags": [
+        "eagle-close",
+        "eagle",
+        "animal",
+        "bird"
+      ]
+    },
+    {
+      "identifier": "eagle-displayed",
+      "name": "eagle displayed",
+      "noun": "eagle",
+      "noun_plural": "eagles",
+      "descriptor": "displayed",
+      "single_only": false,
+      "tags": [
+        "eagle-displayed",
+        "eagle",
+        "animal",
+        "bird"
+      ]
+    },
+    {
+      "identifier": "eagle-rising-elevated-and-displayed",
+      "name": "eagle rising elevated and displayed",
+      "noun": "eagle",
+      "noun_plural": "eagles",
+      "descriptor": "rising elevated and displayed",
+      "single_only": false,
+      "tags": [
+        "eagle-rising-elevated-and-displayed",
+        "eagle",
+        "animal",
+        "bird"
+      ]
+    },
+    {
+      "identifier": "eagle-rising-wings-elevated-and-addorsed",
+      "name": "eagle rising wings elevated and addorsed",
+      "noun": "eagle",
+      "noun_plural": "eagles",
+      "descriptor": "rising wings elevated and addorsed",
+      "single_only": false,
+      "tags": [
+        "eagle-rising-wings-elevated-and-addorsed",
+        "eagle",
+        "animal",
+        "bird"
+      ]
+    },
+    {
+      "identifier": "eagles-head-couped",
+      "name": "eagle's head couped",
+      "noun": "eagle's head",
+      "noun_plural": "eagle's heads",
+      "descriptor": "couped",
+      "single_only": false,
+      "tags": [
+        "eagles-head-couped",
+        "eagle",
+        "animal",
+        "bird"
+      ]
+    },
+    {
+      "identifier": "eagles-head-erased",
+      "name": "eagle's head erased",
+      "noun": "eagle's heads",
+      "noun_plural": "eagle's heads",
+      "descriptor": "erased",
+      "single_only": false,
+      "tags": [
+        "eagles-head-erased",
+        "eagle",
+        "animal",
+        "bird"
+      ]
+    },
+    {
+      "identifier": "enfield",
+      "name": "enfield",
+      "noun": "enfield",
+      "noun_plural": "enfields",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "enfield",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "falcon",
+      "name": "falcon",
+      "noun": "falcon",
+      "noun_plural": "falcons",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "falcon",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "fleur-de-lis",
+      "name": "fleur de lis",
+      "noun": "fleur de lis",
+      "noun_plural": "feurs de lis",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "fleur-de-lis",
+        "flower"
+      ]
+    },
+    {
+      "identifier": "flute",
+      "name": "flute",
+      "noun": "flute",
+      "noun_plural": "flutes",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "flute",
+        "music"
+      ]
+    },
+    {
+      "identifier": "garb",
+      "name": "garb",
+      "noun": "garb",
+      "noun_plural": "garbs",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "garb",
+        "hay",
+        "farmer"
+      ]
+    },
+    {
+      "identifier": "griffin-head-couped",
+      "name": "griffin's head couped",
+      "noun": "griffin's head",
+      "noun_plural": "griffin's heads",
+      "descriptor": "couped",
+      "single_only": false,
+      "tags": [
+        "griffin-head-couped",
+        "griffin",
+        "gryphon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "griffin-head-erased",
+      "name": "griffin's head erased",
+      "noun": "griffin's head",
+      "noun_plural": "griffin's heads",
+      "descriptor": "erased",
+      "single_only": false,
+      "tags": [
+        "griffin-head-erased",
+        "griffin",
+        "gryphon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "griffin-passant",
+      "name": "griffin passant",
+      "noun": "griffin",
+      "noun_plural": "griffins",
+      "descriptor": "passant",
+      "single_only": false,
+      "tags": [
+        "griffin-passant",
+        "griffin",
+        "gryphon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "griffin-segreant",
+      "name": "griffin segreant",
+      "noun": "griffin",
+      "noun_plural": "griffins",
+      "descriptor": "segreant",
+      "single_only": false,
+      "tags": [
+        "griffin-segreant",
+        "griffin",
+        "gryphon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "griffin-statant",
+      "name": "griffin statant",
+      "noun": "griffin",
+      "noun_plural": "griffins",
+      "descriptor": "statant",
+      "single_only": false,
+      "tags": [
+        "griffin-statant",
+        "griffin",
+        "gryphon",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "hand-in-benediction",
+      "name": "hand in benediction",
+      "noun": "hand",
+      "noun_plural": "hands",
+      "descriptor": "in benediction",
+      "single_only": false,
+      "tags": [
+        "hand-in-benediction",
+        "hand"
+      ]
+    },
+    {
+      "identifier": "helm",
+      "name": "helm",
+      "noun": "helm",
+      "noun_plural": "helms",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "helm",
+        "armor"
+      ]
+    },
+    {
+      "identifier": "heron",
+      "name": "heron",
+      "noun": "heron",
+      "noun_plural": "herons",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "heron",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "horseshoe",
+      "name": "horseshoe",
+      "noun": "horseshoe",
+      "noun_plural": "horseshoes",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "horseshoe",
+        "horse",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "hunting-horn",
+      "name": "hunting horn",
+      "noun": "hunting horn",
+      "noun_plural": "hunting horns",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "hunting-horn",
+        "horn",
+        "hunting"
+      ]
+    },
+    {
+      "identifier": "key",
+      "name": "key",
+      "noun": "key",
+      "noun_plural": "keys",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "key"
+      ]
+    },
+    {
+      "identifier": "leopard-passant",
+      "name": "leopard passant",
+      "noun": "leopard",
+      "noun_plural": "leopards",
+      "descriptor": "passant",
+      "single_only": false,
+      "tags": [
+        "leopard-passant",
+        "leopard",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "leopard-rampant",
+      "name": "leopard rampant",
+      "noun": "leopard",
+      "noun_plural": "leopards",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "leopard-rampant",
+        "leopard",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "lion-couchant",
+      "name": "lion couchant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "couchant",
+      "single_only": false,
+      "tags": [
+        "lion-couchant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-dormant",
+      "name": "lion dormant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "dormant",
+      "single_only": false,
+      "tags": [
+        "lion-dormant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-passant",
+      "name": "lion passant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "passant",
+      "single_only": false,
+      "tags": [
+        "lion-passant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-rampant",
+      "name": "lion rampant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "rampant",
+      "single_only": false,
+      "tags": [
+        "lion-rampant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-rampant-double-queued",
+      "name": "lion rampant double queued",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "rampant double queued",
+      "single_only": false,
+      "tags": [
+        "lion-rampant-double-queued",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-rampant-regardant",
+      "name": "lion rampant regardant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "rampant regardant",
+      "single_only": false,
+      "tags": [
+        "lion-rampant-regardant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-rampant-regardant-tail-nowed",
+      "name": "lion rampant regardant tail nowed",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "rampant regardant tail nowed",
+      "single_only": false,
+      "tags": [
+        "lion-rampant-regardant-tail-nowed",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-rampant-tail-nowed",
+      "name": "lion rampant tail nowed",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "rampant tail nowed",
+      "single_only": false,
+      "tags": [
+        "lion-rampant-tail-nowed",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-salient",
+      "name": "lion salient",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "salient",
+      "single_only": false,
+      "tags": [
+        "lion-salient",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-sejant",
+      "name": "lion sejant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "sejant",
+      "single_only": false,
+      "tags": [
+        "lion-sejant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-sejant-erect",
+      "name": "lion sejant erect",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "sejant erect",
+      "single_only": false,
+      "tags": [
+        "lion-sejant-erect",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-sejant-regardant",
+      "name": "lion sejant regardant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "sejant regardant",
+      "single_only": false,
+      "tags": [
+        "lion-sejant-regardant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-sejant-regardant-erect",
+      "name": "lion sejant regardant erect",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "sejant regardant erect",
+      "single_only": false,
+      "tags": [
+        "lion-sejant-regardant-erect",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lion-statant",
+      "name": "lion statant",
+      "noun": "lion",
+      "noun_plural": "lions",
+      "descriptor": "statant",
+      "single_only": false,
+      "tags": [
+        "lion-statant",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lions-head-couped",
+      "name": "lion's head couped",
+      "noun": "lion's head",
+      "noun_plural": "lion's heads",
+      "descriptor": "couped",
+      "single_only": false,
+      "tags": [
+        "lions-head-couped",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "lions-head-erased",
+      "name": "lion's head erased",
+      "noun": "lion's head",
+      "noun_plural": "lion's heads",
+      "descriptor": "erased",
+      "single_only": false,
+      "tags": [
+        "lions-head-erased",
+        "lion",
+        "animal",
+        "predator",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "long-cap",
+      "name": "long cap",
+      "noun": "long cap",
+      "noun_plural": "long cap",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "long-cap",
+        "hat"
+      ]
+    },
+    {
+      "identifier": "lynx-coward",
+      "name": "lynx coward",
+      "noun": "lynx",
+      "noun_plural": "lynxes",
+      "descriptor": "coward",
+      "single_only": false,
+      "tags": [
+        "lynx-coward",
+        "cat",
+        "animal",
+        "predator"
+      ]
+    },
+    {
+      "identifier": "martlet",
+      "name": "martlet",
+      "noun": "martlet",
+      "noun_plural": "martlet",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "martlet",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "martlet-volant",
+      "name": "martlet volant",
+      "noun": "martlet",
+      "noun_plural": "martlets",
+      "descriptor": "volant",
+      "single_only": false,
+      "tags": [
+        "martlet-volant",
+        "martlet",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "mermaid",
+      "name": "mermaid",
+      "noun": "mermaid",
+      "noun_plural": "mermaids",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "mermaid",
+        "merfolk",
+        "sea",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "merman",
+      "name": "merman",
+      "noun": "merman",
+      "noun_plural": "mermen",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "merman",
+        "merfolk",
+        "sea",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "mint",
+      "name": "mint",
+      "noun": "mint",
+      "noun_plural": "mints",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "mint",
+        "plant",
+        "herb"
+      ]
+    },
+    {
+      "identifier": "moorcock",
+      "name": "moorcock",
+      "noun": "moorcock",
+      "noun_plural": "moorcocks",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "moorcock",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "oak-tree-eradicated",
+      "name": "oak tree eradicated",
+      "noun": "oak tree",
+      "noun_plural": "oak trees",
+      "descriptor": "eradicated",
+      "single_only": false,
+      "tags": [
+        "oak-tree-eradicated",
+        "tree",
+        "plant"
+      ]
+    },
+    {
+      "identifier": "ostrich",
+      "name": "ostrich",
+      "noun": "ostrich",
+      "noun_plural": "ostriches",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "ostrich",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "owl",
+      "name": "owl",
+      "noun": "owl",
+      "noun_plural": "owls",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "owl",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "pelican-in-her-piety",
+      "name": "pelican in her piety",
+      "noun": "pelican",
+      "noun_plural": "pelicans",
+      "descriptor": "in her piety",
+      "single_only": false,
+      "tags": [
+        "pelican-in-her-piety",
+        "pelican",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "pestal",
+      "name": "pestal",
+      "noun": "pestal",
+      "noun_plural": "pestals",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "pestal",
+        "tool"
+      ]
+    },
+    {
+      "identifier": "popinjay",
+      "name": "popinjay",
+      "noun": "popinjay",
+      "noun_plural": "popinjays",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "popinjay",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "raven",
+      "name": "raven",
+      "noun": "raven",
+      "noun_plural": "ravens",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "raven",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "reindeer-statant",
+      "name": "reindeer statant",
+      "noun": "reindeer",
+      "noun_plural": "reindeer",
+      "descriptor": "statant",
+      "single_only": false,
+      "tags": [
+        "reindeer-statant",
+        "reindeer",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "rose",
+      "name": "rose",
+      "noun": "rose",
+      "noun_plural": "roses",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "rose",
+        "flower",
+        "plant"
+      ]
+    },
+    {
+      "identifier": "rose-slipped-and-leaved",
+      "name": "rose slipped and leaved",
+      "noun": "rose",
+      "noun_plural": "roses",
+      "descriptor": "slipped and leaved",
+      "single_only": false,
+      "tags": [
+        "rose-slipped-and-leaved",
+        "rose",
+        "flower",
+        "plant"
+      ]
+    },
+    {
+      "identifier": "rosemary",
+      "name": "rosemary",
+      "noun": "rosemary",
+      "noun_plural": "rosemaries",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "rosemary",
+        "plant",
+        "herb"
+      ]
+    },
+    {
+      "identifier": "salmon-naiant",
+      "name": "salmon naiant",
+      "noun": "salmon",
+      "noun_plural": "salmon",
+      "descriptor": "naiant",
+      "single_only": false,
+      "tags": [
+        "salmon-naiant",
+        "salmon",
+        "fish",
+        "sea"
+      ]
+    },
+    {
+      "identifier": "scales",
+      "name": "scales",
+      "noun": "scales",
+      "noun_plural": "scales",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "scales",
+        "tool",
+        "justice"
+      ]
+    },
+    {
+      "identifier": "scoop",
+      "name": "scoop",
+      "noun": "scoop",
+      "noun_plural": "scoops",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "scoop",
+        "tool"
+      ]
+    },
+    {
+      "identifier": "sea-lion",
+      "name": "sea lion",
+      "noun": "sea lion",
+      "noun_plural": "sea lions",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "sea-lion",
+        "animal",
+        "sea"
+      ]
+    },
+    {
+      "identifier": "seadog-rampant",
+      "name": "seadog rampant",
+      "noun": "seadog",
+      "noun_plural": "seadogs",
+      "descriptor": "rampant",
+      "single_only": false,
+      "tags": [
+        "seadog-rampant",
+        "sea",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "serpent-erect",
+      "name": "serpent erect",
+      "noun": "serpent",
+      "noun_plural": "serpents",
+      "descriptor": "erect",
+      "single_only": false,
+      "tags": [
+        "serpent-erect",
+        "serpent",
+        "reptile"
+      ]
+    },
+    {
+      "identifier": "serpent-nowed",
+      "name": "serpent nowed",
+      "noun": "serpent",
+      "noun_plural": "serpents",
+      "descriptor": "nowed",
+      "single_only": false,
+      "tags": [
+        "serpent-nowed",
+        "serpent",
+        "reptile"
+      ]
+    },
+    {
+      "identifier": "sinister-hand",
+      "name": "sinister hand",
+      "noun": "sinister hand",
+      "noun_plural": "sinister hands",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "sinister-hand",
+        "hand"
+      ]
+    },
+    {
+      "identifier": "sphynx",
+      "name": "sphynx",
+      "noun": "sphynx",
+      "noun_plural": "sphynxes",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "sphynx",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "spur",
+      "name": "spur",
+      "noun": "spur",
+      "noun_plural": "spurs",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "spur",
+        "knight"
+      ]
+    },
+    {
+      "identifier": "swan",
+      "name": "swan",
+      "noun": "swan",
+      "noun_plural": "swans",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "swan",
+        "bird",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "tarragon",
+      "name": "tarragon",
+      "noun": "tarragon",
+      "noun_plural": "tarragons",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "tarragon",
+        "plant",
+        "herb"
+      ]
+    },
+    {
+      "identifier": "thigh-bone",
+      "name": "thigh bone",
+      "noun": "thigh bone",
+      "noun_plural": "thigh bones",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "thigh-bone",
+        "bone",
+        "pirate"
+      ]
+    },
+    {
+      "identifier": "thigh-bones-in-saltire",
+      "name": "thigh bones in saltire",
+      "noun": "thigh bones in saltire",
+      "noun_plural": "thigh bones in saltire",
+      "descriptor": "",
+      "single_only": true,
+      "tags": [
+        "thigh-bones-in-saltire",
+        "bone",
+        "pirate"
+      ]
+    },
+    {
+      "identifier": "thistle",
+      "name": "thistle",
+      "noun": "thistle",
+      "noun_plural": "thistles",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "thistle",
+        "plant"
+      ]
+    },
+    {
+      "identifier": "tower",
+      "name": "tower",
+      "noun": "tower",
+      "noun_plural": "towers",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "tower",
+        "fortress",
+        "strength"
+      ]
+    },
+    {
+      "identifier": "tyger-passant",
+      "name": "tyger passant",
+      "noun": "tyger",
+      "noun_plural": "tygers",
+      "descriptor": "passant",
+      "single_only": false,
+      "tags": [
+        "tyger-passant",
+        "tyger",
+        "animal",
+        "predator"
+      ]
+    },
+    {
+      "identifier": "tyger-rampant",
+      "name": "tyger rampant",
+      "noun": "tyger",
+      "noun_plural": "tygers",
+      "descriptor": "rampant",
+      "single_only": false,
+      "tags": [
+        "tyger-rampant",
+        "tyger",
+        "animal",
+        "predator"
+      ]
+    },
+    {
+      "identifier": "unicorn-passant",
+      "name": "unicorn passant",
+      "noun": "unicorn",
+      "noun_plural": "unicorns",
+      "descriptor": "passant",
+      "single_only": false,
+      "tags": [
+        "unicorn-passant",
+        "unicorn",
+        "purity",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "unicorn-rampant",
+      "name": "unicorn rampant",
+      "noun": "unicorn",
+      "noun_plural": "unicorns",
+      "descriptor": "rampant",
+      "single_only": false,
+      "tags": [
+        "unicorn-rampant",
+        "unicorn",
+        "purity",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "unicorn-statant",
+      "name": "unicorn statant",
+      "noun": "unicorn",
+      "noun_plural": "unicorns",
+      "descriptor": "statant",
+      "single_only": false,
+      "tags": [
+        "unicorn-statant",
+        "unicorn",
+        "purity",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "wolf-statant",
+      "name": "wolf statant",
+      "noun": "wolf",
+      "noun_plural": "wolves",
+      "descriptor": "statant",
+      "single_only": false,
+      "tags": [
+        "wolf-statant",
+        "wolf",
+        "predator",
+        "animal"
+      ]
+    },
+    {
+      "identifier": "wreath",
+      "name": "wreath",
+      "noun": "wreath",
+      "noun_plural": "wreathes",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "wreath",
+        "plant",
+        "victory"
+      ]
+    },
+    {
+      "identifier": "wyvern",
+      "name": "wyvern",
+      "noun": "wyvern",
+      "noun_plural": "wyverns",
+      "descriptor": "",
+      "single_only": false,
+      "tags": [
+        "wyvern",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "wyvern-erect",
+      "name": "wyvern erect",
+      "noun": "wyvern",
+      "noun_plural": "wyverns",
+      "descriptor": "erect",
+      "single_only": false,
+      "tags": [
+        "wyvern-erect",
+        "wyvern",
+        "monster"
+      ]
+    },
+    {
+      "identifier": "wyvern-wings-displayed",
+      "name": "wyvern wings displayed",
+      "noun": "wyvern",
+      "noun_plural": "wyverns",
+      "descriptor": "wings displayed",
+      "single_only": false,
+      "tags": [
+        "wyvern-wings-displayed",
+        "wyvern",
+        "monster"
+      ]
     }
   ]
 }
