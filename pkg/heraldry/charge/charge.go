@@ -16,6 +16,8 @@ import (
 	"github.com/ironarachne/world/pkg/words"
 )
 
+const chargeGroupError = "failed to get random charge group: %w"
+
 // Charge is an interface for charges
 type Charge interface {
 	Blazon(count int, tincture string) (string, error)
@@ -153,68 +155,59 @@ func Random() (Charge, error) {
 
 // RandomGroup returns a random group of charges
 func RandomGroup(fieldTincture tincture.Tincture) (Group, error) {
-	group := Group{}
-
-	charge, err := Random()
+	group, err := RandomGroupByParameters(fieldTincture, "", 0)
 	if err != nil {
-		err = fmt.Errorf("failed to get random charge group: %w", err)
+		err = fmt.Errorf("failed to get completely random charge group: %w", err)
 		return Group{}, err
 	}
-
-	numberOfCharges, err := randomNumberOfCharges()
-	if err != nil {
-		err = fmt.Errorf("failed to get random charge group: %w", err)
-		return Group{}, err
-	}
-	if slices.StringIn("full size", charge.GetTags()) {
-		numberOfCharges = 1
-	}
-	for i := 0; i < numberOfCharges; i++ {
-		group.Charges = append(group.Charges, charge)
-	}
-	t, err := tincture.RandomContrasting(fieldTincture, false)
-	if err != nil {
-		err = fmt.Errorf("failed to get random charge group: %w", err)
-		return Group{}, err
-	}
-	group.Tincture = t
-	p, err := randomChargePosition()
-	if err != nil {
-		err = fmt.Errorf("failed to get random charge group: %w", err)
-		return Group{}, err
-	}
-	group.Position = p
 
 	return group, nil
 }
 
-// SpecificGroup returns a charge group with a given tag and number of elements
-func SpecificGroup(fieldTincture tincture.Tincture, tag string, numberOfCharges int) (Group, error) {
+// RandomGroupByParameters returns a charge group matching the given parameters. Blank or zero values will return random results for the given parameter.
+func RandomGroupByParameters(fieldTincture tincture.Tincture, tag string, numberOfCharges int) (Group, error) {
+	var chargeObject Charge
+	var err error
 	group := Group{}
 
 	var charges []Charge
-	chargeObject, err := RandomMatchingTag(tag)
+	if tag == "" {
+		chargeObject, err = Random()
+	} else {
+		chargeObject, err = RandomMatchingTag(tag)
+	}
 	if err != nil {
-		err = fmt.Errorf("failed to get specific charge group: %w", err)
+		err = fmt.Errorf(chargeGroupError, err)
+		return Group{}, err
+	}
+
+	if numberOfCharges == 0 {
+		numberOfCharges, err = randomNumberOfCharges()
+	}
+	if err != nil {
+		err = fmt.Errorf(chargeGroupError, err)
 		return Group{}, err
 	}
 
 	if slices.StringIn("full size", chargeObject.GetTags()) {
 		numberOfCharges = 1
 	}
+
 	for i := 0; i < numberOfCharges; i++ {
 		charges = append(charges, chargeObject)
 	}
+
 	group.Charges = charges
 	t, err := tincture.RandomContrasting(fieldTincture, false)
 	if err != nil {
-		err = fmt.Errorf("failed to get specific charge group: %w", err)
+		err = fmt.Errorf(chargeGroupError, err)
 		return Group{}, err
 	}
+
 	group.Tincture = t
 	p, err := randomChargePosition()
 	if err != nil {
-		err = fmt.Errorf("failed to get specific charge group: %w", err)
+		err = fmt.Errorf(chargeGroupError, err)
 		return Group{}, err
 	}
 	group.Position = p

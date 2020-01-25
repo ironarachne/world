@@ -677,7 +677,7 @@
       "identifier": "wolf-courant",
       "name": "wolf courant",
       "noun": "wolf",
-      "noun_plural": "wolfs",
+      "noun_plural": "wolves",
       "descriptor": "courant",
       "single_only": false,
       "tags": [
@@ -690,7 +690,7 @@
       "identifier": "wolf-passant",
       "name": "wolf passant",
       "noun": "wolf",
-      "noun_plural": "wolfs",
+      "noun_plural": "wolves",
       "descriptor": "passant",
       "single_only": false,
       "tags": [
@@ -703,7 +703,7 @@
       "identifier": "wolf-rampant",
       "name": "wolf rampant",
       "noun": "wolf",
-      "noun_plural": "wolfs",
+      "noun_plural": "wolves",
       "descriptor": "rampant",
       "single_only": false,
       "tags": [
@@ -716,7 +716,7 @@
       "identifier": "wolf-salient",
       "name": "wolf salient",
       "noun": "wolf",
-      "noun_plural": "wolfs",
+      "noun_plural": "wolves",
       "descriptor": "salient",
       "single_only": false,
       "tags": [
@@ -729,7 +729,7 @@
       "identifier": "wolf-statant",
       "name": "wolf statant",
       "noun": "wolf",
-      "noun_plural": "wolfs",
+      "noun_plural": "wolves",
       "descriptor": "statant",
       "single_only": false,
       "tags": [
