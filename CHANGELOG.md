@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.10.1 (2020-01-25)
+
+- Fix bug where descriptors were dropped for blazon descriptions of singular charges
+
 ## 0.10.0 (2020-01-25)
 
 - Refactor heraldry package into several packages
