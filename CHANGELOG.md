@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.0 (2020-01-25)
+
+- Refactor heraldry package into several packages
+- Add about 130 new charges to heraldry generator
+- Add NumberToWord function
+
 ## 0.9.2 (2020-01-15)
 
 - Use simplified devices instead of devices
