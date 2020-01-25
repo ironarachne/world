@@ -19,6 +19,7 @@ import (
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/heraldry/charge"
 	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/merchant"
@@ -55,6 +56,38 @@ func dataAnimals(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = json.NewEncoder(w).Encode(d)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+}
+
+func dataCharges(w http.ResponseWriter, r *http.Request) {
+	charges, err := charge.AllRaster()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	d := charge.Data{
+		Charges: charges,
+	}
+
+	err = json.NewEncoder(w).Encode(d)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+}
+
+func dataChargeTags(w http.ResponseWriter, r *http.Request) {
+	tags, err := charge.AllTags()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	err = json.NewEncoder(w).Encode(tags)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -596,7 +629,9 @@ func getHeavensRandom(w http.ResponseWriter, r *http.Request) {
 }
 
 func getHeraldry(w http.ResponseWriter, r *http.Request) {
+	var chargeTag string
 	var fieldType string
+	
 	id := chi.URLParam(r, "id")
 
 	fieldTypes, ok := r.URL.Query()["shape"]
@@ -607,6 +642,14 @@ func getHeraldry(w http.ResponseWriter, r *http.Request) {
 		fieldType = fieldTypes[0]
 	}
 
+	chargeTags, ok := r.URL.Query()["tag"]
+
+	if !ok || len(chargeTags[0]) < 1 {
+		chargeTag = ""
+	}	else {
+		chargeTag = chargeTags[0]
+	}
+
 	var o heraldry.Device
 
 	err := random.SeedFromString(id)
@@ -615,11 +658,7 @@ func getHeraldry(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if fieldType == "" {
-		o, err = heraldry.Generate()
-	} else {
-		o, err = heraldry.GenerateByFieldName(fieldType)
-	}
+	o, err = heraldry.GenerateByParameters(fieldType, chargeTag)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -635,7 +674,9 @@ func getHeraldry(w http.ResponseWriter, r *http.Request) {
 }
 
 func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
+	var chargeTag string
 	var fieldType string
+
 	fieldTypes, ok := r.URL.Query()["shape"]
 
 	if !ok || len(fieldTypes[0]) < 1 {
@@ -644,14 +685,18 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 		fieldType = fieldTypes[0]
 	}
 
+	chargeTags, ok := r.URL.Query()["tag"]
+
+	if !ok || len(chargeTags[0]) < 1 {
+		chargeTag = ""
+	}	else {
+		chargeTag = chargeTags[0]
+	}
+
 	var o heraldry.Device
 	var err error
 
-	if fieldType == "" {
-		o, err = heraldry.Generate()
-	} else {
-		o, err = heraldry.GenerateByFieldName(fieldType)
-	}
+	o, err = heraldry.GenerateByParameters(fieldType, chargeTag)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -1002,6 +1047,7 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 		"data/animals",
 		"data/domains",
 		"data/fish",
+		"data/heraldry/charges",
 		"data/insects",
 		"data/minerals",
 		"data/monsters",
