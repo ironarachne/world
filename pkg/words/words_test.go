@@ -13,9 +13,9 @@ func TestNumberToWord(t *testing.T) {
 		t.Error("failed to turn 0 into zero")
 	}
 
-	number := 1
+	number = 1
 
-	result, err := NumberToWord(number)
+	result, err = NumberToWord(number)
 	if err != nil {
 		t.Error("failed to turn 1 into one")
 	}
