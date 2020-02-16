@@ -91,9 +91,9 @@ func blazonForCharge(count int, singular string, plural string, descriptor strin
 		if descriptor != "" {
 			blazon += pronoun + " " + singular + " " + descriptor + " " + tincture
 		} else {
-			blazon += pronoun + " " + singular + " " + tincture	
+			blazon += pronoun + " " + singular + " " + tincture
 		}
-		
+
 	} else if count > 1 {
 		number, err := words.NumberToWord(count)
 		if err != nil {

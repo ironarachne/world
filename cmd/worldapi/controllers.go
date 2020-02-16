@@ -17,6 +17,7 @@ import (
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/fish"
 	"github.com/ironarachne/world/pkg/food"
+	"github.com/ironarachne/world/pkg/geography"
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/heraldry/charge"
@@ -588,6 +589,46 @@ func getFoodStyleRandom(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func getGeographicArea(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var o geography.Area
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = geography.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	err = json.NewEncoder(w).Encode(o)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+}
+
+func getGeographicAreaRandom(w http.ResponseWriter, r *http.Request) {
+	var o geography.Area
+
+	o, err := geography.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	err = json.NewEncoder(w).Encode(o)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+}
+
 func getHeavens(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 
@@ -631,7 +672,7 @@ func getHeavensRandom(w http.ResponseWriter, r *http.Request) {
 func getHeraldry(w http.ResponseWriter, r *http.Request) {
 	var chargeTag string
 	var fieldType string
-	
+
 	id := chi.URLParam(r, "id")
 
 	fieldTypes, ok := r.URL.Query()["shape"]
@@ -646,7 +687,7 @@ func getHeraldry(w http.ResponseWriter, r *http.Request) {
 
 	if !ok || len(chargeTags[0]) < 1 {
 		chargeTag = ""
-	}	else {
+	} else {
 		chargeTag = chargeTags[0]
 	}
 
@@ -689,7 +730,7 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 
 	if !ok || len(chargeTags[0]) < 1 {
 		chargeTag = ""
-	}	else {
+	} else {
 		chargeTag = chargeTags[0]
 	}
 

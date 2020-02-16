@@ -1,1447 +1,2061 @@
 {
-  "species": [{
-    "name": "hill dwarf",
-    "plural_name": "hill dwarves",
-    "adjective": "hill dwarven",
-    "commonality": 20,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["broad", "bulbous", "crooked", "flat", "wide"],
-      "possible_descriptors": ["a {{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["amber", "blue", "brown", "gold", "green", "hazel", "grey"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["black", "auburn", "red", "grey", "brown", "dark brown", "light brown"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze", "brown", "dark"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }, {
-      "name": "beard",
-      "possible_values": ["full", "scraggly", "long", "wild", "smooth", "bristly"],
-      "possible_descriptors": ["a {{.Value}} beard"],
-      "tags": ["appearance", "physical", "beard"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 270,
-      "age_max": 500,
-      "male_height_base": 44,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 130,
-      "female_weight_base": 100,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 5
-    }, {
-      "name": "adult",
-      "age_min": 76,
-      "age_max": 269,
-      "male_height_base": 44,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 130,
-      "female_weight_base": 100,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 150
-    }, {
-      "name": "young adult",
-      "age_min": 40,
-      "age_max": 75,
-      "male_height_base": 44,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 130,
-      "female_weight_base": 100,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 100
-    }, {
-      "name": "teenager",
-      "age_min": 23,
-      "age_max": 39,
-      "male_height_base": 43,
-      "female_height_base": 41,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 92,
-      "female_weight_base": 89,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 50
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 22,
-      "male_height_base": 30,
-      "female_height_base": 30,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 30,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 20
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 18,
-      "female_height_base": 18,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["dwarf", "hill dwarf"]
-  }, {
-    "name": "mountain dwarf",
-    "plural_name": "mountain dwarves",
-    "adjective": "mountain dwarven",
-    "commonality": 25,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["broad", "bulbous", "crooked", "flat", "wide"],
-      "possible_descriptors": ["a {{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["amber", "blue", "brown", "gold", "green", "hazel", "grey"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["black", "auburn", "red", "grey", "brown", "dark brown", "light brown"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze", "brown", "dark"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }, {
-      "name": "beard",
-      "possible_values": ["full", "scraggly", "long", "wild", "smooth", "bristly"],
-      "possible_descriptors": ["a {{.Value}} beard"],
-      "tags": ["appearance", "physical", "beard"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 270,
-      "age_max": 500,
-      "male_height_base": 44,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 130,
-      "female_weight_base": 100,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 5
-    }, {
-      "name": "adult",
-      "age_min": 76,
-      "age_max": 269,
-      "male_height_base": 44,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 130,
-      "female_weight_base": 100,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 150
-    }, {
-      "name": "young adult",
-      "age_min": 40,
-      "age_max": 75,
-      "male_height_base": 44,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 130,
-      "female_weight_base": 100,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 100
-    }, {
-      "name": "teenager",
-      "age_min": 23,
-      "age_max": 39,
-      "male_height_base": 43,
-      "female_height_base": 41,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 92,
-      "female_weight_base": 89,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 50
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 22,
-      "male_height_base": 30,
-      "female_height_base": 30,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 30,
-      "weight_modifier": 7,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 20
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 18,
-      "female_height_base": 18,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["dwarf", "mountain dwarf"]
-  }, {
-    "name": "high elf",
-    "plural_name": "high elves",
-    "adjective": "high elven",
-    "commonality": 30,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["aquiline", "long", "narrow", "thin"],
-      "possible_descriptors": ["{{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["amber", "blue", "brown", "gold", "green", "grey", "hazel", "purple", "silver"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["auburn", "black", "brown", "dark brown", "grey", "light brown", "red", "silver"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 270,
-      "age_max": 500,
-      "male_height_base": 58,
-      "female_height_base": 53,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 90,
-      "female_weight_base": 70,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 80
-    }, {
-      "name": "adult",
-      "age_min": 76,
-      "age_max": 269,
-      "male_height_base": 58,
-      "female_height_base": 53,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 90,
-      "female_weight_base": 70,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 150
-    }, {
-      "name": "young adult",
-      "age_min": 40,
-      "age_max": 75,
-      "male_height_base": 58,
-      "female_height_base": 53,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 90,
-      "female_weight_base": 70,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 100
-    }, {
-      "name": "teenager",
-      "age_min": 23,
-      "age_max": 39,
-      "male_height_base": 57,
-      "female_height_base": 52,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 70,
-      "female_weight_base": 50,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 20
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 22,
-      "male_height_base": 42,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 36,
-      "female_weight_base": 36,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 1
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 18,
-      "female_height_base": 18,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["elf", "high elf"]
-  }, {
-    "name": "wood elf",
-    "plural_name": "wood elves",
-    "adjective": "wood elven",
-    "commonality": 20,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["aquiline", "long", "narrow", "thin"],
-      "possible_descriptors": ["{{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["amber", "blue", "brown", "gold", "green", "grey", "hazel", "purple", "silver"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["auburn", "black", "brown", "dark brown", "grey", "light brown", "red", "silver"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 270,
-      "age_max": 500,
-      "male_height_base": 58,
-      "female_height_base": 53,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 90,
-      "female_weight_base": 70,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 80
-    }, {
-      "name": "adult",
-      "age_min": 76,
-      "age_max": 269,
-      "male_height_base": 58,
-      "female_height_base": 53,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 90,
-      "female_weight_base": 70,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 150
-    }, {
-      "name": "young adult",
-      "age_min": 40,
-      "age_max": 75,
-      "male_height_base": 58,
-      "female_height_base": 53,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 90,
-      "female_weight_base": 70,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 100
-    }, {
-      "name": "teenager",
-      "age_min": 23,
-      "age_max": 39,
-      "male_height_base": 57,
-      "female_height_base": 52,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 70,
-      "female_weight_base": 50,
-      "weight_modifier": 3,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 20
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 22,
-      "male_height_base": 42,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 36,
-      "female_weight_base": 36,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 1
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 18,
-      "female_height_base": 18,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 6
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["elf", "wood elf"]
-  }, {
-    "name": "halfling",
-    "plural_name": "halflings",
-    "adjective": "halfling",
-    "commonality": 10,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["broad", "bulbous", "flat"],
-      "possible_descriptors": ["a {{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["amber", "blue", "brown", "gold", "green", "hazel", "grey"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["black", "auburn", "red", "grey", "brown", "dark brown", "light brown"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze", "brown", "dark"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }, {
-      "name": "feet",
-      "possible_values": ["furry", "curly-haired", "hairy", "thick-haired", "rough-haired", "wild-haired"],
-      "possible_descriptors": ["{{.Value}} feet"],
-      "tags": ["appearance", "physical", "feet"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 100,
-      "age_max": 200,
-      "male_height_base": 32,
-      "female_height_base": 30,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 25,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 50
-    }, {
-      "name": "adult",
-      "age_min": 36,
-      "age_max": 99,
-      "male_height_base": 32,
-      "female_height_base": 30,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 25,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 150
-    }, {
-      "name": "young adult",
-      "age_min": 20,
-      "age_max": 35,
-      "male_height_base": 32,
-      "female_height_base": 30,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 25,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 100
-    }, {
-      "name": "teenager",
-      "age_min": 13,
-      "age_max": 19,
-      "male_height_base": 30,
-      "female_height_base": 28,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 25,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 60
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 12,
-      "male_height_base": 22,
-      "female_height_base": 20,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 20,
-      "female_weight_base": 15,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 10
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 15,
-      "female_height_base": 15,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["halfling"]
-  }, {
-    "name": "human",
-    "plural_name": "humans",
-    "adjective": "human",
-    "commonality": 100,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["aquiline", "broad", "flat", "long", "narrow", "pointed", "upturned"],
-      "possible_descriptors": ["{{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["amber", "blue", "brown", "gold", "green", "hazel", "grey"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["black", "auburn", "red", "grey", "brown", "dark brown", "light brown"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze", "brown", "dark"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 70,
-      "age_max": 110,
-      "male_height_base": 62,
-      "female_height_base": 57,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 140,
-      "female_weight_base": 105,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 30
-    }, {
-      "name": "adult",
-      "age_min": 26,
-      "age_max": 69,
-      "male_height_base": 62,
-      "female_height_base": 57,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 140,
-      "female_weight_base": 105,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 150
-    }, {
-      "name": "young adult",
-      "age_min": 20,
-      "age_max": 25,
-      "male_height_base": 62,
-      "female_height_base": 57,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 140,
-      "female_weight_base": 105,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 100
-    }, {
-      "name": "teenager",
-      "age_min": 13,
-      "age_max": 19,
-      "male_height_base": 61,
-      "female_height_base": 59,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 92,
-      "female_weight_base": 89,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 30
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 12,
-      "male_height_base": 42,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 36,
-      "female_weight_base": 36,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 10
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 18,
-      "female_height_base": 18,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["human"]
-  }, {
-    "name": "gnome",
-    "plural_name": "gnomes",
-    "adjective": "gnome",
-    "commonality": 10,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["broad", "flat", "long", "narrow", "pointed", "upturned"],
-      "possible_descriptors": ["{{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["amber", "blue", "brown", "gold", "green", "hazel", "grey"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["black", "auburn", "red", "grey", "brown", "dark brown", "light brown"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze", "brown", "dark"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 100,
-      "age_max": 200,
-      "male_height_base": 36,
-      "female_height_base": 34,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 25,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 50
-    }, {
-      "name": "adult",
-      "age_min": 36,
-      "age_max": 99,
-      "male_height_base": 36,
-      "female_height_base": 34,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 35,
-      "female_weight_base": 30,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 150
-    }, {
-      "name": "young adult",
-      "age_min": 20,
-      "age_max": 35,
-      "male_height_base": 36,
-      "female_height_base": 34,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 35,
-      "female_weight_base": 30,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 100
-    }, {
-      "name": "teenager",
-      "age_min": 13,
-      "age_max": 19,
-      "male_height_base": 30,
-      "female_height_base": 28,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 30,
-      "female_weight_base": 25,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 60
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 12,
-      "male_height_base": 22,
-      "female_height_base": 20,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 20,
-      "female_weight_base": 15,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 10
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 15,
-      "female_height_base": 15,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 4
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["gnome"]
-  }, {
-    "name": "tiefling",
-    "plural_name": "tieflings",
-    "adjective": "tiefling",
-    "commonality": 10,
-    "possible_traits": [{
-      "name": "nose shape",
-      "possible_values": ["aquiline", "broad", "flat", "long", "narrow", "pointed", "upturned"],
-      "possible_descriptors": ["{{.Value}} nose"],
-      "tags": ["appearance", "physical", "nose"]
-    }],
-    "common_traits": [{
-      "name": "eye color",
-      "possible_values": ["black", "gold", "red", "silver", "white"],
-      "possible_descriptors": ["{{.Value}} eyes"],
-      "tags": ["appearance", "physical", "eyes"]
-    }, {
-      "name": "hair color",
-      "possible_values": ["dark red", "brown", "dark brown", "black", "dark blue", "purple"],
-      "possible_descriptors": ["{{.Value}} hair"],
-      "tags": ["appearance", "physical", "hair"]
-    }, {
-      "name": "skin color",
-      "possible_values": ["light", "tan", "olive", "bronze", "brown", "dark", "maroon", "red"],
-      "possible_descriptors": ["{{.Value}} skin"],
-      "tags": ["appearance", "physical", "skin"]
-    }, {
-      "name": "horns",
-      "possible_values": ["curling", "spiral upward", "spiral downard", "long straight", "short straight"],
-      "possible_descriptors": ["{{.Value}} horns"],
-      "tags": ["appearance", "physical", "horns"]
-    }],
-    "age_categories": [{
-      "name": "elderly",
-      "age_min": 70,
-      "age_max": 110,
-      "male_height_base": 62,
-      "female_height_base": 57,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 140,
-      "female_weight_base": 105,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 10
-    }, {
-      "name": "adult",
-      "age_min": 26,
-      "age_max": 69,
-      "male_height_base": 62,
-      "female_height_base": 57,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 140,
-      "female_weight_base": 105,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 30
-    }, {
-      "name": "young adult",
-      "age_min": 20,
-      "age_max": 25,
-      "male_height_base": 62,
-      "female_height_base": 57,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 140,
-      "female_weight_base": 105,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 150
-    }, {
-      "name": "teenager",
-      "age_min": 13,
-      "age_max": 19,
-      "male_height_base": 61,
-      "female_height_base": 59,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 92,
-      "female_weight_base": 89,
-      "weight_modifier": 5,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "medium",
-        "level": 5,
-        "base_height": 72,
-        "base_weight": 200
-      },
-      "commonality": 100
-    }, {
-      "name": "child",
-      "age_min": 2,
-      "age_max": 12,
-      "male_height_base": 42,
-      "female_height_base": 42,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 36,
-      "female_weight_base": 36,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "small",
-        "level": 4,
-        "base_height": 36,
-        "base_weight": 30
-      },
-      "commonality": 10
-    }, {
-      "name": "infant",
-      "age_min": 0,
-      "age_max": 1,
-      "male_height_base": 18,
-      "female_height_base": 18,
-      "height_range_dice": {
-        "number": 2,
-        "sides": 8
-      },
-      "male_weight_base": 5,
-      "female_weight_base": 5,
-      "weight_modifier": 1,
-      "weight_range_dice": {
-        "number": 2,
-        "sides": 10
-      },
-      "size_category": {
-        "name": "tiny",
-        "level": 3,
-        "base_height": 20,
-        "base_weight": 6
-      },
-      "commonality": 1
-    }],
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["tiefling"]
-  }]
+  "species": [
+    {
+      "name": "hill dwarf",
+      "plural_name": "hill dwarves",
+      "adjective": "hill dwarven",
+      "commonality": 20,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "broad",
+            "bulbous",
+            "crooked",
+            "flat",
+            "wide"
+          ],
+          "possible_descriptors": [
+            "a {{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "amber",
+            "blue",
+            "brown",
+            "gold",
+            "green",
+            "hazel",
+            "grey"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "black",
+            "auburn",
+            "red",
+            "grey",
+            "brown",
+            "dark brown",
+            "light brown"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze",
+            "brown",
+            "dark"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        },
+        {
+          "name": "beard",
+          "possible_values": [
+            "full",
+            "scraggly",
+            "long",
+            "wild",
+            "smooth",
+            "bristly"
+          ],
+          "possible_descriptors": [
+            "a {{.Value}} beard"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "beard"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 270,
+          "age_max": 500,
+          "male_height_base": 44,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 130,
+          "female_weight_base": 100,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 5
+        },
+        {
+          "name": "adult",
+          "age_min": 76,
+          "age_max": 269,
+          "male_height_base": 44,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 130,
+          "female_weight_base": 100,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 150
+        },
+        {
+          "name": "young adult",
+          "age_min": 40,
+          "age_max": 75,
+          "male_height_base": 44,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 130,
+          "female_weight_base": 100,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 100
+        },
+        {
+          "name": "teenager",
+          "age_min": 23,
+          "age_max": 39,
+          "male_height_base": 43,
+          "female_height_base": 41,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 92,
+          "female_weight_base": 89,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 50
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 22,
+          "male_height_base": 30,
+          "female_height_base": 30,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 30,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 20
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 18,
+          "female_height_base": 18,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "dwarf",
+        "hill dwarf"
+      ]
+    },
+    {
+      "name": "mountain dwarf",
+      "plural_name": "mountain dwarves",
+      "adjective": "mountain dwarven",
+      "commonality": 25,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "broad",
+            "bulbous",
+            "crooked",
+            "flat",
+            "wide"
+          ],
+          "possible_descriptors": [
+            "a {{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "amber",
+            "blue",
+            "brown",
+            "gold",
+            "green",
+            "hazel",
+            "grey"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "black",
+            "auburn",
+            "red",
+            "grey",
+            "brown",
+            "dark brown",
+            "light brown"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze",
+            "brown",
+            "dark"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        },
+        {
+          "name": "beard",
+          "possible_values": [
+            "full",
+            "scraggly",
+            "long",
+            "wild",
+            "smooth",
+            "bristly"
+          ],
+          "possible_descriptors": [
+            "a {{.Value}} beard"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "beard"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 270,
+          "age_max": 500,
+          "male_height_base": 44,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 130,
+          "female_weight_base": 100,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 5
+        },
+        {
+          "name": "adult",
+          "age_min": 76,
+          "age_max": 269,
+          "male_height_base": 44,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 130,
+          "female_weight_base": 100,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 150
+        },
+        {
+          "name": "young adult",
+          "age_min": 40,
+          "age_max": 75,
+          "male_height_base": 44,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 130,
+          "female_weight_base": 100,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 100
+        },
+        {
+          "name": "teenager",
+          "age_min": 23,
+          "age_max": 39,
+          "male_height_base": 43,
+          "female_height_base": 41,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 92,
+          "female_weight_base": 89,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 50
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 22,
+          "male_height_base": 30,
+          "female_height_base": 30,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 30,
+          "weight_modifier": 7,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 20
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 18,
+          "female_height_base": 18,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "dwarf",
+        "mountain dwarf"
+      ]
+    },
+    {
+      "name": "high elf",
+      "plural_name": "high elves",
+      "adjective": "high elven",
+      "commonality": 30,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "aquiline",
+            "long",
+            "narrow",
+            "thin"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "amber",
+            "blue",
+            "brown",
+            "gold",
+            "green",
+            "grey",
+            "hazel",
+            "purple",
+            "silver"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "auburn",
+            "black",
+            "brown",
+            "dark brown",
+            "grey",
+            "light brown",
+            "red",
+            "silver"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 270,
+          "age_max": 500,
+          "male_height_base": 58,
+          "female_height_base": 53,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 90,
+          "female_weight_base": 70,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 80
+        },
+        {
+          "name": "adult",
+          "age_min": 76,
+          "age_max": 269,
+          "male_height_base": 58,
+          "female_height_base": 53,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 90,
+          "female_weight_base": 70,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 150
+        },
+        {
+          "name": "young adult",
+          "age_min": 40,
+          "age_max": 75,
+          "male_height_base": 58,
+          "female_height_base": 53,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 90,
+          "female_weight_base": 70,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 100
+        },
+        {
+          "name": "teenager",
+          "age_min": 23,
+          "age_max": 39,
+          "male_height_base": 57,
+          "female_height_base": 52,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 70,
+          "female_weight_base": 50,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 20
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 22,
+          "male_height_base": 42,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 36,
+          "female_weight_base": 36,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 1
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 18,
+          "female_height_base": 18,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "elf",
+        "high elf"
+      ]
+    },
+    {
+      "name": "wood elf",
+      "plural_name": "wood elves",
+      "adjective": "wood elven",
+      "commonality": 20,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "aquiline",
+            "long",
+            "narrow",
+            "thin"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "amber",
+            "blue",
+            "brown",
+            "gold",
+            "green",
+            "grey",
+            "hazel",
+            "purple",
+            "silver"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "auburn",
+            "black",
+            "brown",
+            "dark brown",
+            "grey",
+            "light brown",
+            "red",
+            "silver"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 270,
+          "age_max": 500,
+          "male_height_base": 58,
+          "female_height_base": 53,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 90,
+          "female_weight_base": 70,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 80
+        },
+        {
+          "name": "adult",
+          "age_min": 76,
+          "age_max": 269,
+          "male_height_base": 58,
+          "female_height_base": 53,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 90,
+          "female_weight_base": 70,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 150
+        },
+        {
+          "name": "young adult",
+          "age_min": 40,
+          "age_max": 75,
+          "male_height_base": 58,
+          "female_height_base": 53,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 90,
+          "female_weight_base": 70,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 100
+        },
+        {
+          "name": "teenager",
+          "age_min": 23,
+          "age_max": 39,
+          "male_height_base": 57,
+          "female_height_base": 52,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 70,
+          "female_weight_base": 50,
+          "weight_modifier": 3,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 20
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 22,
+          "male_height_base": 42,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 36,
+          "female_weight_base": 36,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 1
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 18,
+          "female_height_base": 18,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 6
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "elf",
+        "wood elf"
+      ]
+    },
+    {
+      "name": "halfling",
+      "plural_name": "halflings",
+      "adjective": "halfling",
+      "commonality": 10,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "broad",
+            "bulbous",
+            "flat"
+          ],
+          "possible_descriptors": [
+            "a {{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "amber",
+            "blue",
+            "brown",
+            "gold",
+            "green",
+            "hazel",
+            "grey"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "black",
+            "auburn",
+            "red",
+            "grey",
+            "brown",
+            "dark brown",
+            "light brown"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze",
+            "brown",
+            "dark"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        },
+        {
+          "name": "feet",
+          "possible_values": [
+            "furry",
+            "curly-haired",
+            "hairy",
+            "thick-haired",
+            "rough-haired",
+            "wild-haired"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} feet"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "feet"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 100,
+          "age_max": 200,
+          "male_height_base": 32,
+          "female_height_base": 30,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 25,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 50
+        },
+        {
+          "name": "adult",
+          "age_min": 36,
+          "age_max": 99,
+          "male_height_base": 32,
+          "female_height_base": 30,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 25,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 150
+        },
+        {
+          "name": "young adult",
+          "age_min": 20,
+          "age_max": 35,
+          "male_height_base": 32,
+          "female_height_base": 30,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 25,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 100
+        },
+        {
+          "name": "teenager",
+          "age_min": 13,
+          "age_max": 19,
+          "male_height_base": 30,
+          "female_height_base": 28,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 25,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 60
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 12,
+          "male_height_base": 22,
+          "female_height_base": 20,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 20,
+          "female_weight_base": 15,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 10
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 15,
+          "female_height_base": 15,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "halfling"
+      ]
+    },
+    {
+      "name": "human",
+      "plural_name": "humans",
+      "adjective": "human",
+      "commonality": 100,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "aquiline",
+            "broad",
+            "flat",
+            "long",
+            "narrow",
+            "pointed",
+            "upturned"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "amber",
+            "blue",
+            "brown",
+            "gold",
+            "green",
+            "hazel",
+            "grey"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "black",
+            "auburn",
+            "red",
+            "grey",
+            "brown",
+            "dark brown",
+            "light brown"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze",
+            "brown",
+            "dark"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 70,
+          "age_max": 110,
+          "male_height_base": 62,
+          "female_height_base": 57,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 140,
+          "female_weight_base": 105,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 30
+        },
+        {
+          "name": "adult",
+          "age_min": 26,
+          "age_max": 69,
+          "male_height_base": 62,
+          "female_height_base": 57,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 140,
+          "female_weight_base": 105,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 150
+        },
+        {
+          "name": "young adult",
+          "age_min": 20,
+          "age_max": 25,
+          "male_height_base": 62,
+          "female_height_base": 57,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 140,
+          "female_weight_base": 105,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 100
+        },
+        {
+          "name": "teenager",
+          "age_min": 13,
+          "age_max": 19,
+          "male_height_base": 61,
+          "female_height_base": 59,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 92,
+          "female_weight_base": 89,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 30
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 12,
+          "male_height_base": 42,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 36,
+          "female_weight_base": 36,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 10
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 18,
+          "female_height_base": 18,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "human"
+      ]
+    },
+    {
+      "name": "gnome",
+      "plural_name": "gnomes",
+      "adjective": "gnome",
+      "commonality": 10,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "broad",
+            "flat",
+            "long",
+            "narrow",
+            "pointed",
+            "upturned"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "amber",
+            "blue",
+            "brown",
+            "gold",
+            "green",
+            "hazel",
+            "grey"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "black",
+            "auburn",
+            "red",
+            "grey",
+            "brown",
+            "dark brown",
+            "light brown"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze",
+            "brown",
+            "dark"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 100,
+          "age_max": 200,
+          "male_height_base": 36,
+          "female_height_base": 34,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 25,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 50
+        },
+        {
+          "name": "adult",
+          "age_min": 36,
+          "age_max": 99,
+          "male_height_base": 36,
+          "female_height_base": 34,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 35,
+          "female_weight_base": 30,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 150
+        },
+        {
+          "name": "young adult",
+          "age_min": 20,
+          "age_max": 35,
+          "male_height_base": 36,
+          "female_height_base": 34,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 35,
+          "female_weight_base": 30,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 100
+        },
+        {
+          "name": "teenager",
+          "age_min": 13,
+          "age_max": 19,
+          "male_height_base": 30,
+          "female_height_base": 28,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 30,
+          "female_weight_base": 25,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 60
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 12,
+          "male_height_base": 22,
+          "female_height_base": 20,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 20,
+          "female_weight_base": 15,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 10
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 15,
+          "female_height_base": 15,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 4
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "gnome"
+      ]
+    },
+    {
+      "name": "tiefling",
+      "plural_name": "tieflings",
+      "adjective": "tiefling",
+      "commonality": 10,
+      "possible_traits": [
+        {
+          "name": "nose shape",
+          "possible_values": [
+            "aquiline",
+            "broad",
+            "flat",
+            "long",
+            "narrow",
+            "pointed",
+            "upturned"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} nose"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "nose"
+          ]
+        }
+      ],
+      "common_traits": [
+        {
+          "name": "eye color",
+          "possible_values": [
+            "black",
+            "gold",
+            "red",
+            "silver",
+            "white"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} eyes"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "eyes"
+          ]
+        },
+        {
+          "name": "hair color",
+          "possible_values": [
+            "dark red",
+            "brown",
+            "dark brown",
+            "black",
+            "dark blue",
+            "purple"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} hair"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "hair"
+          ]
+        },
+        {
+          "name": "skin color",
+          "possible_values": [
+            "light",
+            "tan",
+            "olive",
+            "bronze",
+            "brown",
+            "dark",
+            "maroon",
+            "red"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} skin"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "skin"
+          ]
+        },
+        {
+          "name": "horns",
+          "possible_values": [
+            "curling",
+            "spiral upward",
+            "spiral downard",
+            "long straight",
+            "short straight"
+          ],
+          "possible_descriptors": [
+            "{{.Value}} horns"
+          ],
+          "tags": [
+            "appearance",
+            "physical",
+            "horns"
+          ]
+        }
+      ],
+      "age_categories": [
+        {
+          "name": "elderly",
+          "age_min": 70,
+          "age_max": 110,
+          "male_height_base": 62,
+          "female_height_base": 57,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 140,
+          "female_weight_base": 105,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 10
+        },
+        {
+          "name": "adult",
+          "age_min": 26,
+          "age_max": 69,
+          "male_height_base": 62,
+          "female_height_base": 57,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 140,
+          "female_weight_base": 105,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 30
+        },
+        {
+          "name": "young adult",
+          "age_min": 20,
+          "age_max": 25,
+          "male_height_base": 62,
+          "female_height_base": 57,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 140,
+          "female_weight_base": 105,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 150
+        },
+        {
+          "name": "teenager",
+          "age_min": 13,
+          "age_max": 19,
+          "male_height_base": 61,
+          "female_height_base": 59,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 92,
+          "female_weight_base": 89,
+          "weight_modifier": 5,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "medium",
+            "level": 5,
+            "base_height": 72,
+            "base_weight": 200
+          },
+          "commonality": 100
+        },
+        {
+          "name": "child",
+          "age_min": 2,
+          "age_max": 12,
+          "male_height_base": 42,
+          "female_height_base": 42,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 36,
+          "female_weight_base": 36,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "small",
+            "level": 4,
+            "base_height": 36,
+            "base_weight": 30
+          },
+          "commonality": 10
+        },
+        {
+          "name": "infant",
+          "age_min": 0,
+          "age_max": 1,
+          "male_height_base": 18,
+          "female_height_base": 18,
+          "height_range_dice": {
+            "number": 2,
+            "sides": 8
+          },
+          "male_weight_base": 5,
+          "female_weight_base": 5,
+          "weight_modifier": 1,
+          "weight_range_dice": {
+            "number": 2,
+            "sides": 10
+          },
+          "size_category": {
+            "name": "tiny",
+            "level": 3,
+            "base_height": 20,
+            "base_weight": 6
+          },
+          "commonality": 1
+        }
+      ],
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "tiefling"
+      ]
+    }
+  ]
 }

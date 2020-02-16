@@ -51,7 +51,11 @@ func Load(fileName string) ([]Species, error) {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	json.Unmarshal(byteValue, &d)
+	err = json.Unmarshal(byteValue, &d)
+	if err != nil {
+		err = fmt.Errorf("could not process species data: %w", err)
+		return []Species{}, err
+	}
 
 	all := d.Species
 

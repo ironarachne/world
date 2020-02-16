@@ -111,6 +111,9 @@ func main() {
 	r.Get("/foodstyle", sentryHandler.HandleFunc(getFoodStyleRandom))
 	r.Get("/foodstyle/{id}", sentryHandler.HandleFunc(getFoodStyle))
 
+	r.Get("/geography", sentryHandler.HandleFunc(getGeographicAreaRandom))
+	r.Get("/geography/{id}", sentryHandler.HandleFunc(getGeographicArea))
+
 	r.Get("/heavens", sentryHandler.HandleFunc(getHeavensRandom))
 	r.Get("/heavens/{id}", sentryHandler.HandleFunc(getHeavens))
 

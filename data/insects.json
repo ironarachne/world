@@ -1,369 +1,524 @@
 {
-  "species": [{
-    "name": "biting fly",
-    "plural_name": "biting flies",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["fly", "herbivore"]
-  }, {
-    "name": "cricket",
-    "plural_name": "crickets",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": [{
+  "species": [
+    {
+      "name": "biting fly",
+      "plural_name": "biting flies",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "fly",
+        "herbivore",
+        "insect"
+      ]
+    },
+    {
       "name": "cricket",
-      "description": "",
-      "main_material": "cricket",
-      "origin": "cricket",
-      "tags": ["meat"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["food", "herbivore"]
-  }, {
-    "name": "dragonfly",
-    "plural_name": "dragonflies",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["fly", "carnivore"]
-  }, {
-    "name": "dwarf honey bee",
-    "plural_name": "dwarf honey bees",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": [{
-      "name": "beeswax",
-      "description": "",
-      "main_material": "beeswax",
-      "origin": "dwarf honey bee",
-      "tags": ["wax"],
-      "commonality": 5,
-      "value": 1
-    }, {
-      "name": "honey",
-      "description": "",
-      "main_material": "honey",
-      "origin": "dwarf honey bee",
-      "tags": ["food", "sweetener"],
-      "commonality": 5,
-      "value": 1
-    }, {
-      "name": "honeycomb",
-      "description": "",
-      "main_material": "honeycomb",
-      "origin": "dwarf honey bee",
-      "tags": ["food"],
-      "commonality": 3,
-      "value": 2
-    }],
-    "tags": ["bee", "herbivore", "pollinator"]
-  }, {
-    "name": "earthworm",
-    "plural_name": "earthworms",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["worm", "herbivore"]
-  }, {
-    "name": "giant honey bee",
-    "plural_name": "giant honey bees",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": [{
-      "name": "beeswax",
-      "description": "",
-      "main_material": "beeswax",
-      "origin": "giant honey bee",
-      "tags": ["wax"],
-      "commonality": 5,
-      "value": 1
-    }, {
-      "name": "honey",
-      "description": "",
-      "main_material": "honey",
-      "origin": "giant honey bee",
-      "tags": ["food", "sweetener"],
-      "commonality": 5,
-      "value": 1
-    }, {
-      "name": "honeycomb",
-      "description": "",
-      "main_material": "honeycomb",
-      "origin": "giant honey bee",
-      "tags": ["food"],
-      "commonality": 3,
-      "value": 2
-    }],
-    "tags": ["bee", "herbivore", "pollinator"]
-  }, {
-    "name": "housefly",
-    "plural_name": "houseflies",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["fly", "herbivore"]
-  }, {
-    "name": "honey bee",
-    "plural_name": "honey bees",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": [{
-      "name": "beeswax",
-      "description": "",
-      "main_material": "beeswax",
-      "origin": "honey bee",
-      "tags": ["wax"],
-      "commonality": 5,
-      "value": 1
-    }, {
-      "name": "honey",
-      "description": "",
-      "main_material": "honey",
-      "origin": "honey bee",
-      "tags": ["food", "sweetener"],
-      "commonality": 5,
-      "value": 1
-    }, {
-      "name": "honeycomb",
-      "description": "",
-      "main_material": "honeycomb",
-      "origin": "honey bee",
-      "tags": ["food"],
-      "commonality": 3,
-      "value": 2
-    }],
-    "tags": ["bee", "herbivore", "pollinator"]
-  }, {
-    "name": "mosquito",
-    "plural_name": "mosquitoes",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 5,
-    "max_humidity": 10,
-    "min_temperature": 5,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["pest", "carnivore"]
-  }, {
-    "name": "silkworm",
-    "plural_name": "silkworms",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": [{
-      "name": "silk",
-      "description": "",
-      "main_material": "silk",
-      "origin": "silkworm",
-      "tags": ["fabric fiber"],
-      "commonality": 3,
-      "value": 20
-    }],
-    "tags": ["worm", "herbivore"]
-  }, {
-    "name": "black widow",
-    "plural_name": "black widows",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 7,
-    "resources": [{
-      "name": "black widow venom",
-      "description": "",
-      "main_material": "black widow",
-      "origin": "black widow",
-      "tags": ["venom"],
-      "commonality": 3,
-      "value": 20
-    }],
-    "tags": ["spider", "arachnid", "carnivore"]
-  }, {
-    "name": "brown recluse",
-    "plural_name": "brown recluses",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 7,
-    "resources": [{
-      "name": "brown recluse venom",
-      "description": "",
-      "main_material": "brown recluse",
-      "origin": "brown recluse",
-      "tags": ["venom"],
-      "commonality": 3,
-      "value": 20
-    }],
-    "tags": ["spider", "arachnid", "carnivore"]
-  }, {
-    "name": "emperor scorpion",
-    "plural_name": "emperor scorpions",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 7,
-    "resources": [{
-      "name": "emperor scorpion venom",
-      "description": "",
-      "main_material": "emperor scorpion",
-      "origin": "emperor scorpion",
-      "tags": ["venom"],
-      "commonality": 2,
-      "value": 50
-    }],
-    "tags": ["scorpion", "arachnid", "carnivore"]
-  }, {
-    "name": "house spider",
-    "plural_name": "house spiders",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 7,
-    "resources": null,
-    "tags": ["spider", "arachnid", "carnivore"]
-  }, {
-    "name": "scorpion",
-    "plural_name": "scorpions",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 7,
-    "resources": [{
-      "name": "scorpion venom",
-      "description": "",
-      "main_material": "scorpion",
-      "origin": "scorpion",
-      "tags": ["venom"],
-      "commonality": 3,
-      "value": 20
-    }],
-    "tags": ["scorpion", "arachnid", "carnivore"]
-  }, {
-    "name": "tick",
-    "plural_name": "ticks",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 10,
-    "resources": null,
-    "tags": ["arachnid", "carnivore"]
-  }, {
-    "name": "rhino beetle",
-    "plural_name": "rhino beetles",
-    "adjective": "",
-    "commonality": 0,
-    "possible_traits": null,
-    "common_traits": null,
-    "age_categories": null,
-    "min_humidity": 0,
-    "max_humidity": 10,
-    "min_temperature": 0,
-    "max_temperature": 7,
-    "resources": [{
-      "name": "rhino beetle carapace",
-      "description": "",
-      "main_material": "rhino beetle",
-      "origin": "rhino beetle",
-      "tags": ["carapace"],
-      "commonality": 3,
-      "value": 2
-    }],
-    "tags": ["beetle", "herbivore"]
-  }]
+      "plural_name": "crickets",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 10,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cricket",
+          "description": "",
+          "main_material": "cricket",
+          "origin": "cricket",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "food",
+        "herbivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "dragonfly",
+      "plural_name": "dragonflies",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "fly",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "dwarf honey bee",
+      "plural_name": "dwarf honey bees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "beeswax",
+          "description": "",
+          "main_material": "beeswax",
+          "origin": "dwarf honey bee",
+          "tags": [
+            "wax"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "honey",
+          "description": "",
+          "main_material": "honey",
+          "origin": "dwarf honey bee",
+          "tags": [
+            "food",
+            "sweetener"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "honeycomb",
+          "description": "",
+          "main_material": "honeycomb",
+          "origin": "dwarf honey bee",
+          "tags": [
+            "food"
+          ],
+          "commonality": 3,
+          "value": 2
+        }
+      ],
+      "tags": [
+        "bee",
+        "herbivore",
+        "pollinator",
+        "insect"
+      ]
+    },
+    {
+      "name": "earthworm",
+      "plural_name": "earthworms",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "worm",
+        "herbivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "giant honey bee",
+      "plural_name": "giant honey bees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "beeswax",
+          "description": "",
+          "main_material": "beeswax",
+          "origin": "giant honey bee",
+          "tags": [
+            "wax"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "honey",
+          "description": "",
+          "main_material": "honey",
+          "origin": "giant honey bee",
+          "tags": [
+            "food",
+            "sweetener"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "honeycomb",
+          "description": "",
+          "main_material": "honeycomb",
+          "origin": "giant honey bee",
+          "tags": [
+            "food"
+          ],
+          "commonality": 3,
+          "value": 2
+        }
+      ],
+      "tags": [
+        "bee",
+        "herbivore",
+        "pollinator",
+        "insect"
+      ]
+    },
+    {
+      "name": "housefly",
+      "plural_name": "houseflies",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "fly",
+        "herbivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "honey bee",
+      "plural_name": "honey bees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "beeswax",
+          "description": "",
+          "main_material": "beeswax",
+          "origin": "honey bee",
+          "tags": [
+            "wax"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "honey",
+          "description": "",
+          "main_material": "honey",
+          "origin": "honey bee",
+          "tags": [
+            "food",
+            "sweetener"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "honeycomb",
+          "description": "",
+          "main_material": "honeycomb",
+          "origin": "honey bee",
+          "tags": [
+            "food"
+          ],
+          "commonality": 3,
+          "value": 2
+        }
+      ],
+      "tags": [
+        "bee",
+        "herbivore",
+        "pollinator",
+        "insect"
+      ]
+    },
+    {
+      "name": "mosquito",
+      "plural_name": "mosquitoes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "pest",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "silkworm",
+      "plural_name": "silkworms",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "silk",
+          "description": "",
+          "main_material": "silk",
+          "origin": "silkworm",
+          "tags": [
+            "fabric fiber"
+          ],
+          "commonality": 3,
+          "value": 20
+        }
+      ],
+      "tags": [
+        "worm",
+        "herbivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "black widow",
+      "plural_name": "black widows",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "black widow venom",
+          "description": "",
+          "main_material": "black widow",
+          "origin": "black widow",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 3,
+          "value": 20
+        }
+      ],
+      "tags": [
+        "spider",
+        "arachnid",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "brown recluse",
+      "plural_name": "brown recluses",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 10,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "brown recluse venom",
+          "description": "",
+          "main_material": "brown recluse",
+          "origin": "brown recluse",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 3,
+          "value": 20
+        }
+      ],
+      "tags": [
+        "spider",
+        "arachnid",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "emperor scorpion",
+      "plural_name": "emperor scorpions",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "emperor scorpion venom",
+          "description": "",
+          "main_material": "emperor scorpion",
+          "origin": "emperor scorpion",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 2,
+          "value": 50
+        }
+      ],
+      "tags": [
+        "scorpion",
+        "arachnid",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "house spider",
+      "plural_name": "house spiders",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 70,
+      "resources": null,
+      "tags": [
+        "spider",
+        "arachnid",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "scorpion",
+      "plural_name": "scorpions",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "scorpion venom",
+          "description": "",
+          "main_material": "scorpion",
+          "origin": "scorpion",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 3,
+          "value": 20
+        }
+      ],
+      "tags": [
+        "scorpion",
+        "arachnid",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "tick",
+      "plural_name": "ticks",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": null,
+      "tags": [
+        "arachnid",
+        "carnivore",
+        "insect"
+      ]
+    },
+    {
+      "name": "rhino beetle",
+      "plural_name": "rhino beetles",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "rhino beetle carapace",
+          "description": "",
+          "main_material": "rhino beetle",
+          "origin": "rhino beetle",
+          "tags": [
+            "carapace"
+          ],
+          "commonality": 3,
+          "value": 2
+        }
+      ],
+      "tags": [
+        "beetle",
+        "herbivore",
+        "insect"
+      ]
+    }
+  ]
 }

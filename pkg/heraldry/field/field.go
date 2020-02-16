@@ -32,8 +32,8 @@ func ByName(name string) (Field, error) {
 	}
 
 	field := Field{
-		Division:     d,
-		FieldType:    fieldType,
+		Division:  d,
+		FieldType: fieldType,
 	}
 
 	return field, nil
@@ -50,8 +50,8 @@ func Random() (Field, error) {
 	}
 
 	field := Field{
-		Division:     d,
-		FieldType:    t,
+		Division:  d,
+		FieldType: t,
 	}
 
 	return field, nil

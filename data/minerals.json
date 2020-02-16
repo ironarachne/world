@@ -1,563 +1,853 @@
 {
-  "minerals": [{
-    "name": "diamond",
-    "plural_name": "diamonds",
-    "hardness": 10,
-    "malleability": 1,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw diamond ore",
-      "description": "",
-      "main_material": "diamond",
-      "origin": "diamond",
-      "tags": ["gem ore", "ore"],
-      "commonality": 1,
-      "value": 100
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "garnet",
-    "plural_name": "garnets",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw garnet ore",
-      "description": "",
-      "main_material": "garnet",
-      "origin": "garnet",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 10
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "ruby",
-    "plural_name": "rubies",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw ruby ore",
-      "description": "",
-      "main_material": "ruby",
-      "origin": "ruby",
-      "tags": ["gem ore", "ore"],
-      "commonality": 2,
-      "value": 50
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "sapphire",
-    "plural_name": "sapphires",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw sapphire ore",
-      "description": "",
-      "main_material": "sapphire",
-      "origin": "sapphire",
-      "tags": ["gem ore", "ore"],
-      "commonality": 4,
-      "value": 40
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "amethyst",
-    "plural_name": "amethysts",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw amethyst ore",
-      "description": "",
-      "main_material": "amethyst",
-      "origin": "amethyst",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 10
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "agate",
-    "plural_name": "agates",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw agate ore",
-      "description": "",
-      "main_material": "agate",
-      "origin": "agate",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 5
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "jade",
-    "plural_name": "jade",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw jade ore",
-      "description": "",
-      "main_material": "jade",
-      "origin": "jade",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 15
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "jasper",
-    "plural_name": "jaspers",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw jasper ore",
-      "description": "",
-      "main_material": "jasper",
-      "origin": "jasper",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 5
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "moonstone",
-    "plural_name": "moonstones",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw moonstone ore",
-      "description": "",
-      "main_material": "moonstone",
-      "origin": "moonstone",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 5
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "opal",
-    "plural_name": "opals",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw opal ore",
-      "description": "",
-      "main_material": "opal",
-      "origin": "opal",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 5
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "peridot",
-    "plural_name": "peridots",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw peridot ore",
-      "description": "",
-      "main_material": "peridot",
-      "origin": "peridot",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 5
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "topaz",
-    "plural_name": "topazes",
-    "hardness": 6,
-    "malleability": 3,
-    "commonality": 0,
-    "resources": [{
-      "name": "raw topaz ore",
-      "description": "",
-      "main_material": "topaz",
-      "origin": "topaz",
-      "tags": ["gem ore", "ore"],
-      "commonality": 5,
-      "value": 5
-    }],
-    "tags": ["gem"]
-  }, {
-    "name": "adamantine",
-    "plural_name": "adamantine",
-    "hardness": 9,
-    "malleability": 1,
-    "commonality": 1,
-    "resources": [{
+  "minerals": [
+    {
+      "name": "diamond",
+      "plural_name": "diamonds",
+      "hardness": 10,
+      "malleability": 1,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw diamond ore",
+          "description": "",
+          "main_material": "diamond",
+          "origin": "diamond",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 1,
+          "value": 100
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "garnet",
+      "plural_name": "garnets",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw garnet ore",
+          "description": "",
+          "main_material": "garnet",
+          "origin": "garnet",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 10
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "ruby",
+      "plural_name": "rubies",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw ruby ore",
+          "description": "",
+          "main_material": "ruby",
+          "origin": "ruby",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 2,
+          "value": 50
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "sapphire",
+      "plural_name": "sapphires",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw sapphire ore",
+          "description": "",
+          "main_material": "sapphire",
+          "origin": "sapphire",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 4,
+          "value": 40
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "amethyst",
+      "plural_name": "amethysts",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw amethyst ore",
+          "description": "",
+          "main_material": "amethyst",
+          "origin": "amethyst",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 10
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "agate",
+      "plural_name": "agates",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw agate ore",
+          "description": "",
+          "main_material": "agate",
+          "origin": "agate",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "jade",
+      "plural_name": "jade",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw jade ore",
+          "description": "",
+          "main_material": "jade",
+          "origin": "jade",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 15
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "jasper",
+      "plural_name": "jaspers",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw jasper ore",
+          "description": "",
+          "main_material": "jasper",
+          "origin": "jasper",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "moonstone",
+      "plural_name": "moonstones",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw moonstone ore",
+          "description": "",
+          "main_material": "moonstone",
+          "origin": "moonstone",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "opal",
+      "plural_name": "opals",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw opal ore",
+          "description": "",
+          "main_material": "opal",
+          "origin": "opal",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "peridot",
+      "plural_name": "peridots",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw peridot ore",
+          "description": "",
+          "main_material": "peridot",
+          "origin": "peridot",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
+      "name": "topaz",
+      "plural_name": "topazes",
+      "hardness": 6,
+      "malleability": 3,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "raw topaz ore",
+          "description": "",
+          "main_material": "topaz",
+          "origin": "topaz",
+          "tags": [
+            "gem ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "gem"
+      ]
+    },
+    {
       "name": "adamantine",
-      "description": "",
-      "main_material": "adamantine",
-      "origin": "adamantine",
-      "tags": ["metal ore", "hard metal ore", "ore"],
+      "plural_name": "adamantine",
+      "hardness": 9,
+      "malleability": 1,
       "commonality": 1,
-      "value": 150
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "cold iron",
-    "plural_name": "cold iron",
-    "hardness": 5,
-    "malleability": 4,
-    "commonality": 2,
-    "resources": [{
+      "resources": [
+        {
+          "name": "adamantine",
+          "description": "",
+          "main_material": "adamantine",
+          "origin": "adamantine",
+          "tags": [
+            "metal ore",
+            "hard metal ore",
+            "ore"
+          ],
+          "commonality": 1,
+          "value": 150
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
       "name": "cold iron",
-      "description": "",
-      "main_material": "cold iron",
-      "origin": "cold iron",
-      "tags": ["metal ore", "hard metal ore", "ore"],
-      "commonality": 3,
-      "value": 20
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "copper",
-    "plural_name": "copper",
-    "hardness": 5,
-    "malleability": 5,
-    "commonality": 8,
-    "resources": [{
-      "name": "copper",
-      "description": "",
-      "main_material": "copper",
-      "origin": "copper",
-      "tags": ["metal ore", "hard metal ore", "ore"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "gold",
-    "plural_name": "gold",
-    "hardness": 2,
-    "malleability": 8,
-    "commonality": 5,
-    "resources": [{
-      "name": "gold",
-      "description": "",
-      "main_material": "gold",
-      "origin": "gold",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 1,
-      "value": 50
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "iron",
-    "plural_name": "iron",
-    "hardness": 8,
-    "malleability": 4,
-    "commonality": 20,
-    "resources": [{
-      "name": "iron",
-      "description": "",
-      "main_material": "iron",
-      "origin": "iron",
-      "tags": ["metal ore", "hard metal ore", "ore"],
-      "commonality": 5,
-      "value": 2
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "lead",
-    "plural_name": "lead",
-    "hardness": 1,
-    "malleability": 9,
-    "commonality": 6,
-    "resources": [{
-      "name": "lead",
-      "description": "",
-      "main_material": "lead",
-      "origin": "lead",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "mithril",
-    "plural_name": "mithril",
-    "hardness": 5,
-    "malleability": 9,
-    "commonality": 2,
-    "resources": [{
-      "name": "mithril",
-      "description": "",
-      "main_material": "mithril",
-      "origin": "mithril",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 1,
-      "value": 120
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "nickel",
-    "plural_name": "nickel",
-    "hardness": 3,
-    "malleability": 4,
-    "commonality": 3,
-    "resources": [{
-      "name": "nickel",
-      "description": "",
-      "main_material": "nickel",
-      "origin": "nickel",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "orichalcum",
-    "plural_name": "orichalcum",
-    "hardness": 1,
-    "malleability": 9,
-    "commonality": 2,
-    "resources": [{
-      "name": "orichalcum",
-      "description": "",
-      "main_material": "orichalcum",
-      "origin": "orichalcum",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 5,
-      "value": 80
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "silver",
-    "plural_name": "silver",
-    "hardness": 2,
-    "malleability": 7,
-    "commonality": 5,
-    "resources": [{
-      "name": "silver",
-      "description": "",
-      "main_material": "silver",
-      "origin": "silver",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 3,
-      "value": 30
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "tin",
-    "plural_name": "tin",
-    "hardness": 3,
-    "malleability": 8,
-    "commonality": 6,
-    "resources": [{
-      "name": "tin",
-      "description": "",
-      "main_material": "tin",
-      "origin": "tin",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "zinc",
-    "plural_name": "zinc",
-    "hardness": 3,
-    "malleability": 4,
-    "commonality": 5,
-    "resources": [{
-      "name": "zinc",
-      "description": "",
-      "main_material": "zinc",
-      "origin": "zinc",
-      "tags": ["metal ore", "soft metal ore", "ore"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["metal"]
-  }, {
-    "name": "coal",
-    "plural_name": "coal",
-    "hardness": 1,
-    "malleability": 4,
-    "commonality": 0,
-    "resources": [{
-      "name": "coal",
-      "description": "",
-      "main_material": "coal",
-      "origin": "coal",
-      "tags": ["fuel", "ore"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["coal"]
-  }, {
-    "name": "salt",
-    "plural_name": "salt",
-    "hardness": 1,
-    "malleability": 1,
-    "commonality": 0,
-    "resources": [{
-      "name": "salt",
-      "description": "",
-      "main_material": "salt",
-      "origin": "salt",
-      "tags": ["spice"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["salt"]
-  }, {
-    "name": "basalt",
-    "plural_name": "basalt",
-    "hardness": 5,
-    "malleability": 5,
-    "commonality": 0,
-    "resources": [{
-      "name": "basalt",
-      "description": "",
-      "main_material": "basalt",
-      "origin": "basalt",
-      "tags": ["stone", "building stone"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "chalk",
-    "plural_name": "chalk",
-    "hardness": 1,
-    "malleability": 4,
-    "commonality": 0,
-    "resources": [{
-      "name": "chalk",
-      "description": "",
-      "main_material": "chalk",
-      "origin": "chalk",
-      "tags": ["stone"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "granite",
-    "plural_name": "granite",
-    "hardness": 6,
-    "malleability": 2,
-    "commonality": 0,
-    "resources": [{
-      "name": "granite",
-      "description": "",
-      "main_material": "granite",
-      "origin": "granite",
-      "tags": ["stone", "building stone"],
-      "commonality": 5,
-      "value": 3
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "limestone",
-    "plural_name": "limestone",
-    "hardness": 4,
-    "malleability": 4,
-    "commonality": 0,
-    "resources": [{
-      "name": "limestone",
-      "description": "",
-      "main_material": "limestone",
-      "origin": "limestone",
-      "tags": ["stone", "building stone"],
-      "commonality": 10,
-      "value": 1
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "marble",
-    "plural_name": "marble",
-    "hardness": 5,
-    "malleability": 2,
-    "commonality": 0,
-    "resources": [{
-      "name": "marble",
-      "description": "",
-      "main_material": "marble",
-      "origin": "marble",
-      "tags": ["stone", "building stone", "sculpture stone"],
+      "plural_name": "cold iron",
+      "hardness": 5,
+      "malleability": 4,
       "commonality": 2,
-      "value": 10
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "sandstone",
-    "plural_name": "sandstone",
-    "hardness": 4,
-    "malleability": 4,
-    "commonality": 0,
-    "resources": [{
+      "resources": [
+        {
+          "name": "cold iron",
+          "description": "",
+          "main_material": "cold iron",
+          "origin": "cold iron",
+          "tags": [
+            "metal ore",
+            "hard metal ore",
+            "ore"
+          ],
+          "commonality": 3,
+          "value": 20
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "copper",
+      "plural_name": "copper",
+      "hardness": 5,
+      "malleability": 5,
+      "commonality": 8,
+      "resources": [
+        {
+          "name": "copper",
+          "description": "",
+          "main_material": "copper",
+          "origin": "copper",
+          "tags": [
+            "metal ore",
+            "hard metal ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "gold",
+      "plural_name": "gold",
+      "hardness": 2,
+      "malleability": 8,
+      "commonality": 5,
+      "resources": [
+        {
+          "name": "gold",
+          "description": "",
+          "main_material": "gold",
+          "origin": "gold",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 1,
+          "value": 50
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "iron",
+      "plural_name": "iron",
+      "hardness": 8,
+      "malleability": 4,
+      "commonality": 20,
+      "resources": [
+        {
+          "name": "iron",
+          "description": "",
+          "main_material": "iron",
+          "origin": "iron",
+          "tags": [
+            "metal ore",
+            "hard metal ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 2
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "lead",
+      "plural_name": "lead",
+      "hardness": 1,
+      "malleability": 9,
+      "commonality": 6,
+      "resources": [
+        {
+          "name": "lead",
+          "description": "",
+          "main_material": "lead",
+          "origin": "lead",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "mithril",
+      "plural_name": "mithril",
+      "hardness": 5,
+      "malleability": 9,
+      "commonality": 2,
+      "resources": [
+        {
+          "name": "mithril",
+          "description": "",
+          "main_material": "mithril",
+          "origin": "mithril",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 1,
+          "value": 120
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "nickel",
+      "plural_name": "nickel",
+      "hardness": 3,
+      "malleability": 4,
+      "commonality": 3,
+      "resources": [
+        {
+          "name": "nickel",
+          "description": "",
+          "main_material": "nickel",
+          "origin": "nickel",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "orichalcum",
+      "plural_name": "orichalcum",
+      "hardness": 1,
+      "malleability": 9,
+      "commonality": 2,
+      "resources": [
+        {
+          "name": "orichalcum",
+          "description": "",
+          "main_material": "orichalcum",
+          "origin": "orichalcum",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 80
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "silver",
+      "plural_name": "silver",
+      "hardness": 2,
+      "malleability": 7,
+      "commonality": 5,
+      "resources": [
+        {
+          "name": "silver",
+          "description": "",
+          "main_material": "silver",
+          "origin": "silver",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 3,
+          "value": 30
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "tin",
+      "plural_name": "tin",
+      "hardness": 3,
+      "malleability": 8,
+      "commonality": 6,
+      "resources": [
+        {
+          "name": "tin",
+          "description": "",
+          "main_material": "tin",
+          "origin": "tin",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "zinc",
+      "plural_name": "zinc",
+      "hardness": 3,
+      "malleability": 4,
+      "commonality": 5,
+      "resources": [
+        {
+          "name": "zinc",
+          "description": "",
+          "main_material": "zinc",
+          "origin": "zinc",
+          "tags": [
+            "metal ore",
+            "soft metal ore",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "metal"
+      ]
+    },
+    {
+      "name": "coal",
+      "plural_name": "coal",
+      "hardness": 1,
+      "malleability": 4,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "coal",
+          "description": "",
+          "main_material": "coal",
+          "origin": "coal",
+          "tags": [
+            "fuel",
+            "ore"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coal"
+      ]
+    },
+    {
+      "name": "salt",
+      "plural_name": "salt",
+      "hardness": 1,
+      "malleability": 1,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "salt",
+          "description": "",
+          "main_material": "salt",
+          "origin": "salt",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "salt"
+      ]
+    },
+    {
+      "name": "basalt",
+      "plural_name": "basalt",
+      "hardness": 5,
+      "malleability": 5,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "basalt",
+          "description": "",
+          "main_material": "basalt",
+          "origin": "basalt",
+          "tags": [
+            "stone",
+            "building stone"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
+      "name": "chalk",
+      "plural_name": "chalk",
+      "hardness": 1,
+      "malleability": 4,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "chalk",
+          "description": "",
+          "main_material": "chalk",
+          "origin": "chalk",
+          "tags": [
+            "stone"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
+      "name": "granite",
+      "plural_name": "granite",
+      "hardness": 6,
+      "malleability": 2,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "granite",
+          "description": "",
+          "main_material": "granite",
+          "origin": "granite",
+          "tags": [
+            "stone",
+            "building stone"
+          ],
+          "commonality": 5,
+          "value": 3
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
+      "name": "limestone",
+      "plural_name": "limestone",
+      "hardness": 4,
+      "malleability": 4,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "limestone",
+          "description": "",
+          "main_material": "limestone",
+          "origin": "limestone",
+          "tags": [
+            "stone",
+            "building stone"
+          ],
+          "commonality": 10,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
+      "name": "marble",
+      "plural_name": "marble",
+      "hardness": 5,
+      "malleability": 2,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "marble",
+          "description": "",
+          "main_material": "marble",
+          "origin": "marble",
+          "tags": [
+            "stone",
+            "building stone",
+            "sculpture stone"
+          ],
+          "commonality": 2,
+          "value": 10
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
       "name": "sandstone",
-      "description": "",
-      "main_material": "sandstone",
-      "origin": "sandstone",
-      "tags": ["stone", "building stone", "sculpture stone"],
-      "commonality": 10,
-      "value": 1
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "shale",
-    "plural_name": "shale",
-    "hardness": 1,
-    "malleability": 4,
-    "commonality": 0,
-    "resources": [{
+      "plural_name": "sandstone",
+      "hardness": 4,
+      "malleability": 4,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "sandstone",
+          "description": "",
+          "main_material": "sandstone",
+          "origin": "sandstone",
+          "tags": [
+            "stone",
+            "building stone",
+            "sculpture stone"
+          ],
+          "commonality": 10,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
       "name": "shale",
-      "description": "",
-      "main_material": "shale",
-      "origin": "shale",
-      "tags": ["stone"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "slate",
-    "plural_name": "slate",
-    "hardness": 4,
-    "malleability": 4,
-    "commonality": 0,
-    "resources": [{
+      "plural_name": "shale",
+      "hardness": 1,
+      "malleability": 4,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "shale",
+          "description": "",
+          "main_material": "shale",
+          "origin": "shale",
+          "tags": [
+            "stone"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
       "name": "slate",
-      "description": "",
-      "main_material": "slate",
-      "origin": "slate",
-      "tags": ["stone"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["stone"]
-  }, {
-    "name": "soapstone",
-    "plural_name": "soapstone",
-    "hardness": 1,
-    "malleability": 4,
-    "commonality": 0,
-    "resources": [{
+      "plural_name": "slate",
+      "hardness": 4,
+      "malleability": 4,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "slate",
+          "description": "",
+          "main_material": "slate",
+          "origin": "slate",
+          "tags": [
+            "stone"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    },
+    {
       "name": "soapstone",
-      "description": "",
-      "main_material": "soapstone",
-      "origin": "soapstone",
-      "tags": ["stone"],
-      "commonality": 5,
-      "value": 1
-    }],
-    "tags": ["stone"]
-  }]
+      "plural_name": "soapstone",
+      "hardness": 1,
+      "malleability": 4,
+      "commonality": 0,
+      "resources": [
+        {
+          "name": "soapstone",
+          "description": "",
+          "main_material": "soapstone",
+          "origin": "soapstone",
+          "tags": [
+            "stone"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "stone"
+      ]
+    }
+  ]
 }
