@@ -2,7 +2,6 @@ package culture
 
 import (
 	"github.com/ironarachne/world/pkg/buildings"
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/clothing"
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/language"
@@ -21,7 +20,6 @@ type SimplifiedCulture struct {
 	CommonFemaleNames []string                          `json:"common_female_names"`
 	CommonMaleNames   []string                          `json:"common_male_names"`
 	FoodStyle         food.SimplifiedStyle              `json:"food_style"`
-	HomeClimate       climate.SimplifiedClimate         `json:"home_climate"`
 	Language          language.SimplifiedLanguage       `json:"language"`
 	MusicStyle        music.SimplifiedStyle             `json:"music_style"`
 	Name              string                            `json:"name"`
@@ -45,7 +43,6 @@ func (culture Culture) Simplify() SimplifiedCulture {
 		CommonFemaleNames: culture.CommonFemaleNames,
 		CommonMaleNames:   culture.CommonMaleNames,
 		FoodStyle:         culture.FoodStyle.Simplify(),
-		HomeClimate:       culture.HomeClimate.Simplify(),
 		Language:          culture.Language.Simplify(),
 		MusicStyle:        culture.MusicStyle.Simplify(),
 		Name:              culture.Name,

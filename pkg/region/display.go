@@ -36,7 +36,7 @@ func (region Region) Simplify() (SimplifiedRegion, error) {
 	}
 	simplified := SimplifiedRegion{
 		Name:            "The " + region.Class.Name + " of " + region.Name,
-		Climate:         region.Climate.Description,
+		Climate:         region.Geography.Biome.Name,
 		Capital:         region.Capital,
 		DominantCulture: sc,
 		Ruler:           sr,

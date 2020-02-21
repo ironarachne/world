@@ -47,7 +47,7 @@ func (town Town) Simplify() (SimplifiedTown, error) {
 		Name:            town.Name,
 		Population:      town.Population,
 		BuildingStyle:   town.BuildingStyle.Simplify().Description,
-		Climate:         town.Climate.Description,
+		Climate:         town.Geography.Biome.Name,
 		DominantCulture: town.Culture.Name,
 		Category:        town.Category.Name,
 		Mayor:           mayor,

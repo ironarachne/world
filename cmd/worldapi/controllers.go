@@ -3,295 +3,31 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"net/http"
-	"strings"
-
 	"github.com/go-chi/chi"
-	"github.com/ironarachne/world/pkg/animal"
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/character"
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/clothing"
 	"github.com/ironarachne/world/pkg/conlang"
 	"github.com/ironarachne/world/pkg/country"
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/world/pkg/fish"
 	"github.com/ironarachne/world/pkg/food"
 	"github.com/ironarachne/world/pkg/geography"
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
-	"github.com/ironarachne/world/pkg/heraldry/charge"
-	"github.com/ironarachne/world/pkg/insect"
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/merchant"
-	"github.com/ironarachne/world/pkg/mineral"
-	"github.com/ironarachne/world/pkg/monster"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
-	"github.com/ironarachne/world/pkg/pantheon/domain"
-	"github.com/ironarachne/world/pkg/plant"
-	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/race"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/religion"
-	"github.com/ironarachne/world/pkg/resource"
-	"github.com/ironarachne/world/pkg/soil"
-	"github.com/ironarachne/world/pkg/species"
 	"github.com/ironarachne/world/pkg/town"
-	"github.com/ironarachne/world/pkg/tree"
-	"github.com/ironarachne/world/pkg/world"
+	"net/http"
+	"strings"
 )
 
 const contentType = "Content-Type"
-
-func dataAnimals(w http.ResponseWriter, r *http.Request) {
-	animals, err := animal.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := species.Data{
-		Species: animals,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataCharges(w http.ResponseWriter, r *http.Request) {
-	charges, err := charge.AllRaster()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := charge.Data{
-		Charges: charges,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataChargeTags(w http.ResponseWriter, r *http.Request) {
-	tags, err := charge.AllTags()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	err = json.NewEncoder(w).Encode(tags)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataDomains(w http.ResponseWriter, r *http.Request) {
-	all, err := domain.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := domain.Data{
-		Domains: all,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataFish(w http.ResponseWriter, r *http.Request) {
-	all, err := fish.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := species.Data{
-		Species: all,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataInsects(w http.ResponseWriter, r *http.Request) {
-	all, err := insect.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := species.Data{
-		Species: all,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataMinerals(w http.ResponseWriter, r *http.Request) {
-	all, err := mineral.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := mineral.Data{
-		Minerals: all,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataMonsters(w http.ResponseWriter, r *http.Request) {
-	all, err := monster.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := species.Data{
-		Species: all,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataPatterns(w http.ResponseWriter, r *http.Request) {
-	patterns, err := resource.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := resource.Data{
-		Patterns: patterns,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataProfessions(w http.ResponseWriter, r *http.Request) {
-	professions, err := profession.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := profession.Data{
-		Professions: professions,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataPlants(w http.ResponseWriter, r *http.Request) {
-	plants, err := plant.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := species.Data{
-		Species: plants,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataRaces(w http.ResponseWriter, r *http.Request) {
-	all, err := race.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := species.Data{
-		Species: all,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataSoils(w http.ResponseWriter, r *http.Request) {
-	all, err := soil.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := soil.Data{
-		Soils: all,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func dataTrees(w http.ResponseWriter, r *http.Request) {
-	trees, err := tree.All()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	d := species.Data{
-		Species: trees,
-	}
-
-	err = json.NewEncoder(w).Encode(d)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
 
 func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
@@ -369,42 +105,6 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = json.NewEncoder(w).Encode(o)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func getClimate(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-
-	err := random.SeedFromString(id)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	randomClimate, err := climate.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	err = json.NewEncoder(w).Encode(randomClimate)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func getClimateRandom(w http.ResponseWriter, r *http.Request) {
-	randomClimate, err := climate.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	err = json.NewEncoder(w).Encode(randomClimate)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -513,16 +213,16 @@ func getCulture(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func getCultureFromClimate(w http.ResponseWriter, r *http.Request) {
-	var clm climate.Climate
+func getCultureFromArea(w http.ResponseWriter, r *http.Request) {
+	var area geography.Area
 
-	err := json.NewDecoder(r.Body).Decode(&clm)
+	err := json.NewDecoder(r.Body).Decode(&area)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
 
-	cul, err := culture.Generate(clm)
+	cul, err := culture.Generate(area)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -996,7 +696,13 @@ func getRegionFromCulture(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	reg, err := region.Generate(cul.HomeClimate, cul)
+	area, err := geography.Generate()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	reg, err := region.Generate(area, cul)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -1081,7 +787,6 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	paths := []string{
 		"buildingstyle",
 		"character",
-		"climate",
 		"clothingstyle",
 		"country",
 		"culture",
@@ -1110,8 +815,6 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 		"region",
 		"religion",
 		"town",
-		"world",
-		"worldmap",
 	}
 	var str strings.Builder
 	str.WriteString("<p>This is the World Generation API.</p>")
@@ -1122,7 +825,11 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	str.WriteString("</ul>")
 
 	w.Header().Set(contentType, "text/html")
-	w.Write([]byte(str.String()))
+	_, err := w.Write([]byte(str.String()))
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 }
 
 func getTown(w http.ResponseWriter, r *http.Request) {
@@ -1159,130 +866,6 @@ func getTownRandom(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = json.NewEncoder(w).Encode(o)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func getWorld(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-
-	var o world.World
-
-	err := random.SeedFromString(id)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	o, err = world.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	err = json.NewEncoder(w).Encode(o)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func getWorldRandom(w http.ResponseWriter, r *http.Request) {
-	var o world.World
-
-	o, err := world.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	err = json.NewEncoder(w).Encode(o)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func getWorldMap(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-
-	var l world.World
-
-	err := random.SeedFromString(id)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	l, err = world.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	err = json.NewEncoder(w).Encode(l.WorldMap)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-}
-
-func getWorldMapSVGImage(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-
-	var l world.World
-
-	err := random.SeedFromString(id)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	l, err = world.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-	o := l.WorldMap.RenderAsSVG()
-
-	w.Header().Set(contentType, "image/svg+xml")
-	w.Write([]byte(o))
-}
-
-func getWorldMapTextImage(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-
-	var l world.World
-
-	err := random.SeedFromString(id)
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	l, err = world.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-	o := l.WorldMap.RenderAsText()
-
-	w.Header().Set(contentType, "image/svg+xml")
-	w.Write([]byte(o))
-}
-
-func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
-	var l world.World
-
-	l, err := world.Generate()
-	if err != nil {
-		handleError(w, r, err)
-		return
-	}
-
-	err = json.NewEncoder(w).Encode(l.WorldMap)
 	if err != nil {
 		handleError(w, r, err)
 		return

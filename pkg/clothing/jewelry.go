@@ -4,14 +4,13 @@ import (
 	"fmt"
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 )
 
 const jewelryError = "failed to generate jewelry: %w"
 
-func generateJewelry(originClimate climate.Climate) ([]string, error) {
+func generateJewelry(resources []resource.Resource) ([]string, error) {
 	var descriptor string
 	var err error
 	var foundation string
@@ -43,8 +42,8 @@ func generateJewelry(originClimate climate.Climate) ([]string, error) {
 		"set with",
 	}
 
-	metals := resource.ByTag("metal ore", originClimate.Resources)
-	gems := resource.ByTag("gem ore", originClimate.Resources)
+	metals := resource.ByTag("metal ore", resources)
+	gems := resource.ByTag("gem ore", resources)
 
 	numberOfJewelryPieces := rand.Intn(4) + 1
 

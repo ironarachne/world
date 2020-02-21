@@ -25,6 +25,24 @@ func Generate() Region {
 	return region
 }
 
+// GenerateSpecific generates a region based on specific characteristics
+func GenerateSpecific(temperature int, humidity int, altitude int, distance int) Region {
+	region := Region{}
+
+	region.DistanceToEquator = distance
+	region.Temperature = temperature
+	region.Humidity = humidity
+	region.Altitude = altitude
+
+	// TODO: Replace the following with real data gleaned from the world
+	region.NearestOceanDistance = rand.Intn(100)
+	region.NearestOceanDirection = grid.RandomDirection()
+	region.NearestMountainsDirection = grid.OppositeDirection(region.NearestOceanDirection)
+	region.NearestMountainsDistance = rand.Intn(100)
+
+	return region
+}
+
 // RandomTemperate returns a random region that is appropriate for life
 func RandomTemperate() Region {
 	region := Region{}

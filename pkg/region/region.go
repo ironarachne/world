@@ -5,10 +5,10 @@ package region
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/geography"
 	"math/rand"
 	"strings"
 
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/grid"
 	"github.com/ironarachne/world/pkg/organization"
@@ -22,7 +22,7 @@ type Region struct {
 	Biome         string                      `json:"biome"`
 	Capital       string                      `json:"capital"`
 	Class         Class                       `json:"class"`
-	Climate       climate.Climate             `json:"climate"`
+	Geography     geography.Area              `json:"geography"`
 	Culture       culture.Culture             `json:"culture"`
 	Name          string                      `json:"name"`
 	Organizations []organization.Organization `json:"organizations"`
@@ -30,6 +30,8 @@ type Region struct {
 	TilesOccupied []grid.Coordinate           `json:"tiles_occupied"`
 	Towns         []town.Town                 `json:"town"`
 }
+
+const regionGenerationError = "failed to generate random region: %w"
 
 // AssignTiles gives a set of coordinates for tiles to a region
 func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
@@ -41,12 +43,12 @@ func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
 }
 
 // Generate generates a region
-func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Region, error) {
+func Generate(area geography.Area, originCulture culture.Culture) (Region, error) {
 	var nobleMembers []organization.Member
 	region := Region{}
 
-	region.Biome = regionClimate.Name
-	region.Climate = regionClimate
+	region.Biome = area.Biome.Name
+	region.Geography = area
 	region.Culture = originCulture
 
 	class, err := getRandomWeightedClass()
@@ -56,7 +58,7 @@ func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Reg
 	}
 	region.Class = class
 
-	newTown, err := town.Generate("city", regionClimate, region.Culture)
+	newTown, err := town.Generate("city", area, region.Culture)
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
@@ -66,7 +68,7 @@ func Generate(regionClimate climate.Climate, originCulture culture.Culture) (Reg
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown, err = town.Generate("random", regionClimate, region.Culture)
+		newTown, err = town.Generate("random", area, region.Culture)
 		if err != nil {
 			err = fmt.Errorf(regionError, err)
 			return Region{}, err
@@ -132,15 +134,21 @@ func (region Region) getOrganizations() ([]organization.Organization, error) {
 
 // Random generates a completely random region
 func Random() (Region, error) {
-	randomCulture, err := culture.Random()
+	area, err := geography.Generate()
 	if err != nil {
-		err = fmt.Errorf("failed to generate random region: %w", err)
+		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err
 	}
 
-	region, err := Generate(randomCulture.HomeClimate, randomCulture)
+	randomCulture, err := culture.Generate(area)
 	if err != nil {
-		err = fmt.Errorf("failed to generate random region: %w", err)
+		err = fmt.Errorf(regionGenerationError, err)
+		return Region{}, err
+	}
+
+	region, err := Generate(area, randomCulture)
+	if err != nil {
+		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err
 	}
 
