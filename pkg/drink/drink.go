@@ -96,7 +96,7 @@ func Random(resources []resource.Resource) (Drink, error) {
 
 	appearance, err := random.String(pattern.Descriptors)
 	if err != nil {
-		err = fmt.Errorf("Could not generate drink: %w", err)
+		err = fmt.Errorf("failed to generate alcoholic drink: %w", err)
 		return Drink{}, err
 	}
 

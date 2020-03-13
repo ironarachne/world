@@ -1,0 +1,328 @@
+[
+  {
+    "name": "hand drum",
+    "description": "a drum played by hand",
+    "tags": [
+      "instrument",
+      "drum"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} hand drum",
+        "possible_quirks": null
+      },
+      {
+        "name": "skin",
+        "required_tag": "hide",
+        "resource": null,
+        "description_template": " skinned with {{.Resource.MainMaterial}}",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} hand drum",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "short drum",
+    "description": "a short drum",
+    "tags": [
+      "instrument",
+      "drum"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} short drum",
+        "possible_quirks": null
+      },
+      {
+        "name": "skin",
+        "required_tag": "hide",
+        "resource": null,
+        "description_template": " skinned with {{.Resource.MainMaterial}}",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} short drum",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "walking drum",
+    "description": "a drum played while walking",
+    "tags": [
+      "instrument",
+      "drum"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} walking drum",
+        "possible_quirks": null
+      },
+      {
+        "name": "skin",
+        "required_tag": "hide",
+        "resource": null,
+        "description_template": " skinned with {{.Resource.MainMaterial}}",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} walking drum",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "heavy drum",
+    "description": "a heavy drum",
+    "tags": [
+      "instrument",
+      "drum"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} heavy drum",
+        "possible_quirks": null
+      },
+      {
+        "name": "skin",
+        "required_tag": "hide",
+        "resource": null,
+        "description_template": " skinned with {{.Resource.MainMaterial}}",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} heavy drum",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "bagpipes",
+    "description": "bagpipes",
+    "tags": [
+      "instrument",
+      "bagpipes"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "hide",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}}-skin bagpipes",
+        "possible_quirks": null
+      },
+      {
+        "name": "drones",
+        "required_tag": "wood plank",
+        "resource": null,
+        "description_template": " with {{.Resource.MainMaterial}} drones",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}}-skin bagpipes",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "lute",
+    "description": "a lute",
+    "tags": [
+      "instrument",
+      "lute"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} lute",
+        "possible_quirks": null
+      },
+      {
+        "name": "strings",
+        "required_tag": "sinew",
+        "resource": null,
+        "description_template": " strung with {{.Resource.MainMaterial}}",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} lute",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "harp",
+    "description": "a harp",
+    "tags": [
+      "instrument",
+      "harp"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} harp",
+        "possible_quirks": null
+      },
+      {
+        "name": "strings",
+        "required_tag": "sinew",
+        "resource": null,
+        "description_template": " strung with {{.Resource.MainMaterial}}",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} harp",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "lyre",
+    "description": "a lyre",
+    "tags": [
+      "instrument",
+      "lyre"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} lyre",
+        "possible_quirks": null
+      },
+      {
+        "name": "strings",
+        "required_tag": "sinew",
+        "resource": null,
+        "description_template": " strung with {{.Resource.MainMaterial}}",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} lyre",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  },
+  {
+    "name": "wooden flute",
+    "description": "a wooden flute",
+    "tags": [
+      "instrument",
+      "wooden flute"
+    ],
+    "commonality": 0,
+    "profession": {
+      "name": "carpenter",
+      "description": "Carpenters produce furniture and other works from finished lumber.",
+      "tags": [
+        "crafter"
+      ]
+    },
+    "slots": [
+      {
+        "name": "body",
+        "required_tag": "wood",
+        "resource": null,
+        "description_template": "{{.Resource.MainMaterial}} wooden flute",
+        "possible_quirks": null
+      }
+    ],
+    "name_template": "{{.MainMaterial}} wooden flute",
+    "main_material": "",
+    "main_material_override": "",
+    "origin_override": "",
+    "value": 3
+  }
+]

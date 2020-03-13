@@ -1,6 +1,9 @@
 package clothing
 
-import "math/rand"
+import (
+	"github.com/ironarachne/world/pkg/words"
+	"math/rand"
+)
 
 // SimplifiedStyle is a simplified version of clothing style for display
 type SimplifiedStyle struct {
@@ -17,12 +20,12 @@ func (item Item) Describe() string {
 
 	if item.PrefixModifier != "" {
 		if rand.Intn(100) > 50 {
-			description += item.PrefixModifier + " " + item.Material + " "
+			description += item.PrefixModifier + " " + item.MaterialType + " "
 		} else {
-			description += item.Material + " " + item.PrefixModifier + " "
+			description += item.MaterialType + " " + item.PrefixModifier + " "
 		}
 	} else {
-		description += item.Material + " "
+		description += item.MaterialType + " "
 	}
 
 	description += item.Name
@@ -30,6 +33,27 @@ func (item Item) Describe() string {
 	if item.SuffixModifier != "" {
 		description += " " + item.SuffixModifier
 	}
+
+	return description
+}
+
+// Describe creates a prose description for a clothing style
+func (style Style) Describe() string {
+	female := []string{}
+	male := []string{}
+
+	for _, f := range style.FemaleOutfit {
+		female = append(female, f.Describe())
+	}
+
+	for _, m := range style.MaleOutfit {
+		male = append(male, m.Describe())
+	}
+
+	description := "The male outfit is: " + words.CombinePhrases(male) +", and the female outfit is: " + words.CombinePhrases(female) + ". "
+	description += "Common jewelry is " + words.CombinePhrases(style.CommonJewelry) + ". "
+	description += "Common colors are " + words.CombinePhrases(style.CommonColors) + ". "
+	description += "A common decorative element is " + style.DecorativeStyle + "."
 
 	return description
 }

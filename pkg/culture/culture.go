@@ -45,6 +45,7 @@ type Culture struct {
 	Language          language.Language       `json:"language"`
 	MusicStyle        music.Style             `json:"music_style"`
 	Name              string                  `json:"name"`
+	HomeBiome         string                  `json:"home_biome"`
 	PrimaryRace       species.Species         `json:"primary_race"`
 	Religion          religion.Religion       `json:"religion"`
 	Views             []string                `json:"views"`
@@ -93,12 +94,7 @@ func Generate(home geography.Area) (Culture, error) {
 	culture.Name = culture.Language.Name
 	culture.Adjective = culture.Language.Adjective
 
-	instruments, err := music.GenerateInstruments(resources)
-	if err != nil {
-		err = fmt.Errorf(cultureError, err)
-		return Culture{}, err
-	}
-	musicStyle, err := music.GenerateStyle(instruments)
+	musicStyle, err := music.Generate()
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -159,6 +155,8 @@ func Generate(home geography.Area) (Culture, error) {
 	culture.Religion = cultureReligion
 
 	culture.Views = culture.getViews()
+
+	culture.HomeBiome = home.Biome.Name
 
 	return culture, nil
 }

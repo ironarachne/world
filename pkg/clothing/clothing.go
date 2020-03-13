@@ -17,6 +17,7 @@ const clothingError = "failed to generate clothing style: %w"
 
 // Style describes what kind of clothing the culture wears
 type Style struct {
+	Description string `json:"description"`
 	FemaleOutfit    []Item   `json:"female_outfit"`
 	MaleOutfit      []Item   `json:"male_outfit"`
 	CommonJewelry   []string `json:"common_jewelry"`
@@ -28,23 +29,20 @@ type Style struct {
 func GenerateStyle(temperature int, resources []resource.Resource) (Style, error) {
 	style := Style{}
 
-	hides := getHides(resources)
-	fabrics := getFabrics(resources)
-
-	femaleOutfit, err := GenerateOutfit(temperature, hides, fabrics, "female")
+	femaleOutfit, err := GenerateOutfit(temperature, "female")
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.FemaleOutfit = femaleOutfit
-	maleOutfit, err := GenerateOutfit(temperature, hides, fabrics, "male")
+	maleOutfit, err := GenerateOutfit(temperature, "male")
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.MaleOutfit = maleOutfit
 
-	jewelry, err := generateJewelry(resources)
+	jewelry, err := generateJewelry()
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
@@ -64,30 +62,9 @@ func GenerateStyle(temperature int, resources []resource.Resource) (Style, error
 		return Style{}, err
 	}
 	style.CommonColors = colors
+	style.Description = style.Describe()
 
 	return style, nil
-}
-
-func getFabrics(resources []resource.Resource) []string {
-	re := resource.ByTag("fabric fiber", resources)
-	fabrics := []string{}
-
-	for _, r := range re {
-		fabrics = append(fabrics, r.Name)
-	}
-
-	return fabrics
-}
-
-func getHides(resources []resource.Resource) []string {
-	re := resource.ByTag("hide", resources)
-	hides := []string{}
-
-	for _, i := range re {
-		hides = append(hides, i.Name)
-	}
-
-	return hides
 }
 
 func randomDecorativeStyle(resources []resource.Resource) (string, error) {

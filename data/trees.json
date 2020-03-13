@@ -128,7 +128,8 @@
       ],
       "tags": [
         "deciduous",
-        "temperate"
+        "temperate",
+        "river"
       ]
     },
     {
@@ -300,7 +301,8 @@
       ],
       "tags": [
         "deciduous",
-        "temperate"
+        "temperate",
+        "river"
       ]
     },
     {
@@ -735,6 +737,48 @@
       "tags": [
         "deciduous",
         "temperate"
+      ]
+    },
+    {
+      "name": "elderberry",
+      "plural_name": "elderberries",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 80,
+      "min_temperature": 0,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "elderberry",
+          "description": "",
+          "main_material": "elderberry",
+          "origin": "elderberry",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elderberry",
+          "description": "",
+          "main_material": "elderberry",
+          "origin": "elderberry",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate",
+        "river"
       ]
     },
     {
@@ -1229,7 +1273,8 @@
       ],
       "tags": [
         "deciduous",
-        "temperate"
+        "temperate",
+        "river"
       ]
     },
     {
@@ -1785,7 +1830,8 @@
       ],
       "tags": [
         "deciduous",
-        "temperate"
+        "temperate",
+        "river"
       ]
     },
     {

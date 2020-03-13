@@ -19,10 +19,10 @@ type Method struct {
 func generateUniqueDrinkPattern(lang language.Language, resources []resource.Resource) (resource.Pattern, error) {
 	name, err := lang.NewWord()
 	if err != nil {
-		err = fmt.Errorf("could not generate unique drink pattern: %w", err)
+		err = fmt.Errorf("failed to generate unique drink pattern: %w", err)
 		return resource.Pattern{}, err
 	}
-	method := getRandomMethod()
+	method := getRandomMethod(resources)
 
 	filteredResources := resource.ByTag(method.BaseResourceTag, resources)
 
@@ -52,10 +52,12 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 	return pattern, nil
 }
 
-func getRandomMethod() Method {
-	drinkMethods := []Method{
+func getRandomMethod(resources []resource.Resource) Method {
+	var drinkMethods []Method
+
+	grainMethods := []Method{
 		{
-			Name:            "brewed",
+			Name:            "fermented",
 			BaseResourceTag: "grain",
 			Producer:        "brewer",
 		},
@@ -64,11 +66,46 @@ func getRandomMethod() Method {
 			BaseResourceTag: "grain",
 			Producer:        "distiller",
 		},
+	}
+
+	fruitMethods := []Method{
 		{
 			Name:            "fermented",
 			BaseResourceTag: "fruit",
 			Producer:        "vintner",
 		},
+	}
+
+	milkMethods := []Method{
+		{
+			Name:            "fermented",
+			BaseResourceTag: "milk",
+			Producer:        "distiller",
+		},
+	}
+
+	grains := resource.ByTag("grain", resources)
+	fruit := resource.ByTag("fruit", resources)
+	milk := resource.ByTag("milk", resources)
+
+	if len(grains) > 0 {
+		drinkMethods = append(drinkMethods, grainMethods...)
+	}
+
+	if len(fruit) > 0 {
+		drinkMethods = append(drinkMethods, fruitMethods...)
+	}
+
+	if len(milk) > 0 {
+		drinkMethods = append(drinkMethods, milkMethods...)
+	}
+
+	if len(drinkMethods) == 0 {
+		panic("no resources for making unique beverages!")
+	}
+
+	if len(drinkMethods) == 1 {
+		return drinkMethods[0]
 	}
 
 	method := drinkMethods[rand.Intn(len(drinkMethods))]

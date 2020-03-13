@@ -863,7 +863,8 @@
           "main_material": "rice",
           "origin": "rice",
           "tags": [
-            "grain"
+            "grain",
+            "rice"
           ],
           "commonality": 5,
           "value": 1
@@ -873,6 +874,8 @@
         "grain",
         "tropical",
         "rainforest",
+        "river",
+        "lake",
         "humid"
       ]
     },
@@ -1223,6 +1226,39 @@
       ],
       "tags": [
         "herb",
+        "rainforest",
+        "tropical",
+        "humid"
+      ]
+    },
+    {
+      "name": "sugarcane",
+      "plural_name": "sugarcanes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "sugarcane juice",
+          "description": "",
+          "main_material": "sugarcane",
+          "origin": "sugarcane",
+          "tags": [
+            "sugarcane juice",
+            "sweetener"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grass",
         "rainforest",
         "tropical",
         "humid"
@@ -1831,6 +1867,40 @@
           "origin": "beet",
           "tags": [
             "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "semiarid",
+        "temperate"
+      ]
+    },
+    {
+      "name": "sugar beet",
+      "plural_name": "sugar beets",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "sugar beet",
+          "description": "",
+          "main_material": "sugar beet",
+          "origin": "sugar beet",
+          "tags": [
+            "root vegetable",
+            "sweet",
             "vegetable"
           ],
           "commonality": 5,
@@ -3062,7 +3132,7 @@
       "age_categories": null,
       "min_humidity": 10,
       "max_humidity": 100,
-      "min_temperature": 50,
+      "min_temperature": 30,
       "max_temperature": 100,
       "resources": [
         {
@@ -3095,7 +3165,7 @@
       "age_categories": null,
       "min_humidity": 10,
       "max_humidity": 100,
-      "min_temperature": 50,
+      "min_temperature": 30,
       "max_temperature": 100,
       "resources": [
         {
@@ -3128,7 +3198,7 @@
       "age_categories": null,
       "min_humidity": 10,
       "max_humidity": 100,
-      "min_temperature": 50,
+      "min_temperature": 30,
       "max_temperature": 100,
       "resources": [],
       "tags": [
@@ -3144,7 +3214,7 @@
       "possible_traits": null,
       "common_traits": null,
       "age_categories": null,
-      "min_humidity": 10,
+      "min_humidity": 0,
       "max_humidity": 100,
       "min_temperature": 0,
       "max_temperature": 100,
