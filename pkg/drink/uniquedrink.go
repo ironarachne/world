@@ -22,7 +22,11 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 		err = fmt.Errorf("failed to generate unique drink pattern: %w", err)
 		return resource.Pattern{}, err
 	}
-	method := getRandomMethod(resources)
+	method, err := getRandomMethod(resources)
+	if err != nil {
+		err = fmt.Errorf("failed to generate unique drink pattern: %w", err)
+		return resource.Pattern{}, err
+	}
 
 	filteredResources := resource.ByTag(method.BaseResourceTag, resources)
 
@@ -52,7 +56,7 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 	return pattern, nil
 }
 
-func getRandomMethod(resources []resource.Resource) Method {
+func getRandomMethod(resources []resource.Resource) (Method, error) {
 	var drinkMethods []Method
 
 	grainMethods := []Method{
@@ -101,14 +105,15 @@ func getRandomMethod(resources []resource.Resource) Method {
 	}
 
 	if len(drinkMethods) == 0 {
-		panic("no resources for making unique beverages!")
+		err := fmt.Errorf("failed to find drink production method matching given resources")
+		return Method{}, err
 	}
 
 	if len(drinkMethods) == 1 {
-		return drinkMethods[0]
+		return drinkMethods[0], nil
 	}
 
 	method := drinkMethods[rand.Intn(len(drinkMethods))]
 
-	return method
+	return method, nil
 }

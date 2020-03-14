@@ -29,9 +29,9 @@ func getAnimals(humidity int, temperature int, prevalence int, tags []string) ([
 		return []species.Species{}, err
 	}
 
-	numberOfAnimals := prevalence / 3 + 4
-	numberOfFish := prevalence / 3 + 1
-	numberOfInsects := prevalence / 2 + 1
+	numberOfAnimals := int(((float64(prevalence)/100) * 20) + 4)
+	numberOfFish := int(((float64(prevalence)/100) * 20) + 3)
+	numberOfInsects := int(((float64(prevalence)/100) * 20) + 1)
 
 	animals = species.Random(numberOfAnimals, animals)
 	animals = append(animals, species.Random(numberOfFish, fishes)...)
@@ -79,6 +79,25 @@ func getFilteredInsects(humidity int, temperature int, tags []string) ([]species
 	return insects, nil
 }
 
+func ensurePlantsHaveGrains(plants []species.Species) ([]species.Species, error) {
+	grains := species.ByTag("grain", plants)
+	if len(grains) ==0 {
+		allPlants, err := plant.All()
+		if err != nil {
+			err = fmt.Errorf("failed to get all plants for fetching grains: %w", err)
+			return []species.Species{}, err
+		}
+		grain, err := species.RandomWithResourceTag("grain", allPlants)
+		if err != nil {
+			err = fmt.Errorf("failed to get grain plant for fetching grains: %w", err)
+			return []species.Species{}, err
+		}
+		plants = append(plants, grain)
+	}
+
+	return plants, nil
+}
+
 func getPlants(humidity int, temperature int, prevalence int, tags []string) ([]species.Species, error) {
 	plants, err := getFilteredPlants(humidity, temperature, tags)
 	if err != nil {
@@ -91,10 +110,15 @@ func getPlants(humidity int, temperature int, prevalence int, tags []string) ([]
 		return []species.Species{}, err
 	}
 
-	numberOfPlants := prevalence / 3 + 4
-	numberOfTrees := prevalence / 3 + 1
+	numberOfPlants := int(((float64(prevalence)/100) * 30) + 4)
+	numberOfTrees := int(((float64(prevalence)/100) * 20) + 1)
 
 	plants = species.Random(numberOfPlants, plants)
+	plants, err = ensurePlantsHaveGrains(plants)
+	if err != nil {
+		err = fmt.Errorf("failed to get grain plants for area: %w", err)
+		return []species.Species{}, err
+	}
 	plants = append(plants, species.Random(numberOfTrees, trees)...)
 
 	return plants, nil
