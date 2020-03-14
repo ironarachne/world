@@ -8,14 +8,15 @@ import (
 
 // Region is a geographic area.
 type Region struct {
-	Altitude                  int      `json:"altitude"`    // -99-99, 0 is sea level
-	Humidity                  int      `json:"humidity"`    // 0-99
-	Temperature               int      `json:"temperature"` // 0-99
-	NearestOceanDistance      int      `json:"nearest_ocean_distance"`
-	NearestOceanDirection     int      `json:"nearest_ocean_direction"`
-	NearestMountainsDistance  int      `json:"nearest_mountains_distance"`
-	NearestMountainsDirection int      `json:"nearest_mountains_direction"`
-	DistanceToEquator         int      `json:"distance_to_equator"` // 0 is on equator, -99 is south pole, 99 is north pole
+	Description               string `json:"description"`
+	Altitude                  int    `json:"altitude"`    // -99-99, 0 is sea level
+	Humidity                  int    `json:"humidity"`    // 0-99
+	Temperature               int    `json:"temperature"` // 0-99
+	NearestOceanDistance      int    `json:"nearest_ocean_distance"`
+	NearestOceanDirection     int    `json:"nearest_ocean_direction"`
+	NearestMountainsDistance  int    `json:"nearest_mountains_distance"`
+	NearestMountainsDirection int    `json:"nearest_mountains_direction"`
+	DistanceToEquator         int    `json:"distance_to_equator"` // 0 is on equator, -99 is south pole, 99 is north pole
 }
 
 // Generate procedurally generates a random region.
@@ -40,6 +41,8 @@ func GenerateSpecific(temperature int, humidity int, altitude int, distance int)
 	region.NearestMountainsDirection = grid.OppositeDirection(region.NearestOceanDirection)
 	region.NearestMountainsDistance = rand.Intn(100)
 
+	region.Description = region.Describe()
+
 	return region
 }
 
@@ -55,6 +58,8 @@ func RandomTemperate() Region {
 	region.NearestMountainsDistance = rand.Intn(100)
 	region.Temperature = getTemperature(region.DistanceToEquator, region.Altitude)
 	region.Humidity = getHumidity(region.Altitude, region.NearestOceanDistance)
+
+	region.Description = region.Describe()
 
 	return region
 }

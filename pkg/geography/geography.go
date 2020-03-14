@@ -10,21 +10,34 @@ import (
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/soil"
 	"github.com/ironarachne/world/pkg/species"
+	"github.com/ironarachne/world/pkg/words"
 )
 
 // Area is a geographic area and all of its component parts
 type Area struct {
-	Region   region.Region     `json:"region"`
-	Climate  climate.Climate   `json:"climate"`
-	Biome    biome.Biome       `json:"biome"`
-	Seasons  []season.Season   `json:"seasons"`
-	Animals  []species.Species `json:"animals"`
-	Plants   []species.Species `json:"plants"`
-	Minerals []mineral.Mineral `json:"minerals"`
-	Soils    []soil.Soil       `json:"soils"`
+	Description string            `json:"description"`
+	Region      region.Region     `json:"region"`
+	Climate     climate.Climate   `json:"climate"`
+	Biome       biome.Biome       `json:"biome"`
+	Seasons     []season.Season   `json:"seasons"`
+	Animals     []species.Species `json:"animals"`
+	Plants      []species.Species `json:"plants"`
+	Minerals    []mineral.Mineral `json:"minerals"`
+	Soils       []soil.Soil       `json:"soils"`
 }
 
 const areaError = "failed to generate geographic area: %w"
+
+// Describe provides a prose description of an area
+func (area Area) Describe() (string, error) {
+	description := "This area is " + words.Pronoun(area.Biome.Name) + " " + area.Biome.Name + ". The region is " + area.Region.Description + ". "
+
+	for _, s := range area.Seasons {
+		description += s.Description + " "
+	}
+
+	return description, nil
+}
 
 // Generate procedurally generates a region, its climate, and its biome
 func Generate() (Area, error) {
@@ -69,7 +82,13 @@ func Generate() (Area, error) {
 		Animals:  animals,
 		Plants:   plants,
 		Minerals: minerals,
-		Soils: soils,
+		Soils:    soils,
+	}
+
+	a.Description, err = a.Describe()
+	if err != nil {
+		err = fmt.Errorf(areaError, err)
+		return Area{}, err
 	}
 
 	return a, nil
@@ -118,7 +137,13 @@ func GenerateSpecific(temperature int, humidity int, altitude int, distance int)
 		Animals:  animals,
 		Plants:   plants,
 		Minerals: minerals,
-		Soils: soils,
+		Soils:    soils,
+	}
+
+	a.Description, err = a.Describe()
+	if err != nil {
+		err = fmt.Errorf(areaError, err)
+		return Area{}, err
 	}
 
 	return a, nil

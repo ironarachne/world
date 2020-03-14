@@ -19,16 +19,17 @@ const regionError = "failed to generate region: %w"
 
 // Region is a map region
 type Region struct {
-	Biome         string                      `json:"biome"`
-	Capital       string                      `json:"capital"`
-	Class         Class                       `json:"class"`
-	Geography     geography.Area              `json:"geography"`
-	Culture       culture.Culture             `json:"culture"`
-	Name          string                      `json:"name"`
-	Organizations []organization.Organization `json:"organizations"`
-	RulingBody    organization.Organization   `json:"ruling_body"`
-	TilesOccupied []grid.Coordinate           `json:"tiles_occupied"`
-	Towns         []town.Town                 `json:"town"`
+	AreaDescription string                      `json:"area_description"`
+	Biome           string                      `json:"biome"`
+	Capital         string                      `json:"capital"`
+	Class           Class                       `json:"class"`
+	Geography       geography.Area              `json:"geography"`
+	Culture         culture.Culture             `json:"culture"`
+	Name            string                      `json:"name"`
+	Organizations   []organization.Organization `json:"organizations"`
+	RulingBody      organization.Organization   `json:"ruling_body"`
+	TilesOccupied   []grid.Coordinate           `json:"tiles_occupied"`
+	Towns           []town.Town                 `json:"town"`
 }
 
 const regionGenerationError = "failed to generate random region: %w"
@@ -47,6 +48,7 @@ func Generate(area geography.Area, originCulture culture.Culture) (Region, error
 	var nobleMembers []organization.Member
 	region := Region{}
 
+	region.AreaDescription = area.Description
 	region.Biome = area.Biome.Name
 	region.Geography = area
 	region.Culture = originCulture
