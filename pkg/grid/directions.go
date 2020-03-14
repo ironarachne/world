@@ -40,3 +40,24 @@ func RandomDirection() int {
 
 	return direction
 }
+
+// DirectionWord returns the string description of a direction
+func DirectionWord(direction int) string {
+	if direction == NORTH {
+		return "north"
+	} else if direction == NORTHEAST {
+		return "northeast"
+	} else if direction == EAST {
+		return "east"
+	} else if direction == SOUTHEAST {
+		return "southeast"
+	} else if direction == SOUTH {
+		return "south"
+	} else if direction == SOUTHWEST {
+		return "southwest"
+	} else if direction == WEST {
+		return "west"
+	}
+
+	return "northwest"
+}
