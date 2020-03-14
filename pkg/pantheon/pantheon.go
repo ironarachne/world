@@ -12,9 +12,9 @@ import (
 	"github.com/ironarachne/world/pkg/pantheon/domain"
 )
 
-const pantheonError = "could not generate pantheon: %w"
+const pantheonError = "failed to generate pantheon: %w"
 
-// Pantheon is a nonhierarchical group of deities
+// Pantheon is a non-hierarchical group of deities
 type Pantheon struct {
 	Deities []deity.Deity `json:"deities"`
 }
