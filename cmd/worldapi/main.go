@@ -80,9 +80,6 @@ func main() {
 	r.Get("/character", sentryHandler.HandleFunc(getCharacterRandom))
 	r.Get("/character/{id}", sentryHandler.HandleFunc(getCharacter))
 
-	r.Get("/climate", sentryHandler.HandleFunc(getClimateRandom))
-	r.Get("/climate/{id}", sentryHandler.HandleFunc(getClimate))
-
 	r.Get("/clothingstyle", sentryHandler.HandleFunc(getClothingStyleRandom))
 	r.Get("/clothingstyle/{id}", sentryHandler.HandleFunc(getClothingStyle))
 
@@ -91,7 +88,7 @@ func main() {
 
 	r.Get("/culture", sentryHandler.HandleFunc(getCultureRandom))
 	r.Get("/culture/{id}", sentryHandler.HandleFunc(getCulture))
-	r.Post("/culture", sentryHandler.HandleFunc(getCultureFromClimate))
+	r.Post("/culture", sentryHandler.HandleFunc(getCultureFromArea))
 
 	r.Get("/data/animals", sentryHandler.HandleFunc(dataAnimals))
 	r.Get("/data/domains", sentryHandler.HandleFunc(dataDomains))
@@ -110,6 +107,9 @@ func main() {
 
 	r.Get("/foodstyle", sentryHandler.HandleFunc(getFoodStyleRandom))
 	r.Get("/foodstyle/{id}", sentryHandler.HandleFunc(getFoodStyle))
+
+	r.Get("/geography", sentryHandler.HandleFunc(getGeographicAreaRandom))
+	r.Get("/geography/{id}", sentryHandler.HandleFunc(getGeographicArea))
 
 	r.Get("/heavens", sentryHandler.HandleFunc(getHeavensRandom))
 	r.Get("/heavens/{id}", sentryHandler.HandleFunc(getHeavens))
@@ -141,15 +141,6 @@ func main() {
 
 	r.Get("/town", sentryHandler.HandleFunc(getTownRandom))
 	r.Get("/town/{id}", sentryHandler.HandleFunc(getTown))
-
-	r.Get("/world", sentryHandler.HandleFunc(getWorldRandom))
-	r.Get("/world/{id}", sentryHandler.HandleFunc(getWorld))
-	r.Get("/world/{id}/map", sentryHandler.HandleFunc(getWorldMapSVGImage))
-
-	r.Get("/worldmap", sentryHandler.HandleFunc(getWorldMapRandom))
-	r.Get("/worldmap/{id}", sentryHandler.HandleFunc(getWorldMap))
-	r.Get("/worldmap/{id}/image", sentryHandler.HandleFunc(getWorldMapSVGImage))
-	r.Get("/worldmap/{id}/textimage", sentryHandler.HandleFunc(getWorldMapTextImage))
 
 	r.Get("/", sentryHandler.HandleFunc(getRoot))
 

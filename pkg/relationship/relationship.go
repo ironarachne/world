@@ -18,6 +18,13 @@ type Relationship struct {
 	Type       string `json:"type"`
 }
 
+// Describe returns a string version of the relationship
+func (r Relationship) Describe() string {
+	description := r.Origin + " " + r.Descriptor + " " + r.Target
+
+	return description
+}
+
 // InSlice checks to see if a relationship is present in a set of relationships
 func InSlice(r Relationship, relationships []Relationship) bool {
 	for _, i := range relationships {

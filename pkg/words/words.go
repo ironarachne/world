@@ -48,8 +48,8 @@ func NumberToWord(number int) (string, error) {
 		return "", err
 	}
 
-	if number > 20 {
-		err = fmt.Errorf("no support for numbers greater than 20")
+	if number > 24 {
+		err = fmt.Errorf("no support for numbers greater than 24")
 		return "", err
 	}
 
@@ -96,6 +96,14 @@ func NumberToWord(number int) (string, error) {
 		result = "nineteen"
 	case 20:
 		result = "twenty"
+	case 21:
+		result = "twenty-one"
+	case 22:
+		result = "twenty-two"
+	case 23:
+		result = "twenty-three"
+	case 24:
+		result = "twenty-four"
 	}
 
 	return result, nil

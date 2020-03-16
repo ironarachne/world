@@ -79,6 +79,7 @@ func Random(resources []resource.Resource) (Drink, error) {
 	var numberOfIngredients int
 	var pattern Pattern
 	var possibleIngredients []string
+	var err error
 
 	spices := resource.ByTag("spice", resources)
 	herbs := resource.ByTag("herb", resources)
@@ -87,7 +88,8 @@ func Random(resources []resource.Resource) (Drink, error) {
 	patterns := getValidPatterns(resources)
 
 	if len(patterns) == 0 {
-		panic("Not enough valid drink patterns!")
+		err = fmt.Errorf("not enough valid drink patterns for given resources")
+		return Drink{}, err
 	} else if len(patterns) == 1 {
 		pattern = patterns[0]
 	} else {
@@ -96,7 +98,7 @@ func Random(resources []resource.Resource) (Drink, error) {
 
 	appearance, err := random.String(pattern.Descriptors)
 	if err != nil {
-		err = fmt.Errorf("Could not generate drink: %w", err)
+		err = fmt.Errorf("failed to generate random alcoholic drink: %w", err)
 		return Drink{}, err
 	}
 
@@ -133,7 +135,7 @@ func Random(resources []resource.Resource) (Drink, error) {
 	for i := 0; i < numberOfIngredients; i++ {
 		ingredient, err = random.String(possibleIngredients)
 		if err != nil {
-			err = fmt.Errorf("Could not generate drink: %w", err)
+			err = fmt.Errorf("failed to get ingredient for random alcoholic drink: %w", err)
 			return Drink{}, err
 		}
 		if !slices.StringIn(ingredient, ingredients) {
@@ -163,7 +165,7 @@ func RandomSet(numberOfDrinks int, resources []resource.Resource) ([]Drink, erro
 	for i := 0; i < numberOfDrinks; i++ {
 		drink, err = Random(resources)
 		if err != nil {
-			err = fmt.Errorf("Could not generate drinks: %w", err)
+			err = fmt.Errorf("failed to generate alcoholic drinks: %w", err)
 			return []Drink{}, err
 		}
 		drinks = append(drinks, drink)

@@ -1,9 +1,9 @@
 package worldmap
 
 import (
+	"github.com/ironarachne/world/pkg/geography"
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/grid"
 )
 
@@ -467,7 +467,8 @@ func (worldMap WorldMap) setTileHumidities() [][]Tile {
 }
 
 func (worldMap WorldMap) setTileTypes() [][]Tile {
-	var tileClimate climate.Climate
+	var tileGeography geography.Area
+	var equatorDistance int
 	var err error
 	tiles := [][]Tile{}
 	newRow := []Tile{}
@@ -476,11 +477,12 @@ func (worldMap WorldMap) setTileTypes() [][]Tile {
 		newRow = []Tile{}
 		for _, tile := range row {
 			if !tile.IsOcean {
-				tileClimate, err = climate.GenerateForCharacteristics(tile.Humidity, tile.Temperature, tile.Elevation)
+				equatorDistance = (worldMap.Height / 2) - tile.Coordinate.Y
+				tileGeography, err = geography.GenerateSpecific(tile.Temperature, tile.Humidity, tile.Elevation, equatorDistance)
 				if err != nil {
 					panic(err) // TODO: Properly handle this error
 				}
-				tile.TileType = tileClimate.Name
+				tile.TileType = tileGeography.Biome.Name
 			}
 			newRow = append(newRow, tile)
 		}

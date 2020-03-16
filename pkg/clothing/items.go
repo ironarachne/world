@@ -23,44 +23,13 @@ type ItemTemplate struct {
 type Item struct {
 	Name           string `json:"name"`
 	Type           string `json:"type"`
-	Material       string `json:"material"`
 	MaterialType   string `json:"material_type"`
 	PrefixModifier string `json:"prefix_modifier"`
 	SuffixModifier string `json:"suffix_modifier"`
 }
 
-func addMaterials(items []Item, hides []string, fabrics []string) ([]Item, error) {
-	var err error
-	var material string
-	var newItem Item
-	var result []Item
-
-	for _, i := range items {
-		newItem = i
-		if i.MaterialType == "fabric" {
-			material, err = random.String(fabrics)
-			if err != nil {
-				err = fmt.Errorf("failed to set fabric material: %w", err)
-				return []Item{}, err
-			}
-			newItem.Material = material
-			result = append(result, newItem)
-		} else if i.MaterialType == "hide" {
-			material, err = random.String(hides)
-			if err != nil {
-				err = fmt.Errorf("failed to set hide material: %w", err)
-				return []Item{}, err
-			}
-			newItem.Material = material
-			result = append(result, newItem)
-		}
-	}
-
-	return result, nil
-}
-
-// GenerateOutfit generates a random outfit based on materials, temperature, and gender
-func GenerateOutfit(temperature int, hides []string, fabrics []string, gender string) ([]Item, error) {
+// GenerateOutfit generates a random outfit based on environment temperature and gender
+func GenerateOutfit(temperature int, gender string) ([]Item, error) {
 	var err error
 	var item Item
 	items := []Item{}
@@ -169,13 +138,7 @@ func GenerateOutfit(temperature int, hides []string, fabrics []string, gender st
 		items = append(items, item)
 	}
 
-	finished, err := addMaterials(items, hides, fabrics)
-	if err != nil {
-		err = fmt.Errorf("failed to add materials: %w", err)
-		return []Item{}, err
-	}
-
-	return finished, nil
+	return items, nil
 }
 
 func getItemFromTemplate(template ItemTemplate) (Item, error) {

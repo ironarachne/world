@@ -57,6 +57,19 @@ func getAllPatterns() []Pattern {
 			},
 		},
 		{
+			Name:         "mead",
+			RequiredBase: "honey",
+			BaseStrength: 3,
+			Descriptors: []string{
+				"amber in hue",
+				"clear",
+				"deep red in hue",
+				"golden-hued",
+				"orange in color",
+				"pale red in color",
+			},
+		},
+		{
 			Name:         "liquor",
 			RequiredBase: "grain",
 			BaseStrength: 3,
@@ -70,6 +83,32 @@ func getAllPatterns() []Pattern {
 				"tan-colored",
 				"white",
 				"yellow-hued",
+			},
+		},
+		{
+			Name:         "rum",
+			RequiredBase: "sugarcane",
+			BaseStrength: 3,
+			Descriptors: []string{
+				"amber in hue",
+				"clear",
+				"deep red in hue",
+				"golden-hued",
+				"orange in color",
+				"pale red in color",
+			},
+		},
+		{
+			Name:         "wine",
+			RequiredBase: "rice",
+			BaseStrength: 2,
+			Descriptors: []string{
+				"dark red in color",
+				"deep yellow",
+				"light pink",
+				"light red in color",
+				"pale yellow",
+				"red",
 			},
 		},
 		{

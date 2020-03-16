@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.11.0 (2020-03-16)
+
+- Add geographic areas, which include biomes, climates, and geographic regions
+- Replace previous "climate" package with the new geographic areas
+- Rework music style package to reflect musical theory instead of instruments
+- Change how plants and animals are derived from geography
+- Remove climate from culture to make it independent, despite originating a culture in a geography
+- Fix deity relationships and add relationships to deity descriptions
+- Update to use Go 1.14
+
 ## 0.10.1 (2020-01-25)
 
 - Fix bug where descriptors were dropped for blazon descriptions of singular charges

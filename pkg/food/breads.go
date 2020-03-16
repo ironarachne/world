@@ -4,13 +4,12 @@ import (
 	"fmt"
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
-func generateBread(originClimate climate.Climate) (string, error) {
+func generateBread(resources []resource.Resource) (string, error) {
 	var grain resource.Resource
 	breadTypes := []string{
 		"brick-like",
@@ -29,7 +28,7 @@ func generateBread(originClimate climate.Climate) (string, error) {
 		"savory",
 		"sweet",
 	}
-	grains := resource.ByTag("flour", originClimate.Resources)
+	grains := resource.ByTag("flour", resources)
 
 	if len(grains) == 0 {
 		err := fmt.Errorf("Could not generate bread: no grains available")
@@ -58,16 +57,16 @@ func generateBread(originClimate climate.Climate) (string, error) {
 	return bread, nil
 }
 
-func randomBreads(originClimate climate.Climate) ([]string, error) {
+func randomBreads(resources []resource.Resource) ([]string, error) {
 	var bread string
 	var breads []string
 	var err error
 
-	grains := resource.ByTag("flour", originClimate.Resources)
+	grains := resource.ByTag("flour", resources)
 	if len(grains) > 0 {
 		numberOfBreads := rand.Intn(3) + 1
 		for i := 0; i < numberOfBreads; i++ {
-			bread, err = generateBread(originClimate)
+			bread, err = generateBread(resources)
 			if err != nil {
 				err = fmt.Errorf("Could not generate breads: %w", err)
 				return []string{}, err

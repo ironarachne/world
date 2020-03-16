@@ -1,9 +1,11 @@
 {
-  "professions": [{
+  "professions": [
+    {
       "name": "armorsmith",
       "description": "Armorsmiths make armor from raw materials.",
       "tags": [
-        "crafter", "smith"
+        "crafter",
+        "smith"
       ]
     },
     {

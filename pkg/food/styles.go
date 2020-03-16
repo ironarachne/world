@@ -6,9 +6,10 @@ package food
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/geography"
+	"github.com/ironarachne/world/pkg/resource"
 	"math/rand"
 
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -29,11 +30,12 @@ type Style struct {
 }
 
 // GenerateStyle procedurally generates a style of food
-func GenerateStyle(originClimate climate.Climate) (Style, error) {
+func GenerateStyle(resources []resource.Resource) (Style, error) {
 	chanceForGoldFlakes := 0
 	style := Style{}
+	style.CommonDessertBases = append(style.CommonDessertBases, "sweetened")
 
-	for _, r := range originClimate.Resources {
+	for _, r := range resources {
 		if r.HasTag("meat") {
 			style.CommonBases = append(style.CommonBases, r.Name)
 		} else if r.HasTag("spice") || r.HasTag("herb") {
@@ -47,9 +49,16 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 			}
 		} else if r.HasTag("egg") {
 			style.CommonBases = append(style.CommonBases, r.Name)
+			style.CommonDessertBases = append(style.CommonDessertBases, r.Name)
+			if !slices.StringIn("custard", style.DessertTypes) {
+				style.DessertTypes = append(style.DessertTypes, "custard")
+			}
 		} else if r.HasTag("milk") {
 			if !slices.StringIn("pudding", style.DessertTypes) {
 				style.DessertTypes = append(style.DessertTypes, "pudding")
+			}
+			if !slices.StringIn("yogurt", style.DessertTypes) {
+				style.DessertTypes = append(style.DessertTypes, "yogurt")
 			}
 		} else if r.HasTag("fruit") {
 			style.CommonDessertBases = append(style.CommonDessertBases, r.Name)
@@ -58,7 +67,7 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 			}
 		} else if r.HasTag("vegetable") || r.HasTag("squash") {
 			style.CommonBases = append(style.CommonBases, r.Name)
-		} else if r.HasTag("flour") {
+		} else if r.HasTag("grain") {
 			style.Noodles = append(style.Noodles, getNoodles(r.Name)...)
 			if !slices.StringIn("pie", style.DessertTypes) {
 				style.DessertTypes = append(style.DessertTypes, "pie")
@@ -98,7 +107,7 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 		return Style{}, err
 	}
 	style.CommonMainDishes = mainDishes
-	breads, err := randomBreads(originClimate)
+	breads, err := randomBreads(resources)
 	if err != nil {
 		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
@@ -116,12 +125,15 @@ func GenerateStyle(originClimate climate.Climate) (Style, error) {
 
 // Random generates a completely random style of food
 func Random() (Style, error) {
-	originClimate, err := climate.Generate()
+	area, err := geography.Generate()
 	if err != nil {
 		err = fmt.Errorf("failed to generate random food style: %w", err)
 		return Style{}, err
 	}
-	style, err := GenerateStyle(originClimate)
+
+	resources := area.GetResources()
+
+	style, err := GenerateStyle(resources)
 	if err != nil {
 		err = fmt.Errorf("failed to generate random food style: %w", err)
 		return Style{}, err

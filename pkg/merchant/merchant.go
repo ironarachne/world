@@ -5,6 +5,7 @@ package merchant
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/geography"
 
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
@@ -19,20 +20,22 @@ type Merchant struct {
 	Goods     []goods.TradeGood
 }
 
+const merchantRandomGenerationError = "failed to generate random merchant: %w"
+
 // Generate returns a random merchant
 func Generate(originTown town.Town) (Merchant, error) {
-	character, err := character.Random()
+	chr, err := character.Random()
 	if err != nil {
 		err = fmt.Errorf("Could not generate merchant: %w", err)
 		return Merchant{}, err
 	}
-	character.Profession, _ = profession.ByName("merchant")
+	chr.Profession, _ = profession.ByName("merchant")
 
-	goods := goods.GenerateMerchantGoods(10, 30, originTown.Resources)
+	gd := goods.GenerateMerchantGoods(10, 30, originTown.Resources)
 
 	merchant := Merchant{
-		Character: character,
-		Goods:     goods,
+		Character: chr,
+		Goods:     gd,
 	}
 
 	return merchant, nil
@@ -40,21 +43,27 @@ func Generate(originTown town.Town) (Merchant, error) {
 
 // Random returns a complete random merchant
 func Random() (Merchant, error) {
-	originCulture, err := culture.Random()
+	originArea, err := geography.Generate()
 	if err != nil {
-		err = fmt.Errorf("Could not generate random merchant: %w", err)
+		err = fmt.Errorf(merchantRandomGenerationError, err)
 		return Merchant{}, err
 	}
-	originClimate := originCulture.HomeClimate
-	originTown, err := town.Generate("metropolis", originClimate, originCulture)
+
+	originCulture, err := culture.Generate(originArea)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random merchant: %w", err)
+		err = fmt.Errorf(merchantRandomGenerationError, err)
+		return Merchant{}, err
+	}
+
+	originTown, err := town.Generate("metropolis", originArea, originCulture)
+	if err != nil {
+		err = fmt.Errorf(merchantRandomGenerationError, err)
 		return Merchant{}, err
 	}
 
 	merchant, err := Generate(originTown)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random merchant: %w", err)
+		err = fmt.Errorf(merchantRandomGenerationError, err)
 		return Merchant{}, err
 	}
 

@@ -1,0 +1,653 @@
+{
+  "biomes": [
+    {
+      "name": "desert",
+      "match_score": 0,
+      "fauna_prevalence": 5,
+      "fauna_tags": [
+        "arid",
+        "desert"
+      ],
+      "altitude_max": 20,
+      "altitude_min": 0,
+      "temperature_max": 100,
+      "temperature_min": 80,
+      "precipitation_max": 10,
+      "precipitation_min": 0,
+      "type": "terrestrial",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "arid"
+      ]
+    },
+    {
+      "name": "shrubland",
+      "match_score": 0,
+      "fauna_prevalence": 5,
+      "fauna_tags": [
+        "arid"
+      ],
+      "altitude_max": 25,
+      "altitude_min": 0,
+      "temperature_max": 100,
+      "temperature_min": 80,
+      "precipitation_max": 30,
+      "precipitation_min": 5,
+      "type": "terrestrial",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "arid",
+        "shrub",
+        "bush"
+      ]
+    },
+    {
+      "name": "montane shrubland",
+      "match_score": 0,
+      "fauna_prevalence": 5,
+      "fauna_tags": [
+        "montane"
+      ],
+      "altitude_max": 100,
+      "altitude_min": 65,
+      "temperature_max": 50,
+      "temperature_min": 0,
+      "precipitation_max": 40,
+      "precipitation_min": 0,
+      "type": "terrestrial",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "arid",
+        "shrub",
+        "bush"
+      ]
+    },
+    {
+      "name": "alpine grassland",
+      "match_score": 0,
+      "fauna_prevalence": 5,
+      "fauna_tags": [
+        "montane",
+        "boreal",
+        "alpine"
+      ],
+      "altitude_max": 100,
+      "altitude_min": 70,
+      "temperature_max": 30,
+      "temperature_min": 0,
+      "precipitation_max": 30,
+      "precipitation_min": 0,
+      "type": "terrestrial",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "arid",
+        "grass",
+        "alpine"
+      ]
+    },
+    {
+      "name": "savanna",
+      "match_score": 0,
+      "fauna_prevalence": 30,
+      "fauna_tags": [
+        "grassland",
+        "semiarid",
+        "large"
+      ],
+      "altitude_max": 20,
+      "altitude_min": 0,
+      "temperature_max": 80,
+      "temperature_min": 30,
+      "precipitation_max": 20,
+      "precipitation_min": 5,
+      "type": "terrestrial",
+      "vegetation_prevalence": 15,
+      "vegetation_tags": [
+        "deciduous",
+        "semiarid",
+        "grass"
+      ]
+    },
+    {
+      "name": "grassland",
+      "match_score": 0,
+      "fauna_prevalence": 30,
+      "fauna_tags": [
+        "grassland",
+        "raptor",
+        "large"
+      ],
+      "altitude_max": 70,
+      "altitude_min": 0,
+      "temperature_max": 90,
+      "temperature_min": 20,
+      "precipitation_max": 50,
+      "precipitation_min": 0,
+      "type": "terrestrial",
+      "vegetation_prevalence": 15,
+      "vegetation_tags": [
+        "semiarid",
+        "grass"
+      ]
+    },
+    {
+      "name": "prairie",
+      "match_score": 0,
+      "fauna_prevalence": 30,
+      "fauna_tags": [
+        "grassland",
+        "raptor",
+        "large"
+      ],
+      "altitude_max": 50,
+      "altitude_min": 0,
+      "temperature_max": 60,
+      "temperature_min": 30,
+      "precipitation_max": 60,
+      "precipitation_min": 10,
+      "type": "terrestrial",
+      "vegetation_prevalence": 15,
+      "vegetation_tags": [
+        "semiarid",
+        "grass"
+      ]
+    },
+    {
+      "name": "steppe",
+      "match_score": 0,
+      "fauna_prevalence": 30,
+      "fauna_tags": [
+        "grassland"
+      ],
+      "altitude_max": 70,
+      "altitude_min": 10,
+      "temperature_max": 60,
+      "temperature_min": 30,
+      "precipitation_max": 50,
+      "precipitation_min": 10,
+      "type": "terrestrial",
+      "vegetation_prevalence": 15,
+      "vegetation_tags": [
+        "semiarid",
+        "grass"
+      ]
+    },
+    {
+      "name": "tropical rainforest",
+      "match_score": 0,
+      "fauna_prevalence": 100,
+      "fauna_tags": [
+        "tropical",
+        "forest",
+        "big cat",
+        "primate",
+        "insect",
+        "deer",
+        "parrot",
+        "snake"
+      ],
+      "altitude_max": 70,
+      "altitude_min": 0,
+      "temperature_max": 100,
+      "temperature_min": 70,
+      "precipitation_max": 100,
+      "precipitation_min": 55,
+      "type": "terrestrial",
+      "vegetation_prevalence": 100,
+      "vegetation_tags": [
+        "evergreen",
+        "semi-evergreen deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "tropical bane forest",
+      "match_score": 0,
+      "fauna_prevalence": 80,
+      "fauna_tags": [
+        "tropical",
+        "forest",
+        "big cat",
+        "primate",
+        "insect",
+        "deer",
+        "parrot",
+        "rodent",
+        "raptor",
+        "ground bird",
+        "snake"
+      ],
+      "altitude_max": 70,
+      "altitude_min": 0,
+      "temperature_max": 100,
+      "temperature_min": 70,
+      "precipitation_max": 70,
+      "precipitation_min": 25,
+      "type": "terrestrial",
+      "vegetation_prevalence": 90,
+      "vegetation_tags": [
+        "deciduous",
+        "underbrush",
+        "evergreen",
+        "humid"
+      ]
+    },
+    {
+      "name": "tropical coniferous forest",
+      "match_score": 0,
+      "fauna_prevalence": 80,
+      "fauna_tags": [
+        "tropical",
+        "forest",
+        "insect"
+      ],
+      "altitude_max": 70,
+      "altitude_min": 0,
+      "temperature_max": 100,
+      "temperature_min": 60,
+      "precipitation_max": 90,
+      "precipitation_min": 50,
+      "type": "terrestrial",
+      "vegetation_prevalence": 95,
+      "vegetation_tags": [
+        "tropical",
+        "coniferous",
+        "fungus",
+        "fern",
+        "humid"
+      ]
+    },
+    {
+      "name": "temperate forest",
+      "match_score": 0,
+      "fauna_prevalence": 70,
+      "fauna_tags": [
+        "forest",
+        "raptor",
+        "insect"
+      ],
+      "altitude_max": 60,
+      "altitude_min": 0,
+      "temperature_max": 80,
+      "temperature_min": 40,
+      "precipitation_max": 90,
+      "precipitation_min": 10,
+      "type": "terrestrial",
+      "vegetation_prevalence": 80,
+      "vegetation_tags": [
+        "deciduous",
+        "coniferous",
+        "fungus",
+        "fern",
+        "temperate"
+      ]
+    },
+    {
+      "name": "temperate coniferous forest",
+      "match_score": 0,
+      "fauna_prevalence": 70,
+      "fauna_tags": [
+        "forest",
+        "raptor",
+        "insect"
+      ],
+      "altitude_max": 60,
+      "altitude_min": 0,
+      "temperature_max": 80,
+      "temperature_min": 40,
+      "precipitation_max": 90,
+      "precipitation_min": 20,
+      "type": "terrestrial",
+      "vegetation_prevalence": 80,
+      "vegetation_tags": [
+        "coniferous",
+        "fungus",
+        "fern",
+        "temperate",
+        "grass",
+        "forb"
+      ]
+    },
+    {
+      "name": "boreal forest",
+      "match_score": 0,
+      "fauna_prevalence": 60,
+      "fauna_tags": [
+        "forest",
+        "insect",
+        "bear",
+        "wolf",
+        "badger",
+        "raptor",
+        "rodent",
+        "hare",
+        "cold weather"
+      ],
+      "altitude_max": 60,
+      "altitude_min": 0,
+      "temperature_max": 40,
+      "temperature_min": 10,
+      "precipitation_max": 80,
+      "precipitation_min": 30,
+      "type": "terrestrial",
+      "vegetation_prevalence": 50,
+      "vegetation_tags": [
+        "coniferous",
+        "deciduous",
+        "lichen",
+        "moss",
+        "winter-hardy"
+      ]
+    },
+    {
+      "name": "taiga",
+      "match_score": 0,
+      "fauna_prevalence": 60,
+      "fauna_tags": [
+        "forest",
+        "insect",
+        "bear",
+        "wolf",
+        "badger",
+        "raptor",
+        "rodent",
+        "hare",
+        "cold weather"
+      ],
+      "altitude_max": 60,
+      "altitude_min": 0,
+      "temperature_max": 50,
+      "temperature_min": 20,
+      "precipitation_max": 60,
+      "precipitation_min": 30,
+      "type": "terrestrial",
+      "vegetation_prevalence": 50,
+      "vegetation_tags": [
+        "coniferous",
+        "lichen",
+        "moss",
+        "winter-hardy"
+      ]
+    },
+    {
+      "name": "tundra",
+      "match_score": 0,
+      "fauna_prevalence": 5,
+      "fauna_tags": [
+        "cold weather",
+        "reindeer"
+      ],
+      "altitude_max": 60,
+      "altitude_min": 0,
+      "temperature_max": 30,
+      "temperature_min": 0,
+      "precipitation_max": 20,
+      "precipitation_min": 0,
+      "type": "terrestrial",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "arid",
+        "grass",
+        "moss",
+        "heath",
+        "lichen"
+      ]
+    },
+    {
+      "name": "alpine tundra",
+      "match_score": 0,
+      "fauna_prevalence": 5,
+      "fauna_tags": [
+        "cold weather",
+        "reindeer",
+        "alpine"
+      ],
+      "altitude_max": 100,
+      "altitude_min": 60,
+      "temperature_max": 30,
+      "temperature_min": 0,
+      "precipitation_max": 20,
+      "precipitation_min": 0,
+      "type": "terrestrial",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "arid",
+        "grass",
+        "moss",
+        "heath",
+        "lichen"
+      ]
+    },
+    {
+      "name": "lake",
+      "match_score": 0,
+      "fauna_prevalence": 50,
+      "fauna_tags": [
+        "freshwater",
+        "lake"
+      ],
+      "altitude_max": 80,
+      "altitude_min": 10,
+      "temperature_max": 90,
+      "temperature_min": 0,
+      "precipitation_max": 100,
+      "precipitation_min": 10,
+      "type": "freshwater",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "freshwater",
+        "lake"
+      ]
+    },
+    {
+      "name": "river delta",
+      "match_score": 0,
+      "fauna_prevalence": 50,
+      "fauna_tags": [
+        "freshwater",
+        "river",
+        "waterfowl"
+      ],
+      "altitude_max": 30,
+      "altitude_min": 0,
+      "temperature_max": 80,
+      "temperature_min": 5,
+      "precipitation_max": 90,
+      "precipitation_min": 10,
+      "type": "freshwater",
+      "vegetation_prevalence": 35,
+      "vegetation_tags": [
+        "freshwater",
+        "river",
+        "reed"
+      ]
+    },
+    {
+      "name": "temperate river",
+      "match_score": 0,
+      "fauna_prevalence": 50,
+      "fauna_tags": [
+        "freshwater",
+        "river",
+        "temperate",
+        "waterfowl"
+      ],
+      "altitude_max": 100,
+      "altitude_min": 0,
+      "temperature_max": 70,
+      "temperature_min": 10,
+      "precipitation_max": 100,
+      "precipitation_min": 10,
+      "type": "freshwater",
+      "vegetation_prevalence": 35,
+      "vegetation_tags": [
+        "freshwater",
+        "river",
+        "reed"
+      ]
+    },
+    {
+      "name": "tropical river",
+      "match_score": 0,
+      "fauna_prevalence": 50,
+      "fauna_tags": [
+        "freshwater",
+        "river",
+        "tropical"
+      ],
+      "altitude_max": 80,
+      "altitude_min": 0,
+      "temperature_max": 90,
+      "temperature_min": 60,
+      "precipitation_max": 100,
+      "precipitation_min": 60,
+      "type": "freshwater",
+      "vegetation_prevalence": 35,
+      "vegetation_tags": [
+        "freshwater",
+        "river",
+        "reed"
+      ]
+    },
+    {
+      "name": "wetlands",
+      "match_score": 0,
+      "fauna_prevalence": 50,
+      "fauna_tags": [
+        "freshwater",
+        "wetlands",
+        "waterfowl"
+      ],
+      "altitude_max": 20,
+      "altitude_min": 0,
+      "temperature_max": 100,
+      "temperature_min": 0,
+      "precipitation_max": 90,
+      "precipitation_min": 10,
+      "type": "freshwater",
+      "vegetation_prevalence": 45,
+      "vegetation_tags": [
+        "freshwater",
+        "river",
+        "reed"
+      ]
+    },
+    {
+      "name": "polar",
+      "match_score": 0,
+      "fauna_prevalence": 20,
+      "fauna_tags": [
+        "ocean"
+      ],
+      "altitude_max": 0,
+      "altitude_min": -100,
+      "temperature_max": 10,
+      "temperature_min": 0,
+      "precipitation_max": 100,
+      "precipitation_min": 0,
+      "type": "marine",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "ocean"
+      ]
+    },
+    {
+      "name": "temperate sea",
+      "match_score": 0,
+      "fauna_prevalence": 20,
+      "fauna_tags": [
+        "ocean"
+      ],
+      "altitude_max": 0,
+      "altitude_min": -80,
+      "temperature_max": 50,
+      "temperature_min": 0,
+      "precipitation_max": 100,
+      "precipitation_min": 0,
+      "type": "marine",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "ocean"
+      ]
+    },
+    {
+      "name": "temperate upwelling",
+      "match_score": 0,
+      "fauna_prevalence": 20,
+      "fauna_tags": [
+        "ocean"
+      ],
+      "altitude_max": 0,
+      "altitude_min": -30,
+      "temperature_max": 60,
+      "temperature_min": 20,
+      "precipitation_max": 100,
+      "precipitation_min": 0,
+      "type": "marine",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "ocean"
+      ]
+    },
+    {
+      "name": "tropical upwelling",
+      "match_score": 0,
+      "fauna_prevalence": 20,
+      "fauna_tags": [
+        "ocean",
+        "tropical fish"
+      ],
+      "altitude_max": 0,
+      "altitude_min": -30,
+      "temperature_max": 90,
+      "temperature_min": 50,
+      "precipitation_max": 100,
+      "precipitation_min": 0,
+      "type": "marine",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "ocean"
+      ]
+    },
+    {
+      "name": "tropical coral",
+      "match_score": 0,
+      "fauna_prevalence": 40,
+      "fauna_tags": [
+        "ocean",
+        "coral",
+        "tropical fish"
+      ],
+      "altitude_max": 0,
+      "altitude_min": -10,
+      "temperature_max": 100,
+      "temperature_min": 50,
+      "precipitation_max": 100,
+      "precipitation_min": 0,
+      "type": "marine",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "ocean"
+      ]
+    },
+    {
+      "name": "abyssal",
+      "match_score": 0,
+      "fauna_prevalence": 20,
+      "fauna_tags": [
+        "abyssal"
+      ],
+      "altitude_max": -90,
+      "altitude_min": -100,
+      "temperature_max": 5,
+      "temperature_min": 0,
+      "precipitation_max": 100,
+      "precipitation_min": 0,
+      "type": "marine",
+      "vegetation_prevalence": 5,
+      "vegetation_tags": [
+        "abyssal"
+      ]
+    }
+  ]
+}

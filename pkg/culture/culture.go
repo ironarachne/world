@@ -5,10 +5,10 @@ package culture
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/geography"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/buildings"
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/clothing"
 	"github.com/ironarachne/world/pkg/conlang"
 	"github.com/ironarachne/world/pkg/drink"
@@ -33,7 +33,7 @@ type Culture struct {
 		MagicPrevalence int `json:"magic_prevalence"`
 		MagicStrength   int `json:"magic_strength"`
 		Rigidity        int `json:"rigidity"`
-		Superstition    int `json:"superstitition"`
+		Superstition    int `json:"superstition"`
 	} `json:"attributes"`
 	BuildingStyle     buildings.BuildingStyle `json:"building_style"`
 	ClothingStyle     clothing.Style          `json:"clothing_style"`
@@ -42,19 +42,20 @@ type Culture struct {
 	CommonMaleNames   []string                `json:"common_male_names"`
 	DrinkStyle        drink.Style             `json:"drink_style"`
 	FoodStyle         food.Style              `json:"food_style"`
-	HomeClimate       climate.Climate         `json:"home_climate"`
 	Language          language.Language       `json:"language"`
 	MusicStyle        music.Style             `json:"music_style"`
 	Name              string                  `json:"name"`
+	HomeBiome         string                  `json:"home_biome"`
 	PrimaryRace       species.Species         `json:"primary_race"`
 	Religion          religion.Religion       `json:"religion"`
 	Views             []string                `json:"views"`
 }
 
 // Generate generates a culture
-func Generate(homeClimate climate.Climate) (Culture, error) {
+func Generate(home geography.Area) (Culture, error) {
 	culture := Culture{}
-	culture.HomeClimate = homeClimate
+
+	resources := home.GetResources()
 
 	cultureLanguage, cultureLanguageCategory, err := conlang.Generate()
 	if err != nil {
@@ -62,7 +63,7 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 		return Culture{}, err
 	}
 
-	wordList, err := culture.createWordList(cultureLanguage, cultureLanguageCategory)
+	wordList, err := culture.createWordList(cultureLanguage, cultureLanguageCategory, home)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -93,12 +94,7 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 	culture.Name = culture.Language.Name
 	culture.Adjective = culture.Language.Adjective
 
-	instruments, err := music.GenerateInstruments(culture.HomeClimate)
-	if err != nil {
-		err = fmt.Errorf(cultureError, err)
-		return Culture{}, err
-	}
-	musicStyle, err := music.GenerateStyle(instruments)
+	musicStyle, err := music.Generate()
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -111,25 +107,25 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 		return Culture{}, err
 	}
 	culture.BuildingStyle = buildingStyle
-	clothingStyle, err := clothing.GenerateStyle(culture.HomeClimate)
+	clothingStyle, err := clothing.GenerateStyle(home.Region.Temperature, resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.ClothingStyle = clothingStyle
-	drinkStyle, err := drink.Generate(culture.Language, culture.HomeClimate.Resources)
+	drinkStyle, err := drink.Generate(culture.Language, resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.DrinkStyle = drinkStyle
-	foodStyle, err := food.GenerateStyle(culture.HomeClimate)
+	foodStyle, err := food.GenerateStyle(resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.FoodStyle = foodStyle
-	drinks, err := drink.RandomSet(3, culture.HomeClimate.Resources)
+	drinks, err := drink.RandomSet(3, resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -160,17 +156,19 @@ func Generate(homeClimate climate.Climate) (Culture, error) {
 
 	culture.Views = culture.getViews()
 
+	culture.HomeBiome = home.Biome.Name
+
 	return culture, nil
 }
 
 // Random returns a completely random culture
 func Random() (Culture, error) {
-	homeClimate, err := climate.Generate()
+	area, err := geography.Generate()
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
-	culture, err := Generate(homeClimate)
+	culture, err := Generate(area)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -178,10 +176,10 @@ func Random() (Culture, error) {
 	return culture, nil
 }
 
-func (culture Culture) createWordList(cultureLanguage language.Language, langCategory conlang.Category) (map[string]string, error) {
+func (culture Culture) createWordList(cultureLanguage language.Language, langCategory conlang.Category, area geography.Area) (map[string]string, error) {
 	list := culture.Language.WordList
 
-	for _, i := range culture.HomeClimate.Animals {
+	for _, i := range area.Animals {
 		if !conlang.IsInWordList(i.Name, list) {
 			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
 			if err != nil {
@@ -192,7 +190,7 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 		}
 	}
 
-	for _, i := range culture.HomeClimate.Minerals {
+	for _, i := range area.Minerals {
 		if !conlang.IsInWordList(i.Name, list) {
 			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
 			if err != nil {
@@ -203,7 +201,7 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 		}
 	}
 
-	for _, i := range culture.HomeClimate.Plants {
+	for _, i := range area.Plants {
 		if !conlang.IsInWordList(i.Name, list) {
 			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
 			if err != nil {
@@ -214,18 +212,7 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 		}
 	}
 
-	for _, i := range culture.HomeClimate.Seasons {
-		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
-			if err != nil {
-				err = fmt.Errorf(cultureError, err)
-				return list, err
-			}
-			list = modifiedList
-		}
-	}
-
-	for _, i := range culture.HomeClimate.Trees {
+	for _, i := range area.Seasons {
 		if !conlang.IsInWordList(i.Name, list) {
 			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
 			if err != nil {

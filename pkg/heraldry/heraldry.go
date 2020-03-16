@@ -57,7 +57,7 @@ func GenerateByParameters(fieldName string, chargeTag string) (Device, error) {
 	if err != nil {
 		err = fmt.Errorf("failed to generate heraldic device: %w", err)
 		return Device{}, err
-	}	
+	}
 
 	chargeGroups := []charge.Group{
 		chargeGroup,

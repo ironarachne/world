@@ -31,7 +31,7 @@ func getRandomDress() (Item, error) {
 
 	dress, err := getItemFromTemplate(template)
 	if err != nil {
-		err = fmt.Errorf("Could not get random dress: %w", err)
+		err = fmt.Errorf("failed to get random dress: %w", err)
 		return Item{}, err
 	}
 
@@ -63,7 +63,7 @@ func getRandomRobe() (Item, error) {
 
 	robe, err := getItemFromTemplate(template)
 	if err != nil {
-		err = fmt.Errorf("Could not get random robe: %w", err)
+		err = fmt.Errorf("failed to get random robe: %w", err)
 		return Item{}, err
 	}
 

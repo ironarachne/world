@@ -11,19 +11,19 @@ import (
 
 // SimplifiedRegion is a simplified version of a region
 type SimplifiedRegion struct {
-	Name            string                                `json:"name"`
-	Climate         string                                `json:"climate"`
-	Capital         string                                `json:"capital"`
-	DominantCulture culture.SimplifiedCulture             `json:"dominant_culture"`
-	Ruler           character.SimplifiedCharacter         `json:"ruler"`
-	RulingHouse     organization.SimplifiedOrganization   `json:"ruling_house"`
-	Towns           []town.SimplifiedTown                 `json:"towns"`
-	Organizations   []organization.SimplifiedOrganization `json:"organizations"`
+	Name                 string                                `json:"name"`
+	GeographyDescription string                                `json:"geography_description"`
+	Capital              string                                `json:"capital"`
+	DominantCulture      culture.Culture                       `json:"dominant_culture"`
+	Ruler                character.SimplifiedCharacter         `json:"ruler"`
+	RulingHouse          organization.SimplifiedOrganization   `json:"ruling_house"`
+	Towns                []town.SimplifiedTown                 `json:"towns"`
+	Organizations        []organization.SimplifiedOrganization `json:"organizations"`
 }
 
 // Simplify returns a simplified version of a region
 func (region Region) Simplify() (SimplifiedRegion, error) {
-	sc := region.Culture.Simplify()
+	sc := region.Culture
 	sr, err := region.RulingBody.Leader.CharacterData.Simplify()
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
@@ -35,12 +35,12 @@ func (region Region) Simplify() (SimplifiedRegion, error) {
 		return SimplifiedRegion{}, err
 	}
 	simplified := SimplifiedRegion{
-		Name:            "The " + region.Class.Name + " of " + region.Name,
-		Climate:         region.Climate.Description,
-		Capital:         region.Capital,
-		DominantCulture: sc,
-		Ruler:           sr,
-		RulingHouse:     so,
+		Name:                 "The " + region.Class.Name + " of " + region.Name,
+		GeographyDescription: region.AreaDescription,
+		Capital:              region.Capital,
+		DominantCulture:      sc,
+		Ruler:                sr,
+		RulingHouse:          so,
 	}
 
 	for _, t := range region.Towns {

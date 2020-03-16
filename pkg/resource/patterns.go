@@ -42,26 +42,11 @@ type Slot struct {
 	PossibleQuirks      []string `json:"possible_quirks" db:"possible_quirks"`
 }
 
-// All returns all predefined patterns from a JSON file on disk
+// All returns all predefined patterns from JSON files on disk
 func All() ([]Pattern, error) {
-	var d Data
-
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/patterns.json")
+	all, err := LoadFromFile("patterns")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
-		return []Pattern{}, err
-	}
-
-	defer jsonFile.Close()
-
-	byteValue, _ := ioutil.ReadAll(jsonFile)
-
-	json.Unmarshal(byteValue, &d)
-
-	all := d.Patterns
-
-	if len(all) == 0 {
-		err = fmt.Errorf("no patterns returned from database: patterns.json")
 		return []Pattern{}, err
 	}
 
@@ -113,6 +98,32 @@ func GetPossibleProfessions(resources []Resource) ([]profession.Profession, erro
 	}
 
 	return producers, nil
+}
+
+// LoadFromFile loads patterns from the given JSON file
+func LoadFromFile(name string) ([]Pattern, error) {
+	var d Data
+
+	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/" + name + ".json")
+	if err != nil {
+		err = fmt.Errorf("could not open data file: %w", err)
+		return []Pattern{}, err
+	}
+
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	json.Unmarshal(byteValue, &d)
+
+	patterns := d.Patterns
+
+	if len(patterns) == 0 {
+		err = fmt.Errorf("no patterns returned from database: " + name + ".json")
+		return []Pattern{}, err
+	}
+
+	return patterns, nil
 }
 
 // CanMake returns true if the pattern can be made with the resources given

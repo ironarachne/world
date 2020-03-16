@@ -5,6 +5,7 @@ package country
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/geography"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/culture"
@@ -31,7 +32,13 @@ func Generate() (Country, error) {
 	regions := []region.Region{}
 	country := Country{}
 
-	dominantCulture, err := culture.Random()
+	originArea, err := geography.Generate()
+	if err != nil {
+		err = fmt.Errorf(countryError, err)
+		return Country{}, err
+	}
+
+	dominantCulture, err := culture.Generate(originArea)
 	if err != nil {
 		err = fmt.Errorf(countryError, err)
 		return Country{}, err
@@ -59,7 +66,7 @@ func Generate() (Country, error) {
 	size := rand.Intn(10) + 4
 
 	for i := 0; i < size; i++ {
-		r, err := region.Generate(country.DominantCulture.HomeClimate, country.DominantCulture)
+		r, err := region.Generate(originArea, country.DominantCulture)
 		if err != nil {
 			err = fmt.Errorf(countryError, err)
 			return Country{}, err

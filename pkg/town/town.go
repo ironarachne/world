@@ -5,6 +5,7 @@ package town
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/geography"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/profession"
@@ -12,7 +13,6 @@ import (
 
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/character"
-	"github.com/ironarachne/world/pkg/climate"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/goods"
 )
@@ -23,7 +23,7 @@ type Town struct {
 	Population       int                     `json:"population"`
 	BuildingStyle    buildings.BuildingStyle `json:"building_style"`
 	Category         Category                `json:"category"`
-	Climate          climate.Climate         `json:"climate"`
+	Geography        geography.Area          `json:"geography"`
 	Culture          culture.Culture         `json:"culture"`
 	Mayor            character.Character     `json:"mayor"`
 	NotableProducers []profession.Profession `json:"notable_producers"`
@@ -32,24 +32,28 @@ type Town struct {
 	Resources        []resource.Resource     `json:"resources"`
 }
 
+const mayorGenerationError = "failed to generate mayor: %w"
+const randomTownError = "failed to generate random town: %w"
+const townGenerationError = "failed to generate town: %w"
+
 func (town Town) generateMayor() (character.Character, error) {
 	mayor, err := character.Generate(town.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate mayor: %w", err)
+		err = fmt.Errorf(mayorGenerationError, err)
 		return character.Character{}, err
 	}
 	mayor = mayor.ChangeAge(rand.Intn(30) + 30)
 
 	firstName, err := town.Culture.Language.RandomMaleFirstName()
 	if err != nil {
-		err = fmt.Errorf("Could not generate mayor: %w", err)
+		err = fmt.Errorf(mayorGenerationError, err)
 		return character.Character{}, err
 	}
 
 	if mayor.Gender.Name == "female" {
 		firstName, err = town.Culture.Language.RandomFemaleFirstName()
 		if err != nil {
-			err = fmt.Errorf("Could not generate mayor: %w", err)
+			err = fmt.Errorf(mayorGenerationError, err)
 			return character.Character{}, err
 		}
 	}
@@ -57,7 +61,7 @@ func (town Town) generateMayor() (character.Character, error) {
 	mayor.FirstName = firstName
 	lastName, err := town.Culture.Language.RandomFamilyName()
 	if err != nil {
-		err = fmt.Errorf("Could not generate mayor: %w", err)
+		err = fmt.Errorf(mayorGenerationError, err)
 		return character.Character{}, err
 	}
 	mayor.LastName = lastName
@@ -76,15 +80,17 @@ func (town Town) generateRandomExports() []goods.TradeGood {
 func (town Town) generateRandomImports() ([]goods.TradeGood, error) {
 	var imports []goods.TradeGood
 
-	foreignClimate, err := climate.GenerateForeign(town.Climate)
+	foreignArea, err := geography.Generate()
 	if err != nil {
-		err = fmt.Errorf("Could not generate imports: %w", err)
+		err = fmt.Errorf("failed to generate random imports: %w", err)
 		return []goods.TradeGood{}, err
 	}
 
-	imports, err = goods.GenerateImportTradeGoods(town.Category.MinImports, town.Category.MaxImports, foreignClimate.Resources)
+	resources := foreignArea.GetResources()
+
+	imports, err = goods.GenerateImportTradeGoods(town.Category.MinImports, town.Category.MaxImports, resources)
 	if err != nil {
-		err = fmt.Errorf("Could not generate imports: %w", err)
+		err = fmt.Errorf("failed to generate random imports: %w", err)
 		return []goods.TradeGood{}, err
 	}
 
@@ -100,7 +106,7 @@ func generateRandomPopulation(category Category) int {
 }
 
 // Generate generates a random town
-func Generate(categoryName string, originClimate climate.Climate, originCulture culture.Culture) (Town, error) {
+func Generate(categoryName string, area geography.Area, originCulture culture.Culture) (Town, error) {
 	var newProducers []profession.Profession
 	var producers []profession.Profession
 	var newResources []resource.Resource
@@ -110,7 +116,7 @@ func Generate(categoryName string, originClimate climate.Climate, originCulture 
 	if categoryName == "random" {
 		townCategory, err := getRandomWeightedCategory()
 		if err != nil {
-			err = fmt.Errorf("Could not generate town: %w", err)
+			err = fmt.Errorf(townGenerationError, err)
 			return Town{}, err
 		}
 		town.Category = townCategory
@@ -118,12 +124,12 @@ func Generate(categoryName string, originClimate climate.Climate, originCulture 
 		town.Category = getCategoryByName(categoryName)
 	}
 
-	town.Climate = originClimate
+	town.Geography = area
 	town.Culture = originCulture
 
 	name, err := town.Culture.Language.RandomTownName()
 	if err != nil {
-		err = fmt.Errorf("Could not generate town: %w", err)
+		err = fmt.Errorf(townGenerationError, err)
 		return Town{}, err
 	}
 	town.Name = name
@@ -134,22 +140,22 @@ func Generate(categoryName string, originClimate climate.Climate, originCulture 
 
 	mayor, err := town.generateMayor()
 	if err != nil {
-		err = fmt.Errorf("Could not generate town: %w", err)
+		err = fmt.Errorf(townGenerationError, err)
 		return Town{}, err
 	}
 	town.Mayor = mayor
 
-	resources := town.Climate.Resources
+	resources := area.GetResources()
 
 	for i := 0; i < town.Category.ProductionIterations; i++ {
 		newProducers, err = getProducers(town.Population, resources)
 		if err != nil {
-			err = fmt.Errorf("Could not generate town: %w", err)
+			err = fmt.Errorf(townGenerationError, err)
 			return Town{}, err
 		}
 		newResources, err = goods.Produce(newProducers, resources)
 		if err != nil {
-			err = fmt.Errorf("Could not generate town: %w", err)
+			err = fmt.Errorf(townGenerationError, err)
 			return Town{}, err
 		}
 		resources = append(resources, newResources...)
@@ -162,7 +168,7 @@ func Generate(categoryName string, originClimate climate.Climate, originCulture 
 	town.Exports = town.generateRandomExports()
 	imports, err := town.generateRandomImports()
 	if err != nil {
-		err = fmt.Errorf("Could not generate town: %w", err)
+		err = fmt.Errorf(townGenerationError, err)
 		return Town{}, err
 	}
 	town.Imports = imports
@@ -172,15 +178,21 @@ func Generate(categoryName string, originClimate climate.Climate, originCulture 
 
 // Random generates a completely random town
 func Random() (Town, error) {
-	randomCulture, err := culture.Random()
+	area, err := geography.Generate()
 	if err != nil {
-		err = fmt.Errorf("Could not generate random town: %w", err)
+		err = fmt.Errorf(randomTownError, err)
 		return Town{}, err
 	}
 
-	town, err := Generate("random", randomCulture.HomeClimate, randomCulture)
+	randomCulture, err := culture.Generate(area)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random town: %w", err)
+		err = fmt.Errorf(randomTownError, err)
+		return Town{}, err
+	}
+
+	town, err := Generate("random", area, randomCulture)
+	if err != nil {
+		err = fmt.Errorf(randomTownError, err)
 		return Town{}, err
 	}
 
