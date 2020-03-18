@@ -8,8 +8,8 @@ import (
 
 // Style is a style of music
 type Style struct {
-	Description string
-	InstrumentTags []string
+	Description string `json:"description"`
+	InstrumentTags []string `json:"instrument_tags"`
 }
 
 var (

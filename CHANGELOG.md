@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.11.1 (2020-03-18)
+
+- Add JSON hinting for music
+
 ## 0.11.0 (2020-03-16)
 
 - Add geographic areas, which include biomes, climates, and geographic regions
