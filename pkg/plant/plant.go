@@ -17,5 +17,13 @@ func All() ([]species.Species, error) {
 		return []species.Species{}, err
 	}
 
+	shrubs, err := species.Load("shrubs")
+	if err != nil {
+		err = fmt.Errorf("failed to load shrubs: %w", err)
+		return []species.Species{}, err
+	}
+
+	plants = append(plants, shrubs...)
+
 	return plants, nil
 }

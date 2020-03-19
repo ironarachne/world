@@ -396,6 +396,49 @@
       ]
     },
     {
+      "name": "cacao",
+      "plural_name": "cacao trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cacao",
+          "description": "",
+          "main_material": "cacao",
+          "origin": "cacao",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cocoa bean",
+          "description": "",
+          "main_material": "cocoa bean",
+          "origin": "cacao",
+          "tags": [
+            "seed"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "evergreen",
+        "humid",
+        "tropical"
+      ]
+    },
+    {
       "name": "cedar",
       "plural_name": "cedars",
       "adjective": "",

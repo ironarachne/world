@@ -32,37 +32,6 @@
       ]
     },
     {
-      "name": "blueberry bush",
-      "plural_name": "blueberry bushes",
-      "adjective": "",
-      "commonality": 0,
-      "possible_traits": null,
-      "common_traits": null,
-      "age_categories": null,
-      "min_humidity": 30,
-      "max_humidity": 100,
-      "min_temperature": 20,
-      "max_temperature": 100,
-      "resources": [
-        {
-          "name": "blueberry",
-          "description": "",
-          "main_material": "blueberry",
-          "origin": "blueberry bush",
-          "tags": [
-            "berry",
-            "fruit"
-          ],
-          "commonality": 5,
-          "value": 1
-        }
-      ],
-      "tags": [
-        "bush",
-        "temperate"
-      ]
-    },
-    {
       "name": "raspberry bush",
       "plural_name": "raspberry bushes",
       "adjective": "",
@@ -111,68 +80,6 @@
           "description": "",
           "main_material": "strawberry",
           "origin": "strawberry bush",
-          "tags": [
-            "berry",
-            "fruit"
-          ],
-          "commonality": 5,
-          "value": 1
-        }
-      ],
-      "tags": [
-        "bush",
-        "temperate"
-      ]
-    },
-    {
-      "name": "boysenberry bush",
-      "plural_name": "boysenberry bushes",
-      "adjective": "",
-      "commonality": 0,
-      "possible_traits": null,
-      "common_traits": null,
-      "age_categories": null,
-      "min_humidity": 30,
-      "max_humidity": 100,
-      "min_temperature": 20,
-      "max_temperature": 100,
-      "resources": [
-        {
-          "name": "boysenberry",
-          "description": "",
-          "main_material": "boysenberry",
-          "origin": "boysenberry bush",
-          "tags": [
-            "berry",
-            "fruit"
-          ],
-          "commonality": 5,
-          "value": 1
-        }
-      ],
-      "tags": [
-        "bush",
-        "temperate"
-      ]
-    },
-    {
-      "name": "gooseberry bush",
-      "plural_name": "gooseberry bushes",
-      "adjective": "",
-      "commonality": 0,
-      "possible_traits": null,
-      "common_traits": null,
-      "age_categories": null,
-      "min_humidity": 30,
-      "max_humidity": 100,
-      "min_temperature": 20,
-      "max_temperature": 100,
-      "resources": [
-        {
-          "name": "gooseberry",
-          "description": "",
-          "main_material": "gooseberry",
-          "origin": "gooseberry bush",
           "tags": [
             "berry",
             "fruit"
@@ -1071,40 +978,8 @@
       ]
     },
     {
-      "name": "thyme",
-      "plural_name": "thymes",
-      "adjective": "",
-      "commonality": 0,
-      "possible_traits": null,
-      "common_traits": null,
-      "age_categories": null,
-      "min_humidity": 30,
-      "max_humidity": 100,
-      "min_temperature": 30,
-      "max_temperature": 100,
-      "resources": [
-        {
-          "name": "thyme",
-          "description": "",
-          "main_material": "thyme",
-          "origin": "thyme",
-          "tags": [
-            "herb"
-          ],
-          "commonality": 5,
-          "value": 1
-        }
-      ],
-      "tags": [
-        "herb",
-        "grassland",
-        "forest",
-        "temperate"
-      ]
-    },
-    {
       "name": "black pepper",
-      "plural_name": "black peppers",
+      "plural_name": "black pepper vines",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1112,14 +987,36 @@
       "age_categories": null,
       "min_humidity": 30,
       "max_humidity": 100,
-      "min_temperature": 30,
+      "min_temperature": 70,
       "max_temperature": 100,
       "resources": [
         {
           "name": "black pepper",
-          "description": "",
+          "description": "cooked and dried unripe fruit of the black pepper vine",
           "main_material": "black pepper",
           "origin": "black pepper",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "green pepper",
+          "description": "dried unripe fruit of the black pepper vine",
+          "main_material": "green pepper",
+          "origin": "green pepper",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "white pepper",
+          "description": "dried ripe fruit seeds of the black pepper vine",
+          "main_material": "white pepper",
+          "origin": "white pepper",
           "tags": [
             "spice"
           ],
@@ -1129,6 +1026,7 @@
       ],
       "tags": [
         "herb",
+        "vine",
         "grassland",
         "forest",
         "rainforest",
@@ -1137,7 +1035,7 @@
     },
     {
       "name": "oregano",
-      "plural_name": "oreganos",
+      "plural_name": "oregano plants",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1169,7 +1067,7 @@
     },
     {
       "name": "mint",
-      "plural_name": "mints",
+      "plural_name": "mint plants",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1201,7 +1099,7 @@
     },
     {
       "name": "lemongrass",
-      "plural_name": "lemongrasses",
+      "plural_name": "lemongrass plants",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1233,7 +1131,7 @@
     },
     {
       "name": "sugarcane",
-      "plural_name": "sugarcanes",
+      "plural_name": "sugarcane plants",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1316,38 +1214,6 @@
           "origin": "clove",
           "tags": [
             "spice"
-          ],
-          "commonality": 5,
-          "value": 1
-        }
-      ],
-      "tags": [
-        "herb",
-        "grassland",
-        "forest",
-        "temperate"
-      ]
-    },
-    {
-      "name": "sage",
-      "plural_name": "sages",
-      "adjective": "",
-      "commonality": 0,
-      "possible_traits": null,
-      "common_traits": null,
-      "age_categories": null,
-      "min_humidity": 30,
-      "max_humidity": 100,
-      "min_temperature": 30,
-      "max_temperature": 100,
-      "resources": [
-        {
-          "name": "sage",
-          "description": "",
-          "main_material": "sage",
-          "origin": "sage",
-          "tags": [
-            "herb"
           ],
           "commonality": 5,
           "value": 1
