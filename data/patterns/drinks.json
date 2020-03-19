@@ -1,0 +1,452 @@
+{
+  "patterns": [
+    {
+      "name": "braggot",
+      "description": "bottle of braggot",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "beekeeper",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "honey",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of braggot",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of braggot",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "hippocras",
+      "description": "bottle of hippocras",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "beekeeper",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "honey",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of hippocras",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of hippocras",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "mead",
+      "description": "bottle of mead",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "beekeeper",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "honey",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of mead",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of mead",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "metheglin",
+      "description": "bottle of metheglin",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "beekeeper",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "honey",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of metheglin",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of metheglin",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "barley wine",
+      "description": "barley wine",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "vintner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "barley",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of {{.Resource.MainMaterial}} barley wine",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of {{.MainMaterial}} barley wine",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "rice wine",
+      "description": "rice wine",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "vintner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "rice",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of rice wine",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of rice wine",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "wine",
+      "description": "wine",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "vintner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fruit",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of {{.Resource.MainMaterial}} wine",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of {{.MainMaterial}} wine",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "ale",
+      "description": "an ale",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "brewer",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "grain",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of {{.Resource.MainMaterial}} ale",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} ale",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "beer",
+      "description": "a beer",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "brewer",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "grain",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of {{.Resource.MainMaterial}} beer",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} beer",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "lager",
+      "description": "a lager",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "brewer",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "grain",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of {{.Resource.MainMaterial}} lager",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} lager",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "bourbon",
+      "description": "a bourbon",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "brewer",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "corn",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of bourbon",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of bourbon",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "brandy",
+      "description": "a brandy",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "brewer",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wine",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of brandy",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of brandy",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "gin",
+      "description": "a gin",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "brewer",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "juniper",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of gin",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of gin",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "whiskey",
+      "description": "a whiskey",
+      "tags": [
+        "alcohol",
+        "beverage"
+      ],
+      "commonality": 0,
+      "profession_name": "brewer",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "rye",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bottle of {{.Resource.MainMaterial}} whiskey",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bottle of {{.MainMaterial}} whiskey",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    }
+  ]
+}

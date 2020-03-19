@@ -1,0 +1,254 @@
+{
+  "patterns": [
+    {
+      "name": "cart wheel",
+      "description": "a cart wheel",
+      "tags": [
+        "cart component",
+        "wheel"
+      ],
+      "commonality": 0,
+      "profession_name": "cartwright",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood log",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} cart wheel",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} cart wheel",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "wagon wheel",
+      "description": "a wagon wheel",
+      "tags": [
+        "wagon component",
+        "wheel"
+      ],
+      "commonality": 0,
+      "profession_name": "cartwright",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood log",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wagon wheel",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wagon wheel",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "cart axle",
+      "description": "a cart axle",
+      "tags": [
+        "axle",
+        "cart component"
+      ],
+      "commonality": 0,
+      "profession_name": "cartwright",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood log",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} cart axle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} cart axle",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "wagon axle",
+      "description": "a wagon axle",
+      "tags": [
+        "axle",
+        "wagon component"
+      ],
+      "commonality": 0,
+      "profession_name": "cartwright",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood log",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wagon axle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wagon axle",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "cart",
+      "description": "a cart",
+      "tags": [
+        "land vehicle"
+      ],
+      "commonality": 0,
+      "profession_name": "cartwright",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood log",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} cart",
+          "possible_quirks": null
+        },
+        {
+          "name": "wheels",
+          "required_tag": "cart wheel",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "",
+          "possible_quirks": null
+        },
+        {
+          "name": "axle",
+          "required_tag": "cart axle",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} cart",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "wagon",
+      "description": "a wagon",
+      "tags": [
+        "land vehicle"
+      ],
+      "commonality": 0,
+      "profession_name": "cartwright",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood log",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wagon",
+          "possible_quirks": null
+        },
+        {
+          "name": "wheels",
+          "required_tag": "wagon wheel",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "",
+          "possible_quirks": null
+        },
+        {
+          "name": "axle",
+          "required_tag": "wagon axle",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wagon",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    }
+  ]
+}

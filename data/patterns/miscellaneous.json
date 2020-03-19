@@ -1,0 +1,656 @@
+{
+  "patterns": [
+    {
+      "name": "sealing wax",
+      "description": "stick of sealing wax",
+      "tags": [
+        "writing materials"
+      ],
+      "commonality": 0,
+      "profession_name": "beekeeper",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wax",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "stick of sealing wax",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "stick of sealing wax",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "glass bottle",
+      "description": "glass bottle",
+      "tags": [
+        "drinking vessel"
+      ],
+      "commonality": 0,
+      "profession_name": "glassmaker",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "sand",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} glass bottle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} glass bottle",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "glass",
+      "description": "glass",
+      "tags": [
+        "glass"
+      ],
+      "commonality": 0,
+      "profession_name": "glassmaker",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "sand",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} glass",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} glass",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "wood log",
+      "description": "a trimmed wood log",
+      "tags": [
+        "wood log"
+      ],
+      "commonality": 0,
+      "profession_name": "logger",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "a bundle of {{.Resource.MainMaterial}} logs",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bundle of {{.MainMaterial}} logs",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "wood plank",
+      "description": "a rectangular length of wood",
+      "tags": [
+        "wood plank"
+      ],
+      "commonality": 0,
+      "profession_name": "logger",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "a bundle of {{.Resource.MainMaterial}} planks",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bundle of {{.MainMaterial}} planks",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "healing draught",
+      "description": "a healing draught",
+      "tags": [
+        "medicine",
+        "potion"
+      ],
+      "commonality": 0,
+      "profession_name": "apothecary",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "herb",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "healing draught",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "healing draught",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "healing potion",
+      "description": "a healing potion",
+      "tags": [
+        "potion"
+      ],
+      "commonality": 0,
+      "profession_name": "alchemist",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "herb",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "healing potion",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "healing potion",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 20
+    },
+    {
+      "name": "bowl",
+      "description": "a clay bowl",
+      "tags": [
+        "food vessel"
+      ],
+      "commonality": 0,
+      "profession_name": "potter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "clay",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} bowl",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} bowl",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "mug",
+      "description": "a clay mug",
+      "tags": [
+        "drinking vessel"
+      ],
+      "commonality": 0,
+      "profession_name": "potter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "clay",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} mug",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} mug",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "pitcher",
+      "description": "a clay pitcher",
+      "tags": [
+        "liquid vessel"
+      ],
+      "commonality": 0,
+      "profession_name": "potter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "clay",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} pitcher",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} pitcher",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "vase",
+      "description": "a clay vase",
+      "tags": [
+        "vase"
+      ],
+      "commonality": 0,
+      "profession_name": "potter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "clay",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} vase",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} vase",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "milling wheel",
+      "description": "a milling wheel",
+      "tags": [
+        "construction component"
+      ],
+      "commonality": 0,
+      "profession_name": "mason",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "building stone",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} milling wheel",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} milling wheel",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 15
+    },
+    {
+      "name": "stone block",
+      "description": "a block of stone",
+      "tags": [
+        "building block"
+      ],
+      "commonality": 0,
+      "profession_name": "mason",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "building stone",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} block",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} block",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 3
+    },
+    {
+      "name": "stone slab",
+      "description": "a slab of stone",
+      "tags": [
+        "building block"
+      ],
+      "commonality": 0,
+      "profession_name": "mason",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "building stone",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} slab",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} slab",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "leather",
+      "description": "leather",
+      "tags": [
+        "leather"
+      ],
+      "commonality": 0,
+      "profession_name": "tanner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "hide",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} leather",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} leather",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "large blanket",
+      "description": "a large blanket",
+      "tags": [
+        "blanket"
+      ],
+      "commonality": 0,
+      "profession_name": "spinner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "large {{.Resource.MainMaterial}} blanket",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "large {{.MainMaterial}} blanket",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "small blanket",
+      "description": "a small blanket",
+      "tags": [
+        "blanket"
+      ],
+      "commonality": 0,
+      "profession_name": "spinner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "small {{.Resource.MainMaterial}} blanket",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "small {{.MainMaterial}} blanket",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "fabric",
+      "description": "a bolt of fabric",
+      "tags": [
+        "fabric"
+      ],
+      "commonality": 0,
+      "profession_name": "spinner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric fiber",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bolt of {{.Resource.MainMaterial}} fabric",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bolt of {{.MainMaterial}} fabric",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "fabric",
+      "description": "a bolt of fabric",
+      "tags": [
+        "fabric"
+      ],
+      "commonality": 0,
+      "profession_name": "spinner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "cotton",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bolt of velveteen fabric",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bolt of velveteen fabric",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "velveteen",
+      "value": 5
+    },
+    {
+      "name": "thread",
+      "description": "a spool of thread",
+      "tags": [
+        "thread"
+      ],
+      "commonality": 0,
+      "profession_name": "spinner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric fiber",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "spool of {{.Resource.MainMaterial}} thread",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "spool of {{.MainMaterial}} thread",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "quilt",
+      "description": "a quilt",
+      "tags": [
+        "blanket"
+      ],
+      "commonality": 0,
+      "profession_name": "spinner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} quilt",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} quilt",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    }
+  ]
+}

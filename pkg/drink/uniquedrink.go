@@ -2,6 +2,7 @@ package drink
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/pattern"
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/language"
@@ -16,16 +17,16 @@ type Method struct {
 	Producer        string `json:"producer"`
 }
 
-func generateUniqueDrinkPattern(lang language.Language, resources []resource.Resource) (resource.Pattern, error) {
+func generateUniqueDrinkPattern(lang language.Language, resources []resource.Resource) (pattern.Pattern, error) {
 	name, err := lang.NewWord()
 	if err != nil {
 		err = fmt.Errorf("failed to generate unique drink pattern: %w", err)
-		return resource.Pattern{}, err
+		return pattern.Pattern{}, err
 	}
 	method, err := getRandomMethod(resources)
 	if err != nil {
 		err = fmt.Errorf("failed to generate unique drink pattern: %w", err)
-		return resource.Pattern{}, err
+		return pattern.Pattern{}, err
 	}
 
 	filteredResources := resource.ByTag(method.BaseResourceTag, resources)
@@ -34,7 +35,7 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 
 	producer, _ := profession.ByName(method.Producer)
 
-	pattern := resource.Pattern{
+	pattern := pattern.Pattern{
 		Name:         name,
 		NameTemplate: name,
 		Description:  "a beverage called " + name + ", which is " + method.Name + " from " + baseResource.Name,
@@ -42,8 +43,8 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 			"alcohol",
 			"beverage",
 		},
-		Profession: producer,
-		Slots: []resource.Slot{
+		ProfessionName: producer.Name,
+		Slots: []pattern.Slot{
 			{
 				Name:                "body",
 				RequiredTag:         baseResource.Name,

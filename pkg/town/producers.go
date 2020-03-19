@@ -2,6 +2,7 @@ package town
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/pattern"
 
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/resource"
@@ -10,7 +11,7 @@ import (
 func getProducers(size int, resources []resource.Resource) ([]profession.Profession, error) {
 	var producers []profession.Profession
 
-	possibleProducers, err := resource.GetPossibleProfessions(resources)
+	possibleProducers, err := pattern.GetPossibleProfessions(resources)
 	if err != nil {
 		err = fmt.Errorf("failed to get producers: %w", err)
 		return []profession.Profession{}, err

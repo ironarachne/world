@@ -1,0 +1,221 @@
+{
+  "patterns": [
+    {
+      "name": "barrel",
+      "description": "a barrel",
+      "tags": [
+        "furniture"
+      ],
+      "commonality": 0,
+      "profession_name": "carpenter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wood barrel",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wood barrel",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "bench",
+      "description": "a bench",
+      "tags": [
+        "furniture"
+      ],
+      "commonality": 0,
+      "profession_name": "carpenter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wood bench",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wood bench",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 3
+    },
+    {
+      "name": "bowl",
+      "description": "a bowl",
+      "tags": [
+        "food vessel"
+      ],
+      "commonality": 0,
+      "profession_name": "carpenter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wood bowl",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wood bowl",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "cask",
+      "description": "a cask",
+      "tags": [
+        "furniture"
+      ],
+      "commonality": 0,
+      "profession_name": "carpenter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wood cask",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wood cask",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "chair",
+      "description": "a chair",
+      "tags": [
+        "furniture"
+      ],
+      "commonality": 0,
+      "profession_name": "carpenter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wood chair",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wood chair",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "table",
+      "description": "a table",
+      "tags": [
+        "furniture"
+      ],
+      "commonality": 0,
+      "profession_name": "carpenter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wood table",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wood table",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "tankard",
+      "description": "a tankard",
+      "tags": [
+        "drinking vessel"
+      ],
+      "commonality": 0,
+      "profession_name": "carpenter",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} wood tankard",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} wood tankard",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    }
+  ]
+}

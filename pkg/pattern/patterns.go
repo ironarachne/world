@@ -1,9 +1,10 @@
-package resource
+package pattern
 
 import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/ironarachne/world/pkg/resource"
 	"io/ioutil"
 	"math/rand"
 	"os"
@@ -20,45 +21,66 @@ type Data struct {
 
 // Pattern is a pattern for a resource
 type Pattern struct {
-	Name                 string                `json:"name" db:"name"`
-	Description          string                `json:"description" db:"description"`
-	Tags                 []string              `json:"tags" db:"tags"`
-	Commonality          int                   `json:"commonality" db:"commonality"`
-	Profession           profession.Profession `json:"profession" db:"profession"`
-	Slots                []Slot                `json:"slots" db:"slots"`
-	NameTemplate         string                `json:"name_template" db:"name_template"`
-	MainMaterial         string                `json:"main_material" db:"main_material"`
-	MainMaterialOverride string                `json:"main_material_override" db:"main_material_override"`
-	OriginOverride       string                `json:"origin_override" db:"origin_override"`
-	Value                int                   `json:"value" db:"value"`
+	Name                 string   `json:"name" db:"name"`
+	Description          string   `json:"description" db:"description"`
+	Tags                 []string `json:"tags" db:"tags"`
+	Commonality          int      `json:"commonality" db:"commonality"`
+	ProfessionName       string   `json:"profession_name" db:"profession_name"`
+	Slots                []Slot   `json:"slots" db:"slots"`
+	NameTemplate         string   `json:"name_template" db:"name_template"`
+	MainMaterial         string   `json:"main_material" db:"main_material"`
+	MainMaterialOverride string   `json:"main_material_override" db:"main_material_override"`
+	OriginOverride       string   `json:"origin_override" db:"origin_override"`
+	Value                int      `json:"value" db:"value"`
 }
 
 // Slot is a slot for a resource requirement
 type Slot struct {
-	Name                string   `json:"name" db:"name"`
-	RequiredTag         string   `json:"required_tag" db:"required_tag"`
-	Resource            Resource `json:"resource" db:"resource"`
-	DescriptionTemplate string   `json:"description_template" db:"description_template"`
-	PossibleQuirks      []string `json:"possible_quirks" db:"possible_quirks"`
+	Name                string            `json:"name" db:"name"`
+	RequiredTag         string            `json:"required_tag" db:"required_tag"`
+	Resource            resource.Resource `json:"resource" db:"resource"`
+	DescriptionTemplate string            `json:"description_template" db:"description_template"`
+	PossibleQuirks      []string          `json:"possible_quirks" db:"possible_quirks"`
 }
 
 // All returns all predefined patterns from JSON files on disk
 func All() ([]Pattern, error) {
-	all, err := LoadFromFile("patterns")
-	if err != nil {
-		err = fmt.Errorf("could not open data file: %w", err)
-		return []Pattern{}, err
+	var all []Pattern
+	var err error
+	var patterns []Pattern
+
+	patternFiles := []string{
+		"armor",
+		"carpentry",
+		"clothing",
+		"drinks",
+		"foods",
+		"miscellaneous",
+		"mounts",
+		"smithing",
+		"tools",
+		"vehicles",
+		"weapons",
+	}
+
+	for _, f := range patternFiles {
+		patterns, err = LoadFromFile("patterns/" + f)
+		if err != nil {
+			err = fmt.Errorf("could not open data file: %w", err)
+			return []Pattern{}, err
+		}
+		all = append(all, patterns...)
 	}
 
 	return all, nil
 }
 
-// FindPatternsForProfession returns all patterns from the set that a profession can make
-func FindPatternsForProfession(prof profession.Profession, from []Pattern) []Pattern {
+// ForProfession returns all patterns from the set that a profession can make
+func ForProfession(prof profession.Profession, from []Pattern) []Pattern {
 	var patterns []Pattern
 
 	for _, p := range from {
-		if p.Profession.Name == prof.Name {
+		if p.ProfessionName == prof.Name {
 			patterns = append(patterns, p)
 		}
 	}
@@ -67,7 +89,7 @@ func FindPatternsForProfession(prof profession.Profession, from []Pattern) []Pat
 }
 
 // GetPossibleProfessions gets all possible professions for a given set of resources
-func GetPossibleProfessions(resources []Resource) ([]profession.Profession, error) {
+func GetPossibleProfessions(resources []resource.Resource) ([]profession.Profession, error) {
 	var possiblePatterns []Pattern
 	possibleProducers, _ := profession.All()
 
@@ -82,7 +104,7 @@ func GetPossibleProfessions(resources []Resource) ([]profession.Profession, erro
 
 	for _, p := range possibleProducers {
 		patterns = []Pattern{}
-		possiblePatterns = FindPatternsForProfession(p, allPatterns)
+		possiblePatterns = ForProfession(p, allPatterns)
 
 		for _, i := range possiblePatterns {
 			if i.CanMake(resources) {
@@ -114,7 +136,11 @@ func LoadFromFile(name string) ([]Pattern, error) {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	json.Unmarshal(byteValue, &d)
+	err = json.Unmarshal(byteValue, &d)
+	if err != nil {
+		err = fmt.Errorf("could not unmarshal JSON data: %w", err)
+		return []Pattern{}, err
+	}
 
 	patterns := d.Patterns
 
@@ -127,12 +153,12 @@ func LoadFromFile(name string) ([]Pattern, error) {
 }
 
 // CanMake returns true if the pattern can be made with the resources given
-func (pattern Pattern) CanMake(resources []Resource) bool {
-	var matchingResources []Resource
+func (pattern Pattern) CanMake(resources []resource.Resource) bool {
+	var matchingResources []resource.Resource
 	possible := true
 
 	for _, s := range pattern.Slots {
-		matchingResources = ByTag(s.RequiredTag, resources)
+		matchingResources = resource.ByTag(s.RequiredTag, resources)
 		if len(matchingResources) == 0 {
 			possible = false
 		}
@@ -177,13 +203,13 @@ func (pattern Pattern) RenderDescription() (string, error) {
 }
 
 // ToResource transforms a completed pattern into a resource
-func (pattern Pattern) ToResource() (Resource, error) {
-	var resource Resource
+func (pattern Pattern) ToResource() (resource.Resource, error) {
+	var res resource.Resource
 
 	description, err := pattern.RenderDescription()
 	if err != nil {
 		err = fmt.Errorf("Failed to transform pattern into resource: %w", err)
-		return Resource{}, err
+		return resource.Resource{}, err
 	}
 
 	mainMaterial := pattern.Slots[0].Resource.MainMaterial
@@ -195,28 +221,28 @@ func (pattern Pattern) ToResource() (Resource, error) {
 	name, err := pattern.RenderName()
 	if err != nil {
 		err = fmt.Errorf("Failed to transform pattern into resource: %w", err)
-		return Resource{}, err
+		return resource.Resource{}, err
 	}
 
-	resource.Name = name
-	resource.Description = description
-	resource.MainMaterial = mainMaterial
-	resource.Origin = pattern.Slots[0].Resource.Origin
+	res.Name = name
+	res.Description = description
+	res.MainMaterial = mainMaterial
+	res.Origin = pattern.Slots[0].Resource.Origin
 	if pattern.OriginOverride != "" {
-		resource.Origin = pattern.OriginOverride
+		res.Origin = pattern.OriginOverride
 	}
-	resource.Tags = pattern.Tags
-	resource.Tags = append(resource.Tags, resource.Name)
-	resource.Commonality = pattern.Commonality
+	res.Tags = pattern.Tags
+	res.Tags = append(res.Tags, res.Name)
+	res.Commonality = pattern.Commonality
 	value := 0
 
 	for _, s := range pattern.Slots {
 		value += s.Resource.Value
 	}
 	value += pattern.Value
-	resource.Value = value
+	res.Value = value
 
-	return resource, nil
+	return res, nil
 }
 
 func (slot Slot) describe() (string, error) {

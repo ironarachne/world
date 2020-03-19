@@ -11,7 +11,7 @@ import (
 
 // All returns all predefined trees
 func All() ([]species.Species, error) {
-	trees, err := species.Load("trees")
+	trees, err := species.Load("plants/trees")
 	if err != nil {
 		err = fmt.Errorf("could not load trees: %w", err)
 		return []species.Species{}, err

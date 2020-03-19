@@ -1,0 +1,627 @@
+{
+  "patterns": [
+    {
+      "name": "backpack",
+      "description": "a backpack",
+      "tags": [
+        "belt",
+        "clothing"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} leather backpack",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} leather backpack",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "small bag",
+      "description": "a small bag",
+      "tags": [
+        "belt",
+        "clothing"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "small {{.Resource.MainMaterial}} bag",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "small {{.MainMaterial}} bag",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "medium bag",
+      "description": "a medium bag",
+      "tags": [
+        "belt",
+        "clothing"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "medium {{.Resource.MainMaterial}} bag",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "medium {{.MainMaterial}} bag",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "large bag",
+      "description": "a large bag",
+      "tags": [
+        "belt",
+        "clothing"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "large {{.Resource.MainMaterial}} bag",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "large {{.MainMaterial}} bag",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "belt",
+      "description": "belt",
+      "tags": [
+        "belt",
+        "clothing"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} leather belt",
+          "possible_quirks": null
+        },
+        {
+          "name": "buckle",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} buckle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} leather belt",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "blouse",
+      "description": "a blouse with long sleeves",
+      "tags": [
+        "clothing",
+        "shirt"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} blouse",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} blouse",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "breeches",
+      "description": "breeches",
+      "tags": [
+        "clothing",
+        "pants"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} breeches",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} breeches",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "dress",
+      "description": "a dress with long sleeves",
+      "tags": [
+        "clothing",
+        "dress"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} dress",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} dress",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "pants",
+      "description": "pants",
+      "tags": [
+        "clothing",
+        "pants"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} pants",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} pants",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "shirt",
+      "description": "a shirt with long sleeves",
+      "tags": [
+        "clothing",
+        "shirt"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} shirt",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} shirt",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "tunic",
+      "description": "a tunic with long sleeves that reaches down to the knees",
+      "tags": [
+        "clothing",
+        "shirt"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} tunic",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} tunic",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "short tunic",
+      "description": "a tunic with long sleeves that reaches down to the waist",
+      "tags": [
+        "clothing",
+        "shirt"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "short {{.Resource.MainMaterial}} tunic",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "short {{.MainMaterial}} tunic",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "long tunic",
+      "description": "a tunic with long sleeves that reaches down to the knees",
+      "tags": [
+        "clothing",
+        "shirt"
+      ],
+      "commonality": 0,
+      "profession_name": "tailor",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "long {{.Resource.MainMaterial}} tunic",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "long {{.MainMaterial}} tunic",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "boots",
+      "description": "boots",
+      "tags": [
+        "clothing",
+        "footwear"
+      ],
+      "commonality": 0,
+      "profession_name": "cobbler",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} leather boots",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} leather boots",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "boots",
+      "description": "boots",
+      "tags": [
+        "clothing",
+        "footwear"
+      ],
+      "commonality": 0,
+      "profession_name": "cobbler",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} hide boots",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} hide boots",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "sandals",
+      "description": "sandals",
+      "tags": [
+        "clothing",
+        "footwear"
+      ],
+      "commonality": 0,
+      "profession_name": "cobbler",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} hide sandals",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} hide sandals",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "shoes",
+      "description": "shoes",
+      "tags": [
+        "clothing",
+        "footwear"
+      ],
+      "commonality": 0,
+      "profession_name": "cobbler",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} hide shoes",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} hide shoes",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "slippers",
+      "description": "slippers",
+      "tags": [
+        "clothing",
+        "footwear"
+      ],
+      "commonality": 0,
+      "profession_name": "cobbler",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} slippers",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} slippers",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "turnshoes",
+      "description": "turnshoes",
+      "tags": [
+        "clothing",
+        "footwear"
+      ],
+      "commonality": 0,
+      "profession_name": "cobbler",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} hide turnshoes",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} hide turnshoes",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    }
+  ]
+}

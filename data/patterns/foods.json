@@ -1,0 +1,97 @@
+{
+  "patterns": [
+    {
+      "name": "bread",
+      "description": "a loaf of simple bread",
+      "tags": [
+        "bread"
+      ],
+      "commonality": 0,
+      "profession_name": "baker",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "flour",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} bread",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} bread",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "roll",
+      "description": "a small hand-sized roll",
+      "tags": [
+        "bread"
+      ],
+      "commonality": 0,
+      "profession_name": "baker",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "flour",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} roll",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} roll",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "flour",
+      "description": "flour",
+      "tags": [
+        "flour"
+      ],
+      "commonality": 0,
+      "profession_name": "miller",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "grain",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bag of {{.Resource.MainMaterial}} flour",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bag of {{.MainMaterial}} flour",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    }
+  ]
+}

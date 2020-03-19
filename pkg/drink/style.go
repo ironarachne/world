@@ -2,6 +2,7 @@ package drink
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/pkg/pattern"
 
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/random"
@@ -14,10 +15,10 @@ const toastingRuleError = "failed to generate random toasting rules: %w"
 
 // Style is a type of drinking culture
 type Style struct {
-	TheToast           string           `json:"the_toast"`
-	ToastingRules      []string         `json:"toasting_rules"`
-	UniqueDrinkPattern resource.Pattern `json:"unique_drink_pattern"`
-	SocialRules        []string         `json:"social_rules"`
+	TheToast           string          `json:"the_toast"`
+	ToastingRules      []string        `json:"toasting_rules"`
+	UniqueDrinkPattern pattern.Pattern `json:"unique_drink_pattern"`
+	SocialRules        []string        `json:"social_rules"`
 }
 
 // Generate procedurally generates a drinking style based on a set of available resources
