@@ -470,7 +470,7 @@
     },
     {
       "name": "rye",
-      "plural_name": "ryes",
+      "plural_name": "rye",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -564,7 +564,7 @@
     },
     {
       "name": "millet",
-      "plural_name": "millets",
+      "plural_name": "millet",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -595,7 +595,7 @@
     },
     {
       "name": "barley",
-      "plural_name": "barleys",
+      "plural_name": "barley",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -626,7 +626,7 @@
     },
     {
       "name": "wheat",
-      "plural_name": "wheats",
+      "plural_name": "wheat",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -657,7 +657,7 @@
     },
     {
       "name": "einkorn",
-      "plural_name": "einkorns",
+      "plural_name": "einkorn",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -688,7 +688,7 @@
     },
     {
       "name": "spelt",
-      "plural_name": "spelts",
+      "plural_name": "spelt",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -753,7 +753,7 @@
     },
     {
       "name": "rice",
-      "plural_name": "rices",
+      "plural_name": "rice",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -788,7 +788,7 @@
     },
     {
       "name": "parsley",
-      "plural_name": "parsleys",
+      "plural_name": "parsley",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -820,7 +820,7 @@
     },
     {
       "name": "brahmi",
-      "plural_name": "brahmis",
+      "plural_name": "brahmi",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -851,7 +851,7 @@
     },
     {
       "name": "basil",
-      "plural_name": "basils",
+      "plural_name": "basil",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -883,7 +883,7 @@
     },
     {
       "name": "cilantro",
-      "plural_name": "cilantros",
+      "plural_name": "cilantro",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -917,7 +917,7 @@
     },
     {
       "name": "saffron",
-      "plural_name": "saffrons",
+      "plural_name": "saffron",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -948,7 +948,7 @@
     },
     {
       "name": "rosemary",
-      "plural_name": "rosemarys",
+      "plural_name": "rosemary",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1035,7 +1035,7 @@
     },
     {
       "name": "oregano",
-      "plural_name": "oregano plants",
+      "plural_name": "oregano",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1067,7 +1067,7 @@
     },
     {
       "name": "mint",
-      "plural_name": "mint plants",
+      "plural_name": "mint",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1099,7 +1099,7 @@
     },
     {
       "name": "lemongrass",
-      "plural_name": "lemongrass plants",
+      "plural_name": "lemongrass",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1131,7 +1131,7 @@
     },
     {
       "name": "sugarcane",
-      "plural_name": "sugarcane plants",
+      "plural_name": "sugarcane",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1164,7 +1164,7 @@
     },
     {
       "name": "coriander",
-      "plural_name": "corianders",
+      "plural_name": "coriander",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1196,7 +1196,7 @@
     },
     {
       "name": "clove",
-      "plural_name": "cloves",
+      "plural_name": "clove",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1228,7 +1228,7 @@
     },
     {
       "name": "turmeric",
-      "plural_name": "turmerics",
+      "plural_name": "turmeric",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1259,7 +1259,7 @@
     },
     {
       "name": "vanilla",
-      "plural_name": "vanillas",
+      "plural_name": "vanilla",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1291,7 +1291,7 @@
     },
     {
       "name": "galangal",
-      "plural_name": "galangals",
+      "plural_name": "galangal",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1323,7 +1323,7 @@
     },
     {
       "name": "ginger",
-      "plural_name": "gingers",
+      "plural_name": "ginger",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1355,7 +1355,7 @@
     },
     {
       "name": "cantaloupe",
-      "plural_name": "cantaloupes",
+      "plural_name": "cantaloupe",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1387,7 +1387,7 @@
     },
     {
       "name": "honeydew",
-      "plural_name": "honeydews",
+      "plural_name": "honeydew",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1420,7 +1420,7 @@
     },
     {
       "name": "watermelon",
-      "plural_name": "watermelons",
+      "plural_name": "watermelon",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1453,7 +1453,7 @@
     },
     {
       "name": "acorn squash",
-      "plural_name": "acorn squashes",
+      "plural_name": "acorn squash",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1485,7 +1485,7 @@
     },
     {
       "name": "buttercup squash",
-      "plural_name": "buttercup squashes",
+      "plural_name": "buttercup squash",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1516,7 +1516,7 @@
     },
     {
       "name": "butternut squash",
-      "plural_name": "butternut squashes",
+      "plural_name": "butternut squash",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1587,7 +1587,7 @@
     },
     {
       "name": "spaghetti squash",
-      "plural_name": "spaghetti squashes",
+      "plural_name": "spaghetti squash",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -1916,7 +1916,7 @@
     },
     {
       "name": "kohlrabi",
-      "plural_name": "kohlrabis",
+      "plural_name": "kohlrabi",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2043,7 +2043,7 @@
     },
     {
       "name": "broccoli",
-      "plural_name": "broccolis",
+      "plural_name": "broccoli",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2074,7 +2074,7 @@
     },
     {
       "name": "cauliflower",
-      "plural_name": "cauliflowers",
+      "plural_name": "cauliflower",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2171,7 +2171,7 @@
     },
     {
       "name": "bok choy",
-      "plural_name": "bok choys",
+      "plural_name": "bok choy",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2426,7 +2426,7 @@
     },
     {
       "name": "corn",
-      "plural_name": "corns",
+      "plural_name": "corn",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2491,7 +2491,7 @@
     },
     {
       "name": "habanero",
-      "plural_name": "habaneros",
+      "plural_name": "habanero peppers",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2524,7 +2524,7 @@
     },
     {
       "name": "serrano",
-      "plural_name": "serranos",
+      "plural_name": "serrano peppers",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2601,7 +2601,7 @@
     },
     {
       "name": "clover",
-      "plural_name": "clovers",
+      "plural_name": "clover",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2659,7 +2659,7 @@
     },
     {
       "name": "button mushroom",
-      "plural_name": "button mushroom",
+      "plural_name": "button mushrooms",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2681,28 +2681,7 @@
           ],
           "commonality": 5,
           "value": 1
-        }
-      ],
-      "tags": [
-        "fungus",
-        "mushroom",
-        "grassland",
-        "temperate"
-      ]
-    },
-    {
-      "name": "portobello mushroom",
-      "plural_name": "portobello mushroom",
-      "adjective": "",
-      "commonality": 0,
-      "possible_traits": null,
-      "common_traits": null,
-      "age_categories": null,
-      "min_humidity": 20,
-      "max_humidity": 80,
-      "min_temperature": 20,
-      "max_temperature": 80,
-      "resources": [
+        },
         {
           "name": "portobello mushrooms",
           "description": "",
@@ -2725,7 +2704,7 @@
     },
     {
       "name": "oyster mushroom",
-      "plural_name": "oyster mushroom",
+      "plural_name": "oyster mushrooms",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2758,7 +2737,7 @@
     },
     {
       "name": "straw mushroom",
-      "plural_name": "straw mushroom",
+      "plural_name": "straw mushrooms",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2792,7 +2771,7 @@
     },
     {
       "name": "morel mushroom",
-      "plural_name": "morel mushroom",
+      "plural_name": "morel mushrooms",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2825,7 +2804,7 @@
     },
     {
       "name": "death cap mushroom",
-      "plural_name": "death cap mushroom",
+      "plural_name": "death cap mushrooms",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2924,7 +2903,7 @@
     },
     {
       "name": "opium poppy",
-      "plural_name": "opium poppy",
+      "plural_name": "opium poppies",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -2990,7 +2969,7 @@
     },
     {
       "name": "reed",
-      "plural_name": "reed",
+      "plural_name": "reeds",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -3023,7 +3002,7 @@
     },
     {
       "name": "giant reed",
-      "plural_name": "giant reed",
+      "plural_name": "giant reeds",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -3056,7 +3035,7 @@
     },
     {
       "name": "cattail",
-      "plural_name": "cattail",
+      "plural_name": "cattails",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -3074,7 +3053,7 @@
     },
     {
       "name": "rush",
-      "plural_name": "rush",
+      "plural_name": "rushes",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -3093,7 +3072,7 @@
     },
     {
       "name": "horsetail",
-      "plural_name": "horsetail",
+      "plural_name": "horsetails",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,

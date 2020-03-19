@@ -219,7 +219,7 @@
     },
     {
       "name": "lavender",
-      "plural_name": "lavender plants",
+      "plural_name": "lavender",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -249,7 +249,7 @@
     },
     {
       "name": "thyme",
-      "plural_name": "thyme plants",
+      "plural_name": "thyme",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -282,7 +282,7 @@
     },
     {
       "name": "sage",
-      "plural_name": "sage plants",
+      "plural_name": "sage",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
@@ -315,7 +315,7 @@
     },
     {
       "name": "indigo",
-      "plural_name": "indigo plants",
+      "plural_name": "indigo",
       "adjective": "",
       "commonality": 0,
       "possible_traits": null,
