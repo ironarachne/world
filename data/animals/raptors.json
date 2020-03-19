@@ -1,0 +1,104 @@
+{
+  "species": [
+    {
+      "name": "eagle",
+      "plural_name": "eagles",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "eagle feathers",
+          "description": "",
+          "main_material": "eagle",
+          "origin": "eagle",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 10
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "raptor",
+        "large raptor",
+        "carnivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "falcon",
+      "plural_name": "falcons",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "falcon feathers",
+          "description": "",
+          "main_material": "falcon",
+          "origin": "falcon",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "raptor",
+        "carnivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "hawk",
+      "plural_name": "hawks",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "hawk feathers",
+          "description": "",
+          "main_material": "hawk",
+          "origin": "hawk",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "raptor",
+        "carnivore",
+        "temperate"
+      ]
+    }
+  ]
+}

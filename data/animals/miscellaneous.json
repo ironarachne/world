@@ -1,0 +1,2215 @@
+{
+  "species": [
+    {
+      "name": "peacock",
+      "plural_name": "peacocks",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "peacock feathers",
+          "description": "",
+          "main_material": "peacock",
+          "origin": "peacock",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "temperate"
+      ]
+    },
+    {
+      "name": "beaver",
+      "plural_name": "beavers",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 60,
+      "resources": [
+        {
+          "name": "beaver hide",
+          "description": "",
+          "main_material": "beaver",
+          "origin": "beaver",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "beaver teeth",
+          "description": "",
+          "main_material": "beaver",
+          "origin": "beaver",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "beaver meat",
+          "description": "",
+          "main_material": "beaver",
+          "origin": "beaver",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "beaver sinew",
+          "description": "",
+          "main_material": "beaver",
+          "origin": "beaver",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "beaver",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "platypus",
+      "plural_name": "platypi",
+      "adjective": "platypus",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 10,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "platypus venom",
+          "description": "",
+          "main_material": "platypus venom",
+          "origin": "platypus",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 1,
+          "value": 3
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "river",
+        "platypus"
+      ]
+    },
+    {
+      "name": "echidna",
+      "plural_name": "echidnas",
+      "adjective": "echidna",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "temperate",
+        "semiarid",
+        "echidna"
+      ]
+    },
+    {
+      "name": "kangaroo",
+      "plural_name": "kangaroos",
+      "adjective": "kangaroo",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "kangaroo",
+          "description": "",
+          "main_material": "kangaroo",
+          "origin": "kangaroo",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "temperate",
+        "semiarid",
+        "marsupial"
+      ]
+    },
+    {
+      "name": "possum",
+      "plural_name": "possums",
+      "adjective": "possum",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "possum",
+          "description": "",
+          "main_material": "possum",
+          "origin": "possum",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "forest",
+        "temperate",
+        "semiarid",
+        "marsupial"
+      ]
+    },
+    {
+      "name": "bandicoot",
+      "plural_name": "bandicoots",
+      "adjective": "bandicoot",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "bandicoot",
+          "description": "",
+          "main_material": "bandicoot",
+          "origin": "bandicoot",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "temperate",
+        "semiarid",
+        "marsupial"
+      ]
+    },
+    {
+      "name": "armadillo",
+      "plural_name": "armadillos",
+      "adjective": "armadillo",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "armadillo",
+          "description": "",
+          "main_material": "armadillo",
+          "origin": "armadillo",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "insectivore",
+        "grassland",
+        "temperate",
+        "semiarid"
+      ]
+    },
+    {
+      "name": "anteater",
+      "plural_name": "anteaters",
+      "adjective": "anteater",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "anteater",
+          "description": "",
+          "main_material": "anteater",
+          "origin": "anteater",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "grassland",
+        "insectivore",
+        "temperate",
+        "semiarid"
+      ]
+    },
+    {
+      "name": "tree sloth",
+      "plural_name": "tree sloths",
+      "adjective": "tree sloth",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "tree sloth",
+          "description": "",
+          "main_material": "tree sloth",
+          "origin": "tree sloth",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "forest"
+      ]
+    },
+    {
+      "name": "camel",
+      "plural_name": "camels",
+      "adjective": "camel",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "camel hide",
+          "description": "",
+          "main_material": "camel",
+          "origin": "camel",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "camel teeth",
+          "description": "",
+          "main_material": "camel",
+          "origin": "camel",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "camel",
+          "description": "",
+          "main_material": "camel",
+          "origin": "camel",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "camel",
+          "description": "",
+          "main_material": "camel",
+          "origin": "camel",
+          "tags": [
+            "mount"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "camel milk",
+          "description": "",
+          "main_material": "camel",
+          "origin": "camel",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "camel sinew",
+          "description": "",
+          "main_material": "camel",
+          "origin": "camel",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "desert",
+        "hide",
+        "arid"
+      ]
+    },
+    {
+      "name": "bison",
+      "plural_name": "bison",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 60,
+      "resources": [
+        {
+          "name": "bison hide",
+          "description": "",
+          "main_material": "bison",
+          "origin": "bison",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bison teeth",
+          "description": "",
+          "main_material": "bison",
+          "origin": "bison",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bison",
+          "description": "",
+          "main_material": "bison",
+          "origin": "bison",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bison bone",
+          "description": "",
+          "main_material": "bison",
+          "origin": "bison",
+          "tags": [
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bison sinew",
+          "description": "",
+          "main_material": "bison",
+          "origin": "bison",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "grassland",
+        "temperate",
+        "large"
+      ]
+    },
+    {
+      "name": "cow",
+      "plural_name": "cows",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "calf brains",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "brains",
+            "meat"
+          ],
+          "commonality": 2,
+          "value": 5
+        },
+        {
+          "name": "cow hide",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cow teeth",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "beef",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "beef loin",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "beef ribs",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cow bone",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cow sinew",
+          "description": "",
+          "main_material": "cow",
+          "origin": "cow",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "grassland",
+        "temperate",
+        "semiarid",
+        "cow"
+      ]
+    },
+    {
+      "name": "elephant",
+      "plural_name": "elephants",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "elephant hide",
+          "description": "",
+          "main_material": "elephant",
+          "origin": "elephant",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elephant milk",
+          "description": "",
+          "main_material": "elephant",
+          "origin": "elephant",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elephant",
+          "description": "",
+          "main_material": "elephant",
+          "origin": "elephant",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "ivory",
+          "description": "",
+          "main_material": "elephant",
+          "origin": "elephant",
+          "tags": [
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elephant sinew",
+          "description": "",
+          "main_material": "elephant",
+          "origin": "elephant",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "desert",
+        "rainforest",
+        "semiarid",
+        "arid",
+        "tropical",
+        "large"
+      ]
+    },
+    {
+      "name": "goat",
+      "plural_name": "goats",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "goat hide",
+          "description": "",
+          "main_material": "goat",
+          "origin": "goat",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "goat's milk",
+          "description": "",
+          "main_material": "goat",
+          "origin": "goat",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "goat",
+          "description": "",
+          "main_material": "goat",
+          "origin": "goat",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "goat sinew",
+          "description": "",
+          "main_material": "goat",
+          "origin": "goat",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "semiarid",
+        "grassland",
+        "forest",
+        "montane"
+      ]
+    },
+    {
+      "name": "mountain goat",
+      "plural_name": "mountain goats",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "mountain goat hide",
+          "description": "",
+          "main_material": "mountain goat",
+          "origin": "mountain goat",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "mountain goat milk",
+          "description": "",
+          "main_material": "mountain goat milk",
+          "origin": "mountain goat",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "mountain goat",
+          "description": "",
+          "main_material": "mountain goat",
+          "origin": "mountain goat",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "mountain goat sinew",
+          "description": "",
+          "main_material": "mountain goat",
+          "origin": "mountain goat",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "mountain goat horn",
+          "description": "",
+          "main_material": "mountain goat horn",
+          "origin": "mountain goat",
+          "tags": [
+            "horn"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "semiarid",
+        "montane"
+      ]
+    },
+    {
+      "name": "chamois",
+      "plural_name": "chamois",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "chamois hide",
+          "description": "",
+          "main_material": "chamois",
+          "origin": "chamois",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "chamois's milk",
+          "description": "",
+          "main_material": "chamois",
+          "origin": "chamois",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "chamois",
+          "description": "",
+          "main_material": "chamois",
+          "origin": "chamois",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "chamois sinew",
+          "description": "",
+          "main_material": "chamois",
+          "origin": "chamois",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "semiarid",
+        "montane"
+      ]
+    },
+    {
+      "name": "sheep",
+      "plural_name": "sheep",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "wool",
+          "description": "",
+          "main_material": "sheep",
+          "origin": "sheep",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "sheep's milk",
+          "description": "",
+          "main_material": "sheep",
+          "origin": "sheep",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "lamb",
+          "description": "",
+          "main_material": "sheep",
+          "origin": "sheep",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "sheep sinew",
+          "description": "",
+          "main_material": "sheep",
+          "origin": "sheep",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "wool",
+        "temperate",
+        "semiarid",
+        "grassland",
+        "montane"
+      ]
+    },
+    {
+      "name": "tahr",
+      "plural_name": "tahr",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "tahr hide",
+          "description": "",
+          "main_material": "tahr",
+          "origin": "tahr",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "tahr's milk",
+          "description": "",
+          "main_material": "tahr",
+          "origin": "tahr",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "tahr meat",
+          "description": "",
+          "main_material": "tahr",
+          "origin": "tahr",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "tahr sinew",
+          "description": "",
+          "main_material": "tahr",
+          "origin": "tahr",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "wool",
+        "temperate",
+        "arid",
+        "semiarid",
+        "grassland",
+        "montane"
+      ]
+    },
+    {
+      "name": "alpaca",
+      "plural_name": "alpacas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 40,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "alpaca wool",
+          "description": "",
+          "main_material": "alpaca",
+          "origin": "alpaca",
+          "tags": [
+            "wool"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "alpaca milk",
+          "description": "",
+          "main_material": "alpaca",
+          "origin": "alpaca",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "alpaca",
+          "description": "",
+          "main_material": "alpaca",
+          "origin": "alpaca",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "alpaca sinew",
+          "description": "",
+          "main_material": "alpaca",
+          "origin": "alpaca",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "wool",
+        "temperate",
+        "montane"
+      ]
+    },
+    {
+      "name": "llama",
+      "plural_name": "llamas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "llama wool",
+          "description": "",
+          "main_material": "llama",
+          "origin": "llama",
+          "tags": [
+            "wool"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "llama",
+          "description": "",
+          "main_material": "llama",
+          "origin": "llama",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "llama milk",
+          "description": "",
+          "main_material": "llama",
+          "origin": "llama",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "llama sinew",
+          "description": "",
+          "main_material": "llama",
+          "origin": "llama",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "wool",
+        "temperate",
+        "montane"
+      ]
+    },
+    {
+      "name": "hippopotamus",
+      "plural_name": "hippopotamuses",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "hippopotamus hide",
+          "description": "",
+          "main_material": "hippopotamus",
+          "origin": "hippopotamus",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "hippopotamus",
+          "description": "",
+          "main_material": "hippopotamus",
+          "origin": "hippopotamus",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "hippopotamus milk",
+          "description": "",
+          "main_material": "hippopotamus",
+          "origin": "hippopotamus",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "semiarid",
+        "arid",
+        "river",
+        "large"
+      ]
+    },
+    {
+      "name": "antelope",
+      "plural_name": "antelopes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "antelope hide",
+          "description": "",
+          "main_material": "antelope",
+          "origin": "antelope",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "antelope",
+          "description": "",
+          "main_material": "antelope",
+          "origin": "antelope",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "antelope milk",
+          "description": "",
+          "main_material": "antelope",
+          "origin": "antelope",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "antelope sinew",
+          "description": "",
+          "main_material": "antelope",
+          "origin": "antelope",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "desert",
+        "grassland",
+        "arid"
+      ]
+    },
+    {
+      "name": "gazelle",
+      "plural_name": "gazelles",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "gazelle hide",
+          "description": "",
+          "main_material": "gazelle",
+          "origin": "gazelle",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "gazelle",
+          "description": "",
+          "main_material": "gazelle",
+          "origin": "gazelle",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "gazelle milk",
+          "description": "",
+          "main_material": "gazelle",
+          "origin": "gazelle",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "gazelle sinew",
+          "description": "",
+          "main_material": "gazelle",
+          "origin": "gazelle",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "grassland",
+        "desert",
+        "arid"
+      ]
+    },
+    {
+      "name": "impala",
+      "plural_name": "impalas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "impala hide",
+          "description": "",
+          "main_material": "impala",
+          "origin": "impala",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "impala",
+          "description": "",
+          "main_material": "impala",
+          "origin": "impala",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "impala milk",
+          "description": "",
+          "main_material": "impala",
+          "origin": "impala",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "impala sinew",
+          "description": "",
+          "main_material": "impala",
+          "origin": "impala",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "grassland",
+        "desert",
+        "arid"
+      ]
+    },
+    {
+      "name": "wildebeest",
+      "plural_name": "wildebeests",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "wildebeest hide",
+          "description": "",
+          "main_material": "wildebeest",
+          "origin": "wildebeest",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "wildebeest",
+          "description": "",
+          "main_material": "wildebeest",
+          "origin": "wildebeest",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "wildebeest milk",
+          "description": "",
+          "main_material": "wildebeest",
+          "origin": "wildebeest",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "wildebeest sinew",
+          "description": "",
+          "main_material": "wildebeest",
+          "origin": "wildebeest",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "river",
+        "arid"
+      ]
+    },
+    {
+      "name": "kudu",
+      "plural_name": "kudus",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "kudu hide",
+          "description": "",
+          "main_material": "kudu",
+          "origin": "kudu",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "kudu",
+          "description": "",
+          "main_material": "kudu",
+          "origin": "kudu",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "kudu milk",
+          "description": "",
+          "main_material": "kudu",
+          "origin": "kudu",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "kudu sinew",
+          "description": "",
+          "main_material": "kudu",
+          "origin": "kudu",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "grassland",
+        "arid"
+      ]
+    },
+    {
+      "name": "springbok",
+      "plural_name": "springboks",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "springbok hide",
+          "description": "",
+          "main_material": "springbok",
+          "origin": "springbok",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "springbok",
+          "description": "",
+          "main_material": "springbok",
+          "origin": "springbok",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "springbok milk",
+          "description": "",
+          "main_material": "springbok",
+          "origin": "springbok",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "springbok sinew",
+          "description": "",
+          "main_material": "springbok",
+          "origin": "springbok",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "grassland",
+        "arid"
+      ]
+    },
+    {
+      "name": "pronghorn",
+      "plural_name": "pronghorns",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "pronghorn hide",
+          "description": "",
+          "main_material": "pronghorn",
+          "origin": "pronghorn",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pronghorn",
+          "description": "",
+          "main_material": "pronghorn",
+          "origin": "pronghorn",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pronghorn milk",
+          "description": "",
+          "main_material": "pronghorn",
+          "origin": "pronghorn",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pronghorn sinew",
+          "description": "",
+          "main_material": "pronghorn",
+          "origin": "pronghorn",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "semiarid",
+        "grassland",
+        "montane",
+        "temperate"
+      ]
+    },
+    {
+      "name": "rabbit",
+      "plural_name": "rabbits",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "rabbit hide",
+          "description": "",
+          "main_material": "rabbit",
+          "origin": "rabbit",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "rabbit",
+          "description": "",
+          "main_material": "rabbit",
+          "origin": "rabbit",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "semiarid",
+        "grassland",
+        "forest",
+        "montane",
+        "rabbit"
+      ]
+    },
+    {
+      "name": "hare",
+      "plural_name": "hares",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "hare hide",
+          "description": "",
+          "main_material": "hare",
+          "origin": "hare",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "hare",
+          "description": "",
+          "main_material": "hare",
+          "origin": "hare",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "semiarid",
+        "grassland",
+        "hare"
+      ]
+    },
+    {
+      "name": "jackrabbit",
+      "plural_name": "jackrabbits",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 70,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "jackrabbit hide",
+          "description": "",
+          "main_material": "jackrabbit",
+          "origin": "jackrabbit",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "jackrabbit",
+          "description": "",
+          "main_material": "jackrabbit",
+          "origin": "jackrabbit",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "grassland",
+        "semiarid",
+        "hare"
+      ]
+    },
+    {
+      "name": "pika",
+      "plural_name": "pikas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 70,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "pika hide",
+          "description": "",
+          "main_material": "pika",
+          "origin": "pika",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pika",
+          "description": "",
+          "main_material": "pika",
+          "origin": "pika",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "semiarid",
+        "grassland",
+        "montane",
+        "pika"
+      ]
+    },
+    {
+      "name": "hedgehog",
+      "plural_name": "hedgehogs",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 10,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "hedgehog hide",
+          "description": "",
+          "main_material": "hedgehog",
+          "origin": "hedgehog",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "hedgehog",
+          "description": "",
+          "main_material": "hedgehog",
+          "origin": "hedgehog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "forest",
+        "semiarid",
+        "hedgehog"
+      ]
+    },
+    {
+      "name": "bat",
+      "plural_name": "bats",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "bat wing",
+          "description": "",
+          "main_material": "bat wing",
+          "origin": "bat",
+          "tags": [
+            "wing",
+            "potion ingredient"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bat",
+          "description": "",
+          "main_material": "bat",
+          "origin": "bat",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "insectivore",
+        "temperate",
+        "semiarid",
+        "forest",
+        "cave",
+        "avian",
+        "bat"
+      ]
+    },
+    {
+      "name": "flying fox",
+      "plural_name": "flying foxes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "flying fox wing",
+          "description": "",
+          "main_material": "flying fox wing",
+          "origin": "flying fox",
+          "tags": [
+            "wing",
+            "potion ingredient"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "flying fox",
+          "description": "",
+          "main_material": "flying fox",
+          "origin": "flying fox",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "insectivore",
+        "temperate",
+        "forest",
+        "grassland",
+        "semiarid",
+        "avian",
+        "bat"
+      ]
+    },
+    {
+      "name": "ermine",
+      "plural_name": "ermines",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 60,
+      "resources": [
+        {
+          "name": "ermine fur",
+          "description": "",
+          "main_material": "ermine",
+          "origin": "ermine",
+          "tags": [
+            "fur"
+          ],
+          "commonality": 5,
+          "value": 10
+        },
+        {
+          "name": "ermine",
+          "description": "",
+          "main_material": "ermine",
+          "origin": "ermine",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "mink",
+      "plural_name": "minks",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 60,
+      "resources": [
+        {
+          "name": "mink fur",
+          "description": "",
+          "main_material": "mink",
+          "origin": "mink",
+          "tags": [
+            "fur"
+          ],
+          "commonality": 5,
+          "value": 10
+        },
+        {
+          "name": "mink",
+          "description": "",
+          "main_material": "mink",
+          "origin": "mink",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "raccoon",
+      "plural_name": "raccoons",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "raccoon hide",
+          "description": "",
+          "main_material": "raccoon",
+          "origin": "raccoon",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "raccoon",
+          "description": "",
+          "main_material": "raccoon",
+          "origin": "raccoon",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "forest",
+        "herbivore",
+        "temperate"
+      ]
+    }
+  ]
+}

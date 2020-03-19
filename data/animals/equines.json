@@ -1,0 +1,244 @@
+{
+  "species": [
+    {
+      "name": "horse",
+      "plural_name": "horses",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "horse hide",
+          "description": "",
+          "main_material": "horse",
+          "origin": "horse",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "horse milk",
+          "description": "",
+          "main_material": "horse",
+          "origin": "horse",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "horse",
+          "description": "",
+          "main_material": "horse",
+          "origin": "horse",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "horse",
+          "description": "",
+          "main_material": "horse",
+          "origin": "horse",
+          "tags": [
+            "mount"
+          ],
+          "commonality": 7,
+          "value": 50
+        },
+        {
+          "name": "horse",
+          "description": "",
+          "main_material": "horse",
+          "origin": "horse",
+          "tags": [
+            "pack animal"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "animal",
+        "equine",
+        "herbivore",
+        "hide",
+        "grassland",
+        "mammal",
+        "temperate",
+        "semiarid"
+      ]
+    },
+    {
+      "name": "donkey",
+      "plural_name": "donkeys",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "donkey hide",
+          "description": "",
+          "main_material": "donkey",
+          "origin": "donkey",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "donkey milk",
+          "description": "",
+          "main_material": "donkey",
+          "origin": "donkey",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "donkey",
+          "description": "",
+          "main_material": "donkey",
+          "origin": "donkey",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "donkey",
+          "description": "",
+          "main_material": "donkey",
+          "origin": "donkey",
+          "tags": [
+            "mount"
+          ],
+          "commonality": 7,
+          "value": 50
+        },
+        {
+          "name": "donkey",
+          "description": "",
+          "main_material": "donkey",
+          "origin": "donkey",
+          "tags": [
+            "pack animal"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "animal",
+        "equine",
+        "herbivore",
+        "hide",
+        "grassland",
+        "montane",
+        "mammal",
+        "temperate",
+        "semiarid"
+      ]
+    },
+    {
+      "name": "zebra",
+      "plural_name": "zebras",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "zebra hide",
+          "description": "",
+          "main_material": "zebra",
+          "origin": "zebra",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "zebra milk",
+          "description": "",
+          "main_material": "zebra",
+          "origin": "zebra",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "zebra",
+          "description": "",
+          "main_material": "zebra",
+          "origin": "zebra",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "zebra",
+          "description": "",
+          "main_material": "zebra",
+          "origin": "zebra",
+          "tags": [
+            "mount"
+          ],
+          "commonality": 7,
+          "value": 50
+        },
+        {
+          "name": "zebra",
+          "description": "",
+          "main_material": "zebra",
+          "origin": "zebra",
+          "tags": [
+            "pack animal"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "animal",
+        "equine",
+        "herbivore",
+        "hide",
+        "desert",
+        "mammal",
+        "arid"
+      ]
+    }
+  ]
+}

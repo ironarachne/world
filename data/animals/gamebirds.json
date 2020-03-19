@@ -1,0 +1,406 @@
+{
+  "species": [
+    {
+      "name": "chicken",
+      "plural_name": "chickens",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "chicken eggs",
+          "description": "",
+          "main_material": "chicken",
+          "origin": "chicken",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "chicken feathers",
+          "description": "",
+          "main_material": "chicken",
+          "origin": "chicken",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "chicken",
+          "description": "",
+          "main_material": "chicken",
+          "origin": "chicken",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "chicken liver",
+          "description": "",
+          "main_material": "chicken",
+          "origin": "chicken",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "mudhen",
+      "plural_name": "mudhens",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "mudhen eggs",
+          "description": "",
+          "main_material": "mudhen",
+          "origin": "mudhen",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "mudhen feathers",
+          "description": "",
+          "main_material": "mudhen",
+          "origin": "mudhen",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "mudhen",
+          "description": "",
+          "main_material": "mudhen",
+          "origin": "mudhen",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "forest",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "quail",
+      "plural_name": "quails",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "quail eggs",
+          "description": "",
+          "main_material": "quail",
+          "origin": "quail",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "quail feathers",
+          "description": "",
+          "main_material": "quail",
+          "origin": "quail",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "quail",
+          "description": "",
+          "main_material": "quail",
+          "origin": "quail",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "forest",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "grouse",
+      "plural_name": "grouses",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "grouse eggs",
+          "description": "",
+          "main_material": "grouse",
+          "origin": "grouse",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "grouse feathers",
+          "description": "",
+          "main_material": "grouse",
+          "origin": "grouse",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "grouse",
+          "description": "",
+          "main_material": "grouse",
+          "origin": "grouse",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "forest",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "partridge",
+      "plural_name": "partridges",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "partridge eggs",
+          "description": "",
+          "main_material": "partridge",
+          "origin": "partridge",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "partridge feathers",
+          "description": "",
+          "main_material": "partridge",
+          "origin": "partridge",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "partridge",
+          "description": "",
+          "main_material": "partridge",
+          "origin": "partridge",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "forest",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "turkey",
+      "plural_name": "turkeys",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "turkey eggs",
+          "description": "",
+          "main_material": "turkey",
+          "origin": "turkey",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "turkey feathers",
+          "description": "",
+          "main_material": "turkey",
+          "origin": "turkey",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "turkey",
+          "description": "",
+          "main_material": "turkey",
+          "origin": "turkey",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "forest",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "pheasant",
+      "plural_name": "pheasants",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "pheasant eggs",
+          "description": "",
+          "main_material": "pheasant",
+          "origin": "pheasant",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "pheasant feathers",
+          "description": "",
+          "main_material": "pheasant",
+          "origin": "pheasant",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "pheasant",
+          "description": "",
+          "main_material": "pheasant",
+          "origin": "pheasant",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "grassland",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    }
+  ]
+}

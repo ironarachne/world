@@ -1,0 +1,792 @@
+{
+  "species": [
+    {
+      "name": "alligator",
+      "plural_name": "alligators",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "alligator hide",
+          "description": "",
+          "main_material": "alligator",
+          "origin": "alligator",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "alligator fangs",
+          "description": "",
+          "main_material": "alligator",
+          "origin": "alligator",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "alligator",
+          "description": "",
+          "main_material": "alligator",
+          "origin": "alligator",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "carnivore",
+        "river",
+        "temperate",
+        "tropical"
+      ]
+    },
+    {
+      "name": "crocodile",
+      "plural_name": "crocodiles",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "crocodile hide",
+          "description": "",
+          "main_material": "crocodile",
+          "origin": "crocodile",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "crocodile fangs",
+          "description": "",
+          "main_material": "crocodile",
+          "origin": "crocodile",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "crocodile",
+          "description": "",
+          "main_material": "crocodile",
+          "origin": "crocodile",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "river",
+        "carnivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "monitor lizard",
+      "plural_name": "monitor lizards",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "monitor lizard hide",
+          "description": "",
+          "main_material": "monitor lizard",
+          "origin": "monitor lizard",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "monitor lizard fangs",
+          "description": "",
+          "main_material": "monitor lizard",
+          "origin": "monitor lizard",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "monitor lizard",
+          "description": "",
+          "main_material": "monitor lizard",
+          "origin": "monitor lizard",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "monitor lizard venom",
+          "description": "",
+          "main_material": "monitor lizard",
+          "origin": "monitor lizard",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "rainforest",
+        "carnivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "asp",
+      "plural_name": "asps",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "asp hide",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "asp fangs",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "asp",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "asp venom",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "asp",
+      "plural_name": "asps",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "asp hide",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "asp fangs",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "asp",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "asp venom",
+          "description": "",
+          "main_material": "asp",
+          "origin": "asp",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "arid",
+        "tropical"
+      ]
+    },
+    {
+      "name": "coral snake",
+      "plural_name": "coral snakes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "coral snake hide",
+          "description": "",
+          "main_material": "coral snake",
+          "origin": "coral snake",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "coral snake fangs",
+          "description": "",
+          "main_material": "coral snake",
+          "origin": "coral snake",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "coral snake",
+          "description": "",
+          "main_material": "coral snake",
+          "origin": "coral snake",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "coral snake venom",
+          "description": "",
+          "main_material": "coral snake",
+          "origin": "coral snake",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "arid",
+        "semiarid",
+        "temperate",
+        "tropical"
+      ]
+    },
+    {
+      "name": "boa constrictor",
+      "plural_name": "boa constrictors",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "boa constrictor hide",
+          "description": "",
+          "main_material": "boa constrictor",
+          "origin": "boa constrictor",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "boa constrictor fangs",
+          "description": "",
+          "main_material": "boa constrictor",
+          "origin": "boa constrictor",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "boa constrictor",
+          "description": "",
+          "main_material": "boa constrictor",
+          "origin": "boa constrictor",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "arid",
+        "semiarid",
+        "temperate",
+        "tropical"
+      ]
+    },
+    {
+      "name": "rattlesnake",
+      "plural_name": "rattlesnakes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "rattlesnake hide",
+          "description": "",
+          "main_material": "rattlesnake",
+          "origin": "rattlesnake",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "rattlesnake fangs",
+          "description": "",
+          "main_material": "rattlesnake",
+          "origin": "rattlesnake",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "rattlesnake",
+          "description": "",
+          "main_material": "rattlesnake",
+          "origin": "rattlesnake",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "rattlesnake venom",
+          "description": "",
+          "main_material": "rattlesnake",
+          "origin": "rattlesnake",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "arid",
+        "semiarid",
+        "temperate",
+        "tropical"
+      ]
+    },
+    {
+      "name": "cobra",
+      "plural_name": "cobras",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cobra hide",
+          "description": "",
+          "main_material": "cobra",
+          "origin": "cobra",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "cobra fangs",
+          "description": "",
+          "main_material": "cobra",
+          "origin": "cobra",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "cobra",
+          "description": "",
+          "main_material": "cobra",
+          "origin": "cobra",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "cobra venom",
+          "description": "",
+          "main_material": "cobra",
+          "origin": "cobra",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "arid",
+        "semiarid",
+        "temperate",
+        "tropical"
+      ]
+    },
+    {
+      "name": "python",
+      "plural_name": "pythons",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "python hide",
+          "description": "",
+          "main_material": "python",
+          "origin": "python",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "python fangs",
+          "description": "",
+          "main_material": "python",
+          "origin": "python",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "python",
+          "description": "",
+          "main_material": "python",
+          "origin": "python",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "arid",
+        "semiarid",
+        "temperate",
+        "tropical"
+      ]
+    },
+    {
+      "name": "viper",
+      "plural_name": "vipers",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "viper hide",
+          "description": "",
+          "main_material": "viper",
+          "origin": "viper",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "viper fangs",
+          "description": "",
+          "main_material": "viper",
+          "origin": "viper",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "viper",
+          "description": "",
+          "main_material": "viper",
+          "origin": "viper",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "viper venom",
+          "description": "",
+          "main_material": "viper",
+          "origin": "viper",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "rainforest",
+        "carnivore",
+        "arid",
+        "semiarid",
+        "temperate",
+        "tropical"
+      ]
+    },
+    {
+      "name": "water snake",
+      "plural_name": "water snakes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "water snake hide",
+          "description": "",
+          "main_material": "water snake",
+          "origin": "water snake",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "water snake fangs",
+          "description": "",
+          "main_material": "water snake",
+          "origin": "water snake",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "water snake",
+          "description": "",
+          "main_material": "water snake",
+          "origin": "water snake",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "water snake venom",
+          "description": "",
+          "main_material": "water snake",
+          "origin": "water snake",
+          "tags": [
+            "venom"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "reptile",
+        "snake",
+        "carnivore",
+        "freshwater"
+      ]
+    }
+  ]
+}
