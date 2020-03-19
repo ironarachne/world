@@ -11,6 +11,7 @@ import (
 	"github.com/ironarachne/world/pkg/soil"
 	"github.com/ironarachne/world/pkg/species"
 	"github.com/ironarachne/world/pkg/words"
+	"math/rand"
 )
 
 // Area is a geographic area and all of its component parts
@@ -36,7 +37,34 @@ func (area Area) Describe() (string, error) {
 		description += s.Description + " "
 	}
 
+	description += "The area's common animals include "
+	description += describeSpecies(area.Animals)
+	description += ". Common plants include "
+
+	description += describeSpecies(area.Plants)
+
+	description += "."
+
 	return description, nil
+}
+
+func describeSpecies(from []species.Species) string {
+	var list []string
+
+	number := rand.Intn(2) + 3
+	if number > len(from) {
+		number = len(from)
+	}
+
+	selected := species.Random(number, from)
+
+	for _, a := range selected {
+		list = append(list, a.PluralName)
+	}
+
+	description := words.CombinePhrases(list)
+
+	return description
 }
 
 // Generate procedurally generates a region, its climate, and its biome
