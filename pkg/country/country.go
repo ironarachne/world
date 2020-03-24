@@ -9,10 +9,9 @@ import (
 	"math/rand"
 
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/world/pkg/grid"
+	"github.com/ironarachne/world/pkg/geometry"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/region"
-	"github.com/ironarachne/world/pkg/worldmap"
 )
 
 const countryError = "failed to generate country: %w"
@@ -93,18 +92,9 @@ func Generate() (Country, error) {
 	return country, nil
 }
 
-// GetAllTiles returns a slice of all tiles in the country
-func (c Country) GetAllTiles(worldMap worldmap.WorldMap) []worldmap.Tile {
-	coords := c.GetAllTileCoordinates()
-
-	tiles := worldmap.FindTilesByCoordinates(coords, worldMap.Tiles)
-
-	return tiles
-}
-
 // GetAllTileCoordinates returns a slice of all coordinates in the country
-func (c Country) GetAllTileCoordinates() []grid.Coordinate {
-	coords := []grid.Coordinate{}
+func (c Country) GetAllTileCoordinates() []geometry.Point {
+	var coords []geometry.Point
 
 	for _, r := range c.Regions {
 		for _, d := range r.TilesOccupied {

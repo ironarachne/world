@@ -2,7 +2,7 @@ package climate
 
 import (
 	"github.com/ironarachne/world/pkg/geography/region"
-	"github.com/ironarachne/world/pkg/grid"
+	"github.com/ironarachne/world/pkg/geometry"
 )
 
 // Climate is a geographic climate
@@ -48,7 +48,7 @@ func Generate(r region.Region) Climate {
 	// wind moves away from mountains
 	// wind slows down going uphill
 	// wind speeds up going downhill
-	c.WindDirection = grid.OppositeDirection(r.NearestMountainsDirection)
+	c.WindDirection = geometry.OppositeDirection(r.NearestMountainsDirection)
 	c.WindStrength = getWindStrength(r.NearestMountainsDistance, r.NearestOceanDistance)
 	c.CloudCover = getCloudCover(r.Temperature, c.WindStrength, r.NearestMountainsDistance)
 	c.PrecipitationAmount = getPrecipitationAmount(r.Temperature, r.Humidity)

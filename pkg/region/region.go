@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/world/pkg/grid"
+	"github.com/ironarachne/world/pkg/geometry"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/town"
 )
@@ -28,14 +28,14 @@ type Region struct {
 	Name            string                      `json:"name"`
 	Organizations   []organization.Organization `json:"organizations"`
 	RulingBody      organization.Organization   `json:"ruling_body"`
-	TilesOccupied   []grid.Coordinate           `json:"tiles_occupied"`
+	TilesOccupied   []geometry.Point            `json:"tiles_occupied"`
 	Towns           []town.Town                 `json:"town"`
 }
 
 const regionGenerationError = "failed to generate random region: %w"
 
 // AssignTiles gives a set of coordinates for tiles to a region
-func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
+func (region Region) AssignTiles(coordinates []geometry.Point) Region {
 	placedRegion := region
 
 	placedRegion.TilesOccupied = coordinates

@@ -66,7 +66,7 @@ func (device Device) RenderToPNG() (string, error) {
 		if slices.StringIn("full size", g.Charges[0].GetTags()) {
 			dc.DrawImage(cg, 0, 0)
 		} else {
-			dc.DrawImageAnchored(cg, device.Field.FieldType.CenterPoint.X, device.Field.FieldType.CenterPoint.Y, 0.5, 0.5)
+			dc.DrawImageAnchored(cg, int(device.Field.FieldType.CenterPoint.X), int(device.Field.FieldType.CenterPoint.Y), 0.5, 0.5)
 		}
 	}
 	fieldContents := dc.Image()

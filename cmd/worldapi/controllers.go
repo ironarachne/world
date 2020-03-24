@@ -815,6 +815,7 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 		"region",
 		"religion",
 		"town",
+		"worldmap",
 	}
 	var str strings.Builder
 	str.WriteString("<p>This is the World Generation API.</p>")

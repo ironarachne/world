@@ -142,6 +142,9 @@ func main() {
 	r.Get("/town", sentryHandler.HandleFunc(getTownRandom))
 	r.Get("/town/{id}", sentryHandler.HandleFunc(getTown))
 
+	r.Get("/worldmap", sentryHandler.HandleFunc(getWorldMapRandom))
+	r.Get("/worldmap/{id}", sentryHandler.HandleFunc(getWorldMap))
+
 	r.Get("/", sentryHandler.HandleFunc(getRoot))
 
 	domainName := os.Getenv("WORLDAPI_WEB_DOMAIN")

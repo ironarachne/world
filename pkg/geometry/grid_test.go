@@ -1,9 +1,9 @@
-package grid
+package geometry
 
 import "testing"
 
 func TestGenerate(t *testing.T) {
-	grid := Generate(10, 10)
+	grid := GenerateGrid(10, 10)
 
 	if len(grid.Coordinates) != 10 {
 		t.Error("failed to generate correct number of rows of coordinates")
@@ -14,10 +14,10 @@ func TestGenerate(t *testing.T) {
 	}
 
 	if grid.Height != 10 {
-		t.Error("failed to set grid height to 10")
+		t.Error("failed to set geometry height to 10")
 	}
 
 	if grid.Width != 10 {
-		t.Error("failed to set grid width to 10")
+		t.Error("failed to set geometry width to 10")
 	}
 }

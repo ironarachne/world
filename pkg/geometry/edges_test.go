@@ -1,45 +1,45 @@
-package grid
+package geometry
 
 import "testing"
 
 func TestGetUniqueEdges(t *testing.T) {
 	edges := []Edge{
 		{
-			A: Coordinate{
+			A: Point{
 				X: 1,
 				Y: 1,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 3,
 				Y: 1,
 			},
 		},
 		{
-			A: Coordinate{
+			A: Point{
 				X: 1,
 				Y: 1,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 3,
 				Y: 1,
 			},
 		},
 		{
-			A: Coordinate{
+			A: Point{
 				X: 3,
 				Y: 1,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 1,
 				Y: 1,
 			},
 		},
 		{
-			A: Coordinate{
+			A: Point{
 				X: 2,
 				Y: 2,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 4,
 				Y: 2,
 			},
@@ -57,58 +57,58 @@ func TestGetUniqueEdges(t *testing.T) {
 
 func TestIsEdgeEqual(t *testing.T) {
 	edgeA := Edge{
-		A: Coordinate{
+		A: Point{
 			X: 3,
 			Y: 1,
 		},
-		B: Coordinate{
+		B: Point{
 			X: 2,
 			Y: 4,
 		},
 	}
 
 	edgeB := Edge{
-		A: Coordinate{
+		A: Point{
 			X: 3,
 			Y: 1,
 		},
-		B: Coordinate{
+		B: Point{
 			X: 2,
 			Y: 4,
 		},
 	}
 
 	edgeC := Edge{
-		A: Coordinate{
+		A: Point{
 			X: 2,
 			Y: 4,
 		},
-		B: Coordinate{
+		B: Point{
 			X: 3,
 			Y: 1,
 		},
 	}
 
 	edgeD := Edge{
-		A: Coordinate{
+		A: Point{
 			X: 5,
 			Y: 4,
 		},
-		B: Coordinate{
+		B: Point{
 			X: 6,
 			Y: 7,
 		},
 	}
 
-	if isEdgeEqual(edgeA, edgeB) != true {
+	if edgeA.Equals(edgeB) != true {
 		t.Error("failed to detect equivalent edges")
 	}
 
-	if isEdgeEqual(edgeA, edgeC) != true {
+	if edgeA.Equals(edgeC) != true {
 		t.Error("failed to detect equivalent edges")
 	}
 
-	if isEdgeEqual(edgeA, edgeD) == true {
+	if edgeA.Equals(edgeD) == true {
 		t.Error("failed to recognize different edges")
 	}
 }
@@ -116,41 +116,41 @@ func TestIsEdgeEqual(t *testing.T) {
 func TestIsEdgeInSlice(t *testing.T) {
 	edges := []Edge{
 		{
-			A: Coordinate{
+			A: Point{
 				X: 1,
 				Y: 1,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 3,
 				Y: 1,
 			},
 		},
 		{
-			A: Coordinate{
+			A: Point{
 				X: 1,
 				Y: 1,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 3,
 				Y: 1,
 			},
 		},
 		{
-			A: Coordinate{
+			A: Point{
 				X: 3,
 				Y: 1,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 1,
 				Y: 1,
 			},
 		},
 		{
-			A: Coordinate{
+			A: Point{
 				X: 2,
 				Y: 2,
 			},
-			B: Coordinate{
+			B: Point{
 				X: 4,
 				Y: 2,
 			},
@@ -158,32 +158,32 @@ func TestIsEdgeInSlice(t *testing.T) {
 	}
 
 	edgeA := Edge{
-		A: Coordinate{
+		A: Point{
 			X: 1,
 			Y: 1,
 		},
-		B: Coordinate{
+		B: Point{
 			X: 3,
 			Y: 1,
 		},
 	}
 
 	edgeB := Edge{
-		A: Coordinate{
+		A: Point{
 			X: 10,
 			Y: 5,
 		},
-		B: Coordinate{
+		B: Point{
 			X: 3,
 			Y: 1,
 		},
 	}
 
-	if isEdgeInSlice(edgeA, edges) != true {
+	if edgeA.InSlice(edges) != true {
 		t.Error("failed to detect edge present in slice")
 	}
 
-	if isEdgeInSlice(edgeB, edges) == true {
+	if edgeB.InSlice(edges) == true {
 		t.Error("failed to detect edge was not present in slice")
 	}
 }

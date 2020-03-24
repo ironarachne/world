@@ -1,24 +1,51 @@
-package grid
+package geometry
 
 import "testing"
 
+func TestCentroid(t *testing.T) {
+	points := []Point{
+		{
+			X: 0,
+			Y: 0,
+		},
+		{
+			X: 10,
+			Y: 0,
+		},
+		{
+			X: 10,
+			Y: 10,
+		},
+		{
+			X: 0,
+			Y: 10,
+		},
+	}
+
+	centroid := Centroid(points)
+
+	if centroid.X != 5 || centroid.Y != 5 {
+		t.Error("failed to get the centroid of a polygon")
+	}
+}
+
 func TestDistance(t *testing.T) {
-	a := Coordinate{
+	a := Point{
 		X: 0,
 		Y: 1,
 	}
 
-	b := Coordinate{
+	b := Point{
 		X: 0,
 		Y: 2,
 	}
 
-	c := Coordinate{
+	c := Point{
 		X: 1,
 		Y: 4,
 	}
 
-	d := Coordinate{
+	d := Point{
 		X: 12,
 		Y: 4,
 	}
@@ -37,36 +64,36 @@ func TestDistance(t *testing.T) {
 }
 
 func TestEquals(t *testing.T) {
-	a := Coordinate{
+	a := Point{
 		X: 0,
 		Y: 1,
 	}
 
-	b := Coordinate{
+	b := Point{
 		X: 0,
 		Y: 1,
 	}
 
-	c := Coordinate{
+	c := Point{
 		X: 1,
 		Y: 1,
 	}
 
-	if !Equals(a, b) {
+	if !a.Equals(b) {
 		t.Error("failed to see that (0,1) and (0,1) are equal")
 	}
 
-	if !Equals(b, a) {
+	if !b.Equals(a) {
 		t.Error("failed to see that (0,1) and (0,1) are equal")
 	}
 
-	if Equals(a, c) {
+	if a.Equals(c) {
 		t.Error("failed to see that (0,1) and (1,1) are different")
 	}
 }
 
 func TestGetUniqueCoordinates(t *testing.T) {
-	coordinates := []Coordinate{
+	coordinates := []Point{
 		{
 			X: 0,
 			Y: 0,
@@ -91,7 +118,7 @@ func TestGetUniqueCoordinates(t *testing.T) {
 
 	expectedCount := 4
 
-	unique := GetUniqueCoordinates(coordinates)
+	unique := GetUniquePoints(coordinates)
 
 	if len(unique) != expectedCount {
 		t.Error("failed to get unique coordinates")
@@ -99,17 +126,17 @@ func TestGetUniqueCoordinates(t *testing.T) {
 }
 
 func TestInSlice(t *testing.T) {
-	a := Coordinate{
+	a := Point{
 		X: 0,
 		Y: 1,
 	}
 
-	b := Coordinate{
+	b := Point{
 		X: 13,
 		Y: 1,
 	}
 
-	coords := []Coordinate{
+	coords := []Point{
 		{
 			X: 0,
 			Y: 1,
@@ -130,14 +157,14 @@ func TestInSlice(t *testing.T) {
 }
 
 func TestRemoveCoordinatesFromSlice(t *testing.T) {
-	remove := []Coordinate{
+	remove := []Point{
 		{
 			X: 1,
 			Y: 1,
 		},
 	}
 
-	origin := []Coordinate{
+	origin := []Point{
 		{
 			X: 1,
 			Y: 1,
@@ -152,7 +179,7 @@ func TestRemoveCoordinatesFromSlice(t *testing.T) {
 		},
 	}
 
-	filtered := RemoveCoordinatesFromSlice(remove, origin)
+	filtered := RemovePoints(remove, origin)
 
 	if len(filtered) != 1 {
 		t.Error("failed to remove correct number of matching coordinates from slice")
@@ -160,7 +187,7 @@ func TestRemoveCoordinatesFromSlice(t *testing.T) {
 }
 
 func TestSortCoordinatesByDistance(t *testing.T) {
-	unsorted := []Coordinate{
+	unsorted := []Point{
 		{
 			X: 0,
 			Y: 0,
@@ -175,28 +202,28 @@ func TestSortCoordinatesByDistance(t *testing.T) {
 		},
 	}
 
-	sorted := SortCoordinatesByDistance(unsorted)
+	sorted := SortPointsByDistance(unsorted)
 
-	if !Equals(sorted[0], unsorted[0]) {
+	if !sorted[0].Equals(unsorted[0]) {
 		t.Error("failed to put origin coordinates first in sort")
 	}
 
-	if !Equals(sorted[1], unsorted[2]) {
+	if !sorted[1].Equals(unsorted[2]) {
 		t.Error("failed to put next nearest coordinates second in sort")
 	}
 
-	if !Equals(sorted[2], unsorted[1]) {
+	if !sorted[2].Equals(unsorted[1]) {
 		t.Error("failed to put furthest coordinates last in sort")
 	}
 }
 
 func TestNearestCoordinateIndex(t *testing.T) {
-	a := Coordinate{
+	a := Point{
 		X: 0,
 		Y: 0,
 	}
 
-	coords := []Coordinate{
+	coords := []Point{
 		{
 			X: 20,
 			Y: 10,
@@ -211,7 +238,7 @@ func TestNearestCoordinateIndex(t *testing.T) {
 		},
 	}
 
-	nearest := NearestCoordinateIndex(a, coords)
+	nearest := NearestPointIndex(a, coords)
 
 	if nearest != 1 {
 		t.Error("failed to find nearest coordinate in slice")

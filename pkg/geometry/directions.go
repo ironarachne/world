@@ -1,4 +1,4 @@
-package grid
+package geometry
 
 import "math/rand"
 

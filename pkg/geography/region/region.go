@@ -1,7 +1,7 @@
 package region
 
 import (
-	"github.com/ironarachne/world/pkg/grid"
+	"github.com/ironarachne/world/pkg/geometry"
 	"math"
 	"math/rand"
 )
@@ -37,8 +37,8 @@ func GenerateSpecific(temperature int, humidity int, altitude int, distance int)
 
 	// TODO: Replace the following with real data gleaned from the world
 	region.NearestOceanDistance = rand.Intn(100)
-	region.NearestOceanDirection = grid.RandomDirection()
-	region.NearestMountainsDirection = grid.OppositeDirection(region.NearestOceanDirection)
+	region.NearestOceanDirection = geometry.RandomDirection()
+	region.NearestMountainsDirection = geometry.OppositeDirection(region.NearestOceanDirection)
 	region.NearestMountainsDistance = rand.Intn(100)
 
 	region.Description = region.Describe()
@@ -53,8 +53,8 @@ func RandomTemperate() Region {
 	region.DistanceToEquator = rand.Intn(100) - 50
 	region.Altitude = rand.Intn(50) + 10
 	region.NearestOceanDistance = rand.Intn(100)
-	region.NearestOceanDirection = grid.RandomDirection()
-	region.NearestMountainsDirection = grid.OppositeDirection(region.NearestOceanDirection)
+	region.NearestOceanDirection = geometry.RandomDirection()
+	region.NearestMountainsDirection = geometry.OppositeDirection(region.NearestOceanDirection)
 	region.NearestMountainsDistance = rand.Intn(100)
 	region.Temperature = getTemperature(region.DistanceToEquator, region.Altitude)
 	region.Humidity = getHumidity(region.Altitude, region.NearestOceanDistance)
