@@ -66,11 +66,7 @@ func (s Season) describe(c climate.Climate, r region.Region) (string, error) {
 		}
 	}
 
-	daylightHours, err := words.NumberToWord(s.DaylightHours)
-	if err != nil {
-		err = fmt.Errorf("failed to generate season description: %w", err)
-		return "", err
-	}
+	daylightHours := words.NumberToWord(s.DaylightHours)
 
 	description += ". There are " + daylightHours + " hours of daylight each day."
 
