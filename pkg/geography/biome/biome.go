@@ -35,13 +35,26 @@ type Biome struct {
 
 // BiomeCriteria is a set of information used for evaluating biomes
 type BiomeCriteria struct {
-	Altitude int
+	Altitude      int
 	Precipitation int
-	Temperature int
+	Temperature   int
 }
 
 // Generate procedurally generates a biome for a given climate and region
 func Generate(c climate.Climate, r region.Region) (Biome, error) {
+	biomeType := getRandomBiomeType(r.Altitude)
+
+	b, err := Match(biomeType, c.PrecipitationAmount, r.Temperature, r.Altitude)
+	if err != nil {
+		err = fmt.Errorf("failed to find appropriate biome: %w", err)
+		return Biome{}, err
+	}
+
+	return b, nil
+}
+
+// Match generates a biome for a given biome type, precipitation amount, temperature, and altitude
+func Match(biomeType string, precipitation int, temperature int, altitude int) (Biome, error) {
 	var biomeScore int
 	var appropriate []Biome
 
@@ -51,10 +64,8 @@ func Generate(c climate.Climate, r region.Region) (Biome, error) {
 		return Biome{}, err
 	}
 
-	biomeType := getRandomBiomeType(r.Altitude)
-
 	for _, b := range biomes {
-		biomeScore = b.Score(biomeType, c.PrecipitationAmount, r.Temperature, r.Altitude)
+		biomeScore = b.Score(biomeType, precipitation, temperature, altitude)
 		if biomeScore > 0 {
 			b.MatchScore = biomeScore
 			appropriate = append(appropriate, b)
@@ -62,7 +73,7 @@ func Generate(c climate.Climate, r region.Region) (Biome, error) {
 	}
 
 	if len(appropriate) == 0 {
-		err = fmt.Errorf("no appropriate biomes found, input was: T %d, A %d, P %d, Type: %s", r.Temperature, r.Altitude, c.PrecipitationAmount, biomeType)
+		err = fmt.Errorf("no appropriate biomes found, input was: T %d, A %d, P %d, Type: %s", temperature, altitude, precipitation, biomeType)
 		return Biome{}, err
 	}
 

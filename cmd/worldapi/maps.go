@@ -38,7 +38,11 @@ func getWorldMap(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	im := cartography.RenderMap(1280, 1024)
+	im, err := cartography.RenderMap(1024, 1024)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
 	err = writeImage(w, &im)
 	if err != nil {
@@ -48,9 +52,13 @@ func getWorldMap(w http.ResponseWriter, r *http.Request) {
 }
 
 func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
-	im := cartography.RenderMap(1280, 1024)
+	im, err := cartography.RenderMap(1024, 1024)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
 
-	err := writeImage(w, &im)
+	err = writeImage(w, &im)
 	if err != nil {
 		handleError(w, r, err)
 		return

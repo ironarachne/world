@@ -56,21 +56,34 @@ func RandomTemperate() Region {
 	region.NearestOceanDirection = geometry.RandomDirection()
 	region.NearestMountainsDirection = geometry.OppositeDirection(region.NearestOceanDirection)
 	region.NearestMountainsDistance = rand.Intn(100)
-	region.Temperature = getTemperature(region.DistanceToEquator, region.Altitude)
-	region.Humidity = getHumidity(region.Altitude, region.NearestOceanDistance)
+	region.Temperature = GetTemperature(region.DistanceToEquator, region.Altitude)
+	region.Humidity = GetHumidity(region.Altitude, region.NearestOceanDistance)
 
 	region.Description = region.Describe()
 
 	return region
 }
 
-func getHumidity(altitude int, oceanDistance int) int {
+// GetHumidity calculates a region's humidity based on its altitude and its distance from the nearest ocean
+func GetHumidity(altitude int, oceanDistance int) int {
+	if oceanDistance == 0 {
+		return 100
+	}
 	humidity := 100 - (altitude / 2) - (oceanDistance / 2)
+
+	if humidity > 100 {
+		humidity = 100
+	}
+
+	if humidity < 0 {
+		humidity = 0
+	}
 
 	return humidity
 }
 
-func getTemperature(distanceToEquator int, altitude int) int {
+// GetTemperature calculates a temperature for a region given its distance from the equator and its altitude
+func GetTemperature(distanceToEquator int, altitude int) int {
 	temperature := 100 - int(math.Abs(float64(distanceToEquator))) - (altitude / 2)
 	if temperature < 0 {
 		temperature = 0
