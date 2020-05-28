@@ -95,11 +95,7 @@ func blazonForCharge(count int, singular string, plural string, descriptor strin
 		}
 
 	} else if count > 1 {
-		number, err := words.NumberToWord(count)
-		if err != nil {
-			err = fmt.Errorf("failed to generate blazon: %w", err)
-			return "", err
-		}
+		number := words.NumberToWord(count)
 		if descriptor != "" {
 			blazon += number + " " + plural + " " + descriptor + " " + tincture
 		} else {
