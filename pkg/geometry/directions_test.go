@@ -1,9 +1,12 @@
 package geometry
 
-import "testing"
+import (
+	"context"
+	"testing"
+)
 
 func TestRandomDirection(t *testing.T) {
-	d := RandomDirection()
+	d := RandomDirection(context.Background())
 
 	if d > 7 || d < 0 {
 		t.Error("generated out of bounds direction")

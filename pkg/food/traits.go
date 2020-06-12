@@ -1,6 +1,7 @@
 package food
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -9,7 +10,7 @@ import (
 
 const foodTraitError = "failed to generate food traits: %w"
 
-func randomEatingTraits() ([]string, error) {
+func randomEatingTraits(ctx context.Context) ([]string, error) {
 	var traits []string
 	var trait string
 	var typesOfTraits []string
@@ -51,7 +52,7 @@ func randomEatingTraits() ([]string, error) {
 	}
 
 	for i := 0; i < 2; i++ {
-		t, err := random.String(potentialTraits)
+		t, err := random.String(ctx, potentialTraits)
 		if err != nil {
 			err = fmt.Errorf(foodTraitError, err)
 			return []string{}, err
@@ -59,28 +60,28 @@ func randomEatingTraits() ([]string, error) {
 		if !slices.StringIn(t, typesOfTraits) {
 			typesOfTraits = append(typesOfTraits, t)
 			if t == "utensils" {
-				utensil, err := random.String(utensils)
+				utensil, err := random.String(ctx, utensils)
 				if err != nil {
 					err = fmt.Errorf(foodTraitError, err)
 					return []string{}, err
 				}
 				trait = "eat with " + utensil
 			} else if t == "spices" {
-				spice, err := random.String(spices)
+				spice, err := random.String(ctx, spices)
 				if err != nil {
 					err = fmt.Errorf(foodTraitError, err)
 					return []string{}, err
 				}
 				trait = "use " + spice + " spice"
 			} else if t == "heat" {
-				heat, err := random.String(heatLevels)
+				heat, err := random.String(ctx, heatLevels)
 				if err != nil {
 					err = fmt.Errorf(foodTraitError, err)
 					return []string{}, err
 				}
 				trait = "serve food " + heat
 			} else if t == "customs" {
-				custom, err := random.String(customs)
+				custom, err := random.String(ctx, customs)
 				if err != nil {
 					err = fmt.Errorf(foodTraitError, err)
 					return []string{}, err

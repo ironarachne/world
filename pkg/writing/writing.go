@@ -4,8 +4,8 @@ Package writing implements generation of fantasy writing systems
 package writing
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
@@ -19,7 +19,7 @@ type System struct {
 	StrokeType     string `json:"stroke_type"`
 }
 
-func randomStrokeType() string {
+func randomStrokeType(ctx context.Context) string {
 	var newStroke string
 	strokes := []string{}
 
@@ -40,7 +40,7 @@ func randomStrokeType() string {
 	}
 
 	for i := 0; i < 3; i++ {
-		newStroke = strokeTypes[rand.Intn(len(strokeTypes))]
+		newStroke = strokeTypes[random.Intn(ctx, len(strokeTypes))]
 		if !slices.StringIn(newStroke, strokes) {
 			strokes = append(strokes, newStroke)
 		}
@@ -50,7 +50,7 @@ func randomStrokeType() string {
 }
 
 // Generate randomly generates a writing system
-func Generate() (System, error) {
+func Generate(ctx context.Context) (System, error) {
 	var writingSystem System
 
 	classifications := []string{
@@ -63,13 +63,13 @@ func Generate() (System, error) {
 		"syllabary",
 	}
 
-	classification, err := random.String(classifications)
+	classification, err := random.String(ctx, classifications)
 	if err != nil {
 		err = fmt.Errorf("Could not generate writing system: %w", err)
 		return System{}, err
 	}
 	writingSystem.Classification = classification
-	writingSystem.StrokeType = randomStrokeType()
+	writingSystem.StrokeType = randomStrokeType(ctx)
 
 	return writingSystem, nil
 }

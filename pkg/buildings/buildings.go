@@ -5,6 +5,7 @@ random architectural styles and individual building appearances.
 package buildings
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -25,38 +26,38 @@ type BuildingStyle struct {
 }
 
 // GenerateStyle generates a random building style
-func GenerateStyle() (BuildingStyle, error) {
-	decorations, err := getRandomDecorations()
+func GenerateStyle(ctx context.Context) (BuildingStyle, error) {
+	decorations, err := getRandomDecorations(ctx)
 	if err != nil {
 		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
-	doorStyle, err := getRandomDoorStyle()
+	doorStyle, err := getRandomDoorStyle(ctx)
 	if err != nil {
 		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
-	maxStories, err := getRandomMaxStories()
+	maxStories, err := getRandomMaxStories(ctx)
 	if err != nil {
 		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
-	streetStyle, err := getRandomStreetStyle()
+	streetStyle, err := getRandomStreetStyle(ctx)
 	if err != nil {
 		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
-	wallStyle, err := getRandomWallStyle()
+	wallStyle, err := getRandomWallStyle(ctx)
 	if err != nil {
 		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
-	windowStyle, err := getRandomWindowStyle()
+	windowStyle, err := getRandomWindowStyle(ctx)
 	if err != nil {
 		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
 	}
-	roofStyle, err := getRandomRoofStyle()
+	roofStyle, err := getRandomRoofStyle(ctx)
 	if err != nil {
 		err = fmt.Errorf(buildingError, err)
 		return BuildingStyle{}, err
@@ -75,14 +76,14 @@ func GenerateStyle() (BuildingStyle, error) {
 	return style, nil
 }
 
-func getRandomMaxStories() (int, error) {
+func getRandomMaxStories(ctx context.Context) (int, error) {
 	stories := map[int]int{
 		1: 20,
 		2: 5,
 		3: 1,
 	}
 
-	storyCount, err := random.IntFromThresholdMap(stories)
+	storyCount, err := random.IntFromThresholdMap(ctx, stories)
 	if err != nil {
 		err = fmt.Errorf("Failed to get random max stories: %w", err)
 		return 0, err

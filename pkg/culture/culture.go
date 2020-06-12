@@ -4,9 +4,11 @@ Package culture provides methods and tools for generating fantasy cultures.
 package culture
 
 import (
+	"context"
 	"fmt"
+
 	"github.com/ironarachne/world/pkg/geography"
-	"math/rand"
+	"github.com/ironarachne/world/pkg/random"
 
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/clothing"
@@ -52,18 +54,18 @@ type Culture struct {
 }
 
 // Generate generates a culture
-func Generate(home geography.Area) (Culture, error) {
+func Generate(ctx context.Context, home geography.Area) (Culture, error) {
 	culture := Culture{}
 
 	resources := home.GetResources()
 
-	cultureLanguage, cultureLanguageCategory, err := conlang.Generate()
+	cultureLanguage, cultureLanguageCategory, err := conlang.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 
-	wordList, err := culture.createWordList(cultureLanguage, cultureLanguageCategory, home)
+	wordList, err := culture.createWordList(ctx, cultureLanguage, cultureLanguageCategory, home)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -72,19 +74,19 @@ func Generate(home geography.Area) (Culture, error) {
 	cultureLanguage.WordList = wordList
 	culture.Language = cultureLanguage
 
-	maleNames, err := culture.Language.RandomNameList(10, "male")
+	maleNames, err := culture.Language.RandomNameList(ctx, 10, "male")
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.CommonMaleNames = maleNames
-	femaleNames, err := culture.Language.RandomNameList(10, "female")
+	femaleNames, err := culture.Language.RandomNameList(ctx, 10, "female")
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.CommonFemaleNames = femaleNames
-	familyNames, err := culture.Language.RandomNameList(10, "family")
+	familyNames, err := culture.Language.RandomNameList(ctx, 10, "family")
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -94,38 +96,38 @@ func Generate(home geography.Area) (Culture, error) {
 	culture.Name = culture.Language.Name
 	culture.Adjective = culture.Language.Adjective
 
-	musicStyle, err := music.Generate()
+	musicStyle, err := music.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.MusicStyle = musicStyle
 
-	buildingStyle, err := buildings.GenerateStyle()
+	buildingStyle, err := buildings.GenerateStyle(ctx)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.BuildingStyle = buildingStyle
-	clothingStyle, err := clothing.GenerateStyle(home.Region.Temperature, resources)
+	clothingStyle, err := clothing.GenerateStyle(ctx, home.Region.Temperature, resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.ClothingStyle = clothingStyle
-	drinkStyle, err := drink.Generate(culture.Language, resources)
+	drinkStyle, err := drink.Generate(ctx, culture.Language, resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.DrinkStyle = drinkStyle
-	foodStyle, err := food.GenerateStyle(resources)
+	foodStyle, err := food.GenerateStyle(ctx, resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.FoodStyle = foodStyle
-	drinks, err := drink.RandomSet(3, resources)
+	drinks, err := drink.RandomSet(ctx, 3, resources)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -133,21 +135,21 @@ func Generate(home geography.Area) (Culture, error) {
 	culture.AlcoholicDrinks = drinks
 
 	culture.AttributeMax = 100
-	culture.Attributes.Aggression = rand.Intn(culture.AttributeMax) + 1
-	culture.Attributes.Curiosity = rand.Intn(culture.AttributeMax) + 1
-	culture.Attributes.MagicPrevalence = rand.Intn(culture.AttributeMax) + 1
-	culture.Attributes.MagicStrength = rand.Intn(culture.AttributeMax) + 1
-	culture.Attributes.Rigidity = rand.Intn(culture.AttributeMax) + 1
-	culture.Attributes.Superstition = rand.Intn(culture.AttributeMax) + 1
+	culture.Attributes.Aggression = random.Intn(ctx, culture.AttributeMax) + 1
+	culture.Attributes.Curiosity = random.Intn(ctx, culture.AttributeMax) + 1
+	culture.Attributes.MagicPrevalence = random.Intn(ctx, culture.AttributeMax) + 1
+	culture.Attributes.MagicStrength = random.Intn(ctx, culture.AttributeMax) + 1
+	culture.Attributes.Rigidity = random.Intn(ctx, culture.AttributeMax) + 1
+	culture.Attributes.Superstition = random.Intn(ctx, culture.AttributeMax) + 1
 
-	primaryRace, err := race.RandomWeighted()
+	primaryRace, err := race.RandomWeighted(ctx)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
 	culture.PrimaryRace = primaryRace
 
-	cultureReligion, err := religion.Generate(culture.Language)
+	cultureReligion, err := religion.Generate(ctx, culture.Language)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -162,13 +164,13 @@ func Generate(home geography.Area) (Culture, error) {
 }
 
 // Random returns a completely random culture
-func Random() (Culture, error) {
-	area, err := geography.Generate()
+func Random(ctx context.Context) (Culture, error) {
+	area, err := geography.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
 	}
-	culture, err := Generate(area)
+	culture, err := Generate(ctx, area)
 	if err != nil {
 		err = fmt.Errorf(cultureError, err)
 		return Culture{}, err
@@ -176,12 +178,12 @@ func Random() (Culture, error) {
 	return culture, nil
 }
 
-func (culture Culture) createWordList(cultureLanguage language.Language, langCategory conlang.Category, area geography.Area) (map[string]string, error) {
+func (culture Culture) createWordList(ctx context.Context, cultureLanguage language.Language, langCategory conlang.Category, area geography.Area) (map[string]string, error) {
 	list := culture.Language.WordList
 
 	for _, i := range area.Animals {
 		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
+			modifiedList, err := conlang.AddNounToWordList(ctx, cultureLanguage, langCategory, i.Name)
 			if err != nil {
 				err = fmt.Errorf(cultureError, err)
 				return list, err
@@ -192,7 +194,7 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 
 	for _, i := range area.Minerals {
 		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
+			modifiedList, err := conlang.AddNounToWordList(ctx, cultureLanguage, langCategory, i.Name)
 			if err != nil {
 				err = fmt.Errorf(cultureError, err)
 				return list, err
@@ -203,7 +205,7 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 
 	for _, i := range area.Plants {
 		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
+			modifiedList, err := conlang.AddNounToWordList(ctx, cultureLanguage, langCategory, i.Name)
 			if err != nil {
 				err = fmt.Errorf(cultureError, err)
 				return list, err
@@ -214,7 +216,7 @@ func (culture Culture) createWordList(cultureLanguage language.Language, langCat
 
 	for _, i := range area.Seasons {
 		if !conlang.IsInWordList(i.Name, list) {
-			modifiedList, err := conlang.AddNounToWordList(cultureLanguage, langCategory, i.Name)
+			modifiedList, err := conlang.AddNounToWordList(ctx, cultureLanguage, langCategory, i.Name)
 			if err != nil {
 				err = fmt.Errorf(cultureError, err)
 				return list, err

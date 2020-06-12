@@ -1,14 +1,16 @@
 package division
 
 import (
+	"context"
 	"fmt"
+	"image"
+
 	"github.com/fogleman/gg"
+
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
 	"github.com/ironarachne/world/pkg/heraldry/variation"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/words"
-	"image"
-	"math/rand"
 )
 
 // Division is a division of the field
@@ -234,13 +236,13 @@ func All() []Division {
 }
 
 // Random returns a random division
-func Random() Division {
+func Random(ctx context.Context) Division {
 	divisions := All()
-	return divisions[rand.Intn(len(divisions))]
+	return divisions[random.Intn(ctx, len(divisions))]
 }
 
 // RandomWeighted returns a random division by weight
-func RandomWeighted() (Division, error) {
+func RandomWeighted(ctx context.Context) (Division, error) {
 	all := All()
 
 	weights := map[string]int{}
@@ -249,7 +251,7 @@ func RandomWeighted() (Division, error) {
 		weights[c.Name] = c.Commonality
 	}
 
-	name, err := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(ctx, weights)
 	if err != nil {
 		err = fmt.Errorf("failed to get random weighted division: %w", err)
 		return Division{}, err
@@ -266,19 +268,19 @@ func RandomWeighted() (Division, error) {
 }
 
 // Generate procedurally generates a random heraldic division
-func Generate() (Division, error) {
+func Generate(ctx context.Context) (Division, error) {
 	var divisionBlazons []string
 	var possible []tincture.Tincture
 	var v variation.Variation
 	var tinc tincture.Tincture
 
-	division, err := RandomWeighted()
+	division, err := RandomWeighted(ctx)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate heraldic division: %w", err)
 		return Division{}, err
 	}
 
-	firstTincture, err := tincture.RandomAll()
+	firstTincture, err := tincture.RandomAll(ctx)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate heraldic division: %w", err)
 		return Division{}, err
@@ -288,13 +290,13 @@ func Generate() (Division, error) {
 	for i := 0; i < division.NumberOfSections; i++ {
 		possible = tincture.All()
 		possible = tincture.Remove(lastTincture, possible)
-		tinc, err = tincture.RandomWeighted(possible)
+		tinc, err = tincture.RandomWeighted(ctx, possible)
 		if err != nil {
 			err = fmt.Errorf("Failed to generate heraldic division: %w", err)
 			return Division{}, err
 		}
 
-		v, err = variation.Generate(tinc)
+		v, err = variation.Generate(ctx, tinc)
 		if err != nil {
 			err = fmt.Errorf("Failed to generate heraldic division: %w", err)
 			return Division{}, err

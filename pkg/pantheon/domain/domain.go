@@ -1,11 +1,13 @@
 package domain
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"math/rand"
 	"os"
+
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Data is a collection of domains
@@ -71,7 +73,7 @@ func AllPersonalitiesForDomains(domains []Domain) []string {
 }
 
 // RandomAppearanceFromDomains returns a random appearance given a set of domains
-func RandomAppearanceFromDomains(domains []Domain) (string, error) {
+func RandomAppearanceFromDomains(ctx context.Context, domains []Domain) (string, error) {
 	var possibleAppearances []string
 
 	for _, d := range domains {
@@ -87,13 +89,13 @@ func RandomAppearanceFromDomains(domains []Domain) (string, error) {
 		return possibleAppearances[0], nil
 	}
 
-	appearance := possibleAppearances[rand.Intn(len(possibleAppearances))]
+	appearance := possibleAppearances[random.Intn(ctx, len(possibleAppearances))]
 
 	return appearance, nil
 }
 
 // RandomPersonalityFromDomains returns a random personality given a set of domains
-func RandomPersonalityFromDomains(domains []Domain) (string, error) {
+func RandomPersonalityFromDomains(ctx context.Context, domains []Domain) (string, error) {
 	var possiblePersonalities []string
 
 	for _, d := range domains {
@@ -109,7 +111,7 @@ func RandomPersonalityFromDomains(domains []Domain) (string, error) {
 		return possiblePersonalities[0], nil
 	}
 
-	personality := possiblePersonalities[rand.Intn(len(possiblePersonalities))]
+	personality := possiblePersonalities[random.Intn(ctx, len(possiblePersonalities))]
 
 	return personality, nil
 }
@@ -133,7 +135,7 @@ func ByName(name string) (Domain, error) {
 }
 
 // Random returns a random domain from a slice of domains
-func Random(domains []Domain) (Domain, error) {
+func Random(ctx context.Context, domains []Domain) (Domain, error) {
 	if len(domains) == 0 {
 		err := fmt.Errorf("tried to get a random domain from an empty slice")
 		return Domain{}, err
@@ -143,7 +145,7 @@ func Random(domains []Domain) (Domain, error) {
 		return domains[0], nil
 	}
 
-	domain := domains[rand.Intn(len(domains))]
+	domain := domains[random.Intn(ctx, len(domains))]
 
 	return domain, nil
 }

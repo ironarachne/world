@@ -1,17 +1,19 @@
 package geography
 
 import (
+	"context"
 	"fmt"
+
 	"github.com/ironarachne/world/pkg/geography/biome"
 	"github.com/ironarachne/world/pkg/geography/climate"
 	"github.com/ironarachne/world/pkg/geography/region"
 	"github.com/ironarachne/world/pkg/geography/season"
 	"github.com/ironarachne/world/pkg/mineral"
+	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/soil"
 	"github.com/ironarachne/world/pkg/species"
 	"github.com/ironarachne/world/pkg/words"
-	"math/rand"
 )
 
 // Area is a geographic area and all of its component parts
@@ -30,7 +32,7 @@ type Area struct {
 const areaError = "failed to generate geographic area: %w"
 
 // Describe provides a prose description of an area
-func (area Area) Describe() (string, error) {
+func (area Area) Describe(ctx context.Context) (string, error) {
 	description := "This area is " + words.Pronoun(area.Biome.Name) + " " + area.Biome.Name + ". The region is " + area.Region.Description + ". "
 
 	for _, s := range area.Seasons {
@@ -38,25 +40,25 @@ func (area Area) Describe() (string, error) {
 	}
 
 	description += "The area's common animals include "
-	description += describeSpecies(area.Animals)
+	description += describeSpecies(ctx, area.Animals)
 	description += ". Common plants include "
 
-	description += describeSpecies(area.Plants)
+	description += describeSpecies(ctx, area.Plants)
 
 	description += "."
 
 	return description, nil
 }
 
-func describeSpecies(from []species.Species) string {
+func describeSpecies(ctx context.Context, from []species.Species) string {
 	var list []string
 
-	number := rand.Intn(2) + 3
+	number := random.Intn(ctx, 2) + 3
 	if number > len(from) {
 		number = len(from)
 	}
 
-	selected := species.Random(number, from)
+	selected := species.Random(ctx, number, from)
 
 	for _, a := range selected {
 		list = append(list, a.PluralName)
@@ -68,39 +70,39 @@ func describeSpecies(from []species.Species) string {
 }
 
 // Generate procedurally generates a region, its climate, and its biome
-func Generate() (Area, error) {
-	r := region.Generate()
-	c := climate.Generate(r)
-	b, err := biome.Generate(c, r)
+func Generate(ctx context.Context) (Area, error) {
+	r := region.Generate(ctx)
+	c := climate.Generate(ctx, r)
+	b, err := biome.Generate(ctx, c, r)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
-	s, err := season.Generate(c, r)
-	if err != nil {
-		err = fmt.Errorf(areaError, err)
-		return Area{}, err
-	}
-
-	animals, err := getAnimals(r.Humidity, r.Temperature, b.FaunaPrevalence, b.FaunaTags)
+	s, err := season.Generate(ctx, c, r)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
 
-	plants, err := getPlants(r.Humidity, r.Temperature, b.VegetationPrevalence, b.VegetationTags)
+	animals, err := getAnimals(ctx, r.Humidity, r.Temperature, b.FaunaPrevalence, b.FaunaTags)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
 
-	minerals, err := getMinerals()
+	plants, err := getPlants(ctx, r.Humidity, r.Temperature, b.VegetationPrevalence, b.VegetationTags)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
 
-	soils, err := getSoils(r.NearestOceanDistance, r.Humidity, r.Temperature)
+	minerals, err := getMinerals(ctx)
+	if err != nil {
+		err = fmt.Errorf(areaError, err)
+		return Area{}, err
+	}
+
+	soils, err := getSoils(ctx, r.NearestOceanDistance, r.Humidity, r.Temperature)
 
 	a := Area{
 		Region:   r,
@@ -113,7 +115,7 @@ func Generate() (Area, error) {
 		Soils:    soils,
 	}
 
-	a.Description, err = a.Describe()
+	a.Description, err = a.Describe(ctx)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
@@ -123,39 +125,39 @@ func Generate() (Area, error) {
 }
 
 // GenerateSpecific generates a specific type of area based on parameters
-func GenerateSpecific(temperature int, humidity int, altitude int, distance int) (Area, error) {
-	r := region.GenerateSpecific(temperature, humidity, altitude, distance)
-	c := climate.Generate(r)
-	b, err := biome.Generate(c, r)
+func GenerateSpecific(ctx context.Context, temperature int, humidity int, altitude int, distance int) (Area, error) {
+	r := region.GenerateSpecific(ctx, temperature, humidity, altitude, distance)
+	c := climate.Generate(ctx, r)
+	b, err := biome.Generate(ctx, c, r)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
-	s, err := season.Generate(c, r)
-	if err != nil {
-		err = fmt.Errorf(areaError, err)
-		return Area{}, err
-	}
-
-	animals, err := getAnimals(r.Humidity, r.Temperature, b.FaunaPrevalence, b.FaunaTags)
+	s, err := season.Generate(ctx, c, r)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
 
-	plants, err := getPlants(r.Humidity, r.Temperature, b.VegetationPrevalence, b.VegetationTags)
+	animals, err := getAnimals(ctx, r.Humidity, r.Temperature, b.FaunaPrevalence, b.FaunaTags)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
 
-	minerals, err := getMinerals()
+	plants, err := getPlants(ctx, r.Humidity, r.Temperature, b.VegetationPrevalence, b.VegetationTags)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err
 	}
 
-	soils, err := getSoils(r.NearestOceanDistance, r.Humidity, r.Temperature)
+	minerals, err := getMinerals(ctx)
+	if err != nil {
+		err = fmt.Errorf(areaError, err)
+		return Area{}, err
+	}
+
+	soils, err := getSoils(ctx, r.NearestOceanDistance, r.Humidity, r.Temperature)
 
 	a := Area{
 		Region:   r,
@@ -168,7 +170,7 @@ func GenerateSpecific(temperature int, humidity int, altitude int, distance int)
 		Soils:    soils,
 	}
 
-	a.Description, err = a.Describe()
+	a.Description, err = a.Describe(ctx)
 	if err != nil {
 		err = fmt.Errorf(areaError, err)
 		return Area{}, err

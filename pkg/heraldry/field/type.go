@@ -1,8 +1,10 @@
 package field
 
 import (
+	"context"
+
 	"github.com/ironarachne/world/pkg/geometry"
-	"math/rand"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Type is a type of field
@@ -72,10 +74,10 @@ func allTypes() []Type {
 }
 
 // RandomType returns a random field type
-func RandomType() Type {
+func RandomType(ctx context.Context) Type {
 	fieldTypes := allTypes()
 
-	fieldType := fieldTypes[rand.Intn(len(fieldTypes))]
+	fieldType := fieldTypes[random.Intn(ctx, len(fieldTypes))]
 
 	return fieldType
 }

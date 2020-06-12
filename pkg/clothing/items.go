@@ -1,8 +1,8 @@
 package clothing
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
@@ -29,28 +29,28 @@ type Item struct {
 }
 
 // GenerateOutfit generates a random outfit based on environment temperature and gender
-func GenerateOutfit(temperature int, gender string) ([]Item, error) {
+func GenerateOutfit(ctx context.Context, temperature int, gender string) ([]Item, error) {
 	var err error
 	var item Item
 	items := []Item{}
 
-	chanceOfFull := rand.Intn(100)
+	chanceOfFull := random.Intn(ctx, 100)
 	if gender == "female" {
 		chanceOfFull += 30
 	}
 
 	if chanceOfFull > 50 {
 		if gender == "female" {
-			dressChance := rand.Intn(100)
+			dressChance := random.Intn(ctx, 100)
 			if dressChance > 30 {
-				item, err = getRandomDress()
+				item, err = getRandomDress(ctx)
 				if err != nil {
 					err = fmt.Errorf(outfitError, err)
 					return []Item{}, err
 				}
 				items = append(items, item)
 			} else {
-				item, err = getRandomRobe()
+				item, err = getRandomRobe(ctx)
 				if err != nil {
 					err = fmt.Errorf(outfitError, err)
 					return []Item{}, err
@@ -58,7 +58,7 @@ func GenerateOutfit(temperature int, gender string) ([]Item, error) {
 				items = append(items, item)
 			}
 		} else {
-			item, err = getRandomRobe()
+			item, err = getRandomRobe(ctx)
 			if err != nil {
 				err = fmt.Errorf(outfitError, err)
 				return []Item{}, err
@@ -66,13 +66,13 @@ func GenerateOutfit(temperature int, gender string) ([]Item, error) {
 			items = append(items, item)
 		}
 	} else {
-		item, err = getRandomTop()
+		item, err = getRandomTop(ctx)
 		if err != nil {
 			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
-		item, err = getRandomBottom()
+		item, err = getRandomBottom(ctx)
 		if err != nil {
 			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
@@ -81,35 +81,35 @@ func GenerateOutfit(temperature int, gender string) ([]Item, error) {
 	}
 
 	if temperature < 5 {
-		item, err = getRandomHandwear()
+		item, err = getRandomHandwear(ctx)
 		if err != nil {
 			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
-		item, err = getRandomOverwear()
+		item, err = getRandomOverwear(ctx)
 		if err != nil {
 			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
-		item, err = getRandomBoots()
+		item, err = getRandomBoots(ctx)
 		if err != nil {
 			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
 		}
 		items = append(items, item)
 	} else {
-		footwearChance := rand.Intn(100)
+		footwearChance := random.Intn(ctx, 100)
 		if footwearChance > 50 {
-			item, err = getRandomShoes()
+			item, err = getRandomShoes(ctx)
 			if err != nil {
 				err = fmt.Errorf(outfitError, err)
 				return []Item{}, err
 			}
 			items = append(items, item)
 		} else {
-			item, err = getRandomBoots()
+			item, err = getRandomBoots(ctx)
 			if err != nil {
 				err = fmt.Errorf(outfitError, err)
 				return []Item{}, err
@@ -118,9 +118,9 @@ func GenerateOutfit(temperature int, gender string) ([]Item, error) {
 		}
 	}
 
-	hatChance := rand.Intn(100)
+	hatChance := random.Intn(ctx, 100)
 	if hatChance > 60 {
-		item, err = getRandomHat()
+		item, err = getRandomHat(ctx)
 		if err != nil {
 			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
@@ -128,9 +128,9 @@ func GenerateOutfit(temperature int, gender string) ([]Item, error) {
 		items = append(items, item)
 	}
 
-	waistChance := rand.Intn(100)
+	waistChance := random.Intn(ctx, 100)
 	if waistChance > 20 {
-		item, err = getRandomWaist()
+		item, err = getRandomWaist(ctx)
 		if err != nil {
 			err = fmt.Errorf(outfitError, err)
 			return []Item{}, err
@@ -141,7 +141,7 @@ func GenerateOutfit(temperature int, gender string) ([]Item, error) {
 	return items, nil
 }
 
-func getItemFromTemplate(template ItemTemplate) (Item, error) {
+func getItemFromTemplate(ctx context.Context, template ItemTemplate) (Item, error) {
 	item := Item{
 		Name:         template.Name,
 		Type:         template.Type,
@@ -154,21 +154,21 @@ func getItemFromTemplate(template ItemTemplate) (Item, error) {
 		"none":   3,
 	}
 
-	modifier, err := random.StringFromThresholdMap(weights)
+	modifier, err := random.StringFromThresholdMap(ctx, weights)
 	if err != nil {
 		err = fmt.Errorf(itemError, err)
 		return Item{}, err
 	}
 
 	if modifier == "prefix" {
-		prefix, err := random.String(template.PrefixModifiers)
+		prefix, err := random.String(ctx, template.PrefixModifiers)
 		if err != nil {
 			err = fmt.Errorf(itemError, err)
 			return Item{}, err
 		}
 		item.PrefixModifier = prefix
 	} else if modifier == "suffix" {
-		suffix, err := random.String(template.SuffixModifiers)
+		suffix, err := random.String(ctx, template.SuffixModifiers)
 		if err != nil {
 			err = fmt.Errorf(itemError, err)
 			return Item{}, err

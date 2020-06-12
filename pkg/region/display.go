@@ -1,6 +1,7 @@
 package region
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/character"
@@ -22,14 +23,14 @@ type SimplifiedRegion struct {
 }
 
 // Simplify returns a simplified version of a region
-func (region Region) Simplify() (SimplifiedRegion, error) {
+func (region Region) Simplify(ctx context.Context) (SimplifiedRegion, error) {
 	sc := region.Culture
-	sr, err := region.RulingBody.Leader.CharacterData.Simplify()
+	sr, err := region.RulingBody.Leader.CharacterData.Simplify(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err
 	}
-	so, err := region.RulingBody.Simplify()
+	so, err := region.RulingBody.Simplify(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err
@@ -44,7 +45,7 @@ func (region Region) Simplify() (SimplifiedRegion, error) {
 	}
 
 	for _, t := range region.Towns {
-		st, err := t.Simplify()
+		st, err := t.Simplify(ctx)
 		if err != nil {
 			err = fmt.Errorf("Could not generate simplified region: %w", err)
 			return SimplifiedRegion{}, err
@@ -53,7 +54,7 @@ func (region Region) Simplify() (SimplifiedRegion, error) {
 	}
 
 	for _, o := range region.Organizations {
-		so, err := o.Simplify()
+		so, err := o.Simplify(ctx)
 		if err != nil {
 			err = fmt.Errorf("Could not generate simplified region: %w", err)
 			return SimplifiedRegion{}, err
@@ -65,14 +66,14 @@ func (region Region) Simplify() (SimplifiedRegion, error) {
 }
 
 // RandomSimplified generates a completely random region
-func RandomSimplified() (SimplifiedRegion, error) {
-	region, err := Random()
+func RandomSimplified(ctx context.Context) (SimplifiedRegion, error) {
+	region, err := Random(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err
 	}
 
-	rs, err := region.Simplify()
+	rs, err := region.Simplify(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err

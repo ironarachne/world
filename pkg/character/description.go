@@ -1,6 +1,7 @@
 package character
 
 import (
+	"context"
 	"fmt"
 	"strconv"
 	"strings"
@@ -53,10 +54,10 @@ func allDescriptionTemplates() []string {
 	return templates
 }
 
-func randomDescriptionTemplate() (string, error) {
+func randomDescriptionTemplate(ctx context.Context) (string, error) {
 	all := allDescriptionTemplates()
 
-	template, err := random.String(all)
+	template, err := random.String(ctx, all)
 	if err != nil {
 		err = fmt.Errorf("Could not generate description template: %w", err)
 		return "", err
