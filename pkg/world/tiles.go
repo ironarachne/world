@@ -1,11 +1,14 @@
 package world
 
 import (
+	"context"
 	"github.com/ironarachne/world/pkg/geography/region"
 	"github.com/ironarachne/world/pkg/geometry"
-	"github.com/ojrac/opensimplex-go"
 	"math"
-	"math/rand"
+
+	"github.com/ojrac/opensimplex-go"
+
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Tile is a world tile
@@ -152,15 +155,15 @@ func generateTemperatures(tiles [][]Tile, minLatitude int, maxLatitude int) [][]
 	return tiles
 }
 
-func generateHeightmap(width int, height int) [][]float64 {
+func generateHeightmap(ctx context.Context, width int, height int) [][]float64 {
 	var nx, ny, altitude float64
 	cells := newCellGrid(width, height)
-	noise := opensimplex.New(rand.Int63n(10000))
+	noise := opensimplex.New(random.Int63n(ctx, 10000))
 
 	for y := 0; y < height; y++ {
 		for x := 0; x < width; x++ {
-			nx = float64(x)/float64(width)
-			ny = float64(y)/float64(height)
+			nx = float64(x) / float64(width)
+			ny = float64(y) / float64(height)
 			altitude = noise.Eval2(2*nx, 2*ny)
 			altitude += 0.5 * noise.Eval2(4*nx, 4*ny)
 			altitude += 0.25 * noise.Eval2(8*nx, 8*ny)
@@ -184,11 +187,11 @@ func generateHeightmap(width int, height int) [][]float64 {
 	return cells
 }
 
-func generateLand(tiles [][]Tile) ([][]Tile, error) {
+func generateLand(ctx context.Context, tiles [][]Tile) ([][]Tile, error) {
 	height := len(tiles)
 	width := len(tiles[0])
 
-	heightmap := generateHeightmap(width, height)
+	heightmap := generateHeightmap(ctx, width, height)
 
 	for y, row := range heightmap {
 		for x, h := range row {

@@ -5,6 +5,7 @@ fictional or otherwise, in fantasy worlds.
 package language
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -33,8 +34,8 @@ type Language struct {
 }
 
 // RandomFemaleFirstName returns a random female first name
-func (language Language) RandomFemaleFirstName() (string, error) {
-	firstName, err := random.String(language.FemaleFirstNames)
+func (language Language) RandomFemaleFirstName(ctx context.Context) (string, error) {
+	firstName, err := random.String(ctx, language.FemaleFirstNames)
 	if err != nil {
 		err = fmt.Errorf("could not select random female first name: %w", err)
 		return "", err
@@ -44,8 +45,8 @@ func (language Language) RandomFemaleFirstName() (string, error) {
 }
 
 // RandomMaleFirstName returns a random male first name
-func (language Language) RandomMaleFirstName() (string, error) {
-	firstName, err := random.String(language.MaleFirstNames)
+func (language Language) RandomMaleFirstName(ctx context.Context) (string, error) {
+	firstName, err := random.String(ctx, language.MaleFirstNames)
 	if err != nil {
 		err = fmt.Errorf("could not select random male first name: %w", err)
 		return "", err
@@ -55,8 +56,8 @@ func (language Language) RandomMaleFirstName() (string, error) {
 }
 
 // RandomFamilyName returns a random male first name
-func (language Language) RandomFamilyName() (string, error) {
-	familyName, err := random.String(language.FamilyNames)
+func (language Language) RandomFamilyName(ctx context.Context) (string, error) {
+	familyName, err := random.String(ctx, language.FamilyNames)
 	if err != nil {
 		err = fmt.Errorf("could not select random family name: %w", err)
 		return "", err
@@ -66,8 +67,8 @@ func (language Language) RandomFamilyName() (string, error) {
 }
 
 // RandomTownName returns a random male first name
-func (language Language) RandomTownName() (string, error) {
-	townName, err := random.String(language.TownNames)
+func (language Language) RandomTownName(ctx context.Context) (string, error) {
+	townName, err := random.String(ctx, language.TownNames)
 	if err != nil {
 		err = fmt.Errorf("could not select random town name: %w", err)
 		return "", err
@@ -77,14 +78,14 @@ func (language Language) RandomTownName() (string, error) {
 }
 
 // RandomNameList returns a list of N unique names of the given type
-func (language Language) RandomNameList(numberOfNames int, nameType string) ([]string, error) {
+func (language Language) RandomNameList(ctx context.Context, numberOfNames int, nameType string) ([]string, error) {
 	var name string
 	var names []string
 	var err error
 
 	if nameType == "female" {
 		for i := 0; i < numberOfNames; i++ {
-			name, err = language.RandomFemaleFirstName()
+			name, err = language.RandomFemaleFirstName(ctx)
 			if err != nil {
 				err = fmt.Errorf("could not generate name list: %w", err)
 				return []string{}, err
@@ -97,7 +98,7 @@ func (language Language) RandomNameList(numberOfNames int, nameType string) ([]s
 		}
 	} else if nameType == "male" {
 		for i := 0; i < numberOfNames; i++ {
-			name, err = language.RandomMaleFirstName()
+			name, err = language.RandomMaleFirstName(ctx)
 			if err != nil {
 				err = fmt.Errorf("could not generate name list: %w", err)
 				return []string{}, err
@@ -110,7 +111,7 @@ func (language Language) RandomNameList(numberOfNames int, nameType string) ([]s
 		}
 	} else if nameType == "family" {
 		for i := 0; i < numberOfNames; i++ {
-			name, err = language.RandomFamilyName()
+			name, err = language.RandomFamilyName(ctx)
 			if err != nil {
 				err = fmt.Errorf("could not generate name list: %w", err)
 				return []string{}, err
@@ -123,7 +124,7 @@ func (language Language) RandomNameList(numberOfNames int, nameType string) ([]s
 		}
 	} else if nameType == "town" {
 		for i := 0; i < numberOfNames; i++ {
-			name, err = language.RandomTownName()
+			name, err = language.RandomTownName(ctx)
 			if err != nil {
 				err = fmt.Errorf("could not generate name list: %w", err)
 				return []string{}, err
@@ -140,13 +141,13 @@ func (language Language) RandomNameList(numberOfNames int, nameType string) ([]s
 }
 
 // NewWord returns a new word for the language using random components
-func (language Language) NewWord() (string, error) {
-	prefix, err := random.String(language.NewWordPrefixes)
+func (language Language) NewWord(ctx context.Context) (string, error) {
+	prefix, err := random.String(ctx, language.NewWordPrefixes)
 	if err != nil {
 		err = fmt.Errorf("could not generate new word: %w", err)
 		return "", err
 	}
-	suffix, err := random.String(language.NewWordSuffixes)
+	suffix, err := random.String(ctx, language.NewWordSuffixes)
 	if err != nil {
 		err = fmt.Errorf("could not generate new word: %w", err)
 		return "", err

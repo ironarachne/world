@@ -1,14 +1,16 @@
 package biome
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/ironarachne/world/pkg/geography/climate"
-	"github.com/ironarachne/world/pkg/geography/region"
 	"io/ioutil"
 	"math"
-	"math/rand"
 	"os"
+
+	"github.com/ironarachne/world/pkg/geography/climate"
+	"github.com/ironarachne/world/pkg/geography/region"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Data is a structural element to hold biomes when loaded or displayed
@@ -41,8 +43,8 @@ type BiomeCriteria struct {
 }
 
 // Generate procedurally generates a biome for a given climate and region
-func Generate(c climate.Climate, r region.Region) (Biome, error) {
-	biomeType := getRandomBiomeType(r.Altitude)
+func Generate(ctx context.Context, c climate.Climate, r region.Region) (Biome, error) {
+	biomeType := getRandomBiomeType(ctx, r.Altitude)
 
 	b, err := Match(biomeType, c.PrecipitationAmount, r.Temperature, r.Altitude)
 	if err != nil {
@@ -166,7 +168,7 @@ func findBestScore(biomes []Biome) (Biome, error) {
 	return best, nil
 }
 
-func getRandomBiomeType(altitude int) string {
+func getRandomBiomeType(ctx context.Context, altitude int) string {
 	if altitude < 0 {
 		return "marine"
 	}
@@ -176,7 +178,7 @@ func getRandomBiomeType(altitude int) string {
 		"freshwater",
 	}
 
-	biomeType := types[rand.Intn(len(types))]
+	biomeType := types[random.Intn(ctx, len(types))]
 
 	return biomeType
 }

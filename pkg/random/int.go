@@ -1,20 +1,19 @@
 package random
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
-	"strconv"
 )
 
 // IntFromThresholdMap returns a random weighted int
-func IntFromThresholdMap(items map[int]int) (int, error) {
+func IntFromThresholdMap(ctx context.Context, items map[int]int) (int, error) {
 	ceiling := 0
 
 	for _, weight := range items {
 		ceiling += weight
 	}
 
-	randomValue := rand.Intn(ceiling)
+	randomValue := Intn(ctx, ceiling)
 
 	for item, weight := range items {
 		randomValue -= weight
@@ -23,6 +22,6 @@ func IntFromThresholdMap(items map[int]int) (int, error) {
 		}
 	}
 
-	err := fmt.Errorf("Could not find value for " + strconv.Itoa(randomValue))
+	err := fmt.Errorf("could not find value for %d", randomValue)
 	return -1, err
 }

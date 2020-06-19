@@ -1,6 +1,8 @@
 package culture
 
 import (
+	"context"
+
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/clothing"
 	"github.com/ironarachne/world/pkg/food"
@@ -28,7 +30,7 @@ type SimplifiedCulture struct {
 }
 
 // Simplify returns a simplified version of a culture for display
-func (culture Culture) Simplify() SimplifiedCulture {
+func (culture Culture) Simplify(ctx context.Context) SimplifiedCulture {
 	drinks := []string{}
 	for _, d := range culture.AlcoholicDrinks {
 		drinks = append(drinks, d.Description)
@@ -37,7 +39,7 @@ func (culture Culture) Simplify() SimplifiedCulture {
 		Adjective:         culture.Adjective,
 		AlcoholicDrinks:   drinks,
 		BuildingStyle:     culture.BuildingStyle.Simplify(),
-		ClothingStyle:     culture.ClothingStyle.Simplify(),
+		ClothingStyle:     culture.ClothingStyle.Simplify(ctx),
 		CommonFamilyNames: culture.CommonFamilyNames,
 		CommonFemaleNames: culture.CommonFemaleNames,
 		CommonMaleNames:   culture.CommonMaleNames,

@@ -1,13 +1,14 @@
 package conlang
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/language"
 )
 
 // GenerateWordList creates a word list for a language
-func GenerateWordList(langCategory Category) (map[string]string, error) {
+func GenerateWordList(ctx context.Context, langCategory Category) (map[string]string, error) {
 	wordList := make(map[string]string)
 
 	wordTypes := getAllWordTypes()
@@ -15,13 +16,13 @@ func GenerateWordList(langCategory Category) (map[string]string, error) {
 	for _, t := range wordTypes {
 		for _, w := range t.WordList {
 			for {
-				newWord, err := randomWord(langCategory, t.MaxSyllables)
+				newWord, err := randomWord(ctx, langCategory, t.MaxSyllables)
 				if err != nil {
 					err = fmt.Errorf("Could not generate word list: %w", err)
 					return wordList, err
 				}
 				if !IsInWordList(newWord, wordList) {
-					wordList[w], err = randomWord(langCategory, t.MaxSyllables)
+					wordList[w], err = randomWord(ctx, langCategory, t.MaxSyllables)
 					if err != nil {
 						err = fmt.Errorf("Could not generate word list: %w", err)
 						return wordList, err
@@ -36,17 +37,17 @@ func GenerateWordList(langCategory Category) (map[string]string, error) {
 }
 
 // AddNounToWordList adds a new noun to an existing word list for a language
-func AddNounToWordList(lang language.Language, langCategory Category, word string) (map[string]string, error) {
+func AddNounToWordList(ctx context.Context, lang language.Language, langCategory Category, word string) (map[string]string, error) {
 	wordList := lang.WordList
 
 	for {
-		newWord, err := randomWord(langCategory, 3)
+		newWord, err := randomWord(ctx, langCategory, 3)
 		if err != nil {
 			err = fmt.Errorf("Could not add noun to word list: %w", err)
 			return wordList, err
 		}
 		if !IsInWordList(newWord, wordList) {
-			wordList[word], err = randomWord(langCategory, 3)
+			wordList[word], err = randomWord(ctx, langCategory, 3)
 			if err != nil {
 				err = fmt.Errorf("Could not add noun to word list: %w", err)
 				return wordList, err

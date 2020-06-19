@@ -1,7 +1,9 @@
 package organization
 
 import (
-	"math/rand"
+	"context"
+
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // SizeClass is a size range
@@ -48,10 +50,10 @@ func getAllSizeClasses() []SizeClass {
 	return classes
 }
 
-func getRandomSizeClass(min int, max int) SizeClass {
+func getRandomSizeClass(ctx context.Context, min int, max int) SizeClass {
 	classes := getAllSizeClasses()
 
-	size := rand.Intn(max-min) + min
+	size := random.Intn(ctx, max-min) + min
 
 	for _, c := range classes {
 		if size <= c.MaxSize && size >= c.MinSize {

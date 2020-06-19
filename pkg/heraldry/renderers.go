@@ -1,6 +1,7 @@
 package heraldry
 
 import (
+	"context"
 	"fmt"
 	"image"
 	"os"
@@ -27,7 +28,7 @@ func (device Device) RenderToBlazon() (string, error) {
 }
 
 // RenderToPNG renders a device as PNG and returns the image
-func (device Device) RenderToPNG() (string, error) {
+func (device Device) RenderToPNG(ctx context.Context) (string, error) {
 	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
 
 	var cg image.Image
@@ -61,7 +62,7 @@ func (device Device) RenderToPNG() (string, error) {
 	dc.DrawImage(field, 0, 0)
 
 	for _, g := range device.Field.ChargeGroups {
-		cg = g.RenderPNG(width, height)
+		cg = g.RenderPNG(ctx, width, height)
 
 		if slices.StringIn("full size", g.Charges[0].GetTags()) {
 			dc.DrawImage(cg, 0, 0)

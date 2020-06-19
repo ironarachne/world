@@ -4,15 +4,15 @@ Package slices provides convenience methods for dealing with slices
 package slices
 
 import (
-	"math/rand"
-	"time"
+	"context"
+
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // ShuffleStringSlice randomly reorders a slice of strings
-func ShuffleStringSlice(vals []string) []string {
-	r := rand.New(rand.NewSource(time.Now().Unix()))
+func ShuffleStringSlice(ctx context.Context, vals []string) []string {
 	ret := make([]string, len(vals))
-	perm := r.Perm(len(vals))
+	perm := random.Perm(ctx, len(vals))
 	for i, randIndex := range perm {
 		ret[i] = vals[randIndex]
 	}

@@ -5,6 +5,7 @@ fantasy clothing styles.
 package clothing
 
 import (
+	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/geography"
 
@@ -17,7 +18,7 @@ const clothingError = "failed to generate clothing style: %w"
 
 // Style describes what kind of clothing the culture wears
 type Style struct {
-	Description string `json:"description"`
+	Description     string   `json:"description"`
 	FemaleOutfit    []Item   `json:"female_outfit"`
 	MaleOutfit      []Item   `json:"male_outfit"`
 	CommonJewelry   []string `json:"common_jewelry"`
@@ -26,48 +27,48 @@ type Style struct {
 }
 
 // GenerateStyle generates a random clothing style based on a climate
-func GenerateStyle(temperature int, resources []resource.Resource) (Style, error) {
+func GenerateStyle(ctx context.Context, temperature int, resources []resource.Resource) (Style, error) {
 	style := Style{}
 
-	femaleOutfit, err := GenerateOutfit(temperature, "female")
+	femaleOutfit, err := GenerateOutfit(ctx, temperature, "female")
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.FemaleOutfit = femaleOutfit
-	maleOutfit, err := GenerateOutfit(temperature, "male")
+	maleOutfit, err := GenerateOutfit(ctx, temperature, "male")
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.MaleOutfit = maleOutfit
 
-	jewelry, err := generateJewelry()
+	jewelry, err := generateJewelry(ctx)
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.CommonJewelry = jewelry
 
-	decorativeStyle, err := randomDecorativeStyle(resources)
+	decorativeStyle, err := randomDecorativeStyle(ctx, resources)
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.DecorativeStyle = decorativeStyle
 
-	colors, err := randomColorSet()
+	colors, err := randomColorSet(ctx)
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
 	}
 	style.CommonColors = colors
-	style.Description = style.Describe()
+	style.Description = style.Describe(ctx)
 
 	return style, nil
 }
 
-func randomDecorativeStyle(resources []resource.Resource) (string, error) {
+func randomDecorativeStyle(ctx context.Context, resources []resource.Resource) (string, error) {
 	styles := []string{
 		"beads",
 		"complex embroidery",
@@ -90,7 +91,7 @@ func randomDecorativeStyle(resources []resource.Resource) (string, error) {
 		styles = append(styles, "feather decorations")
 	}
 
-	style, err := random.String(styles)
+	style, err := random.String(ctx, styles)
 	if err != nil {
 		err = fmt.Errorf("failed to generate clothing decorative style: %w", err)
 		return "", err
@@ -99,7 +100,7 @@ func randomDecorativeStyle(resources []resource.Resource) (string, error) {
 	return style, nil
 }
 
-func randomColorSet() ([]string, error) {
+func randomColorSet(ctx context.Context) ([]string, error) {
 	var colorSet []string
 	var err error
 	var newColor string
@@ -118,14 +119,14 @@ func randomColorSet() ([]string, error) {
 	}
 
 	for i := 0; i < 3; i++ {
-		newColor, err = random.String(colors)
+		newColor, err = random.String(ctx, colors)
 		if err != nil {
 			err = fmt.Errorf("Could not generate color set: %w", err)
 			return []string{}, err
 		}
 
 		if !slices.StringIn(newColor, []string{"white", "black"}) {
-			saturation, err = randomSaturation()
+			saturation, err = randomSaturation(ctx)
 			if err != nil {
 				err = fmt.Errorf("Could not generate color set: %w", err)
 				return []string{}, err
@@ -141,7 +142,7 @@ func randomColorSet() ([]string, error) {
 	return colorSet, nil
 }
 
-func randomSaturation() (string, error) {
+func randomSaturation(ctx context.Context) (string, error) {
 	saturations := []string{
 		"bright",
 		"dark",
@@ -151,7 +152,7 @@ func randomSaturation() (string, error) {
 		"subdued",
 	}
 
-	saturation, err := random.String(saturations)
+	saturation, err := random.String(ctx, saturations)
 	if err != nil {
 		err = fmt.Errorf("Could not generate saturation: %w", err)
 		return "", err
@@ -161,8 +162,8 @@ func randomSaturation() (string, error) {
 }
 
 // Random generates a completely random clothing style
-func Random() (Style, error) {
-	area, err := geography.Generate()
+func Random(ctx context.Context) (Style, error) {
+	area, err := geography.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err
@@ -170,7 +171,7 @@ func Random() (Style, error) {
 
 	resources := area.GetResources()
 
-	style, err := GenerateStyle(area.Region.Temperature, resources)
+	style, err := GenerateStyle(ctx, area.Region.Temperature, resources)
 	if err != nil {
 		err = fmt.Errorf(clothingError, err)
 		return Style{}, err

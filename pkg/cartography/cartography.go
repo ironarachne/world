@@ -1,6 +1,7 @@
 package cartography
 
 import (
+	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/world"
 	"image"
@@ -8,14 +9,14 @@ import (
 )
 
 // RenderMap renders the given map and returns it as an image
-func RenderMap(width int, height int) (image.Image, error) {
+func RenderMap(ctx context.Context, width int, height int) (image.Image, error) {
 	var c color.RGBA
 	upLeft := image.Point{X: 0, Y: 0}
 	lowRight := image.Point{X: width, Y: height}
 
 	img := image.NewRGBA(image.Rectangle{Min: upLeft, Max: lowRight})
 
-	w, err := world.Generate()
+	w, err := world.Generate(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("failed to generate world map: %w", err)
 	}
@@ -68,4 +69,3 @@ func getColor(tile world.Tile) color.RGBA {
 
 	return color.RGBA{R: 108, G: 153, B: 73, A: 255} // Default to warm green
 }
-

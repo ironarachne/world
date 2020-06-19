@@ -1,8 +1,8 @@
 package conlang
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
@@ -15,7 +15,7 @@ type Mutation struct {
 	To   string
 }
 
-func getRandomWeightedVowel() (string, error) {
+func getRandomWeightedVowel(ctx context.Context) (string, error) {
 	vowels := map[string]int{
 		"a": 18,
 		"e": 20,
@@ -24,7 +24,7 @@ func getRandomWeightedVowel() (string, error) {
 		"u": 2,
 	}
 
-	vowel, err := random.StringFromThresholdMap(vowels)
+	vowel, err := random.StringFromThresholdMap(ctx, vowels)
 	if err != nil {
 		err = fmt.Errorf("failed to get random vowel: %w", err)
 		return "", err
@@ -32,7 +32,7 @@ func getRandomWeightedVowel() (string, error) {
 	return vowel, nil
 }
 
-func randomMutation() Mutation {
+func randomMutation(ctx context.Context) Mutation {
 	rules := []Mutation{
 		{
 			"s",
@@ -60,32 +60,32 @@ func randomMutation() Mutation {
 		},
 	}
 
-	return rules[rand.Intn(len(rules))]
+	return rules[random.Intn(ctx, len(rules))]
 }
 
-func randomSyllable(category Category, role string) (string, error) {
-	syllable, err := random.String(category.Initiators)
+func randomSyllable(ctx context.Context, category Category, role string) (string, error) {
+	syllable, err := random.String(ctx, category.Initiators)
 	if err != nil {
 		err = fmt.Errorf(syllableError, err)
 		return "", err
 	}
-	vowel, err := getRandomWeightedVowel()
+	vowel, err := getRandomWeightedVowel(ctx)
 	if err != nil {
 		err = fmt.Errorf(syllableError, err)
 		return "", err
 	}
 	syllable += vowel
-	expand := rand.Intn(10) + 1
+	expand := random.Intn(ctx, 10) + 1
 	if expand > 2 {
 		if role == "connector" {
-			connector, err := random.String(category.Connectors)
+			connector, err := random.String(ctx, category.Connectors)
 			if err != nil {
 				err = fmt.Errorf(syllableError, err)
 				return "", err
 			}
 			syllable += connector
 		} else {
-			finisher, err := random.String(category.Finishers)
+			finisher, err := random.String(ctx, category.Finishers)
 			if err != nil {
 				err = fmt.Errorf(syllableError, err)
 				return "", err
@@ -97,7 +97,7 @@ func randomSyllable(category Category, role string) (string, error) {
 	return syllable, nil
 }
 
-func randomWord(langCategory Category, maxSyllables int) (string, error) {
+func randomWord(ctx context.Context, langCategory Category, maxSyllables int) (string, error) {
 	var word string
 	var syllables []string
 	numSyllables := 1
@@ -106,21 +106,21 @@ func randomWord(langCategory Category, maxSyllables int) (string, error) {
 	shouldIUseAnApostrophe := 0
 
 	if maxSyllables > 1 {
-		numSyllables = rand.Intn(maxSyllables) + 1
+		numSyllables = random.Intn(ctx, maxSyllables) + 1
 	}
 
 	for i := 0; i < numSyllables; i++ {
 		if numSyllables-i == 1 {
 			role = "finisher"
 		}
-		syllable, err := randomSyllable(langCategory, role)
+		syllable, err := randomSyllable(ctx, langCategory, role)
 		if err != nil {
 			err = fmt.Errorf("Could not generate word: %w", err)
 			return "", err
 		}
 
 		if langCategory.UsesApostrophes {
-			shouldIUseAnApostrophe = rand.Intn(10)
+			shouldIUseAnApostrophe = random.Intn(ctx, 10)
 			if shouldIUseAnApostrophe > 8 {
 				syllable += "'"
 			}

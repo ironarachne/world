@@ -1,6 +1,7 @@
 package town
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/character"
@@ -20,14 +21,14 @@ type SimplifiedTown struct {
 }
 
 // RandomSimplified generates a random simplified town
-func RandomSimplified() (SimplifiedTown, error) {
-	town, err := Random()
+func RandomSimplified(ctx context.Context) (SimplifiedTown, error) {
+	town, err := Random(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not simplify town: %w", err)
 		return SimplifiedTown{}, err
 	}
 
-	st, err := town.Simplify()
+	st, err := town.Simplify(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not simplify town: %w", err)
 		return SimplifiedTown{}, err
@@ -37,8 +38,8 @@ func RandomSimplified() (SimplifiedTown, error) {
 }
 
 // Simplify returns the simplified version of a town
-func (town Town) Simplify() (SimplifiedTown, error) {
-	mayor, err := town.Mayor.Simplify()
+func (town Town) Simplify(ctx context.Context) (SimplifiedTown, error) {
+	mayor, err := town.Mayor.Simplify(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not simplify town: %w", err)
 		return SimplifiedTown{}, err

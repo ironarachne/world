@@ -2,13 +2,14 @@ package pattern
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/ironarachne/world/pkg/resource"
 	"io/ioutil"
-	"math/rand"
 	"os"
 	"text/template"
+
+	"github.com/ironarachne/world/pkg/resource"
 
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/random"
@@ -187,11 +188,11 @@ func (pattern Pattern) RenderName() (string, error) {
 }
 
 // RenderDescription turns a completed pattern into a string description
-func (pattern Pattern) RenderDescription() (string, error) {
+func (pattern Pattern) RenderDescription(ctx context.Context) (string, error) {
 	description := ""
 
 	for _, s := range pattern.Slots {
-		slotDescription, err := s.describe()
+		slotDescription, err := s.describe(ctx)
 		if err != nil {
 			err = fmt.Errorf("Failed to render pattern: %w", err)
 			return "", err
@@ -203,10 +204,10 @@ func (pattern Pattern) RenderDescription() (string, error) {
 }
 
 // ToResource transforms a completed pattern into a resource
-func (pattern Pattern) ToResource() (resource.Resource, error) {
+func (pattern Pattern) ToResource(ctx context.Context) (resource.Resource, error) {
 	var res resource.Resource
 
-	description, err := pattern.RenderDescription()
+	description, err := pattern.RenderDescription(ctx)
 	if err != nil {
 		err = fmt.Errorf("Failed to transform pattern into resource: %w", err)
 		return resource.Resource{}, err
@@ -245,7 +246,7 @@ func (pattern Pattern) ToResource() (resource.Resource, error) {
 	return res, nil
 }
 
-func (slot Slot) describe() (string, error) {
+func (slot Slot) describe(ctx context.Context) (string, error) {
 	var tplOutput bytes.Buffer
 
 	tmpl, err := template.New(slot.Name).Parse(slot.DescriptionTemplate)
@@ -261,9 +262,9 @@ func (slot Slot) describe() (string, error) {
 	name := tplOutput.String()
 
 	if len(slot.PossibleQuirks) > 0 {
-		quirkChance := rand.Intn(100)
+		quirkChance := random.Intn(ctx, 100)
 		if quirkChance > 80 {
-			quirk, err := random.String(slot.PossibleQuirks)
+			quirk, err := random.String(ctx, slot.PossibleQuirks)
 			if err != nil {
 				err = fmt.Errorf("Failed to describe slot: %w", err)
 				return "", err
