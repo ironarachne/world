@@ -1,0 +1,563 @@
+{
+  "species": [
+    {
+      "name": "deer",
+      "plural_name": "deer",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "deer hide",
+          "description": "",
+          "main_material": "deer",
+          "origin": "deer",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer teeth",
+          "description": "",
+          "main_material": "deer",
+          "origin": "deer",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "venison",
+          "description": "",
+          "main_material": "deer",
+          "origin": "deer",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer antler",
+          "description": "",
+          "main_material": "deer",
+          "origin": "deer",
+          "tags": [
+            "antler",
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer sinew",
+          "description": "",
+          "main_material": "deer",
+          "origin": "deer",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "forest",
+        "deer",
+        "temperate"
+      ]
+    },
+    {
+      "name": "white-tailed deer",
+      "plural_name": "white-tailed deer",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 80,
+      "min_temperature": 10,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "deer hide",
+          "description": "",
+          "main_material": "deer",
+          "origin": "white-tailed deer",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer teeth",
+          "description": "",
+          "main_material": "deer",
+          "origin": "white-tailed deer",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "venison",
+          "description": "",
+          "main_material": "deer",
+          "origin": "white-tailed deer",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer antler",
+          "description": "",
+          "main_material": "deer",
+          "origin": "white-tailed deer",
+          "tags": [
+            "antler",
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer sinew",
+          "description": "",
+          "main_material": "deer",
+          "origin": "white-tailed deer",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "forest",
+        "deer",
+        "temperate"
+      ]
+    },
+    {
+      "name": "mule deer",
+      "plural_name": "mule deer",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "deer hide",
+          "description": "",
+          "main_material": "deer",
+          "origin": "mule deer",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer teeth",
+          "description": "",
+          "main_material": "deer",
+          "origin": "mule deer",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "venison",
+          "description": "",
+          "main_material": "deer",
+          "origin": "mule deer",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer antler",
+          "description": "",
+          "main_material": "deer",
+          "origin": "mule deer",
+          "tags": [
+            "antler",
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer sinew",
+          "description": "",
+          "main_material": "deer",
+          "origin": "mule deer",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "forest",
+        "deer",
+        "temperate"
+      ]
+    },
+    {
+      "name": "red deer",
+      "plural_name": "red deer",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "deer hide",
+          "description": "",
+          "main_material": "deer",
+          "origin": "red deer",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer teeth",
+          "description": "",
+          "main_material": "deer",
+          "origin": "red deer",
+          "tags": [
+            "teeth"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "venison",
+          "description": "",
+          "main_material": "deer",
+          "origin": "red deer",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer antler",
+          "description": "",
+          "main_material": "deer",
+          "origin": "red deer",
+          "tags": [
+            "antler",
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "deer sinew",
+          "description": "",
+          "main_material": "deer",
+          "origin": "red deer",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "forest",
+        "deer",
+        "temperate"
+      ]
+    },
+    {
+      "name": "reindeer",
+      "plural_name": "reindeer",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 40,
+      "resources": [
+        {
+          "name": "reindeer hide",
+          "description": "",
+          "main_material": "reindeer",
+          "origin": "reindeer",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "reindeer",
+          "description": "",
+          "main_material": "reindeer",
+          "origin": "reindeer",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "reindeer milk",
+          "description": "",
+          "main_material": "reindeer",
+          "origin": "reindeer",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "reindeer bone",
+          "description": "",
+          "main_material": "reindeer",
+          "origin": "reindeer",
+          "tags": [
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "reindeer sinew",
+          "description": "",
+          "main_material": "reindeer",
+          "origin": "reindeer",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "forest",
+        "arctic",
+        "reindeer"
+      ]
+    },
+    {
+      "name": "elk",
+      "plural_name": "elk",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "elk hide",
+          "description": "",
+          "main_material": "elk",
+          "origin": "elk",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elk",
+          "description": "",
+          "main_material": "elk",
+          "origin": "elk",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elk milk",
+          "description": "",
+          "main_material": "elk",
+          "origin": "elk",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elk bone",
+          "description": "",
+          "main_material": "elk",
+          "origin": "elk",
+          "tags": [
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elk sinew",
+          "description": "",
+          "main_material": "elk",
+          "origin": "elk",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "boreal",
+        "forest",
+        "arctic",
+        "elk"
+      ]
+    },
+    {
+      "name": "moose",
+      "plural_name": "moose",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "moose hide",
+          "description": "",
+          "main_material": "moose",
+          "origin": "moose",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "moose",
+          "description": "",
+          "main_material": "moose",
+          "origin": "moose",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "moose milk",
+          "description": "",
+          "main_material": "moose",
+          "origin": "moose",
+          "tags": [
+            "milk"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "moose bone",
+          "description": "",
+          "main_material": "moose",
+          "origin": "moose",
+          "tags": [
+            "bone"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "moose sinew",
+          "description": "",
+          "main_material": "moose",
+          "origin": "moose",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "forest",
+        "boreal",
+        "arctic",
+        "moose"
+      ]
+    }
+  ]
+}

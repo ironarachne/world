@@ -1,0 +1,300 @@
+{
+  "patterns": [
+    {
+      "name": "metal bar",
+      "description": "a metal bar",
+      "tags": [
+        "metal bar"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "refined hard metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} metal bar",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} metal bar",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "metal bar",
+      "description": "a metal bar",
+      "tags": [
+        "metal bar"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "metal 1",
+          "required_tag": "refined copper metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "brass metal bar",
+          "possible_quirks": null
+        },
+        {
+          "name": "metal 2",
+          "required_tag": "refined zinc metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "brass metal bar",
+      "main_material": "",
+      "main_material_override": "brass",
+      "origin_override": "brass",
+      "value": 5
+    },
+    {
+      "name": "metal bar",
+      "description": "a metal bar",
+      "tags": [
+        "metal bar"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "metal 1",
+          "required_tag": "refined copper metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bronze metal bar",
+          "possible_quirks": null
+        },
+        {
+          "name": "metal 2",
+          "required_tag": "refined tin metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "bronze metal bar",
+      "main_material": "",
+      "main_material_override": "bronze",
+      "origin_override": "bronze",
+      "value": 5
+    },
+    {
+      "name": "metal ingot",
+      "description": "a metal ingot",
+      "tags": [
+        "metal ingot"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "refined soft metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} metal ingot",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} metal ingot",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "metal ingot",
+      "description": "a metal ingot",
+      "tags": [
+        "metal ingot"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "refined copper metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "electrum metal ingot",
+          "possible_quirks": null
+        },
+        {
+          "name": "body",
+          "required_tag": "refined gold metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "electrum metal ingot",
+      "main_material": "",
+      "main_material_override": "electrum",
+      "origin_override": "electrum",
+      "value": 5
+    },
+    {
+      "name": "refined gem ore",
+      "description": "refined gem ore",
+      "tags": [
+        "refined ore",
+        "refined gem ore"
+      ],
+      "commonality": 0,
+      "profession_name": "miner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "gem ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "refined {{.Resource.MainMaterial}} ore",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "refined {{.MainMaterial}} ore",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "refined soft metal ore",
+      "description": "refined soft metal ore",
+      "tags": [
+        "refined ore",
+        "refined soft metal ore"
+      ],
+      "commonality": 0,
+      "profession_name": "miner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "soft metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "refined {{.Resource.MainMaterial}} ore",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "refined {{.MainMaterial}} ore",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "refined hard metal ore",
+      "description": "refined hard metal ore",
+      "tags": [
+        "refined ore",
+        "refined hard metal ore"
+      ],
+      "commonality": 0,
+      "profession_name": "miner",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "hard metal ore",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "refined {{.Resource.MainMaterial}} ore",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "refined {{.MainMaterial}} ore",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    }
+  ]
+}

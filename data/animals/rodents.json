@@ -1,0 +1,184 @@
+{
+  "species": [
+    {
+      "name": "squirrel",
+      "plural_name": "squirrels",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "squirrel hide",
+          "description": "",
+          "main_material": "squirrel",
+          "origin": "squirrel",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "squirrel",
+          "description": "",
+          "main_material": "squirrel",
+          "origin": "squirrel",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "forest",
+        "temperate",
+        "rodent"
+      ]
+    },
+    {
+      "name": "chinchilla",
+      "plural_name": "chinchillas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "chinchilla hide",
+          "description": "",
+          "main_material": "chinchilla",
+          "origin": "chinchilla",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "chinchilla",
+          "description": "",
+          "main_material": "chinchilla",
+          "origin": "chinchilla",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "temperate",
+        "rodent"
+      ]
+    },
+    {
+      "name": "mouse",
+      "plural_name": "mice",
+      "adjective": "mouse",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "forest",
+        "montane",
+        "temperate",
+        "rodent"
+      ]
+    },
+    {
+      "name": "vole",
+      "plural_name": "voles",
+      "adjective": "vole",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "temperate",
+        "rodent"
+      ]
+    },
+    {
+      "name": "mole",
+      "plural_name": "moles",
+      "adjective": "mole",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "temperate",
+        "rodent"
+      ]
+    },
+    {
+      "name": "shrew",
+      "plural_name": "shrews",
+      "adjective": "shrew",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "grassland",
+        "temperate",
+        "rodent"
+      ]
+    }
+  ]
+}

@@ -1,26 +1,27 @@
 package organization
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/profession"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // GenerateNobleHouse generates a random noble house
-func GenerateNobleHouse(originCulture culture.Culture) (Organization, error) {
+func GenerateNobleHouse(ctx context.Context, originCulture culture.Culture) (Organization, error) {
 	org := Organization{}
 
 	orgType := getNobleType()
 	org.Type = orgType
-	org.SizeClass = getRandomSizeClass(org.Type.MinSize, org.Type.MaxSize)
-	org.Size = rand.Intn(org.SizeClass.MaxSize-org.SizeClass.MinSize) + org.SizeClass.MinSize
+	org.SizeClass = getRandomSizeClass(ctx, org.Type.MinSize, org.Type.MaxSize)
+	org.Size = random.Intn(ctx, org.SizeClass.MaxSize-org.SizeClass.MinSize) + org.SizeClass.MinSize
 
-	org.LeaderType = org.setLeaderType()
-	leader, err := org.getLeader(originCulture)
+	org.LeaderType = org.setLeaderType(ctx)
+	leader, err := org.getLeader(ctx, originCulture)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate noble house: %w", err)
 		return Organization{}, err
@@ -29,7 +30,7 @@ func GenerateNobleHouse(originCulture culture.Culture) (Organization, error) {
 	org.Type = orgType
 	leader.Rank.Title = leader.CharacterData.Title
 
-	device, err := heraldry.Generate()
+	device, err := heraldry.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate noble house: %w", err)
 		return Organization{}, err
@@ -45,14 +46,14 @@ func GenerateNobleHouse(originCulture culture.Culture) (Organization, error) {
 	org.Leader = leader
 	org.Name = houseName
 	org.Heraldry = org.Leader.CharacterData.Heraldry
-	trait, err := org.setTrait()
+	trait, err := org.setTrait(ctx)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate noble house: %w", err)
 		return Organization{}, err
 	}
 	org.PrimaryTrait = trait
 
-	notableMembers, err := org.getNobleMembers(originCulture, leader.CharacterData)
+	notableMembers, err := org.getNobleMembers(ctx, originCulture, leader.CharacterData)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate noble house: %w", err)
 		return Organization{}, err
@@ -144,7 +145,7 @@ func getNobleType() Type {
 	return house
 }
 
-func (org Organization) getNobleMembers(originCulture culture.Culture, master character.Character) ([]Member, error) {
+func (org Organization) getNobleMembers(ctx context.Context, originCulture culture.Culture, master character.Character) ([]Member, error) {
 	var memberData Member
 	var memberRank Rank
 	var nobleTitle string
@@ -153,7 +154,7 @@ func (org Organization) getNobleMembers(originCulture culture.Culture, master ch
 
 	maxMemberCount := org.Size - 2
 
-	spouseData, err := character.GenerateCompatibleMate(master)
+	spouseData, err := character.GenerateCompatibleMate(ctx, master)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate noble house: %w", err)
 		return []Member{}, err
@@ -178,17 +179,17 @@ func (org Organization) getNobleMembers(originCulture culture.Culture, master ch
 	members = append(members, spouse)
 
 	for i := 0; i < maxMemberCount; i++ {
-		member, err := character.Generate(originCulture)
+		member, err := character.Generate(ctx, originCulture)
 		if err != nil {
 			err = fmt.Errorf("Failed to get noble house members: %w", err)
 			return []Member{}, err
 		}
-		memberRank = org.Type.GetRandomMemberRank(members)
+		memberRank = org.Type.GetRandomMemberRank(ctx, members)
 		member.Race = master.Race
 		member.LastName = master.LastName
-		member = member.ChangeAge(GetModifiedMemberAge(memberRank, member.Race))
+		member = member.ChangeAge(ctx, GetModifiedMemberAge(ctx, memberRank, member.Race))
 
-		prof, err := org.Type.GetRandomMemberProfession()
+		prof, err := org.Type.GetRandomMemberProfession(ctx)
 		if err != nil {
 			err = fmt.Errorf("Failed to get noble house members: %w", err)
 			return []Member{}, err

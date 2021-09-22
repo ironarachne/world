@@ -1,0 +1,323 @@
+{
+  "species": [
+    {
+      "name": "chimpanzee",
+      "plural_name": "chimpanzees",
+      "adjective": "chimpanzee",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "chimpanzee",
+          "description": "",
+          "main_material": "chimpanzee",
+          "origin": "chimpanzee",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "chimpanzee brains",
+          "description": "",
+          "main_material": "chimpanzee brains",
+          "origin": "chimpanzee",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "primate",
+        "herbivore",
+        "forest",
+        "tropical"
+      ]
+    },
+    {
+      "name": "gorilla",
+      "plural_name": "gorillas",
+      "adjective": "gorilla",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "gorilla",
+          "description": "",
+          "main_material": "gorilla",
+          "origin": "gorilla",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "gorilla brains",
+          "description": "",
+          "main_material": "gorilla brains",
+          "origin": "gorilla",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "rainforest",
+        "primate",
+        "herbivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "orangutan",
+      "plural_name": "orangutans",
+      "adjective": "orangutan",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "orangutan",
+          "description": "",
+          "main_material": "orangutan",
+          "origin": "orangutan",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "orangutan brains",
+          "description": "",
+          "main_material": "orangutan brains",
+          "origin": "orangutan",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "primate",
+        "rainforest",
+        "herbivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "gibbon",
+      "plural_name": "gibbons",
+      "adjective": "gibbon",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "gibbon",
+          "description": "",
+          "main_material": "gibbon",
+          "origin": "gibbon",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "gibbon brains",
+          "description": "",
+          "main_material": "gibbon brains",
+          "origin": "gibbon",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "gibbon",
+        "mammal",
+        "primate",
+        "rainforest",
+        "desert",
+        "herbivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "monkey",
+      "plural_name": "monkeys",
+      "adjective": "monkey",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "monkey",
+          "description": "",
+          "main_material": "monkey",
+          "origin": "monkey",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "monkey brains",
+          "description": "",
+          "main_material": "monkey brains",
+          "origin": "monkey",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "primate",
+        "rainforest",
+        "forest",
+        "herbivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "babboon",
+      "plural_name": "babboons",
+      "adjective": "babboon",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "babboon",
+          "description": "",
+          "main_material": "babboon",
+          "origin": "babboon",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "babboon brains",
+          "description": "",
+          "main_material": "babboon brains",
+          "origin": "babboon",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "primate",
+        "rainforest",
+        "herbivore",
+        "tropical"
+      ]
+    },
+    {
+      "name": "lemur",
+      "plural_name": "lemurs",
+      "adjective": "lemur",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "lemur",
+          "description": "",
+          "main_material": "lemur",
+          "origin": "lemur",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "lemur brains",
+          "description": "",
+          "main_material": "lemur brains",
+          "origin": "lemur",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "lemur",
+        "mammal",
+        "rainforest",
+        "primate",
+        "herbivore",
+        "tropical"
+      ]
+    }
+  ]
+}

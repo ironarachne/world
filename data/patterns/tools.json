@@ -1,0 +1,159 @@
+{
+  "patterns": [
+    {
+      "name": "fork",
+      "description": "a fork",
+      "tags": [
+        "eating utensil"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} fork",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} fork",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "hammer",
+      "description": "a hammer",
+      "tags": [
+        "tool"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} hammer",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} hammer",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "knife",
+      "description": "a knife",
+      "tags": [
+        "eating utensil"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} knife",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} knife",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "hand saw",
+      "description": "a hand saw",
+      "tags": [
+        "tool"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} hand saw",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} hand saw",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "spoon",
+      "description": "a spoon",
+      "tags": [
+        "eating utensil"
+      ],
+      "commonality": 0,
+      "profession_name": "blacksmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} spoon",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} spoon",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    }
+  ]
+}

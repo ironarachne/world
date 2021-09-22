@@ -1,15 +1,16 @@
 package region
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/organization"
 )
 
-func (region Region) generateRulingBody() (organization.Organization, error) {
+func (region Region) generateRulingBody(ctx context.Context) (organization.Organization, error) {
 	var members []organization.Member
 
-	rulingBody, err := organization.GenerateNobleHouse(region.Culture)
+	rulingBody, err := organization.GenerateNobleHouse(ctx, region.Culture)
 	if err != nil {
 		err = fmt.Errorf("Could not generate region ruler: %w", err)
 		return organization.Organization{}, err

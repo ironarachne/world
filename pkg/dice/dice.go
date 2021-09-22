@@ -4,10 +4,12 @@ Package dice provides methods for simulating the rolling of polyhedral dice.
 package dice
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 	"regexp"
 	"strconv"
+
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Dice is a representation of polyhedral dice
@@ -17,12 +19,12 @@ type Dice struct {
 }
 
 // Roll rolls "num" number of dice with "sides" sides and returns the total result
-func Roll(dice Dice) int {
+func Roll(ctx context.Context, dice Dice) int {
 	roll := 0
 	result := 0
 
 	for i := 0; i < dice.Number; i++ {
-		roll = rand.Intn(dice.Sides) + 1
+		roll = random.Intn(ctx, dice.Sides) + 1
 		result += roll
 	}
 

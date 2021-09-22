@@ -1,0 +1,3093 @@
+{
+  "species": [
+    {
+      "name": "blackberry bush",
+      "plural_name": "blackberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "blackberry",
+          "description": "",
+          "main_material": "blackberry",
+          "origin": "blackberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "bush",
+        "temperate"
+      ]
+    },
+    {
+      "name": "raspberry bush",
+      "plural_name": "raspberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "raspberry",
+          "description": "",
+          "main_material": "raspberry",
+          "origin": "raspberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "bush",
+        "temperate"
+      ]
+    },
+    {
+      "name": "strawberry bush",
+      "plural_name": "strawberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "strawberry",
+          "description": "",
+          "main_material": "strawberry",
+          "origin": "strawberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "bush",
+        "temperate"
+      ]
+    },
+    {
+      "name": "agave",
+      "plural_name": "agave",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "agave fiber",
+          "description": "",
+          "main_material": "agave",
+          "origin": "agave",
+          "tags": [
+            "fiber"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "agave needle",
+          "description": "",
+          "main_material": "agave",
+          "origin": "agave",
+          "tags": [
+            "needle"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "agave sap",
+          "description": "",
+          "main_material": "agave",
+          "origin": "agave",
+          "tags": [
+            "sap"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "arid",
+        "cactus"
+      ]
+    },
+    {
+      "name": "pitahaya",
+      "plural_name": "pitahayas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "dragonfruit",
+          "description": "",
+          "main_material": "dragonfruit",
+          "origin": "pitahaya",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "arid",
+        "cactus"
+      ]
+    },
+    {
+      "name": "saguaro",
+      "plural_name": "saguaro",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "saguaro fiber",
+          "description": "",
+          "main_material": "saguaro",
+          "origin": "saguaro",
+          "tags": [
+            "fiber"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "saguaro",
+          "description": "",
+          "main_material": "saguaro",
+          "origin": "saguaro",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "saguaro needle",
+          "description": "",
+          "main_material": "saguaro",
+          "origin": "saguaro",
+          "tags": [
+            "needle"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "saguaro sap",
+          "description": "",
+          "main_material": "saguaro",
+          "origin": "saguaro",
+          "tags": [
+            "sap"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "arid",
+        "cactus"
+      ]
+    },
+    {
+      "name": "cotton",
+      "plural_name": "cotton",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cotton",
+          "description": "",
+          "main_material": "cotton",
+          "origin": "cotton",
+          "tags": [
+            "fabric fiber"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fiber",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "flax",
+      "plural_name": "flax",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "linen",
+          "description": "",
+          "main_material": "linen",
+          "origin": "flax",
+          "tags": [
+            "fabric fiber"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fiber",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "hemp",
+      "plural_name": "hemp",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 90,
+      "resources": [
+        {
+          "name": "hemp",
+          "description": "",
+          "main_material": "hemp",
+          "origin": "hemp",
+          "tags": [
+            "fabric fiber"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fiber",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "coir",
+      "plural_name": "coir",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 60,
+      "max_humidity": 100,
+      "min_temperature": 80,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "coir seed",
+          "description": "",
+          "main_material": "coir",
+          "origin": "coir",
+          "tags": [
+            "seed"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fiber",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "papyrus",
+      "plural_name": "papyrus",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 90,
+      "resources": [
+        {
+          "name": "papyrus",
+          "description": "",
+          "main_material": "papyrus",
+          "origin": "papyrus",
+          "tags": [
+            "paper"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "papyrus",
+          "description": "",
+          "main_material": "papyrus",
+          "origin": "papyrus",
+          "tags": [
+            "reed"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fiber",
+        "reed",
+        "river",
+        "semiarid",
+        "arid"
+      ]
+    },
+    {
+      "name": "jute",
+      "plural_name": "jute",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 90,
+      "resources": [
+        {
+          "name": "jute",
+          "description": "",
+          "main_material": "jute",
+          "origin": "jute",
+          "tags": [
+            "fabric fiber"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fiber",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "ramie",
+      "plural_name": "ramie",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "ramie",
+          "description": "",
+          "main_material": "ramie",
+          "origin": "ramie",
+          "tags": [
+            "fabric fiber"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fiber",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "rye",
+      "plural_name": "rye",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "rye",
+          "description": "",
+          "main_material": "rye",
+          "origin": "rye",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "oat",
+      "plural_name": "oats",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "oat",
+          "description": "",
+          "main_material": "oat",
+          "origin": "oat",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "sorghum",
+      "plural_name": "sorghum",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "sorghum",
+          "description": "",
+          "main_material": "sorghum",
+          "origin": "sorghum",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "millet",
+      "plural_name": "millet",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "millet",
+          "description": "",
+          "main_material": "millet",
+          "origin": "millet",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "barley",
+      "plural_name": "barley",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 5,
+      "max_humidity": 50,
+      "min_temperature": 0,
+      "max_temperature": 60,
+      "resources": [
+        {
+          "name": "barley",
+          "description": "",
+          "main_material": "barley",
+          "origin": "barley",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "wheat",
+      "plural_name": "wheat",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 10,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "wheat",
+          "description": "",
+          "main_material": "wheat",
+          "origin": "wheat",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "einkorn",
+      "plural_name": "einkorn",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "einkorn",
+          "description": "",
+          "main_material": "einkorn",
+          "origin": "einkorn",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "spelt",
+      "plural_name": "spelt",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "spelt",
+          "description": "",
+          "main_material": "spelt",
+          "origin": "spelt",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "teff",
+      "plural_name": "teff",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "teff",
+          "description": "",
+          "main_material": "teff",
+          "origin": "teff",
+          "tags": [
+            "grain"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "grassland",
+        "tropical",
+        "temperate",
+        "semiarid",
+        "arid"
+      ]
+    },
+    {
+      "name": "rice",
+      "plural_name": "rice",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "rice",
+          "description": "",
+          "main_material": "rice",
+          "origin": "rice",
+          "tags": [
+            "grain",
+            "rice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grain",
+        "tropical",
+        "rainforest",
+        "river",
+        "lake",
+        "humid"
+      ]
+    },
+    {
+      "name": "parsley",
+      "plural_name": "parsley",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "parsley",
+          "description": "",
+          "main_material": "parsley",
+          "origin": "parsley",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "brahmi",
+      "plural_name": "brahmi",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "brahmi",
+          "description": "",
+          "main_material": "brahmi",
+          "origin": "brahmi",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "basil",
+      "plural_name": "basil",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "basil",
+          "description": "",
+          "main_material": "basil",
+          "origin": "basil",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cilantro",
+      "plural_name": "cilantro",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cilantro",
+          "description": "",
+          "main_material": "cilantro",
+          "origin": "cilantro",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "grassland",
+        "forest",
+        "tropical",
+        "rainforest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "saffron",
+      "plural_name": "saffron",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "saffron",
+          "description": "",
+          "main_material": "saffron",
+          "origin": "saffron",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 3,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "rainforest",
+        "humid"
+      ]
+    },
+    {
+      "name": "rosemary",
+      "plural_name": "rosemary",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "rosemary",
+          "description": "",
+          "main_material": "rosemary",
+          "origin": "rosemary",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "black pepper",
+      "plural_name": "black pepper vines",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "black pepper",
+          "description": "cooked and dried unripe fruit of the black pepper vine",
+          "main_material": "black pepper",
+          "origin": "black pepper",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "green pepper",
+          "description": "dried unripe fruit of the black pepper vine",
+          "main_material": "green pepper",
+          "origin": "green pepper",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "white pepper",
+          "description": "dried ripe fruit seeds of the black pepper vine",
+          "main_material": "white pepper",
+          "origin": "white pepper",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "vine",
+        "grassland",
+        "forest",
+        "rainforest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "oregano",
+      "plural_name": "oregano",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "oregano",
+          "description": "",
+          "main_material": "oregano",
+          "origin": "oregano",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "mint",
+      "plural_name": "mint",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "mint",
+          "description": "",
+          "main_material": "mint",
+          "origin": "mint",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "lemongrass",
+      "plural_name": "lemongrass",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "lemongrass",
+          "description": "",
+          "main_material": "lemongrass",
+          "origin": "lemongrass",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "rainforest",
+        "tropical",
+        "humid"
+      ]
+    },
+    {
+      "name": "sugarcane",
+      "plural_name": "sugarcane",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "sugarcane juice",
+          "description": "",
+          "main_material": "sugarcane",
+          "origin": "sugarcane",
+          "tags": [
+            "sugarcane juice",
+            "sweetener"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "grass",
+        "rainforest",
+        "tropical",
+        "humid"
+      ]
+    },
+    {
+      "name": "coriander",
+      "plural_name": "coriander",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "coriander",
+          "description": "",
+          "main_material": "coriander",
+          "origin": "coriander",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "clove",
+      "plural_name": "clove",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "clove",
+          "description": "",
+          "main_material": "clove",
+          "origin": "clove",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "turmeric",
+      "plural_name": "turmeric",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "turmeric",
+          "description": "",
+          "main_material": "turmeric",
+          "origin": "turmeric",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "tropical",
+        "rainforest"
+      ]
+    },
+    {
+      "name": "vanilla",
+      "plural_name": "vanilla",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "vanilla",
+          "description": "",
+          "main_material": "vanilla",
+          "origin": "vanilla",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 3,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "tropical",
+        "rainforest",
+        "humid"
+      ]
+    },
+    {
+      "name": "galangal",
+      "plural_name": "galangal",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "galangal",
+          "description": "",
+          "main_material": "galangal",
+          "origin": "galangal",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "tropical",
+        "rainforest",
+        "humid"
+      ]
+    },
+    {
+      "name": "ginger",
+      "plural_name": "ginger",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "ginger",
+          "description": "",
+          "main_material": "ginger",
+          "origin": "ginger",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "tropical",
+        "rainforest",
+        "humid"
+      ]
+    },
+    {
+      "name": "cantaloupe",
+      "plural_name": "cantaloupe",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cantaloupe",
+          "description": "",
+          "main_material": "cantaloupe",
+          "origin": "cantaloupe",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "melon",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "honeydew",
+      "plural_name": "honeydew",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "honeydew",
+          "description": "",
+          "main_material": "honeydew",
+          "origin": "honeydew",
+          "tags": [
+            "fruit",
+            "melon"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "melon",
+        "grassland",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "watermelon",
+      "plural_name": "watermelon",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "watermelon",
+          "description": "",
+          "main_material": "watermelon",
+          "origin": "watermelon",
+          "tags": [
+            "fruit",
+            "melon"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "melon",
+        "grassland",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "acorn squash",
+      "plural_name": "acorn squash",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 10,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "acorn squash",
+          "description": "",
+          "main_material": "acorn squash",
+          "origin": "acorn squash",
+          "tags": [
+            "squash"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "squash",
+        "grassland",
+        "boreal",
+        "temperate"
+      ]
+    },
+    {
+      "name": "buttercup squash",
+      "plural_name": "buttercup squash",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "buttercup squash",
+          "description": "",
+          "main_material": "buttercup squash",
+          "origin": "buttercup squash",
+          "tags": [
+            "squash"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "squash",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "butternut squash",
+      "plural_name": "butternut squash",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "butternut squash",
+          "description": "",
+          "main_material": "butternut squash",
+          "origin": "butternut squash",
+          "tags": [
+            "squash"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "squash",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "pumpkin",
+      "plural_name": "pumpkins",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 10,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "pumpkin",
+          "description": "",
+          "main_material": "pumpkin",
+          "origin": "pumpkin",
+          "tags": [
+            "squash"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pumpkin seed oil",
+          "description": "",
+          "main_material": "pumpkin",
+          "origin": "pumpkin",
+          "tags": null,
+          "commonality": 2,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "squash",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "spaghetti squash",
+      "plural_name": "spaghetti squash",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "spaghetti squash",
+          "description": "",
+          "main_material": "spaghetti squash",
+          "origin": "spaghetti squash",
+          "tags": [
+            "squash"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "squash",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "zucchini",
+      "plural_name": "zucchini",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "zucchini",
+          "description": "",
+          "main_material": "zucchini",
+          "origin": "zucchini",
+          "tags": [
+            "squash"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "squash",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "potato",
+      "plural_name": "potatoes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "potato",
+          "description": "",
+          "main_material": "potato",
+          "origin": "potato",
+          "tags": [
+            "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "semiarid",
+        "temperate"
+      ]
+    },
+    {
+      "name": "onion",
+      "plural_name": "onions",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "onion",
+          "description": "",
+          "main_material": "onion",
+          "origin": "onion",
+          "tags": [
+            "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "semiarid",
+        "temperate"
+      ]
+    },
+    {
+      "name": "beet",
+      "plural_name": "beets",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "beet",
+          "description": "",
+          "main_material": "beet",
+          "origin": "beet",
+          "tags": [
+            "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "semiarid",
+        "temperate"
+      ]
+    },
+    {
+      "name": "sugar beet",
+      "plural_name": "sugar beets",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "sugar beet",
+          "description": "",
+          "main_material": "sugar beet",
+          "origin": "sugar beet",
+          "tags": [
+            "root vegetable",
+            "sweet",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "semiarid",
+        "temperate"
+      ]
+    },
+    {
+      "name": "radish",
+      "plural_name": "radishes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "radish",
+          "description": "",
+          "main_material": "radish",
+          "origin": "radish",
+          "tags": [
+            "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "yam",
+      "plural_name": "yams",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "yam",
+          "description": "",
+          "main_material": "yam",
+          "origin": "yam",
+          "tags": [
+            "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "arid",
+        "semiarid",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "carrot",
+      "plural_name": "carrots",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "carrot",
+          "description": "",
+          "main_material": "carrot",
+          "origin": "carrot",
+          "tags": [
+            "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "eggplant",
+      "plural_name": "eggplants",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "eggplant",
+          "description": "",
+          "main_material": "eggplant",
+          "origin": "eggplant",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "berry",
+        "grassland",
+        "forest",
+        "rainforest",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "kohlrabi",
+      "plural_name": "kohlrabi",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "kohlrabi",
+          "description": "",
+          "main_material": "kohlrabi",
+          "origin": "kohlrabi",
+          "tags": [
+            "root vegetable",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "root",
+        "grassland",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cabbage",
+      "plural_name": "cabbages",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cabbage",
+          "description": "",
+          "main_material": "cabbage",
+          "origin": "cabbage",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "lettuce",
+      "plural_name": "lettuces",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "lettuce",
+          "description": "",
+          "main_material": "lettuce",
+          "origin": "lettuce",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "fiddlehead",
+      "plural_name": "fiddleheads",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "fiddlehead",
+          "description": "",
+          "main_material": "fiddlehead",
+          "origin": "fiddlehead",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "forest",
+        "temperate",
+        "fern"
+      ]
+    },
+    {
+      "name": "broccoli",
+      "plural_name": "broccoli",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "broccoli",
+          "description": "",
+          "main_material": "broccoli",
+          "origin": "broccoli",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cauliflower",
+      "plural_name": "cauliflower",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cauliflower",
+          "description": "",
+          "main_material": "cauliflower",
+          "origin": "cauliflower",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "tomato",
+      "plural_name": "tomatoes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "tomato",
+          "description": "",
+          "main_material": "tomato",
+          "origin": "tomato",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "bell pepper",
+      "plural_name": "bell peppers",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "bell pepper",
+          "description": "",
+          "main_material": "bell pepper",
+          "origin": "bell pepper",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "forest",
+        "tropical",
+        "rainforest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "bok choy",
+      "plural_name": "bok choy",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "bok choy",
+          "description": "",
+          "main_material": "bok choy",
+          "origin": "bok choy",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "rainforest",
+        "tropical",
+        "temperate"
+      ]
+    },
+    {
+      "name": "leek",
+      "plural_name": "leeks",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "leek",
+          "description": "",
+          "main_material": "leek",
+          "origin": "leek",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "tropical",
+        "rainforest",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "brussel sprout",
+      "plural_name": "brussel sprouts",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "brussel sprouts",
+          "description": "",
+          "main_material": "brussel sprout",
+          "origin": "brussel sprout",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "green bean",
+      "plural_name": "green beans",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "green beans",
+          "description": "",
+          "main_material": "green bean",
+          "origin": "green bean",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "black bean",
+      "plural_name": "black beans",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "black beans",
+          "description": "",
+          "main_material": "black bean",
+          "origin": "black bean",
+          "tags": [
+            "legume",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "pinto bean",
+      "plural_name": "pinto beans",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "pinto beans",
+          "description": "",
+          "main_material": "pinto bean",
+          "origin": "pinto bean",
+          "tags": [
+            "legume",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "lima bean",
+      "plural_name": "lima beans",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "lima beans",
+          "description": "",
+          "main_material": "lima bean",
+          "origin": "lima bean",
+          "tags": [
+            "legume",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "kidney bean",
+      "plural_name": "kidney beans",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "kidney beans",
+          "description": "",
+          "main_material": "kidney bean",
+          "origin": "kidney bean",
+          "tags": [
+            "legume",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "corn",
+      "plural_name": "corn",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "corn",
+          "description": "",
+          "main_material": "corn",
+          "origin": "corn",
+          "tags": [
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "grassland",
+        "montane",
+        "temperate"
+      ]
+    },
+    {
+      "name": "jalapeno",
+      "plural_name": "jalapenos",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "jalapeno",
+          "description": "",
+          "main_material": "jalapeno",
+          "origin": "jalapeno",
+          "tags": [
+            "hot pepper",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "tropical",
+        "rainforest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "habanero",
+      "plural_name": "habanero peppers",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "habanero",
+          "description": "",
+          "main_material": "habanero",
+          "origin": "habanero",
+          "tags": [
+            "hot pepper",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "tropical",
+        "rainforest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "serrano",
+      "plural_name": "serrano peppers",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "serrano",
+          "description": "",
+          "main_material": "serrano",
+          "origin": "serrano",
+          "tags": [
+            "hot pepper",
+            "vegetable"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "vegetable",
+        "tropical",
+        "rainforest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "sunflower",
+      "plural_name": "sunflowers",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 80,
+      "min_temperature": 20,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "sunflower",
+          "description": "",
+          "main_material": "sunflower",
+          "origin": "sunflower",
+          "tags": [
+            "flower"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "sunflower seeds",
+          "description": "",
+          "main_material": "sunflower seed",
+          "origin": "sunflower",
+          "tags": [
+            "edible seed",
+            "seed"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "flower",
+        "forb",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "clover",
+      "plural_name": "clover",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 80,
+      "min_temperature": 20,
+      "max_temperature": 80,
+      "resources": [],
+      "tags": [
+        "forb",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "daylily",
+      "plural_name": "daylilies",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 80,
+      "min_temperature": 20,
+      "max_temperature": 80,
+      "resources": [],
+      "tags": [
+        "forb",
+        "flower",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "milkweed",
+      "plural_name": "milkweed",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 80,
+      "min_temperature": 20,
+      "max_temperature": 80,
+      "resources": [],
+      "tags": [
+        "forb",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "button mushroom",
+      "plural_name": "button mushrooms",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 80,
+      "min_temperature": 20,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "button mushrooms",
+          "description": "",
+          "main_material": "button mushroom",
+          "origin": "button mushroom",
+          "tags": [
+            "fungus",
+            "mushroom"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "portobello mushrooms",
+          "description": "",
+          "main_material": "portobello mushroom",
+          "origin": "portobello mushroom",
+          "tags": [
+            "fungus",
+            "mushroom"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fungus",
+        "mushroom",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "oyster mushroom",
+      "plural_name": "oyster mushrooms",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 80,
+      "min_temperature": 20,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "oyster mushrooms",
+          "description": "",
+          "main_material": "oyster mushroom",
+          "origin": "oyster mushroom",
+          "tags": [
+            "fungus",
+            "mushroom"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fungus",
+        "mushroom",
+        "grassland",
+        "temperate"
+      ]
+    },
+    {
+      "name": "straw mushroom",
+      "plural_name": "straw mushrooms",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 90,
+      "min_temperature": 20,
+      "max_temperature": 90,
+      "resources": [
+        {
+          "name": "straw mushrooms",
+          "description": "",
+          "main_material": "straw mushroom",
+          "origin": "straw mushroom",
+          "tags": [
+            "fungus",
+            "mushroom"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fungus",
+        "mushroom",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "morel mushroom",
+      "plural_name": "morel mushrooms",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 100,
+      "min_temperature": 40,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "morel mushrooms",
+          "description": "",
+          "main_material": "morel mushroom",
+          "origin": "morel mushroom",
+          "tags": [
+            "fungus",
+            "mushroom"
+          ],
+          "commonality": 1,
+          "value": 10
+        }
+      ],
+      "tags": [
+        "fungus",
+        "mushroom",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "death cap mushroom",
+      "plural_name": "death cap mushrooms",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 20,
+      "max_humidity": 80,
+      "min_temperature": 20,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "death cap mushroom",
+          "description": "",
+          "main_material": "death cap mushroom",
+          "origin": "death cap mushroom",
+          "tags": [
+            "fungus",
+            "poison"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "fungus",
+        "mushroom",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "tobacco",
+      "plural_name": "tobacco",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "tobacco",
+          "description": "",
+          "main_material": "tobacco",
+          "origin": "tobacco",
+          "tags": [
+            "smokeable",
+            "psychotropic",
+            "stimulant",
+            "addictive"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "tropical",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cannabis",
+      "plural_name": "cannabis",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cannabis",
+          "description": "",
+          "main_material": "cannabis",
+          "origin": "cannabis",
+          "tags": [
+            "smokeable",
+            "psychotropic"
+          ],
+          "commonality": 5,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "tropical",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "opium poppy",
+      "plural_name": "opium poppies",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "opium",
+          "description": "",
+          "main_material": "opium",
+          "origin": "opium poppy",
+          "tags": [
+            "smokeable",
+            "psychotropic",
+            "addictive"
+          ],
+          "commonality": 2,
+          "value": 5
+        }
+      ],
+      "tags": [
+        "tropical",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "coca",
+      "plural_name": "coca",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cocaine",
+          "description": "",
+          "main_material": "cocaine",
+          "origin": "coca",
+          "tags": [
+            "smokeable",
+            "psychotropic",
+            "addictive"
+          ],
+          "commonality": 1,
+          "value": 10
+        }
+      ],
+      "tags": [
+        "tropical",
+        "rainforest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "reed",
+      "plural_name": "reeds",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "reed",
+          "description": "",
+          "main_material": "reed",
+          "origin": "reed",
+          "tags": [
+            "reed"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "reed",
+        "river",
+        "tropical",
+        "temperate",
+        "semiarid"
+      ]
+    },
+    {
+      "name": "giant reed",
+      "plural_name": "giant reeds",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "giant reed",
+          "description": "",
+          "main_material": "giant reed",
+          "origin": "giant reed",
+          "tags": [
+            "reed"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "reed",
+        "river",
+        "tropical",
+        "temperate",
+        "semiarid"
+      ]
+    },
+    {
+      "name": "cattail",
+      "plural_name": "cattails",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "river",
+        "temperate"
+      ]
+    },
+    {
+      "name": "rush",
+      "plural_name": "rushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "river",
+        "lake",
+        "temperate"
+      ]
+    },
+    {
+      "name": "horsetail",
+      "plural_name": "horsetails",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 10,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [],
+      "tags": [
+        "river",
+        "lake",
+        "temperate"
+      ]
+    }
+  ]
+}

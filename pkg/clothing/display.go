@@ -1,8 +1,10 @@
 package clothing
 
 import (
+	"context"
+
+	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/words"
-	"math/rand"
 )
 
 // SimplifiedStyle is a simplified version of clothing style for display
@@ -15,11 +17,11 @@ type SimplifiedStyle struct {
 }
 
 // Describe creates a prose description for an item
-func (item Item) Describe() string {
+func (item Item) Describe(ctx context.Context) string {
 	description := ""
 
 	if item.PrefixModifier != "" {
-		if rand.Intn(100) > 50 {
+		if random.Intn(ctx, 100) > 50 {
 			description += item.PrefixModifier + " " + item.MaterialType + " "
 		} else {
 			description += item.MaterialType + " " + item.PrefixModifier + " "
@@ -38,19 +40,19 @@ func (item Item) Describe() string {
 }
 
 // Describe creates a prose description for a clothing style
-func (style Style) Describe() string {
+func (style Style) Describe(ctx context.Context) string {
 	female := []string{}
 	male := []string{}
 
 	for _, f := range style.FemaleOutfit {
-		female = append(female, f.Describe())
+		female = append(female, f.Describe(ctx))
 	}
 
 	for _, m := range style.MaleOutfit {
-		male = append(male, m.Describe())
+		male = append(male, m.Describe(ctx))
 	}
 
-	description := "The male outfit is: " + words.CombinePhrases(male) +", and the female outfit is: " + words.CombinePhrases(female) + ". "
+	description := "The male outfit is: " + words.CombinePhrases(male) + ", and the female outfit is: " + words.CombinePhrases(female) + ". "
 	description += "Common jewelry is " + words.CombinePhrases(style.CommonJewelry) + ". "
 	description += "Common colors are " + words.CombinePhrases(style.CommonColors) + ". "
 	description += "A common decorative element is " + style.DecorativeStyle + "."
@@ -59,16 +61,16 @@ func (style Style) Describe() string {
 }
 
 // Simplify returns a simplified style for display
-func (style Style) Simplify() SimplifiedStyle {
+func (style Style) Simplify(ctx context.Context) SimplifiedStyle {
 	female := []string{}
 	male := []string{}
 
 	for _, f := range style.FemaleOutfit {
-		female = append(female, f.Describe())
+		female = append(female, f.Describe(ctx))
 	}
 
 	for _, m := range style.MaleOutfit {
-		male = append(male, m.Describe())
+		male = append(male, m.Describe(ctx))
 	}
 
 	return SimplifiedStyle{

@@ -1,12 +1,13 @@
 package buildings
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
 )
 
-func getRandomWindowDescriptor() (string, error) {
+func getRandomWindowDescriptor(ctx context.Context) (string, error) {
 	descriptors := []string{
 		"and narrow",
 		"and ornate",
@@ -21,7 +22,7 @@ func getRandomWindowDescriptor() (string, error) {
 		"and wide",
 	}
 
-	descriptor, err := random.String(descriptors)
+	descriptor, err := random.String(ctx, descriptors)
 	if err != nil {
 		err = fmt.Errorf("Could not get window descriptor: %w", err)
 		return "", err
@@ -30,14 +31,14 @@ func getRandomWindowDescriptor() (string, error) {
 	return descriptor, nil
 }
 
-func getRandomWindowSize() (string, error) {
+func getRandomWindowSize(ctx context.Context) (string, error) {
 	sizes := []string{
 		"large",
 		"medium",
 		"small",
 	}
 
-	size, err := random.String(sizes)
+	size, err := random.String(ctx, sizes)
 
 	if err != nil {
 		err = fmt.Errorf("Could not get window size: %w", err)
@@ -47,13 +48,13 @@ func getRandomWindowSize() (string, error) {
 	return size, nil
 }
 
-func getRandomWindowStyle() (string, error) {
-	description, err := getRandomWindowSize()
+func getRandomWindowStyle(ctx context.Context) (string, error) {
+	description, err := getRandomWindowSize(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate window style: %w", err)
 		return "", err
 	}
-	descriptor, err := getRandomWindowDescriptor()
+	descriptor, err := getRandomWindowDescriptor(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate window style: %w", err)
 		return "", err

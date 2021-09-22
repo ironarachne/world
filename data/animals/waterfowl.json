@@ -1,0 +1,202 @@
+{
+  "species": [
+    {
+      "name": "duck",
+      "plural_name": "ducks",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "duck eggs",
+          "description": "",
+          "main_material": "duck",
+          "origin": "duck",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "duck feathers",
+          "description": "",
+          "main_material": "duck",
+          "origin": "duck",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "duck",
+          "description": "",
+          "main_material": "duck",
+          "origin": "duck",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "duck liver",
+          "description": "",
+          "main_material": "duck",
+          "origin": "duck",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "river",
+        "lake",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "flamingo",
+      "plural_name": "flamingos",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "flamingo feathers",
+          "description": "",
+          "main_material": "flamingo",
+          "origin": "flamingo",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "tropical",
+        "waterfowl"
+      ]
+    },
+    {
+      "name": "goose",
+      "plural_name": "geese",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "goose eggs",
+          "description": "",
+          "main_material": "goose",
+          "origin": "goose",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "goose feathers",
+          "description": "",
+          "main_material": "goose",
+          "origin": "goose",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "goose",
+          "description": "",
+          "main_material": "goose",
+          "origin": "goose",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "goose liver",
+          "description": "",
+          "main_material": "goose",
+          "origin": "goose",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "game bird",
+        "herbivore",
+        "temperate"
+      ]
+    },
+    {
+      "name": "swan",
+      "plural_name": "swans",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "swan feathers",
+          "description": "",
+          "main_material": "swan",
+          "origin": "swan",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "temperate",
+        "waterfowl"
+      ]
+    }
+  ]
+}

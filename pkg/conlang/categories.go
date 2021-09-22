@@ -1,6 +1,10 @@
 package conlang
 
-import "math/rand"
+import (
+	"context"
+
+	"github.com/ironarachne/world/pkg/random"
+)
 
 // Category is a style of constructed language
 type Category struct {
@@ -23,13 +27,13 @@ func isCategoryInSlice(cat Category, categories []Category) bool {
 	return false
 }
 
-func randomCombinedCategory() Category {
+func randomCombinedCategory(ctx context.Context) Category {
 	var cat Category
 
 	categories := []Category{}
 
 	for i := 0; i < 2; i++ {
-		cat = randomCategory()
+		cat = randomCategory(ctx)
 		if !isCategoryInSlice(cat, categories) {
 			categories = append(categories, cat)
 		} else {
@@ -128,8 +132,8 @@ func getAllCategories() []Category {
 	}
 }
 
-func randomCategory() Category {
+func randomCategory(ctx context.Context) Category {
 	categories := getAllCategories()
 
-	return categories[rand.Intn(len(categories))]
+	return categories[random.Intn(ctx, len(categories))]
 }

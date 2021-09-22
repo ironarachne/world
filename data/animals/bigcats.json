@@ -1,0 +1,481 @@
+{
+  "species": [
+    {
+      "name": "bobcat",
+      "plural_name": "bobcats",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "bobcat hide",
+          "description": "",
+          "main_material": "bobcat",
+          "origin": "bobcat",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 4
+        },
+        {
+          "name": "bobcat fangs",
+          "description": "",
+          "main_material": "bobcat",
+          "origin": "bobcat",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "bobcat",
+          "description": "",
+          "main_material": "bobcat",
+          "origin": "bobcat",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bobcat",
+          "description": "",
+          "main_material": "bobcat",
+          "origin": "bobcat",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "big cat",
+        "forest",
+        "carnivore",
+        "mammal",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cheetah",
+      "plural_name": "cheetahs",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cheetah hide",
+          "description": "",
+          "main_material": "cheetah",
+          "origin": "cheetah",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 4
+        },
+        {
+          "name": "cheetah fangs",
+          "description": "",
+          "main_material": "cheetah",
+          "origin": "cheetah",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "cheetah",
+          "description": "",
+          "main_material": "cheetah",
+          "origin": "cheetah",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cheetah",
+          "description": "",
+          "main_material": "cheetah",
+          "origin": "cheetah",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "big cat",
+        "grassland",
+        "carnivore",
+        "mammal",
+        "arid"
+      ]
+    },
+    {
+      "name": "cougar",
+      "plural_name": "cougars",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cougar hide",
+          "description": "",
+          "main_material": "cougar",
+          "origin": "cougar",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 4
+        },
+        {
+          "name": "cougar fangs",
+          "description": "",
+          "main_material": "cougar",
+          "origin": "cougar",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "cougar",
+          "description": "",
+          "main_material": "cougar",
+          "origin": "cougar",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cougar",
+          "description": "",
+          "main_material": "cougar",
+          "origin": "cougar",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "big cat",
+        "forest",
+        "montane",
+        "carnivore",
+        "mammal",
+        "temperate"
+      ]
+    },
+    {
+      "name": "jaguar",
+      "plural_name": "jaguars",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "jaguar hide",
+          "description": "",
+          "main_material": "jaguar",
+          "origin": "jaguar",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 4
+        },
+        {
+          "name": "jaguar fangs",
+          "description": "",
+          "main_material": "jaguar",
+          "origin": "jaguar",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "jaguar",
+          "description": "",
+          "main_material": "jaguar",
+          "origin": "jaguar",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "jaguar",
+          "description": "",
+          "main_material": "jaguar",
+          "origin": "jaguar",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "big cat",
+        "rainforest",
+        "carnivore",
+        "mammal",
+        "tropical"
+      ]
+    },
+    {
+      "name": "leopard",
+      "plural_name": "leopards",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "leopard hide",
+          "description": "",
+          "main_material": "leopard",
+          "origin": "leopard",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 4
+        },
+        {
+          "name": "leopard fangs",
+          "description": "",
+          "main_material": "leopard",
+          "origin": "leopard",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "leopard",
+          "description": "",
+          "main_material": "leopard",
+          "origin": "leopard",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "leopard",
+          "description": "",
+          "main_material": "leopard",
+          "origin": "leopard",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "big cat",
+        "rainforest",
+        "carnivore",
+        "mammal",
+        "tropical"
+      ]
+    },
+    {
+      "name": "lion",
+      "plural_name": "lions",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "lion hide",
+          "description": "",
+          "main_material": "lion",
+          "origin": "lion",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 4
+        },
+        {
+          "name": "lion fangs",
+          "description": "",
+          "main_material": "lion",
+          "origin": "lion",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "lion",
+          "description": "",
+          "main_material": "lion",
+          "origin": "lion",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "lion",
+          "description": "",
+          "main_material": "lion",
+          "origin": "lion",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "big cat",
+        "carnivore",
+        "mammal",
+        "semiarid",
+        "arid"
+      ]
+    },
+    {
+      "name": "tiger",
+      "plural_name": "tigers",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "tiger hide",
+          "description": "",
+          "main_material": "tiger",
+          "origin": "tiger",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 4
+        },
+        {
+          "name": "tiger fangs",
+          "description": "",
+          "main_material": "tiger",
+          "origin": "tiger",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 3,
+          "value": 1
+        },
+        {
+          "name": "tiger",
+          "description": "",
+          "main_material": "tiger",
+          "origin": "tiger",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "tiger",
+          "description": "",
+          "main_material": "tiger",
+          "origin": "tiger",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "big cat",
+        "carnivore",
+        "rainforest",
+        "mammal",
+        "tropical"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,418 @@
+{
+  "species": [
+    {
+      "name": "pig",
+      "plural_name": "pigs",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "pig hide",
+          "description": "",
+          "main_material": "pig",
+          "origin": "pig",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork",
+          "description": "",
+          "main_material": "pig",
+          "origin": "pig",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork loin",
+          "description": "",
+          "main_material": "pig",
+          "origin": "pig",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork intestine",
+          "description": "",
+          "main_material": "pig",
+          "origin": "pig",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork ribs",
+          "description": "",
+          "main_material": "pig",
+          "origin": "pig",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bacon",
+          "description": "",
+          "main_material": "pig",
+          "origin": "pig",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pig sinew",
+          "description": "",
+          "main_material": "pig",
+          "origin": "pig",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "grassland",
+        "forest",
+        "tropical",
+        "pig"
+      ]
+    },
+    {
+      "name": "pygmy hog",
+      "plural_name": "pygmy hogs",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "pygmy hog hide",
+          "description": "",
+          "main_material": "pygmy hog",
+          "origin": "pygmy hog",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork",
+          "description": "",
+          "main_material": "pygmy hog",
+          "origin": "pygmy hog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork loin",
+          "description": "",
+          "main_material": "pygmy hog",
+          "origin": "pygmy hog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork intestine",
+          "description": "",
+          "main_material": "pygmy hog",
+          "origin": "pygmy hog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork ribs",
+          "description": "",
+          "main_material": "pygmy hog",
+          "origin": "pygmy hog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bacon",
+          "description": "",
+          "main_material": "pygmy hog",
+          "origin": "pygmy hog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pygmy hog sinew",
+          "description": "",
+          "main_material": "pygmy hog",
+          "origin": "pygmy hog",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "forest",
+        "rainforest",
+        "tropical",
+        "pig"
+      ]
+    },
+    {
+      "name": "boar",
+      "plural_name": "boars",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "boar hide",
+          "description": "",
+          "main_material": "boar",
+          "origin": "boar",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork",
+          "description": "",
+          "main_material": "boar",
+          "origin": "boar",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork loin",
+          "description": "",
+          "main_material": "boar",
+          "origin": "boar",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork intestine",
+          "description": "",
+          "main_material": "boar",
+          "origin": "boar",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork ribs",
+          "description": "",
+          "main_material": "boar",
+          "origin": "boar",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bacon",
+          "description": "",
+          "main_material": "boar",
+          "origin": "boar",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "boar sinew",
+          "description": "",
+          "main_material": "boar",
+          "origin": "boar",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "forest",
+        "rainforest",
+        "tropical",
+        "pig"
+      ]
+    },
+    {
+      "name": "warthog",
+      "plural_name": "warthogs",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "warthog hide",
+          "description": "",
+          "main_material": "warthog",
+          "origin": "warthog",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork",
+          "description": "",
+          "main_material": "warthog",
+          "origin": "warthog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork loin",
+          "description": "",
+          "main_material": "warthog",
+          "origin": "warthog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork intestine",
+          "description": "",
+          "main_material": "warthog",
+          "origin": "warthog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pork ribs",
+          "description": "",
+          "main_material": "warthog",
+          "origin": "warthog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "bacon",
+          "description": "",
+          "main_material": "warthog",
+          "origin": "warthog",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "warthog sinew",
+          "description": "",
+          "main_material": "warthog",
+          "origin": "warthog",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "mammal",
+        "herbivore",
+        "hide",
+        "temperate",
+        "tropical",
+        "semiarid",
+        "forest",
+        "desert",
+        "arid",
+        "pig"
+      ]
+    }
+  ]
+}

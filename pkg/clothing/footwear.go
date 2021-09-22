@@ -1,8 +1,10 @@
 package clothing
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
+
+	"github.com/ironarachne/world/pkg/random"
 )
 
 func getBootTemplates() []ItemTemplate {
@@ -65,12 +67,12 @@ func getShoeTemplates() []ItemTemplate {
 	}
 }
 
-func getRandomBoots() (Item, error) {
+func getRandomBoots(ctx context.Context) (Item, error) {
 	potentialTemplates := getBootTemplates()
 
-	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
+	template := potentialTemplates[random.Intn(ctx, len(potentialTemplates))]
 
-	item, err := getItemFromTemplate(template)
+	item, err := getItemFromTemplate(ctx, template)
 	if err != nil {
 		err = fmt.Errorf("Could not get random boots: %w", err)
 		return Item{}, err
@@ -79,12 +81,12 @@ func getRandomBoots() (Item, error) {
 	return item, nil
 }
 
-func getRandomShoes() (Item, error) {
+func getRandomShoes(ctx context.Context) (Item, error) {
 	potentialTemplates := getShoeTemplates()
 
-	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
+	template := potentialTemplates[random.Intn(ctx, len(potentialTemplates))]
 
-	item, err := getItemFromTemplate(template)
+	item, err := getItemFromTemplate(ctx, template)
 	if err != nil {
 		err = fmt.Errorf("Could not get random shoes: %w", err)
 		return Item{}, err

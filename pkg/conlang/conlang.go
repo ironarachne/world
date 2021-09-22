@@ -6,8 +6,8 @@ structure.
 package conlang
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 	"strings"
 
 	"github.com/ironarachne/world/pkg/language"
@@ -32,7 +32,7 @@ var (
 	velars     = []string{"k", "g", "ng", "w"}
 )
 
-func deriveLanguageAdjective(name string) (string, error) {
+func deriveLanguageAdjective(name string, ctx context.Context) (string, error) {
 	var suffix string
 
 	adjective := name
@@ -44,7 +44,7 @@ func deriveLanguageAdjective(name string) (string, error) {
 		potentialSuffixes = []string{"ish", "ian", "an", "i", "ese"}
 	}
 
-	suffix, err := random.String(potentialSuffixes)
+	suffix, err := random.String(ctx, potentialSuffixes)
 	if err != nil {
 		err = fmt.Errorf("failed to generate language adjective: %w", err)
 		return "", err
@@ -56,29 +56,29 @@ func deriveLanguageAdjective(name string) (string, error) {
 }
 
 // Generate creates a random language
-func Generate() (language.Language, Category, error) {
+func Generate(ctx context.Context) (language.Language, Category, error) {
 	var lang language.Language
 	var langCategory Category
 	var prefix string
 	var suffix string
 
 	// Does this language combine multiple language categories?
-	combinedChance := rand.Intn(100)
+	combinedChance := random.Intn(ctx, 100)
 	if combinedChance > 70 {
-		langCategory = randomCombinedCategory()
+		langCategory = randomCombinedCategory(ctx)
 	} else {
-		langCategory = randomCategory()
+		langCategory = randomCategory(ctx)
 	}
 
 	// Language name, adjective, and descriptors
-	name, err := randomLanguageName(langCategory)
+	name, err := randomLanguageName(ctx, langCategory)
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
 	lang.Name = strings.Title(name)
 	lang.Descriptors = append(lang.Descriptors, langCategory.Descriptors...)
-	adjective, err := deriveLanguageAdjective(lang.Name)
+	adjective, err := deriveLanguageAdjective(lang.Name, ctx)
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
@@ -86,7 +86,7 @@ func Generate() (language.Language, Category, error) {
 	lang.Adjective = adjective
 
 	// Is this a tonal language?
-	tonalChance := rand.Intn(10) + 1
+	tonalChance := random.Intn(ctx, 10) + 1
 	if tonalChance > 7 {
 		lang.IsTonal = true
 	} else {
@@ -97,7 +97,7 @@ func Generate() (language.Language, Category, error) {
 	}
 
 	// Writing system generation
-	writingSystem, err := writing.Generate()
+	writingSystem, err := writing.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
@@ -106,7 +106,7 @@ func Generate() (language.Language, Category, error) {
 	lang.WritingSystem.Name = lang.Adjective
 
 	// Word list generation
-	wordList, err := GenerateWordList(langCategory)
+	wordList, err := GenerateWordList(ctx, langCategory)
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
@@ -114,7 +114,7 @@ func Generate() (language.Language, Category, error) {
 	lang.WordList = wordList
 
 	// Verb conjugation rules generation
-	verbConjugationRules, err := deriveConjugationRules(langCategory)
+	verbConjugationRules, err := deriveConjugationRules(ctx, langCategory)
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
@@ -125,7 +125,7 @@ func Generate() (language.Language, Category, error) {
 	newWordPrefixes := []string{}
 
 	for i := 0; i < 50; i++ {
-		prefix, err = randomSyllable(langCategory, "connector")
+		prefix, err = randomSyllable(ctx, langCategory, "connector")
 		if !slices.StringIn(prefix, newWordPrefixes) {
 			newWordPrefixes = append(newWordPrefixes, prefix)
 		}
@@ -134,29 +134,29 @@ func Generate() (language.Language, Category, error) {
 	newWordSuffixes := []string{}
 
 	for i := 0; i < 50; i++ {
-		suffix, err = randomSyllable(langCategory, "finisher")
+		suffix, err = randomSyllable(ctx, langCategory, "finisher")
 		if !slices.StringIn(suffix, newWordSuffixes) {
 			newWordSuffixes = append(newWordSuffixes, suffix)
 		}
 	}
 
 	// Name generation
-	femaleNames, err := GenerateNameList(100, langCategory, "female")
+	femaleNames, err := GenerateNameList(ctx, 100, langCategory, "female")
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
-	maleNames, err := GenerateNameList(100, langCategory, "male")
+	maleNames, err := GenerateNameList(ctx, 100, langCategory, "male")
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
-	familyNames, err := GenerateNameList(100, langCategory, "family")
+	familyNames, err := GenerateNameList(ctx, 100, langCategory, "family")
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
-	townNames, err := GenerateNameList(100, langCategory, "town")
+	townNames, err := GenerateNameList(ctx, 100, langCategory, "town")
 	if err != nil {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
@@ -174,15 +174,15 @@ func Generate() (language.Language, Category, error) {
 	return lang, langCategory, nil
 }
 
-func deriveConjugationRules(langCategory Category) (language.ConjugationRules, error) {
+func deriveConjugationRules(ctx context.Context, langCategory Category) (language.ConjugationRules, error) {
 	rootTemplate := "{{.Root}}"
 
-	continuousSuffix, err := randomSyllable(langCategory, "finisher")
+	continuousSuffix, err := randomSyllable(ctx, langCategory, "finisher")
 	if err != nil {
 		err = fmt.Errorf("Could not generate conjugation rules: %w", err)
 		return language.ConjugationRules{}, err
 	}
-	pastSuffix, err := randomSyllable(langCategory, "finisher")
+	pastSuffix, err := randomSyllable(ctx, langCategory, "finisher")
 	if err != nil {
 		err = fmt.Errorf("Could not generate conjugation rules: %w", err)
 		return language.ConjugationRules{}, err

@@ -1,8 +1,10 @@
 package climate
 
 import (
+	"context"
+
 	"github.com/ironarachne/world/pkg/geography/region"
-	"github.com/ironarachne/world/pkg/grid"
+	"github.com/ironarachne/world/pkg/geometry"
 )
 
 // Climate is a geographic climate
@@ -36,7 +38,7 @@ func (c Climate) DescribeClouds() string {
 }
 
 // Generate procedurally generates a geographic climate based on a region.
-func Generate(r region.Region) Climate {
+func Generate(ctx context.Context, r region.Region) Climate {
 	c := Climate{}
 
 	// cloud cover increases further away from mountains
@@ -48,7 +50,7 @@ func Generate(r region.Region) Climate {
 	// wind moves away from mountains
 	// wind slows down going uphill
 	// wind speeds up going downhill
-	c.WindDirection = grid.OppositeDirection(r.NearestMountainsDirection)
+	c.WindDirection = geometry.OppositeDirection(r.NearestMountainsDirection)
 	c.WindStrength = getWindStrength(r.NearestMountainsDistance, r.NearestOceanDistance)
 	c.CloudCover = getCloudCover(r.Temperature, c.WindStrength, r.NearestMountainsDistance)
 	c.PrecipitationAmount = getPrecipitationAmount(r.Temperature, r.Humidity)
@@ -59,7 +61,7 @@ func Generate(r region.Region) Climate {
 }
 
 func getCloudCover(temperature int, windStrength int, mountainDistance int) int {
-	cloudCover := (temperature/3) + (windStrength/3) + (mountainDistance/2)
+	cloudCover := (temperature / 3) + (windStrength / 3) + (mountainDistance / 2)
 	if cloudCover > 99 {
 		cloudCover = 99
 	}
@@ -68,7 +70,7 @@ func getCloudCover(temperature int, windStrength int, mountainDistance int) int 
 }
 
 func getPrecipitationAmount(temperature int, humidity int) int {
-	amount := (temperature/2) + int(float64(humidity)*0.7)
+	amount := (temperature / 2) + int(float64(humidity)*0.7)
 	if amount > 99 {
 		amount = 99
 	}
@@ -77,7 +79,7 @@ func getPrecipitationAmount(temperature int, humidity int) int {
 }
 
 func getPrecipitationFrequency(cloudCover int, amount int) int {
-	frequency := (cloudCover/3) + (amount/3)
+	frequency := (cloudCover / 3) + (amount / 3)
 
 	return frequency
 }
@@ -91,7 +93,7 @@ func getPrecipitationType(temperature int) string {
 }
 
 func getWindStrength(mountainDistance int, oceanDistance int) int {
-	windStrength := (mountainDistance/2) + (oceanDistance/4)
+	windStrength := (mountainDistance / 2) + (oceanDistance / 4)
 	if windStrength > 99 {
 		windStrength = 99
 	}

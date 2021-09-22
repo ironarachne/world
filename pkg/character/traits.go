@@ -1,6 +1,7 @@
 package character
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -628,10 +629,10 @@ func getPositiveTraits() []string {
 	return traits
 }
 
-func getRandomTrait() (string, error) {
+func getRandomTrait(ctx context.Context) (string, error) {
 	traits := getAllTraits()
 
-	trait, err := random.String(traits)
+	trait, err := random.String(ctx, traits)
 	if err != nil {
 		err = fmt.Errorf(traitError, err)
 		return "", err
@@ -639,7 +640,7 @@ func getRandomTrait() (string, error) {
 	return trait, nil
 }
 
-func getRandomNegativeTraits(max int) ([]string, error) {
+func getRandomNegativeTraits(ctx context.Context, max int) ([]string, error) {
 	var trait string
 	var err error
 	possibleTraits := getNegativeTraits()
@@ -647,13 +648,13 @@ func getRandomNegativeTraits(max int) ([]string, error) {
 	traits := []string{}
 
 	for i := 0; i < max; i++ {
-		trait, err = random.String(possibleTraits)
+		trait, err = random.String(ctx, possibleTraits)
 		if err != nil {
 			err = fmt.Errorf(traitError, err)
 			return []string{}, err
 		}
 		for slices.StringIn(trait, traits) {
-			trait, err = random.String(possibleTraits)
+			trait, err = random.String(ctx, possibleTraits)
 			if err != nil {
 				err = fmt.Errorf(traitError, err)
 				return []string{}, err
@@ -665,7 +666,7 @@ func getRandomNegativeTraits(max int) ([]string, error) {
 	return traits, nil
 }
 
-func getRandomPositiveTraits(max int) ([]string, error) {
+func getRandomPositiveTraits(ctx context.Context, max int) ([]string, error) {
 	var trait string
 	var err error
 	possibleTraits := getPositiveTraits()
@@ -673,13 +674,13 @@ func getRandomPositiveTraits(max int) ([]string, error) {
 	traits := []string{}
 
 	for i := 0; i < max; i++ {
-		trait, err = random.String(possibleTraits)
+		trait, err = random.String(ctx, possibleTraits)
 		if err != nil {
 			err = fmt.Errorf(traitError, err)
 			return []string{}, err
 		}
 		for slices.StringIn(trait, traits) {
-			trait, err = random.String(possibleTraits)
+			trait, err = random.String(ctx, possibleTraits)
 			if err != nil {
 				err = fmt.Errorf(traitError, err)
 				return []string{}, err
@@ -691,7 +692,7 @@ func getRandomPositiveTraits(max int) ([]string, error) {
 	return traits, nil
 }
 
-func getRandomTraits() ([]string, error) {
+func getRandomTraits(ctx context.Context) ([]string, error) {
 	var trait string
 	var err error
 	possibleTraits := getAllTraits()
@@ -699,13 +700,13 @@ func getRandomTraits() ([]string, error) {
 	traits := []string{}
 
 	for i := 0; i < 2; i++ {
-		trait, err = random.String(possibleTraits)
+		trait, err = random.String(ctx, possibleTraits)
 		if err != nil {
 			err = fmt.Errorf(traitError, err)
 			return []string{}, err
 		}
 		for slices.StringIn(trait, traits) {
-			trait, err = random.String(possibleTraits)
+			trait, err = random.String(ctx, possibleTraits)
 			if err != nil {
 				err = fmt.Errorf(traitError, err)
 				return []string{}, err

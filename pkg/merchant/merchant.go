@@ -4,6 +4,7 @@ Package merchant allows for creation of travelling merchants and their wares
 package merchant
 
 import (
+	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/geography"
 
@@ -23,15 +24,15 @@ type Merchant struct {
 const merchantRandomGenerationError = "failed to generate random merchant: %w"
 
 // Generate returns a random merchant
-func Generate(originTown town.Town) (Merchant, error) {
-	chr, err := character.Random()
+func Generate(ctx context.Context, originTown town.Town) (Merchant, error) {
+	chr, err := character.Random(ctx)
 	if err != nil {
 		err = fmt.Errorf("Could not generate merchant: %w", err)
 		return Merchant{}, err
 	}
 	chr.Profession, _ = profession.ByName("merchant")
 
-	gd := goods.GenerateMerchantGoods(10, 30, originTown.Resources)
+	gd := goods.GenerateMerchantGoods(ctx, 10, 30, originTown.Resources)
 
 	merchant := Merchant{
 		Character: chr,
@@ -42,26 +43,26 @@ func Generate(originTown town.Town) (Merchant, error) {
 }
 
 // Random returns a complete random merchant
-func Random() (Merchant, error) {
-	originArea, err := geography.Generate()
+func Random(ctx context.Context) (Merchant, error) {
+	originArea, err := geography.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf(merchantRandomGenerationError, err)
 		return Merchant{}, err
 	}
 
-	originCulture, err := culture.Generate(originArea)
+	originCulture, err := culture.Generate(ctx, originArea)
 	if err != nil {
 		err = fmt.Errorf(merchantRandomGenerationError, err)
 		return Merchant{}, err
 	}
 
-	originTown, err := town.Generate("metropolis", originArea, originCulture)
+	originTown, err := town.Generate(ctx, "metropolis", originArea, originCulture)
 	if err != nil {
 		err = fmt.Errorf(merchantRandomGenerationError, err)
 		return Merchant{}, err
 	}
 
-	merchant, err := Generate(originTown)
+	merchant, err := Generate(ctx, originTown)
 	if err != nil {
 		err = fmt.Errorf(merchantRandomGenerationError, err)
 		return Merchant{}, err

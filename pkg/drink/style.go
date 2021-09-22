@@ -1,7 +1,9 @@
 package drink
 
 import (
+	"context"
 	"fmt"
+	"github.com/ironarachne/world/pkg/pattern"
 
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/random"
@@ -14,33 +16,33 @@ const toastingRuleError = "failed to generate random toasting rules: %w"
 
 // Style is a type of drinking culture
 type Style struct {
-	TheToast           string           `json:"the_toast"`
-	ToastingRules      []string         `json:"toasting_rules"`
-	UniqueDrinkPattern resource.Pattern `json:"unique_drink_pattern"`
-	SocialRules        []string         `json:"social_rules"`
+	TheToast           string          `json:"the_toast"`
+	ToastingRules      []string        `json:"toasting_rules"`
+	UniqueDrinkPattern pattern.Pattern `json:"unique_drink_pattern"`
+	SocialRules        []string        `json:"social_rules"`
 }
 
 // Generate procedurally generates a drinking style based on a set of available resources
-func Generate(lang language.Language, resources []resource.Resource) (Style, error) {
-	unique, err := generateUniqueDrinkPattern(lang, resources)
+func Generate(ctx context.Context, lang language.Language, resources []resource.Resource) (Style, error) {
+	unique, err := generateUniqueDrinkPattern(ctx, lang, resources)
 	if err != nil {
 		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
 	}
 
-	socialRules, err := getSocialRules()
+	socialRules, err := getSocialRules(ctx)
 	if err != nil {
 		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
 	}
 
-	toastingRules, err := getToastingRules()
+	toastingRules, err := getToastingRules(ctx)
 	if err != nil {
 		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
 	}
 
-	theToast, err := lang.NewWord()
+	theToast, err := lang.NewWord(ctx)
 	if err != nil {
 		err = fmt.Errorf(drinkingCultureStyleError, err)
 		return Style{}, err
@@ -55,7 +57,7 @@ func Generate(lang language.Language, resources []resource.Resource) (Style, err
 	return style, nil
 }
 
-func getSocialRules() ([]string, error) {
+func getSocialRules(ctx context.Context) ([]string, error) {
 	rules := []string{}
 
 	allAges := []string{
@@ -64,7 +66,7 @@ func getSocialRules() ([]string, error) {
 		"children are allowed small amounts of alcohol",
 	}
 
-	age, err := random.String(allAges)
+	age, err := random.String(ctx, allAges)
 	if err != nil {
 		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
@@ -79,7 +81,7 @@ func getSocialRules() ([]string, error) {
 		"there are no particular rules about which social classes drink what types of alcohol",
 	}
 
-	class, err := random.String(allClasses)
+	class, err := random.String(ctx, allClasses)
 	if err != nil {
 		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
@@ -94,7 +96,7 @@ func getSocialRules() ([]string, error) {
 		"finishing your cup in one gulp is for celebrations only",
 	}
 
-	speed, err := random.String(allSpeeds)
+	speed, err := random.String(ctx, allSpeeds)
 	if err != nil {
 		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
@@ -109,7 +111,7 @@ func getSocialRules() ([]string, error) {
 		"the host never fills their own cup",
 	}
 
-	pour, err := random.String(allPours)
+	pour, err := random.String(ctx, allPours)
 	if err != nil {
 		err = fmt.Errorf(drinkingSocialRuleError, err)
 		return []string{}, err
@@ -120,7 +122,7 @@ func getSocialRules() ([]string, error) {
 	return rules, nil
 }
 
-func getToastingRules() ([]string, error) {
+func getToastingRules(ctx context.Context) ([]string, error) {
 	var rules []string
 
 	allLead := []string{
@@ -130,7 +132,7 @@ func getToastingRules() ([]string, error) {
 		"the host leads the toast",
 	}
 
-	lead, err := random.String(allLead)
+	lead, err := random.String(ctx, allLead)
 	if err != nil {
 		err = fmt.Errorf(toastingRuleError, err)
 		return []string{}, err
@@ -145,7 +147,7 @@ func getToastingRules() ([]string, error) {
 		"each adult is expected to make a toast at a gathering",
 	}
 
-	freq, err := random.String(allFrequencies)
+	freq, err := random.String(ctx, allFrequencies)
 	if err != nil {
 		err = fmt.Errorf(toastingRuleError, err)
 		return []string{}, err
@@ -160,7 +162,7 @@ func getToastingRules() ([]string, error) {
 		"everyone making the toast spills a little of their drink as a show of cordiality",
 	}
 
-	motion, err := random.String(allMotions)
+	motion, err := random.String(ctx, allMotions)
 	if err != nil {
 		err = fmt.Errorf(toastingRuleError, err)
 		return []string{}, err

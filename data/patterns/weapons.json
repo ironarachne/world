@@ -1,0 +1,2749 @@
+{
+  "patterns": [
+    {
+      "name": "bastard sword",
+      "description": "a bastard sword",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "bastard sword with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} bastard sword",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "battle axe",
+      "description": "a battle axe",
+      "tags": [
+        "axe",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "battle axe with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} battle axe",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "long sword",
+      "description": "a long sword",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "long sword with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} long sword",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "mace",
+      "description": "a mace",
+      "tags": [
+        "mace",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "mace with a {{.Resource.MainMaterial}} head,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} mace",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 6
+    },
+    {
+      "name": "morningstar",
+      "description": "a morningstar",
+      "tags": [
+        "mace",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "morningstar with a {{.Resource.MainMaterial}} head,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} morningstar",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 6
+    },
+    {
+      "name": "pike",
+      "description": "a pike",
+      "tags": [
+        "polearm",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "pike with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} pike",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "short sword",
+      "description": "a short sword",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "short sword with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} short sword",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 8
+    },
+    {
+      "name": "spear",
+      "description": "a spear",
+      "tags": [
+        "spear",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "spear with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} spear",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "short spear",
+      "description": "a short spear",
+      "tags": [
+        "spear",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "short {{.Resource.MainMaterial}} spear",
+          "possible_quirks": null
+        },
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} point",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} short spear",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "two-handed sword",
+      "description": "a two-handed sword",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "two-handed sword with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} two-handed sword",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "club",
+      "description": "a club",
+      "tags": [
+        "mace",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} club",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} club",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "crescent blade",
+      "description": "a crescent blade",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "crescent blade with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} crescent blade",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 80
+    },
+    {
+      "name": "dagger",
+      "description": "a dagger",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "dagger with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} dagger",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "flail",
+      "description": "a flail",
+      "tags": [
+        "flail",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "head",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "flail with a {{.Resource.MainMaterial}} head,",
+          "possible_quirks": null
+        },
+        {
+          "name": "chain",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} chain,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} flail",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "glaive",
+      "description": "a glaive",
+      "tags": [
+        "polearm",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "glaive with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} glaive",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 20
+    },
+    {
+      "name": "greataxe",
+      "description": "a greataxe",
+      "tags": [
+        "axe",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "greataxe with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} greataxe",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 30
+    },
+    {
+      "name": "great bow",
+      "description": "a great bow",
+      "tags": [
+        "bow",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "limb",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial }} great bow",
+          "possible_quirks": null
+        },
+        {
+          "name": "grip",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} hide grip",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} great bow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 100
+    },
+    {
+      "name": "greatclub",
+      "description": "a greatclub",
+      "tags": [
+        "mace",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} greatclub",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} greatclub",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "greatsword",
+      "description": "a greatsword",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "greatsword with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} greatsword",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 50
+    },
+    {
+      "name": "halberd",
+      "description": "a halberd",
+      "tags": [
+        "polearm",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "halberd with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} halberd",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 20
+    },
+    {
+      "name": "handaxe",
+      "description": "a handaxe",
+      "tags": [
+        "axe",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "handaxe with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} handaxe",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "hand crossbow",
+      "description": "a hand crossbow",
+      "tags": [
+        "bow",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial }} hand crossbow",
+          "possible_quirks": null
+        },
+        {
+          "name": "limbs",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} limbs",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} hand crossbow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 75
+    },
+    {
+      "name": "heavy crossbow",
+      "description": "a heavy crossbow",
+      "tags": [
+        "bow",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial }} heavy crossbow",
+          "possible_quirks": null
+        },
+        {
+          "name": "limbs",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} limbs",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} heavy crossbow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 50
+    },
+    {
+      "name": "javelin",
+      "description": "a javelin",
+      "tags": [
+        "spear",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "tip",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "javelin with a {{.Resource.MainMaterial}} tip,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} javelin",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "lance",
+      "description": "a lance",
+      "tags": [
+        "spear",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} lance",
+          "possible_quirks": null
+        },
+        {
+          "name": "tip",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} tip",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} lance",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "light crossbow",
+      "description": "a light crossbow",
+      "tags": [
+        "bow",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial }} light crossbow",
+          "possible_quirks": null
+        },
+        {
+          "name": "limbs",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} limbs",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} light crossbow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 25
+    },
+    {
+      "name": "light hammer",
+      "description": "a light hammer",
+      "tags": [
+        "mace",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "light hammer with a {{.Resource.MainMaterial}} head,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} light hammer",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "longbow",
+      "description": "a longbow",
+      "tags": [
+        "bow",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "limb",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial }} longbow",
+          "possible_quirks": null
+        },
+        {
+          "name": "grip",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} hide grip",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} longbow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 50
+    },
+    {
+      "name": "maul",
+      "description": "a maul",
+      "tags": [
+        "mace",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "maul with a {{.Resource.MainMaterial}} head,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} maul",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "quarterstaff",
+      "description": "a quarterstaff",
+      "tags": [
+        "staff",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "quarterstaff with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} quarterstaff",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "rapier",
+      "description": "a rapier",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "rapier with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} rapier",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 25
+    },
+    {
+      "name": "scimitar",
+      "description": "a scimitar",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "scimitar with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} scimitar",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 25
+    },
+    {
+      "name": "shortbow",
+      "description": "a shortbow",
+      "tags": [
+        "bow",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "limb",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial }} shortbow",
+          "possible_quirks": null
+        },
+        {
+          "name": "grip",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} grip",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} shortbow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 25
+    },
+    {
+      "name": "sickle",
+      "description": "a sickle",
+      "tags": [
+        "sword",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "sickle with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "hilt",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} hilt,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} sickle",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "spiked chain",
+      "description": "a spiked chain",
+      "tags": [
+        "flail",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "head",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "spiked chain with a {{.Resource.MainMaterial}} head,",
+          "possible_quirks": null
+        },
+        {
+          "name": "chain",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} chain,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} spiked chain",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 50
+    },
+    {
+      "name": "trident",
+      "description": "a trident",
+      "tags": [
+        "spear",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "trident with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} trident",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "warhammer",
+      "description": "a warhammer",
+      "tags": [
+        "mace",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "warhammer with a {{.Resource.MainMaterial}} head,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} warhammer",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 15
+    },
+    {
+      "name": "war pick",
+      "description": "a war pick",
+      "tags": [
+        "polearm",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "war pick with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} war pick",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "war scythe",
+      "description": "a war scythe",
+      "tags": [
+        "polearm",
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "blade",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "war scythe with a {{.Resource.MainMaterial}} blade,",
+          "possible_quirks": null
+        },
+        {
+          "name": "haft",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " {{.Resource.MainMaterial}} haft,",
+          "possible_quirks": null
+        },
+        {
+          "name": "handle",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} leather wrapped handle",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} war scythe",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 25
+    },
+    {
+      "name": "dart",
+      "description": "a dart",
+      "tags": [
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} dart",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} dart",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "sling",
+      "description": "a sling",
+      "tags": [
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} sling",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} sling",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "whip",
+      "description": "a whip",
+      "tags": [
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} whip",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} whip",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 2
+    },
+    {
+      "name": "blowgun",
+      "description": "a blowgun",
+      "tags": [
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} blowgun",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} blowgun",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "net",
+      "description": "a net",
+      "tags": [
+        "weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "weaponsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "fiber",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} woven net",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} net",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "arrow",
+      "description": "a quiver of arrows",
+      "tags": [
+        "ammunition"
+      ],
+      "commonality": 0,
+      "profession_name": "bowyer",
+      "slots": [
+        {
+          "name": "head",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "quiver of arrows with {{.Resource.MainMaterial}} heads",
+          "possible_quirks": null
+        },
+        {
+          "name": "shaft",
+          "required_tag": "wood",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": ", {{.Resource.MainMaterial}} shafts",
+          "possible_quirks": null
+        },
+        {
+          "name": "fletching",
+          "required_tag": "feather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": ", and {{.Resource.MainMaterial}}-feather fletching",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "a quiver of arrows",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "long bow",
+      "description": "a long bow",
+      "tags": [
+        "bow",
+        "ranged weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "bowyer",
+      "slots": [
+        {
+          "name": "limbs",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} long bow",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        },
+        {
+          "name": "grip",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} wrapped grip",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} long bow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 7
+    },
+    {
+      "name": "short bow",
+      "description": "a short bow",
+      "tags": [
+        "bow",
+        "ranged weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "bowyer",
+      "slots": [
+        {
+          "name": "limbs",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} short bow",
+          "possible_quirks": null
+        },
+        {
+          "name": "string",
+          "required_tag": "sinew",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " strung with {{.Resource.MainMaterial}} sinew",
+          "possible_quirks": null
+        },
+        {
+          "name": "grip",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} wrapped grip",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} short bow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "crossbow",
+      "description": "a crossbow",
+      "tags": [
+        "crossbow",
+        "ranged weapon"
+      ],
+      "commonality": 0,
+      "profession_name": "bowyer",
+      "slots": [
+        {
+          "name": "limbs",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} crossbow",
+          "possible_quirks": null
+        },
+        {
+          "name": "bar",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with a {{.Resource.MainMaterial}} bar",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} crossbow",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 8
+    }
+  ]
+}

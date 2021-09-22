@@ -1,0 +1,274 @@
+{
+  "species": [
+    {
+      "name": "moa",
+      "plural_name": "moas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "moa feathers",
+          "description": "",
+          "main_material": "moa",
+          "origin": "moa",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "moa eggs",
+          "description": "",
+          "main_material": "moa",
+          "origin": "moa",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "moa",
+          "description": "",
+          "main_material": "moa",
+          "origin": "moa",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "flightless",
+        "temperate"
+      ]
+    },
+    {
+      "name": "ostrich",
+      "plural_name": "ostriches",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "ostrich feathers",
+          "description": "",
+          "main_material": "ostrich",
+          "origin": "ostrich",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "ostrich eggs",
+          "description": "",
+          "main_material": "ostrich",
+          "origin": "ostrich",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "ostrich",
+          "description": "",
+          "main_material": "ostrich",
+          "origin": "ostrich",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "flightless",
+        "temperate"
+      ]
+    },
+    {
+      "name": "rhea",
+      "plural_name": "rheas",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "rhea feathers",
+          "description": "",
+          "main_material": "rhea",
+          "origin": "rhea",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "rhea eggs",
+          "description": "",
+          "main_material": "rhea",
+          "origin": "rhea",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "rhea",
+          "description": "",
+          "main_material": "rhea",
+          "origin": "rhea",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "flightless",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cassowary",
+      "plural_name": "cassowaries",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "cassowary feathers",
+          "description": "",
+          "main_material": "cassowary",
+          "origin": "cassowary",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "cassowary eggs",
+          "description": "",
+          "main_material": "cassowary",
+          "origin": "cassowary",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "cassowary",
+          "description": "",
+          "main_material": "cassowary",
+          "origin": "cassowary",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "flightless",
+        "temperate"
+      ]
+    },
+    {
+      "name": "kiwi",
+      "plural_name": "kiwis",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "kiwi feathers",
+          "description": "",
+          "main_material": "kiwi",
+          "origin": "kiwi",
+          "tags": [
+            "feather"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "kiwi eggs",
+          "description": "",
+          "main_material": "kiwi",
+          "origin": "kiwi",
+          "tags": [
+            "egg"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "kiwi",
+          "description": "",
+          "main_material": "kiwi",
+          "origin": "kiwi",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "bird",
+        "flightless",
+        "temperate"
+      ]
+    }
+  ]
+}

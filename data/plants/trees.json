@@ -1,0 +1,1941 @@
+{
+  "species": [
+    {
+      "name": "acacia",
+      "plural_name": "acacia trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "acacia",
+          "description": "",
+          "main_material": "acacia",
+          "origin": "acacia",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "arid",
+        "deciduous"
+      ]
+    },
+    {
+      "name": "alder",
+      "plural_name": "alder trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "alder",
+          "description": "",
+          "main_material": "alder",
+          "origin": "alder",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "apple",
+      "plural_name": "apple trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "apple",
+          "description": "",
+          "main_material": "apple",
+          "origin": "apple",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "apple",
+          "description": "",
+          "main_material": "apple",
+          "origin": "apple",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "ash",
+      "plural_name": "ashe trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "ash",
+          "description": "",
+          "main_material": "ash",
+          "origin": "ash",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "aspen",
+      "plural_name": "aspen trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "aspen",
+          "description": "",
+          "main_material": "aspen",
+          "origin": "aspen",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "avocado",
+      "plural_name": "avocado trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 60,
+      "max_humidity": 100,
+      "min_temperature": 80,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "avocado",
+          "description": "",
+          "main_material": "avocado",
+          "origin": "avocado",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "avocado",
+          "description": "",
+          "main_material": "avocado",
+          "origin": "avocado",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 4,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "balsa",
+      "plural_name": "balsa trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "balsa",
+          "description": "",
+          "main_material": "balsa",
+          "origin": "balsa",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 2,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "banana",
+      "plural_name": "banana trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 40,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "banana",
+          "description": "",
+          "main_material": "banana",
+          "origin": "banana",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "banana",
+          "description": "",
+          "main_material": "banana",
+          "origin": "banana",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "birch",
+      "plural_name": "birche trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "birch",
+          "description": "",
+          "main_material": "birch",
+          "origin": "birch",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "black pine",
+      "plural_name": "black pine trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "black pine",
+          "description": "",
+          "main_material": "black pine",
+          "origin": "black pine",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "blackwood",
+      "plural_name": "blackwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "blackwood",
+          "description": "",
+          "main_material": "blackwood",
+          "origin": "blackwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "boxwood",
+      "plural_name": "boxwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "boxwood",
+          "description": "",
+          "main_material": "boxwood",
+          "origin": "boxwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cacao",
+      "plural_name": "cacao trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cacao",
+          "description": "",
+          "main_material": "cacao",
+          "origin": "cacao",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cocoa bean",
+          "description": "",
+          "main_material": "cocoa bean",
+          "origin": "cacao",
+          "tags": [
+            "seed"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "evergreen",
+        "humid",
+        "tropical"
+      ]
+    },
+    {
+      "name": "cedar",
+      "plural_name": "cedar trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "cedar",
+          "description": "",
+          "main_material": "cedar",
+          "origin": "cedar",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cherry",
+      "plural_name": "cherrie trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "cherry",
+          "description": "",
+          "main_material": "cherry",
+          "origin": "cherry",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cherry",
+          "description": "",
+          "main_material": "cherry",
+          "origin": "cherry",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cinnamon",
+      "plural_name": "cinnamon trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 90,
+      "min_temperature": 50,
+      "max_temperature": 90,
+      "resources": [
+        {
+          "name": "cinnamon",
+          "description": "",
+          "main_material": "cinnamon",
+          "origin": "cinnamon",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "cinnamon",
+          "description": "",
+          "main_material": "cinnamon",
+          "origin": "cinnamon",
+          "tags": [
+            "spice"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "coachwood",
+      "plural_name": "coachwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "coachwood",
+          "description": "",
+          "main_material": "coachwood",
+          "origin": "coachwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "coconut",
+      "plural_name": "coconut trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 50,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "coconut",
+          "description": "",
+          "main_material": "coconut",
+          "origin": "coconut",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "coconut",
+          "description": "",
+          "main_material": "coconut",
+          "origin": "coconut",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "corkwood",
+      "plural_name": "corkwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "corkwood",
+          "description": "",
+          "main_material": "corkwood",
+          "origin": "corkwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cottonwood",
+      "plural_name": "cottonwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "cottonwood",
+          "description": "",
+          "main_material": "cottonwood",
+          "origin": "cottonwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "crabapple",
+      "plural_name": "crabapple trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "crabapple",
+          "description": "",
+          "main_material": "crabapple",
+          "origin": "crabapple",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "crabapple",
+          "description": "",
+          "main_material": "crabapple",
+          "origin": "crabapple",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cypress",
+      "plural_name": "cypres trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "cypress",
+          "description": "",
+          "main_material": "cypress",
+          "origin": "cypress",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "dogwood",
+      "plural_name": "dogwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "dogwood",
+          "description": "",
+          "main_material": "dogwood",
+          "origin": "dogwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "elderberry",
+      "plural_name": "elderberry trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 80,
+      "min_temperature": 0,
+      "max_temperature": 80,
+      "resources": [
+        {
+          "name": "elderberry",
+          "description": "",
+          "main_material": "elderberry",
+          "origin": "elderberry",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "elderberry",
+          "description": "",
+          "main_material": "elderberry",
+          "origin": "elderberry",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "elm",
+      "plural_name": "elm trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 50,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "elm",
+          "description": "",
+          "main_material": "elm",
+          "origin": "elm",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "eucalyptus",
+      "plural_name": "eucalyptuse trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "eucalyptus",
+          "description": "",
+          "main_material": "eucalyptus",
+          "origin": "eucalyptus",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "arid"
+      ]
+    },
+    {
+      "name": "fir",
+      "plural_name": "fir trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "fir",
+          "description": "",
+          "main_material": "fir",
+          "origin": "fir",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "hemlock",
+      "plural_name": "hemlock trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "hemlock",
+          "description": "",
+          "main_material": "hemlock",
+          "origin": "hemlock",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "ironwood",
+      "plural_name": "ironwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "ironwood",
+          "description": "",
+          "main_material": "ironwood",
+          "origin": "ironwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "arid",
+        "deciduous"
+      ]
+    },
+    {
+      "name": "juniper",
+      "plural_name": "juniper trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "juniper",
+          "description": "",
+          "main_material": "juniper",
+          "origin": "juniper",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "juniper",
+          "description": "",
+          "main_material": "juniper",
+          "origin": "juniper",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "kingwood",
+      "plural_name": "kingwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "kingwood",
+          "description": "",
+          "main_material": "kingwood",
+          "origin": "kingwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "lacewood",
+      "plural_name": "lacewood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "lacewood",
+          "description": "",
+          "main_material": "lacewood",
+          "origin": "lacewood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "larch",
+      "plural_name": "larche trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "larch",
+          "description": "",
+          "main_material": "larch",
+          "origin": "larch",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "lemon",
+      "plural_name": "lemon trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 40,
+      "max_humidity": 90,
+      "min_temperature": 50,
+      "max_temperature": 90,
+      "resources": [
+        {
+          "name": "lemon",
+          "description": "",
+          "main_material": "lemon",
+          "origin": "lemon",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "lemon",
+          "description": "",
+          "main_material": "lemon",
+          "origin": "lemon",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "lime",
+      "plural_name": "lime trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 60,
+      "max_humidity": 100,
+      "min_temperature": 70,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "lime",
+          "description": "",
+          "main_material": "lime",
+          "origin": "lime",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "lime",
+          "description": "",
+          "main_material": "lime",
+          "origin": "lime",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "mahogany",
+      "plural_name": "mahogany trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "mahogany",
+          "description": "",
+          "main_material": "mahogany",
+          "origin": "mahogany",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "mango",
+      "plural_name": "mangoe trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 40,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "mango",
+          "description": "",
+          "main_material": "mango",
+          "origin": "mango",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "mango",
+          "description": "",
+          "main_material": "mango",
+          "origin": "mango",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "maple",
+      "plural_name": "maple trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 50,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "maple",
+          "description": "",
+          "main_material": "maple",
+          "origin": "maple",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "oak",
+      "plural_name": "oak trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 50,
+      "max_temperature": 70,
+      "resources": [
+        {
+          "name": "oak",
+          "description": "",
+          "main_material": "oak",
+          "origin": "oak",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "olive",
+      "plural_name": "olive trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "olive",
+          "description": "",
+          "main_material": "olive",
+          "origin": "olive",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "olives",
+          "description": "",
+          "main_material": "olive",
+          "origin": "olive",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "papaya",
+      "plural_name": "papaya trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 40,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "papaya",
+          "description": "",
+          "main_material": "papaya",
+          "origin": "papaya",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "papaya",
+          "description": "",
+          "main_material": "papaya",
+          "origin": "papaya",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid"
+      ]
+    },
+    {
+      "name": "pine",
+      "plural_name": "pin trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "pine",
+          "description": "",
+          "main_material": "pine",
+          "origin": "pine",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "pineapple",
+      "plural_name": "pineapple trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 90,
+      "min_temperature": 60,
+      "max_temperature": 90,
+      "resources": [
+        {
+          "name": "pineapple",
+          "description": "",
+          "main_material": "pineapple",
+          "origin": "pineapple",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pineapple",
+          "description": "",
+          "main_material": "pineapple",
+          "origin": "pineapple",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "palm",
+      "plural_name": "palm trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "palm",
+          "description": "",
+          "main_material": "palm",
+          "origin": "palm",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid",
+        "tropical"
+      ]
+    },
+    {
+      "name": "pear",
+      "plural_name": "pear trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "pear",
+          "description": "",
+          "main_material": "pear",
+          "origin": "pear",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        },
+        {
+          "name": "pear",
+          "description": "",
+          "main_material": "pear",
+          "origin": "pear",
+          "tags": [
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "poplar",
+      "plural_name": "poplar trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "poplar",
+          "description": "",
+          "main_material": "poplar",
+          "origin": "poplar",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "red oak",
+      "plural_name": "red oak trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "red oak",
+          "description": "",
+          "main_material": "red oak",
+          "origin": "red oak",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "red pine",
+      "plural_name": "red pine trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "red pine",
+          "description": "",
+          "main_material": "red pine",
+          "origin": "red pine",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "rosewood",
+      "plural_name": "rosewood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "rosewood",
+          "description": "",
+          "main_material": "rosewood",
+          "origin": "rosewood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "sandalwood",
+      "plural_name": "sandalwood trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "sandalwood",
+          "description": "",
+          "main_material": "sandalwood",
+          "origin": "sandalwood",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "spruce",
+      "plural_name": "spruce trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "spruce",
+          "description": "",
+          "main_material": "spruce",
+          "origin": "spruce",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "teak",
+      "plural_name": "teak trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 50,
+      "max_humidity": 100,
+      "min_temperature": 60,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "teak",
+          "description": "",
+          "main_material": "teak",
+          "origin": "teak",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 3,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "humid",
+        "tropical"
+      ]
+    },
+    {
+      "name": "walnut",
+      "plural_name": "walnut trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "walnut",
+          "description": "",
+          "main_material": "walnut",
+          "origin": "walnut",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "white oak",
+      "plural_name": "white oak trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "white oak",
+          "description": "",
+          "main_material": "white oak",
+          "origin": "white oak",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "white pine",
+      "plural_name": "white pine trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "white pine",
+          "description": "",
+          "main_material": "white pine",
+          "origin": "white pine",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "willow",
+      "plural_name": "willow trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "willow",
+          "description": "",
+          "main_material": "willow",
+          "origin": "willow",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "deciduous",
+        "temperate",
+        "river"
+      ]
+    },
+    {
+      "name": "yew",
+      "plural_name": "yew trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "yew",
+          "description": "",
+          "main_material": "yew",
+          "origin": "yew",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    },
+    {
+      "name": "yellow pine",
+      "plural_name": "yellow pine trees",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 60,
+      "min_temperature": 0,
+      "max_temperature": 50,
+      "resources": [
+        {
+          "name": "yellow pine",
+          "description": "",
+          "main_material": "yellow pine",
+          "origin": "yellow pine",
+          "tags": [
+            "wood"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "coniferous",
+        "temperate"
+      ]
+    }
+  ]
+}

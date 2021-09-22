@@ -4,8 +4,8 @@ Package goods provides structures, methods, and tools for dealing with trade goo
 package goods
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
@@ -34,7 +34,7 @@ func (good TradeGood) InSlice(goods []TradeGood) bool {
 }
 
 // GenerateMerchantGoods creates a list of specific trade goods for use in shop lists
-func GenerateMerchantGoods(min int, max int, resources []resource.Resource) []TradeGood {
+func GenerateMerchantGoods(ctx context.Context, min int, max int, resources []resource.Resource) []TradeGood {
 	var good TradeGood
 	var quality string
 	var skillLevel int
@@ -45,8 +45,8 @@ func GenerateMerchantGoods(min int, max int, resources []resource.Resource) []Tr
 	amount := 0
 
 	for _, r := range resources {
-		amount = rand.Intn(3) + 1
-		skillLevel = rand.Intn(5)
+		amount = random.Intn(ctx, 3) + 1
+		skillLevel = random.Intn(ctx, 5)
 		quality = qualityFromSkillLevel(skillLevel)
 		good = TradeGood{
 			Name:        r.Name,
@@ -59,10 +59,10 @@ func GenerateMerchantGoods(min int, max int, resources []resource.Resource) []Tr
 		possibleGoods = append(possibleGoods, good)
 	}
 
-	numberOfGoods := rand.Intn(max+1-min) + min
+	numberOfGoods := random.Intn(ctx, max+1-min) + min
 
 	for i := 0; i < numberOfGoods; i++ {
-		good = possibleGoods[rand.Intn(len(possibleGoods))]
+		good = possibleGoods[random.Intn(ctx, len(possibleGoods))]
 		if !slices.StringIn(good.Name, tradeGoodNames) {
 			goods = append(goods, good)
 			tradeGoodNames = append(tradeGoodNames, good.Name)
@@ -73,7 +73,7 @@ func GenerateMerchantGoods(min int, max int, resources []resource.Resource) []Tr
 }
 
 // GenerateExportTradeGoods produces a list of trade goods based on given resources
-func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) []TradeGood {
+func GenerateExportTradeGoods(ctx context.Context, min int, max int, resources []resource.Resource) []TradeGood {
 	var good TradeGood
 	var quality string
 	var skillLevel int
@@ -84,8 +84,8 @@ func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) [
 	amount := 0
 
 	for _, r := range resources {
-		amount = rand.Intn(3) + 1
-		skillLevel = rand.Intn(5)
+		amount = random.Intn(ctx, 3) + 1
+		skillLevel = random.Intn(ctx, 5)
 		quality = qualityFromSkillLevel(skillLevel)
 		good = TradeGood{
 			Name:        r.Name,
@@ -98,10 +98,10 @@ func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) [
 		possibleGoods = append(possibleGoods, good)
 	}
 
-	numberOfGoods := rand.Intn(max+1-min) + min
+	numberOfGoods := random.Intn(ctx, max+1-min) + min
 
 	for i := 0; i < numberOfGoods; i++ {
-		good = possibleGoods[rand.Intn(len(possibleGoods))]
+		good = possibleGoods[random.Intn(ctx, len(possibleGoods))]
 		if !slices.StringIn(good.Name, tradeGoodNames) {
 			goods = append(goods, good)
 			tradeGoodNames = append(tradeGoodNames, good.Name)
@@ -112,28 +112,28 @@ func GenerateExportTradeGoods(min int, max int, resources []resource.Resource) [
 }
 
 // GenerateImportTradeGoods produces a list of trade goods based on externally-available resources
-func GenerateImportTradeGoods(min int, max int, resources []resource.Resource) ([]TradeGood, error) {
+func GenerateImportTradeGoods(ctx context.Context, min int, max int, resources []resource.Resource) ([]TradeGood, error) {
 	var good TradeGood
 
 	goods := []TradeGood{}
 
 	possibleGoods := GetAllTradeGoods(resources)
 
-	numberOfGoods := rand.Intn(max+1-min) + min
+	numberOfGoods := random.Intn(ctx, max+1-min) + min
 	amount := 0
 
 	for i := 0; i < numberOfGoods; i++ {
 		good = TradeGood{}
-		newItem, err := random.String(possibleGoods)
+		newItem, err := random.String(ctx, possibleGoods)
 		if err != nil {
 			err = fmt.Errorf("Could not generate import goods: %w", err)
 			return []TradeGood{}, err
 		}
-		amount = rand.Intn(3) + 1
+		amount = random.Intn(ctx, 3) + 1
 		good.Name = newItem
 		good.Description = newItem
 		good.Amount = amount
-		quality, err := randomQuality()
+		quality, err := randomQuality(ctx)
 		if err != nil {
 			err = fmt.Errorf("Could not generate import goods: %w", err)
 			return []TradeGood{}, err
@@ -158,7 +158,7 @@ func GetAllTradeGoods(resources []resource.Resource) []string {
 	return goods
 }
 
-func randomQuality() (string, error) {
+func randomQuality(ctx context.Context) (string, error) {
 	qualities := map[string]int{
 		"exceptional":  1,
 		"fine":         2,
@@ -167,7 +167,7 @@ func randomQuality() (string, error) {
 		"pathetic":     1,
 	}
 
-	quality, err := random.StringFromThresholdMap(qualities)
+	quality, err := random.StringFromThresholdMap(ctx, qualities)
 	if err != nil {
 		err = fmt.Errorf("Failed to get random quality: %w", err)
 		return "", err

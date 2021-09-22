@@ -9,10 +9,10 @@ import (
 	"github.com/ironarachne/world/pkg/mineral"
 	"github.com/ironarachne/world/pkg/monster"
 	"github.com/ironarachne/world/pkg/pantheon/domain"
+	"github.com/ironarachne/world/pkg/pattern"
 	"github.com/ironarachne/world/pkg/plant"
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/race"
-	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/soil"
 	"github.com/ironarachne/world/pkg/species"
 	"github.com/ironarachne/world/pkg/tree"
@@ -160,13 +160,13 @@ func dataMonsters(w http.ResponseWriter, r *http.Request) {
 }
 
 func dataPatterns(w http.ResponseWriter, r *http.Request) {
-	patterns, err := resource.All()
+	patterns, err := pattern.All()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
 
-	d := resource.Data{
+	d := pattern.Data{
 		Patterns: patterns,
 	}
 

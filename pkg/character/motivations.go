@@ -1,6 +1,7 @@
 package character
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -56,10 +57,10 @@ func getAllMotivations() []string {
 	return motivations
 }
 
-func getRandomMotivation() (string, error) {
+func getRandomMotivation(ctx context.Context) (string, error) {
 	motivations := getAllMotivations()
 
-	motivation, err := random.String(motivations)
+	motivation, err := random.String(ctx, motivations)
 	if err != nil {
 		err = fmt.Errorf("Could not generate face shape: %w", err)
 		return "", err

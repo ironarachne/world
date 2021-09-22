@@ -1,0 +1,284 @@
+{
+  "species": [
+    {
+      "name": "coyote",
+      "plural_name": "coyotes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "coyote hide",
+          "description": "",
+          "main_material": "coyote",
+          "origin": "coyote",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 4
+        },
+        {
+          "name": "coyote fangs",
+          "description": "",
+          "main_material": "coyote",
+          "origin": "coyote",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "coyote",
+          "description": "",
+          "main_material": "coyote",
+          "origin": "coyote",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "coyote",
+          "description": "",
+          "main_material": "coyote",
+          "origin": "coyote",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "canine",
+        "desert",
+        "grassland",
+        "carnivore",
+        "hide",
+        "mammal",
+        "temperate",
+        "semiarid"
+      ]
+    },
+    {
+      "name": "fox",
+      "plural_name": "foxes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "fox hide",
+          "description": "",
+          "main_material": "fox",
+          "origin": "fox",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 4
+        },
+        {
+          "name": "fox fangs",
+          "description": "",
+          "main_material": "fox",
+          "origin": "fox",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "fox",
+          "description": "",
+          "main_material": "fox",
+          "origin": "fox",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "fox",
+          "description": "",
+          "main_material": "fox",
+          "origin": "fox",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "canine",
+        "carnivore",
+        "forest",
+        "grassland",
+        "hide",
+        "mammal",
+        "temperate"
+      ]
+    },
+    {
+      "name": "snow fox",
+      "plural_name": "snow foxes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 10,
+      "resources": [
+        {
+          "name": "snow fox hide",
+          "description": "",
+          "main_material": "snow fox",
+          "origin": "snow fox",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 4
+        },
+        {
+          "name": "snow fox fangs",
+          "description": "",
+          "main_material": "snow fox",
+          "origin": "snow fox",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "snow fox",
+          "description": "",
+          "main_material": "snow fox",
+          "origin": "snow fox",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "snow fox",
+          "description": "",
+          "main_material": "snow fox",
+          "origin": "snow fox",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "canine",
+        "carnivore",
+        "hide",
+        "mammal",
+        "arctic",
+        "cold weather"
+      ]
+    },
+    {
+      "name": "wolf",
+      "plural_name": "wolves",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "wolf hide",
+          "description": "",
+          "main_material": "wolf",
+          "origin": "wolf",
+          "tags": [
+            "hide"
+          ],
+          "commonality": 4,
+          "value": 4
+        },
+        {
+          "name": "wolf fangs",
+          "description": "",
+          "main_material": "wolf",
+          "origin": "wolf",
+          "tags": [
+            "fangs",
+            "teeth"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "wolf",
+          "description": "",
+          "main_material": "wolf",
+          "origin": "wolf",
+          "tags": [
+            "meat"
+          ],
+          "commonality": 4,
+          "value": 1
+        },
+        {
+          "name": "wolf",
+          "description": "",
+          "main_material": "wolf",
+          "origin": "wolf",
+          "tags": [
+            "sinew"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "animal",
+        "canine",
+        "carnivore",
+        "forest",
+        "hide",
+        "mammal",
+        "temperate",
+        "wolf"
+      ]
+    }
+  ]
+}

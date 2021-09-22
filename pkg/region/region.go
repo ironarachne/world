@@ -4,13 +4,15 @@ Package region provides tools and structures for fantasy regions of a world
 package region
 
 import (
+	"context"
 	"fmt"
-	"github.com/ironarachne/world/pkg/geography"
-	"math/rand"
 	"strings"
 
+	"github.com/ironarachne/world/pkg/geography"
+	"github.com/ironarachne/world/pkg/random"
+
 	"github.com/ironarachne/world/pkg/culture"
-	"github.com/ironarachne/world/pkg/grid"
+	"github.com/ironarachne/world/pkg/geometry"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/town"
 )
@@ -28,14 +30,14 @@ type Region struct {
 	Name            string                      `json:"name"`
 	Organizations   []organization.Organization `json:"organizations"`
 	RulingBody      organization.Organization   `json:"ruling_body"`
-	TilesOccupied   []grid.Coordinate           `json:"tiles_occupied"`
+	TilesOccupied   []geometry.Point            `json:"tiles_occupied"`
 	Towns           []town.Town                 `json:"town"`
 }
 
 const regionGenerationError = "failed to generate random region: %w"
 
 // AssignTiles gives a set of coordinates for tiles to a region
-func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
+func (region Region) AssignTiles(coordinates []geometry.Point) Region {
 	placedRegion := region
 
 	placedRegion.TilesOccupied = coordinates
@@ -44,7 +46,7 @@ func (region Region) AssignTiles(coordinates []grid.Coordinate) Region {
 }
 
 // Generate generates a region
-func Generate(area geography.Area, originCulture culture.Culture) (Region, error) {
+func Generate(ctx context.Context, area geography.Area, originCulture culture.Culture) (Region, error) {
 	var nobleMembers []organization.Member
 	region := Region{}
 
@@ -53,14 +55,14 @@ func Generate(area geography.Area, originCulture culture.Culture) (Region, error
 	region.Geography = area
 	region.Culture = originCulture
 
-	class, err := getRandomWeightedClass()
+	class, err := getRandomWeightedClass(ctx)
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
 	}
 	region.Class = class
 
-	newTown, err := town.Generate("city", area, region.Culture)
+	newTown, err := town.Generate(ctx, "city", area, region.Culture)
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
@@ -70,7 +72,7 @@ func Generate(area geography.Area, originCulture culture.Culture) (Region, error
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown, err = town.Generate("random", area, region.Culture)
+		newTown, err = town.Generate(ctx, "random", area, region.Culture)
 		if err != nil {
 			err = fmt.Errorf(regionError, err)
 			return Region{}, err
@@ -78,21 +80,21 @@ func Generate(area geography.Area, originCulture culture.Culture) (Region, error
 		region.Towns = append(region.Towns, newTown)
 	}
 
-	organizations, err := region.getOrganizations()
+	organizations, err := region.getOrganizations(ctx)
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
 	}
 	region.Organizations = organizations
 
-	rulingBody, err := region.generateRulingBody()
+	rulingBody, err := region.generateRulingBody(ctx)
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
 	}
 	region.RulingBody = rulingBody
 
-	regionName, err := region.Culture.Language.RandomFamilyName()
+	regionName, err := region.Culture.Language.RandomFamilyName(ctx)
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
@@ -117,13 +119,13 @@ func Generate(area geography.Area, originCulture culture.Culture) (Region, error
 	return region, nil
 }
 
-func (region Region) getOrganizations() ([]organization.Organization, error) {
+func (region Region) getOrganizations(ctx context.Context) ([]organization.Organization, error) {
 	organizations := []organization.Organization{}
 
-	numberOfOrgs := rand.Intn(region.Class.MinNumberOfOrganizations+region.Class.MaxNumberOfOrganizations) + region.Class.MinNumberOfOrganizations
+	numberOfOrgs := random.Intn(ctx, region.Class.MinNumberOfOrganizations+region.Class.MaxNumberOfOrganizations) + region.Class.MinNumberOfOrganizations
 
 	for i := 0; i < numberOfOrgs; i++ {
-		org, err := organization.Generate(region.Culture)
+		org, err := organization.Generate(ctx, region.Culture)
 		if err != nil {
 			err = fmt.Errorf("failed to generate region organizations: %w", err)
 			return []organization.Organization{}, err
@@ -135,20 +137,20 @@ func (region Region) getOrganizations() ([]organization.Organization, error) {
 }
 
 // Random generates a completely random region
-func Random() (Region, error) {
-	area, err := geography.Generate()
+func Random(ctx context.Context) (Region, error) {
+	area, err := geography.Generate(ctx)
 	if err != nil {
 		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err
 	}
 
-	randomCulture, err := culture.Generate(area)
+	randomCulture, err := culture.Generate(ctx, area)
 	if err != nil {
 		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err
 	}
 
-	region, err := Generate(area, randomCulture)
+	region, err := Generate(ctx, area, randomCulture)
 	if err != nil {
 		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err

@@ -4,10 +4,64 @@ Package words provides convenience methods for dealing with words and phrases
 package words
 
 import (
-	"fmt"
+	"math"
 	"strings"
 
 	"github.com/ironarachne/world/pkg/slices"
+)
+
+const (
+	negativeSign = "minus"
+	hundred      = "hundred"
+)
+
+var (
+	numbers0To9 = []string{
+		"zero",
+		"one",
+		"two",
+		"three",
+		"four",
+		"five",
+		"six",
+		"seven",
+		"eight",
+		"nine",
+	}
+
+	numbers10To19 = []string{
+		"ten",
+		"eleven",
+		"twelve",
+		"thirteen",
+		"fourteen",
+		"fifteen",
+		"sixteen",
+		"seventeen",
+		"eighteen",
+		"nineteen",
+	}
+
+	numbersTenths = []string{
+		"twenty",
+		"thirty",
+		"forty",
+		"fifty",
+		"sixty",
+		"seventy",
+		"eighty",
+		"ninety",
+	}
+
+	numbersMagnitudes = []string{
+		"",
+		"thousand",
+		"million",
+		"billion",
+		"trillion",
+		"quadrillion",
+		"quintillion", // this is the largest magnitude a 64-bit integer can reach
+	}
 )
 
 // CapitalizeFirst capitalizes the first letter of the string
@@ -39,74 +93,59 @@ func CombinePhrases(phrases []string) string {
 }
 
 // NumberToWord returns the word version of a number
-func NumberToWord(number int) (string, error) {
-	var err error
-	result := ""
-
+func NumberToWord(number int) string {
+	var out strings.Builder
 	if number < 0 {
-		err = fmt.Errorf("can't turn negative number into word")
-		return "", err
+		out.WriteString(negativeSign)
+		out.WriteRune(' ')
+		number = -number
 	}
-
-	if number > 24 {
-		err = fmt.Errorf("no support for numbers greater than 24")
-		return "", err
+	switch {
+	case number < 10:
+		out.WriteString(numbers0To9[number])
+	case number < 20:
+		out.WriteString(numbers10To19[number-10])
+	case number < 100:
+		out.WriteString(numbersTenths[(number-20)/10])
+		firstDigit := number % 10
+		if firstDigit > 0 {
+			out.WriteRune('-')
+			out.WriteString(numbers0To9[firstDigit])
+		}
+	case number < 1000:
+		hundredCount := number / 100
+		out.WriteString(numbers0To9[hundredCount])
+		out.WriteRune(' ')
+		out.WriteString(hundred)
+		rest := number % 100
+		if rest > 0 {
+			out.WriteRune(' ')
+			out.WriteString(NumberToWord(rest))
+		}
+	default:
+		var magnitude int
+		for n := number / 1000; n > 0; n, magnitude = n/1000, magnitude+1 {
+		}
+		for ; magnitude > 0; magnitude-- {
+			base := int(math.Pow(1000, float64(magnitude)))
+			if base > number {
+				continue
+			}
+			magnitudeCount := number / base
+			out.WriteString(NumberToWord(magnitudeCount))
+			out.WriteRune(' ')
+			out.WriteString(numbersMagnitudes[magnitude])
+			number = number % base
+			if number >= 1000 {
+				out.WriteRune(' ')
+			}
+		}
+		if number > 0 {
+			out.WriteRune(' ')
+			out.WriteString(NumberToWord(number))
+		}
 	}
-
-	switch number {
-	case 0:
-		result = "zero"
-	case 1:
-		result = "one"
-	case 2:
-		result = "two"
-	case 3:
-		result = "three"
-	case 4:
-		result = "four"
-	case 5:
-		result = "five"
-	case 6:
-		result = "six"
-	case 7:
-		result = "seven"
-	case 8:
-		result = "eight"
-	case 9:
-		result = "nine"
-	case 10:
-		result = "ten"
-	case 11:
-		result = "eleven"
-	case 12:
-		result = "twelve"
-	case 13:
-		result = "thirteen"
-	case 14:
-		result = "fourteen"
-	case 15:
-		result = "fifteen"
-	case 16:
-		result = "sixteen"
-	case 17:
-		result = "seventeen"
-	case 18:
-		result = "eighteen"
-	case 19:
-		result = "nineteen"
-	case 20:
-		result = "twenty"
-	case 21:
-		result = "twenty-one"
-	case 22:
-		result = "twenty-two"
-	case 23:
-		result = "twenty-three"
-	case 24:
-		result = "twenty-four"
-	}
-
-	return result, nil
+	return out.String()
 }
 
 // Pronoun returns the right singular pronoun based on starting letter of a word

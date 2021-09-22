@@ -4,8 +4,8 @@ Package race provides fantasy races as an implementation of species.Species
 package race
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/species"
@@ -40,7 +40,7 @@ func ByName(name string) (species.Species, error) {
 }
 
 // Random returns a random race from the list
-func Random() (species.Species, error) {
+func Random(ctx context.Context) (species.Species, error) {
 	races, err := All()
 	if err != nil {
 		err = fmt.Errorf("failed to find random race: %w", err)
@@ -56,14 +56,14 @@ func Random() (species.Species, error) {
 		return races[0], nil
 	}
 
-	race := races[rand.Intn(len(races))]
+	race := races[random.Intn(ctx, len(races))]
 
 	return race, nil
 }
 
 // RandomSimplified returns a random simplified race
-func RandomSimplified() (species.Simplified, error) {
-	race, err := Random()
+func RandomSimplified(ctx context.Context) (species.Simplified, error) {
+	race, err := Random(ctx)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random simplified race: %w", err)
 		return species.Simplified{}, err
@@ -75,7 +75,7 @@ func RandomSimplified() (species.Simplified, error) {
 }
 
 // RandomWeighted returns a random race, taking commonality into account
-func RandomWeighted() (species.Species, error) {
+func RandomWeighted(ctx context.Context) (species.Species, error) {
 	races, err := All()
 	if err != nil {
 		err = fmt.Errorf("failed to find random weighted race: %w", err)
@@ -88,7 +88,7 @@ func RandomWeighted() (species.Species, error) {
 		weights[c.Name] = c.Commonality
 	}
 
-	name, err := random.StringFromThresholdMap(weights)
+	name, err := random.StringFromThresholdMap(ctx, weights)
 	if err != nil {
 		err = fmt.Errorf("Failed to get random weighted race: %w", err)
 		return species.Species{}, err

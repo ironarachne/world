@@ -1,11 +1,13 @@
 package drink
 
 import (
+	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/ironarachne/world/pkg/language"
+	"github.com/ironarachne/world/pkg/pattern"
 	"github.com/ironarachne/world/pkg/profession"
+	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 )
 
@@ -16,25 +18,25 @@ type Method struct {
 	Producer        string `json:"producer"`
 }
 
-func generateUniqueDrinkPattern(lang language.Language, resources []resource.Resource) (resource.Pattern, error) {
-	name, err := lang.NewWord()
+func generateUniqueDrinkPattern(ctx context.Context, lang language.Language, resources []resource.Resource) (pattern.Pattern, error) {
+	name, err := lang.NewWord(ctx)
 	if err != nil {
 		err = fmt.Errorf("failed to generate unique drink pattern: %w", err)
-		return resource.Pattern{}, err
+		return pattern.Pattern{}, err
 	}
-	method, err := getRandomMethod(resources)
+	method, err := getRandomMethod(ctx, resources)
 	if err != nil {
 		err = fmt.Errorf("failed to generate unique drink pattern: %w", err)
-		return resource.Pattern{}, err
+		return pattern.Pattern{}, err
 	}
 
 	filteredResources := resource.ByTag(method.BaseResourceTag, resources)
 
-	baseResource := resource.Random(filteredResources)
+	baseResource := resource.Random(ctx, filteredResources)
 
 	producer, _ := profession.ByName(method.Producer)
 
-	pattern := resource.Pattern{
+	pattern := pattern.Pattern{
 		Name:         name,
 		NameTemplate: name,
 		Description:  "a beverage called " + name + ", which is " + method.Name + " from " + baseResource.Name,
@@ -42,8 +44,8 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 			"alcohol",
 			"beverage",
 		},
-		Profession: producer,
-		Slots: []resource.Slot{
+		ProfessionName: producer.Name,
+		Slots: []pattern.Slot{
 			{
 				Name:                "body",
 				RequiredTag:         baseResource.Name,
@@ -56,7 +58,7 @@ func generateUniqueDrinkPattern(lang language.Language, resources []resource.Res
 	return pattern, nil
 }
 
-func getRandomMethod(resources []resource.Resource) (Method, error) {
+func getRandomMethod(ctx context.Context, resources []resource.Resource) (Method, error) {
 	var drinkMethods []Method
 
 	grainMethods := []Method{
@@ -113,7 +115,7 @@ func getRandomMethod(resources []resource.Resource) (Method, error) {
 		return drinkMethods[0], nil
 	}
 
-	method := drinkMethods[rand.Intn(len(drinkMethods))]
+	method := drinkMethods[random.Intn(ctx, len(drinkMethods))]
 
 	return method, nil
 }

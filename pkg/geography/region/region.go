@@ -1,9 +1,11 @@
 package region
 
 import (
-	"github.com/ironarachne/world/pkg/grid"
+	"context"
 	"math"
-	"math/rand"
+
+	"github.com/ironarachne/world/pkg/geometry"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Region is a geographic area.
@@ -20,14 +22,14 @@ type Region struct {
 }
 
 // Generate procedurally generates a random region.
-func Generate() Region {
-	region := RandomTemperate()
+func Generate(ctx context.Context) Region {
+	region := RandomTemperate(ctx)
 
 	return region
 }
 
 // GenerateSpecific generates a region based on specific characteristics
-func GenerateSpecific(temperature int, humidity int, altitude int, distance int) Region {
+func GenerateSpecific(ctx context.Context, temperature int, humidity int, altitude int, distance int) Region {
 	region := Region{}
 
 	region.DistanceToEquator = distance
@@ -36,10 +38,10 @@ func GenerateSpecific(temperature int, humidity int, altitude int, distance int)
 	region.Altitude = altitude
 
 	// TODO: Replace the following with real data gleaned from the world
-	region.NearestOceanDistance = rand.Intn(100)
-	region.NearestOceanDirection = grid.RandomDirection()
-	region.NearestMountainsDirection = grid.OppositeDirection(region.NearestOceanDirection)
-	region.NearestMountainsDistance = rand.Intn(100)
+	region.NearestOceanDistance = random.Intn(ctx, 100)
+	region.NearestOceanDirection = geometry.RandomDirection(ctx)
+	region.NearestMountainsDirection = geometry.OppositeDirection(region.NearestOceanDirection)
+	region.NearestMountainsDistance = random.Intn(ctx, 100)
 
 	region.Description = region.Describe()
 
@@ -47,30 +49,43 @@ func GenerateSpecific(temperature int, humidity int, altitude int, distance int)
 }
 
 // RandomTemperate returns a random region that is appropriate for life
-func RandomTemperate() Region {
+func RandomTemperate(ctx context.Context) Region {
 	region := Region{}
 
-	region.DistanceToEquator = rand.Intn(100) - 50
-	region.Altitude = rand.Intn(50) + 10
-	region.NearestOceanDistance = rand.Intn(100)
-	region.NearestOceanDirection = grid.RandomDirection()
-	region.NearestMountainsDirection = grid.OppositeDirection(region.NearestOceanDirection)
-	region.NearestMountainsDistance = rand.Intn(100)
-	region.Temperature = getTemperature(region.DistanceToEquator, region.Altitude)
-	region.Humidity = getHumidity(region.Altitude, region.NearestOceanDistance)
+	region.DistanceToEquator = random.Intn(ctx, 100) - 50
+	region.Altitude = random.Intn(ctx, 50) + 10
+	region.NearestOceanDistance = random.Intn(ctx, 100)
+	region.NearestOceanDirection = geometry.RandomDirection(ctx)
+	region.NearestMountainsDirection = geometry.OppositeDirection(region.NearestOceanDirection)
+	region.NearestMountainsDistance = random.Intn(ctx, 100)
+	region.Temperature = GetTemperature(region.DistanceToEquator, region.Altitude)
+	region.Humidity = GetHumidity(region.Altitude, region.NearestOceanDistance)
 
 	region.Description = region.Describe()
 
 	return region
 }
 
-func getHumidity(altitude int, oceanDistance int) int {
+// GetHumidity calculates a region's humidity based on its altitude and its distance from the nearest ocean
+func GetHumidity(altitude int, oceanDistance int) int {
+	if oceanDistance == 0 {
+		return 100
+	}
 	humidity := 100 - (altitude / 2) - (oceanDistance / 2)
+
+	if humidity > 100 {
+		humidity = 100
+	}
+
+	if humidity < 0 {
+		humidity = 0
+	}
 
 	return humidity
 }
 
-func getTemperature(distanceToEquator int, altitude int) int {
+// GetTemperature calculates a temperature for a region given its distance from the equator and its altitude
+func GetTemperature(distanceToEquator int, altitude int) int {
 	temperature := 100 - int(math.Abs(float64(distanceToEquator))) - (altitude / 2)
 	if temperature < 0 {
 		temperature = 0

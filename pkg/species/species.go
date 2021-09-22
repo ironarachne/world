@@ -4,13 +4,14 @@ Package species implements the backbone of all living entities in a world
 package species
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"math/rand"
 	"os"
 
 	"github.com/ironarachne/world/pkg/age"
+	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/trait"
 )
@@ -193,7 +194,7 @@ func (s Species) InSlice(from []Species) bool {
 }
 
 // Random returns a set number of randomly chosen speciess from a slice
-func Random(amount int, from []Species) []Species {
+func Random(ctx context.Context, amount int, from []Species) []Species {
 	var s Species
 	var result []Species
 
@@ -202,7 +203,7 @@ func Random(amount int, from []Species) []Species {
 	}
 
 	for i := 0; i < amount; i++ {
-		s = from[rand.Intn(len(from))]
+		s = from[random.Intn(ctx, len(from))]
 		if !s.InSlice(result) {
 			result = append(result, s)
 		}
@@ -212,7 +213,7 @@ func Random(amount int, from []Species) []Species {
 }
 
 // RandomWithResourceTag returns a random species that has a resource with the given tag
-func RandomWithResourceTag(resourceTag string, from []Species) (Species, error) {
+func RandomWithResourceTag(ctx context.Context, resourceTag string, from []Species) (Species, error) {
 	filtered := []Species{}
 
 	for _, s := range from {
@@ -232,7 +233,7 @@ func RandomWithResourceTag(resourceTag string, from []Species) (Species, error) 
 		return filtered[0], nil
 	}
 
-	species := filtered[rand.Intn(len(filtered))]
+	species := filtered[random.Intn(ctx, len(filtered))]
 
 	return species, nil
 }

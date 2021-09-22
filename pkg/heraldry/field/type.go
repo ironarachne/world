@@ -1,19 +1,21 @@
 package field
 
 import (
-	"github.com/ironarachne/world/pkg/grid"
-	"math/rand"
+	"context"
+
+	"github.com/ironarachne/world/pkg/geometry"
+	"github.com/ironarachne/world/pkg/random"
 )
 
 // Type is a type of field
 type Type struct {
-	CenterPoint  grid.Coordinate `json:"center_point"`
-	ImageWidth   int             `json:"image_width"`
-	ImageHeight  int             `json:"image_height"`
-	MaskWidth    int             `json:"mask_width"`
-	MaskHeight   int             `json:"mask_height"`
-	Name         string          `json:"name"`
-	MaskFileName string          `json:"mask_file_name"`
+	CenterPoint  geometry.Point `json:"center_point"`
+	ImageWidth   int            `json:"image_width"`
+	ImageHeight  int            `json:"image_height"`
+	MaskWidth    int            `json:"mask_width"`
+	MaskHeight   int            `json:"mask_height"`
+	Name         string         `json:"name"`
+	MaskFileName string         `json:"mask_file_name"`
 }
 
 func allTypes() []Type {
@@ -25,7 +27,7 @@ func allTypes() []Type {
 			ImageHeight:  450,
 			MaskWidth:    320,
 			MaskHeight:   450,
-			CenterPoint: grid.Coordinate{
+			CenterPoint: geometry.Point{
 				X: 160,
 				Y: 225,
 			},
@@ -37,7 +39,7 @@ func allTypes() []Type {
 			ImageHeight:  450,
 			MaskWidth:    374,
 			MaskHeight:   450,
-			CenterPoint: grid.Coordinate{
+			CenterPoint: geometry.Point{
 				X: 187,
 				Y: 215,
 			},
@@ -49,7 +51,7 @@ func allTypes() []Type {
 			ImageHeight:  436,
 			MaskWidth:    364,
 			MaskHeight:   436,
-			CenterPoint: grid.Coordinate{
+			CenterPoint: geometry.Point{
 				X: 182,
 				Y: 200,
 			},
@@ -61,7 +63,7 @@ func allTypes() []Type {
 			ImageHeight:  450,
 			MaskWidth:    358,
 			MaskHeight:   450,
-			CenterPoint: grid.Coordinate{
+			CenterPoint: geometry.Point{
 				X: 179,
 				Y: 215,
 			},
@@ -72,10 +74,10 @@ func allTypes() []Type {
 }
 
 // RandomType returns a random field type
-func RandomType() Type {
+func RandomType(ctx context.Context) Type {
 	fieldTypes := allTypes()
 
-	fieldType := fieldTypes[rand.Intn(len(fieldTypes))]
+	fieldType := fieldTypes[random.Intn(ctx, len(fieldTypes))]
 
 	return fieldType
 }

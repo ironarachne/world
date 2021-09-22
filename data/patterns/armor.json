@@ -1,0 +1,773 @@
+{
+  "patterns": [
+    {
+      "name": "breastplate",
+      "description": "a solid armor covering for the front of the torso",
+      "tags": [
+        "armor",
+        "body armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} breastplate",
+          "possible_quirks": null
+        },
+        {
+          "name": "straps",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} leather straps",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} breastplate",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "brigandine",
+      "description": "a leather garment lined with small oblong metal plates sewn into the fabric",
+      "tags": [
+        "armor",
+        "body armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} leather brigandine",
+          "possible_quirks": null
+        },
+        {
+          "name": "plates",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} plates",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} leather brigandine",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 6
+    },
+    {
+      "name": "chain hauberk",
+      "description": "a garment made of chain maille that covers the arms and torso down to the knees",
+      "tags": [
+        "armor",
+        "body armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "links",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} chain hauberk",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} chain hauberk",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 8
+    },
+    {
+      "name": "chain shirt",
+      "description": "a shirt made of chain maille that covers the arms and torso down to the waist",
+      "tags": [
+        "armor",
+        "body armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "links",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} chain shirt",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} chain shirt",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 6
+    },
+    {
+      "name": "gauntlet",
+      "description": "a glove made of metal plates that protects the hand, wrist, and part of the arm",
+      "tags": [
+        "armor",
+        "hand armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} gauntlet",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} gauntlet",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "gorget",
+      "description": "a metal collar to protect the neck, clavicles, and sternum",
+      "tags": [
+        "armor",
+        "neck armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} gorget",
+          "possible_quirks": null
+        },
+        {
+          "name": "straps",
+          "required_tag": "leather",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} leather straps",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} gorget",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 4
+    },
+    {
+      "name": "greave",
+      "description": "a pair of shaped metal plates that protects the lower leg",
+      "tags": [
+        "armor",
+        "leg armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} greaves",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} greaves",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "pauldron",
+      "description": "a shoulder armor that covers the shoulder, armpit, and part of the back and chest",
+      "tags": [
+        "armor",
+        "shoulder armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} pauldrons",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} pauldrons",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "spaulder",
+      "description": "a metal shoulder protector that doesn't cover the armpit",
+      "tags": [
+        "armor",
+        "shoulder armor"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} spaulder",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} spaulder",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "close helm",
+      "description": "a helmet that fully covers the head, with a hinged face plate",
+      "tags": [
+        "armor",
+        "helmet"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} close helm",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        },
+        {
+          "name": "padding",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} padding inside",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} close helm",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 6
+    },
+    {
+      "name": "nasal helm",
+      "description": "a conical helmet with a plate of metal over the nose",
+      "tags": [
+        "armor",
+        "helmet"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} nasal helmet",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        },
+        {
+          "name": "padding",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} padding",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} nasal helmet",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 6
+    },
+    {
+      "name": "pot helm",
+      "description": "a helmet shaped like a cylinder with a rectangular eye slit",
+      "tags": [
+        "armor",
+        "helmet"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} pot helm",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        },
+        {
+          "name": "padding",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} padding",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} pot helm",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "spangenhelm",
+      "description": "a helmet that covers the top of the head and has plates over the ears",
+      "tags": [
+        "armor",
+        "helmet"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} spangenhelm",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal ingot",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        },
+        {
+          "name": "padding",
+          "required_tag": "fabric",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " and {{.Resource.MainMaterial}} padding",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} spangenhelm",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "buckler",
+      "description": "a small round shield strapped to one arm",
+      "tags": [
+        "armor",
+        "shield"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} buckler",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} buckler",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "heater shield",
+      "description": "a shield with a pointed bottom and flat top",
+      "tags": [
+        "armor",
+        "shield"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} heater shield",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} heater shield",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "kite shield",
+      "description": "a shield shaped like a kite",
+      "tags": [
+        "armor",
+        "shield"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} kite shield",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} kite shield",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "tower shield",
+      "description": "a large, heavy shield that covers the entire body",
+      "tags": [
+        "armor",
+        "shield"
+      ],
+      "commonality": 0,
+      "profession_name": "armorsmith",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "wood plank",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} tower shield",
+          "possible_quirks": null
+        },
+        {
+          "name": "trim",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": " with {{.Resource.MainMaterial}} trim",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} tower shield",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    }
+  ]
+}

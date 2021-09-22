@@ -1,6 +1,7 @@
 package season
 
 import (
+	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/geography/climate"
 	"github.com/ironarachne/world/pkg/geography/region"
@@ -66,11 +67,7 @@ func (s Season) describe(c climate.Climate, r region.Region) (string, error) {
 		}
 	}
 
-	daylightHours, err := words.NumberToWord(s.DaylightHours)
-	if err != nil {
-		err = fmt.Errorf("failed to generate season description: %w", err)
-		return "", err
-	}
+	daylightHours := words.NumberToWord(s.DaylightHours)
 
 	description += ". There are " + daylightHours + " hours of daylight each day."
 
@@ -125,7 +122,7 @@ func getPrecipitationTypeForTemperature(temperature int) string {
 }
 
 // Generate generates a set of seasons based on a climate and region
-func Generate(c climate.Climate, r region.Region) ([]Season, error) {
+func Generate(ctx context.Context, c climate.Climate, r region.Region) ([]Season, error) {
 	var seasons []Season
 
 	base := []Season{

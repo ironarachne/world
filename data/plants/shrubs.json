@@ -1,0 +1,347 @@
+{
+  "species": [
+    {
+      "name": "blueberry bush",
+      "plural_name": "blueberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "blueberry",
+          "description": "",
+          "main_material": "blueberry",
+          "origin": "blueberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "red currant bush",
+      "plural_name": "red currant bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "red currant",
+          "description": "",
+          "main_material": "red currant",
+          "origin": "red currant bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "white currant bush",
+      "plural_name": "white currant bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 20,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "white currant",
+          "description": "",
+          "main_material": "white currant",
+          "origin": "white currant bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "cranberry bush",
+      "plural_name": "cranberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "cranberry",
+          "description": "",
+          "main_material": "cranberry",
+          "origin": "cranberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "huckleberry bush",
+      "plural_name": "huckleberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "huckleberry",
+          "description": "",
+          "main_material": "huckleberry",
+          "origin": "huckleberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "bilberry bush",
+      "plural_name": "bilberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "bilberry",
+          "description": "",
+          "main_material": "bilberry",
+          "origin": "bilberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "gooseberry bush",
+      "plural_name": "gooseberry bushes",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "gooseberry",
+          "description": "",
+          "main_material": "gooseberry",
+          "origin": "gooseberry bush",
+          "tags": [
+            "berry",
+            "fruit"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "lavender",
+      "plural_name": "lavender",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "lavender",
+          "description": "",
+          "main_material": "lavender",
+          "origin": "lavender",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    },
+    {
+      "name": "thyme",
+      "plural_name": "thyme",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "thyme",
+          "description": "",
+          "main_material": "thyme",
+          "origin": "thyme",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "shrub",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "sage",
+      "plural_name": "sage",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 30,
+      "max_humidity": 100,
+      "min_temperature": 30,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "sage",
+          "description": "",
+          "main_material": "sage",
+          "origin": "sage",
+          "tags": [
+            "herb"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "herb",
+        "shrub",
+        "grassland",
+        "forest",
+        "temperate"
+      ]
+    },
+    {
+      "name": "indigo",
+      "plural_name": "indigo",
+      "adjective": "",
+      "commonality": 0,
+      "possible_traits": null,
+      "common_traits": null,
+      "age_categories": null,
+      "min_humidity": 0,
+      "max_humidity": 100,
+      "min_temperature": 0,
+      "max_temperature": 100,
+      "resources": [
+        {
+          "name": "indigo",
+          "description": "",
+          "main_material": "indigo",
+          "origin": "indigo",
+          "tags": [
+            "dye"
+          ],
+          "commonality": 5,
+          "value": 1
+        }
+      ],
+      "tags": [
+        "shrub",
+        "temperate"
+      ]
+    }
+  ]
+}

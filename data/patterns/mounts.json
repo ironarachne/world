@@ -1,0 +1,128 @@
+{
+  "patterns": [
+    {
+      "name": "horseshoe",
+      "description": "a horseshoe",
+      "tags": [
+        "horseshoe"
+      ],
+      "commonality": 0,
+      "profession_name": "farrier",
+      "slots": [
+        {
+          "name": "body",
+          "required_tag": "metal bar",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "{{.Resource.MainMaterial}} horseshoe",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "{{.MainMaterial}} horseshoe",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 1
+    },
+    {
+      "name": "mount",
+      "description": "a riding mount",
+      "tags": [
+        "trained mount"
+      ],
+      "commonality": 0,
+      "profession_name": "animal trainer",
+      "slots": [
+        {
+          "name": "animal",
+          "required_tag": "mount",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "riding {{.Resource.MainMaterial}}",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "riding {{.MainMaterial}}",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 10
+    },
+    {
+      "name": "pack animal",
+      "description": "a beast of burden",
+      "tags": [
+        "trained pack animal"
+      ],
+      "commonality": 0,
+      "profession_name": "animal trainer",
+      "slots": [
+        {
+          "name": "animal",
+          "required_tag": "pack animal",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "pack {{.Resource.MainMaterial}}",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "pack {{.MainMaterial}}",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 5
+    },
+    {
+      "name": "war mount",
+      "description": "a riding mount specifically trained for battle",
+      "tags": [
+        "trained mount"
+      ],
+      "commonality": 0,
+      "profession_name": "animal trainer",
+      "slots": [
+        {
+          "name": "animal",
+          "required_tag": "mount",
+          "resource": {
+            "name": "",
+            "description": "",
+            "main_material": "",
+            "origin": "",
+            "tags": null,
+            "commonality": 0,
+            "value": 0
+          },
+          "description_template": "war {{.Resource.MainMaterial}}",
+          "possible_quirks": null
+        }
+      ],
+      "name_template": "war {{.MainMaterial}}",
+      "main_material": "",
+      "main_material_override": "",
+      "origin_override": "",
+      "value": 100
+    }
+  ]
+}

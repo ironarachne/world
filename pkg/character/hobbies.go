@@ -1,9 +1,10 @@
 package character
 
 import (
-	"math/rand"
+	"context"
 
 	"github.com/ironarachne/world/pkg/age"
+	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -195,7 +196,7 @@ func getHobbiesForAgeCategory(category age.Category) []Hobby {
 	return hobbies
 }
 
-func (character Character) getRandomHobby() Hobby {
+func (character Character) getRandomHobby(ctx context.Context) Hobby {
 	hobbies := getHobbiesForAgeCategory(character.AgeCategory)
 
 	if len(hobbies) == 1 {
@@ -203,7 +204,7 @@ func (character Character) getRandomHobby() Hobby {
 	}
 
 	if len(hobbies) > 1 {
-		return hobbies[rand.Intn(len(hobbies))]
+		return hobbies[random.Intn(ctx, len(hobbies))]
 	}
 
 	return Hobby{}
