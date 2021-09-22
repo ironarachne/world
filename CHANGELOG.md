@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.11.2 (2021-09-22)
+
+- Update to Go 1.17
+
 ## 0.11.1 (2020-03-18)
 
 - Add JSON hinting for music

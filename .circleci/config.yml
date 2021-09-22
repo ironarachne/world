@@ -11,7 +11,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: cimg/go:1.14
+      - image: cimg/go:1.17
     steps:
       - checkout
       - run:
@@ -24,7 +24,7 @@ jobs:
       - sonarcloud/scan
   build:
     docker:
-      - image: cimg/go:1.14
+      - image: cimg/go:1.17
     steps:
       - checkout
       - setup_remote_docker

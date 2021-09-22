@@ -7,6 +7,16 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
+// ShuffleStringSlice randomly reorders a slice of strings
+func ShuffleStringSlice(ctx context.Context, vals []string) []string {
+	ret := make([]string, len(vals))
+	perm := Perm(ctx, len(vals))
+	for i, randIndex := range perm {
+		ret[i] = vals[randIndex]
+	}
+	return ret
+}
+
 // String returns a random string from a slice of strings
 func String(ctx context.Context, items []string) (string, error) {
 	if len(items) == 0 {

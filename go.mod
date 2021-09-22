@@ -1,10 +1,8 @@
 module github.com/ironarachne/world
 
-go 1.13
+go 1.17
 
 require (
-	github.com/ajstarks/svgo v0.0.0-20200204031535-0cbcf57ea1d8
-	github.com/fogleman/delaunay v0.0.0-20180910191513-63f09b4c883d // indirect
 	github.com/fogleman/gg v1.3.0
 	github.com/getsentry/sentry-go v0.5.1
 	github.com/go-chi/chi v4.0.3+incompatible
@@ -19,4 +17,10 @@ require (
 	golang.org/x/net v0.0.0-20200219183655-46282727080f // indirect
 	golang.org/x/sys v0.0.0-20200219091948-cb0a6d8edb6c // indirect
 	golang.org/x/text v0.3.2 // indirect
+)
+
+require (
+	github.com/ironarachne/random v0.0.0-20190325170425-9caaa0b3405a // indirect
+	github.com/mitchellh/go-homedir v1.1.0 // indirect
+	gopkg.in/ini.v1 v1.63.2 // indirect
 )

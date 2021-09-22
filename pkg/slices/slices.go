@@ -3,22 +3,6 @@ Package slices provides convenience methods for dealing with slices
 */
 package slices
 
-import (
-	"context"
-
-	"github.com/ironarachne/world/pkg/random"
-)
-
-// ShuffleStringSlice randomly reorders a slice of strings
-func ShuffleStringSlice(ctx context.Context, vals []string) []string {
-	ret := make([]string, len(vals))
-	perm := random.Perm(ctx, len(vals))
-	for i, randIndex := range perm {
-		ret[i] = vals[randIndex]
-	}
-	return ret
-}
-
 // StringIn checks to see if a string is in an array of strings
 func StringIn(item string, collection []string) bool {
 	for _, element := range collection {
