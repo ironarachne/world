@@ -7,7 +7,7 @@ import (
 	"math/rand"
 )
 
-type key int
+type contextKey string
 
 func New(seed string) *rand.Rand {
 	h := md5.New()
@@ -16,11 +16,13 @@ func New(seed string) *rand.Rand {
 }
 
 func WithSeed(ctx context.Context, seed string) context.Context {
-	return context.WithValue(ctx, key(0), New(seed))
+	key := contextKey("randomseed")
+	return context.WithValue(ctx, key, New(seed))
 }
 
 func FromContext(ctx context.Context) *rand.Rand {
-	v := ctx.Value(key(0))
+	key := contextKey("randomseed")
+	v := ctx.Value(key)
 	if r, ok := v.(*rand.Rand); ok {
 		return r
 	}

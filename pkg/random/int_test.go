@@ -20,3 +20,16 @@ func TestIntFromThresholdMap(t *testing.T) {
 		t.Errorf("Failed to get expected 'random' result from weighted int slice: got %d instead of 3", randomItem)
 	}
 }
+
+func TestIntn(t *testing.T) {
+	ctx := context.Background()
+	seed := "testing"
+
+	newCtx := WithSeed(ctx, seed)
+
+	r := Intn(newCtx, 5)
+
+	if r != 2 {
+		t.Errorf("Failed to get expected 'random' result from int: got %d instead of 2", r)
+	}
+}
