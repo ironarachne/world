@@ -1,9 +1,6 @@
 package random
 
-import (
-	"context"
-	"testing"
-)
+import "testing"
 
 func TestIntFromThresholdMap(t *testing.T) {
 	items := map[int]int{
@@ -12,7 +9,7 @@ func TestIntFromThresholdMap(t *testing.T) {
 		3: 1000,
 	}
 
-	randomItem, err := IntFromThresholdMap(context.Background(), items)
+	randomItem, err := IntFromThresholdMap(items)
 	if err != nil {
 		t.Error("Failed to get random item from weighted int slice")
 	}

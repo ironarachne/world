@@ -1,7 +1,6 @@
 package town
 
 import (
-	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/pattern"
 
@@ -9,7 +8,7 @@ import (
 	"github.com/ironarachne/world/pkg/resource"
 )
 
-func getProducers(ctx context.Context, size int, resources []resource.Resource) ([]profession.Profession, error) {
+func getProducers(size int, resources []resource.Resource) ([]profession.Profession, error) {
 	var producers []profession.Profession
 
 	possibleProducers, err := pattern.GetPossibleProfessions(resources)
@@ -39,7 +38,7 @@ func getProducers(ctx context.Context, size int, resources []resource.Resource) 
 	}
 
 	for i := 0; i < numberOfProducers; i++ {
-		producer, err := profession.RandomSet(ctx, 1, possibleProducers)
+		producer, err := profession.RandomSet(1, possibleProducers)
 		if err != nil {
 			err = fmt.Errorf("failed to get producers: %w", err)
 			return []profession.Profession{}, err

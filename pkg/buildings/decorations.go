@@ -1,7 +1,6 @@
 package buildings
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -22,10 +21,10 @@ func getAllDecorations() []string {
 	}
 }
 
-func getRandomDecorations(ctx context.Context) (string, error) {
+func getRandomDecorations() (string, error) {
 	decorations := getAllDecorations()
 
-	decoration, err := random.String(ctx, decorations)
+	decoration, err := random.String(decorations)
 
 	if err != nil {
 		err = fmt.Errorf("Could not find decoration: %w", err)

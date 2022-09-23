@@ -1,16 +1,14 @@
 package variation
 
 import (
-	"context"
 	"fmt"
-	"image"
-	"math"
-
 	"github.com/fogleman/gg"
-
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/words"
+	"image"
+	"math"
+	"math/rand"
 )
 
 // Variation is a variation of the field
@@ -148,13 +146,13 @@ func All() []Variation {
 }
 
 // Random returns a random variation
-func Random(ctx context.Context) Variation {
+func Random() Variation {
 	all := All()
-	return all[random.Intn(ctx, len(all))]
+	return all[rand.Intn(len(all))]
 }
 
 // RandomWeighted returns a random variation by weight
-func RandomWeighted(ctx context.Context) (Variation, error) {
+func RandomWeighted() (Variation, error) {
 	all := All()
 
 	weights := map[string]int{}
@@ -163,7 +161,7 @@ func RandomWeighted(ctx context.Context) (Variation, error) {
 		weights[c.Name] = c.Commonality
 	}
 
-	name, err := random.StringFromThresholdMap(ctx, weights)
+	name, err := random.StringFromThresholdMap(weights)
 	if err != nil {
 		err = fmt.Errorf("failed to get random weighted heraldic variation: %w", err)
 		return Variation{}, err
@@ -180,12 +178,12 @@ func RandomWeighted(ctx context.Context) (Variation, error) {
 }
 
 // Generate procedurally generates a random variation of the field
-func Generate(ctx context.Context, initialTincture tincture.Tincture) (Variation, error) {
+func Generate(initialTincture tincture.Tincture) (Variation, error) {
 	var tinc tincture.Tincture
 	var tinctureNames []string
 	var possible []tincture.Tincture
 
-	variation, err := RandomWeighted(ctx)
+	variation, err := RandomWeighted()
 	if err != nil {
 		err = fmt.Errorf("failed to generate heraldic variation: %w", err)
 		return Variation{}, err
@@ -196,7 +194,7 @@ func Generate(ctx context.Context, initialTincture tincture.Tincture) (Variation
 	if variation.NumberOfTinctures > 1 {
 		if initialTincture.Type == "fur" {
 			possible = tincture.Complementary(initialTincture, false)
-			initialTincture, err = tincture.RandomWeighted(ctx, possible)
+			initialTincture, err = tincture.RandomWeighted(possible)
 			if err != nil {
 				err = fmt.Errorf("failed to generate heraldic variation: %w", err)
 				return Variation{}, err
@@ -209,7 +207,7 @@ func Generate(ctx context.Context, initialTincture tincture.Tincture) (Variation
 	for i := 1; i < variation.NumberOfTinctures; i++ {
 		possible = tincture.All()
 		possible = tincture.Remove(lastTincture, possible)
-		tinc, err = tincture.Random(ctx, possible)
+		tinc, err = tincture.Random(possible)
 		if err != nil {
 			err = fmt.Errorf("failed to generate heraldic variation: %w", err)
 			return Variation{}, err

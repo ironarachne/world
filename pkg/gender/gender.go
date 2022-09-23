@@ -4,11 +4,7 @@ gender, including description and pronoun generation.
 */
 package gender
 
-import (
-	"context"
-
-	"github.com/ironarachne/world/pkg/random"
-)
+import "math/rand"
 
 // Gender is a gender and its accompanying descriptors
 type Gender struct {
@@ -76,8 +72,8 @@ func (gender Gender) Opposite() Gender {
 }
 
 // Random returns a random gender
-func Random(ctx context.Context) Gender {
+func Random() Gender {
 	genders := All()
 
-	return genders[random.Intn(ctx, len(genders))]
+	return genders[rand.Intn(len(genders))]
 }

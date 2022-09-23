@@ -1,40 +1,36 @@
 package world
 
-import (
-	"context"
-
-	"github.com/ironarachne/world/pkg/random"
-)
+import "math/rand"
 
 const OCEAN sir = 0
 const LAND sir = 2
 
 type sir int // 0 = susceptible, 1 = infected, 2 = retired
 
-func generateLandSIR(ctx context.Context, tiles [][]Tile) [][]Tile {
+func generateLandSIR(tiles [][]Tile) [][]Tile {
 	var x, y, transmission, recovered, infected, susceptible int
 	var adjacent []coord
 	var infectedTiles []coord
 
-	numberOfInfectedTiles := len(tiles) / 30
+	numberOfInfectedTiles := len(tiles)/30
 	transmissionRate := 50
 
 	height := len(tiles)
 	width := len(tiles[0])
 
 	processed := make([][]Tile, height)
-	for i := 0; i < height; i++ {
+	for i:=0;i<height;i++ {
 		processed[i] = make([]Tile, width)
 	}
 
 	state := make([][]sir, height)
-	for i := 0; i < height; i++ {
+	for i:=0;i<height;i++ {
 		state[i] = make([]sir, width)
 	}
 
-	for i := 0; i < numberOfInfectedTiles; i++ {
-		x = random.Intn(ctx, width)
-		y = random.Intn(ctx, height)
+	for i:=0;i<numberOfInfectedTiles;i++ {
+		x = rand.Intn(width)
+		y = rand.Intn(height)
 
 		state[y][x] = 1
 	}
@@ -55,7 +51,7 @@ func generateLandSIR(ctx context.Context, tiles [][]Tile) [][]Tile {
 			adjacent = i.adjacent(width, height)
 			for _, a := range adjacent {
 				if state[a.y][a.x] == 0 {
-					transmission = random.Intn(ctx, 100)
+					transmission = rand.Intn(100)
 					if transmission < transmissionRate {
 						state[a.y][a.x] = 1
 					}
@@ -83,8 +79,8 @@ func generateLandSIR(ctx context.Context, tiles [][]Tile) [][]Tile {
 
 	state = removeArtifactOceanTiles(state)
 
-	for i := 0; i < height-1; i++ {
-		for j := 0; j < width-1; j++ {
+	for i:=0;i<height-1;i++ {
+		for j:=0;j<width-1;j++ {
 			if state[i][j] == 2 {
 				processed[i][j].IsOcean = false
 			} else {
@@ -147,7 +143,7 @@ func isContiguous(threshold int, c coord, state [][]sir) bool {
 
 	stateValue := state[c.y][c.x]
 
-	for i := 1; i < threshold; i++ {
+	for i:=1;i<threshold;i++  {
 		adjacentTiles = workingTile.adjacent(width, height)
 
 		if checkNext {
@@ -171,7 +167,7 @@ func isContiguous(threshold int, c coord, state [][]sir) bool {
 	return false
 }
 
-func smoothState(ctx context.Context, state [][]sir) [][]sir {
+func smoothState(state [][]sir) [][]sir {
 	var countOfSimilar, chanceOfChange int
 	var adjacent []coord
 	var d coord
@@ -190,7 +186,7 @@ func smoothState(ctx context.Context, state [][]sir) [][]sir {
 				}
 			}
 			if countOfSimilar < 2 {
-				chanceOfChange = random.Intn(ctx, 100)
+				chanceOfChange = rand.Intn(100)
 				if chanceOfChange > 20 {
 					if c == 2 {
 						state[y][x] = 0

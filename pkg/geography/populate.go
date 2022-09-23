@@ -1,7 +1,6 @@
 package geography
 
 import (
-	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/animal"
 	"github.com/ironarachne/world/pkg/fish"
@@ -13,7 +12,7 @@ import (
 	"github.com/ironarachne/world/pkg/tree"
 )
 
-func getAnimals(ctx context.Context, humidity int, temperature int, prevalence int, tags []string) ([]species.Species, error) {
+func getAnimals(humidity int, temperature int, prevalence int, tags []string) ([]species.Species, error) {
 	animals, err := getFilteredAnimals(humidity, temperature, tags)
 	if err != nil {
 		err = fmt.Errorf("failed to get animals for geographic area: %w", err)
@@ -30,13 +29,13 @@ func getAnimals(ctx context.Context, humidity int, temperature int, prevalence i
 		return []species.Species{}, err
 	}
 
-	numberOfAnimals := int(((float64(prevalence) / 100) * 20) + 4)
-	numberOfFish := int(((float64(prevalence) / 100) * 20) + 3)
-	numberOfInsects := int(((float64(prevalence) / 100) * 20) + 1)
+	numberOfAnimals := int(((float64(prevalence)/100) * 20) + 4)
+	numberOfFish := int(((float64(prevalence)/100) * 20) + 3)
+	numberOfInsects := int(((float64(prevalence)/100) * 20) + 1)
 
-	animals = species.Random(ctx, numberOfAnimals, animals)
-	animals = append(animals, species.Random(ctx, numberOfFish, fishes)...)
-	animals = append(animals, species.Random(ctx, numberOfInsects, insects)...)
+	animals = species.Random(numberOfAnimals, animals)
+	animals = append(animals, species.Random(numberOfFish, fishes)...)
+	animals = append(animals, species.Random(numberOfInsects, insects)...)
 
 	return animals, nil
 }
@@ -80,15 +79,15 @@ func getFilteredInsects(humidity int, temperature int, tags []string) ([]species
 	return insects, nil
 }
 
-func ensurePlantsHaveGrains(ctx context.Context, plants []species.Species) ([]species.Species, error) {
+func ensurePlantsHaveGrains(plants []species.Species) ([]species.Species, error) {
 	grains := species.ByTag("grain", plants)
-	if len(grains) == 0 {
+	if len(grains) ==0 {
 		allPlants, err := plant.All()
 		if err != nil {
 			err = fmt.Errorf("failed to get all plants for fetching grains: %w", err)
 			return []species.Species{}, err
 		}
-		grain, err := species.RandomWithResourceTag(ctx, "grain", allPlants)
+		grain, err := species.RandomWithResourceTag("grain", allPlants)
 		if err != nil {
 			err = fmt.Errorf("failed to get grain plant for fetching grains: %w", err)
 			return []species.Species{}, err
@@ -99,7 +98,7 @@ func ensurePlantsHaveGrains(ctx context.Context, plants []species.Species) ([]sp
 	return plants, nil
 }
 
-func getPlants(ctx context.Context, humidity int, temperature int, prevalence int, tags []string) ([]species.Species, error) {
+func getPlants(humidity int, temperature int, prevalence int, tags []string) ([]species.Species, error) {
 	plants, err := getFilteredPlants(humidity, temperature, tags)
 	if err != nil {
 		err = fmt.Errorf("failed to get plants for geographic area: %w", err)
@@ -111,16 +110,16 @@ func getPlants(ctx context.Context, humidity int, temperature int, prevalence in
 		return []species.Species{}, err
 	}
 
-	numberOfPlants := int(((float64(prevalence) / 100) * 30) + 4)
-	numberOfTrees := int(((float64(prevalence) / 100) * 20) + 1)
+	numberOfPlants := int(((float64(prevalence)/100) * 30) + 4)
+	numberOfTrees := int(((float64(prevalence)/100) * 20) + 1)
 
-	plants = species.Random(ctx, numberOfPlants, plants)
-	plants, err = ensurePlantsHaveGrains(ctx, plants)
+	plants = species.Random(numberOfPlants, plants)
+	plants, err = ensurePlantsHaveGrains(plants)
 	if err != nil {
 		err = fmt.Errorf("failed to get grain plants for area: %w", err)
 		return []species.Species{}, err
 	}
-	plants = append(plants, species.Random(ctx, numberOfTrees, trees)...)
+	plants = append(plants, species.Random(numberOfTrees, trees)...)
 
 	return plants, nil
 }
@@ -151,7 +150,7 @@ func getFilteredTrees(humidity int, temperature int, tags []string) ([]species.S
 	return trees, nil
 }
 
-func getMinerals(ctx context.Context) ([]mineral.Mineral, error) {
+func getMinerals() ([]mineral.Mineral, error) {
 	var minerals []mineral.Mineral
 
 	all, err := mineral.All()
@@ -162,17 +161,17 @@ func getMinerals(ctx context.Context) ([]mineral.Mineral, error) {
 
 	metals := mineral.ByTag("metal", all)
 
-	filteredMetals, err := mineral.RandomWeightedSet(ctx, 5, metals)
+	filteredMetals, err := mineral.RandomWeightedSet(5, metals)
 	if err != nil {
 		err = fmt.Errorf("failed to get minerals: %w", err)
 		return []mineral.Mineral{}, err
 	}
 
 	gems := mineral.ByTag("gem", all)
-	filteredGems := mineral.Random(ctx, 3, gems)
+	filteredGems := mineral.Random(3, gems)
 
 	stones := mineral.ByTag("stone", all)
-	filteredStones := mineral.Random(ctx, 2, stones)
+	filteredStones := mineral.Random(2, stones)
 	salt := mineral.ByTag("salt", all)
 
 	minerals = append(minerals, filteredMetals...)
@@ -183,7 +182,7 @@ func getMinerals(ctx context.Context) ([]mineral.Mineral, error) {
 	return minerals, nil
 }
 
-func getSoils(ctx context.Context, oceanDistance int, humidity int, temperature int) ([]soil.Soil, error) {
+func getSoils(oceanDistance int, humidity int, temperature int) ([]soil.Soil, error) {
 	var s []soil.Soil
 	var soils []soil.Soil
 	var filtered []soil.Soil
@@ -220,7 +219,7 @@ func getSoils(ctx context.Context, oceanDistance int, humidity int, temperature 
 			err = fmt.Errorf("failed to get soils for geographic area: %w", err)
 			return []soil.Soil{}, err
 		}
-		s = soil.Random(ctx, 1, soils)
+		s = soil.Random(1, soils)
 		filtered = append(filtered, s...)
 	}
 

@@ -4,13 +4,12 @@ Package soil implements soil types
 package soil
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 
-	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 )
 
@@ -95,7 +94,7 @@ func (s Soil) HasTag(tag string) bool {
 }
 
 // Random returns a random subset of soils
-func Random(ctx context.Context, amount int, from []Soil) []Soil {
+func Random(amount int, from []Soil) []Soil {
 	var soil Soil
 
 	soils := []Soil{}
@@ -109,7 +108,7 @@ func Random(ctx context.Context, amount int, from []Soil) []Soil {
 	}
 
 	for i := 0; i < amount; i++ {
-		soil = from[random.Intn(ctx, len(from))]
+		soil = from[rand.Intn(len(from))]
 		if !InSlice(soil, soils) {
 			soils = append(soils, soil)
 		}

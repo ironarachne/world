@@ -2,7 +2,6 @@ package character
 
 import (
 	"bytes"
-	"context"
 	"fmt"
 	"strings"
 	"text/template"
@@ -20,8 +19,8 @@ type SimplifiedCharacter struct {
 }
 
 // Simplify returns a simplified version of a character
-func (character Character) Simplify(ctx context.Context) (SimplifiedCharacter, error) {
-	description, err := character.Describe(ctx)
+func (character Character) Simplify() (SimplifiedCharacter, error) {
+	description, err := character.Describe()
 	if err != nil {
 		err = fmt.Errorf("Could not generate face shape: %w", err)
 		return SimplifiedCharacter{}, err
@@ -45,14 +44,14 @@ func (character Character) Simplify(ctx context.Context) (SimplifiedCharacter, e
 }
 
 // RandomSimplified returns a random simplified character
-func RandomSimplified(ctx context.Context) (SimplifiedCharacter, error) {
-	character, err := Random(ctx)
+func RandomSimplified() (SimplifiedCharacter, error) {
+	character, err := Random()
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified character: %w", err)
 		return SimplifiedCharacter{}, err
 	}
 
-	simplified, err := character.Simplify(ctx)
+	simplified, err := character.Simplify()
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified character: %w", err)
 		return SimplifiedCharacter{}, err
@@ -62,13 +61,13 @@ func RandomSimplified(ctx context.Context) (SimplifiedCharacter, error) {
 }
 
 // Describe returns a prose description of a character based on his or her traits and attributes
-func (character Character) Describe(ctx context.Context) (string, error) {
+func (character Character) Describe() (string, error) {
 	descriptionObject, err := character.compileDescription()
 	if err != nil {
 		err = fmt.Errorf("Could not generate character description: %w", err)
 		return "", err
 	}
-	descriptionTemplate, err := randomDescriptionTemplate(ctx)
+	descriptionTemplate, err := randomDescriptionTemplate()
 	if err != nil {
 		err = fmt.Errorf("Could not generate character description: %w", err)
 		return "", err

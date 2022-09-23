@@ -1,8 +1,8 @@
 package conlang
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 	"strings"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -12,7 +12,7 @@ import (
 const nameListError = "failed to generate name list: %w"
 
 // GenerateNameList generates a list of names appropriate for the language
-func GenerateNameList(ctx context.Context, numberOfNames int, langCategory Category, nameType string) ([]string, error) {
+func GenerateNameList(numberOfNames int, langCategory Category, nameType string) ([]string, error) {
 	var names []string
 	var endings []string
 
@@ -22,7 +22,7 @@ func GenerateNameList(ctx context.Context, numberOfNames int, langCategory Categ
 		endings = langCategory.FeminineEndings
 	} else {
 		for i := 0; i < 5; i++ {
-			finisher, err := randomSyllable(ctx, langCategory, "finisher")
+			finisher, err := randomSyllable(langCategory, "finisher")
 			if err != nil {
 				err = fmt.Errorf(nameListError, err)
 				return []string{}, err
@@ -32,12 +32,12 @@ func GenerateNameList(ctx context.Context, numberOfNames int, langCategory Categ
 	}
 
 	for i := 0; i < numberOfNames; i++ {
-		ending, err := random.String(ctx, endings)
+		ending, err := random.String(endings)
 		if err != nil {
 			err = fmt.Errorf(nameListError, err)
 			return []string{}, err
 		}
-		name, err := RandomName(ctx, langCategory)
+		name, err := RandomName(langCategory)
 		if err != nil {
 			err = fmt.Errorf(nameListError, err)
 			return []string{}, err
@@ -51,24 +51,24 @@ func GenerateNameList(ctx context.Context, numberOfNames int, langCategory Categ
 	return names, nil
 }
 
-func mutateName(ctx context.Context, name string) string {
-	mutation := randomMutation(ctx)
+func mutateName(name string) string {
+	mutation := randomMutation()
 
 	name = strings.Replace(name, mutation.From, mutation.To, 1)
 
 	return name
 }
 
-func randomLanguageName(ctx context.Context, category Category) (string, error) {
+func randomLanguageName(category Category) (string, error) {
 	var name string
 	var syllables []string
 	skewLonger := false
 
-	if random.Intn(ctx, 10) > 3 {
+	if rand.Intn(10) > 3 {
 		skewLonger = true
 	}
 
-	randomLength := random.Intn(ctx, category.WordLength) + 1
+	randomLength := rand.Intn(category.WordLength) + 1
 
 	if skewLonger {
 		randomLength++
@@ -80,7 +80,7 @@ func randomLanguageName(ctx context.Context, category Category) (string, error) 
 		if randomLength-i == 1 {
 			role = "finisher"
 		}
-		syllable, err := randomSyllable(ctx, category, role)
+		syllable, err := randomSyllable(category, role)
 		if err != nil {
 			err = fmt.Errorf("failed to generate language name: %w", err)
 			return "", err
@@ -92,19 +92,19 @@ func randomLanguageName(ctx context.Context, category Category) (string, error) 
 		name += syllable
 	}
 
-	chance := random.Intn(ctx, 10) + 1
+	chance := rand.Intn(10) + 1
 	if chance > 3 {
-		name = mutateName(ctx, name)
+		name = mutateName(name)
 	}
 
 	return name, nil
 }
 
 // RandomGenderedName generates a random gendered first name
-func RandomGenderedName(ctx context.Context, langCategory Category, gender string) (string, error) {
+func RandomGenderedName(langCategory Category, gender string) (string, error) {
 	var endings []string
 
-	name, err := RandomName(ctx, langCategory)
+	name, err := RandomName(langCategory)
 	if err != nil {
 		err = fmt.Errorf("failed to generate random gendered name: %w", err)
 		return "", err
@@ -116,7 +116,7 @@ func RandomGenderedName(ctx context.Context, langCategory Category, gender strin
 		endings = langCategory.FeminineEndings
 	}
 
-	ending, err := random.String(ctx, endings)
+	ending, err := random.String(endings)
 	if err != nil {
 		err = fmt.Errorf("failed to generate random gendered name: %w", err)
 		return "", err
@@ -127,16 +127,16 @@ func RandomGenderedName(ctx context.Context, langCategory Category, gender strin
 }
 
 // RandomName generates a random name using the language
-func RandomName(ctx context.Context, langCategory Category) (string, error) {
+func RandomName(langCategory Category) (string, error) {
 	var name string
 	var syllables []string
 	skewLonger := false
 
-	if random.Intn(ctx, 10) > 7 {
+	if rand.Intn(10) > 7 {
 		skewLonger = true
 	}
 
-	randomLength := random.Intn(ctx, langCategory.WordLength) + 1
+	randomLength := rand.Intn(langCategory.WordLength) + 1
 
 	if skewLonger {
 		randomLength++
@@ -149,14 +149,14 @@ func RandomName(ctx context.Context, langCategory Category) (string, error) {
 		if randomLength-i == 1 {
 			role = "finisher"
 		}
-		syllable, err := randomSyllable(ctx, langCategory, role)
+		syllable, err := randomSyllable(langCategory, role)
 		if err != nil {
 			err = fmt.Errorf("failed to generate conjugation rules: %w", err)
 			return "", err
 		}
 
 		if langCategory.UsesApostrophes {
-			shouldIUseAnApostrophe = random.Intn(ctx, 10)
+			shouldIUseAnApostrophe = rand.Intn(10)
 			if shouldIUseAnApostrophe > 8 {
 				syllable += "'"
 			}
@@ -169,9 +169,9 @@ func RandomName(ctx context.Context, langCategory Category) (string, error) {
 		name += syllable
 	}
 
-	chance := random.Intn(ctx, 10) + 1
+	chance := rand.Intn(10) + 1
 	if chance > 8 {
-		name = mutateName(ctx, name)
+		name = mutateName(name)
 	}
 
 	name = strings.Title(name)

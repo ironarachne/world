@@ -1,8 +1,8 @@
 package heavens
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
@@ -15,11 +15,11 @@ type Sun struct {
 	Size       int
 }
 
-func getRandomSunBrightness(ctx context.Context) int {
-	return random.Intn(ctx, 5) + random.Intn(ctx, 5)
+func getRandomSunBrightness() int {
+	return rand.Intn(5) + rand.Intn(5)
 }
 
-func getRandomSunColor(ctx context.Context) (string, error) {
+func getRandomSunColor() (string, error) {
 	colors := map[string]int{
 		"white":  1,
 		"yellow": 35,
@@ -29,7 +29,7 @@ func getRandomSunColor(ctx context.Context) (string, error) {
 		"green":  1,
 	}
 
-	color, err := random.StringFromThresholdMap(ctx, colors)
+	color, err := random.StringFromThresholdMap(colors)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random sun color: %w", err)
 		return "", err
@@ -38,35 +38,35 @@ func getRandomSunColor(ctx context.Context) (string, error) {
 	return color, nil
 }
 
-func getRandomSunSize(ctx context.Context) int {
-	return random.Intn(ctx, 5) + random.Intn(ctx, 5)
+func getRandomSunSize() int {
+	return rand.Intn(5) + rand.Intn(5)
 }
 
-func getRandomSun(ctx context.Context) (Sun, error) {
+func getRandomSun() (Sun, error) {
 	sun := Sun{}
 	sun.Name = "sun"
-	color, err := getRandomSunColor(ctx)
+	color, err := getRandomSunColor()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random sun: %w", err)
 		return Sun{}, err
 	}
 	sun.Color = color
-	sun.Brightness = getRandomSunBrightness(ctx)
-	sun.Size = getRandomSunSize(ctx)
+	sun.Brightness = getRandomSunBrightness()
+	sun.Size = getRandomSunSize()
 
 	return sun, nil
 }
 
-func getRandomSuns(ctx context.Context) ([]Sun, error) {
+func getRandomSuns() ([]Sun, error) {
 	suns := []Sun{}
 	numberOfSuns := 1
-	shallWeHaveMoreThanOneSun := random.Intn(ctx, 10) + 1
+	shallWeHaveMoreThanOneSun := rand.Intn(10) + 1
 	if shallWeHaveMoreThanOneSun > 9 {
-		numberOfSuns += random.Intn(ctx, 2)
+		numberOfSuns += rand.Intn(2)
 	}
 
 	for i := 0; i < numberOfSuns; i++ {
-		sun, err := getRandomSun(ctx)
+		sun, err := getRandomSun()
 		if err != nil {
 			err = fmt.Errorf("Failed to generate random suns: %w", err)
 			return []Sun{}, err

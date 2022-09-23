@@ -4,10 +4,7 @@ suns, moons, and stars.
 */
 package heavens
 
-import (
-	"context"
-	"fmt"
-)
+import "fmt"
 
 const heavensError = "failed to generate random heavens: %w"
 
@@ -19,22 +16,22 @@ type Heavens struct {
 }
 
 // Generate procedurally generates a Heavens
-func Generate(ctx context.Context) (Heavens, error) {
+func Generate() (Heavens, error) {
 	heavens := Heavens{}
 
-	suns, err := getRandomSuns(ctx)
+	suns, err := getRandomSuns()
 	if err != nil {
 		err = fmt.Errorf(heavensError, err)
 		return Heavens{}, err
 	}
 	heavens.Suns = suns
-	moons, err := getRandomMoons(ctx)
+	moons, err := getRandomMoons()
 	if err != nil {
 		err = fmt.Errorf(heavensError, err)
 		return Heavens{}, err
 	}
 	heavens.Moons = moons
-	stars, err := getRandomStars(ctx)
+	stars, err := getRandomStars()
 	if err != nil {
 		err = fmt.Errorf(heavensError, err)
 		return Heavens{}, err

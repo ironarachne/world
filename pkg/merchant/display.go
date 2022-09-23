@@ -1,7 +1,6 @@
 package merchant
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/character"
@@ -15,8 +14,8 @@ type SimplifiedMerchant struct {
 }
 
 // Simplify simplifies a merchant
-func (merchant Merchant) Simplify(ctx context.Context) (SimplifiedMerchant, error) {
-	sc, err := merchant.Character.Simplify(ctx)
+func (merchant Merchant) Simplify() (SimplifiedMerchant, error) {
+	sc, err := merchant.Character.Simplify()
 	if err != nil {
 		err = fmt.Errorf("Could not simplify merchant: %w", err)
 		return SimplifiedMerchant{}, err
@@ -30,14 +29,14 @@ func (merchant Merchant) Simplify(ctx context.Context) (SimplifiedMerchant, erro
 }
 
 // RandomSimplified returns a random simplified merchant
-func RandomSimplified(ctx context.Context) (SimplifiedMerchant, error) {
-	merchant, err := Random(ctx)
+func RandomSimplified() (SimplifiedMerchant, error) {
+	merchant, err := Random()
 	if err != nil {
 		err = fmt.Errorf("Could not simplify random merchant: %w", err)
 		return SimplifiedMerchant{}, err
 	}
 
-	sm, err := merchant.Simplify(ctx)
+	sm, err := merchant.Simplify()
 	if err != nil {
 		err = fmt.Errorf("Could not simplify random merchant: %w", err)
 		return SimplifiedMerchant{}, err

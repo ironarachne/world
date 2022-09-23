@@ -4,7 +4,6 @@ Package relationship provides tools for dealing with relationships between vario
 package relationship
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -64,7 +63,7 @@ func GetTypeByName(name string) (Type, error) {
 }
 
 // GetInverse gets an inverse relationship for a given relationship
-func GetInverse(ctx context.Context, r Relationship) (Relationship, error) {
+func GetInverse(r Relationship) (Relationship, error) {
 	originType, err := GetTypeByName(r.Type)
 	if err != nil {
 		err = fmt.Errorf("Failed to get inverse relationship: %w", err)
@@ -77,7 +76,7 @@ func GetInverse(ctx context.Context, r Relationship) (Relationship, error) {
 		return Relationship{}, err
 	}
 
-	descriptor, err := random.String(ctx, inverseType.Descriptors)
+	descriptor, err := random.String(inverseType.Descriptors)
 	if err != nil {
 		err = fmt.Errorf("Failed to get inverse relationship: %w", err)
 		return Relationship{}, err

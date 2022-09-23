@@ -5,12 +5,11 @@ food styles.
 package food
 
 import (
-	"context"
 	"fmt"
-
 	"github.com/ironarachne/world/pkg/geography"
-	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
+	"math/rand"
+
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -31,7 +30,7 @@ type Style struct {
 }
 
 // GenerateStyle procedurally generates a style of food
-func GenerateStyle(ctx context.Context, resources []resource.Resource) (Style, error) {
+func GenerateStyle(resources []resource.Resource) (Style, error) {
 	chanceForGoldFlakes := 0
 	style := Style{}
 	style.CommonDessertBases = append(style.CommonDessertBases, "sweetened")
@@ -41,7 +40,7 @@ func GenerateStyle(ctx context.Context, resources []resource.Resource) (Style, e
 			style.CommonBases = append(style.CommonBases, r.Name)
 		} else if r.HasTag("spice") || r.HasTag("herb") {
 			if r.Name == "gold" {
-				chanceForGoldFlakes = random.Intn(ctx, 100)
+				chanceForGoldFlakes = rand.Intn(100)
 				if chanceForGoldFlakes > 89 {
 					style.CommonSpices = append(style.CommonSpices, "gold flakes")
 				}
@@ -89,32 +88,32 @@ func GenerateStyle(ctx context.Context, resources []resource.Resource) (Style, e
 		style.CommonSpices = append(style.CommonSpices, "salt")
 	}
 
-	techniques, err := randomTechniques(ctx, 3)
+	techniques, err := randomTechniques(3)
 	if err != nil {
 		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.CookingTechniques = techniques
 
-	desserts, err := style.randomDesserts(ctx)
+	desserts, err := style.randomDesserts()
 	if err != nil {
 		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.CommonDesserts = desserts
-	mainDishes, err := style.randomMainDishes(ctx)
+	mainDishes, err := style.randomMainDishes()
 	if err != nil {
 		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.CommonMainDishes = mainDishes
-	breads, err := randomBreads(ctx, resources)
+	breads, err := randomBreads(resources)
 	if err != nil {
 		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
 	}
 	style.Breads = breads
-	traits, err := randomEatingTraits(ctx)
+	traits, err := randomEatingTraits()
 	if err != nil {
 		err = fmt.Errorf(foodStyleError, err)
 		return Style{}, err
@@ -125,8 +124,8 @@ func GenerateStyle(ctx context.Context, resources []resource.Resource) (Style, e
 }
 
 // Random generates a completely random style of food
-func Random(ctx context.Context) (Style, error) {
-	area, err := geography.Generate(ctx)
+func Random() (Style, error) {
+	area, err := geography.Generate()
 	if err != nil {
 		err = fmt.Errorf("failed to generate random food style: %w", err)
 		return Style{}, err
@@ -134,7 +133,7 @@ func Random(ctx context.Context) (Style, error) {
 
 	resources := area.GetResources()
 
-	style, err := GenerateStyle(ctx, resources)
+	style, err := GenerateStyle(resources)
 	if err != nil {
 		err = fmt.Errorf("failed to generate random food style: %w", err)
 		return Style{}, err

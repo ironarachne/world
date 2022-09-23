@@ -1,7 +1,6 @@
 package goods
 
 import (
-	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/pattern"
 
@@ -10,7 +9,7 @@ import (
 )
 
 // Produce generates a set of resources from what can be produced
-func Produce(ctx context.Context, professions []profession.Profession, resources []resource.Resource) ([]resource.Resource, error) {
+func Produce(professions []profession.Profession, resources []resource.Resource) ([]resource.Resource, error) {
 	var filledPattern pattern.Pattern
 	var patterns []pattern.Pattern
 	var possiblePatterns []pattern.Pattern
@@ -40,11 +39,11 @@ func Produce(ctx context.Context, professions []profession.Profession, resources
 
 				for _, s := range n.Slots {
 					resourcesForSlot = resource.ByTag(s.RequiredTag, resources)
-					resourceForSlot = resource.Random(ctx, resourcesForSlot)
+					resourceForSlot = resource.Random(resourcesForSlot)
 					s.Resource = resourceForSlot
 					filledPattern.Slots = append(filledPattern.Slots, s)
 				}
-				newResource, err := filledPattern.ToResource(ctx)
+				newResource, err := filledPattern.ToResource()
 				if err != nil {
 					err = fmt.Errorf("Failed to produce resources: %w", err)
 					return []resource.Resource{}, err

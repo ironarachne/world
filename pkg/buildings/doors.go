@@ -1,13 +1,12 @@
 package buildings
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
 )
 
-func getRandomDoorMaterial(ctx context.Context) (string, error) {
+func getRandomDoorMaterial() (string, error) {
 	materials := []string{
 		"light wood",
 		"thick wood",
@@ -15,7 +14,7 @@ func getRandomDoorMaterial(ctx context.Context) (string, error) {
 		"heavy wood",
 	}
 
-	material, err := random.String(ctx, materials)
+	material, err := random.String(materials)
 	if err != nil {
 		err = fmt.Errorf("Could not find door material: %w", err)
 		return "", err
@@ -24,13 +23,13 @@ func getRandomDoorMaterial(ctx context.Context) (string, error) {
 	return material, nil
 }
 
-func getRandomDoorStyle(ctx context.Context) (string, error) {
-	material, err := getRandomDoorMaterial(ctx)
+func getRandomDoorStyle() (string, error) {
+	material, err := getRandomDoorMaterial()
 	if err != nil {
 		err = fmt.Errorf("Could not generate door style: %w", err)
 		return "", err
 	}
-	shape, err := getRandomDoorShape(ctx)
+	shape, err := getRandomDoorShape()
 	if err != nil {
 		err = fmt.Errorf("Could not generate door style: %w", err)
 		return "", err
@@ -40,7 +39,7 @@ func getRandomDoorStyle(ctx context.Context) (string, error) {
 	return style, nil
 }
 
-func getRandomDoorShape(ctx context.Context) (string, error) {
+func getRandomDoorShape() (string, error) {
 	shapes := []string{
 		"braced with metal",
 		"broad",
@@ -55,7 +54,7 @@ func getRandomDoorShape(ctx context.Context) (string, error) {
 		"tall",
 	}
 
-	shape, err := random.String(ctx, shapes)
+	shape, err := random.String(shapes)
 	if err != nil {
 		err = fmt.Errorf("Could not get door shape: %w", err)
 		return "", err

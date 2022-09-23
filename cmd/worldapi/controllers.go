@@ -3,11 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"net/http"
-	"strings"
-
 	"github.com/go-chi/chi"
-
 	"github.com/ironarachne/world/pkg/buildings"
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/clothing"
@@ -18,6 +14,7 @@ import (
 	"github.com/ironarachne/world/pkg/geography"
 	"github.com/ironarachne/world/pkg/heavens"
 	"github.com/ironarachne/world/pkg/heraldry"
+	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/merchant"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/pantheon"
@@ -26,18 +23,29 @@ import (
 	"github.com/ironarachne/world/pkg/region"
 	"github.com/ironarachne/world/pkg/religion"
 	"github.com/ironarachne/world/pkg/town"
+	"net/http"
+	"strings"
 )
 
 const contentType = "Content-Type"
 
 func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	buildingStyle, err := buildings.GenerateStyle(random.WithSeed(r.Context(), id))
+
+	var o buildings.SimplifiedBuildingStyle
+
+	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o := buildingStyle.Simplify()
+
+	buildingStyle, err := buildings.GenerateStyle()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = buildingStyle.Simplify()
 
 	err = json.NewEncoder(w).Encode(o)
 	if err != nil {
@@ -47,12 +55,14 @@ func getBuildingStyle(w http.ResponseWriter, r *http.Request) {
 }
 
 func getBuildingStyleRandom(w http.ResponseWriter, r *http.Request) {
-	buildingStyle, err := buildings.GenerateStyle(r.Context())
+	var o buildings.SimplifiedBuildingStyle
+
+	buildingStyle, err := buildings.GenerateStyle()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o := buildingStyle.Simplify()
+	o = buildingStyle.Simplify()
 
 	err = json.NewEncoder(w).Encode(o)
 	if err != nil {
@@ -63,7 +73,16 @@ func getBuildingStyleRandom(w http.ResponseWriter, r *http.Request) {
 
 func getCharacter(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := character.RandomSimplified(random.WithSeed(r.Context(), id))
+
+	var o character.SimplifiedCharacter
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = character.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -77,7 +96,9 @@ func getCharacter(w http.ResponseWriter, r *http.Request) {
 }
 
 func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := character.RandomSimplified(r.Context())
+	var o character.SimplifiedCharacter
+
+	o, err := character.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -92,7 +113,16 @@ func getCharacterRandom(w http.ResponseWriter, r *http.Request) {
 
 func getClothingStyle(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := clothing.Random(random.WithSeed(r.Context(), id))
+
+	var o clothing.Style
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = clothing.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -106,7 +136,9 @@ func getClothingStyle(w http.ResponseWriter, r *http.Request) {
 }
 
 func getClothingStyleRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := clothing.Random(r.Context())
+	var o clothing.Style
+
+	o, err := clothing.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -121,7 +153,16 @@ func getClothingStyleRandom(w http.ResponseWriter, r *http.Request) {
 
 func getCountry(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := country.Generate(random.WithSeed(r.Context(), id))
+
+	var o country.Country
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = country.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -135,7 +176,9 @@ func getCountry(w http.ResponseWriter, r *http.Request) {
 }
 
 func getCountryRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := country.Generate(r.Context())
+	var o country.Country
+
+	o, err := country.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -150,7 +193,14 @@ func getCountryRandom(w http.ResponseWriter, r *http.Request) {
 
 func getCulture(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	randomCulture, err := culture.Random(random.WithSeed(r.Context(), id))
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	randomCulture, err := culture.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -172,7 +222,7 @@ func getCultureFromArea(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cul, err := culture.Generate(r.Context(), area)
+	cul, err := culture.Generate(area)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -186,7 +236,7 @@ func getCultureFromArea(w http.ResponseWriter, r *http.Request) {
 }
 
 func getCultureRandom(w http.ResponseWriter, r *http.Request) {
-	randomCulture, err := culture.Random(r.Context())
+	randomCulture, err := culture.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -201,7 +251,16 @@ func getCultureRandom(w http.ResponseWriter, r *http.Request) {
 
 func getFoodStyle(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := food.Random(random.WithSeed(r.Context(), id))
+
+	var o food.Style
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = food.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -215,7 +274,9 @@ func getFoodStyle(w http.ResponseWriter, r *http.Request) {
 }
 
 func getFoodStyleRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := food.Random(r.Context())
+	var o food.Style
+
+	o, err := food.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -230,7 +291,16 @@ func getFoodStyleRandom(w http.ResponseWriter, r *http.Request) {
 
 func getGeographicArea(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := geography.Generate(random.WithSeed(r.Context(), id))
+
+	var o geography.Area
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = geography.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -244,7 +314,9 @@ func getGeographicArea(w http.ResponseWriter, r *http.Request) {
 }
 
 func getGeographicAreaRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := geography.Generate(r.Context())
+	var o geography.Area
+
+	o, err := geography.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -259,7 +331,16 @@ func getGeographicAreaRandom(w http.ResponseWriter, r *http.Request) {
 
 func getHeavens(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := heavens.Generate(random.WithSeed(r.Context(), id))
+
+	var o heavens.Heavens
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = heavens.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -273,7 +354,9 @@ func getHeavens(w http.ResponseWriter, r *http.Request) {
 }
 
 func getHeavensRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := heavens.Generate(r.Context())
+	var o heavens.Heavens
+
+	o, err := heavens.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -307,7 +390,16 @@ func getHeraldry(w http.ResponseWriter, r *http.Request) {
 	} else {
 		chargeTag = chargeTags[0]
 	}
-	o, err := heraldry.GenerateByParameters(random.WithSeed(r.Context(), id), fieldType, chargeTag)
+
+	var o heraldry.Device
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = heraldry.GenerateByParameters(fieldType, chargeTag)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -341,7 +433,11 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 	} else {
 		chargeTag = chargeTags[0]
 	}
-	o, err := heraldry.GenerateByParameters(r.Context(), fieldType, chargeTag)
+
+	var o heraldry.Device
+	var err error
+
+	o, err = heraldry.GenerateByParameters(fieldType, chargeTag)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -358,7 +454,14 @@ func getHeraldryRandom(w http.ResponseWriter, r *http.Request) {
 
 func getLanguage(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	randomLanguage, _, err := conlang.Generate(random.WithSeed(r.Context(), id))
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	randomLanguage, _, err := conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -372,7 +475,7 @@ func getLanguage(w http.ResponseWriter, r *http.Request) {
 }
 
 func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
-	randomLanguage, _, err := conlang.Generate(r.Context())
+	randomLanguage, _, err := conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -387,7 +490,16 @@ func getLanguageRandom(w http.ResponseWriter, r *http.Request) {
 
 func getMerchant(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := merchant.RandomSimplified(random.WithSeed(r.Context(), id))
+
+	var o merchant.SimplifiedMerchant
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = merchant.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -401,7 +513,9 @@ func getMerchant(w http.ResponseWriter, r *http.Request) {
 }
 
 func getMerchantRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := merchant.RandomSimplified(r.Context())
+	var o merchant.SimplifiedMerchant
+
+	o, err := merchant.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -416,7 +530,16 @@ func getMerchantRandom(w http.ResponseWriter, r *http.Request) {
 
 func getOrganization(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := organization.RandomSimplified(random.WithSeed(r.Context(), id))
+
+	var o organization.SimplifiedOrganization
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = organization.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -430,7 +553,9 @@ func getOrganization(w http.ResponseWriter, r *http.Request) {
 }
 
 func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := organization.RandomSimplified(r.Context())
+	var o organization.SimplifiedOrganization
+
+	o, err := organization.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -445,18 +570,27 @@ func getOrganizationRandom(w http.ResponseWriter, r *http.Request) {
 
 func getPantheon(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	ctx := random.WithSeed(r.Context(), id)
-	l, _, err := conlang.Generate(ctx)
+
+	var o pantheon.SimplifiedPantheon
+	var l language.Language
+
+	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	p, err := pantheon.Generate(ctx, 6, 15, l)
+
+	l, _, err = conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o := p.Simplify()
+	p, err := pantheon.Generate(6, 15, l)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = p.Simplify()
 
 	err = json.NewEncoder(w).Encode(o)
 	if err != nil {
@@ -466,17 +600,20 @@ func getPantheon(w http.ResponseWriter, r *http.Request) {
 }
 
 func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
-	l, _, err := conlang.Generate(r.Context())
+	var o pantheon.SimplifiedPantheon
+	var l language.Language
+
+	l, _, err := conlang.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	p, err := pantheon.Generate(r.Context(), 6, 15, l)
+	p, err := pantheon.Generate(6, 15, l)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o := p.Simplify()
+	o = p.Simplify()
 
 	err = json.NewEncoder(w).Encode(o)
 	if err != nil {
@@ -487,7 +624,14 @@ func getPantheonRandom(w http.ResponseWriter, r *http.Request) {
 
 func getRace(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := race.RandomSimplified(random.WithSeed(r.Context(), id))
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err := race.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -502,7 +646,7 @@ func getRace(w http.ResponseWriter, r *http.Request) {
 
 func getRaceRandom(w http.ResponseWriter, r *http.Request) {
 
-	o, err := race.RandomSimplified(r.Context())
+	o, err := race.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -517,14 +661,20 @@ func getRaceRandom(w http.ResponseWriter, r *http.Request) {
 
 func getRegion(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	ctx := random.WithSeed(r.Context(), id)
-	o, err := region.Random(ctx)
+
+	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
 
-	so, err := o.Simplify(ctx)
+	o, err := region.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	so, err := o.Simplify()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -546,19 +696,19 @@ func getRegionFromCulture(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	area, err := geography.Generate(r.Context())
+	area, err := geography.Generate()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
 
-	reg, err := region.Generate(r.Context(), area, cul)
+	reg, err := region.Generate(area, cul)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
 
-	sr, err := reg.Simplify(r.Context())
+	sr, err := reg.Simplify()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -572,13 +722,13 @@ func getRegionFromCulture(w http.ResponseWriter, r *http.Request) {
 }
 
 func getRegionRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := region.Random(r.Context())
+	o, err := region.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
 
-	so, err := o.Simplify(r.Context())
+	so, err := o.Simplify()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -593,12 +743,21 @@ func getRegionRandom(w http.ResponseWriter, r *http.Request) {
 
 func getReligion(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	rel, err := religion.Random(random.WithSeed(r.Context(), id))
+
+	var o religion.SimplifiedReligion
+
+	err := random.SeedFromString(id)
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o := rel.Simplify()
+
+	rel, err := religion.Random()
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+	o = rel.Simplify()
 
 	err = json.NewEncoder(w).Encode(o)
 	if err != nil {
@@ -608,12 +767,14 @@ func getReligion(w http.ResponseWriter, r *http.Request) {
 }
 
 func getReligionRandom(w http.ResponseWriter, r *http.Request) {
-	rel, err := religion.Random(r.Context())
+	var o religion.SimplifiedReligion
+
+	rel, err := religion.Random()
 	if err != nil {
 		handleError(w, r, err)
 		return
 	}
-	o := rel.Simplify()
+	o = rel.Simplify()
 
 	err = json.NewEncoder(w).Encode(o)
 	if err != nil {
@@ -674,7 +835,16 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 
 func getTown(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	o, err := town.RandomSimplified(random.WithSeed(r.Context(), id))
+
+	var o town.SimplifiedTown
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	o, err = town.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -688,7 +858,9 @@ func getTown(w http.ResponseWriter, r *http.Request) {
 }
 
 func getTownRandom(w http.ResponseWriter, r *http.Request) {
-	o, err := town.RandomSimplified(r.Context())
+	var o town.SimplifiedTown
+
+	o, err := town.RandomSimplified()
 	if err != nil {
 		handleError(w, r, err)
 		return

@@ -1,8 +1,8 @@
 package heavens
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
@@ -14,13 +14,13 @@ type Star struct {
 	Brightness int
 }
 
-func getRandomStarBrightness(ctx context.Context) int {
-	brightness := random.Intn(ctx, 5) + random.Intn(ctx, 5)
+func getRandomStarBrightness() int {
+	brightness := rand.Intn(5) + rand.Intn(5)
 
 	return brightness
 }
 
-func getRandomStarColor(ctx context.Context) (string, error) {
+func getRandomStarColor() (string, error) {
 	colors := map[string]int{
 		"blue":   1,
 		"green":  1,
@@ -30,7 +30,7 @@ func getRandomStarColor(ctx context.Context) (string, error) {
 		"yellow": 3,
 	}
 
-	color, err := random.StringFromThresholdMap(ctx, colors)
+	color, err := random.StringFromThresholdMap(colors)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random star color: %w", err)
 		return "", err
@@ -39,26 +39,26 @@ func getRandomStarColor(ctx context.Context) (string, error) {
 	return color, nil
 }
 
-func getRandomStar(ctx context.Context) (Star, error) {
+func getRandomStar() (Star, error) {
 	star := Star{}
 	star.Name = "star"
-	color, err := getRandomStarColor(ctx)
+	color, err := getRandomStarColor()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random star: %w", err)
 		return Star{}, err
 	}
 	star.Color = color
-	star.Brightness = getRandomStarBrightness(ctx)
+	star.Brightness = getRandomStarBrightness()
 
 	return star, nil
 }
 
-func getRandomStars(ctx context.Context) ([]Star, error) {
+func getRandomStars() ([]Star, error) {
 	stars := []Star{}
-	numberOfStars := random.Intn(ctx, 16)
+	numberOfStars := rand.Intn(16)
 
 	for i := 0; i < numberOfStars; i++ {
-		star, err := getRandomStar(ctx)
+		star, err := getRandomStar()
 		if err != nil {
 			err = fmt.Errorf("Failed to generate random stars: %w", err)
 			return []Star{}, err

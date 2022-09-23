@@ -1,10 +1,6 @@
 package geometry
 
-import (
-	"context"
-
-	"github.com/ironarachne/world/pkg/random"
-)
+import "math/rand"
 
 const NORTH = 0
 const NORTHEAST = 1
@@ -28,7 +24,7 @@ func OppositeDirection(original int) int {
 }
 
 // RandomDirection returns a random compass direction
-func RandomDirection(ctx context.Context) int {
+func RandomDirection() int {
 	directions := []int{
 		NORTH,
 		NORTHEAST,
@@ -40,7 +36,7 @@ func RandomDirection(ctx context.Context) int {
 		NORTHWEST,
 	}
 
-	direction := directions[random.Intn(ctx, len(directions))]
+	direction := directions[rand.Intn(len(directions))]
 
 	return direction
 }

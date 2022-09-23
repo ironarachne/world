@@ -1,7 +1,6 @@
 package region
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/character"
@@ -23,14 +22,14 @@ type SimplifiedRegion struct {
 }
 
 // Simplify returns a simplified version of a region
-func (region Region) Simplify(ctx context.Context) (SimplifiedRegion, error) {
+func (region Region) Simplify() (SimplifiedRegion, error) {
 	sc := region.Culture
-	sr, err := region.RulingBody.Leader.CharacterData.Simplify(ctx)
+	sr, err := region.RulingBody.Leader.CharacterData.Simplify()
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err
 	}
-	so, err := region.RulingBody.Simplify(ctx)
+	so, err := region.RulingBody.Simplify()
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err
@@ -45,7 +44,7 @@ func (region Region) Simplify(ctx context.Context) (SimplifiedRegion, error) {
 	}
 
 	for _, t := range region.Towns {
-		st, err := t.Simplify(ctx)
+		st, err := t.Simplify()
 		if err != nil {
 			err = fmt.Errorf("Could not generate simplified region: %w", err)
 			return SimplifiedRegion{}, err
@@ -54,7 +53,7 @@ func (region Region) Simplify(ctx context.Context) (SimplifiedRegion, error) {
 	}
 
 	for _, o := range region.Organizations {
-		so, err := o.Simplify(ctx)
+		so, err := o.Simplify()
 		if err != nil {
 			err = fmt.Errorf("Could not generate simplified region: %w", err)
 			return SimplifiedRegion{}, err
@@ -66,14 +65,14 @@ func (region Region) Simplify(ctx context.Context) (SimplifiedRegion, error) {
 }
 
 // RandomSimplified generates a completely random region
-func RandomSimplified(ctx context.Context) (SimplifiedRegion, error) {
-	region, err := Random(ctx)
+func RandomSimplified() (SimplifiedRegion, error) {
+	region, err := Random()
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err
 	}
 
-	rs, err := region.Simplify(ctx)
+	rs, err := region.Simplify()
 	if err != nil {
 		err = fmt.Errorf("Could not generate simplified region: %w", err)
 		return SimplifiedRegion{}, err

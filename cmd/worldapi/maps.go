@@ -3,15 +3,13 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/go-chi/chi"
+	"github.com/ironarachne/world/pkg/cartography"
+	"github.com/ironarachne/world/pkg/random"
 	"image"
 	"image/png"
 	"net/http"
 	"strconv"
-
-	"github.com/go-chi/chi"
-
-	"github.com/ironarachne/world/pkg/cartography"
-	"github.com/ironarachne/world/pkg/random"
 )
 
 func writeImage(w http.ResponseWriter, img *image.Image) error {
@@ -33,7 +31,14 @@ func writeImage(w http.ResponseWriter, img *image.Image) error {
 
 func getWorldMap(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
-	im, err := cartography.RenderMap(random.WithSeed(r.Context(), id), 1024, 1024)
+
+	err := random.SeedFromString(id)
+	if err != nil {
+		handleError(w, r, err)
+		return
+	}
+
+	im, err := cartography.RenderMap(1024, 1024)
 	if err != nil {
 		handleError(w, r, err)
 		return
@@ -47,7 +52,7 @@ func getWorldMap(w http.ResponseWriter, r *http.Request) {
 }
 
 func getWorldMapRandom(w http.ResponseWriter, r *http.Request) {
-	im, err := cartography.RenderMap(r.Context(), 1024, 1024)
+	im, err := cartography.RenderMap(1024, 1024)
 	if err != nil {
 		handleError(w, r, err)
 		return

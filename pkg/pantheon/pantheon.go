@@ -4,13 +4,12 @@ Package pantheon implements fantasy pantheons
 package pantheon
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/pantheon/deity"
 	"github.com/ironarachne/world/pkg/pantheon/domain"
-	"github.com/ironarachne/world/pkg/random"
 )
 
 const pantheonError = "failed to generate pantheon: %w"
@@ -21,12 +20,12 @@ type Pantheon struct {
 }
 
 // Generate creates a random pantheon of deities
-func Generate(ctx context.Context, minSize int, maxSize int, lang language.Language) (Pantheon, error) {
+func Generate(minSize int, maxSize int, lang language.Language) (Pantheon, error) {
 	var pantheon Pantheon
 	numberOfDeities := minSize
 
 	if maxSize-minSize > 0 {
-		numberOfDeities = random.Intn(ctx, maxSize-minSize) + minSize
+		numberOfDeities = rand.Intn(maxSize-minSize) + minSize
 	}
 
 	if numberOfDeities < 1 {
@@ -40,7 +39,7 @@ func Generate(ctx context.Context, minSize int, maxSize int, lang language.Langu
 	}
 
 	for i := 0; i < numberOfDeities; i++ {
-		d, err := deity.Generate(ctx, lang, possibleDomains)
+		d, err := deity.Generate(lang, possibleDomains)
 		if err != nil {
 			err = fmt.Errorf(pantheonError, err)
 			return Pantheon{}, err
@@ -50,7 +49,7 @@ func Generate(ctx context.Context, minSize int, maxSize int, lang language.Langu
 	}
 
 	if len(pantheon.Deities) > 1 {
-		deities, err := pantheon.GenerateRelationships(ctx)
+		deities, err := pantheon.GenerateRelationships()
 		if err != nil {
 			err = fmt.Errorf(pantheonError, err)
 			return Pantheon{}, err

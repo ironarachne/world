@@ -1,7 +1,6 @@
 package region
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -82,7 +81,7 @@ func getAllClasses() []Class {
 	return classes
 }
 
-func getRandomWeightedClass(ctx context.Context) (Class, error) {
+func getRandomWeightedClass() (Class, error) {
 	classes := getAllClasses()
 
 	weights := map[string]int{}
@@ -91,7 +90,7 @@ func getRandomWeightedClass(ctx context.Context) (Class, error) {
 		weights[c.Name] = c.Commonality
 	}
 
-	name, err := random.StringFromThresholdMap(ctx, weights)
+	name, err := random.StringFromThresholdMap(weights)
 	if err != nil {
 		err = fmt.Errorf("failed to get random weighted region class: %w", err)
 		return Class{}, err

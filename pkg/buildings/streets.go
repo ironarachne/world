@@ -1,19 +1,18 @@
 package buildings
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
 )
 
-func getRandomStreetStyle(ctx context.Context) (string, error) {
+func getRandomStreetStyle() (string, error) {
 	styles := []string{
 		"narrow",
 		"wide",
 	}
 
-	style, err := random.String(ctx, styles)
+	style, err := random.String(styles)
 	if err != nil {
 		err = fmt.Errorf("Could not find street style: %w", err)
 		return "", err

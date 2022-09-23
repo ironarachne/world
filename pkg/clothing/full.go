@@ -1,11 +1,8 @@
 package clothing
 
-import (
-	"context"
-	"fmt"
-)
+import "fmt"
 
-func getRandomDress(ctx context.Context) (Item, error) {
+func getRandomDress() (Item, error) {
 	template := ItemTemplate{
 		Name:         "dress",
 		Type:         "full",
@@ -32,7 +29,7 @@ func getRandomDress(ctx context.Context) (Item, error) {
 		},
 	}
 
-	dress, err := getItemFromTemplate(ctx, template)
+	dress, err := getItemFromTemplate(template)
 	if err != nil {
 		err = fmt.Errorf("failed to get random dress: %w", err)
 		return Item{}, err
@@ -41,7 +38,7 @@ func getRandomDress(ctx context.Context) (Item, error) {
 	return dress, nil
 }
 
-func getRandomRobe(ctx context.Context) (Item, error) {
+func getRandomRobe() (Item, error) {
 	template := ItemTemplate{
 		Name:         "robe",
 		Type:         "full",
@@ -64,7 +61,7 @@ func getRandomRobe(ctx context.Context) (Item, error) {
 		},
 	}
 
-	robe, err := getItemFromTemplate(ctx, template)
+	robe, err := getItemFromTemplate(template)
 	if err != nil {
 		err = fmt.Errorf("failed to get random robe: %w", err)
 		return Item{}, err

@@ -1,9 +1,6 @@
 package random
 
-import (
-	"context"
-	"testing"
-)
+import "testing"
 
 func TestString(t *testing.T) {
 	items := []string{
@@ -12,7 +9,7 @@ func TestString(t *testing.T) {
 		"three",
 	}
 
-	randomItem, err := String(context.Background(), items)
+	randomItem, err := String(items)
 	if err != nil {
 		t.Error("Failed to get random item from string slice")
 	}
@@ -24,7 +21,7 @@ func TestString(t *testing.T) {
 		"one",
 	}
 
-	randomItem, err = String(context.Background(), item)
+	randomItem, err = String(item)
 	if err != nil {
 		t.Error("Failed to get random item from string slice")
 	}
@@ -33,7 +30,7 @@ func TestString(t *testing.T) {
 	}
 
 	items = []string{}
-	_, err = String(context.Background(), items)
+	_, err = String(items)
 	if err == nil {
 		t.Error("Failed to error on empty string slice")
 	}
@@ -50,7 +47,7 @@ func TestStringSubset(t *testing.T) {
 
 	max := 3
 
-	randomItems, err := StringSubset(context.Background(), items, max)
+	randomItems, err := StringSubset(items, max)
 	if err != nil {
 		t.Error("Failed to get random subset of string slice")
 	}
@@ -60,7 +57,7 @@ func TestStringSubset(t *testing.T) {
 
 	max = 7
 
-	randomItems, err = StringSubset(context.Background(), items, max)
+	randomItems, err = StringSubset(items, max)
 	if err != nil {
 		t.Error("Failed to get random subset of string slice")
 	}
@@ -69,7 +66,7 @@ func TestStringSubset(t *testing.T) {
 	}
 
 	items = []string{}
-	_, err = StringSubset(context.Background(), items, max)
+	_, err = StringSubset(items, max)
 	if err == nil {
 		t.Error("Failed to error on empty string slice")
 	}
@@ -82,11 +79,36 @@ func TestStringFromThresholdMap(t *testing.T) {
 		"three": 100,
 	}
 
-	randomItem, err := StringFromThresholdMap(context.Background(), items)
+	randomItem, err := StringFromThresholdMap(items)
 	if err != nil {
 		t.Error("Failed to get random item from weighted string slice")
 	}
 	if randomItem != "three" {
 		t.Errorf("Failed to get expected 'random' result from weighted string slice: got '%s' instead of 'three'", randomItem)
+	}
+}
+
+func TestSeedFromString(t *testing.T) {
+	seed := "testseed"
+
+	err := SeedFromString(seed)
+	if err != nil {
+		t.Error("Failed to generate random seed")
+	}
+
+	items := []string{
+		"one",
+		"two",
+		"three",
+		"four",
+		"five",
+		"six",
+	}
+	randomItem, err := String(items)
+	if err != nil {
+		t.Error("Failed to get random element for testing")
+	}
+	if randomItem != "three" {
+		t.Errorf("Failed to get expected random element: got '%s' instead of 'three'", randomItem)
 	}
 }
