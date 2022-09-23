@@ -23,7 +23,7 @@ type Tincture struct {
 
 // Fill passes a tincture to gg's Fill context operation
 func (tincture Tincture) Fill(dc *gg.Context) error {
-	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
+	dataPath := os.Getenv("WORLD_DATA_PATH")
 
 	if tincture.Type == "fur" {
 		filePath := dataPath + "/images/patterns/" + tincture.PatternFileName

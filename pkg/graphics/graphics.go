@@ -4,10 +4,11 @@ Package graphics provides tools for generating images.
 package graphics
 
 import (
-	"github.com/ironarachne/world/pkg/geometry"
 	"image"
 	"image/color"
 	"os"
+
+	"github.com/ironarachne/world/pkg/geometry"
 
 	"github.com/fogleman/gg"
 )
@@ -113,10 +114,10 @@ func DrawTriangle(triangle geometry.Triangle, color string, canvas image.Image) 
 	return newImage
 }
 
-// LoadPNG loads a PNG image and returns it as an Image. It relies on the WORLDAPI_DATA_PATH
+// LoadPNG loads a PNG image and returns it as an Image. It relies on the WORLD_DATA_PATH
 // environment variable to determine where to load the file from.
 func LoadPNG(path string) image.Image {
-	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
+	dataPath := os.Getenv("WORLD_DATA_PATH")
 
 	filePath := dataPath + "/" + path
 	im, err := gg.LoadPNG(filePath)

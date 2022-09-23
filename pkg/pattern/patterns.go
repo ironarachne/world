@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/ironarachne/world/pkg/resource"
 	"io/ioutil"
 	"math/rand"
 	"os"
 	"text/template"
+
+	"github.com/ironarachne/world/pkg/resource"
 
 	"github.com/ironarachne/world/pkg/profession"
 	"github.com/ironarachne/world/pkg/random"
@@ -126,7 +127,7 @@ func GetPossibleProfessions(resources []resource.Resource) ([]profession.Profess
 func LoadFromFile(name string) ([]Pattern, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/" + name + ".json")
+	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/" + name + ".json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Pattern{}, err

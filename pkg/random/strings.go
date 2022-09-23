@@ -3,6 +3,7 @@ package random
 import (
 	"crypto/md5"
 	"encoding/binary"
+	"encoding/hex"
 	"fmt"
 	"io"
 	"math/rand"
@@ -11,14 +12,13 @@ import (
 	"github.com/ironarachne/world/pkg/slices"
 )
 
-// ShuffleStringSlice randomly reorders a slice of strings
-func ShuffleStringSlice(ctx context.Context, vals []string) []string {
-	ret := make([]string, len(vals))
-	perm := Perm(ctx, len(vals))
-	for i, randIndex := range perm {
-		ret[i] = vals[randIndex]
+// SeedString returns a random string that can be used to seed a generator
+func SeedString() string {
+	b := make([]byte, 13)
+	if _, err := rand.Read(b); err != nil {
+		return ""
 	}
-	return ret
+	return hex.EncodeToString(b)
 }
 
 // String returns a random string from a slice of strings

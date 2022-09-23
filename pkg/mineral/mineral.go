@@ -34,7 +34,7 @@ type Mineral struct {
 func All() ([]Mineral, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/minerals.json")
+	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/minerals.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Mineral{}, err

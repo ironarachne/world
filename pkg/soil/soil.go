@@ -32,7 +32,7 @@ type Soil struct {
 func All() ([]Soil, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/soils.json")
+	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/soils.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Soil{}, err

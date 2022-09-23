@@ -3,12 +3,13 @@ package biome
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ironarachne/world/pkg/geography/climate"
-	"github.com/ironarachne/world/pkg/geography/region"
 	"io/ioutil"
 	"math"
 	"math/rand"
 	"os"
+
+	"github.com/ironarachne/world/pkg/geography/climate"
+	"github.com/ironarachne/world/pkg/geography/region"
 )
 
 // Data is a structural element to hold biomes when loaded or displayed
@@ -90,7 +91,7 @@ func Match(biomeType string, precipitation int, temperature int, altitude int) (
 func Load() ([]Biome, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/biomes.json")
+	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/biomes.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Biome{}, err

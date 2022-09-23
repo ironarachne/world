@@ -28,7 +28,7 @@ func (device Device) RenderToBlazon() (string, error) {
 
 // RenderToPNG renders a device as PNG and returns the image
 func (device Device) RenderToPNG() (string, error) {
-	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
+	dataPath := os.Getenv("WORLD_DATA_PATH")
 
 	var cg image.Image
 

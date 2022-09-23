@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.12.0 (2022-09-23)
+
+- Refactor as a CLI tool and not an API
+- Revert the "context" change
+
 ## 0.11.2 (2021-09-22)
 
 - Update to Go 1.17
@@ -252,7 +257,7 @@ Make the data path configurable.
 
 ### Change List
 
-- Make data path configurable via `WORLDAPI_DATA_PATH` environment variable
+- Make data path configurable via `WORLD_DATA_PATH` environment variable
 
 ## 0.6.1 (2019-09-13)
 

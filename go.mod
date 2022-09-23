@@ -20,7 +20,10 @@ require (
 )
 
 require (
+	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/ironarachne/random v0.0.0-20190325170425-9caaa0b3405a // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
+	github.com/spf13/cobra v1.5.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	gopkg.in/ini.v1 v1.63.2 // indirect
 )

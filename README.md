@@ -8,10 +8,10 @@ The API runs on port 7531.
 
 The following environment variables configure the API and are required:
 
-* `WORLDAPI_DATA_DIRECTORY`: The absolute directory that contains data files for the application.
-* `WORLDAPI_SAVE_DIRECTORY`: The absolute directory where files will be written to.
-* `WORLDAPI_SAVE_TARGET`: Either `DO` to save to Digital Ocean or `filesystem` to save to the local file system.
-* `WORLDAPI_WEB_DOMAIN`: The domain name (without protocol) the API serves on. For example, `www.worldapi.com`.
+- `WORLD_DATA_DIRECTORY`: The absolute directory that contains data files for the application.
+- `WORLD_SAVE_DIRECTORY`: The absolute directory where files will be written to.
+- `WORLD_SAVE_TARGET`: Either `DO` to save to Digital Ocean or `filesystem` to save to the local file system.
+- `WORLD_WEB_DOMAIN`: The domain name (without protocol) the API serves on. For example, `www.worldapi.com`.
 
 ## Building
 
