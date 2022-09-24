@@ -13,8 +13,8 @@ The following environment variables configure the API and are required:
 
 ## Building
 
-Run `./build.sh`. The binary will be `dist/worldapi`.
+Run `./build.sh`. The binary will be `dist/world`.
 
 ## Running in Development
 
-Run `./run.sh`. It will set sane defaults and use the local filesystem for saving files.
+Run `./run.sh <command>`. It will set sane defaults and use the local filesystem for saving files.
