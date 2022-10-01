@@ -5,6 +5,7 @@ package save
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/config"
 	"image"
 	"image/png"
 	"io"
@@ -54,7 +55,7 @@ func PNG(directory string, fileName string, img image.Image) (string, error) {
 	var result string
 	var err error
 
-	saveTarget := os.Getenv("WORLD_SAVE_TARGET")
+	saveTarget := config.Cfg.WorldSaveTarget
 	filePath := directory + "/" + fileName
 
 	if saveTarget == "DO" {
@@ -66,7 +67,7 @@ func PNG(directory string, fileName string, img image.Image) (string, error) {
 		return result, nil
 	}
 
-	saveDirectory := os.Getenv("WORLD_SAVE_DIRECTORY")
+	saveDirectory := config.Cfg.WorldSaveDirectory
 	savePath := saveDirectory + "/images/" + fileName
 	fg, err := os.Create(savePath)
 	defer fg.Close()
@@ -80,7 +81,7 @@ func PNG(directory string, fileName string, img image.Image) (string, error) {
 		return "", err
 	}
 
-	webDomain := os.Getenv("WORLD_WEB_DOMAIN")
+	webDomain := config.Cfg.WorldWebDomain
 	url := "https://" + webDomain + "/" + filePath
 
 	return url, nil

@@ -4,8 +4,6 @@ go 1.17
 
 require (
 	github.com/fogleman/gg v1.3.0
-	github.com/getsentry/sentry-go v0.5.1
-	github.com/go-chi/chi v4.0.3+incompatible
 	github.com/go-ini/ini v1.52.0 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/google/uuid v1.1.1
@@ -20,10 +18,15 @@ require (
 )
 
 require (
+	github.com/spf13/cobra v1.5.0
+	gopkg.in/yaml.v2 v2.4.0
+)
+
+require (
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/ironarachne/random v0.0.0-20190325170425-9caaa0b3405a // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/spf13/cobra v1.5.0 // indirect
+	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	gopkg.in/ini.v1 v1.63.2 // indirect
 )

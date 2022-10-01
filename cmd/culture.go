@@ -6,6 +6,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/ironarachne/world/config"
 	"os"
 
 	"github.com/ironarachne/world/pkg/culture"
@@ -17,8 +18,10 @@ import (
 var cultureCmd = &cobra.Command{
 	Use:   "culture",
 	Short: "Generate a fantasy culture",
-	Long: `This command generates a random fantasy culture.`,
+	Long:  `This command generates a random fantasy culture.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		configFile, _ := cmd.Flags().GetString("config")
+		config.LoadConfig(configFile)
 		randomSeed := random.SeedString()
 		random.SeedFromString(randomSeed)
 		randomCulture, err := culture.Random()
@@ -38,6 +41,7 @@ var cultureCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(cultureCmd)
+	cultureCmd.PersistentFlags().StringP("config", "c", "", "Config file name.")
 
 	// Here you will define your flags and configuration settings.
 

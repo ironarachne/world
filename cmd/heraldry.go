@@ -6,6 +6,7 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/ironarachne/world/config"
 	"os"
 
 	"github.com/ironarachne/world/pkg/heraldry"
@@ -17,8 +18,10 @@ import (
 var heraldryCmd = &cobra.Command{
 	Use:   "heraldry",
 	Short: "Generate fantasy heraldry",
-	Long: `This command generates fantasy heraldry.`,
+	Long:  `This command generates fantasy heraldry.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		configFile, _ := cmd.Flags().GetString("config")
+		config.LoadConfig(configFile)
 		randomSeed := random.SeedString()
 		random.SeedFromString(randomSeed)
 		fieldType := ""
