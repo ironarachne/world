@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.14.0 (2022-10-01)
+
+- Add region generator
+
 ## 0.13.2 (2022-10-01)
 
 - Add charge tag flag for heraldry generator
