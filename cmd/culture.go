@@ -6,8 +6,9 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ironarachne/world/config"
 	"os"
+
+	"github.com/ironarachne/world/config"
 
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/random"
@@ -41,7 +42,6 @@ var cultureCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(cultureCmd)
-	cultureCmd.PersistentFlags().StringP("config", "c", "", "Config file name.")
 
 	// Here you will define your flags and configuration settings.
 

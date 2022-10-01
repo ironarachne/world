@@ -10,6 +10,7 @@ import (
 	"math/rand"
 	"os"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/resource"
 )
 
@@ -32,7 +33,7 @@ type Soil struct {
 func All() ([]Soil, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/soils.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/soils.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Soil{}, err

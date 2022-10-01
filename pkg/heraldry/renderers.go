@@ -3,10 +3,10 @@ package heraldry
 import (
 	"fmt"
 	"image"
-	"os"
 	"time"
 
 	"github.com/fogleman/gg"
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/save"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -28,7 +28,7 @@ func (device Device) RenderToBlazon() (string, error) {
 
 // RenderToPNG renders a device as PNG and returns the image
 func (device Device) RenderToPNG() (string, error) {
-	dataPath := os.Getenv("WORLD_DATA_PATH")
+	dataPath := config.Cfg.WorldDataDirectory
 
 	var cg image.Image
 

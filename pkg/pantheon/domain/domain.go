@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"os"
+
+	"github.com/ironarachne/world/config"
 )
 
 // Data is a collection of domains
@@ -26,7 +28,7 @@ type Domain struct {
 func All() ([]Domain, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/domains.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/domains.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Domain{}, err

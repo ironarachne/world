@@ -10,6 +10,7 @@ import (
 	"math/rand"
 	"os"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/age"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/trait"
@@ -41,7 +42,7 @@ type Species struct {
 func Load(fileName string) ([]Species, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/" + fileName + ".json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/" + fileName + ".json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Species{}, err

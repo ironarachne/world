@@ -6,8 +6,8 @@ package graphics
 import (
 	"image"
 	"image/color"
-	"os"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/geometry"
 
 	"github.com/fogleman/gg"
@@ -117,7 +117,7 @@ func DrawTriangle(triangle geometry.Triangle, color string, canvas image.Image) 
 // LoadPNG loads a PNG image and returns it as an Image. It relies on the WORLD_DATA_PATH
 // environment variable to determine where to load the file from.
 func LoadPNG(path string) image.Image {
-	dataPath := os.Getenv("WORLD_DATA_PATH")
+	dataPath := config.Cfg.WorldDataDirectory
 
 	filePath := dataPath + "/" + path
 	im, err := gg.LoadPNG(filePath)

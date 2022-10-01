@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"image/color"
 	"math/rand"
-	"os"
 
 	"github.com/fogleman/gg"
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -23,7 +23,7 @@ type Tincture struct {
 
 // Fill passes a tincture to gg's Fill context operation
 func (tincture Tincture) Fill(dc *gg.Context) error {
-	dataPath := os.Getenv("WORLD_DATA_PATH")
+	dataPath := config.Cfg.WorldDataDirectory
 
 	if tincture.Type == "fur" {
 		filePath := dataPath + "/images/patterns/" + tincture.PatternFileName
