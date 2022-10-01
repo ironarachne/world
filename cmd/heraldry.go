@@ -16,6 +16,7 @@ import (
 )
 
 var fieldName string
+var chargeTag string
 
 // heraldryCmd represents the heraldry command
 var heraldryCmd = &cobra.Command{
@@ -28,7 +29,6 @@ var heraldryCmd = &cobra.Command{
 		randomSeed := random.SeedString()
 		random.SeedFromString(randomSeed)
 		fieldType := fieldName
-		chargeTag := ""
 
 		var o heraldry.Device
 		var err error
@@ -53,6 +53,7 @@ var heraldryCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(heraldryCmd)
 	heraldryCmd.Flags().StringVarP(&fieldName, "field", "f", "", "Name of the field to use")
+	heraldryCmd.Flags().StringVarP(&chargeTag, "tag", "t", "", "Tag to use for picking charges")
 
 	// Here you will define your flags and configuration settings.
 
