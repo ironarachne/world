@@ -9,6 +9,8 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"os"
+
+	"github.com/ironarachne/world/config"
 )
 
 // Data is a struct containing a slice of professions
@@ -28,7 +30,7 @@ func All() ([]Profession, error) {
 	var professions Data
 	var result []Profession
 
-	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/professions.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/professions.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Profession{}, err

@@ -6,8 +6,9 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/ironarachne/world/config"
 	"os"
+
+	"github.com/ironarachne/world/config"
 
 	"github.com/ironarachne/world/pkg/heraldry"
 	"github.com/ironarachne/world/pkg/random"

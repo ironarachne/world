@@ -9,6 +9,7 @@ import (
 	"os"
 	"text/template"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/resource"
 
 	"github.com/ironarachne/world/pkg/profession"
@@ -127,7 +128,7 @@ func GetPossibleProfessions(resources []resource.Resource) ([]profession.Profess
 func LoadFromFile(name string) ([]Pattern, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/" + name + ".json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/" + name + ".json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Pattern{}, err

@@ -8,6 +8,7 @@ import (
 	"math/rand"
 	"os"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/geography/climate"
 	"github.com/ironarachne/world/pkg/geography/region"
 )
@@ -91,7 +92,7 @@ func Match(biomeType string, precipitation int, temperature int, altitude int) (
 func Load() ([]Biome, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/biomes.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/biomes.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Biome{}, err

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.13.0 (2022-10-01)
+
+- Add config file configuration
+
 ## 0.12.0 (2022-09-23)
 
 - Refactor as a CLI tool and not an API

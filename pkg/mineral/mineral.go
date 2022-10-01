@@ -10,6 +10,7 @@ import (
 	"math/rand"
 	"os"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 )
@@ -34,7 +35,7 @@ type Mineral struct {
 func All() ([]Mineral, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLD_DATA_PATH") + "/data/minerals.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/minerals.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Mineral{}, err
