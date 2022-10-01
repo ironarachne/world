@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.13.1 (2022-10-01)
+
+- Add field type flag for heraldry generator
+
 ## 0.13.0 (2022-10-01)
 
 - Add config file configuration
