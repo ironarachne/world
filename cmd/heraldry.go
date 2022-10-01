@@ -15,6 +15,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var fieldName string
+
 // heraldryCmd represents the heraldry command
 var heraldryCmd = &cobra.Command{
 	Use:   "heraldry",
@@ -25,7 +27,7 @@ var heraldryCmd = &cobra.Command{
 		config.LoadConfig(configFile)
 		randomSeed := random.SeedString()
 		random.SeedFromString(randomSeed)
-		fieldType := ""
+		fieldType := fieldName
 		chargeTag := ""
 
 		var o heraldry.Device
@@ -50,6 +52,7 @@ var heraldryCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(heraldryCmd)
+	heraldryCmd.Flags().StringVarP(&fieldName, "field", "f", "", "Name of the field to use")
 
 	// Here you will define your flags and configuration settings.
 
