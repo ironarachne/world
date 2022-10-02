@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.14.1 (2022-10-01)
+
+- Add output flag to allow for writing output directly to files
+
 ## 0.14.0 (2022-10-01)
 
 - Add region generator

@@ -26,6 +26,7 @@ var heraldryCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		configFile, _ := cmd.Flags().GetString("config")
 		config.LoadConfig(configFile)
+		outputFile, _ := cmd.Flags().GetString("output")
 		randomSeed := random.SeedString()
 		random.SeedFromString(randomSeed)
 		fieldType := fieldName
@@ -46,7 +47,11 @@ var heraldryCmd = &cobra.Command{
 			fmt.Println(fmt.Errorf("Failed to generate heraldry: %w", err))
 			os.Exit(1)
 		}
-		fmt.Print(string(res))
+		if outputFile != "" {
+			err = os.WriteFile(outputFile, res, 0644)
+		} else {
+			fmt.Print(string(res))
+		}
 	},
 }
 
