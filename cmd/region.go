@@ -22,6 +22,7 @@ var regionCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		configFile, _ := cmd.Flags().GetString("config")
 		config.LoadConfig(configFile)
+		outputFile, _ := cmd.Flags().GetString("output")
 		randomSeed := random.SeedString()
 		random.SeedFromString(randomSeed)
 		
@@ -36,7 +37,11 @@ var regionCmd = &cobra.Command{
 			fmt.Println(fmt.Errorf("Failed to generate region: %w", err))
 			os.Exit(1)
 		}
-		fmt.Print(string(res))
+		if outputFile != "" {
+			err = os.WriteFile(outputFile, res, 0644)
+		} else {
+			fmt.Print(string(res))
+		}
 	},
 }
 
