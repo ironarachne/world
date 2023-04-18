@@ -1,12 +1,11 @@
 package organization
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 	"strings"
 
 	"github.com/ironarachne/world/pkg/profession"
-	"github.com/ironarachne/world/pkg/random"
 )
 
 // Rank is a rank held within an organization
@@ -34,7 +33,7 @@ type Type struct {
 	MinSize           int
 }
 
-func getAllTypes(ctx context.Context) ([]Type, error) {
+func getAllTypes() ([]Type, error) {
 	var adventurers []profession.Profession
 
 	divine, _ := profession.ByTag("divine")
@@ -252,17 +251,17 @@ func getAllTypes(ctx context.Context) ([]Type, error) {
 		},
 	}
 
-	guild, err := getCraftingGuild(ctx)
+	guild, err := getCraftingGuild()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate organization types: %w", err)
 		return []Type{}, err
 	}
-	school, err := getWizardSchool(ctx)
+	school, err := getWizardSchool()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate organization types: %w", err)
 		return []Type{}, err
 	}
-	wizardSociety, err := getWizardSociety(ctx)
+	wizardSociety, err := getWizardSociety()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate organization types: %w", err)
 		return []Type{}, err
@@ -275,7 +274,7 @@ func getAllTypes(ctx context.Context) ([]Type, error) {
 	return types, nil
 }
 
-func getCraftingGuild(ctx context.Context) (Type, error) {
+func getCraftingGuild() (Type, error) {
 	guild := Type{
 		Name:    "guild",
 		MaxSize: 150,
@@ -338,7 +337,7 @@ func getCraftingGuild(ctx context.Context) (Type, error) {
 	}
 
 	crafters, _ := profession.ByTag("crafter")
-	memberProfessions, err := profession.RandomSet(ctx, 1, crafters)
+	memberProfessions, err := profession.RandomSet(1, crafters)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate guild: %w", err)
 		return Type{}, err
@@ -351,7 +350,7 @@ func getCraftingGuild(ctx context.Context) (Type, error) {
 	return guild, nil
 }
 
-func getWizardSociety(ctx context.Context) (Type, error) {
+func getWizardSociety() (Type, error) {
 	org := Type{
 		Name:    "wizard society",
 		MaxSize: 100,
@@ -445,7 +444,7 @@ func getWizardSociety(ctx context.Context) (Type, error) {
 	}
 
 	wizards, _ := profession.ByTag("wizard")
-	memberProfessions, err := profession.RandomSet(ctx, 3, wizards)
+	memberProfessions, err := profession.RandomSet(3, wizards)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate wizard society: %w", err)
 		return Type{}, err
@@ -455,7 +454,7 @@ func getWizardSociety(ctx context.Context) (Type, error) {
 	return org, nil
 }
 
-func getWizardSchool(ctx context.Context) (Type, error) {
+func getWizardSchool() (Type, error) {
 	org := Type{
 		Name:    "school of wizardry",
 		MaxSize: 500,
@@ -529,7 +528,7 @@ func getWizardSchool(ctx context.Context) (Type, error) {
 	}
 
 	wizards, _ := profession.ByTag("wizard")
-	memberProfessions, err := profession.RandomSet(ctx, 3, wizards)
+	memberProfessions, err := profession.RandomSet(3, wizards)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate wizard school: %w", err)
 		return Type{}, err
@@ -540,7 +539,7 @@ func getWizardSchool(ctx context.Context) (Type, error) {
 }
 
 // GetRandomMemberRank returns a random appropriate rank that is NOT a leader
-func (t Type) GetRandomMemberRank(ctx context.Context, members []Member) Rank {
+func (t Type) GetRandomMemberRank(members []Member) Rank {
 	var possibleRanks []Rank
 
 	counts := make(map[string]int)
@@ -559,14 +558,14 @@ func (t Type) GetRandomMemberRank(ctx context.Context, members []Member) Rank {
 		return possibleRanks[0]
 	}
 
-	rank := possibleRanks[random.Intn(ctx, len(possibleRanks))]
+	rank := possibleRanks[rand.Intn(len(possibleRanks))]
 
 	return rank
 }
 
 // GetRandomMemberProfession returns a random profession from those available to the organization
-func (t Type) GetRandomMemberProfession(ctx context.Context) (profession.Profession, error) {
-	prof, err := profession.RandomSet(ctx, 1, t.MemberProfessions)
+func (t Type) GetRandomMemberProfession() (profession.Profession, error) {
+	prof, err := profession.RandomSet(1, t.MemberProfessions)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate organization type: %w", err)
 		return profession.Profession{}, err
@@ -575,14 +574,14 @@ func (t Type) GetRandomMemberProfession(ctx context.Context) (profession.Profess
 	return prof[0], nil
 }
 
-func getRandomType(ctx context.Context) (Type, error) {
-	orgTypes, err := getAllTypes(ctx)
+func getRandomType() (Type, error) {
+	orgTypes, err := getAllTypes()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate organization type: %w", err)
 		return Type{}, err
 	}
 
-	randomOrgType := orgTypes[random.Intn(ctx, len(orgTypes))]
+	randomOrgType := orgTypes[rand.Intn(len(orgTypes))]
 
 	return randomOrgType, nil
 }

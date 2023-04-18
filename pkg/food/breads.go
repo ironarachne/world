@@ -1,15 +1,15 @@
 package food
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 	"github.com/ironarachne/world/pkg/slices"
 )
 
-func generateBread(ctx context.Context, resources []resource.Resource) (string, error) {
+func generateBread(resources []resource.Resource) (string, error) {
 	var grain resource.Resource
 	breadTypes := []string{
 		"brick-like",
@@ -38,15 +38,15 @@ func generateBread(ctx context.Context, resources []resource.Resource) (string, 
 	if len(grains) == 1 {
 		grain = grains[0]
 	} else {
-		grain = grains[random.Intn(ctx, len(grains))]
+		grain = grains[rand.Intn(len(grains))]
 	}
 
-	flavor, err := random.String(ctx, flavors)
+	flavor, err := random.String(flavors)
 	if err != nil {
 		err = fmt.Errorf("Could not generate bread: %w", err)
 		return "", err
 	}
-	breadType, err := random.String(ctx, breadTypes)
+	breadType, err := random.String(breadTypes)
 	if err != nil {
 		err = fmt.Errorf("Could not generate bread: %w", err)
 		return "", err
@@ -57,16 +57,16 @@ func generateBread(ctx context.Context, resources []resource.Resource) (string, 
 	return bread, nil
 }
 
-func randomBreads(ctx context.Context, resources []resource.Resource) ([]string, error) {
+func randomBreads(resources []resource.Resource) ([]string, error) {
 	var bread string
 	var breads []string
 	var err error
 
 	grains := resource.ByTag("flour", resources)
 	if len(grains) > 0 {
-		numberOfBreads := random.Intn(ctx, 3) + 1
+		numberOfBreads := rand.Intn(3) + 1
 		for i := 0; i < numberOfBreads; i++ {
-			bread, err = generateBread(ctx, resources)
+			bread, err = generateBread(resources)
 			if err != nil {
 				err = fmt.Errorf("Could not generate breads: %w", err)
 				return []string{}, err

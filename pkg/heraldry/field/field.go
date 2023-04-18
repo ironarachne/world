@@ -1,7 +1,6 @@
 package field
 
 import (
-	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/heraldry/charge"
 	"github.com/ironarachne/world/pkg/heraldry/division"
@@ -15,7 +14,7 @@ type Field struct {
 }
 
 // ByName returns a field by name
-func ByName(ctx context.Context, name string) (Field, error) {
+func ByName(name string) (Field, error) {
 	var fieldType Type
 
 	fieldTypes := allTypes()
@@ -26,7 +25,7 @@ func ByName(ctx context.Context, name string) (Field, error) {
 		}
 	}
 
-	d, err := division.Generate(ctx)
+	d, err := division.Generate()
 	if err != nil {
 		err = fmt.Errorf("failed to generate heraldic field by name: %w", err)
 		return Field{}, err
@@ -41,10 +40,10 @@ func ByName(ctx context.Context, name string) (Field, error) {
 }
 
 // Random returns a random field
-func Random(ctx context.Context) (Field, error) {
-	t := RandomType(ctx)
+func Random() (Field, error) {
+	t := RandomType()
 
-	d, err := division.Generate(ctx)
+	d, err := division.Generate()
 	if err != nil {
 		err = fmt.Errorf("failed to generate random heraldic field: %w", err)
 		return Field{}, err

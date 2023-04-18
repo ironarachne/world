@@ -1,7 +1,6 @@
 package buildings
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -33,16 +32,16 @@ func getWallMaterials() []string {
 	}
 }
 
-func getRandomWallStyle(ctx context.Context) (string, error) {
+func getRandomWallStyle() (string, error) {
 	materials := getWallMaterials()
 	descriptors := getWallDescriptors()
 
-	style, err := random.String(ctx, materials)
+	style, err := random.String(materials)
 	if err != nil {
 		err = fmt.Errorf("Could not generate wall style: %w", err)
 		return "", err
 	}
-	descriptor, err := random.String(ctx, descriptors)
+	descriptor, err := random.String(descriptors)
 	if err != nil {
 		err = fmt.Errorf("Could not generate wall style: %w", err)
 		return "", err

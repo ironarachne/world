@@ -4,13 +4,13 @@ Package profession provides fantasy professions and metadata for them
 package profession
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 
-	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/config"
 )
 
 // Data is a struct containing a slice of professions
@@ -30,7 +30,7 @@ func All() ([]Profession, error) {
 	var professions Data
 	var result []Profession
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/professions.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/professions.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Profession{}, err
@@ -111,14 +111,14 @@ func (profession Profession) HasTag(tag string) bool {
 }
 
 // Random returns a single random profession from all professions
-func Random(ctx context.Context) (Profession, error) {
+func Random() (Profession, error) {
 	all, err := All()
 	if err != nil {
 		err = fmt.Errorf("could not fetch professions: %w", err)
 		return Profession{}, err
 	}
 
-	professions, err := RandomSet(ctx, 1, all)
+	professions, err := RandomSet(1, all)
 	if err != nil {
 		err = fmt.Errorf("could not get random profession: %w", err)
 		return Profession{}, err
@@ -128,7 +128,7 @@ func Random(ctx context.Context) (Profession, error) {
 }
 
 // RandomSet returns a random number of professions from a given set of professions
-func RandomSet(ctx context.Context, max int, possible []Profession) ([]Profession, error) {
+func RandomSet(max int, possible []Profession) ([]Profession, error) {
 	professions := []Profession{}
 	profession := Profession{}
 
@@ -142,7 +142,7 @@ func RandomSet(ctx context.Context, max int, possible []Profession) ([]Professio
 	}
 
 	for i := 0; i < max; i++ {
-		profession = possible[random.Intn(ctx, len(possible))]
+		profession = possible[rand.Intn(len(possible))]
 		if !profession.InSlice(professions) {
 			professions = append(professions, profession)
 		}

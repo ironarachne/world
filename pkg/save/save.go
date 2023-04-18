@@ -5,6 +5,7 @@ package save
 
 import (
 	"fmt"
+	"github.com/ironarachne/world/config"
 	"image"
 	"image/png"
 	"io"
@@ -47,14 +48,14 @@ func ToDOSpaces(filePath string, reader io.Reader, contentType string) (string, 
 	return url, nil
 }
 
-// PNG saves a PNG image to permanent storage. It relies on an environment variable WORLDAPI_SAVE_TARGET to determine behavior.
-// The default behavior is to save to the local filesystem. Set WORLDAPI_SAVE_DIRECTORY to the directory to use as the root directory
-// for saving files. Set WORLDAPI_WEB_DOMAIN to the domain name (without protocol) the API serves on.
+// PNG saves a PNG image to permanent storage. It relies on an environment variable WORLD_SAVE_TARGET to determine behavior.
+// The default behavior is to save to the local filesystem. Set WORLD_SAVE_DIRECTORY to the directory to use as the root directory
+// for saving files. Set WORLD_WEB_DOMAIN to the domain name (without protocol) the API serves on.
 func PNG(directory string, fileName string, img image.Image) (string, error) {
 	var result string
 	var err error
 
-	saveTarget := os.Getenv("WORLDAPI_SAVE_TARGET")
+	saveTarget := config.Cfg.WorldSaveTarget
 	filePath := directory + "/" + fileName
 
 	if saveTarget == "DO" {
@@ -66,7 +67,7 @@ func PNG(directory string, fileName string, img image.Image) (string, error) {
 		return result, nil
 	}
 
-	saveDirectory := os.Getenv("WORLDAPI_SAVE_DIRECTORY")
+	saveDirectory := config.Cfg.WorldSaveDirectory
 	savePath := saveDirectory + "/images/" + fileName
 	fg, err := os.Create(savePath)
 	defer fg.Close()
@@ -80,7 +81,7 @@ func PNG(directory string, fileName string, img image.Image) (string, error) {
 		return "", err
 	}
 
-	webDomain := os.Getenv("WORLDAPI_WEB_DOMAIN")
+	webDomain := config.Cfg.WorldWebDomain
 	url := "https://" + webDomain + "/" + filePath
 
 	return url, nil

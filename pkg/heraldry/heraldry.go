@@ -5,11 +5,9 @@ and their associated blazons.
 package heraldry
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/google/uuid"
-
 	"github.com/ironarachne/world/pkg/heraldry/charge"
 	"github.com/ironarachne/world/pkg/heraldry/field"
 	"github.com/ironarachne/world/pkg/words"
@@ -25,8 +23,8 @@ type Device struct {
 }
 
 // Generate procedurally generates a random heraldic device and returns it.
-func Generate(ctx context.Context) (Device, error) {
-	d, err := GenerateByParameters(ctx, "", "")
+func Generate() (Device, error) {
+	d, err := GenerateByParameters("", "")
 	if err != nil {
 		err = fmt.Errorf("failed to generate random heraldic device: %w", err)
 		return Device{}, err
@@ -36,15 +34,15 @@ func Generate(ctx context.Context) (Device, error) {
 }
 
 // GenerateByParameters generates a random heraldic device fitting certain criteria.
-func GenerateByParameters(ctx context.Context, fieldName string, chargeTag string) (Device, error) {
+func GenerateByParameters(fieldName string, chargeTag string) (Device, error) {
 	var chargeGroup charge.Group
 	var f field.Field
 	var err error
 
 	if fieldName == "" {
-		f, err = field.Random(ctx)
+		f, err = field.Random()
 	} else {
-		f, err = field.ByName(ctx, fieldName)
+		f, err = field.ByName(fieldName)
 	}
 	if err != nil {
 		err = fmt.Errorf("failed to generate heraldic device: %w", err)
@@ -52,9 +50,9 @@ func GenerateByParameters(ctx context.Context, fieldName string, chargeTag strin
 	}
 
 	if chargeTag == "" {
-		chargeGroup, err = charge.RandomGroup(ctx, f.Division.Variations[0].Tinctures[0])
+		chargeGroup, err = charge.RandomGroup(f.Division.Variations[0].Tinctures[0])
 	} else {
-		chargeGroup, err = charge.RandomGroupByParameters(ctx, f.Division.Variations[0].Tinctures[0], chargeTag, 0)
+		chargeGroup, err = charge.RandomGroupByParameters(f.Division.Variations[0].Tinctures[0], chargeTag, 0)
 	}
 	if err != nil {
 		err = fmt.Errorf("failed to generate heraldic device: %w", err)
@@ -71,7 +69,7 @@ func GenerateByParameters(ctx context.Context, fieldName string, chargeTag strin
 		Field: f,
 	}
 
-	d, err = d.finalize(ctx)
+	d, err = d.finalize()
 	if err != nil {
 		err = fmt.Errorf("failed to generate heraldic device: %w", err)
 		return Device{}, err
@@ -80,7 +78,7 @@ func GenerateByParameters(ctx context.Context, fieldName string, chargeTag strin
 	return d, nil
 }
 
-func (d Device) finalize(ctx context.Context) (Device, error) {
+func (d Device) finalize() (Device, error) {
 	guid := uuid.New()
 	d.GUID = guid.String()
 	d.FileName = d.GUID + ".png"
@@ -92,7 +90,7 @@ func (d Device) finalize(ctx context.Context) (Device, error) {
 	}
 	d.Blazon = words.CapitalizeFirst(blazon)
 
-	imageURL, err := d.RenderToPNG(ctx)
+	imageURL, err := d.RenderToPNG()
 	if err != nil {
 		err = fmt.Errorf("failed to finalize heraldic device: %w", err)
 		return Device{}, err

@@ -1,13 +1,13 @@
 package domain
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 
-	"github.com/ironarachne/world/pkg/random"
+	"github.com/ironarachne/world/config"
 )
 
 // Data is a collection of domains
@@ -28,7 +28,7 @@ type Domain struct {
 func All() ([]Domain, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/domains.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/domains.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Domain{}, err
@@ -73,7 +73,7 @@ func AllPersonalitiesForDomains(domains []Domain) []string {
 }
 
 // RandomAppearanceFromDomains returns a random appearance given a set of domains
-func RandomAppearanceFromDomains(ctx context.Context, domains []Domain) (string, error) {
+func RandomAppearanceFromDomains(domains []Domain) (string, error) {
 	var possibleAppearances []string
 
 	for _, d := range domains {
@@ -89,13 +89,13 @@ func RandomAppearanceFromDomains(ctx context.Context, domains []Domain) (string,
 		return possibleAppearances[0], nil
 	}
 
-	appearance := possibleAppearances[random.Intn(ctx, len(possibleAppearances))]
+	appearance := possibleAppearances[rand.Intn(len(possibleAppearances))]
 
 	return appearance, nil
 }
 
 // RandomPersonalityFromDomains returns a random personality given a set of domains
-func RandomPersonalityFromDomains(ctx context.Context, domains []Domain) (string, error) {
+func RandomPersonalityFromDomains(domains []Domain) (string, error) {
 	var possiblePersonalities []string
 
 	for _, d := range domains {
@@ -111,7 +111,7 @@ func RandomPersonalityFromDomains(ctx context.Context, domains []Domain) (string
 		return possiblePersonalities[0], nil
 	}
 
-	personality := possiblePersonalities[random.Intn(ctx, len(possiblePersonalities))]
+	personality := possiblePersonalities[rand.Intn(len(possiblePersonalities))]
 
 	return personality, nil
 }
@@ -135,7 +135,7 @@ func ByName(name string) (Domain, error) {
 }
 
 // Random returns a random domain from a slice of domains
-func Random(ctx context.Context, domains []Domain) (Domain, error) {
+func Random(domains []Domain) (Domain, error) {
 	if len(domains) == 0 {
 		err := fmt.Errorf("tried to get a random domain from an empty slice")
 		return Domain{}, err
@@ -145,7 +145,7 @@ func Random(ctx context.Context, domains []Domain) (Domain, error) {
 		return domains[0], nil
 	}
 
-	domain := domains[random.Intn(ctx, len(domains))]
+	domain := domains[rand.Intn(len(domains))]
 
 	return domain, nil
 }

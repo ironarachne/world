@@ -1,7 +1,6 @@
 package music
 
 import (
-	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/words"
@@ -9,49 +8,49 @@ import (
 
 // Style is a style of music
 type Style struct {
-	Description    string   `json:"description"`
+	Description string `json:"description"`
 	InstrumentTags []string `json:"instrument_tags"`
 }
 
 var (
 	rhythms = map[string]int{
-		"a single rhythm":    100,
-		"a cross-rhythm":     10,
+		"a single rhythm": 100,
+		"a cross-rhythm": 10,
 		"complex polyrhythm": 1,
 	}
 
 	beats = map[string]int{
 		"very fast": 5,
-		"fast":      5,
-		"moderate":  10,
-		"slow":      5,
+		"fast": 5,
+		"moderate": 10,
+		"slow": 5,
 		"very slow": 5,
 	}
 
 	dynamics = map[string]int{
 		"very quiet": 5,
-		"quiet":      15,
-		"loud":       15,
-		"very loud":  5,
+		"quiet": 15,
+		"loud": 15,
+		"very loud": 5,
 	}
 
 	harmonies = map[string]int{
 		"simple harmony": 10,
-		"two harmonies":  1,
-		"no harmony":     5,
+		"two harmonies": 1,
+		"no harmony": 5,
 	}
 
 	melodies = map[string]int{
-		"simple":    10,
-		"complex":   2,
+		"simple": 10,
+		"complex": 2,
 		"wandering": 2,
-		"chaotic":   1,
+		"chaotic": 1,
 	}
 
 	pitches = map[string]int{
-		"low":    5,
+		"low": 5,
 		"medium": 5,
-		"high":   5,
+		"high": 5,
 	}
 
 	keys = map[string]int{
@@ -77,10 +76,10 @@ var (
 )
 
 // Generate procedurally creates a style of music
-func Generate(ctx context.Context) (Style, error) {
+func Generate() (Style, error) {
 	description := "This style of music has "
 
-	rhythm, err := random.StringFromThresholdMap(ctx, rhythms)
+	rhythm, err := random.StringFromThresholdMap(rhythms)
 	if err != nil {
 		err = fmt.Errorf("failed to get a rhythm: %w", err)
 		return Style{}, err
@@ -88,7 +87,7 @@ func Generate(ctx context.Context) (Style, error) {
 
 	description += rhythm + " with "
 
-	beat, err := random.StringFromThresholdMap(ctx, beats)
+	beat, err := random.StringFromThresholdMap(beats)
 	if err != nil {
 		err = fmt.Errorf("failed to get a beat: %w", err)
 		return Style{}, err
@@ -96,7 +95,7 @@ func Generate(ctx context.Context) (Style, error) {
 
 	description += words.Pronoun(beat) + " " + beat + " beat. It is "
 
-	dynamic, err := random.StringFromThresholdMap(ctx, dynamics)
+	dynamic, err := random.StringFromThresholdMap(dynamics)
 	if err != nil {
 		err = fmt.Errorf("failed to get a dynamic: %w", err)
 		return Style{}, err
@@ -104,7 +103,7 @@ func Generate(ctx context.Context) (Style, error) {
 
 	description += dynamic + ", with "
 
-	harmony, err := random.StringFromThresholdMap(ctx, harmonies)
+	harmony, err := random.StringFromThresholdMap(harmonies)
 	if err != nil {
 		err = fmt.Errorf("failed to get a harmony: %w", err)
 		return Style{}, err
@@ -112,7 +111,7 @@ func Generate(ctx context.Context) (Style, error) {
 
 	description += harmony + ". It has "
 
-	melody, err := random.StringFromThresholdMap(ctx, melodies)
+	melody, err := random.StringFromThresholdMap(melodies)
 	if err != nil {
 		err = fmt.Errorf("failed to get a melody: %w", err)
 		return Style{}, err
@@ -132,7 +131,7 @@ func Generate(ctx context.Context) (Style, error) {
 
 	description += " with "
 
-	pitch, err := random.StringFromThresholdMap(ctx, pitches)
+	pitch, err := random.StringFromThresholdMap(pitches)
 	if err != nil {
 		err = fmt.Errorf("failed to get a pitch: %w", err)
 		return Style{}, err
@@ -140,7 +139,7 @@ func Generate(ctx context.Context) (Style, error) {
 
 	description += words.Pronoun(pitch) + " " + pitch + " pitch in a "
 
-	key, err := random.StringFromThresholdMap(ctx, keys)
+	key, err := random.StringFromThresholdMap(keys)
 	if err != nil {
 		err = fmt.Errorf("failed to get a key: %w", err)
 		return Style{}, err
@@ -148,13 +147,13 @@ func Generate(ctx context.Context) (Style, error) {
 
 	description += key + " key. Usually, it has "
 
-	timbre, err := random.String(ctx, timbres)
+	timbre, err := random.String(timbres)
 	if err != nil {
 		err = fmt.Errorf("failed to get a timbre: %w", err)
 		return Style{}, err
 	}
 
-	description += words.Pronoun(timbre) + " " + timbre + " timbre."
+	description += words.Pronoun(timbre) + " " +  timbre + " timbre."
 
 	tags := []string{
 		timbre,
@@ -162,7 +161,7 @@ func Generate(ctx context.Context) (Style, error) {
 	}
 
 	style := Style{
-		Description:    description,
+		Description: description,
 		InstrumentTags: tags,
 	}
 

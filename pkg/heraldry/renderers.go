@@ -1,13 +1,12 @@
 package heraldry
 
 import (
-	"context"
 	"fmt"
 	"image"
-	"os"
 	"time"
 
 	"github.com/fogleman/gg"
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/save"
 	"github.com/ironarachne/world/pkg/slices"
 )
@@ -28,8 +27,8 @@ func (device Device) RenderToBlazon() (string, error) {
 }
 
 // RenderToPNG renders a device as PNG and returns the image
-func (device Device) RenderToPNG(ctx context.Context) (string, error) {
-	dataPath := os.Getenv("WORLDAPI_DATA_PATH")
+func (device Device) RenderToPNG() (string, error) {
+	dataPath := config.Cfg.WorldDataDirectory
 
 	var cg image.Image
 
@@ -62,7 +61,7 @@ func (device Device) RenderToPNG(ctx context.Context) (string, error) {
 	dc.DrawImage(field, 0, 0)
 
 	for _, g := range device.Field.ChargeGroups {
-		cg = g.RenderPNG(ctx, width, height)
+		cg = g.RenderPNG(width, height)
 
 		if slices.StringIn("full size", g.Charges[0].GetTags()) {
 			dc.DrawImage(cg, 0, 0)

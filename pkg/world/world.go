@@ -1,9 +1,7 @@
 package world
 
 import (
-	"context"
 	"fmt"
-
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/geography/region"
 )
@@ -17,12 +15,12 @@ type World struct {
 }
 
 // Generate procedurally generates a world
-func Generate(ctx context.Context) (World, error) {
+func Generate() (World, error) {
 	var err error
 	world := World{}
 
 	world.Tiles = initializeTiles(1024, 1024)
-	world.Tiles, err = generateLand(ctx, world.Tiles)
+	world.Tiles, err = generateLand(world.Tiles)
 	if err != nil {
 		return World{}, fmt.Errorf("failed to generate world: %w", err)
 	}

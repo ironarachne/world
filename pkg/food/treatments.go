@@ -1,13 +1,13 @@
 package food
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
 
-func (style Style) getRandomTreatment(ctx context.Context) (string, error) {
+func (style Style) getRandomTreatment() (string, error) {
 	treatments := []string{
 		" soup",
 		" stew",
@@ -20,13 +20,13 @@ func (style Style) getRandomTreatment(ctx context.Context) (string, error) {
 		}
 	}
 
-	treatment, err := random.String(ctx, treatments)
+	treatment, err := random.String(treatments)
 	if err != nil {
 		err = fmt.Errorf("Could not generate food treatment: %w", err)
 		return "", err
 	}
 
-	chanceOfPlain := random.Intn(ctx, 10)
+	chanceOfPlain := rand.Intn(10)
 
 	if chanceOfPlain > 4 {
 		treatment = ""

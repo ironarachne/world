@@ -1,16 +1,16 @@
 package biome
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"math"
+	"math/rand"
 	"os"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/geography/climate"
 	"github.com/ironarachne/world/pkg/geography/region"
-	"github.com/ironarachne/world/pkg/random"
 )
 
 // Data is a structural element to hold biomes when loaded or displayed
@@ -43,8 +43,8 @@ type BiomeCriteria struct {
 }
 
 // Generate procedurally generates a biome for a given climate and region
-func Generate(ctx context.Context, c climate.Climate, r region.Region) (Biome, error) {
-	biomeType := getRandomBiomeType(ctx, r.Altitude)
+func Generate(c climate.Climate, r region.Region) (Biome, error) {
+	biomeType := getRandomBiomeType(r.Altitude)
 
 	b, err := Match(biomeType, c.PrecipitationAmount, r.Temperature, r.Altitude)
 	if err != nil {
@@ -92,7 +92,7 @@ func Match(biomeType string, precipitation int, temperature int, altitude int) (
 func Load() ([]Biome, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/biomes.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/biomes.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Biome{}, err
@@ -168,7 +168,7 @@ func findBestScore(biomes []Biome) (Biome, error) {
 	return best, nil
 }
 
-func getRandomBiomeType(ctx context.Context, altitude int) string {
+func getRandomBiomeType(altitude int) string {
 	if altitude < 0 {
 		return "marine"
 	}
@@ -178,7 +178,7 @@ func getRandomBiomeType(ctx context.Context, altitude int) string {
 		"freshwater",
 	}
 
-	biomeType := types[random.Intn(ctx, len(types))]
+	biomeType := types[rand.Intn(len(types))]
 
 	return biomeType
 }

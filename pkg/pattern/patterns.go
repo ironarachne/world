@@ -2,13 +2,14 @@ package pattern
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 	"text/template"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/resource"
 
 	"github.com/ironarachne/world/pkg/profession"
@@ -127,7 +128,7 @@ func GetPossibleProfessions(resources []resource.Resource) ([]profession.Profess
 func LoadFromFile(name string) ([]Pattern, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/" + name + ".json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/" + name + ".json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Pattern{}, err
@@ -188,11 +189,11 @@ func (pattern Pattern) RenderName() (string, error) {
 }
 
 // RenderDescription turns a completed pattern into a string description
-func (pattern Pattern) RenderDescription(ctx context.Context) (string, error) {
+func (pattern Pattern) RenderDescription() (string, error) {
 	description := ""
 
 	for _, s := range pattern.Slots {
-		slotDescription, err := s.describe(ctx)
+		slotDescription, err := s.describe()
 		if err != nil {
 			err = fmt.Errorf("Failed to render pattern: %w", err)
 			return "", err
@@ -204,10 +205,10 @@ func (pattern Pattern) RenderDescription(ctx context.Context) (string, error) {
 }
 
 // ToResource transforms a completed pattern into a resource
-func (pattern Pattern) ToResource(ctx context.Context) (resource.Resource, error) {
+func (pattern Pattern) ToResource() (resource.Resource, error) {
 	var res resource.Resource
 
-	description, err := pattern.RenderDescription(ctx)
+	description, err := pattern.RenderDescription()
 	if err != nil {
 		err = fmt.Errorf("Failed to transform pattern into resource: %w", err)
 		return resource.Resource{}, err
@@ -246,7 +247,7 @@ func (pattern Pattern) ToResource(ctx context.Context) (resource.Resource, error
 	return res, nil
 }
 
-func (slot Slot) describe(ctx context.Context) (string, error) {
+func (slot Slot) describe() (string, error) {
 	var tplOutput bytes.Buffer
 
 	tmpl, err := template.New(slot.Name).Parse(slot.DescriptionTemplate)
@@ -262,9 +263,9 @@ func (slot Slot) describe(ctx context.Context) (string, error) {
 	name := tplOutput.String()
 
 	if len(slot.PossibleQuirks) > 0 {
-		quirkChance := random.Intn(ctx, 100)
+		quirkChance := rand.Intn(100)
 		if quirkChance > 80 {
-			quirk, err := random.String(ctx, slot.PossibleQuirks)
+			quirk, err := random.String(slot.PossibleQuirks)
 			if err != nil {
 				err = fmt.Errorf("Failed to describe slot: %w", err)
 				return "", err

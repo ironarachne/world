@@ -1,7 +1,6 @@
 package town
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -105,7 +104,7 @@ func getCategoryByName(name string) Category {
 	return Category{}
 }
 
-func getRandomWeightedCategory(ctx context.Context) (Category, error) {
+func getRandomWeightedCategory() (Category, error) {
 	categories := getAllCategories()
 
 	weights := map[string]int{}
@@ -114,7 +113,7 @@ func getRandomWeightedCategory(ctx context.Context) (Category, error) {
 		weights[c.Name] = c.Commonality
 	}
 
-	name, err := random.StringFromThresholdMap(ctx, weights)
+	name, err := random.StringFromThresholdMap(weights)
 	if err != nil {
 		err = fmt.Errorf("failed to get random weighted town category: %w", err)
 		return Category{}, err

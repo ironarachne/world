@@ -1,7 +1,6 @@
 package deity
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -47,13 +46,13 @@ func getGeneralAppearances() []string {
 	return appearances
 }
 
-func getRandomGeneralAppearances(ctx context.Context, max int) ([]string, error) {
+func getRandomGeneralAppearances(max int) ([]string, error) {
 	var appearances []string
 
 	possibleAppearances := getGeneralAppearances()
 
 	for i := 0; i < max; i++ {
-		appearance, err := random.String(ctx, possibleAppearances)
+		appearance, err := random.String(possibleAppearances)
 		if err != nil {
 			err = fmt.Errorf("Could not generate random deity appearance: %w", err)
 			return []string{}, err

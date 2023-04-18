@@ -4,9 +4,7 @@ Package resource provides natural and manmade resources. It implements a system 
 package resource
 
 import (
-	"context"
-
-	"github.com/ironarachne/world/pkg/random"
+	"math/rand"
 )
 
 // Resource is a useful resource
@@ -56,30 +54,30 @@ func (resource Resource) InSlice(resources []Resource) bool {
 }
 
 // Random returns a random resource from a list
-func Random(ctx context.Context, resources []Resource) Resource {
+func Random(resources []Resource) Resource {
 	if len(resources) == 1 {
 		return resources[0]
 	} else if len(resources) < 1 {
 		panic("No resources given")
 	}
 
-	resource := resources[random.Intn(ctx, len(resources))]
+	resource := resources[rand.Intn(len(resources))]
 
 	return resource
 }
 
 // RandomSet returns a slice of random elements of the given resources
-func RandomSet(ctx context.Context, min int, max int, resources []Resource) []Resource {
+func RandomSet(min int, max int, resources []Resource) []Resource {
 	var result []Resource
 	var resource Resource
 
-	numberOfResources := random.Intn(ctx, max-min) + min
+	numberOfResources := rand.Intn(max-min) + min
 	if numberOfResources > len(resources) {
 		numberOfResources = len(resources)
 	}
 
 	for i := 0; i < numberOfResources; i++ {
-		resource = Random(ctx, resources)
+		resource = Random(resources)
 		if !resource.InSlice(result) {
 			result = append(result, resource)
 		}

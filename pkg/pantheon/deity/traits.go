@@ -1,7 +1,6 @@
 package deity
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/pantheon/domain"
@@ -44,13 +43,13 @@ func getAllTraits() []string {
 	return traits
 }
 
-func (deity Deity) getRandomTraits(ctx context.Context) ([]string, error) {
+func (deity Deity) getRandomTraits() ([]string, error) {
 	var possibleTraits []string
 
 	allTraits := getAllTraits()
 
 	for i := 0; i < 4; i++ {
-		trait, err := random.String(ctx, allTraits)
+		trait, err := random.String(allTraits)
 		if err != nil {
 			err = fmt.Errorf("Could not generate deity traits: %w", err)
 			return []string{}, err
@@ -66,7 +65,7 @@ func (deity Deity) getRandomTraits(ctx context.Context) ([]string, error) {
 
 	for i := 0; i < 2; i++ {
 		// Only add a trait if it isn't already in the PersonalityTraits slice
-		trait, err := random.String(ctx, possibleTraits)
+		trait, err := random.String(possibleTraits)
 		if err != nil {
 			err = fmt.Errorf("Could not generate deity traits: %w", err)
 			return []string{}, err

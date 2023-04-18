@@ -1,7 +1,6 @@
 package food
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/ironarachne/world/pkg/random"
@@ -24,7 +23,7 @@ func getAllTechniques() []string {
 	}
 }
 
-func randomTechniques(ctx context.Context, maxTechniques int) ([]string, error) {
+func randomTechniques(maxTechniques int) ([]string, error) {
 	var err error
 	var techniques []string
 	var technique string
@@ -37,7 +36,7 @@ func randomTechniques(ctx context.Context, maxTechniques int) ([]string, error) 
 	}
 
 	for i := 0; i < maxTechniques; i++ {
-		technique, err = random.String(ctx, potentialTechniques)
+		technique, err = random.String(potentialTechniques)
 		if err != nil {
 			err = fmt.Errorf("Could not generate food techniques: %w", err)
 			return []string{}, err

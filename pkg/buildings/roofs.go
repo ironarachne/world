@@ -1,18 +1,17 @@
 package buildings
 
 import (
-	"context"
 	"fmt"
 	"github.com/ironarachne/world/pkg/random"
 )
 
-func getRandomRoofStyle(ctx context.Context) (string, error) {
-	material, err := getRandomRoofMaterial(ctx)
+func getRandomRoofStyle() (string, error) {
+	material, err := getRandomRoofMaterial()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random roof shape: %w", err)
 		return "", err
 	}
-	shape, err := getRandomRoofShape(ctx)
+	shape, err := getRandomRoofShape()
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random roof style: %w", err)
 		return "", err
@@ -21,7 +20,7 @@ func getRandomRoofStyle(ctx context.Context) (string, error) {
 	return shape + " and made of " + material, nil
 }
 
-func getRandomRoofShape(ctx context.Context) (string, error) {
+func getRandomRoofShape() (string, error) {
 	shapes := map[string]int{
 		"flat":            20,
 		"slanted":         6,
@@ -30,7 +29,7 @@ func getRandomRoofShape(ctx context.Context) (string, error) {
 		"onion-shaped":    1,
 	}
 
-	shape, err := random.StringFromThresholdMap(ctx, shapes)
+	shape, err := random.StringFromThresholdMap(shapes)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random roof shape: %w", err)
 		return "", err
@@ -39,7 +38,7 @@ func getRandomRoofShape(ctx context.Context) (string, error) {
 	return shape, nil
 }
 
-func getRandomRoofMaterial(ctx context.Context) (string, error) {
+func getRandomRoofMaterial() (string, error) {
 	materials := map[string]int{
 		"beaten metal":    1,
 		"ceramic tiles":   5,
@@ -49,7 +48,7 @@ func getRandomRoofMaterial(ctx context.Context) (string, error) {
 		"wooden tiles":    3,
 	}
 
-	material, err := random.StringFromThresholdMap(ctx, materials)
+	material, err := random.StringFromThresholdMap(materials)
 	if err != nil {
 		err = fmt.Errorf("Failed to generate random roof material: %w", err)
 		return "", err

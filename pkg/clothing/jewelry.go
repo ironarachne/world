@@ -1,15 +1,15 @@
 package clothing
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
 
 const jewelryError = "failed to generate jewelry: %w"
 
-func generateJewelry(ctx context.Context) ([]string, error) {
+func generateJewelry() ([]string, error) {
 	var chanceOfAdornment int
 	var descriptor string
 	var err error
@@ -57,38 +57,38 @@ func generateJewelry(ctx context.Context) ([]string, error) {
 		"set with",
 	}
 
-	numberOfJewelryPieces := random.Intn(ctx, 4) + 1
+	numberOfJewelryPieces := rand.Intn(4) + 1
 
-	primaryMaterial, err := random.String(ctx, mainMaterials)
+	primaryMaterial, err := random.String(mainMaterials)
 	if err != nil {
 		err = fmt.Errorf(jewelryError, err)
 		return []string{}, err
 	}
-	primaryComponent, err := random.String(ctx, secondaryComponents)
+	primaryComponent, err := random.String(secondaryComponents)
 	if err != nil {
 		err = fmt.Errorf(jewelryError, err)
 		return []string{}, err
 	}
 
 	for i := 0; i < numberOfJewelryPieces; i++ {
-		descriptor, err = random.String(ctx, descriptors)
+		descriptor, err = random.String(descriptors)
 		if err != nil {
 			err = fmt.Errorf(jewelryError, err)
 			return []string{}, err
 		}
-		itemType, err = random.String(ctx, itemTypes)
+		itemType, err = random.String(itemTypes)
 		if err != nil {
 			err = fmt.Errorf(jewelryError, err)
 			return []string{}, err
 		}
-		setting, err = random.String(ctx, settings)
+		setting, err = random.String(settings)
 		if err != nil {
 			err = fmt.Errorf(jewelryError, err)
 			return []string{}, err
 		}
 		jewelryItem = descriptor + " " + primaryMaterial + " " + itemType
 
-		chanceOfAdornment = random.Intn(ctx, 100)
+		chanceOfAdornment = rand.Intn(100)
 		if chanceOfAdornment > 50 {
 			jewelryItem += " " + setting + " " + primaryComponent
 		}

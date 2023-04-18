@@ -1,8 +1,8 @@
 package heavens
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
@@ -17,7 +17,7 @@ type Moon struct {
 	Size  int
 }
 
-func getRandomMoonColor(ctx context.Context) (string, error) {
+func getRandomMoonColor() (string, error) {
 	colors := map[string]int{
 		"white": 10,
 		"grey":  5,
@@ -25,7 +25,7 @@ func getRandomMoonColor(ctx context.Context) (string, error) {
 		"red":   1,
 	}
 
-	color, err := random.StringFromThresholdMap(ctx, colors)
+	color, err := random.StringFromThresholdMap(colors)
 	if err != nil {
 		err = fmt.Errorf("failed to generate random moon color: %w", err)
 		return "", err
@@ -34,13 +34,13 @@ func getRandomMoonColor(ctx context.Context) (string, error) {
 	return color, nil
 }
 
-func getRandomMoonShape(ctx context.Context) (string, error) {
+func getRandomMoonShape() (string, error) {
 	shapes := map[string]int{
 		"round":  10,
 		"oblong": 2,
 	}
 
-	shape, err := random.StringFromThresholdMap(ctx, shapes)
+	shape, err := random.StringFromThresholdMap(shapes)
 	if err != nil {
 		err = fmt.Errorf("failed to generate random moon shape: %w", err)
 		return "", err
@@ -49,40 +49,40 @@ func getRandomMoonShape(ctx context.Context) (string, error) {
 	return shape, nil
 }
 
-func getRandomMoonSize(ctx context.Context) int {
-	return random.Intn(ctx, 5) + random.Intn(ctx, 3)
+func getRandomMoonSize() int {
+	return rand.Intn(5) + rand.Intn(3)
 }
 
-func getRandomMoon(ctx context.Context) (Moon, error) {
+func getRandomMoon() (Moon, error) {
 	moon := Moon{}
 	moon.Name = "moon"
-	color, err := getRandomMoonColor(ctx)
+	color, err := getRandomMoonColor()
 	if err != nil {
 		err = fmt.Errorf(moonError, err)
 		return Moon{}, err
 	}
 	moon.Color = color
-	shape, err := getRandomMoonShape(ctx)
+	shape, err := getRandomMoonShape()
 	if err != nil {
 		err = fmt.Errorf(moonError, err)
 		return Moon{}, err
 	}
 	moon.Shape = shape
-	moon.Size = getRandomMoonSize(ctx)
+	moon.Size = getRandomMoonSize()
 
 	return moon, nil
 }
 
-func getRandomMoons(ctx context.Context) ([]Moon, error) {
+func getRandomMoons() ([]Moon, error) {
 	moons := []Moon{}
 	numberOfMoons := 1
-	shallWeHaveMoreThanOneMoon := random.Intn(ctx, 10) + 1
+	shallWeHaveMoreThanOneMoon := rand.Intn(10) + 1
 	if shallWeHaveMoreThanOneMoon > 8 {
-		numberOfMoons += random.Intn(ctx, 5)
+		numberOfMoons += rand.Intn(5)
 	}
 
 	for i := 0; i < numberOfMoons; i++ {
-		moon, err := getRandomMoon(ctx)
+		moon, err := getRandomMoon()
 		if err != nil {
 			err = fmt.Errorf(moonError, err)
 			return []Moon{}, err

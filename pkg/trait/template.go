@@ -1,8 +1,8 @@
 package trait
 
 import (
-	"context"
 	"fmt"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/random"
 )
@@ -16,7 +16,7 @@ type Template struct {
 }
 
 // RandomTemplate returns a random template from a slice
-func RandomTemplate(ctx context.Context, templates []Template) (Template, error) {
+func RandomTemplate(templates []Template) (Template, error) {
 	if len(templates) == 0 {
 		err := fmt.Errorf("could not select random template from empty slice")
 		return Template{}, err
@@ -26,23 +26,23 @@ func RandomTemplate(ctx context.Context, templates []Template) (Template, error)
 		return templates[0], nil
 	}
 
-	template := templates[random.Intn(ctx, len(templates))]
+	template := templates[rand.Intn(len(templates))]
 
 	return template, nil
 }
 
 // ToTrait turns a template into a trait
-func (t Template) ToTrait(ctx context.Context) (Trait, error) {
+func (t Template) ToTrait() (Trait, error) {
 	r := Trait{}
 	r.Name = t.Name
 	r.Tags = t.Tags
-	value, err := random.String(ctx, t.PossibleValues)
+	value, err := random.String(t.PossibleValues)
 	if err != nil {
 		err = fmt.Errorf("Failed to turn template into trait: %w", err)
 		return Trait{}, err
 	}
 	r.Value = value
-	descriptor, err := random.String(ctx, t.PossibleDescriptors)
+	descriptor, err := random.String(t.PossibleDescriptors)
 	if err != nil {
 		err = fmt.Errorf("Failed to turn template into trait: %w", err)
 		return Trait{}, err

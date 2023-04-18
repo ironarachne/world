@@ -1,6 +1,6 @@
 /dist/
 data.db
 .vscode
-worldapi.exe
 .idea
-
+.DS_Store
+world.yaml

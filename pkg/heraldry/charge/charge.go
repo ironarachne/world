@@ -1,14 +1,13 @@
 package charge
 
 import (
-	"context"
 	"fmt"
 	"image"
 	"image/color"
+	"math/rand"
 	"sort"
 
 	"github.com/fogleman/gg"
-
 	"github.com/ironarachne/world/pkg/graphics"
 	"github.com/ironarachne/world/pkg/heraldry/tincture"
 	"github.com/ironarachne/world/pkg/math"
@@ -107,14 +106,14 @@ func blazonForCharge(count int, singular string, plural string, descriptor strin
 	return blazon, nil
 }
 
-func randomNumberOfCharges(ctx context.Context) (int, error) {
+func randomNumberOfCharges() (int, error) {
 	possibleValues := map[int]int{
 		1: 10,
 		2: 5,
 		3: 3,
 	}
 
-	value, err := random.IntFromThresholdMap(ctx, possibleValues)
+	value, err := random.IntFromThresholdMap(possibleValues)
 	if err != nil {
 		err = fmt.Errorf("failed to get random number of charges: %w", err)
 		return 0, err
@@ -143,21 +142,21 @@ func MatchingTag(tag string) ([]Charge, error) {
 }
 
 // Random returns a random charge
-func Random(ctx context.Context) (Charge, error) {
+func Random() (Charge, error) {
 	charges, err := All()
 	if err != nil {
 		err = fmt.Errorf("failed to get random charge: %w", err)
 		return nil, err
 	}
 
-	charge := charges[random.Intn(ctx, len(charges))]
+	charge := charges[rand.Intn(len(charges))]
 
 	return charge, nil
 }
 
 // RandomGroup returns a random group of charges
-func RandomGroup(ctx context.Context, fieldTincture tincture.Tincture) (Group, error) {
-	group, err := RandomGroupByParameters(ctx, fieldTincture, "", 0)
+func RandomGroup(fieldTincture tincture.Tincture) (Group, error) {
+	group, err := RandomGroupByParameters(fieldTincture, "", 0)
 	if err != nil {
 		err = fmt.Errorf("failed to get completely random charge group: %w", err)
 		return Group{}, err
@@ -167,16 +166,16 @@ func RandomGroup(ctx context.Context, fieldTincture tincture.Tincture) (Group, e
 }
 
 // RandomGroupByParameters returns a charge group matching the given parameters. Blank or zero values will return random results for the given parameter.
-func RandomGroupByParameters(ctx context.Context, fieldTincture tincture.Tincture, tag string, numberOfCharges int) (Group, error) {
+func RandomGroupByParameters(fieldTincture tincture.Tincture, tag string, numberOfCharges int) (Group, error) {
 	var chargeObject Charge
 	var err error
 	group := Group{}
 
 	var charges []Charge
 	if tag == "" {
-		chargeObject, err = Random(ctx)
+		chargeObject, err = Random()
 	} else {
-		chargeObject, err = RandomMatchingTag(ctx, tag)
+		chargeObject, err = RandomMatchingTag(tag)
 	}
 	if err != nil {
 		err = fmt.Errorf(chargeGroupError, err)
@@ -184,7 +183,7 @@ func RandomGroupByParameters(ctx context.Context, fieldTincture tincture.Tinctur
 	}
 
 	if numberOfCharges == 0 {
-		numberOfCharges, err = randomNumberOfCharges(ctx)
+		numberOfCharges, err = randomNumberOfCharges()
 	}
 	if err != nil {
 		err = fmt.Errorf(chargeGroupError, err)
@@ -200,14 +199,14 @@ func RandomGroupByParameters(ctx context.Context, fieldTincture tincture.Tinctur
 	}
 
 	group.Charges = charges
-	t, err := tincture.RandomContrasting(ctx, fieldTincture, false)
+	t, err := tincture.RandomContrasting(fieldTincture, false)
 	if err != nil {
 		err = fmt.Errorf(chargeGroupError, err)
 		return Group{}, err
 	}
 
 	group.Tincture = t
-	p, err := randomChargePosition(ctx)
+	p, err := randomChargePosition()
 	if err != nil {
 		err = fmt.Errorf(chargeGroupError, err)
 		return Group{}, err
@@ -218,7 +217,7 @@ func RandomGroupByParameters(ctx context.Context, fieldTincture tincture.Tinctur
 }
 
 // RandomMatchingTag returns a random charge that matches a tag
-func RandomMatchingTag(ctx context.Context, tag string) (Charge, error) {
+func RandomMatchingTag(tag string) (Charge, error) {
 	charges, err := MatchingTag(tag)
 	if err != nil {
 		err = fmt.Errorf("failed to find random charge matching tag: %w", err)
@@ -234,18 +233,18 @@ func RandomMatchingTag(ctx context.Context, tag string) (Charge, error) {
 		return charges[0], nil
 	}
 
-	charge := charges[random.Intn(ctx, len(charges))]
+	charge := charges[rand.Intn(len(charges))]
 	return charge, nil
 }
 
-func randomChargePosition(ctx context.Context) (string, error) {
+func randomChargePosition() (string, error) {
 	positions := map[string]int{
 		"in fess":  30,
 		"in chief": 2,
 		"in base":  1,
 	}
 
-	position, err := random.StringFromThresholdMap(ctx, positions)
+	position, err := random.StringFromThresholdMap(positions)
 	if err != nil {
 		err = fmt.Errorf("failed to get random charge position: %w", err)
 		return "", err
@@ -291,7 +290,7 @@ func RenderChargeFromFile(name string, t tincture.Tincture) image.Image {
 }
 
 // RenderPNG renders a charge group
-func (group Group) RenderPNG(ctx context.Context, width int, height int) image.Image {
+func (group Group) RenderPNG(width int, height int) image.Image {
 	var scaleFactor float64
 	var scaleHeight int
 	var scaleWidth int
@@ -324,7 +323,7 @@ func (group Group) RenderPNG(ctx context.Context, width int, height int) image.I
 			scaleHeight = int(float64(height) / scaleFactor)
 			scaleWidth = int(float64(width) / scaleFactor)
 			dc.Scale(scaleFactor, scaleFactor)
-			alignment := random.Intn(ctx, 100)
+			alignment := rand.Intn(100)
 			if alignment > 80 {
 				dc.DrawImageAnchored(c, scaleWidth/4, scaleHeight/2, 0.5, 0.5)
 				dc.DrawImageAnchored(c, (scaleWidth * 3 / 4), scaleHeight/2, 0.5, 0.5)

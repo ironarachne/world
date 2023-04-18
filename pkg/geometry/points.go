@@ -1,10 +1,8 @@
 package geometry
 
 import (
-	"context"
 	"math"
-
-	"github.com/ironarachne/world/pkg/random"
+	"math/rand"
 )
 
 // Point is an x, y location
@@ -24,8 +22,8 @@ func Centroid(points []Point) Point {
 	}
 
 	point := Point{
-		X: x / float64(len(points)),
-		Y: y / float64(len(points)),
+		X: x/float64(len(points)),
+		Y: y/float64(len(points)),
 	}
 
 	return point
@@ -128,12 +126,12 @@ func NearestPointIndex(p Point, coords []Point) int {
 }
 
 // GenerateRandomPoints generates a set of random points inside the given height and width according to the number given
-func GenerateRandomPoints(ctx context.Context, height int, width int, number int) []Point {
+func GenerateRandomPoints(height int, width int, number int) []Point {
 	var points []Point
 	var point Point
 
 	for n := 0; n < number; n++ {
-		point = RandomPoint(ctx, height, width)
+		point = RandomPoint(height, width)
 		points = append(points, point)
 	}
 
@@ -143,14 +141,14 @@ func GenerateRandomPoints(ctx context.Context, height int, width int, number int
 }
 
 // GenerateRandomPointsByDimensions generates a set of random points of the given height, width, and density. Density is a floating point number between 0 and 1.
-func GenerateRandomPointsByDimensions(ctx context.Context, height int, width int, density float64) []Point {
+func GenerateRandomPointsByDimensions(height int, width int, density float64) []Point {
 	var points []Point
 	var point Point
 
-	numberOfPoints := int(float64(height*width) * density)
+	numberOfPoints := int(float64(height * width) * density)
 
 	for n := 0; n < numberOfPoints; n++ {
-		point = RandomPoint(ctx, height, width)
+		point = RandomPoint(height, width)
 		points = append(points, point)
 	}
 
@@ -160,9 +158,9 @@ func GenerateRandomPointsByDimensions(ctx context.Context, height int, width int
 }
 
 // RandomPoint returns a random point in the given height and width
-func RandomPoint(ctx context.Context, height int, width int) Point {
-	x := float64(random.Intn(ctx, width))
-	y := float64(random.Intn(ctx, height))
+func RandomPoint(height int, width int) Point {
+	x := float64(rand.Intn(width))
+	y := float64(rand.Intn(height))
 
 	p := Point{
 		X: x,

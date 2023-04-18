@@ -1,10 +1,8 @@
 package clothing
 
 import (
-	"context"
 	"fmt"
-
-	"github.com/ironarachne/world/pkg/random"
+	"math/rand"
 )
 
 func getTopTemplates() []ItemTemplate {
@@ -45,12 +43,12 @@ func getTopTemplates() []ItemTemplate {
 	}
 }
 
-func getRandomTop(ctx context.Context) (Item, error) {
+func getRandomTop() (Item, error) {
 	potentialTemplates := getTopTemplates()
 
-	template := potentialTemplates[random.Intn(ctx, len(potentialTemplates))]
+	template := potentialTemplates[rand.Intn(len(potentialTemplates))]
 
-	item, err := getItemFromTemplate(ctx, template)
+	item, err := getItemFromTemplate(template)
 	if err != nil {
 		err = fmt.Errorf("Could not get random top: %w", err)
 		return Item{}, err

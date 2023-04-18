@@ -4,12 +4,10 @@ Package region provides tools and structures for fantasy regions of a world
 package region
 
 import (
-	"context"
 	"fmt"
-	"strings"
-
 	"github.com/ironarachne/world/pkg/geography"
-	"github.com/ironarachne/world/pkg/random"
+	"math/rand"
+	"strings"
 
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/geometry"
@@ -46,7 +44,7 @@ func (region Region) AssignTiles(coordinates []geometry.Point) Region {
 }
 
 // Generate generates a region
-func Generate(ctx context.Context, area geography.Area, originCulture culture.Culture) (Region, error) {
+func Generate(area geography.Area, originCulture culture.Culture) (Region, error) {
 	var nobleMembers []organization.Member
 	region := Region{}
 
@@ -55,14 +53,14 @@ func Generate(ctx context.Context, area geography.Area, originCulture culture.Cu
 	region.Geography = area
 	region.Culture = originCulture
 
-	class, err := getRandomWeightedClass(ctx)
+	class, err := getRandomWeightedClass()
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
 	}
 	region.Class = class
 
-	newTown, err := town.Generate(ctx, "city", area, region.Culture)
+	newTown, err := town.Generate("city", area, region.Culture)
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
@@ -72,7 +70,7 @@ func Generate(ctx context.Context, area geography.Area, originCulture culture.Cu
 	region.Capital = newTown.Name
 
 	for i := region.Class.MinNumberOfTowns - 1; i < region.Class.MaxNumberOfTowns-1; i++ {
-		newTown, err = town.Generate(ctx, "random", area, region.Culture)
+		newTown, err = town.Generate("random", area, region.Culture)
 		if err != nil {
 			err = fmt.Errorf(regionError, err)
 			return Region{}, err
@@ -80,21 +78,21 @@ func Generate(ctx context.Context, area geography.Area, originCulture culture.Cu
 		region.Towns = append(region.Towns, newTown)
 	}
 
-	organizations, err := region.getOrganizations(ctx)
+	organizations, err := region.getOrganizations()
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
 	}
 	region.Organizations = organizations
 
-	rulingBody, err := region.generateRulingBody(ctx)
+	rulingBody, err := region.generateRulingBody()
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
 	}
 	region.RulingBody = rulingBody
 
-	regionName, err := region.Culture.Language.RandomFamilyName(ctx)
+	regionName, err := region.Culture.Language.RandomFamilyName()
 	if err != nil {
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
@@ -119,13 +117,13 @@ func Generate(ctx context.Context, area geography.Area, originCulture culture.Cu
 	return region, nil
 }
 
-func (region Region) getOrganizations(ctx context.Context) ([]organization.Organization, error) {
+func (region Region) getOrganizations() ([]organization.Organization, error) {
 	organizations := []organization.Organization{}
 
-	numberOfOrgs := random.Intn(ctx, region.Class.MinNumberOfOrganizations+region.Class.MaxNumberOfOrganizations) + region.Class.MinNumberOfOrganizations
+	numberOfOrgs := rand.Intn(region.Class.MinNumberOfOrganizations+region.Class.MaxNumberOfOrganizations) + region.Class.MinNumberOfOrganizations
 
 	for i := 0; i < numberOfOrgs; i++ {
-		org, err := organization.Generate(ctx, region.Culture)
+		org, err := organization.Generate(region.Culture)
 		if err != nil {
 			err = fmt.Errorf("failed to generate region organizations: %w", err)
 			return []organization.Organization{}, err
@@ -137,20 +135,20 @@ func (region Region) getOrganizations(ctx context.Context) ([]organization.Organ
 }
 
 // Random generates a completely random region
-func Random(ctx context.Context) (Region, error) {
-	area, err := geography.Generate(ctx)
+func Random() (Region, error) {
+	area, err := geography.Generate()
 	if err != nil {
 		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err
 	}
 
-	randomCulture, err := culture.Generate(ctx, area)
+	randomCulture, err := culture.Generate(area)
 	if err != nil {
 		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err
 	}
 
-	region, err := Generate(ctx, area, randomCulture)
+	region, err := Generate(area, randomCulture)
 	if err != nil {
 		err = fmt.Errorf(regionGenerationError, err)
 		return Region{}, err

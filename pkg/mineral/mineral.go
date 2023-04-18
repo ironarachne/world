@@ -4,12 +4,13 @@ Package mineral provides minerals and tools for their usage
 package mineral
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"os"
 
+	"github.com/ironarachne/world/config"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/resource"
 )
@@ -34,7 +35,7 @@ type Mineral struct {
 func All() ([]Mineral, error) {
 	var d Data
 
-	jsonFile, err := os.Open(os.Getenv("WORLDAPI_DATA_PATH") + "/data/minerals.json")
+	jsonFile, err := os.Open(config.Cfg.WorldDataDirectory + "/data/minerals.json")
 	if err != nil {
 		err = fmt.Errorf("could not open data file: %w", err)
 		return []Mineral{}, err
@@ -96,7 +97,7 @@ func (m Mineral) HasTag(tag string) bool {
 }
 
 // Random returns a subset of random minerals from a slice
-func Random(ctx context.Context, amount int, from []Mineral) []Mineral {
+func Random(amount int, from []Mineral) []Mineral {
 	var mineral Mineral
 
 	minerals := []Mineral{}
@@ -106,7 +107,7 @@ func Random(ctx context.Context, amount int, from []Mineral) []Mineral {
 	}
 
 	for i := 0; i < amount; i++ {
-		mineral = from[random.Intn(ctx, len(from))]
+		mineral = from[rand.Intn(len(from))]
 		if !InSlice(mineral, minerals) {
 			minerals = append(minerals, mineral)
 		}
@@ -116,14 +117,14 @@ func Random(ctx context.Context, amount int, from []Mineral) []Mineral {
 }
 
 // RandomWeighted returns a random mineral from a slice, considering weights
-func RandomWeighted(ctx context.Context, from []Mineral) (Mineral, error) {
+func RandomWeighted(from []Mineral) (Mineral, error) {
 	names := make(map[string]int)
 
 	for _, m := range from {
 		names[m.Name] = m.Commonality
 	}
 
-	name, err := random.StringFromThresholdMap(ctx, names)
+	name, err := random.StringFromThresholdMap(names)
 	if err != nil {
 		err = fmt.Errorf("Failed to get random weighted mineral: %w", err)
 		return Mineral{}, err
@@ -141,11 +142,11 @@ func RandomWeighted(ctx context.Context, from []Mineral) (Mineral, error) {
 }
 
 // RandomWeightedSet returns a set of random weighted minerals
-func RandomWeightedSet(ctx context.Context, amount int, from []Mineral) ([]Mineral, error) {
+func RandomWeightedSet(amount int, from []Mineral) ([]Mineral, error) {
 	var minerals []Mineral
 
 	for i := 0; i < amount; i++ {
-		mineral, err := RandomWeighted(ctx, from)
+		mineral, err := RandomWeighted(from)
 		if err != nil {
 			err = fmt.Errorf("Could not generate minerals: %w", err)
 			return []Mineral{}, err

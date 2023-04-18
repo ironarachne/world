@@ -4,11 +4,9 @@ Package country provides structures and tools for generating fantasy countries.
 package country
 
 import (
-	"context"
 	"fmt"
-
 	"github.com/ironarachne/world/pkg/geography"
-	"github.com/ironarachne/world/pkg/random"
+	"math/rand"
 
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/geometry"
@@ -29,45 +27,45 @@ type Country struct {
 }
 
 // Generate procedurally generates a country
-func Generate(ctx context.Context) (Country, error) {
+func Generate() (Country, error) {
 	regions := []region.Region{}
 	country := Country{}
 
-	originArea, err := geography.Generate(ctx)
+	originArea, err := geography.Generate()
 	if err != nil {
 		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 
-	dominantCulture, err := culture.Generate(ctx, originArea)
+	dominantCulture, err := culture.Generate(originArea)
 	if err != nil {
 		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.DominantCulture = dominantCulture
-	government, err := country.getNewMonarchy(ctx)
+	government, err := country.getNewMonarchy()
 	if err != nil {
 		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.Government = government
-	device, err := heraldry.Generate(ctx)
+	device, err := heraldry.Generate()
 	if err != nil {
 		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.Heraldry = device
-	name, err := country.DominantCulture.Language.RandomFamilyName(ctx)
+	name, err := country.DominantCulture.Language.RandomFamilyName()
 	if err != nil {
 		err = fmt.Errorf(countryError, err)
 		return Country{}, err
 	}
 	country.Name = name
 
-	size := random.Intn(ctx, 10) + 4
+	size := rand.Intn(10) + 4
 
 	for i := 0; i < size; i++ {
-		r, err := region.Generate(ctx, originArea, country.DominantCulture)
+		r, err := region.Generate(originArea, country.DominantCulture)
 		if err != nil {
 			err = fmt.Errorf(countryError, err)
 			return Country{}, err
