@@ -29,7 +29,7 @@ jobs:
       - checkout
       - run: go get -v -t -d ./...
       - run: |
-          VERSION_TAG=`cat ../VERSION`
+          VERSION_TAG=`cat ./VERSION`
           GIT_TAG=`git log -1 --pretty=%h`
           GOOS=linux GOARCH=amd64 go build -o dist/world-linux-amd64-$VERSION_TAG
           GOOS=windows GOARCH=amd64 go build -o dist/world-windows-amd64-$VERSION_TAG.exe
