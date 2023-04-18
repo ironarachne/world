@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.2 (2023-04-18)
+
+- Update to Go 1.20
+- Update dependencies
+- Fix bug in premade language generation
+
 ## 0.14.1 (2022-10-01)
 
 - Add output flag to allow for writing output directly to files

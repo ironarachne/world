@@ -1,6 +1,8 @@
 package language
 
 import (
+	"fmt"
+
 	"github.com/ironarachne/namegen"
 	"github.com/ironarachne/world/pkg/slices"
 	"github.com/ironarachne/world/pkg/writing"
@@ -12,6 +14,7 @@ func PremadeCommon() (Language, error) {
 	var maleNames []string
 	var femaleNames []string
 	var familyNames []string
+	var err error
 
 	wordList := map[string]string{}
 
@@ -25,7 +28,11 @@ func PremadeCommon() (Language, error) {
 	maleNameGenerator := namegen.NameGeneratorFromType("fantasy", "male")
 
 	for i := 0; i < 100; i++ {
-		name = femaleNameGenerator.FirstName("female")
+		name, err = femaleNameGenerator.FirstName("female")
+		if err != nil {
+			err = fmt.Errorf("failed to generate female first name: %w", err)
+			return Language{}, err
+		}
 		if !slices.StringIn(name, femaleNames) {
 			femaleNames = append(femaleNames, name)
 		} else {
@@ -34,7 +41,11 @@ func PremadeCommon() (Language, error) {
 	}
 
 	for i := 0; i < 100; i++ {
-		name = maleNameGenerator.FirstName("male")
+		name, err = maleNameGenerator.FirstName("male")
+		if err != nil {
+			err = fmt.Errorf("failed to generate male first name: %w", err)
+			return Language{}, err
+		}
 		if !slices.StringIn(name, maleNames) {
 			maleNames = append(maleNames, name)
 		} else {
@@ -43,7 +54,11 @@ func PremadeCommon() (Language, error) {
 	}
 
 	for i := 0; i < 100; i++ {
-		name = femaleNameGenerator.LastName()
+		name, err = femaleNameGenerator.LastName()
+		if err != nil {
+			err = fmt.Errorf("failed to generate female last name: %w", err)
+			return Language{}, err
+		}
 		if !slices.StringIn(name, familyNames) {
 			familyNames = append(familyNames, name)
 		} else {
