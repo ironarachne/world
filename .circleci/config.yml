@@ -27,20 +27,14 @@ jobs:
       - image: cimg/go:1.20
     steps:
       - checkout
-      - setup_remote_docker
       - run: go get -v -t -d ./...
       - run: |
-          cd cmd/worldapi
-          cp -r ../../images .
-          cp -r ../../data .
-          VERSION_TAG=`cat ../../VERSION`
+          VERSION_TAG=`cat ./VERSION`
           GIT_TAG=`git log -1 --pretty=%h`
-          docker build -t ironarachne/worldapi:$VERSION_TAG -t ironarachne/worldapi:$GIT_TAG -t ironarachne/worldapi:latest .
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker push ironarachne/worldapi:$VERSION_TAG
-          docker push ironarachne/worldapi:$GIT_TAG
-          docker push ironarachne/worldapi:latest
-
+          GOOS=linux GOARCH=amd64 go build -o dist/world-linux-amd64-$VERSION_TAG
+          GOOS=windows GOARCH=amd64 go build -o dist/world-windows-amd64-$VERSION_TAG.exe
+          GOOS=darwin GOARCH=amd64 go build -o dist/world-macos-amd64-$VERSION_TAG
+          GOOS=darwin GOARCH=arm64 go build -o dist/world-macos-arm64-$VERSION_TAG
 workflows:
   version: 2
   test-build-publish:
