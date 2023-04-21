@@ -5,6 +5,40 @@ import (
 	"testing"
 )
 
+func TestCombinePhrases(t *testing.T) {
+	tests := []struct {
+		input []string
+		want  string
+	}{
+		{
+			input: []string{"one", "two", "three"},
+			want:  "one, two, and three",
+		},
+		{
+			input: []string{"one", "two"},
+			want:  "one and two",
+		},
+		{
+			input: []string{"one"},
+			want:  "one",
+		},
+		{
+			input: []string{},
+			want:  "",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(strconv.Itoa(len(test.input)), func(t *testing.T) {
+			got := CombinePhrases(test.input)
+
+			if got != test.want {
+				t.Errorf("CombinePhrases() = %v, want %v", got, test.want)
+			}
+		})
+	}
+}
+
 func TestNumberToWord(t *testing.T) {
 	tests := []struct {
 		input int
@@ -80,6 +114,50 @@ func TestNumberToWord(t *testing.T) {
 	for _, test := range tests {
 		t.Run(strconv.Itoa(test.input), func(t *testing.T) {
 			got := NumberToWord(test.input)
+			if !(test.want == got) {
+				t.Errorf("want: %s\ngot : %s", test.want, got)
+			}
+		})
+	}
+}
+
+func TestPronoun(t *testing.T) {
+	tests := []struct {
+		input string
+		want  string
+	}{
+		{
+			input: "apple",
+			want: "an",
+		},
+		{
+			input: "heart",
+			want: "a",
+		},
+	}
+	for _, test := range tests {
+		t.Run(test.input, func(t *testing.T) {
+			got := Pronoun(test.input)
+			if !(test.want == got) {
+				t.Errorf("want: %s\ngot : %s", test.want, got)
+			}
+		})
+	}
+}
+
+func TestTitle(t *testing.T) {
+	tests := []struct {
+		input string
+		want  string
+	}{
+		{
+			input: "hello world",
+			want:  "Hello World",
+		},
+	}
+	for _, test := range tests {
+		t.Run(test.input, func(t *testing.T) {
+			got := Title(test.input)
 			if !(test.want == got) {
 				t.Errorf("want: %s\ngot : %s", test.want, got)
 			}

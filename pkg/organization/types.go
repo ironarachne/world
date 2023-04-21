@@ -3,9 +3,9 @@ package organization
 import (
 	"fmt"
 	"math/rand"
-	"strings"
 
 	"github.com/ironarachne/world/pkg/profession"
+	"github.com/ironarachne/world/pkg/words"
 )
 
 // Rank is a rank held within an organization
@@ -344,7 +344,7 @@ func getCraftingGuild() (Type, error) {
 	}
 	guild.MemberProfessions = memberProfessions
 	guild.NameSecondParts = []string{
-		strings.Title(memberProfessions[0].Name),
+		words.Title(memberProfessions[0].Name),
 	}
 
 	return guild, nil

@@ -3,7 +3,6 @@ package organization
 import (
 	"fmt"
 	"strconv"
-	"strings"
 
 	"github.com/ironarachne/world/pkg/character"
 	"github.com/ironarachne/world/pkg/words"
@@ -72,7 +71,7 @@ func (org Organization) Simplify() (SimplifiedOrganization, error) {
 // Describe constructs a string description of the organization
 func (org Organization) Describe() string {
 	description := "The " + org.Name + " is " + words.Pronoun(org.SizeClass.Name) + " " + org.SizeClass.Name + " " + org.Type.Name + " with " + strconv.Itoa(org.Size) + " members. "
-	description += "It's led by " + strings.Title(org.Leader.Rank.Title) + " " + org.Leader.CharacterData.FirstName + " " + org.Leader.CharacterData.LastName + ". "
+	description += "It's led by " + words.Title(org.Leader.Rank.Title) + " " + org.Leader.CharacterData.FirstName + " " + org.Leader.CharacterData.LastName + ". "
 	description += "The " + org.Type.Name + " is known for being " + org.PrimaryTrait + "."
 
 	return description

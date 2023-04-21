@@ -1,13 +1,16 @@
 /*
-Copyright © 2022 Ben Overmyer <ben@overmyer.net>
+Copyright © 2023 Ben Overmyer <ben@overmyer.net>
 */
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
 )
+
+var Version = "0.0.0"
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -26,16 +29,16 @@ func Execute() {
 }
 
 func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.world.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
 	rootCmd.PersistentFlags().StringP("config", "c", "", "Config file name.")
 	rootCmd.PersistentFlags().StringP("output", "o", "", "File name to write to. Default is stdout.")
+	rootCmd.AddCommand(versionCmd)
 }
 
-
+var versionCmd = &cobra.Command{
+	Use:   "version",
+	Short: "Print the version of world",
+	Long:  `Print the version number of world in semantic versioning format.`,
+	Run: func(cmd *cobra.Command, args []string) {
+	  fmt.Println("world v" + Version)
+	},
+  }

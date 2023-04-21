@@ -7,6 +7,7 @@ import (
 
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
+	"github.com/ironarachne/world/pkg/words"
 )
 
 const nameListError = "failed to generate name list: %w"
@@ -174,7 +175,7 @@ func RandomName(langCategory Category) (string, error) {
 		name = mutateName(name)
 	}
 
-	name = strings.Title(name)
+	name = words.Title(name)
 
 	return name, nil
 }

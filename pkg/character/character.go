@@ -133,7 +133,11 @@ func Generate(originCulture culture.Culture) (Character, error) {
 		return Character{}, err
 	}
 	char.Orientation = orientation
-	char.Profession, _ = profession.Random()
+	char.Profession, err = profession.Random()
+	if err != nil {
+		err = fmt.Errorf(characterError, err)
+		return Character{}, err
+	}
 	char.Hobby = char.getRandomHobby()
 	motivation, err := getRandomMotivation()
 	if err != nil {
@@ -244,7 +248,7 @@ func GenerateCouple() (Couple, error) {
 func GenerateAdultDescendent(couple Couple) (Character, error) {
 	descendent, err := Generate(couple.Partner1.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate descendent: %w", err)
+		err = fmt.Errorf("failed to generate descendent: %w", err)
 		return Character{}, err
 	}
 
@@ -262,7 +266,7 @@ func GenerateAdultDescendent(couple Couple) (Character, error) {
 func GenerateChild(couple Couple) (Character, error) {
 	child, err := Generate(couple.Partner1.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate child: %w", err)
+		err = fmt.Errorf("failed to generate child: %w", err)
 		return Character{}, err
 	}
 
@@ -280,7 +284,7 @@ func GenerateChild(couple Couple) (Character, error) {
 func GenerateCompatibleMate(char Character) (Character, error) {
 	mate, err := Generate(char.Culture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate mate: %w", err)
+		err = fmt.Errorf("failed to generate mate: %w", err)
 		return Character{}, err
 	}
 
@@ -307,7 +311,7 @@ func GenerateFamily() (Family, error) {
 
 	parents, err := GenerateCouple()
 	if err != nil {
-		err = fmt.Errorf("Could not generate family: %w", err)
+		err = fmt.Errorf("failed to generate family: %w", err)
 		return Family{}, err
 	}
 
@@ -319,7 +323,7 @@ func GenerateFamily() (Family, error) {
 		for i := 0; i < rand.Intn(6); i++ {
 			child, err = GenerateChild(parents)
 			if err != nil {
-				err = fmt.Errorf("Could not generate family: %w", err)
+				err = fmt.Errorf("failed to generate family: %w", err)
 				return Family{}, err
 			}
 			child.LastName = familyName
@@ -345,13 +349,13 @@ func MarryCouple(partner1 Character, partner2 Character) Couple {
 func Random() (Character, error) {
 	randomCulture, err := culture.Random()
 	if err != nil {
-		err = fmt.Errorf("Could not generate random character: %w", err)
+		err = fmt.Errorf("failed to generate random character: %w", err)
 		return Character{}, err
 	}
 
 	character, err := Generate(randomCulture)
 	if err != nil {
-		err = fmt.Errorf("Could not generate random character: %w", err)
+		err = fmt.Errorf("failed to generate random character: %w", err)
 		return Character{}, err
 	}
 

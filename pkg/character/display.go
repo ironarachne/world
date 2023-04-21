@@ -3,7 +3,6 @@ package character
 import (
 	"bytes"
 	"fmt"
-	"strings"
 	"text/template"
 
 	"github.com/ironarachne/world/pkg/words"
@@ -37,7 +36,7 @@ func (character Character) Simplify() (SimplifiedCharacter, error) {
 	}
 
 	if character.Title != "" {
-		simplified.Name = strings.Title(character.Title) + " " + simplified.Name
+		simplified.Name = words.Title(character.Title) + " " + simplified.Name
 	}
 
 	return simplified, nil
@@ -77,7 +76,7 @@ func (character Character) Describe() (string, error) {
 
 	tmpl, err := template.New(descriptionObject.FullName).Funcs(template.FuncMap{
 		"caseStart": func(word string) string {
-			return strings.Title(word)
+			return words.Title(word)
 		},
 		"pronoun": func(word string) string {
 			phrase := words.Pronoun(word) + " " + word

@@ -53,7 +53,7 @@ func Male() Gender {
 		PluralNoun:           "men",
 		AdolescentNoun:       "boy",
 		PluralAdolescentNoun: "boys",
-		ObjectPronoun:        "her",
+		ObjectPronoun:        "him",
 		PossessivePronoun:    "his",
 		ReflexivePronoun:     "himself",
 		SubjectPronoun:       "he",

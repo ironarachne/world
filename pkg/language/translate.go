@@ -26,9 +26,9 @@ func (language Language) TranslatePhrase(phrase string) string {
 
 	phrase = strings.ToLower(phrase)
 
-	words := strings.Split(phrase, " ")
+	wordList := strings.Split(phrase, " ")
 
-	for i, w := range words {
+	for i, w := range wordList {
 		if !skipNext {
 			if strings.ContainsAny(w, "!?.,") {
 				wordOnly = strings.TrimRight(w, "!?.,")
@@ -42,15 +42,15 @@ func (language Language) TranslatePhrase(phrase string) string {
 				wordOnly = "to be"
 			}
 
-			if wordOnly == "to" && i < len(words)-2 && language.WordList["to "+words[i+1]] != "" {
-				wordOnly = "to " + words[i+1]
+			if wordOnly == "to" && i < len(wordList)-2 && language.WordList["to "+wordList[i+1]] != "" {
+				wordOnly = "to " + wordList[i+1]
 				skipNext = true
 			}
 
 			wordOnly = getSingular(wordOnly)
 			translatedWord = language.WordList[wordOnly]
 			if titleNext {
-				translatedWord = strings.Title(translatedWord)
+				translatedWord = words.Title(translatedWord)
 			}
 
 			translation += translatedWord + punctuation + " "

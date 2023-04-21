@@ -3,7 +3,6 @@ package character
 import (
 	"fmt"
 	"strconv"
-	"strings"
 
 	"github.com/ironarachne/world/pkg/measurement"
 
@@ -58,7 +57,7 @@ func randomDescriptionTemplate() (string, error) {
 
 	template, err := random.String(all)
 	if err != nil {
-		err = fmt.Errorf("Could not generate description template: %w", err)
+		err = fmt.Errorf("failed to generate description template: %w", err)
 		return "", err
 	}
 	return template, nil
@@ -85,7 +84,7 @@ func (character Character) compileDescription() (Description, error) {
 	description.SubjectPronoun = character.Gender.SubjectPronoun
 	traits, err := character.describeTraits()
 	if err != nil {
-		err = fmt.Errorf("Could not generate description template: %w", err)
+		err = fmt.Errorf("failed to generate description template: %w", err)
 		return Description{}, err
 	}
 	description.Traits = traits
@@ -110,7 +109,7 @@ func (character Character) describeFullName() string {
 	description := ""
 
 	if character.Title != "" {
-		description += strings.Title(character.Title) + " "
+		description += words.Title(character.Title) + " "
 	}
 
 	description += character.FirstName + " " + character.LastName
@@ -184,7 +183,7 @@ func (character Character) describeTraits() (string, error) {
 	for _, i := range character.PhysicalTraits {
 		t, err := i.ToString()
 		if err != nil {
-			err = fmt.Errorf("Failed to describe traits: %w", err)
+			err = fmt.Errorf("failed to describe traits: %w", err)
 			return "", err
 		}
 		traits = append(traits, t)

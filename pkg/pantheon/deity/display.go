@@ -1,8 +1,6 @@
 package deity
 
 import (
-	"strings"
-
 	"github.com/ironarachne/world/pkg/words"
 )
 
@@ -44,11 +42,11 @@ func (deity Deity) Describe() string {
 		description += " of no particular domain. "
 	}
 
-	description += strings.Title(deity.Gender.SubjectPronoun) + " is " + deity.Appearance + ". "
+	description += words.Title(deity.Gender.SubjectPronoun) + " is " + deity.Appearance + ". "
 
-	description += strings.Title(deity.Gender.SubjectPronoun) + " is " + words.CombinePhrases(deity.PersonalityTraits) + ". "
+	description += words.Title(deity.Gender.SubjectPronoun) + " is " + words.CombinePhrases(deity.PersonalityTraits) + ". "
 
-	description += strings.Title(deity.Gender.PossessivePronoun) + " holy item is " + words.Pronoun(deity.HolyItem) + " " + deity.HolyItem + ", and "
+	description += words.Title(deity.Gender.PossessivePronoun) + " holy item is " + words.Pronoun(deity.HolyItem) + " " + deity.HolyItem + ", and "
 	description += deity.Gender.PossessivePronoun + " holy symbol is " + words.Pronoun(deity.HolySymbol) + " " + deity.HolySymbol + ". "
 
 	relationships := []string{}

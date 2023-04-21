@@ -31,10 +31,10 @@ jobs:
       - run: |
           VERSION_TAG=`cat ./VERSION`
           GIT_TAG=`git log -1 --pretty=%h`
-          GOOS=linux GOARCH=amd64 go build -o dist/world-linux-amd64-$VERSION_TAG
-          GOOS=windows GOARCH=amd64 go build -o dist/world-windows-amd64-$VERSION_TAG.exe
-          GOOS=darwin GOARCH=amd64 go build -o dist/world-macos-amd64-$VERSION_TAG
-          GOOS=darwin GOARCH=arm64 go build -o dist/world-macos-arm64-$VERSION_TAG
+          GOOS=linux GOARCH=amd64 go build -ldflags="-X 'github.com/ironarachne/world/cmd.Version=${VERSION_TAG}'" -o dist/world-linux-amd64-$VERSION_TAG
+          GOOS=windows GOARCH=amd64 go build -ldflags="-X 'github.com/ironarachne/world/cmd.Version=${VERSION_TAG}'" -o dist/world-windows-amd64-$VERSION_TAG.exe
+          GOOS=darwin GOARCH=amd64 go build -ldflags="-X 'github.com/ironarachne/world/cmd.Version=${VERSION_TAG}'" -o dist/world-macos-amd64-$VERSION_TAG
+          GOOS=darwin GOARCH=arm64 go build -ldflags="-X 'github.com/ironarachne/world/cmd.Version=${VERSION_TAG}'" -o dist/world-macos-arm64-$VERSION_TAG
 workflows:
   version: 2
   test-build-publish:

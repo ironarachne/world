@@ -5,14 +5,15 @@ package region
 
 import (
 	"fmt"
-	"github.com/ironarachne/world/pkg/geography"
 	"math/rand"
-	"strings"
+
+	"github.com/ironarachne/world/pkg/geography"
 
 	"github.com/ironarachne/world/pkg/culture"
 	"github.com/ironarachne/world/pkg/geometry"
 	"github.com/ironarachne/world/pkg/organization"
 	"github.com/ironarachne/world/pkg/town"
+	"github.com/ironarachne/world/pkg/words"
 )
 
 const regionError = "failed to generate region: %w"
@@ -97,7 +98,7 @@ func Generate(area geography.Area, originCulture culture.Culture) (Region, error
 		err = fmt.Errorf(regionError, err)
 		return Region{}, err
 	}
-	region.Name = strings.Title(regionName)
+	region.Name = words.Title(regionName)
 
 	rulerTitle := region.RulingBody.Leader.CharacterData.Title + " of " + region.Name
 	region.RulingBody.Leader.CharacterData.Titles = append(region.RulingBody.Leader.CharacterData.Titles, rulerTitle)

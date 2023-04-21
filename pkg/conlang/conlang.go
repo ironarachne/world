@@ -8,11 +8,11 @@ package conlang
 import (
 	"fmt"
 	"math/rand"
-	"strings"
 
 	"github.com/ironarachne/world/pkg/language"
 	"github.com/ironarachne/world/pkg/random"
 	"github.com/ironarachne/world/pkg/slices"
+	"github.com/ironarachne/world/pkg/words"
 	"github.com/ironarachne/world/pkg/writing"
 )
 
@@ -76,7 +76,7 @@ func Generate() (language.Language, Category, error) {
 		err = fmt.Errorf(languageError, err)
 		return language.Language{}, Category{}, err
 	}
-	lang.Name = strings.Title(name)
+	lang.Name = words.Title(name)
 	lang.Descriptors = append(lang.Descriptors, langCategory.Descriptors...)
 	adjective, err := deriveLanguageAdjective(lang.Name)
 	if err != nil {
@@ -169,7 +169,7 @@ func Generate() (language.Language, Category, error) {
 	lang.NewWordSuffixes = newWordSuffixes
 	lang.Description = lang.Describe()
 	lang.SamplePhrase = "Hello! It is good to see you, friend."
-	lang.SamplePhraseTranslation = lang.TranslatePhrase(lang.SamplePhrase)
+	lang.SamplePhraseTranslation = words.Title(lang.TranslatePhrase(lang.SamplePhrase))
 
 	return lang, langCategory, nil
 }

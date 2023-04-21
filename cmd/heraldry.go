@@ -36,7 +36,7 @@ var heraldryCmd = &cobra.Command{
 
 		o, err = heraldry.GenerateByParameters(fieldType, chargeTag)
 		if err != nil {
-			fmt.Println(fmt.Errorf("Failed to generate heraldry: %w", err))
+			fmt.Println(fmt.Errorf("failed to generate heraldry: %w", err))
 			os.Exit(1)
 		}
 
@@ -44,11 +44,15 @@ var heraldryCmd = &cobra.Command{
 
 		res, err := json.Marshal(sd)
 		if err != nil {
-			fmt.Println(fmt.Errorf("Failed to generate heraldry: %w", err))
+			fmt.Println(fmt.Errorf("failed to convert heraldry to json: %w", err))
 			os.Exit(1)
 		}
 		if outputFile != "" {
 			err = os.WriteFile(outputFile, res, 0644)
+			if err != nil {
+				fmt.Println(fmt.Errorf("failed to write heraldry to file: %w", err))
+				os.Exit(1)
+			}
 		} else {
 			fmt.Print(string(res))
 		}
@@ -59,14 +63,4 @@ func init() {
 	rootCmd.AddCommand(heraldryCmd)
 	heraldryCmd.Flags().StringVarP(&fieldName, "field", "f", "", "Name of the field to use")
 	heraldryCmd.Flags().StringVarP(&chargeTag, "tag", "t", "", "Tag to use for picking charges")
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// heraldryCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// heraldryCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

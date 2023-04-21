@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.3 (2023-04-21)
+
+- Add version to commands
+- Replace some deprecated code
+- Add more unit tests for words package
+
 ## 0.14.2 (2023-04-18)
 
 - Update to Go 1.20

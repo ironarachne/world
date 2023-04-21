@@ -7,6 +7,9 @@ import (
 	"math"
 	"strings"
 
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
+
 	"github.com/ironarachne/world/pkg/slices"
 )
 
@@ -69,7 +72,7 @@ func CapitalizeFirst(phrase string) string {
 	firstLetter := string(phrase[0])
 	rest := strings.TrimPrefix(phrase, firstLetter)
 
-	result := strings.Title(firstLetter) + rest
+	result := Title(firstLetter) + rest
 
 	return result
 }
@@ -155,4 +158,10 @@ func Pronoun(word string) string {
 	}
 
 	return "a"
+}
+
+// Title returns the title-case version of the string
+func Title(phrase string) string {
+	c := cases.Title(language.English)
+	return c.String(phrase)
 }

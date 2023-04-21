@@ -1,3 +1,5 @@
 #!/bin/bash
 mkdir -p dist/images
-go build -o dist/world main.go
+VERSION=`cat VERSION`
+echo "Building world version v${VERSION}..."
+go build -ldflags="-X 'github.com/ironarachne/world/cmd.Version=${VERSION}'" -o dist/world main.go
