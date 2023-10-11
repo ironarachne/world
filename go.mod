@@ -10,11 +10,11 @@ require (
 	github.com/ironarachne/namegen v0.0.0-20221006120405-8b1123a7aa36
 	github.com/minio/minio-go v6.0.14+incompatible
 	github.com/ojrac/opensimplex-go v1.0.2
-	golang.org/x/crypto v0.8.0 // indirect
+	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/image v0.7.0 // indirect
-	golang.org/x/net v0.9.0 // indirect
-	golang.org/x/sys v0.7.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
+	golang.org/x/text v0.13.0
 )
 
 require (
@@ -24,11 +24,7 @@ require (
 
 require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/ironarachne/random v0.0.0-20190325170425-9caaa0b3405a // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/smartystreets/goconvey v1.8.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	golang.org/x/mod v0.9.0 // indirect
-	golang.org/x/tools v0.7.0 // indirect
-	gopkg.in/ini.v1 v1.67.0 // indirect
+	github.com/stretchr/testify v1.8.4 // indirect
 )
